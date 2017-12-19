@@ -1,6 +1,7 @@
 <?php
 
-namespace ContainerQ90YWuj;
+namespace ContainerUlCqrxr;
+
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -317,7 +318,7 @@ class srcDevDebugProjectContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('-qsQNvUJkM', 0, '85rFAfD7qq11DNDKC8I1t7', ($this->targetDirs[0].'/pools'), ($this->privates['logger'] ?? $this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
+        return $this->services['cache.system'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('-qsQNvUJkM', 0, 'kUgKCk5RyI5q8PNRXhAJWc', ($this->targetDirs[0].'/pools'), ($this->privates['logger'] ?? $this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
     }
 
     /**
@@ -426,6 +427,12 @@ class srcDevDebugProjectContainer extends Container
         $instance->addListener('kernel.response', array(0 => function () {
             return ($this->privates['web_profiler.debug_toolbar'] ?? $this->getWebProfiler_DebugToolbarService());
         }, 1 => 'onKernelResponse'), -128);
+        $instance->addListener('console.error', array(0 => function () {
+            return ($this->privates['maker.console_error_listener'] ?? $this->privates['maker.console_error_listener'] = new \Symfony\Bundle\MakerBundle\Event\ConsoleErrorSubscriber());
+        }, 1 => 'onConsoleError'), 0);
+        $instance->addListener('console.terminate', array(0 => function () {
+            return ($this->privates['maker.console_error_listener'] ?? $this->privates['maker.console_error_listener'] = new \Symfony\Bundle\MakerBundle\Event\ConsoleErrorSubscriber());
+        }, 1 => 'onConsoleTerminate'), 0);
 
         return $instance;
     }
@@ -573,6 +580,8 @@ class srcDevDebugProjectContainer extends Container
         $a->addPath(($this->targetDirs[3].'\\vendor\\symfony\\web-profiler-bundle/Resources/views'), '!WebProfiler');
         $a->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), 'Doctrine');
         $a->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), '!Doctrine');
+        $a->addPath(($this->targetDirs[3].'\\vendor\\symfony\\maker-bundle\\src/Resources/views'), 'Maker');
+        $a->addPath(($this->targetDirs[3].'\\vendor\\symfony\\maker-bundle\\src/Resources/views'), '!Maker');
         $a->addPath(($this->targetDirs[3].'/templates'));
         $a->addPath(($this->targetDirs[3].'\\vendor\\symfony\\twig-bridge/Resources/views/Form'));
 
@@ -660,7 +669,7 @@ class srcDevDebugProjectContainer extends Container
      */
     protected function getCache_AnnotationsService()
     {
-        return $this->privates['cache.annotations'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('SfncyiH6JW', 0, '85rFAfD7qq11DNDKC8I1t7', ($this->targetDirs[0].'/pools'), ($this->privates['logger'] ?? $this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
+        return $this->privates['cache.annotations'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('SfncyiH6JW', 0, 'kUgKCk5RyI5q8PNRXhAJWc', ($this->targetDirs[0].'/pools'), ($this->privates['logger'] ?? $this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
     }
 
     /**
@@ -670,7 +679,7 @@ class srcDevDebugProjectContainer extends Container
      */
     protected function getCache_SerializerService()
     {
-        return $this->privates['cache.serializer'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('El1rh4-Fk8', 0, '85rFAfD7qq11DNDKC8I1t7', ($this->targetDirs[0].'/pools'), ($this->privates['logger'] ?? $this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
+        return $this->privates['cache.serializer'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('El1rh4-Fk8', 0, 'kUgKCk5RyI5q8PNRXhAJWc', ($this->targetDirs[0].'/pools'), ($this->privates['logger'] ?? $this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
     }
 
     /**
@@ -680,7 +689,7 @@ class srcDevDebugProjectContainer extends Container
      */
     protected function getCache_ValidatorService()
     {
-        return $this->privates['cache.validator'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('OGIBcEVZBe', 0, '85rFAfD7qq11DNDKC8I1t7', ($this->targetDirs[0].'/pools'), ($this->privates['logger'] ?? $this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
+        return $this->privates['cache.validator'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('OGIBcEVZBe', 0, 'kUgKCk5RyI5q8PNRXhAJWc', ($this->targetDirs[0].'/pools'), ($this->privates['logger'] ?? $this->privates['logger'] = new \Symfony\Component\HttpKernel\Log\Logger())));
     }
 
     /**
@@ -981,6 +990,10 @@ class srcDevDebugProjectContainer extends Container
                     'path' => ($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-migrations-bundle'),
                     'namespace' => 'Doctrine\\Bundle\\MigrationsBundle',
                 ),
+                'MakerBundle' => array(
+                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\maker-bundle\\src'),
+                    'namespace' => 'Symfony\\Bundle\\MakerBundle',
+                ),
             ); break;
             case 'kernel.secret': $value = $this->getEnv('APP_SECRET'); break;
             case 'validator.mapping.cache.file': $value = ($this->targetDirs[0].'/validation.php'); break;
@@ -1016,6 +1029,7 @@ class srcDevDebugProjectContainer extends Container
                 'DoctrineCacheBundle' => 'Doctrine\\Bundle\\DoctrineCacheBundle\\DoctrineCacheBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'DoctrineMigrationsBundle' => 'Doctrine\\Bundle\\MigrationsBundle\\DoctrineMigrationsBundle',
+                'MakerBundle' => 'Symfony\\Bundle\\MakerBundle\\MakerBundle',
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'srcDevDebugProjectContainer',
@@ -1283,6 +1297,7 @@ class srcDevDebugProjectContainer extends Container
                 'console.command.doctrine_bundle_migrationsbundle_command_migrationsmigratedoctrinecommand' => 'console.command.doctrine_bundle_migrationsbundle_command_migrationsmigratedoctrinecommand',
                 'console.command.doctrine_bundle_migrationsbundle_command_migrationsstatusdoctrinecommand' => 'console.command.doctrine_bundle_migrationsbundle_command_migrationsstatusdoctrinecommand',
                 'console.command.doctrine_bundle_migrationsbundle_command_migrationsversiondoctrinecommand' => 'console.command.doctrine_bundle_migrationsbundle_command_migrationsversiondoctrinecommand',
+                'console.command.symfony_bundle_makerbundle_command_makercommand' => 'maker.auto_command.make_voter',
             ),
             'console.lazy_command.ids' => array(
                 'console.command.about' => true,
@@ -1325,6 +1340,18 @@ class srcDevDebugProjectContainer extends Container
                 'doctrine.query_sql_command' => true,
                 'doctrine.schema_update_command' => true,
                 'doctrine.schema_validate_command' => true,
+                'maker.auto_command.make_auth' => true,
+                'maker.auto_command.make_command' => true,
+                'maker.auto_command.make_controller' => true,
+                'maker.auto_command.make_entity' => true,
+                'maker.auto_command.make_form' => true,
+                'maker.auto_command.make_functional_test' => true,
+                'maker.auto_command.make_serializer_encoder' => true,
+                'maker.auto_command.make_subscriber' => true,
+                'maker.auto_command.make_twig_extension' => true,
+                'maker.auto_command.make_unit_test' => true,
+                'maker.auto_command.make_validator' => true,
+                'maker.auto_command.make_voter' => true,
             ),
         );
     }

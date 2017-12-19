@@ -50,6 +50,7 @@ final class Versions
   'symfony/inflector' => 'v4.0.2@8740990f67ec9f89bfa116d11bad2990dd510ece',
   'symfony/intl' => 'v4.0.2@9ee9ded0b3902239172811c2b2526cb81165a74f',
   'symfony/lts' => 'dev-master@396c5fca8d73d01186df37d7031321a3c0c2bf92',
+  'symfony/maker-bundle' => 'v1.0.2@bf97703ddb68c6b37bd6bab5f5ebd5c7542ca1ef',
   'symfony/options-resolver' => 'v4.0.2@75fdda335eb0adbd464089e8a0184c61097808e0',
   'symfony/orm-pack' => 'v1.0.5@1b58f752cd917a08c9c8df020781d9c46a2275b1',
   'symfony/polyfill-intl-icu' => 'v1.6.0@d2bb2ef00dd8605d6fbd4db53ed4af1395953497',
@@ -71,7 +72,7 @@ final class Versions
   'zendframework/zend-code' => '3.3.0@6b1059db5b368db769e4392c6cb6cc139e56640d',
   'zendframework/zend-eventmanager' => '3.2.0@9d72db10ceb6e42fb92350c0cb54460da61bd79c',
   'symfony/dotenv' => 'v4.0.2@ffcaeab01e42b0c40669add2aa8e77f79ddb9389',
-  '__root__' => 'No version set (parsed as 1.0.0)@',
+  '__root__' => 'dev-adminmanage@bb68ad8d2d9b0968d160d3b01507a670cf08b41c',
 );
 
     private function __construct()
