@@ -72,7 +72,7 @@ final class Versions
   'zendframework/zend-code' => '3.3.0@6b1059db5b368db769e4392c6cb6cc139e56640d',
   'zendframework/zend-eventmanager' => '3.2.0@9d72db10ceb6e42fb92350c0cb54460da61bd79c',
   'symfony/dotenv' => 'v4.0.2@ffcaeab01e42b0c40669add2aa8e77f79ddb9389',
-  '__root__' => 'dev-adminmanage@bb68ad8d2d9b0968d160d3b01507a670cf08b41c',
+  '__root__' => 'dev-contactmanager@f1beda66472e9d8a4f62602272b51580e5ff6233',
 );
 
     private function __construct()
