@@ -381,6 +381,7 @@
   </parameters>
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
+    <service id="App\Form\ContactType" class="App\Form\ContactType" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Kernel" class="App\Kernel" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Repository\ContactRepository" class="App\Repository\ContactRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -679,7 +680,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>46qmMSK5H1PC9BRqofACUA</argument>
+      <argument>OLK2+LtImWyKsmrwGNdsr2</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -689,7 +690,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>46qmMSK5H1PC9BRqofACUA</argument>
+      <argument>OLK2+LtImWyKsmrwGNdsr2</argument>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
       </call>
@@ -3177,7 +3178,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>jxispVx-13</argument>
       <argument>0</argument>
-      <argument>46qmMSK5H1PC9BRqofACUA</argument>
+      <argument>OLK2+LtImWyKsmrwGNdsr2</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3185,7 +3186,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>WnZ4seOtP-</argument>
       <argument>0</argument>
-      <argument>46qmMSK5H1PC9BRqofACUA</argument>
+      <argument>OLK2+LtImWyKsmrwGNdsr2</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3193,7 +3194,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>RlQdHddvyy</argument>
       <argument>0</argument>
-      <argument>46qmMSK5H1PC9BRqofACUA</argument>
+      <argument>OLK2+LtImWyKsmrwGNdsr2</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3201,7 +3202,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>Jj3OdmLMjB</argument>
       <argument>0</argument>
-      <argument>46qmMSK5H1PC9BRqofACUA</argument>
+      <argument>OLK2+LtImWyKsmrwGNdsr2</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

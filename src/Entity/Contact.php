@@ -42,6 +42,27 @@ class Contact
     private $mail;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $notRobot;
+
+    /**
+     * @return mixed
+     */
+    public function getNotRobot()
+    {
+        return $this->notRobot;
+    }
+
+    /**
+     * @param mixed $notRobot
+     */
+    public function setNotRobot($notRobot)
+    {
+        $this->notRobot = $notRobot;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
