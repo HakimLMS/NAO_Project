@@ -15,11 +15,11 @@ class __TwigTemplate_4c62f0472cf62d896631927b1c32fe038af775b46c155a60a0c4432d625
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_53024d943cdefaf2cd22e2affa509b867ad2c08d26b79c28884d1d88ed6bf29f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_53024d943cdefaf2cd22e2affa509b867ad2c08d26b79c28884d1d88ed6bf29f->enter($__internal_53024d943cdefaf2cd22e2affa509b867ad2c08d26b79c28884d1d88ed6bf29f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/choice_widget_options.html.php"));
+        $__internal_b3904bdcf698590c156c6f4d45ea7d73ac656be0afc0eb12fa70a794d23d31e3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b3904bdcf698590c156c6f4d45ea7d73ac656be0afc0eb12fa70a794d23d31e3->enter($__internal_b3904bdcf698590c156c6f4d45ea7d73ac656be0afc0eb12fa70a794d23d31e3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/choice_widget_options.html.php"));
 
-        $__internal_6763dedec0295ac79362b3b9633d8704bde72a8f311a498a9527a85d84560911 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6763dedec0295ac79362b3b9633d8704bde72a8f311a498a9527a85d84560911->enter($__internal_6763dedec0295ac79362b3b9633d8704bde72a8f311a498a9527a85d84560911_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/choice_widget_options.html.php"));
+        $__internal_fd614bdf2586f368bde445745f24d2776fdc8b152e0c1d9e20d8f6693aaf99f4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_fd614bdf2586f368bde445745f24d2776fdc8b152e0c1d9e20d8f6693aaf99f4->enter($__internal_fd614bdf2586f368bde445745f24d2776fdc8b152e0c1d9e20d8f6693aaf99f4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/choice_widget_options.html.php"));
 
         // line 1
         echo "<?php use Symfony\\Component\\Form\\ChoiceList\\View\\ChoiceGroupView;
@@ -37,10 +37,10 @@ class __TwigTemplate_4c62f0472cf62d896631927b1c32fe038af775b46c155a60a0c4432d625
 <?php endforeach ?>
 ";
         
-        $__internal_53024d943cdefaf2cd22e2affa509b867ad2c08d26b79c28884d1d88ed6bf29f->leave($__internal_53024d943cdefaf2cd22e2affa509b867ad2c08d26b79c28884d1d88ed6bf29f_prof);
+        $__internal_b3904bdcf698590c156c6f4d45ea7d73ac656be0afc0eb12fa70a794d23d31e3->leave($__internal_b3904bdcf698590c156c6f4d45ea7d73ac656be0afc0eb12fa70a794d23d31e3_prof);
 
         
-        $__internal_6763dedec0295ac79362b3b9633d8704bde72a8f311a498a9527a85d84560911->leave($__internal_6763dedec0295ac79362b3b9633d8704bde72a8f311a498a9527a85d84560911_prof);
+        $__internal_fd614bdf2586f368bde445745f24d2776fdc8b152e0c1d9e20d8f6693aaf99f4->leave($__internal_fd614bdf2586f368bde445745f24d2776fdc8b152e0c1d9e20d8f6693aaf99f4_prof);
 
     }
 
