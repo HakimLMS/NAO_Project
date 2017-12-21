@@ -26,7 +26,6 @@ class ContactController extends Controller
             $em->persist($contact);
             $em->flush();
 
-            $mailer = $this->container->get('Mailer');
             $mailer->sendMailContact($contact);
 
             return $this->redirectToRoute('home');

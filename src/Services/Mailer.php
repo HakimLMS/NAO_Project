@@ -12,14 +12,22 @@ use App\Entity\Contact;
 
 class Mailer
 {
+    private $mailer;
+    private $twig;
+
+    public function __construct(\Swift_Mailer $Mailer, \Twig_Environment $Twig) {
+        $this->mailer=$Mailer;
+        $this->twig=$Twig;
+    }
+
     public function sendMailContact(Contact $contact) {
 
-        $mailer = new \Swift_Mailer();
+        $mailer=$this->mailer;
         $message = (new \Swift_Message('Demande de contact'))
-            ->setFrom(array('admin@loiseau-rare.e-naumad.fr' => 'Formulaire de contact'))
+            ->setFrom(array('admin@loiseau-rare.e-naumad.fr' => 'Site NAO'))
             ->setTo('admin@loiseau-rare.e-naumad.fr')
             ->setBody(
-                $this->renderView(
+                $this->twig->render(
                     'Mail/mail.html.twig',
                     array('contact' => $contact)
                 ),

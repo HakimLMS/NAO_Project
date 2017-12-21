@@ -9,9 +9,9 @@
         {% block body %}
 
             <p>Bonjour, vous avez reçu une nouvelle demande de contact.</p><br/>
-            <p>De : {{ contact.firstname }} {{ contact.lastname }}</p><br/>
-            <p>Mail : {{ contact.mail }}</p><br/>
-            <p>Objet : {{ contact.object }}</p><br/>
+            <p>De : {{ contact.firstname }} {{ contact.lastname }}</p>
+            <p>Mail : {{ contact.mail }}</p>
+            <p>Objet : {{ contact.object }}</p>
             <p>Message : {{ contact.content }}</p><br/>
 
         {% endblock %}
