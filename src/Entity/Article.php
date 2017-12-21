@@ -32,11 +32,6 @@ class Article
     private $content;
 
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $author;
-
 
     /**
      * @ORM\Column(type="date")
@@ -54,6 +49,14 @@ class Article
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="article", cascade={"persist"})
      */
     private $comments;
+
+
+
+    public function __construct()
+    {
+        $this->dateArticle = new \DateTime();
+        $this->comments = new ArrayCollection();
+    }
 
 
 
@@ -88,18 +91,6 @@ class Article
         return $this;
     }
 
-
-    public function getAuthor() 
-    {
-        return $this->author;
-    }
-
-
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-        return $this;
-    }
 
 
     public function getDateArticle() 
@@ -137,6 +128,15 @@ class Article
     public function setComments($comments)
     {
         $this->comments = $comments;
+        return $this;
+    }
+
+
+    public function addComments(Comment $comments)
+    {
+        $this->comments[] = $comments;
+        $comments->setArticle($this);
+
         return $this;
     }
 

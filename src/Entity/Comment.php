@@ -50,6 +50,12 @@ class Comment
 
 
 
+    public function __construct()
+    {
+        $this->dateComment = new \DateTime();
+    }
+
+
     public function getId()
     {
         return $this->id;
@@ -114,7 +120,7 @@ class Comment
     }
 
 
-    public function setArticle($article)
+    public function setArticle(Article $article)
     {
         $this->article = $article;
         return $this;
