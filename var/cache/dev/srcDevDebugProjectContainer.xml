@@ -419,7 +419,23 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Kernel" class="App\Kernel" public="false" autowire="true" autoconfigure="true"/>
+    <service id="App\Repository\ArticleImageRepository" class="App\Repository\ArticleImageRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\BirdImageRepository" class="App\Repository\BirdImageRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\ContactRepository" class="App\Repository\ContactRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -722,7 +738,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>desBH33vWLMHgE5YNZXZzA</argument>
+      <argument>V664PRgtX3oUh+pKdNpQ2y</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -732,7 +748,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>desBH33vWLMHgE5YNZXZzA</argument>
+      <argument>V664PRgtX3oUh+pKdNpQ2y</argument>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
       </call>
@@ -1761,6 +1777,14 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2632,7 +2656,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id="service_locator.YsRv_T4"/>
+      <argument type="service" id="service_locator.9.8a4ZB"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3011,8 +3035,16 @@
     <service id="abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContactType" class="App\Form\ContactType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleImageRepository" class="App\Repository\ArticleImageRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\ArticleImageRepository" class="App\Repository\ArticleImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BirdImageRepository" class="App\Repository\BirdImageRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\BirdImageRepository" class="App\Repository\BirdImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ContactRepository" class="App\Repository\ContactRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\ContactRepository" class="App\Repository\ContactRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
       <tag name="console.command" command="make:auth"/>
       <argument type="service" id="maker.maker.make_authenticator"/>
@@ -3273,10 +3305,14 @@
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
-    <service id="service_locator.YsRv_T4" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.9.8a4ZB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\ArticleImageRepository" type="service" id="App\Repository\ArticleImageRepository"/>
+        <argument key="App\Repository\BirdImageRepository" type="service" id="App\Repository\BirdImageRepository"/>
         <argument key="App\Repository\ContactRepository" type="service" id="App\Repository\ContactRepository"/>
+        <argument key="App\Repository\ImageRepository" type="service" id="App\Repository\ImageRepository"/>
+        <argument key="App\Repository\UserImageRepository" type="service" id="App\Repository\UserImageRepository"/>
       </argument>
     </service>
     <service id="logger" class="Symfony\Component\HttpKernel\Log\Logger" public="false"/>
@@ -3371,7 +3407,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>jxispVx-13</argument>
       <argument>0</argument>
-      <argument>desBH33vWLMHgE5YNZXZzA</argument>
+      <argument>V664PRgtX3oUh+pKdNpQ2y</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3379,7 +3415,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>WnZ4seOtP-</argument>
       <argument>0</argument>
-      <argument>desBH33vWLMHgE5YNZXZzA</argument>
+      <argument>V664PRgtX3oUh+pKdNpQ2y</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3387,7 +3423,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>RlQdHddvyy</argument>
       <argument>0</argument>
-      <argument>desBH33vWLMHgE5YNZXZzA</argument>
+      <argument>V664PRgtX3oUh+pKdNpQ2y</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3395,7 +3431,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>Jj3OdmLMjB</argument>
       <argument>0</argument>
-      <argument>desBH33vWLMHgE5YNZXZzA</argument>
+      <argument>V664PRgtX3oUh+pKdNpQ2y</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
