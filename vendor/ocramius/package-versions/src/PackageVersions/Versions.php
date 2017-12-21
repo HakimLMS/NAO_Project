@@ -24,6 +24,7 @@ final class Versions
   'doctrine/lexer' => 'v1.0.1@83893c552fd2045dd78aef794c31e694c37c0b8c',
   'doctrine/migrations' => 'v1.6.2@e3faf7c96b8a6084045dedcaf51f74c7834644d4',
   'doctrine/orm' => 'v2.5.14@810a7baf81462a5ddf10e8baa8cb94b6eec02754',
+  'egulias/email-validator' => '2.1.3@1bec00a10039b823cc94eef4eddd47dcd3b2ca04',
   'jdorn/sql-formatter' => 'v1.2.17@64990d96e0959dff8e059dfcdc1af130728d92bc',
   'ocramius/package-versions' => '1.2.0@ad8a245decad4897cc6b432743913dad0d69753c',
   'ocramius/proxy-manager' => '2.1.1@e18ac876b2e4819c76349de8f78ccc8ef1554cd7',
@@ -32,6 +33,7 @@ final class Versions
   'psr/log' => '1.0.2@4ebe3a8bf773a19edfe0a84b6585ba3d401b724d',
   'psr/simple-cache' => '1.0.0@753fa598e8f3b9966c886fe13f370baa45ef0e24',
   'sensio/framework-extra-bundle' => 'v5.1.3@0696496cb3e2d23add645d424699e5c723238aad',
+  'swiftmailer/swiftmailer' => 'v6.0.2@412333372fb6c8ffb65496a2bbd7321af75733fc',
   'symfony/asset' => 'v4.0.2@3f5117a59af74dd3cecf3ebc70d1e35478ae2d01',
   'symfony/cache' => 'v4.0.2@d00351f230ca037ca13f6fec3411e002043f7421',
   'symfony/config' => 'v4.0.2@0356e6d5298e9e72212c0bad65c2f1b49e42d622',
@@ -60,6 +62,7 @@ final class Versions
   'symfony/property-access' => 'v4.0.2@8dc059852b7bdd8b871eb3ca95b8d70be3b39488',
   'symfony/routing' => 'v4.0.2@972810def5cae044d19195045f7eb418141bf37b',
   'symfony/stopwatch' => 'v4.0.2@ac0e49150555c703fef6b696d8eaba1db7a3ca03',
+  'symfony/swiftmailer-bundle' => 'v3.1.6@9728097df87e76e2db71fc41fd7d211c06daea3e',
   'symfony/translation' => 'v4.0.2@e2678768d2fcb7fe3d8108392626de1ece575634',
   'symfony/twig-bridge' => 'v4.0.2@aeb221936ad39c579b7e002dfd4e7544a5d666f6',
   'symfony/twig-bundle' => 'v4.0.2@77381f8b99b319dc83e609c66942eb3a0a5b066d',
@@ -72,7 +75,7 @@ final class Versions
   'zendframework/zend-code' => '3.3.0@6b1059db5b368db769e4392c6cb6cc139e56640d',
   'zendframework/zend-eventmanager' => '3.2.0@9d72db10ceb6e42fb92350c0cb54460da61bd79c',
   'symfony/dotenv' => 'v4.0.2@ffcaeab01e42b0c40669add2aa8e77f79ddb9389',
-  '__root__' => 'dev-adminmanage@bb68ad8d2d9b0968d160d3b01507a670cf08b41c',
+  '__root__' => 'No version set (parsed as 1.0.0)@',
 );
 
     private function __construct()
