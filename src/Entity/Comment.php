@@ -18,7 +18,8 @@ class Comment
 
     
     /**
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $author;
 
@@ -68,7 +69,7 @@ class Comment
     }
 
 
-    public function setAuthor($author)
+    public function setAuthor(User $author)
     {
         $this->author = $author;
         return $this;

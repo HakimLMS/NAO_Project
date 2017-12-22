@@ -409,6 +409,12 @@
   </parameters>
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
+    <service id="App\Form\ArticleType" class="App\Form\ArticleType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\CommentType" class="App\Form\CommentType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Kernel" class="App\Kernel" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -671,9 +677,12 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\ArticleType</argument>
+        <argument>App\Form\CommentType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
@@ -719,7 +728,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>k1TDwxzuMmMBpAMHGaKo2x</argument>
+      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -729,7 +738,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>k1TDwxzuMmMBpAMHGaKo2x</argument>
+      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
       </call>
@@ -822,7 +831,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.nA6cUNd"/>
+      <argument type="service" id="service_locator.ncHYR07"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -3010,6 +3019,10 @@
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
       <tag name="swiftmailer.default.plugin"/>
     </service>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ArticleType" class="App\Form\ArticleType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\ArticleType" class="App\Form\ArticleType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CommentType" class="App\Form\CommentType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\CommentType" class="App\Form\CommentType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentRepository" class="App\Repository\CommentRepository" public="false" autowire="true" abstract="true"/>
@@ -3260,9 +3273,11 @@
         <argument key="inline" type="service" id="fragment.renderer.inline"/>
       </argument>
     </service>
-    <service id="service_locator.nA6cUNd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.ncHYR07" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\ArticleType" type="service" id="App\Form\ArticleType"/>
+        <argument key="App\Form\CommentType" type="service" id="App\Form\CommentType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
@@ -3369,7 +3384,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>jxispVx-13</argument>
       <argument>0</argument>
-      <argument>k1TDwxzuMmMBpAMHGaKo2x</argument>
+      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3377,7 +3392,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>WnZ4seOtP-</argument>
       <argument>0</argument>
-      <argument>k1TDwxzuMmMBpAMHGaKo2x</argument>
+      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3385,7 +3400,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>RlQdHddvyy</argument>
       <argument>0</argument>
-      <argument>k1TDwxzuMmMBpAMHGaKo2x</argument>
+      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3393,7 +3408,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>Jj3OdmLMjB</argument>
       <argument>0</argument>
-      <argument>k1TDwxzuMmMBpAMHGaKo2x</argument>
+      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
