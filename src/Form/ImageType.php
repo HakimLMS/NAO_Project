@@ -22,7 +22,7 @@ class ImageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('image', FileType::class, array('label' => 'Image (format PNG)', 'required' => true))
+            ->add('image', FileType::class, array('label' => 'Choisissez votre image : ', 'required' => true))
             ->add('Envoyer', SubmitType::class)
         ;
     }
