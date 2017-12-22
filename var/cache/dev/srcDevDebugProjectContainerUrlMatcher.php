@@ -104,6 +104,21 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // home
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\HomeController::index',  '_route' => 'home',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
+            }
+
+            return $ret;
+        }
+
+        // image
+        if ('/image' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\ImageController::index',  '_route' => 'image',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

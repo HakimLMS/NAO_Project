@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
@@ -18,13 +22,29 @@ class Image
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="SVP, envoyez une image au format PNG ou JPG.")
+     * @Assert\File(
+     *     maxSize = "512k",
+     *     mimeTypes={ "image/png", "image/jpeg" })
+     *     mimeTypesMessage = "Envoyez un fichier valide SVP"
      */
-    private $url;
+    private $image;
 
     /**
-     * @ORM\Column(type="string")
+     * @return mixed
      */
-    private $name;
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
 
     /**
      * @return mixed
@@ -40,37 +60,5 @@ class Image
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
-     * @param mixed $url
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 }
