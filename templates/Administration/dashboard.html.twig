@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table>
+        <h3>Comptes naturalistes à valider</h3> 
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Mail</th>
+          <th>Carte Professionnelle</th>
+          <th>Action à faire</th>
+        </tr>
+            {% for user in naturalistesqueued %}
+        <tr>
+           <td>{{user.lastname}}</td>
+           <td>{{user.firstname}}</td>
+           <td>{{user.mail}}</td>
+           <td>{{user.procard}}</td>
+           <td> <button>Valider</button> <button>Rétrograder</button></td>
+        </tr>
+            {% endfor %}
+            {# wire buttons to actions to validate or not the accounts #}
+    </table>
+            
+    
+{% endblock %}

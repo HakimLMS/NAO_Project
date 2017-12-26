@@ -1,3 +1,11 @@
 #index:
 #    path: /
 #    defaults: { _controller: 'App\Controller\DefaultController::index' }
+
+user:
+    path: /user
+    controller: 'App\Controller\UserController::index' 
+
+user/subscribe:
+    path: /user/subscribe
+    controller: 'App\Controller\UserController::subscribe'

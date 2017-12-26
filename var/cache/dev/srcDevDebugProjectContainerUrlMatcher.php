@@ -30,7 +30,30 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
 
-        if (0 === strpos($pathinfo, '/_')) {
+        if (0 === strpos($pathinfo, '/user')) {
+            // subscribe
+            if ('/user/subscribe' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::subscribeAction',  '_route' => 'subscribe',);
+            }
+
+            // dashboard
+            if ('/user/dashboard' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::dashboardAction',  '_route' => 'dashboard',);
+            }
+
+            // user
+            if ('/user' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);
+            }
+
+            // user/subscribe
+            if ('/user/subscribe' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::subscribe',  '_route' => 'user/subscribe',);
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));
