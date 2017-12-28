@@ -30,7 +30,30 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
 
-        if (0 === strpos($pathinfo, '/_')) {
+        // home
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\BlogController::index',  '_route' => 'home',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
+            }
+
+            return $ret;
+        }
+
+        if (0 === strpos($pathinfo, '/blog')) {
+            // article_single
+            if ('/blog/id' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\BlogController::single',  '_route' => 'article_single',);
+            }
+
+            // blog_list
+            if ('/blog' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\BlogController::list',  '_route' => 'blog_list',);
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));

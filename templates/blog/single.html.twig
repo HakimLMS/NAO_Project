@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<h2>Titre : {{ article.title }}</h2>
+
+	<div>
+		{{ article.content }}
+	</div>
+
+	<hr>
+
+	<h2>Espace commentaire</h2>
+
+	{% for comment in article.comments %}
+		<div>
+			<p><em>{{ comment.author }}</em></p>
+			<p>{{ comment.content }}</p>
+		</div>
+	{% endfor %}
+
+{% endblock %}	

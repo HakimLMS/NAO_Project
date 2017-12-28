@@ -409,6 +409,9 @@
   </parameters>
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
+    <service id="App\Controller\BlogController" class="App\Controller\BlogController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
     <service id="App\Form\ArticleType" class="App\Form\ArticleType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -728,7 +731,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
+      <argument>aXzrZPr0P+pKkydfVVTWU5</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -738,7 +741,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
+      <argument>aXzrZPr0P+pKkydfVVTWU5</argument>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
       </call>
@@ -3019,6 +3022,8 @@
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
       <tag name="swiftmailer.default.plugin"/>
     </service>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\BlogController" class="App\Controller\BlogController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\BlogController" class="App\Controller\BlogController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ArticleType" class="App\Form\ArticleType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ArticleType" class="App\Form\ArticleType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CommentType" class="App\Form\CommentType" public="false" autowire="true" abstract="true"/>
@@ -3384,7 +3389,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>jxispVx-13</argument>
       <argument>0</argument>
-      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
+      <argument>aXzrZPr0P+pKkydfVVTWU5</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3392,7 +3397,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>WnZ4seOtP-</argument>
       <argument>0</argument>
-      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
+      <argument>aXzrZPr0P+pKkydfVVTWU5</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3400,7 +3405,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>RlQdHddvyy</argument>
       <argument>0</argument>
-      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
+      <argument>aXzrZPr0P+pKkydfVVTWU5</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3408,7 +3413,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>Jj3OdmLMjB</argument>
       <argument>0</argument>
-      <argument>pXfQY3-tRJIWYBfi8k3jvs</argument>
+      <argument>aXzrZPr0P+pKkydfVVTWU5</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
