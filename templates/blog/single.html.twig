@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+{% block title %} Blog - {{ article.title }} {% endblock %} 
+
 {% block body %}
 
 	<h2>Titre : {{ article.title }}</h2>
@@ -13,10 +15,24 @@
 	<h2>Espace commentaire</h2>
 
 	{% for comment in article.comments %}
-		<div>
-			<p><em>{{ comment.author }}</em></p>
+		<div style="border: 1px solid black;">
+			<p><em>{{ comment.author.firstname }} {{ comment.author.lastname|upper|first }}. - <span style="color: grey;">{{ comment.dateComment|date('d/m/Y') }}</span></em></p>
 			<p>{{ comment.content }}</p>
 		</div>
 	{% endfor %}
+
+	<h2>Poster votre commentaire</h2>
+
+	{{ form_start(form) }}
+
+	{{ form_errors(form) }}
+
+	{{ form_row(form.content) }}
+
+	{{ form_row(form.Publier) }}
+
+	{{ form_rest(form) }}
+
+	{{ form_end(form) }}
 
 {% endblock %}	

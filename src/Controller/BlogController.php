@@ -6,6 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Article;
+use App\Entity\Comment;
+use App\Form\CommentType;
 use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends Controller
@@ -37,7 +39,7 @@ class BlogController extends Controller
     /**
      * @Route("/blog/{id}", name="article_single")
      */
-    public function single($id)
+    public function single(Request $request, $id)
     {
         $article = $this->getDoctrine()
             ->getRepository(Article::class)
@@ -47,8 +49,20 @@ class BlogController extends Controller
             throw $this->createNotFoundException('Pas d\'article correspondant');
         } 
 
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em(persist($comment));
+            $em->flush();
+
+        }
+
         return $this->render('blog/single.html.twig', array(
             'article' => $article,
+            'form' => $form->createView(),
             ));   
     }
 }
