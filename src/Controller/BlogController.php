@@ -35,10 +35,20 @@ class BlogController extends Controller
 
 
     /**
-     * @Route("/blog/id", name="article_single")
+     * @Route("/blog/{id}", name="article_single")
      */
     public function single($id)
     {
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->find($id);
 
+        if(!$article) {
+            throw $this->createNotFoundException('Pas d\'article correspondant');
+        } 
+
+        return $this->render('blog/single.html.twig', array(
+            'article' => $article,
+            ));   
     }
 }

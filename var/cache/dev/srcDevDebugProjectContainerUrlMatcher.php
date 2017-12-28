@@ -42,8 +42,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/blog')) {
             // article_single
-            if ('/blog/id' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\BlogController::single',  '_route' => 'article_single',);
+            if (preg_match('#^/blog/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_single')), array (  '_controller' => 'App\\Controller\\BlogController::single',));
             }
 
             // blog_list
