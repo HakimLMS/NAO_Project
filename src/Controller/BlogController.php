@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Article;
 use App\Entity\Comment;
 use App\Form\CommentType;
+use App\Services\ArticleService;
 use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends Controller
@@ -24,11 +26,9 @@ class BlogController extends Controller
     /**
      * @Route("/blog", name="blog_list")
      */
-    public function list()
+    public function list(ArticleService $articleService)
     {
-        $articles = $this->getDoctrine()
-        	->getRepository(Article::class)
-        	->findAll();
+         $articles = $articleService->findAllArticles();
 
         return $this->render('blog/list.html.twig', array(
         	'articles' => $articles,
@@ -39,15 +39,15 @@ class BlogController extends Controller
     /**
      * @Route("/blog/{id}", name="article_single")
      */
-    public function single(Request $request, $id)
+    public function single(Request $request, Article $article)
     {
-        $article = $this->getDoctrine()
+        /*$article = $this->getDoctrine()
             ->getRepository(Article::class)
             ->find($id);
 
         if(!$article) {
             throw $this->createNotFoundException('Pas d\'article correspondant');
-        } 
+        } */
 
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -62,7 +62,7 @@ class BlogController extends Controller
 
         return $this->render('blog/single.html.twig', array(
             'article' => $article,
-            'form' => $form->createView(),
+            'form'    => $form->createView(),
             ));   
     }
 }

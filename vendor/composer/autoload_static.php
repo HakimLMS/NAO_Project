@@ -55,9 +55,11 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
             'Symfony\\Bundle\\WebProfilerBundle\\' => 33,
             'Symfony\\Bundle\\TwigBundle\\' => 26,
             'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
+            'Symfony\\Bundle\\MonologBundle\\' => 29,
             'Symfony\\Bundle\\MakerBundle\\' => 27,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bridge\\Twig\\' => 20,
+            'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
@@ -68,6 +70,10 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PackageVersions\\' => 16,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
         ),
         'E' => 
         array (
@@ -221,6 +227,10 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/symfony/swiftmailer-bundle',
         ),
+        'Symfony\\Bundle\\MonologBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/monolog-bundle',
+        ),
         'Symfony\\Bundle\\MakerBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/maker-bundle/src',
@@ -232,6 +242,10 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         'Symfony\\Bridge\\Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/twig-bridge',
+        ),
+        'Symfony\\Bridge\\Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/monolog-bridge',
         ),
         'Symfony\\Bridge\\Doctrine\\' => 
         array (
@@ -260,6 +274,10 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
