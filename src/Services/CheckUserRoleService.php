@@ -8,14 +8,16 @@ class CheckUserRoleService
 {
     public function checkRole(User $user)
     {
-        $roles = $user->getRoles();
+        $type = $user->getType();
         
-        if($roles == 'Observateur')
+        if($type == 'Observateur' )
         {
+            $user->setRoles(array('ROLE_USER'));
             $user->setState('validated');
         }
-        elseif($roles == 'Naturaliste')
+        elseif($type == 'Naturaliste')
         {
+            $user->setRoles(array('ROLE_ORGANIZER'));
             $user->setState('queued');
         }
     }

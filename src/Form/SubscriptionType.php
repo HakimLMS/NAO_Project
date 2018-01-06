@@ -19,7 +19,7 @@ class SubscriptionType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
        $builder
-            ->add('roles', ChoiceType::class, array( 'label' => 'Type de compte',
+            ->add('type', ChoiceType::class, array( 'label' => 'Type de compte',
                 'choices' => array(
                     'Obesrvateur' => 'Observateur',
                     'Naturaliste' => 'Naturaliste')
@@ -35,7 +35,7 @@ class SubscriptionType extends AbstractType {
                     'first_options'  => array('label' => 'Mot de passe'),
                     'second_options' => array('label' => 'Confirmation du mot de passe'),
                     ))
-            ->add('mail', EmailType::class, array('label' => 'Adresse Email'))
+            ->add('email', EmailType::class, array('label' => 'Adresse Email'))
             ->add('member', CheckboxType::class, array(
                 'label'    => 'Je suis adhérent à l\'association',
                 'required' => false

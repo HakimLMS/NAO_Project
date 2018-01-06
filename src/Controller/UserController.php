@@ -9,8 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 use App\Form\SubscriptionType;
 use App\Services\FlusherService;
-use Symfony\Component\HttpFoundation\Session\Session;
+use App\Services\UserFixerService;
 use App\Services\CheckUserRoleService;
+use App\Services\DashboardHandler;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends Controller
 {
@@ -24,53 +27,50 @@ class UserController extends Controller
     }
 
      /**
-     * @Route("/user/subscribe", name="subscribe")
+     * @Route("/subscribe", name="subscribe")
      */
-    public function subscribeAction(Request $request)
+    public function subscribeAction(Request $request, FlusherService $flusher, CheckUserRoleService $checktype, UserFixerService $namer)
     {
         $user = new User();
-        $form = $this->createForm(SubscriptionType::class, $user);
-        $flusher = new FlusherService($this->getDoctrine()->getManager());
-        $checktype = new CheckUserRoleService();
+        $form = $this->createForm(SubscriptionType::class, $user);//passer par container ! Injecter interface seulement 
         $form->handleRequest($request);
         
-        //if naturaliste need Admin vadilation. -> flush en BDD avec variable validé 
         if ($form->isSubmitted() && $form->isValid())
         {
-            $user->setSalt(); //see to remove this one
-            $checktype->checkRole($user); //checktype service
+            $namer->FixUser($user);
+            $checktype->checkRole($user);
             $flusher->flushEntity($user);
-        }
-        
+        }        
+        // responder  à mep 
         return $this->render('Administration/subscription.html.twig', array('form' => $form->createView() ));
     }
     
-    public function loginAction(Request $request)
+    /**
+     * @Route("/user/login", name="login")
+     */
+    public function login(Request $request, AuthenticationUtils $authUtils)
     {
-        $form = $this->createForm(LoginType::class);
-        $form->handleRequest($request);
-        
+        $error = $authUtils->getLastAuthenticationError();
+        $lastUsername = $authUtils->getLastUsername();
 
-        
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $session = new Session();
-            $session->start();
-        }
+        return $this->render('security/login.html.twig', array(
+            'last_username' => $lastUsername,
+            'error' => $error,
+        ));
     }
+    
+
+
+    
 
 
     //user/{id} dashboard.
     /**
      * @Route("/user/dashboard", name="dashboard")
      */
-    public function dashboardAction(Request $request)
+    public function dashboardAction(Request $request, DashboardHandler $dashboardHandler)
     {
-       
-    //if($_SESSION['role'] === 'Admin')
-        //{
-            $naturalistesqueued = $this->getDoctrine()->getRepository(User::class)->findbyState('queued');
-        //}
-        return $this->render('Administration/dashboard.html.twig', array('naturalistesqueued' => $naturalistesqueued));
+        $tempData = $dashboardHandler->generateData();
+        return $this->render($tempData['templatedir'], array('data'=> $tempData['userQueued']));
     }
 }
