@@ -30,6 +30,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
 
+<<<<<<< HEAD
         // subscribe
         if ('/subscribe' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\UserController::subscribeAction',  '_route' => 'subscribe',);
@@ -64,6 +65,27 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // user/subscribe
             if ('/user/subscribe' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\UserController::subscribe',  '_route' => 'user/subscribe',);
+=======
+        // home
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\BlogController::index',  '_route' => 'home',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
+            }
+
+            return $ret;
+        }
+
+        if (0 === strpos($pathinfo, '/blog')) {
+            // article_single
+            if (preg_match('#^/blog/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_single')), array (  '_controller' => 'App\\Controller\\BlogController::single',));
+            }
+
+            // blog_list
+            if ('/blog' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\BlogController::list',  '_route' => 'blog_list',);
+>>>>>>> blog
             }
 
         }

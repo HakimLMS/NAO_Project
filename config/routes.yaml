@@ -2,6 +2,11 @@
 #    path: /
 #    defaults: { _controller: 'App\Controller\DefaultController::index' }
 
+
+blog_list:
+    path: /blog
+    controller: 'App\Controller\BlogController::list'
+
 user:
     path: /user
     controller: 'App\Controller\UserController::index' 
