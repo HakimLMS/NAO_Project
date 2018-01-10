@@ -30,7 +30,45 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
 
-        if (0 === strpos($pathinfo, '/_')) {
+        // subscribe
+        if ('/subscribe' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\UserController::subscribeAction',  '_route' => 'subscribe',);
+        }
+
+        if (0 === strpos($pathinfo, '/user')) {
+            // login
+            if ('/user/login' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::login',  '_route' => 'login',);
+            }
+
+            // dashboard
+            if ('/user/dashboard' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::dashboardAction',  '_route' => 'dashboard',);
+            }
+
+            // downgradeuser
+            if ('/user/downgradeuser' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::downgradeUserAction',  '_route' => 'downgradeuser',);
+            }
+
+            // validateuser
+            if ('/user/validateuser' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::validateUserAction',  '_route' => 'validateuser',);
+            }
+
+            // user
+            if ('/user' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);
+            }
+
+            // user/subscribe
+            if ('/user/subscribe' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::subscribe',  '_route' => 'user/subscribe',);
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));

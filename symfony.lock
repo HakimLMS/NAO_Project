@@ -56,8 +56,14 @@
     "doctrine/orm": {
         "version": "v2.5.14"
     },
+    "egulias/email-validator": {
+        "version": "2.1.3"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "monolog/monolog": {
+        "version": "1.23.0"
     },
     "ocramius/package-versions": {
         "version": "1.2.0"
@@ -85,6 +91,9 @@
             "version": "4.0",
             "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
         }
+    },
+    "swiftmailer/swiftmailer": {
+        "version": "v6.0.2"
     },
     "symfony/asset": {
         "version": "v4.0.2"
@@ -170,6 +179,21 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+<<<<<<< HEAD
+=======
+    "symfony/monolog-bridge": {
+        "version": "v4.0.2"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.1",
+            "ref": "371d1a2b69984710646b09a1182ef1d4308c904f"
+        }
+    },
+>>>>>>> adminmanage
     "symfony/options-resolver": {
         "version": "v4.0.2"
     },
@@ -200,8 +224,29 @@
             "ref": "a249484db698d1a847a30291c8f732414ac47e25"
         }
     },
+    "symfony/security": {
+        "version": "v4.0.2"
+    },
+    "symfony/security-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "85834af1496735f28d831489d12ab1921a875e0d"
+        }
+    },
     "symfony/stopwatch": {
         "version": "v4.0.2"
+    },
+    "symfony/swiftmailer-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "8daf8ede72274989fb0dc66b83cb4bc1693afbb9"
+        }
     },
     "symfony/translation": {
         "version": "3.3",
