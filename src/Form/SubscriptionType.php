@@ -21,7 +21,7 @@ class SubscriptionType extends AbstractType {
        $builder
             ->add('type', ChoiceType::class, array( 'label' => 'Type de compte',
                 'choices' => array(
-                    'Obesrvateur' => 'Observateur',
+                    'Observateur' => 'Observateur',
                     'Naturaliste' => 'Naturaliste')
                 ))
             ->add('lastname', TextType::class, array('label' => 'Nom'))

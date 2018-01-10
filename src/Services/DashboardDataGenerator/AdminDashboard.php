@@ -4,7 +4,6 @@
 namespace App\Services\DashboardDataGenerator;
 
 use App\Entity\User;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 

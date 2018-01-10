@@ -2,6 +2,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% for error in errors %}
+        <li>{{ error.message }}</li>
+    {% endfor %}
 {{ form_start(form) }}
 {{ form_end(form) }}
 {% endblock %}

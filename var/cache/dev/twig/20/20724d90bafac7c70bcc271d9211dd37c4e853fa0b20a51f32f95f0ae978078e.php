@@ -15,20 +15,20 @@ class __TwigTemplate_52a14946dd1d1c506c57af8e2356cfda16e7160e97f39dccdd9505dee60
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d795c1758ff36f11ace2e5a9a34469d5c883e32b4347dbe248f6a2eb9d208e3b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d795c1758ff36f11ace2e5a9a34469d5c883e32b4347dbe248f6a2eb9d208e3b->enter($__internal_d795c1758ff36f11ace2e5a9a34469d5c883e32b4347dbe248f6a2eb9d208e3b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/color_widget.html.php"));
+        $__internal_07b5d9de4f0136317991756cdce4dee32b3d0d03d90567977d33a93d5db86010 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_07b5d9de4f0136317991756cdce4dee32b3d0d03d90567977d33a93d5db86010->enter($__internal_07b5d9de4f0136317991756cdce4dee32b3d0d03d90567977d33a93d5db86010_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/color_widget.html.php"));
 
-        $__internal_769ae26d071a7f0cbbe21851544e7e8a89fb194d79a2564085ec1ab38496be31 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_769ae26d071a7f0cbbe21851544e7e8a89fb194d79a2564085ec1ab38496be31->enter($__internal_769ae26d071a7f0cbbe21851544e7e8a89fb194d79a2564085ec1ab38496be31_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/color_widget.html.php"));
+        $__internal_5953f0220452c8e001869be5ba482707ed0d32e8df8234cd1125c7b3a3bbdede = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5953f0220452c8e001869be5ba482707ed0d32e8df8234cd1125c7b3a3bbdede->enter($__internal_5953f0220452c8e001869be5ba482707ed0d32e8df8234cd1125c7b3a3bbdede_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/color_widget.html.php"));
 
         // line 1
         echo "<?php echo \$view['form']->block(\$form, 'form_widget_simple', array('type' => isset(\$type) ? \$type : 'color'));
 ";
         
-        $__internal_d795c1758ff36f11ace2e5a9a34469d5c883e32b4347dbe248f6a2eb9d208e3b->leave($__internal_d795c1758ff36f11ace2e5a9a34469d5c883e32b4347dbe248f6a2eb9d208e3b_prof);
+        $__internal_07b5d9de4f0136317991756cdce4dee32b3d0d03d90567977d33a93d5db86010->leave($__internal_07b5d9de4f0136317991756cdce4dee32b3d0d03d90567977d33a93d5db86010_prof);
 
         
-        $__internal_769ae26d071a7f0cbbe21851544e7e8a89fb194d79a2564085ec1ab38496be31->leave($__internal_769ae26d071a7f0cbbe21851544e7e8a89fb194d79a2564085ec1ab38496be31_prof);
+        $__internal_5953f0220452c8e001869be5ba482707ed0d32e8df8234cd1125c7b3a3bbdede->leave($__internal_5953f0220452c8e001869be5ba482707ed0d32e8df8234cd1125c7b3a3bbdede_prof);
 
     }
 

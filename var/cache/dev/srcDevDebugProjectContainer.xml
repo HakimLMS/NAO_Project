@@ -475,7 +475,6 @@
     </service>
     <service id="App\Kernel" class="App\Kernel" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" autoconfigure="true"/>
-    <service id="App\Services\CheckUserRoleService" class="App\Services\CheckUserRoleService" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Services\DashboardDataGenerator\AdminDashboard" class="App\Services\DashboardDataGenerator\AdminDashboard" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
@@ -483,11 +482,27 @@
       <argument type="service" id="security.authorization_checker"/>
       <argument type="service" id="App\Services\DashboardDataGenerator\AdminDashboard"/>
     </service>
-    <service id="App\Services\FlusherService" class="App\Services\FlusherService" public="false" autowire="true" autoconfigure="true">
+    <service id="App\Services\DowngradeUserHandler" class="App\Services\DowngradeUserHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+    </service>
+    <service id="App\Services\SubscribeDataGenerator\CheckUserRoleService" class="App\Services\SubscribeDataGenerator\CheckUserRoleService" public="false" autowire="true" autoconfigure="true"/>
+    <service id="App\Services\SubscribeDataGenerator\FlusherService" class="App\Services\SubscribeDataGenerator\FlusherService" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
-    <service id="App\Services\UserFixerService" class="App\Services\UserFixerService" public="false" autowire="true" autoconfigure="true">
+    <service id="App\Services\SubscribeDataGenerator\UserFixerService" class="App\Services\SubscribeDataGenerator\UserFixerService" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="security.user_password_encoder.generic"/>
+    </service>
+    <service id="App\Services\SubscribeHandler" class="App\Services\SubscribeHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="form.factory"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\CheckUserRoleService"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\UserFixerService"/>
+      <argument type="service" id="debug.validator"/>
+    </service>
+    <service id="App\Services\ValidateUserHandler" class="App\Services\ValidateUserHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -505,7 +520,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.zDwNf5c"/>
+      <argument type="service" id="service_locator.aPAyF3R"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -787,7 +802,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>EK9YmX4mN5Bizs5wdyQIHB</argument>
+      <argument>LV+Fcq9f7uEdK5wqlkWTR5</argument>
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -797,7 +812,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>EK9YmX4mN5Bizs5wdyQIHB</argument>
+      <argument>LV+Fcq9f7uEdK5wqlkWTR5</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -3795,12 +3810,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a510359be9719.34837383</argument>
+      <argument>5a54a6d0e64621.76420779</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a510359be9719.34837383</argument>
+      <argument>5a54a6d0e64621.76420779</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -4093,12 +4108,10 @@
         <argument>make:voter</argument>
       </call>
     </service>
-    <service id="service_locator.v9CU7Sc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.R6oaVOY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="checktype" type="service" id="App\Services\CheckUserRoleService" on-invalid="ignore"/>
-        <argument key="flusher" type="service" id="App\Services\FlusherService" on-invalid="ignore"/>
-        <argument key="namer" type="service" id="App\Services\UserFixerService" on-invalid="ignore"/>
+        <argument key="subscribeHandler" type="service" id="App\Services\SubscribeHandler" on-invalid="ignore"/>
       </argument>
     </service>
     <service id="service_locator.NkUBxsb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4113,15 +4126,31 @@
         <argument key="dashboardHandler" type="service" id="App\Services\DashboardHandler" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.zDwNf5c" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.xiVkYm3" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="validateUHandler" type="service" id="App\Services\ValidateUserHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.rWoBfLf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="downgradeUHandler" type="service" id="App\Services\DowngradeUserHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.aPAyF3R" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\UserController:dashboardAction" type="service" id="service_locator.saQ8x6M"/>
+        <argument key="App\Controller\UserController:downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController:login" type="service" id="service_locator.NkUBxsb"/>
-        <argument key="App\Controller\UserController:subscribeAction" type="service" id="service_locator.v9CU7Sc"/>
+        <argument key="App\Controller\UserController:subscribeAction" type="service" id="service_locator.R6oaVOY"/>
+        <argument key="App\Controller\UserController:validateUserAction" type="service" id="service_locator.xiVkYm3"/>
         <argument key="App\Controller\UserController::dashboardAction" type="service" id="service_locator.saQ8x6M"/>
+        <argument key="App\Controller\UserController::downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController::login" type="service" id="service_locator.NkUBxsb"/>
-        <argument key="App\Controller\UserController::subscribeAction" type="service" id="service_locator.v9CU7Sc"/>
+        <argument key="App\Controller\UserController::subscribeAction" type="service" id="service_locator.R6oaVOY"/>
+        <argument key="App\Controller\UserController::validateUserAction" type="service" id="service_locator.xiVkYm3"/>
       </argument>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
@@ -4484,7 +4513,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>-qsQNvUJkM</argument>
       <argument>0</argument>
-      <argument>EK9YmX4mN5Bizs5wdyQIHB</argument>
+      <argument>LV+Fcq9f7uEdK5wqlkWTR5</argument>
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4492,7 +4521,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>OGIBcEVZBe</argument>
       <argument>0</argument>
-      <argument>EK9YmX4mN5Bizs5wdyQIHB</argument>
+      <argument>LV+Fcq9f7uEdK5wqlkWTR5</argument>
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4500,7 +4529,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>El1rh4-Fk8</argument>
       <argument>0</argument>
-      <argument>EK9YmX4mN5Bizs5wdyQIHB</argument>
+      <argument>LV+Fcq9f7uEdK5wqlkWTR5</argument>
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4508,7 +4537,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>SfncyiH6JW</argument>
       <argument>0</argument>
-      <argument>EK9YmX4mN5Bizs5wdyQIHB</argument>
+      <argument>LV+Fcq9f7uEdK5wqlkWTR5</argument>
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

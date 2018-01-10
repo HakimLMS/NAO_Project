@@ -1,0 +1,7 @@
+{% extends 'subscription.html.twig' %}
+
+{% block body %}
+    {% for error in errors %}
+        <li>{{ error.message }}</li>
+    {% endfor %}
+{% endblock %}

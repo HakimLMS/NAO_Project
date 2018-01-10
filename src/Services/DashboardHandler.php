@@ -24,23 +24,23 @@ class DashboardHandler
     {
         $dashboardData = array();
         
-          if($this->checker->isGranted('ROLE_USER'))
+          if($this->checker->isGranted('ROLE_ADMIN'))
           {
-            //Observations
-              $dashboardData = $this->adminDashboard->genData();
+             //articles + Observations + comptes à valider + Observations à valider;
+             $dashboardData = $this->adminDashboard->genData();             var_dump($dashboardData);
              return $dashboardData;
           }
           elseif($this->checker->isGranted('ROLE_ORGANIZER'))
           {
              //Observation + Observations à valider
-              $dashboardData = $this->adminDashboard->genData();
              return $dashboardData;
           }
-          elseif($this->checker->isGranted('ROLE_ADMIN'))
+          elseif($this->checker->isGranted('ROLE_USER'))
           {
-             //articles + Observations + comptes à valider + Observations à valider;
-             $dashboardData = $this->adminDashboard->genData();
+            //Observations
              return $dashboardData;
           }
+          
+          
     }
 }

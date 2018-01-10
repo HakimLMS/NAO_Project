@@ -7,10 +7,13 @@ namespace App\Entity;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity("email", message ="Cette adresse Email est déja utilisée, veuillez changer d'adresse.")
  */
 class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
 {
@@ -45,6 +48,7 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
     
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Regex("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/", message = "Choisissez un mot de passe d'au minimum 8 caractères, contenant une majuscule, minuscule et un chiffre")
      */
     private $password;
     
@@ -54,7 +58,8 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
     private $firstname;
     
     /**
-     * @ORM\Column(type="string", length=100, unique=true)
+     * @ORM\Column(name="email", type="string", length=100, unique=true)
+     * @Assert\Email()      
      */
     private $email;
     
