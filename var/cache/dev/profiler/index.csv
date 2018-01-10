@@ -1,5 +1,18 @@
-<<<<<<< HEAD
-80c4c7,::1,GET,http://localhost/NAO_project/public/index.php/subscribe,1515597504,,200
-=======
-fdc25b,::1,GET,http://localhost/NAO_Project/public/index.php/blog,1515600361,,200
->>>>>>> blog
+653cde,::1,GET,http://localhost/NAO_Project/public/index.php/blog,1515622101,fa6b3f,200
+fa6b3f,::1,GET,http://localhost/NAO_Project/public/index.php/blog,1515622102,,500
+3021c7,::1,GET,http://localhost/NAO_Project/public/index.php/,1515622109,,200
+9fa5d2,::1,GET,http://localhost/NAO_Project/public/index.php/,1515622185,,200
+328332,::1,GET,http://localhost/NAO_Project/public/index.php/blog,1515622188,,200
+974bf0,::1,GET,http://localhost/NAO_Project/public/index.php/blog/1,1515622195,127ddc,200
+127ddc,::1,GET,http://localhost/NAO_Project/public/index.php/blog/1,1515622195,,500
+56c1a7,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515622841,231d64,200
+231d64,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515622841,,500
+799b33,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515622867,6a8b57,200
+6a8b57,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515622867,,500
+714c7e,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515622992,ba111b,200
+ba111b,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515622993,,500
+37ed81,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515623063,14c11d,200
+14c11d,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515623063,,500
+df0982,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515623079,150c88,200
+150c88,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515623079,,500
+211384,::1,GET,http://localhost/NAO_Project/public/index.php/research,1515623094,,200
