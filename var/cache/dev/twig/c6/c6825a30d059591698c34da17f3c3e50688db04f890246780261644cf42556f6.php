@@ -15,11 +15,11 @@ class __TwigTemplate_3da151efc6b25bddb2fe6a88b21e955e2b5f03a0dc1cab75cd49167f16a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8bb3f48cafe4742ed3ee2e7a1920d5028ad3eecf2d4af8589ee36eee013fac17 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8bb3f48cafe4742ed3ee2e7a1920d5028ad3eecf2d4af8589ee36eee013fac17->enter($__internal_8bb3f48cafe4742ed3ee2e7a1920d5028ad3eecf2d4af8589ee36eee013fac17_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/base_js.html.twig"));
+        $__internal_b4b8e82a101f0699204e085dffc64f34c434521f4240e01b9bc5abef2455982e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b4b8e82a101f0699204e085dffc64f34c434521f4240e01b9bc5abef2455982e->enter($__internal_b4b8e82a101f0699204e085dffc64f34c434521f4240e01b9bc5abef2455982e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/base_js.html.twig"));
 
-        $__internal_c1cf26f73cff20f35ade89a17f285d8b9b1f7328d7eea640557936e35bb704ae = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c1cf26f73cff20f35ade89a17f285d8b9b1f7328d7eea640557936e35bb704ae->enter($__internal_c1cf26f73cff20f35ade89a17f285d8b9b1f7328d7eea640557936e35bb704ae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/base_js.html.twig"));
+        $__internal_c944d32cb3714c37be88fe39168acc1e2cc3514353c4d965f998a2bf7a2d2bef = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c944d32cb3714c37be88fe39168acc1e2cc3514353c4d965f998a2bf7a2d2bef->enter($__internal_c944d32cb3714c37be88fe39168acc1e2cc3514353c4d965f998a2bf7a2d2bef_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/base_js.html.twig"));
 
         // line 3
         echo "<script";
@@ -280,10 +280,12 @@ class __TwigTemplate_3da151efc6b25bddb2fe6a88b21e955e2b5f03a0dc1cab75cd49167f16a
                             mode: arguments[0].mode,
                             redirect: arguments[0].redirect
                         };
+                    } else {
+                        url = String(url);
                     }
                     if (!url.match(new RegExp(";
-            // line 254
-            echo json_encode((isset($context["excluded_ajax_paths"]) || array_key_exists("excluded_ajax_paths", $context) ? $context["excluded_ajax_paths"] : (function () { throw new Twig_Error_Runtime('Variable "excluded_ajax_paths" does not exist.', 254, $this->getSourceContext()); })()));
+            // line 256
+            echo json_encode((isset($context["excluded_ajax_paths"]) || array_key_exists("excluded_ajax_paths", $context) ? $context["excluded_ajax_paths"] : (function () { throw new Twig_Error_Runtime('Variable "excluded_ajax_paths" does not exist.', 256, $this->getSourceContext()); })()));
             echo "))) {
                         var method = 'GET';
                         if (params && params.method !== undefined) {
@@ -326,28 +328,28 @@ class __TwigTemplate_3da151efc6b25bddb2fe6a88b21e955e2b5f03a0dc1cab75cd49167f16a
                     var path = url;
                     if (url.substr(0, 1) === '/') {
                         if (0 === url.indexOf('";
-            // line 295
-            echo twig_escape_filter($this->env, twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 295, $this->getSourceContext()); })()), "basePath", array()), "js"), "html", null, true);
+            // line 297
+            echo twig_escape_filter($this->env, twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 297, $this->getSourceContext()); })()), "basePath", array()), "js"), "html", null, true);
             echo "')) {
                             path = url.substr(";
-            // line 296
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 296, $this->getSourceContext()); })()), "basePath", array())), "html", null, true);
+            // line 298
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 298, $this->getSourceContext()); })()), "basePath", array())), "html", null, true);
             echo ");
                         }
                     }
                     else if (0 === url.indexOf('";
-            // line 299
-            echo twig_escape_filter($this->env, twig_escape_filter($this->env, (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 299, $this->getSourceContext()); })()), "schemeAndHttpHost", array()) . twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 299, $this->getSourceContext()); })()), "basePath", array())), "js"), "html", null, true);
+            // line 301
+            echo twig_escape_filter($this->env, twig_escape_filter($this->env, (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 301, $this->getSourceContext()); })()), "schemeAndHttpHost", array()) . twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 301, $this->getSourceContext()); })()), "basePath", array())), "js"), "html", null, true);
             echo "')) {
                         path = url.substr(";
-            // line 300
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 300, $this->getSourceContext()); })()), "schemeAndHttpHost", array()) . twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 300, $this->getSourceContext()); })()), "basePath", array()))), "html", null, true);
+            // line 302
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 302, $this->getSourceContext()); })()), "schemeAndHttpHost", array()) . twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["request"]) || array_key_exists("request", $context) ? $context["request"] : (function () { throw new Twig_Error_Runtime('Variable "request" does not exist.', 302, $this->getSourceContext()); })()), "basePath", array()))), "html", null, true);
             echo ");
                     }
 
                     if (!path.match(new RegExp(";
-            // line 303
-            echo json_encode((isset($context["excluded_ajax_paths"]) || array_key_exists("excluded_ajax_paths", $context) ? $context["excluded_ajax_paths"] : (function () { throw new Twig_Error_Runtime('Variable "excluded_ajax_paths" does not exist.', 303, $this->getSourceContext()); })()));
+            // line 305
+            echo json_encode((isset($context["excluded_ajax_paths"]) || array_key_exists("excluded_ajax_paths", $context) ? $context["excluded_ajax_paths"] : (function () { throw new Twig_Error_Runtime('Variable "excluded_ajax_paths" does not exist.', 305, $this->getSourceContext()); })()));
             echo "))) {
                         var stackElement = {
                             error: false,
@@ -378,7 +380,7 @@ class __TwigTemplate_3da151efc6b25bddb2fe6a88b21e955e2b5f03a0dc1cab75cd49167f16a
             }
         ";
         }
-        // line 332
+        // line 334
         echo "
         return {
             hasClass: hasClass,
@@ -581,10 +583,10 @@ class __TwigTemplate_3da151efc6b25bddb2fe6a88b21e955e2b5f03a0dc1cab75cd49167f16a
 /*]]>*/</script>
 ";
         
-        $__internal_8bb3f48cafe4742ed3ee2e7a1920d5028ad3eecf2d4af8589ee36eee013fac17->leave($__internal_8bb3f48cafe4742ed3ee2e7a1920d5028ad3eecf2d4af8589ee36eee013fac17_prof);
+        $__internal_b4b8e82a101f0699204e085dffc64f34c434521f4240e01b9bc5abef2455982e->leave($__internal_b4b8e82a101f0699204e085dffc64f34c434521f4240e01b9bc5abef2455982e_prof);
 
         
-        $__internal_c1cf26f73cff20f35ade89a17f285d8b9b1f7328d7eea640557936e35bb704ae->leave($__internal_c1cf26f73cff20f35ade89a17f285d8b9b1f7328d7eea640557936e35bb704ae_prof);
+        $__internal_c944d32cb3714c37be88fe39168acc1e2cc3514353c4d965f998a2bf7a2d2bef->leave($__internal_c944d32cb3714c37be88fe39168acc1e2cc3514353c4d965f998a2bf7a2d2bef_prof);
 
     }
 
@@ -600,7 +602,7 @@ class __TwigTemplate_3da151efc6b25bddb2fe6a88b21e955e2b5f03a0dc1cab75cd49167f16a
 
     public function getDebugInfo()
     {
-        return array (  382 => 332,  350 => 303,  344 => 300,  340 => 299,  334 => 296,  330 => 295,  286 => 254,  267 => 237,  265 => 236,  34 => 7,  25 => 3,);
+        return array (  384 => 334,  352 => 305,  346 => 302,  342 => 301,  336 => 298,  332 => 297,  288 => 256,  267 => 237,  265 => 236,  34 => 7,  25 => 3,);
     }
 
     public function getSourceContext()
@@ -857,6 +859,8 @@ class __TwigTemplate_3da151efc6b25bddb2fe6a88b21e955e2b5f03a0dc1cab75cd49167f16a
                             mode: arguments[0].mode,
                             redirect: arguments[0].redirect
                         };
+                    } else {
+                        url = String(url);
                     }
                     if (!url.match(new RegExp({{ excluded_ajax_paths|json_encode|raw }}))) {
                         var method = 'GET';

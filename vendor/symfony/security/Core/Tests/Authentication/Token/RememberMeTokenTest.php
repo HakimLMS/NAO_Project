@@ -32,6 +32,18 @@ class RememberMeTokenTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
+    public function testConstructorSecretCannotBeNull()
+    {
+        new RememberMeToken(
+            $this->getUser(),
+            null,
+            null
+        );
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
     public function testConstructorSecretCannotBeEmptyString()
     {
         new RememberMeToken(
@@ -45,7 +57,7 @@ class RememberMeTokenTest extends TestCase
     {
         $user = $this->getMockBuilder('Symfony\Component\Security\Core\User\UserInterface')->getMock();
         $user
-            ->expects($this->any())
+            ->expects($this->once())
             ->method('getRoles')
             ->will($this->returnValue($roles))
         ;

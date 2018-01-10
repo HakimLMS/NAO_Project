@@ -20,6 +20,9 @@ use Composer\Downloader\TransportException;
 use Composer\Factory;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
+use Composer\Plugin\PluginEvents;
+use Composer\Plugin\PreFileDownloadEvent;
+use Composer\Util\RemoteFilesystem;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -37,6 +40,7 @@ class Downloader
     private $endpoint;
     private $caFile;
     private $flexId;
+    private $eventDispatcher;
 
     public function __construct(Composer $composer, IoInterface $io)
     {
@@ -51,6 +55,7 @@ class Downloader
         $this->endpoint = rtrim($endpoint, '/');
         $this->io = $io;
         $config = $composer->getConfig();
+        $this->eventDispatcher = $composer->getEventDispatcher();
         $this->rfs = Factory::createRemoteFilesystem($io, $config);
         $this->cache = new Cache($io, $config->get('cache-repo-dir').'/'.preg_replace('{[^a-z0-9.]}i', '-', $this->endpoint));
         $this->sess = bin2hex(random_bytes(16));
@@ -151,10 +156,17 @@ class Downloader
         $url = $this->endpoint.'/'.ltrim($path, '/');
         $cacheKey = $cache ? ltrim($path, '/') : '';
 
+        $rfs = $this->rfs;
+        if ($this->eventDispatcher) {
+            $preFileDownloadEvent = new PreFileDownloadEvent(PluginEvents::PRE_FILE_DOWNLOAD, $rfs, $url);
+            $this->eventDispatcher->dispatch($preFileDownloadEvent->getName(), $preFileDownloadEvent);
+            $rfs = $preFileDownloadEvent->getRemoteFilesystem();
+        }
+
         if ($cacheKey && $contents = $this->cache->read($cacheKey)) {
             $cachedResponse = Response::fromJson(json_decode($contents, true));
             if ($lastModified = $cachedResponse->getHeader('last-modified')) {
-                $response = $this->fetchFileIfLastModified($url, $cacheKey, $lastModified, $headers);
+                $response = $this->fetchFileIfLastModified($rfs, $url, $cacheKey, $lastModified, $headers);
                 if (304 === $response->getStatusCode()) {
                     $response = new Response($cachedResponse->getBody(), $response->getOrigHeaders(), 304);
                 }
@@ -163,18 +175,18 @@ class Downloader
             }
         }
 
-        return $this->fetchFile($url, $cacheKey, $headers);
+        return $this->fetchFile($rfs, $url, $cacheKey, $headers);
     }
 
-    private function fetchFile(string $url, string $cacheKey, array $headers): Response
+    private function fetchFile(RemoteFilesystem $rfs, string $url, string $cacheKey, array $headers): Response
     {
         $options = $this->getOptions($headers);
         $retries = 3;
         while ($retries--) {
             try {
-                $json = $this->rfs->getContents($this->endpoint, $url, false, $options);
+                $json = $rfs->getContents($this->endpoint, $url, false, $options);
 
-                return $this->parseJson($json, $url, $cacheKey);
+                return $this->parseJson($json, $url, $cacheKey, $rfs->getLastHeaders());
             } catch (\Exception $e) {
                 if ($e instanceof TransportException && 404 === $e->getStatusCode()) {
                     throw $e;
@@ -196,19 +208,19 @@ class Downloader
         }
     }
 
-    private function fetchFileIfLastModified(string $url, string $cacheKey, string $lastModifiedTime, array $headers): Response
+    private function fetchFileIfLastModified(RemoteFilesystem $rfs, string $url, string $cacheKey, string $lastModifiedTime, array $headers): Response
     {
         $headers[] = 'If-Modified-Since: '.$lastModifiedTime;
         $options = $this->getOptions($headers);
         $retries = 3;
         while ($retries--) {
             try {
-                $json = $this->rfs->getContents($this->endpoint, $url, false, $options);
-                if (304 === $this->rfs->findStatusCode($this->rfs->getLastHeaders())) {
-                    return new Response('', $this->rfs->getLastHeaders(), 304);
+                $json = $rfs->getContents($this->endpoint, $url, false, $options);
+                if (304 === $rfs->findStatusCode($rfs->getLastHeaders())) {
+                    return new Response('', $rfs->getLastHeaders(), 304);
                 }
 
-                return $this->parseJson($json, $url, $cacheKey);
+                return $this->parseJson($json, $url, $cacheKey, $rfs->getLastHeaders());
             } catch (\Exception $e) {
                 if ($e instanceof TransportException && 404 === $e->getStatusCode()) {
                     throw $e;
@@ -226,7 +238,7 @@ class Downloader
         }
     }
 
-    private function parseJson(string $json, string $url, string $cacheKey): Response
+    private function parseJson(string $json, string $url, string $cacheKey, array $lastHeaders): Response
     {
         $data = JsonFile::parseJson($json, $url);
         if (!empty($data['warning'])) {
@@ -236,7 +248,7 @@ class Downloader
             $this->io->writeError('<info>Info from '.$url.': '.$data['info'].'</info>');
         }
 
-        $response = new Response($data, $this->rfs->getLastHeaders());
+        $response = new Response($data, $lastHeaders);
         if ($response->getHeader('last-modified')) {
             $this->cache->write($cacheKey, json_encode($response));
         }

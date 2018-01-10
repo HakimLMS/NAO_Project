@@ -44,9 +44,15 @@ abstract class AbstractRememberMeServices implements RememberMeServicesInterface
     private $userProviders;
 
     /**
+     * @param array           $userProviders
+     * @param string          $secret
+     * @param string          $providerKey
+     * @param array           $options
+     * @param LoggerInterface $logger
+     *
      * @throws \InvalidArgumentException
      */
-    public function __construct(array $userProviders, string $secret, string $providerKey, array $options = array(), LoggerInterface $logger = null)
+    public function __construct(array $userProviders, $secret, $providerKey, array $options = array(), LoggerInterface $logger = null)
     {
         if (empty($secret)) {
             throw new \InvalidArgumentException('$secret must not be empty.');
@@ -88,10 +94,12 @@ abstract class AbstractRememberMeServices implements RememberMeServicesInterface
      * Implementation of RememberMeServicesInterface. Detects whether a remember-me
      * cookie was set, decodes it, and hands it to subclasses for further processing.
      *
+     * @return TokenInterface|null
+     *
      * @throws CookieTheftException
      * @throws \RuntimeException
      */
-    final public function autoLogin(Request $request): ?TokenInterface
+    final public function autoLogin(Request $request)
     {
         if (null === $cookie = $request->cookies->get($this->options['name'])) {
             return null;
@@ -142,8 +150,6 @@ abstract class AbstractRememberMeServices implements RememberMeServicesInterface
 
             throw $e;
         }
-
-        return null;
     }
 
     /**

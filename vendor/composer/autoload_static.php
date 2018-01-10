@@ -8,9 +8,9 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
@@ -26,6 +26,7 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Util\\' => 22,
             'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Flex\\' => 13,
@@ -34,6 +35,7 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Stopwatch\\' => 28,
+            'Symfony\\Component\\Security\\Csrf\\' => 32,
             'Symfony\\Component\\Security\\' => 27,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\PropertyAccess\\' => 33,
@@ -55,12 +57,9 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
             'Symfony\\Component\\Asset\\' => 24,
             'Symfony\\Bundle\\WebProfilerBundle\\' => 33,
             'Symfony\\Bundle\\TwigBundle\\' => 26,
-<<<<<<< HEAD
-=======
             'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
             'Symfony\\Bundle\\SecurityBundle\\' => 30,
             'Symfony\\Bundle\\MonologBundle\\' => 29,
->>>>>>> adminmanage
             'Symfony\\Bundle\\MakerBundle\\' => 27,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bridge\\Twig\\' => 20,
@@ -86,6 +85,7 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         ),
         'D' => 
         array (
+            'Doctrine\\ORM\\' => 13,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\DBAL\\Migrations\\' => 25,
             'Doctrine\\Common\\Inflector\\' => 26,
@@ -115,6 +115,10 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfony\\Polyfill\\Util\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-util',
         ),
         'Symfony\\Polyfill\\Php72\\' => 
         array (
@@ -147,6 +151,10 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         'Symfony\\Component\\Stopwatch\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/stopwatch',
+        ),
+        'Symfony\\Component\\Security\\Csrf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/security-csrf',
         ),
         'Symfony\\Component\\Security\\' => 
         array (
@@ -232,8 +240,6 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/symfony/twig-bundle',
         ),
-<<<<<<< HEAD
-=======
         'Symfony\\Bundle\\SwiftmailerBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/swiftmailer-bundle',
@@ -246,7 +252,6 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/symfony/monolog-bundle',
         ),
->>>>>>> adminmanage
         'Symfony\\Bundle\\MakerBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/maker-bundle/src',
@@ -298,6 +303,10 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
+        ),
+        'Doctrine\\ORM\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -362,10 +371,6 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         ),
         'D' => 
         array (
-            'Doctrine\\ORM\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/orm/lib',
-            ),
             'Doctrine\\DBAL\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/dbal/lib',

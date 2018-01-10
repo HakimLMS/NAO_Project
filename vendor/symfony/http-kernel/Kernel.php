@@ -63,11 +63,11 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
     private $requestStackSize = 0;
     private $resetServices = false;
 
-    const VERSION = '4.0.2';
-    const VERSION_ID = 40002;
+    const VERSION = '4.0.3';
+    const VERSION_ID = 40003;
     const MAJOR_VERSION = 4;
     const MINOR_VERSION = 0;
-    const RELEASE_VERSION = 2;
+    const RELEASE_VERSION = 3;
     const EXTRA_VERSION = '';
 
     const END_OF_MAINTENANCE = '07/2018';
@@ -532,7 +532,7 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
             $oldContainerDir = dirname($oldContainer->getFileName());
             foreach (glob(dirname($oldContainerDir).'/*.legacy') as $legacyContainer) {
                 if ($oldContainerDir.'.legacy' !== $legacyContainer && @unlink($legacyContainer)) {
-                    (new Filesystem())->remove(substr($legacyContainer, 0, -16));
+                    (new Filesystem())->remove(substr($legacyContainer, 0, -7));
                 }
             }
 

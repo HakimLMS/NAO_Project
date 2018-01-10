@@ -30,7 +30,7 @@ class RememberMeToken extends AbstractToken
      *
      * @throws \InvalidArgumentException
      */
-    public function __construct(UserInterface $user, string $providerKey, string $secret)
+    public function __construct(UserInterface $user, $providerKey, $secret)
     {
         parent::__construct($user->getRoles());
 

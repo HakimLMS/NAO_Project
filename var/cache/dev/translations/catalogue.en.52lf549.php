@@ -96,6 +96,7 @@ $catalogue = new MessageCatalogue('en', array (
     'Cookie has already been used by someone else.' => 'Cookie has already been used by someone else.',
     'Not privileged to request the resource.' => 'Not privileged to request the resource.',
     'Invalid CSRF token.' => 'Invalid CSRF token.',
+    'Digest nonce has expired.' => 'Digest nonce has expired.',
     'No authentication provider found to support the authentication token.' => 'No authentication provider found to support the authentication token.',
     'No session available, it either timed out or cookies are not enabled.' => 'No session available, it either timed out or cookies are not enabled.',
     'No token could be found.' => 'No token could be found.',

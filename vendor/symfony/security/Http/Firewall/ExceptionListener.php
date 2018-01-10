@@ -52,7 +52,7 @@ class ExceptionListener
     private $httpUtils;
     private $stateless;
 
-    public function __construct(TokenStorageInterface $tokenStorage, AuthenticationTrustResolverInterface $trustResolver, HttpUtils $httpUtils, string $providerKey, AuthenticationEntryPointInterface $authenticationEntryPoint = null, string $errorPage = null, AccessDeniedHandlerInterface $accessDeniedHandler = null, LoggerInterface $logger = null, bool $stateless = false)
+    public function __construct(TokenStorageInterface $tokenStorage, AuthenticationTrustResolverInterface $trustResolver, HttpUtils $httpUtils, $providerKey, AuthenticationEntryPointInterface $authenticationEntryPoint = null, $errorPage = null, AccessDeniedHandlerInterface $accessDeniedHandler = null, LoggerInterface $logger = null, $stateless = false)
     {
         $this->tokenStorage = $tokenStorage;
         $this->accessDeniedHandler = $accessDeniedHandler;
@@ -98,7 +98,7 @@ class ExceptionListener
         } while (null !== $exception = $exception->getPrevious());
     }
 
-    private function handleAuthenticationException(GetResponseForExceptionEvent $event, AuthenticationException $exception): void
+    private function handleAuthenticationException(GetResponseForExceptionEvent $event, AuthenticationException $exception)
     {
         if (null !== $this->logger) {
             $this->logger->info('An AuthenticationException was thrown; redirecting to authentication entry point.', array('exception' => $exception));
@@ -161,14 +161,19 @@ class ExceptionListener
         }
     }
 
-    private function handleLogoutException(LogoutException $exception): void
+    private function handleLogoutException(LogoutException $exception)
     {
         if (null !== $this->logger) {
             $this->logger->info('A LogoutException was thrown.', array('exception' => $exception));
         }
     }
 
-    private function startAuthentication(Request $request, AuthenticationException $authException): Response
+    /**
+     * @return Response
+     *
+     * @throws AuthenticationException
+     */
+    private function startAuthentication(Request $request, AuthenticationException $authException)
     {
         if (null === $this->authenticationEntryPoint) {
             throw $authException;

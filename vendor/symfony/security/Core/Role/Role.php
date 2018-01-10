@@ -16,19 +16,20 @@ namespace Symfony\Component\Security\Core\Role;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Role
+class Role implements RoleInterface
 {
     private $role;
 
-    public function __construct(string $role)
+    /**
+     * @param string $role The role name
+     */
+    public function __construct($role)
     {
-        $this->role = $role;
+        $this->role = (string) $role;
     }
 
     /**
-     * Returns a string representation of the role.
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getRole()
     {

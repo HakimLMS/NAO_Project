@@ -37,7 +37,9 @@ class MarkefileConfiguratorTest extends TestCase
         @unlink($makefile);
         touch($makefile);
 
-        $makefile1 = explode("\n", <<<EOF
+        $makefile1 = explode(
+            "\n",
+            <<<EOF
 CONSOLE := $(shell which bin/console)
 sf_console:
 ifndef CONSOLE
@@ -45,7 +47,9 @@ ifndef CONSOLE
 endif
 EOF
         );
-        $makefile2 = explode("\n", <<<EOF
+        $makefile2 = explode(
+            "\n",
+            <<<EOF
 cache-clear:
 ifdef CONSOLE
 	@$(CONSOLE) cache:clear --no-warmup
@@ -60,17 +64,17 @@ EOF
         $makefileContents2 = "###> BarBundle ###\n".implode("\n", $makefile2)."\n###< BarBundle ###";
 
         $configurator->configure($recipe1, $makefile1);
-        $this->assertEquals("\n".$makefileContents1."\n", file_get_contents($makefile));
+        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n");
 
         $configurator->configure($recipe2, $makefile2);
-        $this->assertEquals("\n".$makefileContents1."\n\n".$makefileContents2."\n", file_get_contents($makefile));
+        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n\n".$makefileContents2."\n");
 
         $configurator->configure($recipe1, $makefile1);
         $configurator->configure($recipe2, $makefile2);
-        $this->assertEquals("\n".$makefileContents1."\n\n".$makefileContents2."\n", file_get_contents($makefile));
+        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n\n".$makefileContents2."\n");
 
         $configurator->unconfigure($recipe1, $makefile1);
-        $this->assertEquals($makefileContents2."\n", file_get_contents($makefile));
+        $this->assertStringEqualsFile($makefile, $makefileContents2."\n");
 
         $configurator->unconfigure($recipe2, $makefile2);
         $this->assertFalse(is_file($makefile));

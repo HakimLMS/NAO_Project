@@ -33,9 +33,13 @@ abstract class UserAuthenticationProvider implements AuthenticationProviderInter
     private $providerKey;
 
     /**
+     * @param UserCheckerInterface $userChecker                An UserCheckerInterface interface
+     * @param string               $providerKey                A provider key
+     * @param bool                 $hideUserNotFoundExceptions Whether to hide user not found exception or not
+     *
      * @throws \InvalidArgumentException
      */
-    public function __construct(UserCheckerInterface $userChecker, string $providerKey, bool $hideUserNotFoundExceptions = true)
+    public function __construct(UserCheckerInterface $userChecker, $providerKey, $hideUserNotFoundExceptions = true)
     {
         if (empty($providerKey)) {
             throw new \InvalidArgumentException('$providerKey must not be empty.');

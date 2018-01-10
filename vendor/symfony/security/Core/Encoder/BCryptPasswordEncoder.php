@@ -29,8 +29,9 @@ class BCryptPasswordEncoder extends BasePasswordEncoder implements SelfSaltingEn
      * @throws \RuntimeException         When no BCrypt encoder is available
      * @throws \InvalidArgumentException if cost is out of range
      */
-    public function __construct(int $cost)
+    public function __construct($cost)
     {
+        $cost = (int) $cost;
         if ($cost < 4 || $cost > 31) {
             throw new \InvalidArgumentException('Cost must be in the range of 4-31.');
         }

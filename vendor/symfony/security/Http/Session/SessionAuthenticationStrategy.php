@@ -32,7 +32,7 @@ class SessionAuthenticationStrategy implements SessionAuthenticationStrategyInte
 
     private $strategy;
 
-    public function __construct(string $strategy)
+    public function __construct($strategy)
     {
         $this->strategy = $strategy;
     }
