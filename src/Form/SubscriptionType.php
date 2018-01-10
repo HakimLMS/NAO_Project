@@ -41,7 +41,7 @@ class SubscriptionType extends AbstractType {
                 'required' => false
                 ))
             ->add('newsletter', CheckboxType::class, array(
-                'label'    => 'Je souahite m\'inscrire à la Newsletter' ,
+                'label'    => 'Je souhaite m\'inscrire à la Newsletter' ,
                 'required' => false
                 ))
             ->add('S\'inscrire', SubmitType::class)

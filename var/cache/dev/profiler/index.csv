@@ -41,3 +41,9 @@ de16c4,::1,POST,http://localhost/NAO_project/public/index.php/subscribe,15155828
 09f1ad,::1,POST,http://localhost/NAO_project/public/index.php/subscribe,1515583026,,500
 d74eb6,::1,POST,http://localhost/NAO_project/public/index.php/subscribe,1515583084,,200
 6e1914,::1,POST,http://localhost/NAO_project/public/index.php/subscribe,1515583131,,200
+3f1420,::1,GET,http://localhost/NAO_project/public/index.php/user/login,1515591888,,200
+f2bc5b,::1,GET,http://localhost/NAO_project/public/index.php/subscribe,1515591894,,200
+0545d5,::1,POST,http://localhost/NAO_project/public/index.php/subscribe,1515591923,,200
+7e0cbb,::1,POST,http://localhost/NAO_project/public/index.php/subscribe,1515592046,,200
+fa4e75,::1,POST,http://localhost/NAO_project/public/index.php/subscribe,1515592932,,200
+1ebdec,::1,GET,http://localhost/NAO_project/public/index.php/subscribe,1515592944,,200
