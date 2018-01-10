@@ -11,15 +11,18 @@ use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Services\ArticleService;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 class BlogController extends Controller
 {
     /**
      * @Route("/", name="home")
      */
-    public function index()
+    public function index(ArticleService $articleService)
     {
-    	return $this->render('blog/home.html.twig');
+    	
+        return $this->render('blog/home.html.twig');
     }	
 
 
@@ -28,10 +31,12 @@ class BlogController extends Controller
      */
     public function list(ArticleService $articleService)
     {
-         $articles = $articleService->findAllArticles();
+        $articles = $articleService->findAllArticles();
+        $reponse = new JsonResponse($articles);
 
         return $this->render('blog/list.html.twig', array(
         	'articles' => $articles,
+            'reponse'  => $reponse,
         	));	
     }
 
