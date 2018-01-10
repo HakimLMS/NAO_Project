@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/wamp64/www/NAO_project/src/Controller/UserController.php</file>
+            <file>file:/E:/wamp64/www/NAO_project/templates/Administration/dashboard.html.twig</file>
+            <file>file:/E:/wamp64/www/NAO_project/src/Services/ValidateUserHandler.php</file>
+            <file>file:/E:/wamp64/www/NAO_project/src/Services/SubscribeHandler.php</file>
+            <file>file:/E:/wamp64/www/NAO_project/src/Entity/User.php</file>
+            <file>file:/E:/wamp64/www/NAO_project/src/Services/DowngradeUserHandler.php</file>
+            <file>file:/E:/wamp64/www/NAO_project/src/Services/DashboardDataGenerator/AdminDashboard.php</file>
+            <file>file:/E:/wamp64/www/NAO_project/src/Repository/UserRepository.php</file>
+        </group>
+    </open-files>
+</project-private>
