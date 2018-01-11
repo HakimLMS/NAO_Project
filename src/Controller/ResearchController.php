@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Aves;
 use App\Form\ResearchBirdType;
+use App\Services\ResearchHandler;
 
 
 class ResearchController extends Controller
@@ -16,16 +17,10 @@ class ResearchController extends Controller
     /**
      * @Route("/research", name="research")
      */
-    public function index(Request $request)
+    public function index(Request $request, ResearchHandler $researchHandler)
     {
-       $bird = new Aves; 
-       $form = $this->createForm(ResearchBirdType::class, $bird);
-       $form->handleRequest($request);
+       $data = $researchHandler->generateData($request);
 
-       if($form->isSubmitted() && $form->isValid()) {
-
-       }
-
-       return $this->render('research/research.html.twig', array('form' => $form->createView()));
+       return $this->render('research/research.html.twig', array('form' => $data['form']->createview()));
     }
 }
