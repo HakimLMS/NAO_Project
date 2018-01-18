@@ -14,3 +14,7 @@ user:
 user/subscribe:
     path: /user/subscribe
     controller: 'App\Controller\UserController::subscribe'
+    
+don:
+    path: /don
+    controller: 'App\Controller\DonController::index'
