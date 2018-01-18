@@ -1,0 +1,168 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+	<div class="container-fluid" id="homepage-first-section">
+	<div class="white-filter" id="filtre">
+		<h1>Faisons un geste pour les oiseaux,<br>respectons la nature ensemble.</h1>
+
+		<div class="container">
+			<div class="row">
+				<div class="offset-1 col-10" id="block-description">
+					<p>NAO est une association de protection des oiseaux et de leurs habitats naturels. Nous mettons en place un programme de recherche permettant de collecter des données afin d'étudier les effets du climat, de l'urbanisation et de l'agriculture sur la biodiversité et l'environnement naturel.</p>
+				</div>
+			</div>
+			
+		</div>
+
+		<h3>Comment agir ensemble ?</h3>
+
+		<div class="container" id="block-icons">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1" id="block-icons-2">
+					<a href="#" class="block-icon" id="block-observez"><div>
+						<img src="{{ asset('build/img/jumelles-blanc.svg') }}" height="44.5px" width="63px">
+						<p>Observez</p>
+					</div></a>
+					<a href="#" class="block-icon" id="block-retrouvez"><div>
+						<img src="{{ asset('build/img/map-blanc.svg') }}" height="44px" width="48px">
+						<p>Retrouvez</p>
+					</div></a>
+					<a href="{{ path('research') }}" class="block-icon" id="block-recherchez"><div>
+						<img src="{{ asset('build/img/loupe-blanc.svg') }}" width="40px" height="44px">
+						<p>Recherchez</p>
+					</div></a>
+					<a href="{{ path('dashboard') }}" class="block-icon" id="block-dashboard"><div>
+						<img src="{{ asset('build/img/user-blanc.svg') }}" height="44x" width="44px">
+						<p>Mon espace</p>
+					</div></a>
+					<a href="{{ path('association') }}" class="block-icon" id="block-association"><div>
+						<img src="{{ asset('build/img/world_rose.svg') }}" width="44px" height="44px">
+						<p>Notre mission</p>
+					</div></a>
+				</div>
+			</div>
+			<!--
+			<div class="row">
+				<a href="#" class="col-lg-2 offset-lg-1 block-icon" id="block-observez"><div>
+					<img src="{{ asset('build/img/jumelles-blanc.svg') }}" height="44.5px" width="63px">
+					<br>
+					Observez
+				</div></a>
+				<a href="#" class="col-lg-2 block-icon" id="block-retrouvez"><div>
+					<img src="{{ asset('build/img/map-blanc.svg') }}" height="44px" width="48px">
+					<br>
+					Retrouvez
+				</div></a>
+				<a href="{{ path('research') }}" class="col-lg-2 block-icon" id="block-recherchez"><div>
+					<img src="{{ asset('build/img/loupe-blanc.svg') }}" width="40px" height="44px">
+					<br>
+					Recherchez
+				</div></a>
+				<a href="{{ path('dashboard') }}" class="col-lg-2 block-icon" id="block-dashboard"><div>
+					<img src="{{ asset('build/img/user-blanc.svg') }}" height="44px" width="42px">
+					<br>
+					Mon espace
+				</div></a>
+				<a href="{{ path('association') }}" class="col-lg-2 block-icon" id="block-association"><div>
+					<img src="{{ asset('build/img/world_rose.svg') }}" width="44px" height="44px">
+					<br>
+					Notre mission
+				</div></a>
+			</div>
+			-->
+		</div>
+	</div>	
+	</div>
+
+
+	<div class="container-fluid" id="homepage-second-section">
+		<div class="container" id="block-community">
+			<div class="row">
+				<div class="col-md-7">
+					<h2>Contribuez pleinement à la préservation des espèces d'oiseaux et de leurs habitats naturels.</h2>
+				</div>
+				
+				<div class="offset-md-1 col-md-4">
+					<button class="btn">Rejoignez la communauté !</button>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="offset-4 col-4 pink-bar"></div>
+			</div>
+		</div>
+
+		<div id="block-testimonials">
+			<div class="container">
+				<h2>NAO, c'est notre communauté qui en parle le mieux :</h2>
+			</div>
+			
+			<div class="row" id="testimonials">
+				<div class="col-md-4 testimony">
+					<div class="row">
+					 	<img src="" class="col-3">
+					 	<p class="offset-1 col-8">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<br>
+					 	<span>Nom - Date</span>
+					 	</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 testimony">
+					<div class="row">
+					 	<img src="" class="col-3">
+					 	<p class="offset-1 col-8">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<br>
+					 	<span>Nom - Date</span>
+					 	</p>
+					</div>	  
+				</div>
+
+				<div class="col-md-4 testimony">
+				 	<div class="row">
+					 	<img src="" class="col-3">
+					 	<p class="offset-1 col-8">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<br>
+					 	<span>Nom - Date</span>
+					 	</p>
+					</div>
+				</div>
+			</div>	
+
+		</div>
+
+		<div id="block-social-networks">
+			<ul class="nav justify-content-center">
+			  <li class="nav-item">
+			    <a class="nav-link" target="_blank" href="https://facebook.com"><img src="{{ asset('build/img/facebook_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" target="_blank" href="https://twitter.com"><img src="{{ asset('build/img/twitter_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" target="_blank" href="https://instagram.com"><img src="{{ asset('build/img/instagram_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
+			  </li>
+			</ul>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="offset-md-2 col-md-8" id="block-newsletter">
+					<p>Abonnez-vous à la Newsletter pour être le premier informé</p>
+					<form method="post">
+						<input class="form-control" type="email" name="newsletter" placeholder="Votre adresse mail">
+						<button type="submit" class="btn">Valider</button>
+					</form>
+				</div>	
+			</div>
+			
+		</div>
+	</div>
+
+	
+
+
+{% endblock %}	

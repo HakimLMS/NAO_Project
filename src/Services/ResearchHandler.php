@@ -28,7 +28,7 @@ class ResearchHandler
 	{
 		$form->handleRequest($request);
 		if ($form->isSubmitted() && $form->isValid()) {
-			//ajax code
+			//query code
 		}
 	}
 

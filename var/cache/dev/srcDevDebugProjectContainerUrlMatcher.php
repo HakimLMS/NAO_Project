@@ -30,16 +30,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
 
-        // home
-        if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'App\\Controller\\BlogController::index',  '_route' => 'home',);
-            if (substr($pathinfo, -1) !== '/') {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
-            }
-
-            return $ret;
-        }
-
         if (0 === strpos($pathinfo, '/blog')) {
             // article_single
             if (preg_match('#^/blog/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
@@ -51,6 +41,26 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'App\\Controller\\BlogController::list',  '_route' => 'blog_list',);
             }
 
+        }
+
+        // home
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\HomeController::index',  '_route' => 'home',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
+            }
+
+            return $ret;
+        }
+
+        // mentions_legales
+        if ('/mentions-legales' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\HomeController::mentions',  '_route' => 'mentions_legales',);
+        }
+
+        // association
+        if ('/association' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\HomeController::association',  '_route' => 'association',);
         }
 
         // research

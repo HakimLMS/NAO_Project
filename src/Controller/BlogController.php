@@ -16,28 +16,15 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BlogController extends Controller
 {
-    /**
-     * @Route("/", name="home")
-     */
-    public function index(ArticleService $articleService)
-    {
-    	
-        return $this->render('blog/home.html.twig');
-    }	
-
-
+    
     /**
      * @Route("/blog", name="blog_list")
      */
     public function list(ArticleService $articleService)
     {
         $articles = $articleService->findAllArticles();
-        $reponse = new JsonResponse($articles);
 
-        return $this->render('blog/list.html.twig', array(
-        	'articles' => $articles,
-            'reponse'  => $reponse,
-        	));	
+        return $this->render('blog/list.html.twig', array('articles' => $articles));	
     }
 
 

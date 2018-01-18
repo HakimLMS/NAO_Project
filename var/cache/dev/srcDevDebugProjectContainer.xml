@@ -368,6 +368,9 @@
     <service id="App\Controller\BlogController" class="App\Controller\BlogController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
+    <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
     <service id="App\Controller\ResearchController" class="App\Controller\ResearchController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
@@ -455,7 +458,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.iAlCm5Q"/>
+      <argument type="service" id="service_locator.L2uNYuK"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -3956,6 +3959,8 @@
     </service>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\BlogController" class="App\Controller\BlogController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\BlogController" class="App\Controller\BlogController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\ResearchController" class="App\Controller\ResearchController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\ResearchController" class="App\Controller\ResearchController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\UserController" class="App\Controller\UserController" public="false" autowire="true" abstract="true"/>
@@ -4118,10 +4123,9 @@
         <argument key="downgradeUHandler" type="service" id="App\Services\DowngradeUserHandler" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.iAlCm5Q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.L2uNYuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\BlogController:index" type="service" id="service_locator.oTHV_I7"/>
         <argument key="App\Controller\BlogController:list" type="service" id="service_locator.oTHV_I7"/>
         <argument key="App\Controller\ResearchController:index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController:dashboardAction" type="service" id="service_locator.saQ8x6M"/>
@@ -4129,7 +4133,6 @@
         <argument key="App\Controller\UserController:login" type="service" id="service_locator.NkUBxsb"/>
         <argument key="App\Controller\UserController:subscribeAction" type="service" id="service_locator.R6oaVOY"/>
         <argument key="App\Controller\UserController:validateUserAction" type="service" id="service_locator.xiVkYm3"/>
-        <argument key="App\Controller\BlogController::index" type="service" id="service_locator.oTHV_I7"/>
         <argument key="App\Controller\BlogController::list" type="service" id="service_locator.oTHV_I7"/>
         <argument key="App\Controller\ResearchController::index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController::dashboardAction" type="service" id="service_locator.saQ8x6M"/>
