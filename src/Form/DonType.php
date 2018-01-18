@@ -25,7 +25,9 @@ class DonType extends AbstractType
             ->add('lastname', TextType::class, array('label' => 'Nom', 'required' => true))
             ->add('firstname', TextType::class, array('label' => 'Prénom', 'required' => true))
             ->add('mail', EmailType::class, array('label' => 'Mail', 'required' => true))
-            ->add('CB', SubmitType::class)
+            ->add('CB', SubmitType::class, array('label' => 'Paiement par Carte Bancaire'))
+            ->add('CHQ', SubmitType::class, array('label' => 'Paiement par Chèque'))
+            ->add('VIR', SubmitType::class, array('label' => 'Paiement par Virement'))
         ;
     }
 

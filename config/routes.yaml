@@ -18,3 +18,12 @@ user/subscribe:
 don:
     path: /don
     controller: 'App\Controller\DonController::index'
+    
+CB:
+    path: /don/CB
+    controller: 'App\Controller\DonController::CB'
+    
+CBcheckout:
+    path: /don/CB/checkout
+    controller: 'App\Controller\DonController::CBcheckout'
+    methods: POST

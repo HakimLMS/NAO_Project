@@ -170,6 +170,25 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\DonController::index',  '_route' => 'don',);
         }
 
+        if (0 === strpos($pathinfo, '/don/CB')) {
+            // CB
+            if ('/don/CB' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\DonController::CB',  '_route' => 'CB',);
+            }
+
+            // CBcheckout
+            if ('/don/CB/checkout' === $pathinfo) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_CBcheckout;
+                }
+
+                return array (  '_controller' => 'App\\Controller\\DonController::CBcheckout',  '_route' => 'CBcheckout',);
+            }
+            not_CBcheckout:
+
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

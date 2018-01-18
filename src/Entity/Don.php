@@ -37,7 +37,7 @@ class Don
     private $mail;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 
@@ -45,6 +45,10 @@ class Don
      * @ORM\Column(type="string")
      */
     private $meansOfPayment;
+
+    public function __construct() {
+        $this->date = new \DateTime();
+    }
 
     /**
      * @return mixed

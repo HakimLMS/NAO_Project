@@ -41,6 +41,8 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'user' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'App\\Controller\\UserController::index',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/user',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'user/subscribe' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'App\\Controller\\UserController::subscribe',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/user/subscribe',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'don' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'App\\Controller\\DonController::index',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/don',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+        'CB' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'App\\Controller\\DonController::CB',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/don/CB',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+        'CBcheckout' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'App\\Controller\\DonController::CBcheckout',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/don/CB/checkout',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
     );
         }
     }
