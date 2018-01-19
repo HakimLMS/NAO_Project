@@ -1,0 +1,60 @@
+security:
+    # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
+    
+    providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, db_provider]
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        password: $2y$12$y58R1f1AvZdhpXbGag5In.h7I3/pHyXjOchbP4vurX1zKchXUlS5e
+                        roles: 'ROLE_ADMIN'
+        db_provider:
+            entity:
+                class: App\Entity\User
+
+                
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            pattern: ^/
+            provider: chain_provider
+            form_login:
+                login_path: login
+                check_path: login
+                username_parameter: _username
+                password_parameter: _password
+                post_only: true
+                default_target_path: dashboard
+                csrf_token_generator: security.csrf.token_manager
+                
+            logout:
+                path: security_logout
+                target: homepage
+    access_control:
+    - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/user/, roles: ROLE_USER }
+    - { path: ^/user/, roles: ROLE_ORGANISER }
+    - { path: ^/user/, roles: ROLE_ADMIN }
+    role_hierarchy:
+        ROLE_ADMIN:      [ROLE_ORGANIZER, ROLE_USER]
+        ROLE_SUPERADMIN: [ROLE_ADMIN]
+        
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            # https://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: ~
+            # 
