@@ -5,7 +5,7 @@
 {% block body %}
 
 	<div class="container-fluid" id="homepage-first-section">
-	<div class="white-filter" id="filtre">
+	<div id="filtre">
 		<h1>Faisons un geste pour les oiseaux,<br>respectons la nature ensemble.</h1>
 
 		<div class="container">
@@ -86,7 +86,7 @@
 				</div>
 				
 				<div class="offset-md-1 col-md-4">
-					<button class="btn">Rejoignez la communauté !</button>
+					<a href="{{ path('subscribe') }}"><button class="btn">Rejoignez la communauté !</button></a>
 				</div>
 			</div>
 
@@ -100,31 +100,31 @@
 				<h2>NAO, c'est notre communauté qui en parle le mieux :</h2>
 			</div>
 			
-			<div class="row" id="testimonials">
-				<div class="col-md-4 testimony">
+			<div class="row justify-content-md-center" id="testimonials">
+				<div class="col-md-3 testimony">
 					<div class="row">
-					 	<img src="" class="col-3">
-					 	<p class="offset-1 col-8">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<img src="{{ asset('build/img/user1.jpg') }}" class="col-3">
+					 	<p class="offset-1 col-7">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
 					 	<br>
 					 	<span>Nom - Date</span>
 					 	</p>
 					</div>
 				</div>
 
-				<div class="col-md-4 testimony">
+				<div class="col-md-3 testimony">
 					<div class="row">
-					 	<img src="" class="col-3">
-					 	<p class="offset-1 col-8">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<img src="{{ asset('build/img/user2.jpg') }}" class="col-3">
+					 	<p class="offset-1 col-7">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
 					 	<br>
 					 	<span>Nom - Date</span>
 					 	</p>
 					</div>	  
 				</div>
 
-				<div class="col-md-4 testimony">
+				<div class="col-md-3 testimony">
 				 	<div class="row">
-					 	<img src="" class="col-3">
-					 	<p class="offset-1 col-8">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<img src="{{ asset('build/img/user3.jpg') }}" class="col-3">
+					 	<p class="offset-1 col-7">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
 					 	<br>
 					 	<span>Nom - Date</span>
 					 	</p>
@@ -150,7 +150,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="offset-md-2 col-md-8" id="block-newsletter">
+				<div class="offset-md-3 col-md-6" id="block-newsletter">
 					<p>Abonnez-vous à la Newsletter pour être le premier informé</p>
 					<form method="post">
 						<input class="form-control" type="email" name="newsletter" placeholder="Votre adresse mail">

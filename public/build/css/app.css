@@ -18,6 +18,7 @@
 	margin-top: 31px;
 }
 
+
 #menu li:hover {
 	background: #f4f4f4;
 }
@@ -36,6 +37,7 @@
 	font-size: 15px;
 	color: #4152A0;
 	font-weight: 500;
+	
 }
 
 #menu li {
@@ -60,7 +62,7 @@
 @media screen and (max-width: 768px) {
 
 	#menu {
-		margin-top: 21px;
+		margin-top: 25px;
 	}
 
 	#header #logo img {
@@ -89,7 +91,7 @@
 	padding-right: 0;
 }
 
-.white-filter {
+.white-filter, #filtre {
 	background-color: rgba(255, 255, 255, 0.6);
 	width: 100%; 
 }
@@ -161,6 +163,10 @@
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, .75);
 }
 
+.block-icon:hover {
+	box-shadow: none;
+}
+
 .block-icon:first-of-type {
 	margin-left: 25px;
 }
@@ -214,8 +220,8 @@
 
 #block-community button {
 	display: block;
-	margin: 30px auto 0;
-	font-size: 20px;
+	margin: 30px auto 20px;
+	font-size: 19px;
 	border-radius: 4px;
 	color: white;
 	background: #E4007D;
@@ -227,39 +233,59 @@
 	box-shadow: none;
 }
 
+#block-community a {
+	text-decoration: none;
+}
+
 .pink-bar {
 	border-top: #E4007D 2px solid;
 }
-
+/*
 #testimonials {
 	padding-left: 40px;
 	padding-right: 40px;
 }
+*/
 
+#testimonials {
+
+}
 
 .testimony {
-	/*margin-right: 10px;*/
-	padding: 10px;
+	padding: 20px 10px 0px 10px;
 	font-size: 18px;
 	background: #9d5f87;
 	color: white;
 	border-radius: 5px;
-	border: 2px solid #7c348a;
+	border: 1px solid #7c348a;
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, .55);
+	margin-bottom: 30px;
+}
+
+.testimony:nth-child(2) {
+	margin-right: 50px;
+	margin-left: 50px;
 }
 
 .testimony img {
-	width: 104px;
-	height: 104px;
+	max-width: 25%;
+	height: 25%;
+	border: white 2px solid;
+	padding: 0;
+	margin-left: 20px;
+	margin-top: 15px;
+	border-radius: 5px;
+	text-align: center;
 }
 
 .testimony span {
+	display: inline-block;
+	padding-top: 10px;
 	font-weight: 100;
 }
 
 
 #block-social-networks {
-	margin-top: 20px;
 	margin-bottom: 100px;
 }
 
@@ -304,16 +330,72 @@
 	width: 90%;
 }
 
+@media screen and (min-width: 1500px) {
+	.testimony img {
+		max-width: 105px;
+		height: 105px;
+	}
+}
+
 
 @media screen and (max-width: 768px) {
 	#homepage-first-section {
-		background-image: ;
+		background-image: url('../img/pinson-home-responsive3.jpg');
 		background-repeat: no-repeat;
 		background-position: center;
 	}
 
+	#homepage-first-section h1 {
+		font-size: 26px;
+	}
+
+	#block-description {
+		font-size: 18px;
+	}
+
+	#homepage-first-section h3 {
+		font-size: 20px;
+	}
+
+	#block-icon {
+		min-width: 100px;
+		min-height: 100px;
+	}
+
+	#homepage-second-section h2 {
+		font-size: 23px;
+		text-align: center;
+	}
+
+	#block-community button {
+		font-size: 18px;
+	}
+
+
 	.pink-bar {
 		margin-top: 50px;
+	}
+
+
+	.testimony:nth-child(2), .testimony {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+
+	.testimony img {
+		margin: auto;
+		max-width: 70px;
+		height: 70px;
+	}
+
+
+	.testimony {
+		font-size: 14px;
+	}
+
+	#block-social-networks img {
+		width: 19px;
+		height: 19px;
 	}
 
 
@@ -360,7 +442,7 @@
 #mentions-legales h4, #mentions-legales p, #association p {
 	color: #7f87aa;
 }
-
+  
 #mentions-legales h4 {
 	font-size: 18px;
 	font-weight: bold;
@@ -580,7 +662,7 @@
 	}    
 
 	#nav-footer {
-		padding-top: 5px;
+		padding-top: 0px;
 	}
 
 	#nav-footer a {
