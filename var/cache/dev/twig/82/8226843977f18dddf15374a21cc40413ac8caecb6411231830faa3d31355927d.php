@@ -10,8 +10,8 @@ class __TwigTemplate_e66364d32e261f3deea631a85658e186174cd48c6f278f668a431eb7bb8
         // line 1
         $this->parent = $this->loadTemplate("base.html.twig", "blog/single.html.twig", 1);
         $this->blocks = array(
-            'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -22,61 +22,43 @@ class __TwigTemplate_e66364d32e261f3deea631a85658e186174cd48c6f278f668a431eb7bb8
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_72a159e4ecc876dca850278457f1ab65ac9ab3b871523ca2edf5555b3ba65cbb = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_72a159e4ecc876dca850278457f1ab65ac9ab3b871523ca2edf5555b3ba65cbb->enter($__internal_72a159e4ecc876dca850278457f1ab65ac9ab3b871523ca2edf5555b3ba65cbb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/single.html.twig"));
+        $__internal_90520404735c4ff1360a83ebf060d9303e27a044f883c0c92e865929b7329fbd = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_90520404735c4ff1360a83ebf060d9303e27a044f883c0c92e865929b7329fbd->enter($__internal_90520404735c4ff1360a83ebf060d9303e27a044f883c0c92e865929b7329fbd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/single.html.twig"));
 
-        $__internal_e9740d9fa861ac8667cbc8a7f4293e7607f8a5f6cb9d9bb691779b8936d90403 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e9740d9fa861ac8667cbc8a7f4293e7607f8a5f6cb9d9bb691779b8936d90403->enter($__internal_e9740d9fa861ac8667cbc8a7f4293e7607f8a5f6cb9d9bb691779b8936d90403_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/single.html.twig"));
+        $__internal_4c010a8d2c66ffa734461bf26eecb083a8239895519eeba324b82af1aadc098a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4c010a8d2c66ffa734461bf26eecb083a8239895519eeba324b82af1aadc098a->enter($__internal_4c010a8d2c66ffa734461bf26eecb083a8239895519eeba324b82af1aadc098a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "blog/single.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_72a159e4ecc876dca850278457f1ab65ac9ab3b871523ca2edf5555b3ba65cbb->leave($__internal_72a159e4ecc876dca850278457f1ab65ac9ab3b871523ca2edf5555b3ba65cbb_prof);
+        $__internal_90520404735c4ff1360a83ebf060d9303e27a044f883c0c92e865929b7329fbd->leave($__internal_90520404735c4ff1360a83ebf060d9303e27a044f883c0c92e865929b7329fbd_prof);
 
         
-        $__internal_e9740d9fa861ac8667cbc8a7f4293e7607f8a5f6cb9d9bb691779b8936d90403->leave($__internal_e9740d9fa861ac8667cbc8a7f4293e7607f8a5f6cb9d9bb691779b8936d90403_prof);
+        $__internal_4c010a8d2c66ffa734461bf26eecb083a8239895519eeba324b82af1aadc098a->leave($__internal_4c010a8d2c66ffa734461bf26eecb083a8239895519eeba324b82af1aadc098a_prof);
 
     }
 
-    // line 3
-    public function block_title($context, array $blocks = array())
-    {
-        $__internal_0ffbea451f3bc088e13591d8537d3f4471cccea160fb484b6128d272c6443093 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0ffbea451f3bc088e13591d8537d3f4471cccea160fb484b6128d272c6443093->enter($__internal_0ffbea451f3bc088e13591d8537d3f4471cccea160fb484b6128d272c6443093_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_2a3972001a5ac41e760028847f8003f66c2da9d42948d66ff457178d57adb1f5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_2a3972001a5ac41e760028847f8003f66c2da9d42948d66ff457178d57adb1f5->enter($__internal_2a3972001a5ac41e760028847f8003f66c2da9d42948d66ff457178d57adb1f5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
-
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 3, $this->getSourceContext()); })()), "title", array()), "html", null, true);
-        
-        $__internal_2a3972001a5ac41e760028847f8003f66c2da9d42948d66ff457178d57adb1f5->leave($__internal_2a3972001a5ac41e760028847f8003f66c2da9d42948d66ff457178d57adb1f5_prof);
-
-        
-        $__internal_0ffbea451f3bc088e13591d8537d3f4471cccea160fb484b6128d272c6443093->leave($__internal_0ffbea451f3bc088e13591d8537d3f4471cccea160fb484b6128d272c6443093_prof);
-
-    }
-
-    // line 5
+    // line 7
     public function block_body($context, array $blocks = array())
     {
-        $__internal_e8009c13cdc7a0a6114f5dfb9fcc24e85cc3cfd106fbe402ec866da720c402e9 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e8009c13cdc7a0a6114f5dfb9fcc24e85cc3cfd106fbe402ec866da720c402e9->enter($__internal_e8009c13cdc7a0a6114f5dfb9fcc24e85cc3cfd106fbe402ec866da720c402e9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_5ab45080a5e87c59a9e300dd574e5cb8ef2a0298f4a8cedb830a11e7940d1791 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5ab45080a5e87c59a9e300dd574e5cb8ef2a0298f4a8cedb830a11e7940d1791->enter($__internal_5ab45080a5e87c59a9e300dd574e5cb8ef2a0298f4a8cedb830a11e7940d1791_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_326f33ba933815989712015d1d0d47ab0abe2f9d173de2f67ad4f6e77109266f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_326f33ba933815989712015d1d0d47ab0abe2f9d173de2f67ad4f6e77109266f->enter($__internal_326f33ba933815989712015d1d0d47ab0abe2f9d173de2f67ad4f6e77109266f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_22d4bdab83246fdf8f3da22024af000b1c36739bc10a23e797e20f850babb309 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_22d4bdab83246fdf8f3da22024af000b1c36739bc10a23e797e20f850babb309->enter($__internal_22d4bdab83246fdf8f3da22024af000b1c36739bc10a23e797e20f850babb309_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "    <img src='/";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 6, $this->getSourceContext()); })()), "image", array()), "html", null, true);
-        echo "'>
+        // line 8
+        echo "    <img src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("build/img/" . twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 8, $this->getSourceContext()); })()), "article", array()), "image", array()))), "html", null, true);
+        echo "\">
 \t<h2>Titre : ";
-        // line 7
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 7, $this->getSourceContext()); })()), "title", array()), "html", null, true);
+        // line 9
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 9, $this->getSourceContext()); })()), "article", array()), "title", array()), "html", null, true);
         echo "</h2>
 
 \t<div>
 \t\t";
-        // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 10, $this->getSourceContext()); })()), "content", array()), "html", null, true);
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 12, $this->getSourceContext()); })()), "article", array()), "content", array()), "html", null, true);
         echo "
 \t</div>
 
@@ -85,15 +67,15 @@ class __TwigTemplate_e66364d32e261f3deea631a85658e186174cd48c6f278f668a431eb7bb8
 \t<br>
 
 \t";
-        // line 17
+        // line 19
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 17, $this->getSourceContext()); })()), "comments", array()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 19, $this->getSourceContext()); })()), "article", array()), "comments", array()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 18
+            // line 20
             echo "\t\t<div style=\"border: 1px solid black;\">
 \t\t\t<p>Par <em>";
-            // line 19
+            // line 21
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["comment"], "author", array()), "firstname", array()), "html", null, true);
             echo " ";
             echo twig_escape_filter($this->env, twig_first($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["comment"], "author", array()), "lastname", array()))), "html", null, true);
@@ -101,11 +83,11 @@ class __TwigTemplate_e66364d32e261f3deea631a85658e186174cd48c6f278f668a431eb7bb8
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["comment"], "author", array()), "type", array()), "html", null, true);
             echo "</p>
 \t\t\t<p>";
-            // line 20
+            // line 22
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["comment"], "content", array()), "html", null, true);
             echo "</p>
 \t\t\t<p>Posté le ";
-            // line 21
+            // line 23
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["comment"], "dateComment", array()), "d/m/Y"), "html", null, true);
             echo " à ";
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["comment"], "dateComment", array()), "H:i"), "html", null, true);
@@ -115,14 +97,14 @@ class __TwigTemplate_e66364d32e261f3deea631a85658e186174cd48c6f278f668a431eb7bb8
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 24
+            // line 26
             echo "\t\t<p>Aucun commentaire.</p>\t
 \t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 26
+        // line 28
         echo "
 \t<br>
 
@@ -130,43 +112,65 @@ class __TwigTemplate_e66364d32e261f3deea631a85658e186174cd48c6f278f668a431eb7bb8
 \t\t<h2>Ecrire un commentaire</h2>
 
 \t\t";
-        // line 32
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 32, $this->getSourceContext()); })()), 'form_start');
-        echo "
-
-\t\t";
         // line 34
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 34, $this->getSourceContext()); })()), 'errors');
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 34, $this->getSourceContext()); })()), "form", array()), 'form_start');
         echo "
 
 \t\t";
         // line 36
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 36, $this->getSourceContext()); })()), "content", array()), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 36, $this->getSourceContext()); })()), "form", array()), 'errors');
         echo "
 
 \t\t";
         // line 38
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 38, $this->getSourceContext()); })()), "Publier", array()), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 38, $this->getSourceContext()); })()), "form", array()), "content", array()), 'row');
         echo "
 
 \t\t";
         // line 40
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 40, $this->getSourceContext()); })()), 'rest');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 40, $this->getSourceContext()); })()), "form", array()), "Publier", array()), 'row');
         echo "
 
 \t\t";
         // line 42
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 42, $this->getSourceContext()); })()), 'form_end');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 42, $this->getSourceContext()); })()), "form", array()), 'rest');
+        echo "
+
+\t\t";
+        // line 44
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 44, $this->getSourceContext()); })()), "form", array()), 'form_end');
         echo "
 \t</div>
 
 
 ";
         
-        $__internal_326f33ba933815989712015d1d0d47ab0abe2f9d173de2f67ad4f6e77109266f->leave($__internal_326f33ba933815989712015d1d0d47ab0abe2f9d173de2f67ad4f6e77109266f_prof);
+        $__internal_22d4bdab83246fdf8f3da22024af000b1c36739bc10a23e797e20f850babb309->leave($__internal_22d4bdab83246fdf8f3da22024af000b1c36739bc10a23e797e20f850babb309_prof);
 
         
-        $__internal_e8009c13cdc7a0a6114f5dfb9fcc24e85cc3cfd106fbe402ec866da720c402e9->leave($__internal_e8009c13cdc7a0a6114f5dfb9fcc24e85cc3cfd106fbe402ec866da720c402e9_prof);
+        $__internal_5ab45080a5e87c59a9e300dd574e5cb8ef2a0298f4a8cedb830a11e7940d1791->leave($__internal_5ab45080a5e87c59a9e300dd574e5cb8ef2a0298f4a8cedb830a11e7940d1791_prof);
+
+    }
+
+    // line 49
+    public function block_javascripts($context, array $blocks = array())
+    {
+        $__internal_07f6b367b0e339f8fee90cb49c95fcbf77b029ec1ca2d1b7c392c9208599c28a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_07f6b367b0e339f8fee90cb49c95fcbf77b029ec1ca2d1b7c392c9208599c28a->enter($__internal_07f6b367b0e339f8fee90cb49c95fcbf77b029ec1ca2d1b7c392c9208599c28a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_4fb918115763dce270f620f8529f10d29f8d29357645f8658c917a3b23a9f8b8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4fb918115763dce270f620f8529f10d29f8d29357645f8658c917a3b23a9f8b8->enter($__internal_4fb918115763dce270f620f8529f10d29f8d29357645f8658c917a3b23a9f8b8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 50
+        echo "        <script type=\"text/javascript\" src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/js/singlepage.js"), "html", null, true);
+        echo "\"></script>
+";
+        
+        $__internal_4fb918115763dce270f620f8529f10d29f8d29357645f8658c917a3b23a9f8b8->leave($__internal_4fb918115763dce270f620f8529f10d29f8d29357645f8658c917a3b23a9f8b8_prof);
+
+        
+        $__internal_07f6b367b0e339f8fee90cb49c95fcbf77b029ec1ca2d1b7c392c9208599c28a->leave($__internal_07f6b367b0e339f8fee90cb49c95fcbf77b029ec1ca2d1b7c392c9208599c28a_prof);
 
     }
 
@@ -182,28 +186,30 @@ class __TwigTemplate_e66364d32e261f3deea631a85658e186174cd48c6f278f668a431eb7bb8
 
     public function getDebugInfo()
     {
-        return array (  159 => 42,  154 => 40,  149 => 38,  144 => 36,  139 => 34,  134 => 32,  126 => 26,  119 => 24,  109 => 21,  105 => 20,  97 => 19,  94 => 18,  89 => 17,  79 => 10,  73 => 7,  68 => 6,  59 => 5,  41 => 3,  11 => 1,);
+        return array (  165 => 50,  156 => 49,  141 => 44,  136 => 42,  131 => 40,  126 => 38,  121 => 36,  116 => 34,  108 => 28,  101 => 26,  91 => 23,  87 => 22,  79 => 21,  76 => 20,  71 => 19,  61 => 12,  55 => 9,  50 => 8,  41 => 7,  11 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% extends \"base.html.twig\" %}
 
-{% block title %}{{ article.title }}{% endblock %} 
+    
+
+
 
 {% block body %}
-    <img src='/{{article.image }}'>
-\t<h2>Titre : {{ article.title }}</h2>
+    <img src=\"{{asset('build/img/'~data.article.image)}}\">
+\t<h2>Titre : {{ data.article.title }}</h2>
 
 \t<div>
-\t\t{{ article.content }}
+\t\t{{ data.article.content }}
 \t</div>
 
 \t<hr>
 
 \t<br>
 
-\t{% for comment in article.comments %}
+\t{% for comment in data.article.comments %}
 \t\t<div style=\"border: 1px solid black;\">
 \t\t\t<p>Par <em>{{ comment.author.firstname }} {{ comment.author.lastname|upper|first }}. </em>{{ comment.author.type }}</p>
 \t\t\t<p>{{ comment.content }}</p>
@@ -218,20 +224,23 @@ class __TwigTemplate_e66364d32e261f3deea631a85658e186174cd48c6f278f668a431eb7bb8
 \t<div style=\"background-color: grey; display: inline-block;\">
 \t\t<h2>Ecrire un commentaire</h2>
 
-\t\t{{ form_start(form) }}
+\t\t{{ form_start(data.form) }}
 
-\t\t{{ form_errors(form) }}
+\t\t{{ form_errors(data.form) }}
 
-\t\t{{ form_row(form.content) }}
+\t\t{{ form_row(data.form.content) }}
 
-\t\t{{ form_row(form.Publier) }}
+\t\t{{ form_row(data.form.Publier) }}
 
-\t\t{{ form_rest(form) }}
+\t\t{{ form_rest(data.form) }}
 
-\t\t{{ form_end(form) }}
+\t\t{{ form_end(data.form) }}
 \t</div>
 
 
-{% endblock %}\t", "blog/single.html.twig", "E:\\wamp64\\www\\NAO_project\\templates\\blog\\single.html.twig");
+{% endblock %}\t
+{% block javascripts %}
+        <script type=\"text/javascript\" src=\"{{asset('build/js/singlepage.js')}}\"></script>
+{% endblock %}", "blog/single.html.twig", "E:\\wamp64\\www\\NAO_project\\templates\\blog\\single.html.twig");
     }
 }

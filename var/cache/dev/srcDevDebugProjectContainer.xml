@@ -431,6 +431,7 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="form.factory"/>
       <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authorization_checker"/>
     </service>
     <service id="App\Services\SubscribeDataGenerator\CheckUserRoleService" class="App\Services\SubscribeDataGenerator\CheckUserRoleService" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Services\SubscribeDataGenerator\FlusherService" class="App\Services\SubscribeDataGenerator\FlusherService" public="false" autowire="true" autoconfigure="true">
@@ -3308,6 +3309,13 @@
         <argument>null</argument>
       </call>
       <call method="add">
+        <argument type="service" id="security.request_matcher.uSDt6UW"/>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
         <argument type="service" id="security.request_matcher.LGxF6tL"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
@@ -3823,6 +3831,9 @@
     </service>
     <service id="security.request_matcher.u7CLYTh" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/user/login</argument>
+    </service>
+    <service id="security.request_matcher.uSDt6UW" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/blog/</argument>
     </service>
     <service id="security.request_matcher.LGxF6tL" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/user/</argument>

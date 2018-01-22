@@ -39,21 +39,14 @@ class BlogController extends Controller
     */
     public function single(Request $request, SingleArticleHandler $singleHandler, $id)
     {
-       /*
-        if(!$article) {
-            throw $this->createNotFoundException('Pas d\'article correspondant');
-        }
-        * 
-        */ 
         $arrayData = $singleHandler->generateData($request, $id);
-        return $this->render('blog/single.html.twig', array(
-            'article' => $arrayData['article'],
-            'form'    => $arrayData['form']->createView()
+        return $this->render($arrayData['template'], array(
+            'data' => $arrayData['data']
             ));   
     }
    
     /**
-    * @Route("user/blog/new_article", name="new_article")
+    * @Route("/blog/new_article", name="new_article")
     */
     public function newArticleAction(Request $request, NewArticleHandler $newHandler)
     {
@@ -62,7 +55,7 @@ class BlogController extends Controller
     }
     
     /**
-     * @Route("user/blog/delete/{id})", name="delete_article") 
+     * @Route("/blog/delete/{id}", name="delete_article") 
      */
     public function deleteArticleAction(Request $request, DeleteArticleHandler $deleteArticle, $id)
     {
@@ -71,7 +64,7 @@ class BlogController extends Controller
     }
     
     /**
-     * @Route("user/blog/modify/{id})", name="modify_article")
+     * @Route("/blog/modify/{id}", name="modify_article")
      */
     public function modifyArticleAction(Request $request, ModifyArticleHandler $modifyArticle, $id)
     {

@@ -1,20 +1,22 @@
 {% extends "base.html.twig" %}
 
-{% block title %}{{ article.title }}{% endblock %} 
+    
+
+
 
 {% block body %}
-    <img src='/{{article.image }}'>
-	<h2>Titre : {{ article.title }}</h2>
+    <img src="{{asset('build/img/'~data.article.image)}}">
+	<h2>Titre : {{ data.article.title }}</h2>
 
 	<div>
-		{{ article.content }}
+		{{ data.article.content }}
 	</div>
 
 	<hr>
 
 	<br>
 
-	{% for comment in article.comments %}
+	{% for comment in data.article.comments %}
 		<div style="border: 1px solid black;">
 			<p>Par <em>{{ comment.author.firstname }} {{ comment.author.lastname|upper|first }}. </em>{{ comment.author.type }}</p>
 			<p>{{ comment.content }}</p>
@@ -29,18 +31,21 @@
 	<div style="background-color: grey; display: inline-block;">
 		<h2>Ecrire un commentaire</h2>
 
-		{{ form_start(form) }}
+		{{ form_start(data.form) }}
 
-		{{ form_errors(form) }}
+		{{ form_errors(data.form) }}
 
-		{{ form_row(form.content) }}
+		{{ form_row(data.form.content) }}
 
-		{{ form_row(form.Publier) }}
+		{{ form_row(data.form.Publier) }}
 
-		{{ form_rest(form) }}
+		{{ form_rest(data.form) }}
 
-		{{ form_end(form) }}
+		{{ form_end(data.form) }}
 	</div>
 
 
 {% endblock %}	
+{% block javascripts %}
+        <script type="text/javascript" src="{{asset('build/js/singlepage.js')}}"></script>
+{% endblock %}
