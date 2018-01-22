@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="usercard">
+        <div class="card" style="width: 18rem;">
+            
+            <div class="card-body">
+               <img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;">
+              <h5 class="card-title">{{user.firstname}}</h5>
+              <p class="card-text">{{user.type}}</p>
+            </div>
+        </div>
+    </div>
+{%endblock%}

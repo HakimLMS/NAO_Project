@@ -94,6 +94,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'App\\Controller\\UserController::validateUserAction',  '_route' => 'validateuser',);
             }
 
+            // modifyuser
+            if ('/user/modify' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::modifyUserAction',  '_route' => 'modifyuser',);
+            }
+
             // user
             if ('/user' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);

@@ -28,9 +28,9 @@ class AdminDashboard
         $userdata = $this->genUserData();
         $articleData = $this->genArticleData();
         $adminData = array(
-            'templatedir' => 'Administration/dashboard.html.twig',
+            'templatedir' => 'Administration/AdminDashboard.html.twig',
             'content' => array( 
-                'user' => $userdata,
+                'userqueued' => $userdata,
                 'articles' => $articleData)
             );          
         return $adminData;        

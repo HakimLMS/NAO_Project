@@ -41,15 +41,8 @@ class NewArticleHandler
         
         if($form->isSubmitted() && $form->isValid())
         {                   
-            
-            // $file stores the uploaded PDF file
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $article->getImage();
-
-            // Generate a unique name for the file before saving it
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-            // Move the file to the directory where brochures are stored
             $file->move(
                 $this->container->getParameter('images_directory'),
                 $fileName);

@@ -108,6 +108,7 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
     public function __construct()
     {
         $this->isActive = true;
+        $this->image = 'userdefault.jpg';
         
     }
    

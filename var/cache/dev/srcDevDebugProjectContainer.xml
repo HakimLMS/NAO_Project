@@ -381,6 +381,9 @@
     <service id="App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\UserModifyType" class="App\Form\UserModifyType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Kernel" class="App\Kernel" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Repository\ArticleImageRepository" class="App\Repository\ArticleImageRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -402,9 +405,15 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Services\ArticleListDataGenerator\ListArticleService"/>
     </service>
+    <service id="App\Services\DashboardDataGenerator\OrganizerDashboard" class="App\Services\DashboardDataGenerator\OrganizerDashboard" public="false" autowire="true" autoconfigure="true"/>
+    <service id="App\Services\DashboardDataGenerator\UserDashboard" class="App\Services\DashboardDataGenerator\UserDashboard" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Services\DashboardHandler" class="App\Services\DashboardHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="security.authorization_checker"/>
       <argument type="service" id="App\Services\DashboardDataGenerator\AdminDashboard"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\DashboardDataGenerator\UserDashboard"/>
+      <argument type="service" id="App\Services\DashboardDataGenerator\OrganizerDashboard"/>
     </service>
     <service id="App\Services\DeleteArticleHandler" class="App\Services\DeleteArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -419,6 +428,14 @@
       <argument type="service" id="security.authorization_checker"/>
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
       <argument type="service" id="form.factory"/>
+    </service>
+    <service id="App\Services\ModifyUserHandler" class="App\Services\ModifyUserHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.authorization_checker"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+      <argument type="service" id="form.factory"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="service_container"/>
     </service>
     <service id="App\Services\NewArticleHandler" class="App\Services\NewArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
@@ -467,7 +484,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.TotIT9V"/>
+      <argument type="service" id="service_locator.iUOLFh6"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -705,6 +722,7 @@
         <argument>App\Form\ArticleType</argument>
         <argument>App\Form\CommentType</argument>
         <argument>App\Form\SubscriptionType</argument>
+        <argument>App\Form\UserModifyType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
@@ -900,7 +918,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.8QHOKrG"/>
+      <argument type="service" id="service_locator.T4TZ_lh"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -4004,6 +4022,8 @@
     <service id="abstract.instanceof.App\Form\CommentType" class="App\Form\CommentType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserModifyType" class="App\Form\UserModifyType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\UserModifyType" class="App\Form\UserModifyType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleImageRepository" class="App\Repository\ArticleImageRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\ArticleImageRepository" class="App\Repository\ArticleImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" public="false" autowire="true" abstract="true"/>
@@ -4166,7 +4186,13 @@
         <argument key="downgradeUHandler" type="service" id="App\Services\DowngradeUserHandler" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.TotIT9V" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.6G1AhUG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="modifyHandler" type="service" id="App\Services\ModifyUserHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.iUOLFh6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BlogController:bloglist" type="service" id="service_locator.udmBeas"/>
@@ -4177,6 +4203,7 @@
         <argument key="App\Controller\UserController:dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController:downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController:login" type="service" id="service_locator.NkUBxsb"/>
+        <argument key="App\Controller\UserController:modifyUserAction" type="service" id="service_locator.6G1AhUG"/>
         <argument key="App\Controller\UserController:subscribeAction" type="service" id="service_locator.R6oaVOY"/>
         <argument key="App\Controller\UserController:validateUserAction" type="service" id="service_locator.xiVkYm3"/>
         <argument key="App\Controller\BlogController::bloglist" type="service" id="service_locator.udmBeas"/>
@@ -4187,6 +4214,7 @@
         <argument key="App\Controller\UserController::dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController::downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController::login" type="service" id="service_locator.NkUBxsb"/>
+        <argument key="App\Controller\UserController::modifyUserAction" type="service" id="service_locator.6G1AhUG"/>
         <argument key="App\Controller\UserController::subscribeAction" type="service" id="service_locator.R6oaVOY"/>
         <argument key="App\Controller\UserController::validateUserAction" type="service" id="service_locator.xiVkYm3"/>
       </argument>
@@ -4335,12 +4363,13 @@
         <argument key="inline" type="service" id="fragment.renderer.inline"/>
       </argument>
     </service>
-    <service id="service_locator.8QHOKrG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.T4TZ_lh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleType" type="service" id="App\Form\ArticleType"/>
         <argument key="App\Form\CommentType" type="service" id="App\Form\CommentType"/>
         <argument key="App\Form\SubscriptionType" type="service" id="App\Form\SubscriptionType"/>
+        <argument key="App\Form\UserModifyType" type="service" id="App\Form\UserModifyType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
