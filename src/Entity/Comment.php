@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+ use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -54,6 +54,7 @@ class Comment
     public function __construct()
     {
         $this->dateComment = new \DateTime();
+        $this->reported = false;
     }
 
 

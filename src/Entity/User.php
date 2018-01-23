@@ -202,7 +202,6 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
     function setType($type) {
         $this->type = $type;
     }
-
         
     function setFirstname($firstname) {
         $this->firstname = $firstname;

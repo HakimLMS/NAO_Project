@@ -27,7 +27,7 @@ class DashboardHandler
           if($this->checker->isGranted('ROLE_ADMIN'))
           {
              //articles + Observations + comptes à valider + Observations à valider;
-             $dashboardData = $this->adminDashboard->genData();             var_dump($dashboardData);
+             $dashboardData = $this->adminDashboard->genData();            
              return $dashboardData;
           }
           elseif($this->checker->isGranted('ROLE_ORGANIZER'))

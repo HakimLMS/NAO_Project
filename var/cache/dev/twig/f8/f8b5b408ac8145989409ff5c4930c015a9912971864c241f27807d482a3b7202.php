@@ -22,47 +22,47 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_ec035169adb371ddbabb8db6b3166051ea933138abb079f265517d4c784b3da7 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_ec035169adb371ddbabb8db6b3166051ea933138abb079f265517d4c784b3da7->enter($__internal_ec035169adb371ddbabb8db6b3166051ea933138abb079f265517d4c784b3da7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home.html.twig"));
+        $__internal_9e8e519bf2b1c279a9dc135ec8c42aa52d9305c64f8a066eea2f4ce03d15d797 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_9e8e519bf2b1c279a9dc135ec8c42aa52d9305c64f8a066eea2f4ce03d15d797->enter($__internal_9e8e519bf2b1c279a9dc135ec8c42aa52d9305c64f8a066eea2f4ce03d15d797_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home.html.twig"));
 
-        $__internal_fd284df3cc158b563c4052f0e7dbc45ef7cff4e7f9f9be6a5c9e4cf3be045a32 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_fd284df3cc158b563c4052f0e7dbc45ef7cff4e7f9f9be6a5c9e4cf3be045a32->enter($__internal_fd284df3cc158b563c4052f0e7dbc45ef7cff4e7f9f9be6a5c9e4cf3be045a32_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home.html.twig"));
+        $__internal_8c1a24e762f71bc78b2bd0841a185b62a997115df3f97e78cf30a18c180f8477 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8c1a24e762f71bc78b2bd0841a185b62a997115df3f97e78cf30a18c180f8477->enter($__internal_8c1a24e762f71bc78b2bd0841a185b62a997115df3f97e78cf30a18c180f8477_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_ec035169adb371ddbabb8db6b3166051ea933138abb079f265517d4c784b3da7->leave($__internal_ec035169adb371ddbabb8db6b3166051ea933138abb079f265517d4c784b3da7_prof);
+        $__internal_9e8e519bf2b1c279a9dc135ec8c42aa52d9305c64f8a066eea2f4ce03d15d797->leave($__internal_9e8e519bf2b1c279a9dc135ec8c42aa52d9305c64f8a066eea2f4ce03d15d797_prof);
 
         
-        $__internal_fd284df3cc158b563c4052f0e7dbc45ef7cff4e7f9f9be6a5c9e4cf3be045a32->leave($__internal_fd284df3cc158b563c4052f0e7dbc45ef7cff4e7f9f9be6a5c9e4cf3be045a32_prof);
+        $__internal_8c1a24e762f71bc78b2bd0841a185b62a997115df3f97e78cf30a18c180f8477->leave($__internal_8c1a24e762f71bc78b2bd0841a185b62a997115df3f97e78cf30a18c180f8477_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_0c814e652ba665657f1a4a3266c08dba02d9e5042573019d717ef29b89948c59 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0c814e652ba665657f1a4a3266c08dba02d9e5042573019d717ef29b89948c59->enter($__internal_0c814e652ba665657f1a4a3266c08dba02d9e5042573019d717ef29b89948c59_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_550a14d2c48b78de9b20d97cb2b74b930e2cb1d38cd33bf2698fedf21dc5fc7d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_550a14d2c48b78de9b20d97cb2b74b930e2cb1d38cd33bf2698fedf21dc5fc7d->enter($__internal_550a14d2c48b78de9b20d97cb2b74b930e2cb1d38cd33bf2698fedf21dc5fc7d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_6bca3fc4151b3739725a9f246f74fb796e4536c132dde6c98bc370cbc2020162 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6bca3fc4151b3739725a9f246f74fb796e4536c132dde6c98bc370cbc2020162->enter($__internal_6bca3fc4151b3739725a9f246f74fb796e4536c132dde6c98bc370cbc2020162_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_3980151279dc8fa44eb3f97842a7ca5d10e3c12ccd366b7b2b3194fe69a525cc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3980151279dc8fa44eb3f97842a7ca5d10e3c12ccd366b7b2b3194fe69a525cc->enter($__internal_3980151279dc8fa44eb3f97842a7ca5d10e3c12ccd366b7b2b3194fe69a525cc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Accueil";
         
-        $__internal_6bca3fc4151b3739725a9f246f74fb796e4536c132dde6c98bc370cbc2020162->leave($__internal_6bca3fc4151b3739725a9f246f74fb796e4536c132dde6c98bc370cbc2020162_prof);
+        $__internal_3980151279dc8fa44eb3f97842a7ca5d10e3c12ccd366b7b2b3194fe69a525cc->leave($__internal_3980151279dc8fa44eb3f97842a7ca5d10e3c12ccd366b7b2b3194fe69a525cc_prof);
 
         
-        $__internal_0c814e652ba665657f1a4a3266c08dba02d9e5042573019d717ef29b89948c59->leave($__internal_0c814e652ba665657f1a4a3266c08dba02d9e5042573019d717ef29b89948c59_prof);
+        $__internal_550a14d2c48b78de9b20d97cb2b74b930e2cb1d38cd33bf2698fedf21dc5fc7d->leave($__internal_550a14d2c48b78de9b20d97cb2b74b930e2cb1d38cd33bf2698fedf21dc5fc7d_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_7bab11111b583bf28e04a64c3119d0b553c5bfd04d37602939bb211af3989d04 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_7bab11111b583bf28e04a64c3119d0b553c5bfd04d37602939bb211af3989d04->enter($__internal_7bab11111b583bf28e04a64c3119d0b553c5bfd04d37602939bb211af3989d04_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_485f3a542c0fd308157dbbd4d3a574f9d1ee87b9f810b6910adad2e3510468c1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_485f3a542c0fd308157dbbd4d3a574f9d1ee87b9f810b6910adad2e3510468c1->enter($__internal_485f3a542c0fd308157dbbd4d3a574f9d1ee87b9f810b6910adad2e3510468c1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_a43d43976764d18b2935ef63708b4f81cd5302eb92355caba7da6b58e58c2cf7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a43d43976764d18b2935ef63708b4f81cd5302eb92355caba7da6b58e58c2cf7->enter($__internal_a43d43976764d18b2935ef63708b4f81cd5302eb92355caba7da6b58e58c2cf7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_d911b52e995f986828d1dc3ff2765e4f79de9274f276efe26eea903e7267fa44 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d911b52e995f986828d1dc3ff2765e4f79de9274f276efe26eea903e7267fa44->enter($__internal_d911b52e995f986828d1dc3ff2765e4f79de9274f276efe26eea903e7267fa44_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "
@@ -84,105 +84,52 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t<div class=\"container\" id=\"block-icons\">
 \t\t\t<div class=\"row\">
 \t\t\t\t<div class=\"col-lg-10 offset-lg-1\" id=\"block-icons-2\">
-\t\t\t\t\t<a href=\"#\" class=\"block-icon\" id=\"block-observez\"><div>
+\t\t\t\t\t<a href=\"#\" class=\"block-icon\" id=\"block-observez\" title=\"Effectuez une observation d'oiseaux de manière géolocalisée\"><div>
 \t\t\t\t\t\t<img src=\"";
         // line 26
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/jumelles-blanc.svg"), "html", null, true);
-        echo "\" height=\"44.5px\" width=\"63px\">
+        echo "\" height=\"44.5px\" width=\"63px\" alt=\"observez\">
 \t\t\t\t\t\t<p>Observez</p>
 \t\t\t\t\t</div></a>
-\t\t\t\t\t<a href=\"#\" class=\"block-icon\" id=\"block-retrouvez\"><div>
+\t\t\t\t\t<a href=\"#\" class=\"block-icon\" id=\"block-retrouvez\" title=\"Découvrez en temps réel les différentes observations d'oiseaux faites par la communauté\"><div>
 \t\t\t\t\t\t<img src=\"";
         // line 30
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/map-blanc.svg"), "html", null, true);
-        echo "\" height=\"44px\" width=\"48px\">
+        echo "\" height=\"44px\" width=\"48px\" alt=\"retrouvez\">
 \t\t\t\t\t\t<p>Retrouvez</p>
 \t\t\t\t\t</div></a>
 \t\t\t\t\t<a href=\"";
         // line 33
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("research");
-        echo "\" class=\"block-icon\" id=\"block-recherchez\"><div>
+        echo "\" class=\"block-icon\" id=\"block-recherchez\" title=\"Recherchez des informations sur les différentes espèces d'oiseaux\"><div>
 \t\t\t\t\t\t<img src=\"";
         // line 34
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/loupe-blanc.svg"), "html", null, true);
-        echo "\" width=\"40px\" height=\"44px\">
+        echo "\" width=\"40px\" height=\"44px\" alt=\"recherchez\">
 \t\t\t\t\t\t<p>Recherchez</p>
 \t\t\t\t\t</div></a>
 \t\t\t\t\t<a href=\"";
         // line 37
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("dashboard");
-        echo "\" class=\"block-icon\" id=\"block-dashboard\"><div>
+        echo "\" class=\"block-icon\" id=\"block-dashboard\" title=\"Inscrivez-vous gratuitement pour intégrer notre communauté de passionnés\"><div>
 \t\t\t\t\t\t<img src=\"";
         // line 38
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user-blanc.svg"), "html", null, true);
-        echo "\" height=\"44x\" width=\"44px\">
+        echo "\" height=\"44x\" width=\"44px\" alt=\"mon espace\">
 \t\t\t\t\t\t<p>Mon espace</p>
 \t\t\t\t\t</div></a>
 \t\t\t\t\t<a href=\"";
         // line 41
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("association");
-        echo "\" class=\"block-icon\" id=\"block-association\"><div>
+        echo "\" class=\"block-icon\" id=\"block-association\" title=\"Prenez connaissance de l'association et ses missions, nos collectes de fond et autres évènements caritatifs\"><div>
 \t\t\t\t\t\t<img src=\"";
         // line 42
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/world_rose.svg"), "html", null, true);
-        echo "\" width=\"44px\" height=\"44px\">
+        echo "\" width=\"44px\" height=\"44px\" alt=\"association\">
 \t\t\t\t\t\t<p>Notre mission</p>
 \t\t\t\t\t</div></a>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t<!--
-\t\t\t<div class=\"row\">
-\t\t\t\t<a href=\"#\" class=\"col-lg-2 offset-lg-1 block-icon\" id=\"block-observez\"><div>
-\t\t\t\t\t<img src=\"";
-        // line 50
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/jumelles-blanc.svg"), "html", null, true);
-        echo "\" height=\"44.5px\" width=\"63px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tObservez
-\t\t\t\t</div></a>
-\t\t\t\t<a href=\"#\" class=\"col-lg-2 block-icon\" id=\"block-retrouvez\"><div>
-\t\t\t\t\t<img src=\"";
-        // line 55
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/map-blanc.svg"), "html", null, true);
-        echo "\" height=\"44px\" width=\"48px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tRetrouvez
-\t\t\t\t</div></a>
-\t\t\t\t<a href=\"";
-        // line 59
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("research");
-        echo "\" class=\"col-lg-2 block-icon\" id=\"block-recherchez\"><div>
-\t\t\t\t\t<img src=\"";
-        // line 60
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/loupe-blanc.svg"), "html", null, true);
-        echo "\" width=\"40px\" height=\"44px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tRecherchez
-\t\t\t\t</div></a>
-\t\t\t\t<a href=\"";
-        // line 64
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("dashboard");
-        echo "\" class=\"col-lg-2 block-icon\" id=\"block-dashboard\"><div>
-\t\t\t\t\t<img src=\"";
-        // line 65
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user-blanc.svg"), "html", null, true);
-        echo "\" height=\"44px\" width=\"42px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tMon espace
-\t\t\t\t</div></a>
-\t\t\t\t<a href=\"";
-        // line 69
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("association");
-        echo "\" class=\"col-lg-2 block-icon\" id=\"block-association\"><div>
-\t\t\t\t\t<img src=\"";
-        // line 70
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/world_rose.svg"), "html", null, true);
-        echo "\" width=\"44px\" height=\"44px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tNotre mission
-\t\t\t\t</div></a>
-\t\t\t</div>
-\t\t\t-->
 \t\t</div>
 \t</div>\t
 \t</div>
@@ -197,7 +144,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t
 \t\t\t\t<div class=\"offset-md-1 col-md-4\">
 \t\t\t\t\t<a href=\"";
-        // line 89
+        // line 60
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("subscribe");
         echo "\"><button class=\"btn\">Rejoignez la communauté !</button></a>
 \t\t\t\t</div>
@@ -217,12 +164,12 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t \t<img src=\"";
-        // line 106
+        // line 77
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user1.jpg"), "html", null, true);
-        echo "\" class=\"col-3\">
-\t\t\t\t\t \t<p class=\"offset-1 col-7\">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+        echo "\" class=\"col\" alt=\"user1\">
+\t\t\t\t\t \t<p class=\"col\">\"Je peux en apprendre plus sur les oiseaux grâce à NAO #nao #cultureG\"
 \t\t\t\t\t \t<br>
-\t\t\t\t\t \t<span>Nom - Date</span>
+\t\t\t\t\t \t<span>Julie - 25/01/18</span>
 \t\t\t\t\t \t</p>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -230,12 +177,12 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t \t<img src=\"";
-        // line 116
+        // line 87
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user2.jpg"), "html", null, true);
-        echo "\" class=\"col-3\">
-\t\t\t\t\t \t<p class=\"offset-1 col-7\">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+        echo "\" class=\"col\" alt=\"user2\">
+\t\t\t\t\t \t<p class=\"col\">\"Je peux faire mes observations pendant mes balades, c'est génial ! #nao\"
 \t\t\t\t\t \t<br>
-\t\t\t\t\t \t<span>Nom - Date</span>
+\t\t\t\t\t \t<span>Pierre - 20/01/18</span>
 \t\t\t\t\t \t</p>
 \t\t\t\t\t</div>\t  
 \t\t\t\t</div>
@@ -243,12 +190,12 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t \t<div class=\"row\">
 \t\t\t\t\t \t<img src=\"";
-        // line 126
+        // line 97
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user3.jpg"), "html", null, true);
-        echo "\" class=\"col-3\">
-\t\t\t\t\t \t<p class=\"offset-1 col-7\">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+        echo "\" class=\"col\" alt=\"user3\">
+\t\t\t\t\t \t<p class=\"col\">\"C'est grâce à vous qu'on peut sauver et protéger des espèces #sauvonslesoiseaux\"
 \t\t\t\t\t \t<br>
-\t\t\t\t\t \t<span>Nom - Date</span>
+\t\t\t\t\t \t<span>Georges - 30/01/18</span>
 \t\t\t\t\t \t</p>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -260,37 +207,28 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t<ul class=\"nav justify-content-center\">
 \t\t\t  <li class=\"nav-item\">
 \t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://facebook.com\"><img src=\"";
-        // line 140
+        // line 111
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/facebook_rose.svg"), "html", null, true);
         echo "\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
 \t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"";
-        // line 143
+        // line 114
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/twitter_rose.svg"), "html", null, true);
-        echo "\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+        echo "\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
 \t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"";
-        // line 146
+        // line 117
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/instagram_rose.svg"), "html", null, true);
-        echo "\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+        echo "\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t</ul>
 \t\t</div>
-
-\t\t<div class=\"container\">
-\t\t\t<div class=\"row\">
-\t\t\t\t<div class=\"offset-md-3 col-md-6\" id=\"block-newsletter\">
-\t\t\t\t\t<p>Abonnez-vous à la Newsletter pour être le premier informé</p>
-\t\t\t\t\t<form method=\"post\">
-\t\t\t\t\t\t<input class=\"form-control\" type=\"email\" name=\"newsletter\" placeholder=\"Votre adresse mail\">
-\t\t\t\t\t\t<button type=\"submit\" class=\"btn\">Valider</button>
-\t\t\t\t\t</form>
-\t\t\t\t</div>\t
-\t\t\t</div>
+\t\t
+\t\t<iframe class=\"offset-md-3 col-md-6\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://app.mailjet.com/widget/iframe/2pqp/5dM\" width=\"100%\" height=\"255\"></iframe>
 \t\t\t
-\t\t</div>
+\t\t
 \t</div>
 
 \t
@@ -298,10 +236,10 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 
 ";
         
-        $__internal_a43d43976764d18b2935ef63708b4f81cd5302eb92355caba7da6b58e58c2cf7->leave($__internal_a43d43976764d18b2935ef63708b4f81cd5302eb92355caba7da6b58e58c2cf7_prof);
+        $__internal_d911b52e995f986828d1dc3ff2765e4f79de9274f276efe26eea903e7267fa44->leave($__internal_d911b52e995f986828d1dc3ff2765e4f79de9274f276efe26eea903e7267fa44_prof);
 
         
-        $__internal_7bab11111b583bf28e04a64c3119d0b553c5bfd04d37602939bb211af3989d04->leave($__internal_7bab11111b583bf28e04a64c3119d0b553c5bfd04d37602939bb211af3989d04_prof);
+        $__internal_485f3a542c0fd308157dbbd4d3a574f9d1ee87b9f810b6910adad2e3510468c1->leave($__internal_485f3a542c0fd308157dbbd4d3a574f9d1ee87b9f810b6910adad2e3510468c1_prof);
 
     }
 
@@ -317,7 +255,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 
     public function getDebugInfo()
     {
-        return array (  276 => 146,  270 => 143,  264 => 140,  247 => 126,  234 => 116,  221 => 106,  201 => 89,  179 => 70,  175 => 69,  168 => 65,  164 => 64,  157 => 60,  153 => 59,  146 => 55,  138 => 50,  127 => 42,  123 => 41,  117 => 38,  113 => 37,  107 => 34,  103 => 33,  97 => 30,  90 => 26,  68 => 6,  59 => 5,  41 => 3,  11 => 1,);
+        return array (  223 => 117,  217 => 114,  211 => 111,  194 => 97,  181 => 87,  168 => 77,  148 => 60,  127 => 42,  123 => 41,  117 => 38,  113 => 37,  107 => 34,  103 => 33,  97 => 30,  90 => 26,  68 => 6,  59 => 5,  41 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -346,57 +284,28 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t<div class=\"container\" id=\"block-icons\">
 \t\t\t<div class=\"row\">
 \t\t\t\t<div class=\"col-lg-10 offset-lg-1\" id=\"block-icons-2\">
-\t\t\t\t\t<a href=\"#\" class=\"block-icon\" id=\"block-observez\"><div>
-\t\t\t\t\t\t<img src=\"{{ asset('build/img/jumelles-blanc.svg') }}\" height=\"44.5px\" width=\"63px\">
+\t\t\t\t\t<a href=\"#\" class=\"block-icon\" id=\"block-observez\" title=\"Effectuez une observation d'oiseaux de manière géolocalisée\"><div>
+\t\t\t\t\t\t<img src=\"{{ asset('build/img/jumelles-blanc.svg') }}\" height=\"44.5px\" width=\"63px\" alt=\"observez\">
 \t\t\t\t\t\t<p>Observez</p>
 \t\t\t\t\t</div></a>
-\t\t\t\t\t<a href=\"#\" class=\"block-icon\" id=\"block-retrouvez\"><div>
-\t\t\t\t\t\t<img src=\"{{ asset('build/img/map-blanc.svg') }}\" height=\"44px\" width=\"48px\">
+\t\t\t\t\t<a href=\"#\" class=\"block-icon\" id=\"block-retrouvez\" title=\"Découvrez en temps réel les différentes observations d'oiseaux faites par la communauté\"><div>
+\t\t\t\t\t\t<img src=\"{{ asset('build/img/map-blanc.svg') }}\" height=\"44px\" width=\"48px\" alt=\"retrouvez\">
 \t\t\t\t\t\t<p>Retrouvez</p>
 \t\t\t\t\t</div></a>
-\t\t\t\t\t<a href=\"{{ path('research') }}\" class=\"block-icon\" id=\"block-recherchez\"><div>
-\t\t\t\t\t\t<img src=\"{{ asset('build/img/loupe-blanc.svg') }}\" width=\"40px\" height=\"44px\">
+\t\t\t\t\t<a href=\"{{ path('research') }}\" class=\"block-icon\" id=\"block-recherchez\" title=\"Recherchez des informations sur les différentes espèces d'oiseaux\"><div>
+\t\t\t\t\t\t<img src=\"{{ asset('build/img/loupe-blanc.svg') }}\" width=\"40px\" height=\"44px\" alt=\"recherchez\">
 \t\t\t\t\t\t<p>Recherchez</p>
 \t\t\t\t\t</div></a>
-\t\t\t\t\t<a href=\"{{ path('dashboard') }}\" class=\"block-icon\" id=\"block-dashboard\"><div>
-\t\t\t\t\t\t<img src=\"{{ asset('build/img/user-blanc.svg') }}\" height=\"44x\" width=\"44px\">
+\t\t\t\t\t<a href=\"{{ path('dashboard') }}\" class=\"block-icon\" id=\"block-dashboard\" title=\"Inscrivez-vous gratuitement pour intégrer notre communauté de passionnés\"><div>
+\t\t\t\t\t\t<img src=\"{{ asset('build/img/user-blanc.svg') }}\" height=\"44x\" width=\"44px\" alt=\"mon espace\">
 \t\t\t\t\t\t<p>Mon espace</p>
 \t\t\t\t\t</div></a>
-\t\t\t\t\t<a href=\"{{ path('association') }}\" class=\"block-icon\" id=\"block-association\"><div>
-\t\t\t\t\t\t<img src=\"{{ asset('build/img/world_rose.svg') }}\" width=\"44px\" height=\"44px\">
+\t\t\t\t\t<a href=\"{{ path('association') }}\" class=\"block-icon\" id=\"block-association\" title=\"Prenez connaissance de l'association et ses missions, nos collectes de fond et autres évènements caritatifs\"><div>
+\t\t\t\t\t\t<img src=\"{{ asset('build/img/world_rose.svg') }}\" width=\"44px\" height=\"44px\" alt=\"association\">
 \t\t\t\t\t\t<p>Notre mission</p>
 \t\t\t\t\t</div></a>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t<!--
-\t\t\t<div class=\"row\">
-\t\t\t\t<a href=\"#\" class=\"col-lg-2 offset-lg-1 block-icon\" id=\"block-observez\"><div>
-\t\t\t\t\t<img src=\"{{ asset('build/img/jumelles-blanc.svg') }}\" height=\"44.5px\" width=\"63px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tObservez
-\t\t\t\t</div></a>
-\t\t\t\t<a href=\"#\" class=\"col-lg-2 block-icon\" id=\"block-retrouvez\"><div>
-\t\t\t\t\t<img src=\"{{ asset('build/img/map-blanc.svg') }}\" height=\"44px\" width=\"48px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tRetrouvez
-\t\t\t\t</div></a>
-\t\t\t\t<a href=\"{{ path('research') }}\" class=\"col-lg-2 block-icon\" id=\"block-recherchez\"><div>
-\t\t\t\t\t<img src=\"{{ asset('build/img/loupe-blanc.svg') }}\" width=\"40px\" height=\"44px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tRecherchez
-\t\t\t\t</div></a>
-\t\t\t\t<a href=\"{{ path('dashboard') }}\" class=\"col-lg-2 block-icon\" id=\"block-dashboard\"><div>
-\t\t\t\t\t<img src=\"{{ asset('build/img/user-blanc.svg') }}\" height=\"44px\" width=\"42px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tMon espace
-\t\t\t\t</div></a>
-\t\t\t\t<a href=\"{{ path('association') }}\" class=\"col-lg-2 block-icon\" id=\"block-association\"><div>
-\t\t\t\t\t<img src=\"{{ asset('build/img/world_rose.svg') }}\" width=\"44px\" height=\"44px\">
-\t\t\t\t\t<br>
-\t\t\t\t\tNotre mission
-\t\t\t\t</div></a>
-\t\t\t</div>
-\t\t\t-->
 \t\t</div>
 \t</div>\t
 \t</div>
@@ -427,30 +336,30 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t<div class=\"row justify-content-md-center\" id=\"testimonials\">
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t\t<div class=\"row\">
-\t\t\t\t\t \t<img src=\"{{ asset('build/img/user1.jpg') }}\" class=\"col-3\">
-\t\t\t\t\t \t<p class=\"offset-1 col-7\">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+\t\t\t\t\t \t<img src=\"{{ asset('build/img/user1.jpg') }}\" class=\"col\" alt=\"user1\">
+\t\t\t\t\t \t<p class=\"col\">\"Je peux en apprendre plus sur les oiseaux grâce à NAO #nao #cultureG\"
 \t\t\t\t\t \t<br>
-\t\t\t\t\t \t<span>Nom - Date</span>
+\t\t\t\t\t \t<span>Julie - 25/01/18</span>
 \t\t\t\t\t \t</p>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t\t<div class=\"row\">
-\t\t\t\t\t \t<img src=\"{{ asset('build/img/user2.jpg') }}\" class=\"col-3\">
-\t\t\t\t\t \t<p class=\"offset-1 col-7\">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+\t\t\t\t\t \t<img src=\"{{ asset('build/img/user2.jpg') }}\" class=\"col\" alt=\"user2\">
+\t\t\t\t\t \t<p class=\"col\">\"Je peux faire mes observations pendant mes balades, c'est génial ! #nao\"
 \t\t\t\t\t \t<br>
-\t\t\t\t\t \t<span>Nom - Date</span>
+\t\t\t\t\t \t<span>Pierre - 20/01/18</span>
 \t\t\t\t\t \t</p>
 \t\t\t\t\t</div>\t  
 \t\t\t\t</div>
 
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t \t<div class=\"row\">
-\t\t\t\t\t \t<img src=\"{{ asset('build/img/user3.jpg') }}\" class=\"col-3\">
-\t\t\t\t\t \t<p class=\"offset-1 col-7\">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+\t\t\t\t\t \t<img src=\"{{ asset('build/img/user3.jpg') }}\" class=\"col\" alt=\"user3\">
+\t\t\t\t\t \t<p class=\"col\">\"C'est grâce à vous qu'on peut sauver et protéger des espèces #sauvonslesoiseaux\"
 \t\t\t\t\t \t<br>
-\t\t\t\t\t \t<span>Nom - Date</span>
+\t\t\t\t\t \t<span>Georges - 30/01/18</span>
 \t\t\t\t\t \t</p>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -464,26 +373,17 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://facebook.com\"><img src=\"{{ asset('build/img/facebook_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"{{ asset('build/img/twitter_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"{{ asset('build/img/twitter_rose.svg') }}\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"{{ asset('build/img/instagram_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"{{ asset('build/img/instagram_rose.svg') }}\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t</ul>
 \t\t</div>
-
-\t\t<div class=\"container\">
-\t\t\t<div class=\"row\">
-\t\t\t\t<div class=\"offset-md-3 col-md-6\" id=\"block-newsletter\">
-\t\t\t\t\t<p>Abonnez-vous à la Newsletter pour être le premier informé</p>
-\t\t\t\t\t<form method=\"post\">
-\t\t\t\t\t\t<input class=\"form-control\" type=\"email\" name=\"newsletter\" placeholder=\"Votre adresse mail\">
-\t\t\t\t\t\t<button type=\"submit\" class=\"btn\">Valider</button>
-\t\t\t\t\t</form>
-\t\t\t\t</div>\t
-\t\t\t</div>
+\t\t
+\t\t<iframe class=\"offset-md-3 col-md-6\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://app.mailjet.com/widget/iframe/2pqp/5dM\" width=\"100%\" height=\"255\"></iframe>
 \t\t\t
-\t\t</div>
+\t\t
 \t</div>
 
 \t

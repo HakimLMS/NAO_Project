@@ -28,7 +28,7 @@ security:
             security: false
         main:
             anonymous: true
-            pattern: ^/user/
+            pattern: ^/
             provider: chain_provider
             form_login:
                 login_path: login
@@ -38,6 +38,10 @@ security:
                 post_only: true
                 default_target_path: dashboard
                 csrf_token_generator: security.csrf.token_manager
+                
+            logout:
+                path: security_logout
+                target: homepage
     access_control:
     - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/user/, roles: ROLE_USER }

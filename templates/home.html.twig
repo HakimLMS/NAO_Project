@@ -22,57 +22,28 @@
 		<div class="container" id="block-icons">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1" id="block-icons-2">
-					<a href="#" class="block-icon" id="block-observez"><div>
-						<img src="{{ asset('build/img/jumelles-blanc.svg') }}" height="44.5px" width="63px">
+					<a href="#" class="block-icon" id="block-observez" title="Effectuez une observation d'oiseaux de manière géolocalisée"><div>
+						<img src="{{ asset('build/img/jumelles-blanc.svg') }}" height="44.5px" width="63px" alt="observez">
 						<p>Observez</p>
 					</div></a>
-					<a href="#" class="block-icon" id="block-retrouvez"><div>
-						<img src="{{ asset('build/img/map-blanc.svg') }}" height="44px" width="48px">
+					<a href="#" class="block-icon" id="block-retrouvez" title="Découvrez en temps réel les différentes observations d'oiseaux faites par la communauté"><div>
+						<img src="{{ asset('build/img/map-blanc.svg') }}" height="44px" width="48px" alt="retrouvez">
 						<p>Retrouvez</p>
 					</div></a>
-					<a href="{{ path('research') }}" class="block-icon" id="block-recherchez"><div>
-						<img src="{{ asset('build/img/loupe-blanc.svg') }}" width="40px" height="44px">
+					<a href="{{ path('research') }}" class="block-icon" id="block-recherchez" title="Recherchez des informations sur les différentes espèces d'oiseaux"><div>
+						<img src="{{ asset('build/img/loupe-blanc.svg') }}" width="40px" height="44px" alt="recherchez">
 						<p>Recherchez</p>
 					</div></a>
-					<a href="{{ path('dashboard') }}" class="block-icon" id="block-dashboard"><div>
-						<img src="{{ asset('build/img/user-blanc.svg') }}" height="44x" width="44px">
+					<a href="{{ path('dashboard') }}" class="block-icon" id="block-dashboard" title="Inscrivez-vous gratuitement pour intégrer notre communauté de passionnés"><div>
+						<img src="{{ asset('build/img/user-blanc.svg') }}" height="44x" width="44px" alt="mon espace">
 						<p>Mon espace</p>
 					</div></a>
-					<a href="{{ path('association') }}" class="block-icon" id="block-association"><div>
-						<img src="{{ asset('build/img/world_rose.svg') }}" width="44px" height="44px">
+					<a href="{{ path('association') }}" class="block-icon" id="block-association" title="Prenez connaissance de l'association et ses missions, nos collectes de fond et autres évènements caritatifs"><div>
+						<img src="{{ asset('build/img/world_rose.svg') }}" width="44px" height="44px" alt="association">
 						<p>Notre mission</p>
 					</div></a>
 				</div>
 			</div>
-			<!--
-			<div class="row">
-				<a href="#" class="col-lg-2 offset-lg-1 block-icon" id="block-observez"><div>
-					<img src="{{ asset('build/img/jumelles-blanc.svg') }}" height="44.5px" width="63px">
-					<br>
-					Observez
-				</div></a>
-				<a href="#" class="col-lg-2 block-icon" id="block-retrouvez"><div>
-					<img src="{{ asset('build/img/map-blanc.svg') }}" height="44px" width="48px">
-					<br>
-					Retrouvez
-				</div></a>
-				<a href="{{ path('research') }}" class="col-lg-2 block-icon" id="block-recherchez"><div>
-					<img src="{{ asset('build/img/loupe-blanc.svg') }}" width="40px" height="44px">
-					<br>
-					Recherchez
-				</div></a>
-				<a href="{{ path('dashboard') }}" class="col-lg-2 block-icon" id="block-dashboard"><div>
-					<img src="{{ asset('build/img/user-blanc.svg') }}" height="44px" width="42px">
-					<br>
-					Mon espace
-				</div></a>
-				<a href="{{ path('association') }}" class="col-lg-2 block-icon" id="block-association"><div>
-					<img src="{{ asset('build/img/world_rose.svg') }}" width="44px" height="44px">
-					<br>
-					Notre mission
-				</div></a>
-			</div>
-			-->
 		</div>
 	</div>	
 	</div>
@@ -103,30 +74,30 @@
 			<div class="row justify-content-md-center" id="testimonials">
 				<div class="col-md-3 testimony">
 					<div class="row">
-					 	<img src="{{ asset('build/img/user1.jpg') }}" class="col-3">
-					 	<p class="offset-1 col-7">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<img src="{{ asset('build/img/user1.jpg') }}" class="col" alt="user1">
+					 	<p class="col">"Je peux en apprendre plus sur les oiseaux grâce à NAO #nao #cultureG"
 					 	<br>
-					 	<span>Nom - Date</span>
+					 	<span>Julie - 25/01/18</span>
 					 	</p>
 					</div>
 				</div>
 
 				<div class="col-md-3 testimony">
 					<div class="row">
-					 	<img src="{{ asset('build/img/user2.jpg') }}" class="col-3">
-					 	<p class="offset-1 col-7">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<img src="{{ asset('build/img/user2.jpg') }}" class="col" alt="user2">
+					 	<p class="col">"Je peux faire mes observations pendant mes balades, c'est génial ! #nao"
 					 	<br>
-					 	<span>Nom - Date</span>
+					 	<span>Pierre - 20/01/18</span>
 					 	</p>
 					</div>	  
 				</div>
 
 				<div class="col-md-3 testimony">
 				 	<div class="row">
-					 	<img src="{{ asset('build/img/user3.jpg') }}" class="col-3">
-					 	<p class="offset-1 col-7">Phrase de test - Témoignage réseaux sociaux sur le site et l'association NAO
+					 	<img src="{{ asset('build/img/user3.jpg') }}" class="col" alt="user3">
+					 	<p class="col">"C'est grâce à vous qu'on peut sauver et protéger des espèces #sauvonslesoiseaux"
 					 	<br>
-					 	<span>Nom - Date</span>
+					 	<span>Georges - 30/01/18</span>
 					 	</p>
 					</div>
 				</div>
@@ -140,26 +111,17 @@
 			    <a class="nav-link" target="_blank" href="https://facebook.com"><img src="{{ asset('build/img/facebook_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" target="_blank" href="https://twitter.com"><img src="{{ asset('build/img/twitter_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
+			    <a class="nav-link" target="_blank" href="https://twitter.com"><img src="{{ asset('build/img/twitter_rose.svg') }}" alt="logo Twitter" height="35px" width="35px"></a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" target="_blank" href="https://instagram.com"><img src="{{ asset('build/img/instagram_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
+			    <a class="nav-link" target="_blank" href="https://instagram.com"><img src="{{ asset('build/img/instagram_rose.svg') }}" alt="logo Instagram" height="35px" width="35px"></a>
 			  </li>
 			</ul>
 		</div>
-
-		<div class="container">
-			<div class="row">
-				<div class="offset-md-3 col-md-6" id="block-newsletter">
-					<p>Abonnez-vous à la Newsletter pour être le premier informé</p>
-					<form method="post">
-						<input class="form-control" type="email" name="newsletter" placeholder="Votre adresse mail">
-						<button type="submit" class="btn">Valider</button>
-					</form>
-				</div>	
-			</div>
+		
+		<iframe class="offset-md-3 col-md-6" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/2pqp/5dM" width="100%" height="255"></iframe>
 			
-		</div>
+		
 	</div>
 
 	

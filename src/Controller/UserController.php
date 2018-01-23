@@ -53,7 +53,7 @@ class UserController extends Controller
     public function dashboardAction(Request $request, DashboardHandler $dashboardHandler)
     {
         $tempData = $dashboardHandler->generateData();
-        return $this->render($tempData['templatedir'], array('data'=> $tempData['userQueued']));
+        return $this->render($tempData['templatedir'], array('data'=> $tempData['content']));
     }
     
     /**
@@ -70,8 +70,7 @@ class UserController extends Controller
      * @Route("/user/downgradeuser", name="downgradeuser")
      */
     public function downgradeUserAction(DowngradeUserHandler $downgradeUHandler)
-    {
-      
+    {      
       $userid = filter_input(INPUT_POST, '_userid');
       $downgradeUHandler->downgradeUser($userid); 
       return $this->redirectToRoute('dashboard');

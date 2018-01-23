@@ -9,7 +9,7 @@
           <th>Carte Professionnelle</th>
           <th>Action à faire</th>
         </tr>
-            {% for user in data %}
+            {% for user in data.user %}
         <form method="post">
             <tr>
                <td>{{user.lastname}}</td>
@@ -35,7 +35,7 @@
           <th>Carte Professionnelle</th>
           <th>Action à faire</th>
         </tr>
-            {% for user in data %}
+            {% for user in data.user %}
         <tr>
            <td>{{user.lastname}}</td>
            <td>{{user.firstname}}</td>
@@ -56,7 +56,7 @@
           <th>Carte Professionnelle</th>
           <th>Action à faire</th>
         </tr>
-            {% for user in data %}
+            {% for user in data.user %}
         <tr>
            <td>{{user.lastname}}</td>
            <td>{{user.firstname}}</td>
@@ -71,19 +71,24 @@
     <table id="articletable">
         <h2 class="h2tabdashboard">Articles du blog</h2> 
         <tr>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Mail</th>
-          <th>Carte Professionnelle</th>
+          <th>Titre</th>
+          <th>Date</th>
+          <th>Texte</th>
           <th>Action à faire</th>
+          
         </tr>
-            {% for user in data %}
+            {% for article in data.articles %}
         <tr>
-           <td>{{user.lastname}}</td>
-           <td>{{user.firstname}}</td>
-           <td>{{user.email}}</td>
-           <td>{{user.procard}}</td>
-           <td> <button>Valider</button> <button>Rétrograder</button></td>
+        <form method="post">
+            <td><a href="{{path('article_single', {'id': article.id})}}">{{article.title}}</a></td>
+           <td>{{article.dateArticle|date("d/m/Y")}}</td>
+           <td>{{article.content|striptags|slice(0, 55)|raw}}</td>
+           <input type="hidden" value="{{article.id}}" name="_articleid"></input>
+           <td>
+               <button type="submit" formaction="{{path('modify_article', {'id' : article.id})}}">Modifier</button>
+               <button type="submit" formaction="{{path('delete_article', {'id' : article.id})}}">Supprimer</button>
+           </td>
+        </form>   
         </tr>
             {% endfor %}
             {# wire buttons to actions to validate or not the accounts #}

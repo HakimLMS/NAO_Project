@@ -15,11 +15,11 @@ class __TwigTemplate_443d7bf994dd22d1b55b4f74a4f4337d2f92698dbcf1efc1ca20707342e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_716cf3312648a97e8ed1cdbaa5ad381ce66e06b01147f717ffb6be57049fdb28 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_716cf3312648a97e8ed1cdbaa5ad381ce66e06b01147f717ffb6be57049fdb28->enter($__internal_716cf3312648a97e8ed1cdbaa5ad381ce66e06b01147f717ffb6be57049fdb28_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "footer.html.twig"));
+        $__internal_cf84df3f999b19a71ac44d6e54bca3d6e2161e008ed3c6723b822e6d5515b1ef = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_cf84df3f999b19a71ac44d6e54bca3d6e2161e008ed3c6723b822e6d5515b1ef->enter($__internal_cf84df3f999b19a71ac44d6e54bca3d6e2161e008ed3c6723b822e6d5515b1ef_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "footer.html.twig"));
 
-        $__internal_7696185f8aa784cfe4ff0d1b3bf49c981fdb9fc0bc818bd09f6726a34ae5689f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_7696185f8aa784cfe4ff0d1b3bf49c981fdb9fc0bc818bd09f6726a34ae5689f->enter($__internal_7696185f8aa784cfe4ff0d1b3bf49c981fdb9fc0bc818bd09f6726a34ae5689f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "footer.html.twig"));
+        $__internal_fd0c2c20bde717cd47cbb36b9c5616544666aa1151c143809301f29eda0b8bda = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_fd0c2c20bde717cd47cbb36b9c5616544666aa1151c143809301f29eda0b8bda->enter($__internal_fd0c2c20bde717cd47cbb36b9c5616544666aa1151c143809301f29eda0b8bda_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "footer.html.twig"));
 
         // line 1
         echo "<footer>
@@ -44,23 +44,23 @@ class __TwigTemplate_443d7bf994dd22d1b55b4f74a4f4337d2f92698dbcf1efc1ca20707342e
 \t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"";
         // line 14
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/twitter_rose.svg"), "html", null, true);
-        echo "\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+        echo "\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
 \t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"";
         // line 17
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/instagram_rose.svg"), "html", null, true);
-        echo "\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+        echo "\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t</ul>
 \t\t</div>
 \t</div>
 </footer>";
         
-        $__internal_716cf3312648a97e8ed1cdbaa5ad381ce66e06b01147f717ffb6be57049fdb28->leave($__internal_716cf3312648a97e8ed1cdbaa5ad381ce66e06b01147f717ffb6be57049fdb28_prof);
+        $__internal_cf84df3f999b19a71ac44d6e54bca3d6e2161e008ed3c6723b822e6d5515b1ef->leave($__internal_cf84df3f999b19a71ac44d6e54bca3d6e2161e008ed3c6723b822e6d5515b1ef_prof);
 
         
-        $__internal_7696185f8aa784cfe4ff0d1b3bf49c981fdb9fc0bc818bd09f6726a34ae5689f->leave($__internal_7696185f8aa784cfe4ff0d1b3bf49c981fdb9fc0bc818bd09f6726a34ae5689f_prof);
+        $__internal_fd0c2c20bde717cd47cbb36b9c5616544666aa1151c143809301f29eda0b8bda->leave($__internal_fd0c2c20bde717cd47cbb36b9c5616544666aa1151c143809301f29eda0b8bda_prof);
 
     }
 
@@ -94,10 +94,10 @@ class __TwigTemplate_443d7bf994dd22d1b55b4f74a4f4337d2f92698dbcf1efc1ca20707342e
 \t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://facebook.com\"><img src=\"{{ asset('build/img/facebook_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"{{ asset('build/img/twitter_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"{{ asset('build/img/twitter_rose.svg') }}\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"{{ asset('build/img/instagram_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"{{ asset('build/img/instagram_rose.svg') }}\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t</ul>
 \t\t</div>

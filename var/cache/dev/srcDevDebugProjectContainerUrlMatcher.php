@@ -32,13 +32,64 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/blog')) {
             // article_single
-            if (preg_match('#^/blog/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/blog/single') && preg_match('#^/blog/single/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_single')), array (  '_controller' => 'App\\Controller\\BlogController::single',));
             }
 
             // blog_list
             if ('/blog' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\BlogController::list',  '_route' => 'blog_list',);
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/user')) {
+            if (0 === strpos($pathinfo, '/user/blog')) {
+                // new_article
+                if ('/user/blog/new_article' === $pathinfo) {
+                    return array (  '_controller' => 'App\\Controller\\BlogController::newArticleAction',  '_route' => 'new_article',);
+                }
+
+                // delete_article
+                if (0 === strpos($pathinfo, '/user/blog/delete') && preg_match('#^/user/blog/delete/(?P<id>[^/]+)\\)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete_article')), array (  '_controller' => 'App\\Controller\\BlogController::deleteArticleAction',));
+                }
+
+                // modify_article
+                if (0 === strpos($pathinfo, '/user/blog/modify') && preg_match('#^/user/blog/modify/(?P<id>[^/]+)\\)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'modify_article')), array (  '_controller' => 'App\\Controller\\BlogController::modifyArticleAction',));
+                }
+
+            }
+
+            // login
+            if ('/user/login' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::login',  '_route' => 'login',);
+            }
+
+            // dashboard
+            if ('/user/dashboard' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::dashboardAction',  '_route' => 'dashboard',);
+            }
+
+            // downgradeuser
+            if ('/user/downgradeuser' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::downgradeUserAction',  '_route' => 'downgradeuser',);
+            }
+
+            // validateuser
+            if ('/user/validateuser' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::validateUserAction',  '_route' => 'validateuser',);
+            }
+
+            // user
+            if ('/user' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);
+            }
+
+            // user/subscribe
+            if ('/user/subscribe' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::subscribe',  '_route' => 'user/subscribe',);
             }
 
         }
@@ -73,40 +124,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\UserController::subscribeAction',  '_route' => 'subscribe',);
         }
 
-        if (0 === strpos($pathinfo, '/user')) {
-            // login
-            if ('/user/login' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\UserController::login',  '_route' => 'login',);
-            }
-
-            // dashboard
-            if ('/user/dashboard' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\UserController::dashboardAction',  '_route' => 'dashboard',);
-            }
-
-            // downgradeuser
-            if ('/user/downgradeuser' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\UserController::downgradeUserAction',  '_route' => 'downgradeuser',);
-            }
-
-            // validateuser
-            if ('/user/validateuser' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\UserController::validateUserAction',  '_route' => 'validateuser',);
-            }
-
-            // user
-            if ('/user' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);
-            }
-
-            // user/subscribe
-            if ('/user/subscribe' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\UserController::subscribe',  '_route' => 'user/subscribe',);
-            }
-
-        }
-
-        elseif (0 === strpos($pathinfo, '/_')) {
+        if (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));

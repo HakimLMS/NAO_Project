@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Comment;
 
 
@@ -40,7 +41,9 @@ class Article
 
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\ArticleImage", cascade={"persist"})
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Veuillez insérer une image de type JPG ou PNG")
+     * 
      */
     private $image;
 
@@ -87,7 +90,7 @@ class Article
 
     public function setContent($content)
     {
-        $this->content = $Content;
+        $this->content = $content;
         return $this;
     }
 
