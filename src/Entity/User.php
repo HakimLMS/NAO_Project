@@ -28,7 +28,7 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\Regex("/^[a-zA-Z]{3,}$/", message = "Le nom doit contenir au moins 3 lettres")
+     *
      */
     private $username;
     

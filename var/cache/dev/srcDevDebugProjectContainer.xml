@@ -73,7 +73,7 @@
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="env(DATABASE_URL)"></parameter>
     <parameter key="locale">en</parameter>
-    <parameter key="images_directory">E:\wamp64\www\NAO_project/img/uploads</parameter>
+    <parameter key="images_directory">E:\wamp64\www\NAO_project/public/build/img/</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
@@ -436,6 +436,7 @@
       <argument type="service" id="form.factory"/>
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="service_container"/>
+      <argument type="service" id="security.user_password_encoder.generic"/>
     </service>
     <service id="App\Services\NewArticleHandler" class="App\Services\NewArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>

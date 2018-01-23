@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 use App\Form\UserModifyType;
@@ -17,26 +18,28 @@ class ModifyUserHandler
 {
     private $em;
     
-    
-    
     private $flusher;
     
     private $checker;
     
     private $userRepo;
     
+    private $encoder;
+    
     private $formFactory;
     
     private $tokenStorage;
 
-    public function __construct(EntityManagerInterface $em, AuthorizationCheckerInterface $checker, FlusherService $flusher, FormFactoryInterface $formFactory, TokenStorageInterface $tokenstorage, ContainerInterface $container){
+    public function __construct(EntityManagerInterface $em, AuthorizationCheckerInterface $checker, FlusherService $flusher, FormFactoryInterface $formFactory, TokenStorageInterface $tokenstorage, ContainerInterface $container, UserPasswordEncoderInterface $encoder){
         $this->em = $em;
         $this->userRepo =  $this->em->getRepository(User::class);
+       
         $this->checker = $checker;
         $this->formFactory = $formFactory;
         $this->flusher = $flusher;
         $this->tokenStorage = $tokenstorage;
         $this->container = $container;
+        $this->encoder = $encoder;
     }
     
     private function findUser()
@@ -53,6 +56,14 @@ class ModifyUserHandler
          
     }
     
+    private function encodePassword(User $user)
+    {
+        $password = $user->getPassword();
+        $encoded = $this->encoder->encodePassword($user, $password);
+        $user->setPassword($encoded);
+        
+    }
+    
     private function generateResponse($form, Request $request, User $user)
     {
         $form->handleRequest($request);
@@ -64,7 +75,8 @@ class ModifyUserHandler
                 $this->container->getParameter('images_directory'),
                 $fileName);
             $user->setImage($fileName);
-            $this->flusher->flushEntity($user);    
+            $this->encodePassword($user);
+            $this->flusher->flushEntity($user);
         }
     }
     

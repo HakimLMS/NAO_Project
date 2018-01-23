@@ -86,6 +86,11 @@ class UserController extends Controller
     public function modifyUserAction(ModifyUserHandler $modifyHandler, Request $request)
     {
        $form = $modifyHandler->generateData($request);
+       
+       if($form->isSubmitted() && $form->isValid())
+       {
+           return $this->redirectToRoute('dashboard');
+       }
        return $this->render('Administration/modifyUser.html.twig', array('form' => $form->createView()));
     }
 }
