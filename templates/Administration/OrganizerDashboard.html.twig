@@ -4,7 +4,7 @@
         <div class="card" style="width: 18rem;">
             
             <div class="card-body">
-               <img class="card-img-top" src="{{user.image}}" alt="{{user.firstname}}" style="height: 170px;">
+               <a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
               <h5 class="card-title">{{user.firstname}}</h5>
               <p class="card-text">{{user.type}}</p>
             </div>
