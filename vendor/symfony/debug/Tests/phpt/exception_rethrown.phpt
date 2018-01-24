@@ -26,6 +26,10 @@ ErrorHandler::register()->setDefaultLogger(new TestLogger());
 ini_set('display_errors', 1);
 
 throw new \Exception('foo');
+<<<<<<< HEAD
+=======
+
+>>>>>>> contactmanager
 ?>
 --EXPECTF--
 Uncaught Exception: foo

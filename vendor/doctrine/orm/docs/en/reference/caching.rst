@@ -13,7 +13,11 @@ Cache Drivers
 
 The cache drivers follow a simple interface that is defined in
 ``Doctrine\Common\Cache\Cache``. All the cache drivers extend a
+<<<<<<< HEAD
 base class ``Doctrine\Common\Cache\CacheProvider`` which implements
+=======
+base class ``Doctrine\Common\Cache\AbstractCache`` which implements
+>>>>>>> contactmanager
 this interface.
 
 The interface defines the following public methods for you to implement:
@@ -21,10 +25,17 @@ The interface defines the following public methods for you to implement:
 
 -  fetch($id) - Fetches an entry from the cache
 -  contains($id) - Test if an entry exists in the cache
+<<<<<<< HEAD
 -  save($id, $data, $lifeTime = false) - Puts data into the cache for x seconds. 0 = infinite time
 -  delete($id) - Deletes a cache entry
 
 Each driver extends the ``CacheProvider`` class which defines a few
+=======
+-  save($id, $data, $lifeTime = false) - Puts data into the cache
+-  delete($id) - Deletes a cache entry
+
+Each driver extends the ``AbstractCache`` class which defines a few
+>>>>>>> contactmanager
 abstract protected methods that each of the drivers must
 implement:
 
@@ -38,6 +49,7 @@ The public methods ``fetch()``, ``contains()`` etc. use the
 above protected methods which are implemented by the drivers. The
 code is organized this way so that the protected methods in the
 drivers do the raw interaction with the cache implementation and
+<<<<<<< HEAD
 the ``CacheProvider`` can build custom functionality on top of
 these methods.
 
@@ -45,6 +57,11 @@ This documentation does not cover every single cache driver included
 with Doctrine. For an up-to-date-list, see the
 `cache directory on GitHub <https://github.com/doctrine/cache/tree/master/lib/Doctrine/Common/Cache>`.
 
+=======
+the ``AbstractCache`` can build custom functionality on top of
+these methods.
+
+>>>>>>> contactmanager
 APC
 ~~~
 
@@ -63,6 +80,7 @@ by itself.
     $cacheDriver = new \Doctrine\Common\Cache\ApcCache();
     $cacheDriver->save('cache_id', 'my_data');
 
+<<<<<<< HEAD
 APCu
 ~~~~
 
@@ -81,6 +99,8 @@ by itself.
     $cacheDriver = new \Doctrine\Common\Cache\ApcuCache();
     $cacheDriver->save('cache_id', 'my_data');
 
+=======
+>>>>>>> contactmanager
 Memcache
 ~~~~~~~~
 
@@ -104,7 +124,11 @@ driver by itself.
     $cacheDriver->save('cache_id', 'my_data');
 
 Memcached
+<<<<<<< HEAD
 ~~~~~~~~~
+=======
+~~~~~~~~
+>>>>>>> contactmanager
 
 Memcached is a more recent and complete alternative extension to
 Memcache.
@@ -305,7 +329,11 @@ use on your ORM configuration.
 
     <?php
     $config = new \Doctrine\ORM\Configuration();
+<<<<<<< HEAD
     $config->setQueryCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
+=======
+    $config->setQueryCacheImpl(new \Doctrine\Common\Cache\ApcCache());
+>>>>>>> contactmanager
 
 Result Cache
 ~~~~~~~~~~~~
@@ -318,7 +346,11 @@ cache implementation.
 .. code-block:: php
 
     <?php
+<<<<<<< HEAD
     $config->setResultCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
+=======
+    $config->setResultCacheImpl(new \Doctrine\Common\Cache\ApcCache());
+>>>>>>> contactmanager
 
 Now when you're executing DQL queries you can configure them to use
 the result cache.
@@ -335,7 +367,11 @@ result cache driver.
 .. code-block:: php
 
     <?php
+<<<<<<< HEAD
     $query->setResultCacheDriver(new \Doctrine\Common\Cache\ApcuCache());
+=======
+    $query->setResultCacheDriver(new \Doctrine\Common\Cache\ApcCache());
+>>>>>>> contactmanager
 
 .. note::
 
@@ -387,7 +423,11 @@ first.
 .. code-block:: php
 
     <?php
+<<<<<<< HEAD
     $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
+=======
+    $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ApcCache());
+>>>>>>> contactmanager
 
 Now the metadata information will only be parsed once and stored in
 the cache driver.
@@ -423,6 +463,7 @@ To clear the result cache use the ``orm:clear-cache:result`` task.
 All these tasks accept a ``--flush`` option to flush the entire
 contents of the cache instead of invalidating the entries.
 
+<<<<<<< HEAD
 Cache Chaining
 --------------
 
@@ -456,6 +497,8 @@ way to build a simple high-availability cache, ChainCache does not
 implement any exception handling so using it as a high-availability
 mechanism is not recommended.
 
+=======
+>>>>>>> contactmanager
 Cache Slams
 -----------
 

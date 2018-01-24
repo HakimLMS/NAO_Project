@@ -41,11 +41,20 @@ class AddConsoleCommandPass implements CompilerPassInterface
         $lazyCommandMap = array();
         $lazyCommandRefs = array();
         $serviceIds = array();
+<<<<<<< HEAD
+=======
+        $lazyServiceIds = array();
+>>>>>>> contactmanager
 
         foreach ($commandServices as $id => $tags) {
             $definition = $container->getDefinition($id);
             $class = $container->getParameterBag()->resolveValue($definition->getClass());
 
+<<<<<<< HEAD
+=======
+            $commandId = 'console.command.'.strtolower(str_replace('\\', '_', $class));
+
+>>>>>>> contactmanager
             if (isset($tags[0]['command'])) {
                 $commandName = $tags[0]['command'];
             } else {
@@ -59,16 +68,32 @@ class AddConsoleCommandPass implements CompilerPassInterface
             }
 
             if (null === $commandName) {
+<<<<<<< HEAD
                 if (!$definition->isPublic() || $definition->isPrivate()) {
                     $commandId = 'console.command.public_alias.'.$id;
                     $container->setAlias($commandId, $id)->setPublic(true);
                     $id = $commandId;
                 }
                 $serviceIds[] = $id;
+=======
+                if (isset($serviceIds[$commandId]) || $container->hasAlias($commandId)) {
+                    $commandId = $commandId.'_'.$id;
+                }
+                if (!$definition->isPublic() || $definition->isPrivate()) {
+                    $container->setAlias($commandId, $id)->setPublic(true);
+                    $id = $commandId;
+                }
+                $serviceIds[$commandId] = $id;
+>>>>>>> contactmanager
 
                 continue;
             }
 
+<<<<<<< HEAD
+=======
+            $serviceIds[$commandId] = $id;
+            $lazyServiceIds[$id] = true;
+>>>>>>> contactmanager
             unset($tags[0]);
             $lazyCommandMap[$commandName] = $id;
             $lazyCommandRefs[$id] = new TypedReference($id, $class);
@@ -94,5 +119,9 @@ class AddConsoleCommandPass implements CompilerPassInterface
             ->setArguments(array(ServiceLocatorTagPass::register($container, $lazyCommandRefs), $lazyCommandMap));
 
         $container->setParameter('console.command.ids', $serviceIds);
+<<<<<<< HEAD
+=======
+        $container->setParameter('console.lazy_command.ids', $lazyServiceIds);
+>>>>>>> contactmanager
     }
 }

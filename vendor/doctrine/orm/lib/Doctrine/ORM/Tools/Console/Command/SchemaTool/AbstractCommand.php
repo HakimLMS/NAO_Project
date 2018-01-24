@@ -19,11 +19,18 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\SchemaTool;
 
+<<<<<<< HEAD
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+=======
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Command\Command;
+use Doctrine\ORM\Tools\SchemaTool;
+>>>>>>> contactmanager
 
 /**
  * Base class for CreateCommand, DropCommand and UpdateCommand.
@@ -45,15 +52,22 @@ abstract class AbstractCommand extends Command
      *
      * @return null|int Null or 0 if everything went fine, or an error code.
      */
+<<<<<<< HEAD
     abstract protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas, SymfonyStyle $ui);
+=======
+    abstract protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas);
+>>>>>>> contactmanager
 
     /**
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
+=======
+>>>>>>> contactmanager
         $emHelper = $this->getHelper('em');
 
         /* @var $em \Doctrine\ORM\EntityManager */
@@ -61,6 +75,7 @@ abstract class AbstractCommand extends Command
 
         $metadatas = $em->getMetadataFactory()->getAllMetadata();
 
+<<<<<<< HEAD
         if (empty($metadatas)) {
             $ui->success('No Metadata Classes to process.');
 
@@ -68,5 +83,16 @@ abstract class AbstractCommand extends Command
         }
 
         return $this->executeSchemaCommand($input, $output, new SchemaTool($em), $metadatas, $ui);
+=======
+        if ( ! empty($metadatas)) {
+            // Create SchemaTool
+            $tool = new SchemaTool($em);
+
+            return $this->executeSchemaCommand($input, $output, $tool, $metadatas);
+        } else {
+            $output->writeln('No Metadata Classes to process.');
+            return 0;
+        }
+>>>>>>> contactmanager
     }
 }

@@ -44,7 +44,10 @@ class LocateFunction extends FunctionNode
 
     /**
      * @override
+<<<<<<< HEAD
      * @inheritdoc
+=======
+>>>>>>> contactmanager
      */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
@@ -61,7 +64,10 @@ class LocateFunction extends FunctionNode
 
     /**
      * @override
+<<<<<<< HEAD
      * @inheritdoc
+=======
+>>>>>>> contactmanager
      */
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {

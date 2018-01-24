@@ -26,21 +26,36 @@ namespace Doctrine\ORM\Query\AST;
  * @since   2.0
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
  */
+<<<<<<< HEAD
 class SubselectIdentificationVariableDeclaration
+=======
+class SubselectIdentificationVariableDeclaration 
+>>>>>>> contactmanager
 {
     /**
      * @var PathExpression
      */
     public $associationPathExpression;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> contactmanager
     /**
      * @var string
      */
     public $aliasIdentificationVariable;
+<<<<<<< HEAD
 
     /**
      * Constructor.
      *
+=======
+    
+    /**
+     * Constructor.
+     * 
+>>>>>>> contactmanager
      * @param PathExpression $associationPathExpression
      * @param string         $aliasIdentificationVariable
      */

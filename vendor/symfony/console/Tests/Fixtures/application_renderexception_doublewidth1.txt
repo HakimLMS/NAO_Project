@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 In ApplicationTest.php line 725:
+=======
+In ApplicationTest.php line 715:
+>>>>>>> contactmanager
                     
   エラーメッセージ  
                     

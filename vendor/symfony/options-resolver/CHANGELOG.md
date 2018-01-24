@@ -31,7 +31,11 @@ CHANGELOG
  * deprecated OptionsResolver::isKnown() in favor of isDefined()
  * [BC BREAK] OptionsResolver::isRequired() returns true now if a required
    option has a default value set
+<<<<<<< HEAD
  * [BC BREAK] merged Options into OptionsResolver and turned Options into an
+=======
+ * [BC BREAK] merged Options into OptionsResolver and turned Options into an 
+>>>>>>> contactmanager
    interface
  * deprecated Options::overload() (now in OptionsResolver)
  * deprecated Options::set() (now in OptionsResolver)
@@ -42,7 +46,11 @@ CHANGELOG
    lazy option/normalizer closures now
  * [BC BREAK] removed Traversable interface from Options since using within
    lazy option/normalizer closures resulted in exceptions
+<<<<<<< HEAD
  * [BC BREAK] removed Options::all() since using within lazy option/normalizer
+=======
+ * [BC BREAK] removed Options::all() since using within lazy option/normalizer 
+>>>>>>> contactmanager
    closures resulted in exceptions
  * [BC BREAK] OptionDefinitionException now extends LogicException instead of
    RuntimeException

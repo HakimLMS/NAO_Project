@@ -56,8 +56,11 @@ class ApplicationTest extends TestCase
         require_once self::$fixturesPath.'/BarBucCommand.php';
         require_once self::$fixturesPath.'/FooSubnamespaced1Command.php';
         require_once self::$fixturesPath.'/FooSubnamespaced2Command.php';
+<<<<<<< HEAD
         require_once self::$fixturesPath.'/TestTiti.php';
         require_once self::$fixturesPath.'/TestToto.php';
+=======
+>>>>>>> contactmanager
     }
 
     protected function normalizeLineBreaks($text)
@@ -284,6 +287,7 @@ class ApplicationTest extends TestCase
         $application->findNamespace('f');
     }
 
+<<<<<<< HEAD
     public function testFindNonAmbiguous()
     {
         $application = new Application();
@@ -292,6 +296,8 @@ class ApplicationTest extends TestCase
         $this->assertEquals('test-toto', $application->find('test')->getName());
     }
 
+=======
+>>>>>>> contactmanager
     /**
      * @expectedException        \Symfony\Component\Console\Exception\CommandNotFoundException
      * @expectedExceptionMessage There are no commands defined in the "bar" namespace.

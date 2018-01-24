@@ -84,7 +84,10 @@ abstract class AbstractDescriptorTest extends TestCase
         $parent = new ResolvedFormType(new FormType(), $typeExtensions);
 
         yield array(new ResolvedFormType(new ChoiceType(), array(), $parent), array('decorated' => false), 'resolved_form_type_1');
+<<<<<<< HEAD
         yield array(new ResolvedFormType(new FormType()), array('decorated' => false), 'resolved_form_type_2');
+=======
+>>>>>>> contactmanager
     }
 
     public function getDescribeOptionTestData()

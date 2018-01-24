@@ -21,6 +21,10 @@
 namespace Doctrine\ORM\Cache\Region;
 
 use Doctrine\Common\Cache\MultiGetCache;
+<<<<<<< HEAD
+=======
+use Doctrine\ORM\Cache\Region;
+>>>>>>> contactmanager
 use Doctrine\ORM\Cache\CollectionCacheEntry;
 
 /**
@@ -55,7 +59,11 @@ class DefaultMultiGetRegion extends DefaultRegion
      */
     public function getMultiple(CollectionCacheEntry $collection)
     {
+<<<<<<< HEAD
         $keysToRetrieve = [];
+=======
+        $keysToRetrieve = array();
+>>>>>>> contactmanager
 
         foreach ($collection->identifiers as $index => $key) {
             $keysToRetrieve[$index] = $this->getCacheEntryKey($key);
@@ -66,7 +74,11 @@ class DefaultMultiGetRegion extends DefaultRegion
             return null;
         }
 
+<<<<<<< HEAD
         $returnableItems = [];
+=======
+        $returnableItems = array();
+>>>>>>> contactmanager
         foreach ($keysToRetrieve as $index => $key) {
             $returnableItems[$index] = $items[$key];
         }

@@ -41,7 +41,10 @@ class AbsFunction extends FunctionNode
 
     /**
      * @override
+<<<<<<< HEAD
      * @inheritdoc
+=======
+>>>>>>> contactmanager
      */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
@@ -52,7 +55,10 @@ class AbsFunction extends FunctionNode
 
     /**
      * @override
+<<<<<<< HEAD
      * @inheritdoc
+=======
+>>>>>>> contactmanager
      */
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {

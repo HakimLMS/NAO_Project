@@ -30,6 +30,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
 
+<<<<<<< HEAD
         // home
         if ('' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'App\\Controller\\BlogController::index',  '_route' => 'home',);
@@ -112,6 +113,9 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         elseif (0 === strpos($pathinfo, '/_')) {
+=======
+        if (0 === strpos($pathinfo, '/_')) {
+>>>>>>> contactmanager
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));
@@ -185,6 +189,24 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+<<<<<<< HEAD
+=======
+        // home
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\HomeController::index',  '_route' => 'home',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
+            }
+
+            return $ret;
+        }
+
+        // contact
+        if ('/contact' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\ContactController::index',  '_route' => 'contact',);
+        }
+
+>>>>>>> contactmanager
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

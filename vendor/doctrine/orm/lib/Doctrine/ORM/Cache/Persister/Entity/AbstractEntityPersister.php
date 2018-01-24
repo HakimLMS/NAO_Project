@@ -27,6 +27,10 @@ use Doctrine\ORM\Cache\CollectionCacheKey;
 use Doctrine\ORM\Cache\TimestampCacheKey;
 use Doctrine\ORM\Cache\QueryCacheKey;
 use Doctrine\ORM\Cache\Persister\CachedPersister;
+<<<<<<< HEAD
+=======
+use Doctrine\ORM\Cache\CacheException;
+>>>>>>> contactmanager
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\PersistentCollection;
 use Doctrine\ORM\EntityManagerInterface;
@@ -64,7 +68,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
      /**
      * @var array
      */
+<<<<<<< HEAD
     protected $queuedCache = [];
+=======
+    protected $queuedCache = array();
+>>>>>>> contactmanager
 
     /**
      * @var \Doctrine\ORM\Cache\Region
@@ -104,7 +112,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
     /**
      * Associations configured as FETCH_EAGER, as well as all inverse one-to-one associations.
      *
+<<<<<<< HEAD
      * @var array|null
+=======
+     * @var array
+>>>>>>> contactmanager
      */
     protected $joinedAssociations;
 
@@ -160,7 +172,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
     /**
      * {@inheritDoc}
      */
+<<<<<<< HEAD
     public function getCountSQL($criteria = [])
+=======
+    public function getCountSQL($criteria = array())
+>>>>>>> contactmanager
     {
         return $this->persister->getCountSQL($criteria);
     }
@@ -233,6 +249,17 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
             $class = $this->metadataFactory->getMetadataFor($className);
         }
 
+<<<<<<< HEAD
+=======
+        if ($class->containsForeignIdentifier) {
+            foreach ($class->associationMappings as $name => $assoc) {
+                if (!empty($assoc['id']) && !isset($assoc['cache'])) {
+                    throw CacheException::nonCacheableEntityAssociation($class->name, $name);
+                }
+            }
+        }
+
+>>>>>>> contactmanager
         $entry  = $this->hydrator->buildCacheEntry($class, $key, $entity);
         $cached = $this->region->put($key, $entry);
 
@@ -249,7 +276,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
     private function storeJoinedAssociations($entity)
     {
         if ($this->joinedAssociations === null) {
+<<<<<<< HEAD
             $associations = [];
+=======
+            $associations = array();
+>>>>>>> contactmanager
 
             foreach ($this->class->associationMappings as $name => $assoc) {
                 if (isset($assoc['cache']) &&
@@ -272,8 +303,12 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
             }
 
             $assocId        = $this->uow->getEntityIdentifier($assocEntity);
+<<<<<<< HEAD
             $assocMetadata  = $this->metadataFactory->getMetadataFor($assoc['targetEntity']);
             $assocKey       = new EntityCacheKey($assocMetadata->rootEntityName, $assocId);
+=======
+            $assocKey       = new EntityCacheKey($assoc['targetEntity'], $assocId);
+>>>>>>> contactmanager
             $assocPersister = $this->uow->getEntityPersister($assoc['targetEntity']);
 
             $assocPersister->storeEntityCache($assocEntity, $assocKey);
@@ -283,9 +318,15 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
     /**
      * Generates a string of currently query
      *
+<<<<<<< HEAD
      * @param array   $query
      * @param string  $criteria
      * @param array   $orderBy
+=======
+     * @param array $query
+     * @param string $criteria
+     * @param array $orderBy
+>>>>>>> contactmanager
      * @param integer $limit
      * @param integer $offset
      *
@@ -361,7 +402,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function load(array $criteria, $entity = null, $assoc = null, array $hints = [], $lockMode = null, $limit = null, array $orderBy = null)
+=======
+    public function load(array $criteria, $entity = null, $assoc = null, array $hints = array(), $lockMode = null, $limit = null, array $orderBy = null)
+>>>>>>> contactmanager
     {
         if ($entity !== null || $assoc !== null || ! empty($hints) || $lockMode !== null) {
             return $this->persister->load($criteria, $entity, $assoc, $hints, $lockMode, $limit, $orderBy);
@@ -387,7 +432,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
             return null;
         }
 
+<<<<<<< HEAD
         $cached = $queryCache->put($queryKey, $rsm, [$result]);
+=======
+        $cached = $queryCache->put($queryKey, $rsm, array($result));
+>>>>>>> contactmanager
 
         if ($this->cacheLogger) {
             if ($result) {
@@ -405,7 +454,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function loadAll(array $criteria = [], array $orderBy = null, $limit = null, $offset = null)
+=======
+    public function loadAll(array $criteria = array(), array $orderBy = null, $limit = null, $offset = null)
+>>>>>>> contactmanager
     {
         $query      = $this->persister->getSelectSQL($criteria, null, null, $limit, $offset, $orderBy);
         $hash       = $this->getHash($query, $criteria, null, null, null);
@@ -477,7 +530,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
         $cacheEntry = $this->hydrator->buildCacheEntry($class, $cacheKey, $entity);
         $cached     = $this->region->put($cacheKey, $cacheEntry);
 
+<<<<<<< HEAD
         if ($cached && (null === $this->joinedAssociations || $this->joinedAssociations)) {
+=======
+        if ($cached && ($this->joinedAssociations === null || count($this->joinedAssociations) > 0)) {
+>>>>>>> contactmanager
             $this->storeJoinedAssociations($entity);
         }
 
@@ -495,7 +552,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
     /**
      * {@inheritDoc}
      */
+<<<<<<< HEAD
     public function count($criteria = [])
+=======
+    public function count($criteria = array())
+>>>>>>> contactmanager
     {
         return $this->persister->count($criteria);
     }
@@ -548,6 +609,7 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
         $hasCache  = ($persister instanceof CachedPersister);
         $key       = null;
 
+<<<<<<< HEAD
         if ( ! $hasCache) {
             return $this->persister->loadManyToManyCollection($assoc, $sourceEntity, $coll);
         }
@@ -562,14 +624,37 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
             }
 
             return $list;
+=======
+        if ($hasCache) {
+            $ownerId = $this->uow->getEntityIdentifier($coll->getOwner());
+            $key     = new CollectionCacheKey($assoc['sourceEntity'], $assoc['fieldName'], $ownerId);
+            $list    = $persister->loadCollectionCache($coll, $key);
+
+            if ($list !== null) {
+                if ($this->cacheLogger) {
+                    $this->cacheLogger->collectionCacheHit($persister->getCacheRegion()->getName(), $key);
+                }
+
+                return $list;
+            }
+>>>>>>> contactmanager
         }
 
         $list = $this->persister->loadManyToManyCollection($assoc, $sourceEntity, $coll);
 
+<<<<<<< HEAD
         $persister->storeCollectionCache($key, $list);
 
         if ($this->cacheLogger) {
             $this->cacheLogger->collectionCacheMiss($persister->getCacheRegion()->getName(), $key);
+=======
+        if ($hasCache) {
+            $persister->storeCollectionCache($key, $list);
+
+            if ($this->cacheLogger) {
+                $this->cacheLogger->collectionCacheMiss($persister->getCacheRegion()->getName(), $key);
+            }
+>>>>>>> contactmanager
         }
 
         return $list;
@@ -583,6 +668,7 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
         $persister = $this->uow->getCollectionPersister($assoc);
         $hasCache  = ($persister instanceof CachedPersister);
 
+<<<<<<< HEAD
         if ( ! $hasCache) {
             return $this->persister->loadOneToManyCollection($assoc, $sourceEntity, $coll);
         }
@@ -597,14 +683,37 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
             }
 
             return $list;
+=======
+        if ($hasCache) {
+            $ownerId = $this->uow->getEntityIdentifier($coll->getOwner());
+            $key     = new CollectionCacheKey($assoc['sourceEntity'], $assoc['fieldName'], $ownerId);
+            $list    = $persister->loadCollectionCache($coll, $key);
+
+            if ($list !== null) {
+                if ($this->cacheLogger) {
+                    $this->cacheLogger->collectionCacheHit($persister->getCacheRegion()->getName(), $key);
+                }
+
+                return $list;
+            }
+>>>>>>> contactmanager
         }
 
         $list = $this->persister->loadOneToManyCollection($assoc, $sourceEntity, $coll);
 
+<<<<<<< HEAD
         $persister->storeCollectionCache($key, $list);
 
         if ($this->cacheLogger) {
             $this->cacheLogger->collectionCacheMiss($persister->getCacheRegion()->getName(), $key);
+=======
+        if ($hasCache) {
+            $persister->storeCollectionCache($key, $list);
+
+            if ($this->cacheLogger) {
+                $this->cacheLogger->collectionCacheMiss($persister->getCacheRegion()->getName(), $key);
+            }
+>>>>>>> contactmanager
         }
 
         return $list;
@@ -613,7 +722,11 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = [])
+=======
+    public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = array())
+>>>>>>> contactmanager
     {
         return $this->persister->loadOneToOneEntity($assoc, $sourceEntity, $identifier);
     }
@@ -634,6 +747,7 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
         $this->persister->refresh($id, $entity, $lockMode);
     }
 
+<<<<<<< HEAD
     /**
      * @param array $association
      * @param array $ownerId
@@ -647,4 +761,6 @@ abstract class AbstractEntityPersister implements CachedEntityPersister
 
         return new CollectionCacheKey($metadata->rootEntityName, $association['fieldName'], $ownerId);
     }
+=======
+>>>>>>> contactmanager
 }

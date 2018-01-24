@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1b6ca8,::1,GET,http://localhost/NAO_project/public/index.php/user/login,1516728651,,200
 96b956,::1,POST,http://localhost/NAO_project/public/index.php/user/login,1516728663,,302
 2cc248,::1,GET,http://localhost/NAO_project/public/index.php/user/login,1516728663,,200
@@ -61,3 +62,27 @@ efa771,::1,POST,http://localhost/NAO_project/public/index.php/user/login,1516786
 a3f216,::1,POST,http://localhost/NAO_project/public/index.php/blog/new_article,1516786614,,200
 871efe,::1,GET,http://localhost/NAO_project/public/index.php/user/dashboard,1516786638,,200
 56f26c,::1,GET,http://localhost/NAO_project/public/index.php/blog/single/3,1516786641,,200
+=======
+cea2e5,::1,GET,http://localhost/nao_project/public/index.php/contact,1513790599,,200
+1a9c0a,::1,GET,http://localhost/nao_project/public/index.php/contact,1513790643,bdcc4a,200
+bdcc4a,::1,POST,http://localhost/nao_project/public/index.php/contact,1513790643,,500
+11cced,::1,GET,http://localhost/nao_project/public/index.php/contact,1513790838,048785,200
+048785,::1,POST,http://localhost/nao_project/public/index.php/contact,1513790838,,500
+3c63bb,::1,GET,http://localhost/nao_project/public/index.php/contact,1513849132,,200
+9ab5f5,::1,GET,http://localhost/nao_project/public/index.php/contact,1513849169,66acc8,200
+66acc8,::1,POST,http://localhost/nao_project/public/index.php/contact,1513849169,,500
+04df79,::1,GET,http://localhost/nao_project/public/index.php/contact,1513849459,566045,200
+566045,::1,POST,http://localhost/nao_project/public/index.php/contact,1513849459,,500
+a9ccbc,::1,GET,http://localhost/nao_project/public/index.php/contact,1513849479,b6a5df,200
+b6a5df,::1,POST,http://localhost/nao_project/public/index.php/contact,1513849479,,500
+a6f5f5,::1,GET,http://localhost/nao_project/public/index.php/contact,1513849593,7ff41f,200
+7ff41f,::1,POST,http://localhost/nao_project/public/index.php/contact,1513849593,,500
+4597e0,::1,GET,http://localhost/nao_project/public/index.php/contact,1513850134,a663b3,200
+a663b3,::1,POST,http://localhost/nao_project/public/index.php/contact,1513850134,,500
+37a70d,::1,POST,http://localhost/nao_project/public/index.php/contact,1513852205,,302
+1b8e78,::1,GET,http://localhost/nao_project/public/index.php/,1513852209,,200
+b8a5d1,::1,GET,http://localhost/nao_project/public/index.php/contact,1513852266,,200
+5d52a5,::1,GET,http://localhost/nao_project/public/index.php/contact,1513852478,,200
+ab3226,::1,POST,http://localhost/nao_project/public/index.php/contact,1513852492,,200
+bd2aaa,::1,GET,http://localhost/nao_project/public/index.php/contact,1513859298,,200
+>>>>>>> contactmanager

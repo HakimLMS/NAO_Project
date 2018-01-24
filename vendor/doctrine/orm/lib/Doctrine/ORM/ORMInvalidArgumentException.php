@@ -82,6 +82,7 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     }
 
     /**
+<<<<<<< HEAD
      * @param array[][]|object[][] $newEntitiesWithAssociations non-empty an array
  *                                                              of [array $associationMapping, object $entity] pairs
      *
@@ -111,13 +112,31 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
 
     /**
      * @param array  $associationMapping
+=======
+     * @param array  $assoc
+>>>>>>> contactmanager
      * @param object $entry
      *
      * @return ORMInvalidArgumentException
      */
+<<<<<<< HEAD
     static public function newEntityFoundThroughRelationship(array $associationMapping, $entry)
     {
         return new self(self::newEntityFoundThroughRelationshipMessage($associationMapping, $entry));
+=======
+    static public function newEntityFoundThroughRelationship(array $assoc, $entry)
+    {
+        return new self("A new entity was found through the relationship '"
+                            . $assoc['sourceEntity'] . "#" . $assoc['fieldName'] . "' that was not"
+                            . " configured to cascade persist operations for entity: " . self::objToStr($entry) . "."
+                            . " To solve this issue: Either explicitly call EntityManager#persist()"
+                            . " on this unknown entity or configure cascade persist "
+                            . " this association in the mapping for example @ManyToOne(..,cascade={\"persist\"})."
+                            . (method_exists($entry, '__toString') ?
+                                "":
+                                " If you cannot find out which entity causes the problem"
+                               ." implement '" . $assoc['targetEntity'] . "#__toString()' to get a clue."));
+>>>>>>> contactmanager
     }
 
     /**
@@ -129,8 +148,13 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     static public function detachedEntityFoundThroughRelationship(array $assoc, $entry)
     {
         return new self("A detached entity of type " . $assoc['targetEntity'] . " (" . self::objToStr($entry) . ") "
+<<<<<<< HEAD
             . " was found through the relationship '" . $assoc['sourceEntity'] . "#" . $assoc['fieldName'] . "' "
             . "during cascading a persist operation.");
+=======
+                        . " was found through the relationship '" . $assoc['sourceEntity'] . "#" . $assoc['fieldName'] . "' "
+                        . "during cascading a persist operation.");
+>>>>>>> contactmanager
     }
 
     /**
@@ -141,7 +165,11 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     static public function entityNotManaged($entity)
     {
         return new self("Entity " . self::objToStr($entity) . " is not managed. An entity is managed if its fetched " .
+<<<<<<< HEAD
             "from the database or registered as new through EntityManager#persist");
+=======
+                "from the database or registered as new through EntityManager#persist");
+>>>>>>> contactmanager
     }
 
     /**
@@ -187,7 +215,11 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     public static function invalidObject($context, $given, $parameterIndex = 1)
     {
         return new self($context . ' expects parameter ' . $parameterIndex .
+<<<<<<< HEAD
             ' to be an entity object, '. gettype($given) . ' given.');
+=======
+                    ' to be an entity object, '. gettype($given) . ' given.');
+>>>>>>> contactmanager
     }
 
     /**
@@ -216,7 +248,15 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
      */
     public static function invalidAssociation(ClassMetadata $targetClass, $assoc, $actualValue)
     {
+<<<<<<< HEAD
         $expectedType = $targetClass->getName();
+=======
+        $expectedType = 'Doctrine\Common\Collections\Collection|array';
+
+        if (($assoc['type'] & ClassMetadata::TO_ONE) > 0) {
+            $expectedType = $targetClass->getName();
+        }
+>>>>>>> contactmanager
 
         return new self(sprintf(
             'Expected value of type "%s" for association field "%s#$%s", got "%s" instead.',
@@ -228,6 +268,7 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     }
 
     /**
+<<<<<<< HEAD
      * Used when a given entityName hasn't the good type
      *
      * @param mixed $entityName The given entity (which shouldn't be a string)
@@ -240,12 +281,15 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     }
 
     /**
+=======
+>>>>>>> contactmanager
      * Helper method to show an object as string.
      *
      * @param object $obj
      *
      * @return string
      */
+<<<<<<< HEAD
     private static function objToStr($obj) : string
     {
         return method_exists($obj, '__toString') ? (string) $obj : get_class($obj).'@'.spl_object_hash($obj);
@@ -268,5 +312,10 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
                 : ' If you cannot find out which entity causes the problem implement \''
                 . $associationMapping['targetEntity'] . '#__toString()\' to get a clue.'
             );
+=======
+    private static function objToStr($obj)
+    {
+        return method_exists($obj, '__toString') ? (string)$obj : get_class($obj).'@'.spl_object_hash($obj);
+>>>>>>> contactmanager
     }
 }

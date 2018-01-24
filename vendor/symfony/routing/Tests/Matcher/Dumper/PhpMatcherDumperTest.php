@@ -75,7 +75,11 @@ class PhpMatcherDumperTest extends TestCase
                         ->setMethods(array('redirect'))
                         ->setConstructorArgs(array(new RequestContext()))
                         ->getMock();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> contactmanager
         $matcher->expects($this->once())->method('redirect')->with('/foo%3Abar/', 'foo')->willReturn(array());
 
         $matcher->match('/foo%3Abar');

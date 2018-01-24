@@ -38,7 +38,11 @@ class SelectClause extends Node
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $selectExpressions = [];
+=======
+    public $selectExpressions = array();
+>>>>>>> contactmanager
 
     /**
      * @param array $selectExpressions

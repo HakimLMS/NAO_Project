@@ -63,7 +63,10 @@ class AssociationBuilder
     public function mappedBy($fieldName)
     {
         $this->mapping['mappedBy'] = $fieldName;
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -75,7 +78,10 @@ class AssociationBuilder
     public function inversedBy($fieldName)
     {
         $this->mapping['inversedBy'] = $fieldName;
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -84,8 +90,12 @@ class AssociationBuilder
      */
     public function cascadeAll()
     {
+<<<<<<< HEAD
         $this->mapping['cascade'] = ["ALL"];
 
+=======
+        $this->mapping['cascade'] = array("ALL");
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -95,7 +105,10 @@ class AssociationBuilder
     public function cascadePersist()
     {
         $this->mapping['cascade'][] = "persist";
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -105,7 +118,10 @@ class AssociationBuilder
     public function cascadeRemove()
     {
         $this->mapping['cascade'][] = "remove";
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -115,7 +131,10 @@ class AssociationBuilder
     public function cascadeMerge()
     {
         $this->mapping['cascade'][] = "merge";
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -125,7 +144,10 @@ class AssociationBuilder
     public function cascadeDetach()
     {
         $this->mapping['cascade'][] = "detach";
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -135,7 +157,10 @@ class AssociationBuilder
     public function cascadeRefresh()
     {
         $this->mapping['cascade'][] = "refresh";
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -145,7 +170,10 @@ class AssociationBuilder
     public function fetchExtraLazy()
     {
         $this->mapping['fetch'] = ClassMetadata::FETCH_EXTRA_LAZY;
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -155,7 +183,10 @@ class AssociationBuilder
     public function fetchEager()
     {
         $this->mapping['fetch'] = ClassMetadata::FETCH_EAGER;
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -165,7 +196,10 @@ class AssociationBuilder
     public function fetchLazy()
     {
         $this->mapping['fetch'] = ClassMetadata::FETCH_LAZY;
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -183,15 +217,23 @@ class AssociationBuilder
      */
     public function addJoinColumn($columnName, $referencedColumnName, $nullable = true, $unique = false, $onDelete = null, $columnDef = null)
     {
+<<<<<<< HEAD
         $this->joinColumns[] = [
+=======
+        $this->joinColumns[] = array(
+>>>>>>> contactmanager
             'name' => $columnName,
             'referencedColumnName' => $referencedColumnName,
             'nullable' => $nullable,
             'unique' => $unique,
             'onDelete' => $onDelete,
             'columnDefinition' => $columnDef,
+<<<<<<< HEAD
         ];
 
+=======
+        );
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -238,7 +280,10 @@ class AssociationBuilder
         } else {
             throw new \InvalidArgumentException("Type should be a ToOne Association here");
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this->builder;
     }
 }

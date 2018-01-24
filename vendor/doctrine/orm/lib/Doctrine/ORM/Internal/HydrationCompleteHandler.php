@@ -47,7 +47,11 @@ final class HydrationCompleteHandler
     /**
      * @var array[]
      */
+<<<<<<< HEAD
     private $deferredPostLoadInvocations = [];
+=======
+    private $deferredPostLoadInvocations = array();
+>>>>>>> contactmanager
 
     /**
      * Constructor for this object
@@ -75,7 +79,11 @@ final class HydrationCompleteHandler
             return;
         }
 
+<<<<<<< HEAD
         $this->deferredPostLoadInvocations[] = [$class, $invoke, $entity];
+=======
+        $this->deferredPostLoadInvocations[] = array($class, $invoke, $entity);
+>>>>>>> contactmanager
     }
 
     /**
@@ -86,7 +94,11 @@ final class HydrationCompleteHandler
     public function hydrationComplete()
     {
         $toInvoke                          = $this->deferredPostLoadInvocations;
+<<<<<<< HEAD
         $this->deferredPostLoadInvocations = [];
+=======
+        $this->deferredPostLoadInvocations = array();
+>>>>>>> contactmanager
 
         foreach ($toInvoke as $classAndEntity) {
             list($class, $invoke, $entity) = $classAndEntity;

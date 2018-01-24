@@ -64,6 +64,7 @@ abstract class AbstractSqlExecutor
     }
 
     /**
+<<<<<<< HEAD
      * Do not use query cache
      *
      * @return void
@@ -74,6 +75,8 @@ abstract class AbstractSqlExecutor
     }
 
     /**
+=======
+>>>>>>> contactmanager
      * Executes all sql statements.
      *
      * @param Connection $conn   The database connection that is used to execute the queries.

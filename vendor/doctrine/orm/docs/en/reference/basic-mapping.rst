@@ -295,8 +295,12 @@ annotation.
         class Message
         {
             /**
+<<<<<<< HEAD
              * @Id
              * @Column(type="integer")
+=======
+             * @Id @Column(type="integer")
+>>>>>>> contactmanager
              * @GeneratedValue
              */
             private $id;
@@ -355,8 +359,11 @@ Here is the list of possible generation strategies:
    strategy does currently not provide full portability and is
    supported by the following platforms: MySQL/SQLite/SQL Anywhere
    (AUTO\_INCREMENT), MSSQL (IDENTITY) and PostgreSQL (SERIAL).
+<<<<<<< HEAD
 -  ``UUID``: Tells Doctrine to use the built-in Universally Unique Identifier
    generator. This strategy provides full portability.
+=======
+>>>>>>> contactmanager
 -  ``TABLE``: Tells Doctrine to use a separate table for ID
    generation. This strategy provides full portability.
    ***This strategy is not yet implemented!***
@@ -364,8 +371,11 @@ Here is the list of possible generation strategies:
    thus generated) by your code. The assignment must take place before
    a new entity is passed to ``EntityManager#persist``. NONE is the
    same as leaving off the @GeneratedValue entirely.
+<<<<<<< HEAD
 -  ``CUSTOM``: With this option, you can use the ``@CustomIdGenerator`` annotation.
    It will allow you to pass a :doc:`class of your own to generate the identifiers.<_annref_customidgenerator>`
+=======
+>>>>>>> contactmanager
 
 Sequence Generator
 ^^^^^^^^^^^^^^^^^^
@@ -451,7 +461,11 @@ need to access the sequence once to generate the identifiers for
 Composite Keys
 ~~~~~~~~~~~~~~
 
+<<<<<<< HEAD
 With Doctrine 2 you can use composite primary keys, using ``@Id`` on more then
+=======
+with Doctrine 2 you can use composite primary keys, using ``@Id`` on more then
+>>>>>>> contactmanager
 one column. Some restrictions exist opposed to using a single identifier in
 this case: The use of the ``@GeneratedValue`` annotation is not supported,
 which means you can only use composite keys if you generate the primary key

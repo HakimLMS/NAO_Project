@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -15,6 +16,18 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
+=======
+/**
+ * Doctrine ORM
+ *
+ * LICENSE
+ *
+ * This source file is subject to the new BSD license that is bundled
+ * with this package in the file LICENSE.txt.
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to kontakt@beberlei.de so I can send you a copy immediately.
+>>>>>>> contactmanager
  */
 
 namespace Doctrine\ORM\Tools\Pagination;
@@ -59,11 +72,19 @@ class CountWalker extends TreeWalkerAdapter
         $queryComponents = $this->_getQueryComponents();
         // Get the root entity and alias from the AST fromClause
         $from = $AST->fromClause->identificationVariableDeclarations;
+<<<<<<< HEAD
 
         if (count($from) > 1) {
             throw new \RuntimeException("Cannot count query which selects two FROM components, cannot make distinction");
         }
 
+=======
+        
+        if (count($from) > 1) {
+            throw new \RuntimeException("Cannot count query which selects two FROM components, cannot make distinction");
+        }
+       
+>>>>>>> contactmanager
         $fromRoot            = reset($from);
         $rootAlias           = $fromRoot->rangeVariableDeclaration->aliasIdentificationVariable;
         $rootClass           = $queryComponents[$rootAlias]['metadata'];
@@ -81,11 +102,19 @@ class CountWalker extends TreeWalkerAdapter
         $pathExpression->type = $pathType;
 
         $distinct = $this->_getQuery()->getHint(self::HINT_DISTINCT);
+<<<<<<< HEAD
         $AST->selectClause->selectExpressions = [
             new SelectExpression(
                 new AggregateExpression('count', $pathExpression, $distinct), null
             )
         ];
+=======
+        $AST->selectClause->selectExpressions = array(
+            new SelectExpression(
+                new AggregateExpression('count', $pathExpression, $distinct), null
+            )
+        );
+>>>>>>> contactmanager
 
         // ORDER BY is not needed, only increases query execution through unnecessary sorting.
         $AST->orderByClause = null;

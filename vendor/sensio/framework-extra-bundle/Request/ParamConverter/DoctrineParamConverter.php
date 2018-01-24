@@ -17,7 +17,10 @@ use Symfony\Component\ExpressionLanguage\SyntaxError;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ManagerRegistry;
+<<<<<<< HEAD
 use Doctrine\ORM\EntityManagerInterface;
+=======
+>>>>>>> contactmanager
 use Doctrine\ORM\NoResultException;
 
 /**
@@ -110,6 +113,7 @@ class DoctrineParamConverter implements ParamConverterInterface
             $method = 'find';
         }
 
+<<<<<<< HEAD
         $om = $this->getManager($options['entity_manager'], $class);
         if ($options['evict_cache'] && $om instanceof EntityManagerInterface) {
             $cacheProvider = $om->getCache();
@@ -120,6 +124,10 @@ class DoctrineParamConverter implements ParamConverterInterface
 
         try {
             return $om->getRepository($class)->$method($id);
+=======
+        try {
+            return $this->getManager($options['entity_manager'], $class)->getRepository($class)->$method($id);
+>>>>>>> contactmanager
         } catch (NoResultException $e) {
             return;
         }
@@ -189,9 +197,13 @@ class DoctrineParamConverter implements ParamConverterInterface
         }
 
         if ($options['strip_null']) {
+<<<<<<< HEAD
             $criteria = array_filter($criteria, function ($value) {
                 return !is_null($value);
             });
+=======
+            $criteria = array_filter($criteria, function ($value) { return !is_null($value); });
+>>>>>>> contactmanager
         }
 
         if (!$criteria) {
@@ -287,7 +299,10 @@ class DoctrineParamConverter implements ParamConverterInterface
             'id' => null,
             'repository_method' => null,
             'map_method_signature' => false,
+<<<<<<< HEAD
             'evict_cache' => false,
+=======
+>>>>>>> contactmanager
         );
 
         $passedOptions = $configuration->getOptions();

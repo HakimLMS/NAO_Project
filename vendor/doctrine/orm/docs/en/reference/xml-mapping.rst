@@ -321,12 +321,20 @@ Using the simplified definition above Doctrine will use no
 identifier strategy for this entity. That means you have to
 manually set the identifier before calling
 ``EntityManager#persist($entity)``. This is the so called
+<<<<<<< HEAD
 ``NONE`` strategy.
+=======
+``ASSIGNED`` strategy.
+>>>>>>> contactmanager
 
 If you want to switch the identifier generation strategy you have
 to nest a ``<generator />`` element inside the id-element. This of
 course only works for surrogate keys. For composite keys you always
+<<<<<<< HEAD
 have to use the ``NONE`` strategy.
+=======
+have to use the ``ASSIGNED`` strategy.
+>>>>>>> contactmanager
 
 .. code-block:: xml
 

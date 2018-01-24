@@ -15,7 +15,12 @@ class RegisterMappingsPassTest extends TestCase
      */
     public function testNoDriverParmeterException()
     {
+<<<<<<< HEAD
         $container = $this->createBuilder();
+=======
+        $container = $this->createBuilder(array(
+        ));
+>>>>>>> contactmanager
         $this->process($container, array(
             'manager.param.one',
             'manager.param.two',

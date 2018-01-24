@@ -116,7 +116,11 @@ class DefaultQuoteStrategy implements QuoteStrategy
      */
     public function getIdentifierColumnNames(ClassMetadata $class, AbstractPlatform $platform)
     {
+<<<<<<< HEAD
         $quotedColumnNames = [];
+=======
+        $quotedColumnNames = array();
+>>>>>>> contactmanager
 
         foreach ($class->identifier as $fieldName) {
             if (isset($class->fieldMappings[$fieldName])) {

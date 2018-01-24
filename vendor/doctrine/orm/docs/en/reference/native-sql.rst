@@ -63,7 +63,11 @@ This has several benefits:
 - The API is much simpler than the usual ``ResultSetMapping`` API.
 
 One downside is that the builder API does not yet support entities
+<<<<<<< HEAD
 with inheritance hierarchies.
+=======
+with inheritance hierachies.
+>>>>>>> contactmanager
 
 .. code-block:: php
 

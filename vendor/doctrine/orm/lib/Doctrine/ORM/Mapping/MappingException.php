@@ -14,7 +14,11 @@
  *
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
+<<<<<<< HEAD
  * <http://www.doctrine-project.org>.
+=======
+ * <http://www.phpdoctrine.org>.
+>>>>>>> contactmanager
  */
 
 namespace Doctrine\ORM\Mapping;
@@ -326,7 +330,11 @@ class MappingException extends \Doctrine\ORM\ORMException
     public static function joinColumnMustPointToMappedField($className, $joinColumn)
     {
         return new self('The column ' . $joinColumn . ' must be mapped to a field in class '
+<<<<<<< HEAD
             . $className . ' since it is referenced by a join column of another class.');
+=======
+                . $className . ' since it is referenced by a join column of another class.');
+>>>>>>> contactmanager
     }
 
     /**
@@ -426,6 +434,7 @@ class MappingException extends \Doctrine\ORM\ORMException
 
     /**
      * @param string $entity
+<<<<<<< HEAD
      *
      * @return MappingException
      */
@@ -436,6 +445,8 @@ class MappingException extends \Doctrine\ORM\ORMException
 
     /**
      * @param string $entity
+=======
+>>>>>>> contactmanager
      * @param string $fieldName
      * @param string $unsupportedType
      *
@@ -444,7 +455,11 @@ class MappingException extends \Doctrine\ORM\ORMException
     public static function unsupportedOptimisticLockingType($entity, $fieldName, $unsupportedType)
     {
         return new self('Locking type "'.$unsupportedType.'" (specified in "'.$entity.'", field "'.$fieldName.'") '
+<<<<<<< HEAD
             .'is not supported by Doctrine.'
+=======
+                        .'is not supported by Doctrine.'
+>>>>>>> contactmanager
         );
     }
 
@@ -492,7 +507,11 @@ class MappingException extends \Doctrine\ORM\ORMException
     public static function duplicateDiscriminatorEntry($className, array $entries, array $map)
     {
         return new self(
+<<<<<<< HEAD
             "The entries " . implode(', ', $entries) . " in discriminator map of class '" . $className . "' is duplicated. " .
+=======
+            "The entries " . implode(', ',  $entries) . " in discriminator map of class '" . $className . "' is duplicated. " .
+>>>>>>> contactmanager
             "If the discriminator map is automatically generated you have to convert it to an explicit discriminator map now. " .
             "The entries of the current map are: @DiscriminatorMap({" . implode(', ', array_map(
                 function($a, $b) { return "'$a': '$b'"; }, array_keys($map), array_values($map)
@@ -643,7 +662,11 @@ class MappingException extends \Doctrine\ORM\ORMException
     public static function illegalOrphanRemoval($className, $field)
     {
         return new self("Orphan removal is only allowed on one-to-one and one-to-many ".
+<<<<<<< HEAD
             "associations, but " . $className."#" .$field . " is not.");
+=======
+                "associations, but " . $className."#" .$field . " is not.");
+>>>>>>> contactmanager
     }
 
     /**
@@ -782,7 +805,10 @@ class MappingException extends \Doctrine\ORM\ORMException
     public static function invalidCascadeOption(array $cascades, $className, $propertyName)
     {
         $cascades = implode(", ", array_map(function ($e) { return "'" . $e . "'"; }, $cascades));
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return new self(sprintf(
             "You have specified invalid cascade options for %s::$%s: %s; available options: 'remove', 'persist', 'refresh', 'merge', and 'detach'",
             $className,

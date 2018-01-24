@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -15,6 +16,22 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
+=======
+/**
+ * Doctrine ORM
+ *
+ * LICENSE
+ *
+ * This source file is subject to the new BSD license that is bundled
+ * with this package in the file LICENSE. This license can also be viewed
+ * at http://hobodave.com/license.txt
+ *
+ * @category    DoctrineExtensions
+ * @package     DoctrineExtensions\Paginate
+ * @author      David Abdemoulaie <dave@hobodave.com>
+ * @copyright   Copyright (c) 2010 David Abdemoulaie (http://hobodave.com/)
+ * @license     http://hobodave.com/license.txt New BSD License
+>>>>>>> contactmanager
  */
 
 namespace Doctrine\ORM\Tools\Pagination;
@@ -76,11 +93,19 @@ class WhereInWalker extends TreeWalkerAdapter
         $queryComponents = $this->_getQueryComponents();
         // Get the root entity and alias from the AST fromClause
         $from = $AST->fromClause->identificationVariableDeclarations;
+<<<<<<< HEAD
 
         if (count($from) > 1) {
             throw new \RuntimeException("Cannot count query which selects two FROM components, cannot make distinction");
         }
 
+=======
+        
+        if (count($from) > 1) {
+            throw new \RuntimeException("Cannot count query which selects two FROM components, cannot make distinction");
+        }
+       
+>>>>>>> contactmanager
         $fromRoot            = reset($from);
         $rootAlias           = $fromRoot->rangeVariableDeclaration->aliasIdentificationVariable;
         $rootClass           = $queryComponents[$rootAlias]['metadata'];
@@ -99,7 +124,11 @@ class WhereInWalker extends TreeWalkerAdapter
         if ($count > 0) {
             $arithmeticExpression = new ArithmeticExpression();
             $arithmeticExpression->simpleArithmeticExpression = new SimpleArithmeticExpression(
+<<<<<<< HEAD
                 [$pathExpression]
+=======
+                array($pathExpression)
+>>>>>>> contactmanager
             );
             $expression = new InExpression($arithmeticExpression);
             $expression->literals[] = new InputParameter(":" . self::PAGINATOR_ID_ALIAS);
@@ -115,6 +144,7 @@ class WhereInWalker extends TreeWalkerAdapter
             if ($AST->whereClause->conditionalExpression instanceof ConditionalTerm) {
                 $AST->whereClause->conditionalExpression->conditionalFactors[] = $conditionalPrimary;
             } elseif ($AST->whereClause->conditionalExpression instanceof ConditionalPrimary) {
+<<<<<<< HEAD
                 $AST->whereClause->conditionalExpression = new ConditionalExpression(
                     [
                         new ConditionalTerm(
@@ -125,11 +155,20 @@ class WhereInWalker extends TreeWalkerAdapter
                         )
                     ]
                 );
+=======
+                $AST->whereClause->conditionalExpression = new ConditionalExpression(array(
+                    new ConditionalTerm(array(
+                        $AST->whereClause->conditionalExpression,
+                        $conditionalPrimary
+                    ))
+                ));
+>>>>>>> contactmanager
             } elseif ($AST->whereClause->conditionalExpression instanceof ConditionalExpression
                 || $AST->whereClause->conditionalExpression instanceof ConditionalFactor
             ) {
                 $tmpPrimary = new ConditionalPrimary;
                 $tmpPrimary->conditionalExpression = $AST->whereClause->conditionalExpression;
+<<<<<<< HEAD
                 $AST->whereClause->conditionalExpression = new ConditionalTerm(
                     [
                         $tmpPrimary,
@@ -144,6 +183,20 @@ class WhereInWalker extends TreeWalkerAdapter
                         new ConditionalTerm([$conditionalPrimary])
                     ]
                 )
+=======
+                $AST->whereClause->conditionalExpression = new ConditionalTerm(array(
+                    $tmpPrimary,
+                    $conditionalPrimary
+                ));
+            }
+        } else {
+            $AST->whereClause = new WhereClause(
+                new ConditionalExpression(array(
+                    new ConditionalTerm(array(
+                        $conditionalPrimary
+                    ))
+                ))
+>>>>>>> contactmanager
             );
         }
     }

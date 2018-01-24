@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Upgrade to 2.6
 
 ## Minor BC BREAK: `Doctrine\ORM\Tools\Console\ConsoleRunner` is now final
@@ -41,6 +42,10 @@ of the internal API of the ORM, so it was removed. [#5600](https://github.com/do
 
 As `$className` parameter was not used in the method, it was safely removed.
 
+=======
+# Upgrade to 2.5
+
+>>>>>>> contactmanager
 ## Minor BC BREAK: query cache key time is now a float
 
 As of 2.5.5, the `QueryCacheEntry#time` property will contain a float value

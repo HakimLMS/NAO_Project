@@ -101,7 +101,11 @@ class ORMException extends Exception
         return new self("Unrecognized field: $field");
     }
 
+<<<<<<< HEAD
     /**
+=======
+     /**
+>>>>>>> contactmanager
      *
      * @param string $class
      * @param string $association
@@ -189,6 +193,7 @@ class ORMException extends Exception
 
     /**
      * @param string $entityName
+<<<<<<< HEAD
      * @param string $fieldName
      * @param string $method
      *
@@ -204,6 +209,8 @@ class ORMException extends Exception
 
     /**
      * @param string $entityName
+=======
+>>>>>>> contactmanager
      * @param string $associationFieldName
      *
      * @return ORMException
@@ -311,7 +318,11 @@ class ORMException extends Exception
 
     /**
      * @param string $className
+<<<<<<< HEAD
      * @param string[] $fieldNames
+=======
+     * @param string $fieldName
+>>>>>>> contactmanager
      *
      * @return ORMException
      */
@@ -324,6 +335,19 @@ class ORMException extends Exception
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * @param string $functionName
+     *
+     * @return ORMException
+     */
+    public static function overwriteInternalDQLFunctionNotAllowed($functionName)
+    {
+        return new self("It is not allowed to overwrite internal function '$functionName' in the DQL parser through user-defined functions.");
+    }
+
+    /**
+>>>>>>> contactmanager
      * @return ORMException
      */
     public static function cantUseInOperatorOnCompositeKeys()

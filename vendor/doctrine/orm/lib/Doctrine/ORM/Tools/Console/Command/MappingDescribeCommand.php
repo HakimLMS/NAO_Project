@@ -22,10 +22,17 @@ namespace Doctrine\ORM\Tools\Console\Command;
 use Doctrine\Common\Persistence\Mapping\MappingException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
+<<<<<<< HEAD
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+=======
+use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+>>>>>>> contactmanager
 
 /**
  * Show information about mapped entities.
@@ -41,10 +48,18 @@ final class MappingDescribeCommand extends Command
      */
     protected function configure()
     {
+<<<<<<< HEAD
         $this->setName('orm:mapping:describe')
              ->addArgument('entityName', InputArgument::REQUIRED, 'Full or partial name of entity')
              ->setDescription('Display information about mapped objects')
              ->setHelp(<<<EOT
+=======
+        $this
+            ->setName('orm:mapping:describe')
+            ->addArgument('entityName', InputArgument::REQUIRED, 'Full or partial name of entity')
+            ->setDescription('Display information about mapped objects')
+            ->setHelp(<<<EOT
+>>>>>>> contactmanager
 The %command.full_name% command describes the metadata for the given full or partial entity class name.
 
     <info>%command.full_name%</info> My\Namespace\Entity\MyEntity
@@ -53,7 +68,11 @@ Or:
 
     <info>%command.full_name%</info> MyEntity
 EOT
+<<<<<<< HEAD
              );
+=======
+            );
+>>>>>>> contactmanager
     }
 
     /**
@@ -61,12 +80,19 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
         /* @var $entityManager \Doctrine\ORM\EntityManagerInterface */
         $entityManager = $this->getHelper('em')->getEntityManager();
 
         $this->displayEntity($input->getArgument('entityName'), $entityManager, $ui);
+=======
+        /* @var $entityManager \Doctrine\ORM\EntityManagerInterface */
+        $entityManager = $this->getHelper('em')->getEntityManager();
+
+        $this->displayEntity($input->getArgument('entityName'), $entityManager, $output);
+>>>>>>> contactmanager
 
         return 0;
     }
@@ -76,6 +102,7 @@ EOT
      *
      * @param string                 $entityName    Full or partial entity class name
      * @param EntityManagerInterface $entityManager
+<<<<<<< HEAD
      * @param SymfonyStyle           $ui
      */
     private function displayEntity($entityName, EntityManagerInterface $entityManager, SymfonyStyle $ui)
@@ -86,6 +113,22 @@ EOT
             ['Field', 'Value'],
             array_merge(
                 [
+=======
+     * @param OutputInterface        $output
+     */
+    private function displayEntity($entityName, EntityManagerInterface $entityManager, OutputInterface $output)
+    {
+        $table = new Table($output);
+
+        $table->setHeaders(array('Field', 'Value'));
+
+        $metadata = $this->getClassMetadata($entityName, $entityManager);
+
+        array_map(
+            array($table, 'addRow'),
+            array_merge(
+                array(
+>>>>>>> contactmanager
                     $this->formatField('Name', $metadata->name),
                     $this->formatField('Root entity name', $metadata->rootEntityName),
                     $this->formatField('Custom generator definition', $metadata->customGeneratorDefinition),
@@ -115,6 +158,7 @@ EOT
                     $this->formatField('Read only?', $metadata->isReadOnly),
 
                     $this->formatEntityListeners($metadata->entityListeners),
+<<<<<<< HEAD
                 ],
                 [$this->formatField('Association mappings:', '')],
                 $this->formatMappings($metadata->associationMappings),
@@ -122,6 +166,17 @@ EOT
                 $this->formatMappings($metadata->fieldMappings)
             )
         );
+=======
+                ),
+                array($this->formatField('Association mappings:', '')),
+                $this->formatMappings($metadata->associationMappings),
+                array($this->formatField('Field mappings:', '')),
+                $this->formatMappings($metadata->fieldMappings)
+            )
+        );
+
+        $table->render();
+>>>>>>> contactmanager
     }
 
     /**
@@ -133,9 +188,16 @@ EOT
      */
     private function getMappedEntities(EntityManagerInterface $entityManager)
     {
+<<<<<<< HEAD
         $entityClassNames = $entityManager->getConfiguration()
                                           ->getMetadataDriverImpl()
                                           ->getAllClassNames();
+=======
+        $entityClassNames = $entityManager
+            ->getConfiguration()
+            ->getMetadataDriverImpl()
+            ->getAllClassNames();
+>>>>>>> contactmanager
 
         if ( ! $entityClassNames) {
             throw new \InvalidArgumentException(
@@ -179,7 +241,11 @@ EOT
 
         if (count($matches) > 1) {
             throw new \InvalidArgumentException(sprintf(
+<<<<<<< HEAD
                 'Entity name "%s" is ambiguous, possible matches: "%s"',
+=======
+                'Entity name "%s" is ambigous, possible matches: "%s"',
+>>>>>>> contactmanager
                 $entityName, implode(', ', $matches)
             ));
         }
@@ -213,7 +279,15 @@ EOT
         }
 
         if (is_array($value)) {
+<<<<<<< HEAD
             return json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+=======
+            if (defined('JSON_UNESCAPED_UNICODE') && defined('JSON_UNESCAPED_SLASHES')) {
+                return json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            }
+
+            return json_encode($value);
+>>>>>>> contactmanager
         }
 
         if (is_object($value)) {
@@ -241,19 +315,31 @@ EOT
             $value = '<comment>None</comment>';
         }
 
+<<<<<<< HEAD
         return [sprintf('<info>%s</info>', $label), $this->formatValue($value)];
+=======
+        return array(sprintf('<info>%s</info>', $label), $this->formatValue($value));
+>>>>>>> contactmanager
     }
 
     /**
      * Format the association mappings
      *
+<<<<<<< HEAD
      * @param array $propertyMappings
+=======
+     * @param array
+>>>>>>> contactmanager
      *
      * @return array
      */
     private function formatMappings(array $propertyMappings)
     {
+<<<<<<< HEAD
         $output = [];
+=======
+        $output = array();
+>>>>>>> contactmanager
 
         foreach ($propertyMappings as $propertyName => $mapping) {
             $output[] = $this->formatField(sprintf('  %s', $propertyName), '');
@@ -275,6 +361,18 @@ EOT
      */
     private function formatEntityListeners(array $entityListeners)
     {
+<<<<<<< HEAD
         return $this->formatField('Entity listeners', array_map('get_class', $entityListeners));
+=======
+        return $this->formatField(
+            'Entity listeners',
+            array_map(
+                function ($entityListener) {
+                    return get_class($entityListener);
+                },
+                $entityListeners
+            )
+        );
+>>>>>>> contactmanager
     }
 }

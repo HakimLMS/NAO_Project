@@ -19,12 +19,19 @@
 
 namespace Doctrine\ORM\Tools\Console\Command;
 
+<<<<<<< HEAD
 use Doctrine\ORM\Tools\SchemaValidator;
+=======
+>>>>>>> contactmanager
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+<<<<<<< HEAD
 use Symfony\Component\Console\Style\SymfonyStyle;
+=======
+use Doctrine\ORM\Tools\SchemaValidator;
+>>>>>>> contactmanager
 
 /**
  * Command to validate that the current mapping is valid.
@@ -44,11 +51,34 @@ class ValidateSchemaCommand extends Command
      */
     protected function configure()
     {
+<<<<<<< HEAD
         $this->setName('orm:validate-schema')
              ->setDescription('Validate the mapping files')
              ->addOption('skip-mapping', null, InputOption::VALUE_NONE, 'Skip the mapping validation check')
              ->addOption('skip-sync', null, InputOption::VALUE_NONE, 'Skip checking if the mapping is in sync with the database')
              ->setHelp('Validate that the mapping files are correct and in sync with the database.');
+=======
+        $this
+        ->setName('orm:validate-schema')
+        ->setDescription('Validate the mapping files.')
+        ->addOption(
+            'skip-mapping',
+            null,
+            InputOption::VALUE_NONE,
+            'Skip the mapping validation check'
+        )
+        ->addOption(
+            'skip-sync',
+            null,
+            InputOption::VALUE_NONE,
+            'Skip checking if the mapping is in sync with the database'
+        )
+        ->setHelp(
+            <<<EOT
+'Validate that the mapping files are correct and in sync with the database.'
+EOT
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -56,12 +86,16 @@ class ValidateSchemaCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
+=======
+>>>>>>> contactmanager
         $em = $this->getHelper('em')->getEntityManager();
         $validator = new SchemaValidator($em);
         $exit = 0;
 
+<<<<<<< HEAD
         $ui->section('Mapping');
 
         if ($input->getOption('skip-mapping')) {
@@ -93,6 +127,33 @@ class ValidateSchemaCommand extends Command
             $exit += 2;
         } else {
             $ui->success('The database schema is in sync with the mapping files.');
+=======
+        if ($input->getOption('skip-mapping')) {
+            $output->writeln('<comment>[Mapping]  Skipped mapping check.</comment>');
+        } elseif ($errors = $validator->validateMapping()) {
+            foreach ($errors as $className => $errorMessages) {
+                $output->writeln("<error>[Mapping]  FAIL - The entity-class '" . $className . "' mapping is invalid:</error>");
+
+                foreach ($errorMessages as $errorMessage) {
+                    $output->writeln('* ' . $errorMessage);
+                }
+
+                $output->writeln('');
+            }
+
+            $exit += 1;
+        } else {
+            $output->writeln('<info>[Mapping]  OK - The mapping files are correct.</info>');
+        }
+
+        if ($input->getOption('skip-sync')) {
+            $output->writeln('<comment>[Database] SKIPPED - The database was not checked for synchronicity.</comment>');
+        } elseif (!$validator->schemaInSyncWithMetadata()) {
+            $output->writeln('<error>[Database] FAIL - The database schema is not in sync with the current mapping file.</error>');
+            $exit += 2;
+        } else {
+            $output->writeln('<info>[Database] OK - The database schema is in sync with the mapping files.</info>');
+>>>>>>> contactmanager
         }
 
         return $exit;

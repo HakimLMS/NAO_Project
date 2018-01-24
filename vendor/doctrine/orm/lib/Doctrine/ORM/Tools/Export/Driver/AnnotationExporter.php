@@ -59,7 +59,11 @@ class AnnotationExporter extends AbstractExporter
     }
 
     /**
+<<<<<<< HEAD
      * @param ClassMetadataInfo $metadata
+=======
+     * @param \Doctrine\ORM\Mapping\ClassMetadataInfo $metadata
+>>>>>>> contactmanager
      *
      * @return string
      */
@@ -69,7 +73,11 @@ class AnnotationExporter extends AbstractExporter
     }
 
     /**
+<<<<<<< HEAD
      * @param EntityGenerator $entityGenerator
+=======
+     * @param \Doctrine\ORM\Tools\EntityGenerator $entityGenerator
+>>>>>>> contactmanager
      *
      * @return void
      */

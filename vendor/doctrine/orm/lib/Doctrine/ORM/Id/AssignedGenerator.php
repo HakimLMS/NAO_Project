@@ -44,7 +44,11 @@ class AssignedGenerator extends AbstractIdGenerator
     {
         $class      = $em->getClassMetadata(get_class($entity));
         $idFields   = $class->getIdentifierFieldNames();
+<<<<<<< HEAD
         $identifier = [];
+=======
+        $identifier = array();
+>>>>>>> contactmanager
 
         foreach ($idFields as $idField) {
             $value = $class->getFieldValue($entity, $idField);

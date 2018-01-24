@@ -234,7 +234,11 @@ final class Intl
      */
     public static function getIcuStubVersion()
     {
+<<<<<<< HEAD
         return '60.2';
+=======
+        return '60.1';
+>>>>>>> contactmanager
     }
 
     /**

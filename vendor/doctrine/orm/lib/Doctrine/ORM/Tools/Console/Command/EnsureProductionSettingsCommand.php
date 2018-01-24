@@ -20,11 +20,17 @@
 namespace Doctrine\ORM\Tools\Console\Command;
 
 use Symfony\Component\Console\Command\Command;
+<<<<<<< HEAD
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Throwable;
+=======
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+>>>>>>> contactmanager
 
 /**
  * Command to ensure that Doctrine is properly configured for a production environment.
@@ -44,10 +50,26 @@ class EnsureProductionSettingsCommand extends Command
      */
     protected function configure()
     {
+<<<<<<< HEAD
         $this->setName('orm:ensure-production-settings')
              ->setDescription('Verify that Doctrine is properly configured for a production environment')
              ->addOption('complete', null, InputOption::VALUE_NONE, 'Flag to also inspect database connection existence.')
              ->setHelp('Verify that Doctrine is properly configured for a production environment.');
+=======
+        $this
+        ->setName('orm:ensure-production-settings')
+        ->setDescription('Verify that Doctrine is properly configured for a production environment.')
+        ->setDefinition(array(
+            new InputOption(
+                'complete', null, InputOption::VALUE_NONE,
+                'Flag to also inspect database connection existence.'
+            )
+        ))
+        ->setHelp(<<<EOT
+Verify that Doctrine is properly configured for a production environment.
+EOT
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -55,8 +77,11 @@ class EnsureProductionSettingsCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
+=======
+>>>>>>> contactmanager
         $em = $this->getHelper('em')->getEntityManager();
 
         try {
@@ -65,14 +90,23 @@ class EnsureProductionSettingsCommand extends Command
             if ($input->getOption('complete') !== null) {
                 $em->getConnection()->connect();
             }
+<<<<<<< HEAD
         } catch (Throwable $e) {
             $ui->error($e->getMessage());
+=======
+        } catch (\Exception $e) {
+            $output->writeln('<error>' . $e->getMessage() . '</error>');
+>>>>>>> contactmanager
 
             return 1;
         }
 
+<<<<<<< HEAD
         $ui->success('Environment is correctly configured for production.');
 
         return 0;
+=======
+        $output->writeln('<info>Environment is correctly configured for production.</info>');
+>>>>>>> contactmanager
     }
 }

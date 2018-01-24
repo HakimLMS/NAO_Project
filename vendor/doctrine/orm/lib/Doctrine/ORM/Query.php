@@ -20,14 +20,20 @@
 namespace Doctrine\ORM;
 
 use Doctrine\DBAL\LockMode;
+<<<<<<< HEAD
 use Doctrine\ORM\Query\Exec\AbstractSqlExecutor;
+=======
+>>>>>>> contactmanager
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\ParserResult;
 use Doctrine\ORM\Query\QueryException;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query\ParameterTypeInferer;
 use Doctrine\Common\Collections\ArrayCollection;
+<<<<<<< HEAD
 use Doctrine\ORM\Utility\HierarchyDiscriminatorResolver;
+=======
+>>>>>>> contactmanager
 
 /**
  * A Query object represents a DQL query.
@@ -137,7 +143,11 @@ final class Query extends AbstractQuery
      *
      * @var array
      */
+<<<<<<< HEAD
     private $_parsedTypes = [];
+=======
+    private $_parsedTypes = array();
+>>>>>>> contactmanager
 
     /**
      * Cached DQL query.
@@ -163,7 +173,11 @@ final class Query extends AbstractQuery
     /**
      * The maximum number of results to return (the "limit").
      *
+<<<<<<< HEAD
      * @var integer|null
+=======
+     * @var integer
+>>>>>>> contactmanager
      */
     private $_maxResults = null;
 
@@ -204,7 +218,11 @@ final class Query extends AbstractQuery
      */
     public function getSQL()
     {
+<<<<<<< HEAD
         return $this->_parse()->getSqlExecutor()->getSqlStatements();
+=======
+        return $this->_parse()->getSQLExecutor()->getSQLStatements();
+>>>>>>> contactmanager
     }
 
     /**
@@ -243,7 +261,11 @@ final class Query extends AbstractQuery
      */
     private function _parse()
     {
+<<<<<<< HEAD
         $types = [];
+=======
+        $types = array();
+>>>>>>> contactmanager
 
         foreach ($this->parameters as $parameter) {
             /** @var Query\Parameter $parameter */
@@ -296,8 +318,11 @@ final class Query extends AbstractQuery
 
         if ($this->_queryCacheProfile) {
             $executor->setQueryCacheProfile($this->_queryCacheProfile);
+<<<<<<< HEAD
         } else {
             $executor->removeQueryCacheProfile();
+=======
+>>>>>>> contactmanager
         }
 
         if ($this->_resultSetMapping === null) {
@@ -311,9 +336,13 @@ final class Query extends AbstractQuery
 
         if ($paramCount > $mappingCount) {
             throw QueryException::tooManyParameters($mappingCount, $paramCount);
+<<<<<<< HEAD
         }
 
         if ($paramCount < $mappingCount) {
+=======
+        } elseif ($paramCount < $mappingCount) {
+>>>>>>> contactmanager
             throw QueryException::tooFewParameters($mappingCount, $paramCount);
         }
 
@@ -324,6 +353,7 @@ final class Query extends AbstractQuery
 
         list($sqlParams, $types) = $this->processParameterMappings($paramMappings);
 
+<<<<<<< HEAD
         $this->evictResultSetCache(
             $executor,
             $sqlParams,
@@ -354,6 +384,11 @@ final class Query extends AbstractQuery
         }
     }
 
+=======
+        return $executor->execute($this->_em->getConnection(), $sqlParams, $types);
+    }
+
+>>>>>>> contactmanager
     /**
      * Evict entity cache region
      */
@@ -383,8 +418,13 @@ final class Query extends AbstractQuery
      */
     private function processParameterMappings($paramMappings)
     {
+<<<<<<< HEAD
         $sqlParams = [];
         $types     = [];
+=======
+        $sqlParams = array();
+        $types     = array();
+>>>>>>> contactmanager
 
         foreach ($this->parameters as $parameter) {
             $key    = $parameter->getName();
@@ -399,10 +439,13 @@ final class Query extends AbstractQuery
                 $value = $value->getMetadataValue($rsm->metadataParameterMapping[$key]);
             }
 
+<<<<<<< HEAD
             if (isset($rsm->discriminatorParameters[$key]) && $value instanceof ClassMetadata) {
                 $value = array_keys(HierarchyDiscriminatorResolver::resolveDiscriminatorsForClass($value, $this->_em));
             }
 
+=======
+>>>>>>> contactmanager
             $value = $this->processParameterValue($value);
             $type  = ($parameter->getValue() === $value)
                 ? $parameter->getType()
@@ -416,7 +459,11 @@ final class Query extends AbstractQuery
 
             // optimized multi value sql positions away for now,
             // they are not allowed in DQL anyways.
+<<<<<<< HEAD
             $value = [$value];
+=======
+            $value = array($value);
+>>>>>>> contactmanager
             $countValue = count($value);
 
             for ($i = 0, $l = count($sqlPositions); $i < $l; $i++) {
@@ -436,7 +483,11 @@ final class Query extends AbstractQuery
             $types = array_values($types);
         }
 
+<<<<<<< HEAD
         return [$sqlParams, $types];
+=======
+        return array($sqlParams, $types);
+>>>>>>> contactmanager
     }
 
     /**
@@ -596,7 +647,11 @@ final class Query extends AbstractQuery
      */
     public function contains($dql)
     {
+<<<<<<< HEAD
         return stripos($this->getDQL(), $dql) !== false;
+=======
+        return stripos($this->getDQL(), $dql) === false ? false : true;
+>>>>>>> contactmanager
     }
 
     /**
@@ -628,7 +683,11 @@ final class Query extends AbstractQuery
     /**
      * Sets the maximum number of results to retrieve (the "limit").
      *
+<<<<<<< HEAD
      * @param integer|null $maxResults
+=======
+     * @param integer $maxResults
+>>>>>>> contactmanager
      *
      * @return Query This query object.
      */
@@ -644,7 +703,11 @@ final class Query extends AbstractQuery
      * Gets the maximum number of results the query object was set to retrieve (the "limit").
      * Returns NULL if {@link setMaxResults} was not applied to this query.
      *
+<<<<<<< HEAD
      * @return integer|null Maximum number of results.
+=======
+     * @return integer Maximum number of results.
+>>>>>>> contactmanager
      */
     public function getMaxResults()
     {
@@ -692,7 +755,11 @@ final class Query extends AbstractQuery
      *
      * @see \Doctrine\DBAL\LockMode
      *
+<<<<<<< HEAD
      * @param int $lockMode
+=======
+     * @param  int $lockMode
+>>>>>>> contactmanager
      *
      * @return Query
      *
@@ -700,7 +767,11 @@ final class Query extends AbstractQuery
      */
     public function setLockMode($lockMode)
     {
+<<<<<<< HEAD
         if (in_array($lockMode, [LockMode::NONE, LockMode::PESSIMISTIC_READ, LockMode::PESSIMISTIC_WRITE], true)) {
+=======
+        if (in_array($lockMode, array(LockMode::NONE, LockMode::PESSIMISTIC_READ, LockMode::PESSIMISTIC_WRITE), true)) {
+>>>>>>> contactmanager
             if ( ! $this->_em->getConnection()->isTransactionActive()) {
                 throw TransactionRequiredException::transactionRequired();
             }
@@ -742,7 +813,11 @@ final class Query extends AbstractQuery
             ->getName();
 
         return md5(
+<<<<<<< HEAD
             $this->getDQL() . serialize($this->_hints) .
+=======
+            $this->getDql() . serialize($this->_hints) .
+>>>>>>> contactmanager
             '&platform=' . $platform .
             ($this->_em->hasFilters() ? $this->_em->getFilters()->getHash() : '') .
             '&firstResult=' . $this->_firstResult . '&maxResult=' . $this->_maxResults .

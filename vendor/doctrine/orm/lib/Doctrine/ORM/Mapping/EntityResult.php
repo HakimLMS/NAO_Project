@@ -45,7 +45,11 @@ final class EntityResult implements Annotation
      *
      * @var array<\Doctrine\ORM\Mapping\FieldResult>
      */
+<<<<<<< HEAD
     public $fields = [];
+=======
+    public $fields = array();
+>>>>>>> contactmanager
 
     /**
      * Specifies the column name of the column in the SELECT list that is used to determine the type of the entity instance.

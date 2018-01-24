@@ -38,12 +38,21 @@ class Andx extends Composite
     /**
      * @var array
      */
+<<<<<<< HEAD
     protected $allowedClasses = [
         Comparison::class,
         Func::class,
         Orx::class,
         Andx::class,
     ];
+=======
+    protected $allowedClasses = array(
+        'Doctrine\ORM\Query\Expr\Comparison',
+        'Doctrine\ORM\Query\Expr\Func',
+        'Doctrine\ORM\Query\Expr\Orx',
+        'Doctrine\ORM\Query\Expr\Andx',
+    );
+>>>>>>> contactmanager
 
     /**
      * @return array

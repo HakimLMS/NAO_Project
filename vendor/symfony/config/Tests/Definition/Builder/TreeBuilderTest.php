@@ -12,9 +12,19 @@
 namespace Symfony\Component\Config\Tests\Definition\Builder;
 
 use PHPUnit\Framework\TestCase;
+<<<<<<< HEAD
 use Symfony\Component\Config\Tests\Fixtures\Builder\NodeBuilder as CustomNodeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
+=======
+use Symfony\Component\Config\Tests\Definition\Builder\NodeBuilder as CustomNodeBuilder;
+use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+
+require __DIR__.'/../../Fixtures/Builder/NodeBuilder.php';
+require __DIR__.'/../../Fixtures/Builder/BarNodeDefinition.php';
+require __DIR__.'/../../Fixtures/Builder/VariableNodeDefinition.php';
+
+>>>>>>> contactmanager
 class TreeBuilderTest extends TestCase
 {
     public function testUsingACustomNodeBuilder()
@@ -24,11 +34,19 @@ class TreeBuilderTest extends TestCase
 
         $nodeBuilder = $root->children();
 
+<<<<<<< HEAD
         $this->assertInstanceOf('Symfony\Component\Config\Tests\Fixtures\Builder\NodeBuilder', $nodeBuilder);
 
         $nodeBuilder = $nodeBuilder->arrayNode('deeper')->children();
 
         $this->assertInstanceOf('Symfony\Component\Config\Tests\Fixtures\Builder\NodeBuilder', $nodeBuilder);
+=======
+        $this->assertInstanceOf('Symfony\Component\Config\Tests\Definition\Builder\NodeBuilder', $nodeBuilder);
+
+        $nodeBuilder = $nodeBuilder->arrayNode('deeper')->children();
+
+        $this->assertInstanceOf('Symfony\Component\Config\Tests\Definition\Builder\NodeBuilder', $nodeBuilder);
+>>>>>>> contactmanager
     }
 
     public function testOverrideABuiltInNodeType()
@@ -38,7 +56,11 @@ class TreeBuilderTest extends TestCase
 
         $definition = $root->children()->variableNode('variable');
 
+<<<<<<< HEAD
         $this->assertInstanceOf('Symfony\Component\Config\Tests\Fixtures\Builder\VariableNodeDefinition', $definition);
+=======
+        $this->assertInstanceOf('Symfony\Component\Config\Tests\Definition\Builder\VariableNodeDefinition', $definition);
+>>>>>>> contactmanager
     }
 
     public function testAddANodeType()
@@ -48,7 +70,11 @@ class TreeBuilderTest extends TestCase
 
         $definition = $root->children()->barNode('variable');
 
+<<<<<<< HEAD
         $this->assertInstanceOf('Symfony\Component\Config\Tests\Fixtures\Builder\BarNodeDefinition', $definition);
+=======
+        $this->assertInstanceOf('Symfony\Component\Config\Tests\Definition\Builder\BarNodeDefinition', $definition);
+>>>>>>> contactmanager
     }
 
     public function testCreateABuiltInNodeTypeWithACustomNodeBuilder()

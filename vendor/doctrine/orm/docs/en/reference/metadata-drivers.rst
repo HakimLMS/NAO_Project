@@ -35,7 +35,11 @@ an entity.
     .. code-block:: php
 
         <?php
+<<<<<<< HEAD
         $em->getConfiguration()->setMetadataCacheImpl(new ApcuCache());
+=======
+        $em->getConfiguration()->setMetadataCacheImpl(new ApcCache());
+>>>>>>> contactmanager
 
 
 If you want to use one of the included core metadata drivers you

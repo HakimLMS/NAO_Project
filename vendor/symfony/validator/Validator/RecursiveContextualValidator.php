@@ -108,7 +108,11 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
 
             $this->validateGenericNode(
                 $value,
+<<<<<<< HEAD
                 $previousObject,
+=======
+                null,
+>>>>>>> contactmanager
                 is_object($value) ? spl_object_hash($value) : null,
                 $metadata,
                 $this->defaultPropertyPath,

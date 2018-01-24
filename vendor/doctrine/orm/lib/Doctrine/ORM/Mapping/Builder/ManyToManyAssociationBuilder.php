@@ -37,7 +37,11 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
     /**
      * @var array
      */
+<<<<<<< HEAD
     private $inverseJoinColumns = [];
+=======
+    private $inverseJoinColumns = array();
+>>>>>>> contactmanager
 
     /**
      * @param string $name
@@ -47,7 +51,10 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
     public function setJoinTable($name)
     {
         $this->joinTableName = $name;
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -65,15 +72,23 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
      */
     public function addInverseJoinColumn($columnName, $referencedColumnName, $nullable = true, $unique = false, $onDelete = null, $columnDef = null)
     {
+<<<<<<< HEAD
         $this->inverseJoinColumns[] = [
+=======
+        $this->inverseJoinColumns[] = array(
+>>>>>>> contactmanager
             'name' => $columnName,
             'referencedColumnName' => $referencedColumnName,
             'nullable' => $nullable,
             'unique' => $unique,
             'onDelete' => $onDelete,
             'columnDefinition' => $columnDef,
+<<<<<<< HEAD
         ];
 
+=======
+        );
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -83,7 +98,11 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
     public function build()
     {
         $mapping = $this->mapping;
+<<<<<<< HEAD
         $mapping['joinTable'] = [];
+=======
+        $mapping['joinTable'] = array();
+>>>>>>> contactmanager
         if ($this->joinColumns) {
             $mapping['joinTable']['joinColumns'] = $this->joinColumns;
         }
@@ -95,7 +114,10 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
         }
         $cm = $this->builder->getClassMetadata();
         $cm->mapManyToMany($mapping);
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this->builder;
     }
 }

@@ -19,22 +19,37 @@
 
 namespace Doctrine\ORM\Tools\Console;
 
+<<<<<<< HEAD
 use Doctrine\DBAL\Tools\Console as DBALConsole;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
 use Doctrine\ORM\Version;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Helper\HelperSet;
+=======
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Helper\HelperSet;
+use Doctrine\ORM\Version;
+use Doctrine\ORM\EntityManagerInterface;
+
+use Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper;
+use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
+>>>>>>> contactmanager
 
 /**
  * Handles running the Console Tools inside Symfony Console context.
  */
+<<<<<<< HEAD
 final class ConsoleRunner
+=======
+class ConsoleRunner
+>>>>>>> contactmanager
 {
     /**
      * Create a Symfony Console HelperSet
      *
      * @param EntityManagerInterface $entityManager
+<<<<<<< HEAD
      *
      * @return HelperSet
      */
@@ -50,13 +65,31 @@ final class ConsoleRunner
 
     /**
      * Runs console with the given helper set.
+=======
+     * @return HelperSet
+     */
+    public static function createHelperSet(EntityManagerInterface $entityManager)
+    {
+        return new HelperSet(array(
+            'db' => new ConnectionHelper($entityManager->getConnection()),
+            'em' => new EntityManagerHelper($entityManager)
+        ));
+    }
+
+    /**
+     * Runs console with the given helperset.
+>>>>>>> contactmanager
      *
      * @param \Symfony\Component\Console\Helper\HelperSet  $helperSet
      * @param \Symfony\Component\Console\Command\Command[] $commands
      *
      * @return void
      */
+<<<<<<< HEAD
     public static function run(HelperSet $helperSet, array $commands = []) : void
+=======
+    static public function run(HelperSet $helperSet, $commands = array())
+>>>>>>> contactmanager
     {
         $cli = self::createApplication($helperSet, $commands);
         $cli->run();
@@ -67,11 +100,19 @@ final class ConsoleRunner
      * optional commands.
      *
      * @param \Symfony\Component\Console\Helper\HelperSet $helperSet
+<<<<<<< HEAD
      * @param array                                       $commands
      *
      * @return \Symfony\Component\Console\Application
      */
     public static function createApplication(HelperSet $helperSet, array $commands = []) : Application
+=======
+     * @param array $commands
+     *
+     * @return \Symfony\Component\Console\Application
+     */
+    static public function createApplication(HelperSet $helperSet, $commands = array())
+>>>>>>> contactmanager
     {
         $cli = new Application('Doctrine Command Line Interface', Version::VERSION);
         $cli->setCatchExceptions(true);
@@ -87,6 +128,7 @@ final class ConsoleRunner
      *
      * @return void
      */
+<<<<<<< HEAD
     public static function addCommands(Application $cli) : void
     {
         $cli->addCommands(
@@ -121,6 +163,36 @@ final class ConsoleRunner
     }
 
     public static function printCliConfigTemplate() : void
+=======
+    static public function addCommands(Application $cli)
+    {
+        $cli->addCommands(array(
+            // DBAL Commands
+            new \Doctrine\DBAL\Tools\Console\Command\RunSqlCommand(),
+            new \Doctrine\DBAL\Tools\Console\Command\ImportCommand(),
+
+            // ORM Commands
+            new \Doctrine\ORM\Tools\Console\Command\ClearCache\MetadataCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\ClearCache\ResultCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\ClearCache\QueryCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\SchemaTool\CreateCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\SchemaTool\UpdateCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\SchemaTool\DropCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\EnsureProductionSettingsCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\ConvertDoctrine1SchemaCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\GenerateEntitiesCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\GenerateProxiesCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\ConvertMappingCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\RunDqlCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\InfoCommand(),
+            new \Doctrine\ORM\Tools\Console\Command\MappingDescribeCommand(),
+        ));
+    }
+
+    static public function printCliConfigTemplate()
+>>>>>>> contactmanager
     {
         echo <<<'HELP'
 You are missing a "cli-config.php" or "config/cli-config.php" file in your
@@ -139,5 +211,9 @@ $entityManager = GetEntityManager();
 return ConsoleRunner::createHelperSet($entityManager);
 
 HELP;
+<<<<<<< HEAD
+=======
+
+>>>>>>> contactmanager
     }
 }

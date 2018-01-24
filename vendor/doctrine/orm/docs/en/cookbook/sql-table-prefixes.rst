@@ -41,9 +41,13 @@ appropriate autoloaders.
             $classMetadata = $eventArgs->getClassMetadata();
 
             if (!$classMetadata->isInheritanceTypeSingleTable() || $classMetadata->getName() === $classMetadata->rootEntityName) {
+<<<<<<< HEAD
                 $classMetadata->setPrimaryTable([
                     'name' => $this->prefix . $classMetadata->getTableName()
                 ]);
+=======
+                $classMetadata->setTableName($this->prefix . $classMetadata->getTableName());
+>>>>>>> contactmanager
             }
 
             foreach ($classMetadata->getAssociationMappings() as $fieldName => $mapping) {

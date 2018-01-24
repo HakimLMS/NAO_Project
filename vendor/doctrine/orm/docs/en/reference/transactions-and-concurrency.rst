@@ -1,8 +1,11 @@
 Transactions and Concurrency
 ============================
 
+<<<<<<< HEAD
 .. _transactions-and-concurrency_transaction-demarcation:
 
+=======
+>>>>>>> contactmanager
 Transaction Demarcation
 -----------------------
 
@@ -28,8 +31,11 @@ and control transaction demarcation yourself.
 These are two ways to deal with transactions when using the
 Doctrine ORM and are now described in more detail.
 
+<<<<<<< HEAD
 .. _transactions-and-concurrency_approach-implicitly:
 
+=======
+>>>>>>> contactmanager
 Approach 1: Implicitly
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -53,8 +59,11 @@ the DML operations by the Doctrine ORM and is sufficient if all the
 data manipulation that is part of a unit of work happens through
 the domain model and thus the ORM.
 
+<<<<<<< HEAD
 .. _transactions-and-concurrency_approach-explicitly:
 
+=======
+>>>>>>> contactmanager
 Approach 2: Explicitly
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -75,7 +84,11 @@ looks like this:
         $em->flush();
         $em->getConnection()->commit();
     } catch (Exception $e) {
+<<<<<<< HEAD
         $em->getConnection()->rollBack();
+=======
+        $em->getConnection()->rollback();
+>>>>>>> contactmanager
         throw $e;
     }
 
@@ -104,6 +117,7 @@ functionally equivalent to the previously shown code looks as follows:
         $em->persist($user);
     });
 
+<<<<<<< HEAD
 .. warning::
 
     For historical reasons, ``EntityManager#transactional($func)`` will return
@@ -111,14 +125,19 @@ functionally equivalent to the previously shown code looks as follows:
     Some examples of this include ``array()``, ``"0"``, ``""``, ``0``, and
     ``null``.
 
+=======
+>>>>>>> contactmanager
 The difference between ``Connection#transactional($func)`` and
 ``EntityManager#transactional($func)`` is that the latter
 abstraction flushes the ``EntityManager`` prior to transaction
 commit and rolls back the transaction when an
 exception occurs.
 
+<<<<<<< HEAD
 .. _transactions-and-concurrency_exception-handling:
 
+=======
+>>>>>>> contactmanager
 Exception Handling
 ~~~~~~~~~~~~~~~~~~
 
@@ -149,8 +168,11 @@ knowing that their state is potentially no longer accurate.
 If you intend to start another unit of work after an exception has
 occurred you should do that with a new ``EntityManager``.
 
+<<<<<<< HEAD
 .. _transactions-and-concurrency_locking-support:
 
+=======
+>>>>>>> contactmanager
 Locking Support
 ---------------
 
@@ -159,8 +181,11 @@ strategies natively. This allows to take very fine-grained control
 over what kind of locking is required for your Entities in your
 application.
 
+<<<<<<< HEAD
 .. _transactions-and-concurrency_optimistic-locking:
 
+=======
+>>>>>>> contactmanager
 Optimistic Locking
 ~~~~~~~~~~~~~~~~~~
 
@@ -187,6 +212,7 @@ has been modified by someone else already.
 You designate a version field in an entity as follows. In this
 example we'll use an integer.
 
+<<<<<<< HEAD
 .. configuration-block::
 
     .. code-block:: php
@@ -216,10 +242,23 @@ example we'll use an integer.
             version:
               type: integer
               version: true
+=======
+.. code-block:: php
+
+    <?php
+    class User
+    {
+        // ...
+        /** @Version @Column(type="integer") */
+        private $version;
+        // ...
+    }
+>>>>>>> contactmanager
 
 Alternatively a datetime type can be used (which maps to a SQL
 timestamp or datetime):
 
+<<<<<<< HEAD
 .. configuration-block::
 
     .. code-block:: php
@@ -249,6 +288,18 @@ timestamp or datetime):
             version:
               type: datetime
               version: true
+=======
+.. code-block:: php
+
+    <?php
+    class User
+    {
+        // ...
+        /** @Version @Column(type="datetime") */
+        private $version;
+        // ...
+    }
+>>>>>>> contactmanager
 
 Version numbers (not timestamps) should however be preferred as
 they can not potentially conflict in a highly concurrent
@@ -362,8 +413,11 @@ And the change headline action (POST Request):
     
     $post = $em->find('BlogPost', $postId, \Doctrine\DBAL\LockMode::OPTIMISTIC, $postVersion);
 
+<<<<<<< HEAD
 .. _transactions-and-concurrency_pessimistic-locking:
 
+=======
+>>>>>>> contactmanager
 Pessimistic Locking
 ~~~~~~~~~~~~~~~~~~~
 

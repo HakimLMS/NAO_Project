@@ -35,7 +35,11 @@ class ScalarHydrator extends AbstractHydrator
      */
     protected function hydrateAllData()
     {
+<<<<<<< HEAD
         $result = [];
+=======
+        $result = array();
+>>>>>>> contactmanager
 
         while ($data = $this->_stmt->fetch(\PDO::FETCH_ASSOC)) {
             $this->hydrateRowData($data, $result);

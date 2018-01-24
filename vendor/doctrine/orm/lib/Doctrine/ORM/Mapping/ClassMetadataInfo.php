@@ -28,7 +28,10 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use ReflectionClass;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\Common\ClassLoader;
+<<<<<<< HEAD
 use Doctrine\ORM\Cache\CacheException;
+=======
+>>>>>>> contactmanager
 
 /**
  * A <tt>ClassMetadata</tt> instance holds all the object-relational mapping metadata
@@ -225,7 +228,11 @@ class ClassMetadataInfo implements ClassMetadata
     /**
      * READ-ONLY: The name of the entity class that is at the root of the mapped entity inheritance
      * hierarchy. If the entity is not part of a mapped inheritance hierarchy this is the same
+<<<<<<< HEAD
      * as {@link $name}.
+=======
+     * as {@link $entityName}.
+>>>>>>> contactmanager
      *
      * @var string
      */
@@ -275,28 +282,44 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @var array
      */
+<<<<<<< HEAD
     public $parentClasses = [];
+=======
+    public $parentClasses = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The names of all subclasses (descendants).
      *
      * @var array
      */
+<<<<<<< HEAD
     public $subClasses = [];
+=======
+    public $subClasses = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The names of all embedded classes based on properties.
      *
      * @var array
      */
+<<<<<<< HEAD
     public $embeddedClasses = [];
+=======
+    public $embeddedClasses = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The named queries allowed to be called directly from Repository.
      *
      * @var array
      */
+<<<<<<< HEAD
     public $namedQueries = [];
+=======
+    public $namedQueries = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The named native queries allowed to be called directly from Repository.
@@ -313,7 +336,11 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @var array
      */
+<<<<<<< HEAD
     public $namedNativeQueries = [];
+=======
+    public $namedNativeQueries = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The mappings of the results of native SQL queries.
@@ -329,7 +356,11 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @var array
      */
+<<<<<<< HEAD
     public $sqlResultSetMappings = [];
+=======
+    public $sqlResultSetMappings = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The field names of all fields that are part of the identifier/primary key
@@ -337,7 +368,11 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @var array
      */
+<<<<<<< HEAD
     public $identifier = [];
+=======
+    public $identifier = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The inheritance mapping type used by the class.
@@ -394,15 +429,27 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @var array
      */
+<<<<<<< HEAD
     public $fieldMappings = [];
+=======
+    public $fieldMappings = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: An array of field names. Used to look up field names from column names.
      * Keys are column names and values are field names.
+<<<<<<< HEAD
      *
      * @var array
      */
     public $fieldNames = [];
+=======
+     * This is the reverse lookup map of $_columnNames.
+     *
+     * @var array
+     */
+    public $fieldNames = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: A map of field names to column names. Keys are field names and values column names.
@@ -411,9 +458,15 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @var array
      *
+<<<<<<< HEAD
      * @deprecated 3.0 Remove this.
      */
     public $columnNames = [];
+=======
+     * @todo We could get rid of this array by just using $fieldMappings[$fieldName]['columnName'].
+     */
+    public $columnNames = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The discriminator value of this class.
@@ -437,7 +490,11 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @see discriminatorColumn
      */
+<<<<<<< HEAD
     public $discriminatorMap = [];
+=======
+    public $discriminatorMap = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The definition of the discriminator column used in JOINED and SINGLE_TABLE
@@ -463,16 +520,26 @@ class ClassMetadataInfo implements ClassMetadata
     /**
      * READ-ONLY: The registered lifecycle callbacks for entities of this class.
      *
+<<<<<<< HEAD
      * @var array[]
      */
     public $lifecycleCallbacks = [];
+=======
+     * @var array
+     */
+    public $lifecycleCallbacks = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The registered entity listeners.
      *
      * @var array
      */
+<<<<<<< HEAD
     public $entityListeners = [];
+=======
+    public $entityListeners = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: The association mappings of this class.
@@ -529,7 +596,11 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @var array
      */
+<<<<<<< HEAD
     public $associationMappings = [];
+=======
+    public $associationMappings = array();
+>>>>>>> contactmanager
 
     /**
      * READ-ONLY: Flag indicating whether the identifier/primary key of the class is composite.
@@ -642,7 +713,11 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @var \ReflectionProperty[]
      */
+<<<<<<< HEAD
     public $reflFields = [];
+=======
+    public $reflFields = array();
+>>>>>>> contactmanager
 
     /**
      * @var \Doctrine\Instantiator\InstantiatorInterface|null
@@ -698,7 +773,10 @@ class ClassMetadataInfo implements ClassMetadata
         if ($this->isIdentifierComposite) {
             throw new BadMethodCallException("Class " . $this->name . " has a composite identifier.");
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this->reflFields[$this->identifier[0]];
     }
 
@@ -715,12 +793,20 @@ class ClassMetadataInfo implements ClassMetadata
     public function getIdentifierValues($entity)
     {
         if ($this->isIdentifierComposite) {
+<<<<<<< HEAD
             $id = [];
+=======
+            $id = array();
+>>>>>>> contactmanager
 
             foreach ($this->identifier as $idField) {
                 $value = $this->reflFields[$idField]->getValue($entity);
 
+<<<<<<< HEAD
                 if (null !== $value) {
+=======
+                if ($value !== null) {
+>>>>>>> contactmanager
                     $id[$idField] = $value;
                 }
             }
@@ -732,17 +818,28 @@ class ClassMetadataInfo implements ClassMetadata
         $value = $this->reflFields[$id]->getValue($entity);
 
         if (null === $value) {
+<<<<<<< HEAD
             return [];
         }
 
         return [$id => $value];
+=======
+            return array();
+        }
+
+        return array($id => $value);
+>>>>>>> contactmanager
     }
 
     /**
      * Populates the entity identifier of an entity.
      *
      * @param object $entity
+<<<<<<< HEAD
      * @param array  $id
+=======
+     * @param mixed  $id
+>>>>>>> contactmanager
      *
      * @return void
      *
@@ -810,9 +907,15 @@ class ClassMetadataInfo implements ClassMetadata
     public function __sleep()
     {
         // This metadata is always serialized/cached.
+<<<<<<< HEAD
         $serialized = [
             'associationMappings',
             'columnNames', //TODO: 3.0 Remove this. Can use fieldMappings[$fieldName]['columnName']
+=======
+        $serialized = array(
+            'associationMappings',
+            'columnNames', //TODO: Not really needed. Can use fieldMappings[$fieldName]['columnName']
+>>>>>>> contactmanager
             'fieldMappings',
             'fieldNames',
             'embeddedClasses',
@@ -823,7 +926,11 @@ class ClassMetadataInfo implements ClassMetadata
             'table',
             'rootEntityName',
             'idGenerator', //TODO: Does not really need to be serialized. Could be moved to runtime.
+<<<<<<< HEAD
         ];
+=======
+        );
+>>>>>>> contactmanager
 
         // The rest of the metadata is only serialized if necessary.
         if ($this->changeTrackingPolicy != self::CHANGETRACKING_DEFERRED_IMPLICIT) {
@@ -925,7 +1032,11 @@ class ClassMetadataInfo implements ClassMetadata
         $this->reflClass    = $reflService->getClass($this->name);
         $this->instantiator = $this->instantiator ?: new Instantiator();
 
+<<<<<<< HEAD
         $parentReflFields = [];
+=======
+        $parentReflFields = array();
+>>>>>>> contactmanager
 
         foreach ($this->embeddedClasses as $property => $embeddedClass) {
             if (isset($embeddedClass['declaredField'])) {
@@ -942,7 +1053,11 @@ class ClassMetadataInfo implements ClassMetadata
             }
 
             $fieldRefl = $reflService->getAccessibleProperty(
+<<<<<<< HEAD
                 $embeddedClass['declared'] ?? $this->name,
+=======
+                isset($embeddedClass['declared']) ? $embeddedClass['declared'] : $this->name,
+>>>>>>> contactmanager
                 $property
             );
 
@@ -1085,6 +1200,7 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function enableAssociationCache($fieldName, array $cache)
     {
+<<<<<<< HEAD
         $this->associationMappings[$fieldName]['cache'] = $this->getAssociationCacheDefaults($fieldName, $cache);
     }
 
@@ -1096,6 +1212,8 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getAssociationCacheDefaults($fieldName, array $cache)
     {
+=======
+>>>>>>> contactmanager
         if ( ! isset($cache['usage'])) {
             $cache['usage'] = isset($this->cache['usage'])
                 ? $this->cache['usage']
@@ -1106,7 +1224,11 @@ class ClassMetadataInfo implements ClassMetadata
             $cache['region'] = strtolower(str_replace('\\', '_', $this->rootEntityName)) . '__' . $fieldName;
         }
 
+<<<<<<< HEAD
         return $cache;
+=======
+        $this->associationMappings[$fieldName]['cache'] = $cache;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1128,7 +1250,11 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function isChangeTrackingDeferredExplicit()
     {
+<<<<<<< HEAD
         return self::CHANGETRACKING_DEFERRED_EXPLICIT === $this->changeTrackingPolicy;
+=======
+        return $this->changeTrackingPolicy == self::CHANGETRACKING_DEFERRED_EXPLICIT;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1138,7 +1264,11 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function isChangeTrackingDeferredImplicit()
     {
+<<<<<<< HEAD
         return self::CHANGETRACKING_DEFERRED_IMPLICIT === $this->changeTrackingPolicy;
+=======
+        return $this->changeTrackingPolicy == self::CHANGETRACKING_DEFERRED_IMPLICIT;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1148,7 +1278,11 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function isChangeTrackingNotify()
     {
+<<<<<<< HEAD
         return self::CHANGETRACKING_NOTIFY === $this->changeTrackingPolicy;
+=======
+        return $this->changeTrackingPolicy == self::CHANGETRACKING_NOTIFY;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1169,7 +1303,11 @@ class ClassMetadataInfo implements ClassMetadata
             return $fieldName === $this->identifier[0];
         }
 
+<<<<<<< HEAD
         return in_array($fieldName, $this->identifier, true);
+=======
+        return in_array($fieldName, $this->identifier);
+>>>>>>> contactmanager
     }
 
     /**
@@ -1182,8 +1320,15 @@ class ClassMetadataInfo implements ClassMetadata
     public function isUniqueField($fieldName)
     {
         $mapping = $this->getFieldMapping($fieldName);
+<<<<<<< HEAD
 
         return false !== $mapping && isset($mapping['unique']) && $mapping['unique'];
+=======
+        if ($mapping !== false) {
+            return isset($mapping['unique']) && $mapping['unique'] == true;
+        }
+        return false;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1196,8 +1341,15 @@ class ClassMetadataInfo implements ClassMetadata
     public function isNullable($fieldName)
     {
         $mapping = $this->getFieldMapping($fieldName);
+<<<<<<< HEAD
 
         return false !== $mapping && isset($mapping['nullable']) && $mapping['nullable'];
+=======
+        if ($mapping !== false) {
+            return isset($mapping['nullable']) && $mapping['nullable'] == true;
+        }
+        return false;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1211,9 +1363,14 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getColumnName($fieldName)
     {
+<<<<<<< HEAD
         return isset($this->columnNames[$fieldName])
             ? $this->columnNames[$fieldName]
             : $fieldName;
+=======
+        return isset($this->columnNames[$fieldName]) ?
+                $this->columnNames[$fieldName] : $fieldName;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1231,7 +1388,10 @@ class ClassMetadataInfo implements ClassMetadata
         if ( ! isset($this->fieldMappings[$fieldName])) {
             throw MappingException::mappingNotFound($this->name, $fieldName);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this->fieldMappings[$fieldName];
     }
 
@@ -1252,7 +1412,10 @@ class ClassMetadataInfo implements ClassMetadata
         if ( ! isset($this->associationMappings[$fieldName])) {
             throw MappingException::mappingNotFound($this->name, $fieldName);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this->associationMappings[$fieldName];
     }
 
@@ -1276,9 +1439,14 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getFieldName($columnName)
     {
+<<<<<<< HEAD
         return isset($this->fieldNames[$columnName])
             ? $this->fieldNames[$columnName]
             : $columnName;
+=======
+        return isset($this->fieldNames[$columnName]) ?
+                $this->fieldNames[$columnName] : $columnName;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1297,7 +1465,10 @@ class ClassMetadataInfo implements ClassMetadata
         if ( ! isset($this->namedQueries[$queryName])) {
             throw MappingException::queryNotFound($this->name, $queryName);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this->namedQueries[$queryName]['dql'];
     }
 
@@ -1376,17 +1547,27 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @param array $mapping The field mapping to validate & complete.
      *
+<<<<<<< HEAD
      * @return void
+=======
+     * @return array The validated and completed field mapping.
+>>>>>>> contactmanager
      *
      * @throws MappingException
      */
     protected function _validateAndCompleteFieldMapping(array &$mapping)
     {
         // Check mandatory fields
+<<<<<<< HEAD
         if ( ! isset($mapping['fieldName']) || !$mapping['fieldName']) {
             throw MappingException::missingFieldName($this->name);
         }
 
+=======
+        if ( ! isset($mapping['fieldName']) || strlen($mapping['fieldName']) == 0) {
+            throw MappingException::missingFieldName($this->name);
+        }
+>>>>>>> contactmanager
         if ( ! isset($mapping['type'])) {
             // Default to string
             $mapping['type'] = 'string';
@@ -1397,21 +1578,33 @@ class ClassMetadataInfo implements ClassMetadata
             $mapping['columnName'] = $this->namingStrategy->propertyToColumnName($mapping['fieldName'], $this->name);
         }
 
+<<<<<<< HEAD
         if ('`' === $mapping['columnName'][0]) {
+=======
+        if ($mapping['columnName'][0] === '`') {
+>>>>>>> contactmanager
             $mapping['columnName']  = trim($mapping['columnName'], '`');
             $mapping['quoted']      = true;
         }
 
         $this->columnNames[$mapping['fieldName']] = $mapping['columnName'];
+<<<<<<< HEAD
 
         if (isset($this->fieldNames[$mapping['columnName']]) || ($this->discriminatorColumn && $this->discriminatorColumn['name'] === $mapping['columnName'])) {
+=======
+        if (isset($this->fieldNames[$mapping['columnName']]) || ($this->discriminatorColumn != null && $this->discriminatorColumn['name'] == $mapping['columnName'])) {
+>>>>>>> contactmanager
             throw MappingException::duplicateColumnName($this->name, $mapping['columnName']);
         }
 
         $this->fieldNames[$mapping['columnName']] = $mapping['fieldName'];
 
         // Complete id mapping
+<<<<<<< HEAD
         if (isset($mapping['id']) && true === $mapping['id']) {
+=======
+        if (isset($mapping['id']) && $mapping['id'] === true) {
+>>>>>>> contactmanager
             if ($this->versionField == $mapping['fieldName']) {
                 throw MappingException::cannotVersionIdField($this->name, $mapping['fieldName']);
             }
@@ -1419,7 +1612,10 @@ class ClassMetadataInfo implements ClassMetadata
             if ( ! in_array($mapping['fieldName'], $this->identifier)) {
                 $this->identifier[] = $mapping['fieldName'];
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
             // Check for composite key
             if ( ! $this->isIdentifierComposite && count($this->identifier) > 1) {
                 $this->isIdentifierComposite = true;
@@ -1427,7 +1623,11 @@ class ClassMetadataInfo implements ClassMetadata
         }
 
         if (Type::hasType($mapping['type']) && Type::getType($mapping['type'])->canRequireSQLConversion()) {
+<<<<<<< HEAD
             if (isset($mapping['id']) && true === $mapping['id']) {
+=======
+            if (isset($mapping['id']) && $mapping['id'] === true) {
+>>>>>>> contactmanager
                  throw MappingException::sqlConversionNotAllowedForIdentifiers($this->name, $mapping['fieldName'], $mapping['type']);
             }
 
@@ -1450,6 +1650,7 @@ class ClassMetadataInfo implements ClassMetadata
         if ( ! isset($mapping['mappedBy'])) {
             $mapping['mappedBy'] = null;
         }
+<<<<<<< HEAD
 
         if ( ! isset($mapping['inversedBy'])) {
             $mapping['inversedBy'] = null;
@@ -1458,6 +1659,15 @@ class ClassMetadataInfo implements ClassMetadata
         $mapping['isOwningSide'] = true; // assume owning side until we hit mappedBy
 
         if (empty($mapping['indexBy'])) {
+=======
+        if ( ! isset($mapping['inversedBy'])) {
+            $mapping['inversedBy'] = null;
+        }
+        $mapping['isOwningSide'] = true; // assume owning side until we hit mappedBy
+
+        // unset optional indexBy attribute if its empty
+        if ( ! isset($mapping['indexBy']) || !$mapping['indexBy']) {
+>>>>>>> contactmanager
             unset($mapping['indexBy']);
         }
 
@@ -1470,13 +1680,25 @@ class ClassMetadataInfo implements ClassMetadata
             $mapping['targetEntity'] = ltrim($mapping['targetEntity'], '\\');
         }
 
+<<<<<<< HEAD
         if (($mapping['type'] & self::MANY_TO_ONE) > 0 && isset($mapping['orphanRemoval']) && $mapping['orphanRemoval']) {
+=======
+        if ( ($mapping['type'] & self::MANY_TO_ONE) > 0 &&
+                isset($mapping['orphanRemoval']) &&
+                $mapping['orphanRemoval'] == true) {
+
+>>>>>>> contactmanager
             throw MappingException::illegalOrphanRemoval($this->name, $mapping['fieldName']);
         }
 
         // Complete id mapping
+<<<<<<< HEAD
         if (isset($mapping['id']) && true === $mapping['id']) {
             if (isset($mapping['orphanRemoval']) && $mapping['orphanRemoval']) {
+=======
+        if (isset($mapping['id']) && $mapping['id'] === true) {
+            if (isset($mapping['orphanRemoval']) && $mapping['orphanRemoval'] == true) {
+>>>>>>> contactmanager
                 throw MappingException::illegalOrphanRemovalOnIdentifierAssociation($this->name, $mapping['fieldName']);
             }
 
@@ -1490,23 +1712,35 @@ class ClassMetadataInfo implements ClassMetadata
                 $this->identifier[] = $mapping['fieldName'];
                 $this->containsForeignIdentifier = true;
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
             // Check for composite key
             if ( ! $this->isIdentifierComposite && count($this->identifier) > 1) {
                 $this->isIdentifierComposite = true;
             }
+<<<<<<< HEAD
 
             if ($this->cache && !isset($mapping['cache'])) {
                 throw CacheException::nonCacheableEntityAssociation($this->name, $mapping['fieldName']);
             }
+=======
+>>>>>>> contactmanager
         }
 
         // Mandatory attributes for both sides
         // Mandatory: fieldName, targetEntity
+<<<<<<< HEAD
         if ( ! isset($mapping['fieldName']) || !$mapping['fieldName']) {
             throw MappingException::missingFieldName($this->name);
         }
 
+=======
+        if ( ! isset($mapping['fieldName']) || strlen($mapping['fieldName']) == 0) {
+            throw MappingException::missingFieldName($this->name);
+        }
+>>>>>>> contactmanager
         if ( ! isset($mapping['targetEntity'])) {
             throw MappingException::missingTargetEntity($mapping['fieldName']);
         }
@@ -1523,7 +1757,11 @@ class ClassMetadataInfo implements ClassMetadata
             $mapping['isOwningSide'] = false;
         }
 
+<<<<<<< HEAD
         if (isset($mapping['id']) && true === $mapping['id'] && $mapping['type'] & self::TO_MANY) {
+=======
+        if (isset($mapping['id']) && $mapping['id'] === true && $mapping['type'] & self::TO_MANY) {
+>>>>>>> contactmanager
             throw MappingException::illegalToManyIdentifierAssociation($this->name, $mapping['fieldName']);
         }
 
@@ -1533,6 +1771,7 @@ class ClassMetadataInfo implements ClassMetadata
         }
 
         // Cascades
+<<<<<<< HEAD
         $cascades = isset($mapping['cascade']) ? array_map('strtolower', $mapping['cascade']) : [];
 
         $allCascades = ['remove', 'persist', 'refresh', 'merge', 'detach'];
@@ -1541,17 +1780,36 @@ class ClassMetadataInfo implements ClassMetadata
         } elseif (count($cascades) !== count(array_intersect($cascades, $allCascades))) {
             throw MappingException::invalidCascadeOption(
                 array_diff($cascades, $allCascades),
+=======
+        $cascades = isset($mapping['cascade']) ? array_map('strtolower', $mapping['cascade']) : array();
+
+        if (in_array('all', $cascades)) {
+            $cascades = array('remove', 'persist', 'refresh', 'merge', 'detach');
+        }
+
+        if (count($cascades) !== count(array_intersect($cascades, array('remove', 'persist', 'refresh', 'merge', 'detach')))) {
+            throw MappingException::invalidCascadeOption(
+                array_diff($cascades, array_intersect($cascades, array('remove', 'persist', 'refresh', 'merge', 'detach'))),
+>>>>>>> contactmanager
                 $this->name,
                 $mapping['fieldName']
             );
         }
 
         $mapping['cascade'] = $cascades;
+<<<<<<< HEAD
         $mapping['isCascadeRemove']  = in_array('remove', $cascades);
         $mapping['isCascadePersist'] = in_array('persist', $cascades);
         $mapping['isCascadeRefresh'] = in_array('refresh', $cascades);
         $mapping['isCascadeMerge']   = in_array('merge', $cascades);
         $mapping['isCascadeDetach']  = in_array('detach', $cascades);
+=======
+        $mapping['isCascadeRemove'] = in_array('remove',  $cascades);
+        $mapping['isCascadePersist'] = in_array('persist',  $cascades);
+        $mapping['isCascadeRefresh'] = in_array('refresh',  $cascades);
+        $mapping['isCascadeMerge'] = in_array('merge',  $cascades);
+        $mapping['isCascadeDetach'] = in_array('detach',  $cascades);
+>>>>>>> contactmanager
 
         return $mapping;
     }
@@ -1575,6 +1833,7 @@ class ClassMetadataInfo implements ClassMetadata
         }
 
         if ($mapping['isOwningSide']) {
+<<<<<<< HEAD
             if (empty($mapping['joinColumns'])) {
                 // Apply default join column
                 $mapping['joinColumns'] = [
@@ -1591,6 +1850,21 @@ class ClassMetadataInfo implements ClassMetadata
                 if ($mapping['type'] === self::ONE_TO_ONE && ! $this->isInheritanceTypeSingleTable()) {
                     if (count($mapping['joinColumns']) === 1) {
                         if (empty($mapping['id'])) {
+=======
+            if ( ! isset($mapping['joinColumns']) || ! $mapping['joinColumns']) {
+                // Apply default join column
+                $mapping['joinColumns'] = array(array(
+                    'name' => $this->namingStrategy->joinColumnName($mapping['fieldName'], $this->name),
+                    'referencedColumnName' => $this->namingStrategy->referenceColumnName()
+                ));
+            }
+
+            $uniqueConstraintColumns = array();
+            foreach ($mapping['joinColumns'] as &$joinColumn) {
+                if ($mapping['type'] === self::ONE_TO_ONE && ! $this->isInheritanceTypeSingleTable()) {
+                    if (count($mapping['joinColumns']) == 1) {
+                        if ( ! isset($mapping['id']) || ! $mapping['id']) {
+>>>>>>> contactmanager
                             $joinColumn['unique'] = true;
                         }
                     } else {
@@ -1617,24 +1891,40 @@ class ClassMetadataInfo implements ClassMetadata
                 }
 
                 $mapping['sourceToTargetKeyColumns'][$joinColumn['name']] = $joinColumn['referencedColumnName'];
+<<<<<<< HEAD
                 $mapping['joinColumnFieldNames'][$joinColumn['name']] = $joinColumn['fieldName'] ?? $joinColumn['name'];
+=======
+                $mapping['joinColumnFieldNames'][$joinColumn['name']] = isset($joinColumn['fieldName'])
+                        ? $joinColumn['fieldName'] : $joinColumn['name'];
+>>>>>>> contactmanager
             }
 
             if ($uniqueConstraintColumns) {
                 if ( ! $this->table) {
                     throw new RuntimeException("ClassMetadataInfo::setTable() has to be called before defining a one to one relationship.");
                 }
+<<<<<<< HEAD
 
                 $this->table['uniqueConstraints'][$mapping['fieldName'] . "_uniq"] = [
                     'columns' => $uniqueConstraintColumns
                 ];
+=======
+                $this->table['uniqueConstraints'][$mapping['fieldName']."_uniq"] = array(
+                    'columns' => $uniqueConstraintColumns
+                );
+>>>>>>> contactmanager
             }
 
             $mapping['targetToSourceKeyColumns'] = array_flip($mapping['sourceToTargetKeyColumns']);
         }
 
+<<<<<<< HEAD
         $mapping['orphanRemoval']   = isset($mapping['orphanRemoval']) && $mapping['orphanRemoval'];
         $mapping['isCascadeRemove'] = $mapping['orphanRemoval'] || $mapping['isCascadeRemove'];
+=======
+        $mapping['orphanRemoval']   = isset($mapping['orphanRemoval']) ? (bool) $mapping['orphanRemoval'] : false;
+        $mapping['isCascadeRemove'] = $mapping['orphanRemoval'] ? true : $mapping['isCascadeRemove'];
+>>>>>>> contactmanager
 
         if ($mapping['orphanRemoval']) {
             unset($mapping['unique']);
@@ -1666,10 +1956,21 @@ class ClassMetadataInfo implements ClassMetadata
             throw MappingException::oneToManyRequiresMappedBy($mapping['fieldName']);
         }
 
+<<<<<<< HEAD
         $mapping['orphanRemoval']   = isset($mapping['orphanRemoval']) && $mapping['orphanRemoval'];
         $mapping['isCascadeRemove'] = $mapping['orphanRemoval'] || $mapping['isCascadeRemove'];
 
         $this->assertMappingOrderBy($mapping);
+=======
+        $mapping['orphanRemoval']   = isset($mapping['orphanRemoval']) ? (bool) $mapping['orphanRemoval'] : false;
+        $mapping['isCascadeRemove'] = $mapping['orphanRemoval'] ? true : $mapping['isCascadeRemove'];
+
+        if (isset($mapping['orderBy'])) {
+            if ( ! is_array($mapping['orderBy'])) {
+                throw new InvalidArgumentException("'orderBy' is expected to be an array, not ".gettype($mapping['orderBy']));
+            }
+        }
+>>>>>>> contactmanager
 
         return $mapping;
     }
@@ -1686,7 +1987,10 @@ class ClassMetadataInfo implements ClassMetadata
     protected function _validateAndCompleteManyToManyMapping(array $mapping)
     {
         $mapping = $this->_validateAndCompleteAssociationMapping($mapping);
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         if ($mapping['isOwningSide']) {
             // owning side MUST have a join table
             if ( ! isset($mapping['joinTable']['name'])) {
@@ -1697,6 +2001,7 @@ class ClassMetadataInfo implements ClassMetadata
                 && (! (isset($mapping['joinTable']['joinColumns']) || isset($mapping['joinTable']['inverseJoinColumns'])));
 
             if ( ! isset($mapping['joinTable']['joinColumns'])) {
+<<<<<<< HEAD
                 $mapping['joinTable']['joinColumns'] = [
                     [
                         'name' => $this->namingStrategy->joinKeyColumnName($mapping['sourceEntity'], $selfReferencingEntityWithoutJoinColumns ? 'source' : null),
@@ -1717,6 +2022,21 @@ class ClassMetadataInfo implements ClassMetadata
             }
 
             $mapping['joinTableColumns'] = [];
+=======
+                $mapping['joinTable']['joinColumns'] = array(array(
+                        'name' => $this->namingStrategy->joinKeyColumnName($mapping['sourceEntity'], $selfReferencingEntityWithoutJoinColumns ? 'source' : null),
+                        'referencedColumnName' => $this->namingStrategy->referenceColumnName(),
+                        'onDelete' => 'CASCADE'));
+            }
+            if ( ! isset($mapping['joinTable']['inverseJoinColumns'])) {
+                $mapping['joinTable']['inverseJoinColumns'] = array(array(
+                        'name' => $this->namingStrategy->joinKeyColumnName($mapping['targetEntity'], $selfReferencingEntityWithoutJoinColumns ? 'target' : null),
+                        'referencedColumnName' => $this->namingStrategy->referenceColumnName(),
+                        'onDelete' => 'CASCADE'));
+            }
+
+            $mapping['joinTableColumns'] = array();
+>>>>>>> contactmanager
 
             foreach ($mapping['joinTable']['joinColumns'] as &$joinColumn) {
                 if (empty($joinColumn['name'])) {
@@ -1773,9 +2093,19 @@ class ClassMetadataInfo implements ClassMetadata
             }
         }
 
+<<<<<<< HEAD
         $mapping['orphanRemoval'] = isset($mapping['orphanRemoval']) && $mapping['orphanRemoval'];
 
         $this->assertMappingOrderBy($mapping);
+=======
+        $mapping['orphanRemoval'] = isset($mapping['orphanRemoval']) ? (bool) $mapping['orphanRemoval'] : false;
+
+        if (isset($mapping['orderBy'])) {
+            if ( ! is_array($mapping['orderBy'])) {
+                throw new InvalidArgumentException("'orderBy' is expected to be an array, not ".gettype($mapping['orderBy']));
+            }
+        }
+>>>>>>> contactmanager
 
         return $mapping;
     }
@@ -1794,18 +2124,25 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @return string
      *
+<<<<<<< HEAD
      * @throws MappingException If the class doesn't have an identifier or it has a composite primary key.
+=======
+     * @throws MappingException If the class has a composite primary key.
+>>>>>>> contactmanager
      */
     public function getSingleIdentifierFieldName()
     {
         if ($this->isIdentifierComposite) {
             throw MappingException::singleIdNotAllowedOnCompositePrimaryKey($this->name);
         }
+<<<<<<< HEAD
 
         if ( ! isset($this->identifier[0])) {
             throw MappingException::noIdDefined($this->name);
         }
 
+=======
+>>>>>>> contactmanager
         return $this->identifier[0];
     }
 
@@ -1815,7 +2152,11 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @return string
      *
+<<<<<<< HEAD
      * @throws MappingException If the class doesn't have an identifier or it has a composite primary key.
+=======
+     * @throws MappingException If the class has a composite primary key.
+>>>>>>> contactmanager
      */
     public function getSingleIdentifierColumnName()
     {
@@ -1850,7 +2191,11 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function hasField($fieldName)
     {
+<<<<<<< HEAD
         return isset($this->fieldMappings[$fieldName]) || isset($this->embeddedClasses[$fieldName]);
+=======
+        return isset($this->fieldMappings[$fieldName]);
+>>>>>>> contactmanager
     }
 
     /**
@@ -1862,11 +2207,23 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getColumnNames(array $fieldNames = null)
     {
+<<<<<<< HEAD
         if (null === $fieldNames) {
             return array_keys($this->fieldNames);
         }
 
         return array_values(array_map([$this, 'getColumnName'], $fieldNames));
+=======
+        if ($fieldNames === null) {
+            return array_keys($this->fieldNames);
+        } else {
+            $columnNames = array();
+            foreach ($fieldNames as $fieldName) {
+                $columnNames[] = $this->getColumnName($fieldName);
+            }
+            return $columnNames;
+        }
+>>>>>>> contactmanager
     }
 
     /**
@@ -1876,7 +2233,11 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getIdentifierColumnNames()
     {
+<<<<<<< HEAD
         $columnNames = [];
+=======
+        $columnNames = array();
+>>>>>>> contactmanager
 
         foreach ($this->identifier as $idProperty) {
             if (isset($this->fieldMappings[$idProperty])) {
@@ -2015,6 +2376,7 @@ class ClassMetadataInfo implements ClassMetadata
      * @param string $fieldName
      *
      * @return \Doctrine\DBAL\Types\Type|string|null
+<<<<<<< HEAD
      *
      * @todo 3.0 Remove this. PersisterHelper should fix it somehow
      */
@@ -2023,6 +2385,13 @@ class ClassMetadataInfo implements ClassMetadata
         return isset($this->fieldMappings[$fieldName])
             ? $this->fieldMappings[$fieldName]['type']
             : null;
+=======
+     */
+    public function getTypeOfField($fieldName)
+    {
+        return isset($this->fieldMappings[$fieldName]) ?
+                $this->fieldMappings[$fieldName]['type'] : null;
+>>>>>>> contactmanager
     }
 
     /**
@@ -2032,8 +2401,13 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @return \Doctrine\DBAL\Types\Type|string|null
      *
+<<<<<<< HEAD
      * @deprecated 3.0 remove this. this method is bogus and unreliable, since it cannot resolve the type of a column
      *             that is derived by a referenced field on a different entity.
+=======
+     * @deprecated this method is bogous and unreliable, since it cannot resolve the type of a column that is
+     *             derived by a referenced field on a different entity.
+>>>>>>> contactmanager
      */
     public function getTypeOfColumn($columnName)
     {
@@ -2097,7 +2471,10 @@ class ClassMetadataInfo implements ClassMetadata
     public function setParentClasses(array $classNames)
     {
         $this->parentClasses = $classNames;
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         if (count($classNames) > 0) {
             $this->rootEntityName = array_pop($classNames);
         }
@@ -2117,7 +2494,10 @@ class ClassMetadataInfo implements ClassMetadata
         if ( ! $this->_isInheritanceType($type)) {
             throw MappingException::invalidInheritanceType($this->name, $type);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         $this->inheritanceType = $type;
     }
 
@@ -2143,18 +2523,24 @@ class ClassMetadataInfo implements ClassMetadata
             $mapping['joinColumns'] = $overrideMapping['joinColumns'];
         }
 
+<<<<<<< HEAD
         if (isset($overrideMapping['inversedBy'])) {
             $mapping['inversedBy'] = $overrideMapping['inversedBy'];
         }
 
+=======
+>>>>>>> contactmanager
         if (isset($overrideMapping['joinTable'])) {
             $mapping['joinTable'] = $overrideMapping['joinTable'];
         }
 
+<<<<<<< HEAD
         if (isset($overrideMapping['fetch'])) {
             $mapping['fetch'] = $overrideMapping['fetch'];
         }
 
+=======
+>>>>>>> contactmanager
         $mapping['joinColumnFieldNames']        = null;
         $mapping['joinTableColumns']            = null;
         $mapping['sourceToTargetKeyColumns']    = null;
@@ -2201,11 +2587,19 @@ class ClassMetadataInfo implements ClassMetadata
             $overrideMapping['id'] = $mapping['id'];
         }
 
+<<<<<<< HEAD
         if ( ! isset($overrideMapping['type'])) {
             $overrideMapping['type'] = $mapping['type'];
         }
 
         if ( ! isset($overrideMapping['fieldName'])) {
+=======
+        if ( ! isset($overrideMapping['type']) || $overrideMapping['type'] === null) {
+            $overrideMapping['type'] = $mapping['type'];
+        }
+
+        if ( ! isset($overrideMapping['fieldName']) || $overrideMapping['fieldName'] === null) {
+>>>>>>> contactmanager
             $overrideMapping['fieldName'] = $mapping['fieldName'];
         }
 
@@ -2216,7 +2610,10 @@ class ClassMetadataInfo implements ClassMetadata
         unset($this->fieldMappings[$fieldName]);
         unset($this->fieldNames[$mapping['columnName']]);
         unset($this->columnNames[$mapping['fieldName']]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         $this->_validateAndCompleteFieldMapping($overrideMapping);
 
         $this->fieldMappings[$fieldName] = $overrideMapping;
@@ -2305,10 +2702,13 @@ class ClassMetadataInfo implements ClassMetadata
             $this->table['name'] = $table['name'];
         }
 
+<<<<<<< HEAD
         if (isset($table['quoted'])) {
             $this->table['quoted'] = $table['quoted'];
         }
 
+=======
+>>>>>>> contactmanager
         if (isset($table['schema'])) {
             $this->table['schema'] = $table['schema'];
         }
@@ -2420,12 +2820,20 @@ class ClassMetadataInfo implements ClassMetadata
         $name   = $queryMapping['name'];
         $query  = $queryMapping['query'];
         $dql    = str_replace('__CLASS__', $this->name, $query);
+<<<<<<< HEAD
 
         $this->namedQueries[$name] = [
             'name'  => $name,
             'query' => $query,
             'dql'   => $dql,
         ];
+=======
+        $this->namedQueries[$name] = array(
+            'name'  => $name,
+            'query' => $query,
+            'dql'   => $dql
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -2457,8 +2865,13 @@ class ClassMetadataInfo implements ClassMetadata
         }
 
         $queryMapping['isSelfClass'] = false;
+<<<<<<< HEAD
 
         if (isset($queryMapping['resultClass'])) {
+=======
+        if (isset($queryMapping['resultClass'])) {
+
+>>>>>>> contactmanager
             if ($queryMapping['resultClass'] === '__CLASS__') {
 
                 $queryMapping['isSelfClass'] = true;
@@ -2543,9 +2956,13 @@ class ClassMetadataInfo implements ClassMetadata
     public function mapOneToOne(array $mapping)
     {
         $mapping['type'] = self::ONE_TO_ONE;
+<<<<<<< HEAD
 
         $mapping = $this->_validateAndCompleteOneToOneMapping($mapping);
 
+=======
+        $mapping = $this->_validateAndCompleteOneToOneMapping($mapping);
+>>>>>>> contactmanager
         $this->_storeAssociationMapping($mapping);
     }
 
@@ -2559,9 +2976,13 @@ class ClassMetadataInfo implements ClassMetadata
     public function mapOneToMany(array $mapping)
     {
         $mapping['type'] = self::ONE_TO_MANY;
+<<<<<<< HEAD
 
         $mapping = $this->_validateAndCompleteOneToManyMapping($mapping);
 
+=======
+        $mapping = $this->_validateAndCompleteOneToManyMapping($mapping);
+>>>>>>> contactmanager
         $this->_storeAssociationMapping($mapping);
     }
 
@@ -2575,10 +2996,15 @@ class ClassMetadataInfo implements ClassMetadata
     public function mapManyToOne(array $mapping)
     {
         $mapping['type'] = self::MANY_TO_ONE;
+<<<<<<< HEAD
 
         // A many-to-one mapping is essentially a one-one backreference
         $mapping = $this->_validateAndCompleteOneToOneMapping($mapping);
 
+=======
+        // A many-to-one mapping is essentially a one-one backreference
+        $mapping = $this->_validateAndCompleteOneToOneMapping($mapping);
+>>>>>>> contactmanager
         $this->_storeAssociationMapping($mapping);
     }
 
@@ -2592,9 +3018,13 @@ class ClassMetadataInfo implements ClassMetadata
     public function mapManyToMany(array $mapping)
     {
         $mapping['type'] = self::MANY_TO_MANY;
+<<<<<<< HEAD
 
         $mapping = $this->_validateAndCompleteManyToManyMapping($mapping);
 
+=======
+        $mapping = $this->_validateAndCompleteManyToManyMapping($mapping);
+>>>>>>> contactmanager
         $this->_storeAssociationMapping($mapping);
     }
 
@@ -2667,7 +3097,11 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getLifecycleCallbacks($event)
     {
+<<<<<<< HEAD
         return isset($this->lifecycleCallbacks[$event]) ? $this->lifecycleCallbacks[$event] : [];
+=======
+        return isset($this->lifecycleCallbacks[$event]) ? $this->lifecycleCallbacks[$event] : array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -2712,11 +3146,18 @@ class ClassMetadataInfo implements ClassMetadata
     public function addEntityListener($eventName, $class, $method)
     {
         $class    = $this->fullyQualifiedClassName($class);
+<<<<<<< HEAD
 
         $listener = [
             'class'  => $class,
             'method' => $method,
         ];
+=======
+        $listener = array(
+            'class'  => $class,
+            'method' => $method
+        );
+>>>>>>> contactmanager
 
         if ( ! class_exists($class)) {
             throw MappingException::entityListenerClassNotFound($class, $this->name);
@@ -2763,7 +3204,11 @@ class ClassMetadataInfo implements ClassMetadata
                 $columnDef['type'] = "string";
             }
 
+<<<<<<< HEAD
             if (in_array($columnDef['type'], ["boolean", "array", "object", "datetime", "time", "date"])) {
+=======
+            if (in_array($columnDef['type'], array("boolean", "array", "object", "datetime", "time", "date"))) {
+>>>>>>> contactmanager
                 throw MappingException::invalidDiscriminatorColumnType($this->name, $columnDef['type']);
             }
 
@@ -2800,7 +3245,10 @@ class ClassMetadataInfo implements ClassMetadata
     {
         $className = $this->fullyQualifiedClassName($className);
         $className = ltrim($className, '\\');
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         $this->discriminatorMap[$name] = $className;
 
         if ($this->name === $className) {
@@ -2867,8 +3315,13 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function isSingleValuedAssociation($fieldName)
     {
+<<<<<<< HEAD
         return isset($this->associationMappings[$fieldName])
             && ($this->associationMappings[$fieldName]['type'] & self::TO_ONE);
+=======
+        return isset($this->associationMappings[$fieldName]) &&
+                ($this->associationMappings[$fieldName]['type'] & self::TO_ONE);
+>>>>>>> contactmanager
     }
 
     /**
@@ -2876,8 +3329,13 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function isCollectionValuedAssociation($fieldName)
     {
+<<<<<<< HEAD
         return isset($this->associationMappings[$fieldName])
             && ! ($this->associationMappings[$fieldName]['type'] & self::TO_ONE);
+=======
+        return isset($this->associationMappings[$fieldName]) &&
+                ! ($this->associationMappings[$fieldName]['type'] & self::TO_ONE);
+>>>>>>> contactmanager
     }
 
     /**
@@ -2889,9 +3347,17 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function isAssociationWithSingleJoinColumn($fieldName)
     {
+<<<<<<< HEAD
         return isset($this->associationMappings[$fieldName])
             && isset($this->associationMappings[$fieldName]['joinColumns'][0])
             && ! isset($this->associationMappings[$fieldName]['joinColumns'][1]);
+=======
+        return (
+            isset($this->associationMappings[$fieldName]) &&
+            isset($this->associationMappings[$fieldName]['joinColumns'][0]) &&
+            !isset($this->associationMappings[$fieldName]['joinColumns'][1])
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -2908,7 +3374,10 @@ class ClassMetadataInfo implements ClassMetadata
         if ( ! $this->isAssociationWithSingleJoinColumn($fieldName)) {
             throw MappingException::noSingleAssociationJoinColumnFound($this->name, $fieldName);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this->associationMappings[$fieldName]['joinColumns'][0]['name'];
     }
 
@@ -2926,7 +3395,10 @@ class ClassMetadataInfo implements ClassMetadata
         if ( ! $this->isAssociationWithSingleJoinColumn($fieldName)) {
             throw MappingException::noSingleAssociationJoinColumnFound($this->name, $fieldName);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this->associationMappings[$fieldName]['joinColumns'][0]['referencedColumnName'];
     }
 
@@ -2945,6 +3417,7 @@ class ClassMetadataInfo implements ClassMetadata
     {
         if (isset($this->fieldNames[$columnName])) {
             return $this->fieldNames[$columnName];
+<<<<<<< HEAD
         }
 
         foreach ($this->associationMappings as $assocName => $mapping) {
@@ -2956,6 +3429,19 @@ class ClassMetadataInfo implements ClassMetadata
         }
 
         throw MappingException::noFieldNameFoundForColumn($this->name, $columnName);
+=======
+        } else {
+            foreach ($this->associationMappings as $assocName => $mapping) {
+                if ($this->isAssociationWithSingleJoinColumn($assocName) &&
+                    $this->associationMappings[$assocName]['joinColumns'][0]['name'] == $columnName) {
+
+                    return $assocName;
+                }
+            }
+
+            throw MappingException::noFieldNameFoundForColumn($this->name, $columnName);
+        }
+>>>>>>> contactmanager
     }
 
     /**
@@ -2998,8 +3484,11 @@ class ClassMetadataInfo implements ClassMetadata
      * @param array $definition
      *
      * @return void
+<<<<<<< HEAD
      *
      * @throws MappingException
+=======
+>>>>>>> contactmanager
      */
     public function setSequenceGeneratorDefinition(array $definition)
     {
@@ -3039,7 +3528,11 @@ class ClassMetadataInfo implements ClassMetadata
         $this->versionField = $mapping['fieldName'];
 
         if ( ! isset($mapping['default'])) {
+<<<<<<< HEAD
             if (in_array($mapping['type'], ['integer', 'bigint', 'smallint'])) {
+=======
+            if (in_array($mapping['type'], array('integer', 'bigint', 'smallint'))) {
+>>>>>>> contactmanager
                 $mapping['default'] = 1;
             } else if ($mapping['type'] == 'datetime') {
                 $mapping['default'] = 'CURRENT_TIMESTAMP';
@@ -3133,7 +3626,11 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getQuotedIdentifierColumnNames($platform)
     {
+<<<<<<< HEAD
         $quotedColumnNames = [];
+=======
+        $quotedColumnNames = array();
+>>>>>>> contactmanager
 
         foreach ($this->identifier as $idProperty) {
             if (isset($this->fieldMappings[$idProperty])) {
@@ -3189,9 +3686,13 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getQuotedTableName($platform)
     {
+<<<<<<< HEAD
         return isset($this->table['quoted'])
             ? $platform->quoteIdentifier($this->table['name'])
             : $this->table['name'];
+=======
+        return isset($this->table['quoted']) ? $platform->quoteIdentifier($this->table['name']) : $this->table['name'];
+>>>>>>> contactmanager
     }
 
     /**
@@ -3206,9 +3707,13 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getQuotedJoinTableName(array $assoc, $platform)
     {
+<<<<<<< HEAD
         return isset($assoc['joinTable']['quoted'])
             ? $platform->quoteIdentifier($assoc['joinTable']['name'])
             : $assoc['joinTable']['name'];
+=======
+        return isset($assoc['joinTable']['quoted']) ? $platform->quoteIdentifier($assoc['joinTable']['name']) : $assoc['joinTable']['name'];
+>>>>>>> contactmanager
     }
 
     /**
@@ -3216,8 +3721,12 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function isAssociationInverseSide($fieldName)
     {
+<<<<<<< HEAD
         return isset($this->associationMappings[$fieldName])
             && ! $this->associationMappings[$fieldName]['isOwningSide'];
+=======
+        return isset($this->associationMappings[$fieldName]) && ! $this->associationMappings[$fieldName]['isOwningSide'];
+>>>>>>> contactmanager
     }
 
     /**
@@ -3235,20 +3744,30 @@ class ClassMetadataInfo implements ClassMetadata
      */
     public function getAssociationsByTargetClass($targetClass)
     {
+<<<<<<< HEAD
         $relations = [];
 
+=======
+        $relations = array();
+>>>>>>> contactmanager
         foreach ($this->associationMappings as $mapping) {
             if ($mapping['targetEntity'] == $targetClass) {
                 $relations[$mapping['fieldName']] = $mapping;
             }
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $relations;
     }
 
     /**
      * @param  string|null $className
+<<<<<<< HEAD
      *
+=======
+>>>>>>> contactmanager
      * @return string|null null if the input value is null
      */
     public function fullyQualifiedClassName($className)
@@ -3257,7 +3776,11 @@ class ClassMetadataInfo implements ClassMetadata
             return $className;
         }
 
+<<<<<<< HEAD
         if ($className !== null && strpos($className, '\\') === false && $this->namespace) {
+=======
+        if ($className !== null && strpos($className, '\\') === false && strlen($this->namespace) > 0) {
+>>>>>>> contactmanager
             return $this->namespace . '\\' . $className;
         }
 
@@ -3269,8 +3792,12 @@ class ClassMetadataInfo implements ClassMetadata
      *
      * @return mixed
      */
+<<<<<<< HEAD
     public function getMetadataValue($name)
     {
+=======
+    public function getMetadataValue($name) {
+>>>>>>> contactmanager
 
         if (isset($this->$name)) {
             return $this->$name;
@@ -3283,7 +3810,10 @@ class ClassMetadataInfo implements ClassMetadata
      * Map Embedded Class
      *
      * @param array $mapping
+<<<<<<< HEAD
      *
+=======
+>>>>>>> contactmanager
      * @throws MappingException
      * @return void
      */
@@ -3291,28 +3821,53 @@ class ClassMetadataInfo implements ClassMetadata
     {
         $this->assertFieldNotMapped($mapping['fieldName']);
 
+<<<<<<< HEAD
         $this->embeddedClasses[$mapping['fieldName']] = [
             'class' => $this->fullyQualifiedClassName($mapping['class']),
             'columnPrefix' => $mapping['columnPrefix'],
             'declaredField' => $mapping['declaredField'] ?? null,
             'originalField' => $mapping['originalField'] ?? null,
         ];
+=======
+        $this->embeddedClasses[$mapping['fieldName']] = array(
+            'class' => $this->fullyQualifiedClassName($mapping['class']),
+            'columnPrefix' => $mapping['columnPrefix'],
+            'declaredField' => isset($mapping['declaredField']) ? $mapping['declaredField'] : null,
+            'originalField' => isset($mapping['originalField']) ? $mapping['originalField'] : null,
+        );
+>>>>>>> contactmanager
     }
 
     /**
      * Inline the embeddable class
      *
+<<<<<<< HEAD
      * @param string            $property
+=======
+     * @param string $property
+>>>>>>> contactmanager
      * @param ClassMetadataInfo $embeddable
      */
     public function inlineEmbeddable($property, ClassMetadataInfo $embeddable)
     {
         foreach ($embeddable->fieldMappings as $fieldMapping) {
+<<<<<<< HEAD
             $fieldMapping['originalClass'] = $fieldMapping['originalClass'] ?? $embeddable->name;
             $fieldMapping['declaredField'] = isset($fieldMapping['declaredField'])
                 ? $property . '.' . $fieldMapping['declaredField']
                 : $property;
             $fieldMapping['originalField'] = $fieldMapping['originalField'] ?? $fieldMapping['fieldName'];
+=======
+            $fieldMapping['originalClass'] = isset($fieldMapping['originalClass'])
+                ? $fieldMapping['originalClass']
+                : $embeddable->name;
+            $fieldMapping['declaredField'] = isset($fieldMapping['declaredField'])
+                ? $property . '.' . $fieldMapping['declaredField']
+                : $property;
+            $fieldMapping['originalField'] = isset($fieldMapping['originalField'])
+                ? $fieldMapping['originalField']
+                : $fieldMapping['fieldName'];
+>>>>>>> contactmanager
             $fieldMapping['fieldName'] = $property . "." . $fieldMapping['fieldName'];
 
             if (! empty($this->embeddedClasses[$property]['columnPrefix'])) {
@@ -3356,8 +3911,14 @@ class ClassMetadataInfo implements ClassMetadata
     public function getSequenceName(AbstractPlatform $platform)
     {
         $sequencePrefix = $this->getSequencePrefix($platform);
+<<<<<<< HEAD
         $columnName     = $this->getSingleIdentifierColumnName();
         $sequenceName   = $sequencePrefix . '_' . $columnName . '_seq';
+=======
+
+        $columnName   = $this->getSingleIdentifierColumnName();
+        $sequenceName = $sequencePrefix . '_' . $columnName . '_seq';
+>>>>>>> contactmanager
 
         return $sequenceName;
     }
@@ -3386,6 +3947,7 @@ class ClassMetadataInfo implements ClassMetadata
 
         return $sequencePrefix;
     }
+<<<<<<< HEAD
 
     /**
      * @param array $mapping
@@ -3396,4 +3958,6 @@ class ClassMetadataInfo implements ClassMetadata
             throw new InvalidArgumentException("'orderBy' is expected to be an array, not " . gettype($mapping['orderBy']));
         }
     }
+=======
+>>>>>>> contactmanager
 }

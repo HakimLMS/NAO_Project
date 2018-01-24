@@ -98,7 +98,11 @@ For example for the previous enum type:
 
         public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
         {
+<<<<<<< HEAD
             return "ENUM('visible', 'invisible')";
+=======
+            return "ENUM('visible', 'invisible') COMMENT '(DC2Type:enumvisibility)'";
+>>>>>>> contactmanager
         }
 
         public function convertToPHPValue($value, AbstractPlatform $platform)
@@ -118,11 +122,14 @@ For example for the previous enum type:
         {
             return self::ENUM_VISIBILITY;
         }
+<<<<<<< HEAD
 
         public function requiresSQLCommentHint(AbstractPlatform $platform)
         {
             return true;
         }
+=======
+>>>>>>> contactmanager
     }
 
 You can register this type with ``Type::addType('enumvisibility', 'MyProject\DBAL\EnumVisibilityType');``.
@@ -157,7 +164,11 @@ You can generalize this approach easily to create a base class for enums:
         {
             $values = array_map(function($val) { return "'".$val."'"; }, $this->values);
 
+<<<<<<< HEAD
             return "ENUM(".implode(", ", $values).")";
+=======
+            return "ENUM(".implode(", ", $values).") COMMENT '(DC2Type:".$this->name.")'";
+>>>>>>> contactmanager
         }
 
         public function convertToPHPValue($value, AbstractPlatform $platform)
@@ -177,11 +188,14 @@ You can generalize this approach easily to create a base class for enums:
         {
             return $this->name;
         }
+<<<<<<< HEAD
 
         public function requiresSQLCommentHint(AbstractPlatform $platform)
         {
             return true;
         }
+=======
+>>>>>>> contactmanager
     }
 
 With this base class you can define an enum as easily as:

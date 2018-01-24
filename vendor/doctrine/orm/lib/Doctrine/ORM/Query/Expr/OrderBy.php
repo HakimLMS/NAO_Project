@@ -48,12 +48,20 @@ class OrderBy
     /**
      * @var array
      */
+<<<<<<< HEAD
     protected $allowedClasses = [];
+=======
+    protected $allowedClasses = array();
+>>>>>>> contactmanager
 
     /**
      * @var array
      */
+<<<<<<< HEAD
     protected $parts = [];
+=======
+    protected $parts = array();
+>>>>>>> contactmanager
 
     /**
      * @param string|null $sort
@@ -97,7 +105,11 @@ class OrderBy
     /**
      * @return string
      */
+<<<<<<< HEAD
     public function __toString()
+=======
+    public function __tostring()
+>>>>>>> contactmanager
     {
         return $this->preSeparator . implode($this->separator, $this->parts) . $this->postSeparator;
     }

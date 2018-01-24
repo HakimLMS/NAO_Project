@@ -19,11 +19,18 @@
 
 namespace Doctrine\ORM;
 
+<<<<<<< HEAD
 use Doctrine\Common\Util\Inflector;
+=======
+>>>>>>> contactmanager
 use Doctrine\ORM\Query\ResultSetMappingBuilder;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\Common\Collections\Selectable;
 use Doctrine\Common\Collections\Criteria;
+<<<<<<< HEAD
+=======
+use Doctrine\Common\Collections\ArrayCollection;
+>>>>>>> contactmanager
 
 /**
  * An EntityRepository serves as a repository for entities with generic as well as
@@ -61,7 +68,11 @@ class EntityRepository implements ObjectRepository, Selectable
      * @param EntityManager         $em    The EntityManager to use.
      * @param Mapping\ClassMetadata $class The class descriptor.
      */
+<<<<<<< HEAD
     public function __construct(EntityManagerInterface $em, Mapping\ClassMetadata $class)
+=======
+    public function __construct($em, Mapping\ClassMetadata $class)
+>>>>>>> contactmanager
     {
         $this->_entityName = $class->name;
         $this->_em         = $em;
@@ -161,7 +172,11 @@ class EntityRepository implements ObjectRepository, Selectable
      */
     public function findAll()
     {
+<<<<<<< HEAD
         return $this->findBy([]);
+=======
+        return $this->findBy(array());
+>>>>>>> contactmanager
     }
 
     /**
@@ -184,7 +199,11 @@ class EntityRepository implements ObjectRepository, Selectable
     /**
      * Finds a single entity by a set of criteria.
      *
+<<<<<<< HEAD
      * @param array      $criteria
+=======
+     * @param array $criteria
+>>>>>>> contactmanager
      * @param array|null $orderBy
      *
      * @return object|null The entity instance or NULL if the entity can not be found.
@@ -193,6 +212,7 @@ class EntityRepository implements ObjectRepository, Selectable
     {
         $persister = $this->_em->getUnitOfWork()->getEntityPersister($this->_entityName);
 
+<<<<<<< HEAD
         return $persister->load($criteria, null, null, [], null, 1, $orderBy);
     }
 
@@ -212,10 +232,18 @@ class EntityRepository implements ObjectRepository, Selectable
 
     /**
      * Adds support for magic method calls.
+=======
+        return $persister->load($criteria, null, null, array(), null, 1, $orderBy);
+    }
+
+    /**
+     * Adds support for magic finders.
+>>>>>>> contactmanager
      *
      * @param string $method
      * @param array  $arguments
      *
+<<<<<<< HEAD
      * @return mixed The returned value from the resolved method.
      *
      * @throws ORMException
@@ -239,6 +267,61 @@ class EntityRepository implements ObjectRepository, Selectable
             "Undefined method '$method'. The method name must start with ".
             "either findBy, findOneBy or countBy!"
         );
+=======
+     * @return array|object The found entity/entities.
+     *
+     * @throws ORMException
+     * @throws \BadMethodCallException If the method called is an invalid find* method
+     *                                 or no find* method at all and therefore an invalid
+     *                                 method call.
+     */
+    public function __call($method, $arguments)
+    {
+        switch (true) {
+            case (0 === strpos($method, 'findBy')):
+                $by = substr($method, 6);
+                $method = 'findBy';
+                break;
+
+            case (0 === strpos($method, 'findOneBy')):
+                $by = substr($method, 9);
+                $method = 'findOneBy';
+                break;
+
+            default:
+                throw new \BadMethodCallException(
+                    "Undefined method '$method'. The method name must start with ".
+                    "either findBy or findOneBy!"
+                );
+        }
+
+        if (empty($arguments)) {
+            throw ORMException::findByRequiresParameter($method . $by);
+        }
+
+        $fieldName = lcfirst(\Doctrine\Common\Util\Inflector::classify($by));
+
+        if ($this->_class->hasField($fieldName) || $this->_class->hasAssociation($fieldName)) {
+            switch (count($arguments)) {
+                case 1:
+                    return $this->$method(array($fieldName => $arguments[0]));
+
+                case 2:
+                    return $this->$method(array($fieldName => $arguments[0]), $arguments[1]);
+
+                case 3:
+                    return $this->$method(array($fieldName => $arguments[0]), $arguments[1], $arguments[2]);
+
+                case 4:
+                    return $this->$method(array($fieldName => $arguments[0]), $arguments[1], $arguments[2], $arguments[3]);
+
+                default:
+                    // Do nothing
+            }
+        }
+
+        throw ORMException::invalidFindByCall($this->_entityName, $fieldName, $method.$by);
+>>>>>>> contactmanager
     }
 
     /**
@@ -287,6 +370,7 @@ class EntityRepository implements ObjectRepository, Selectable
 
         return new LazyCriteriaCollection($persister, $criteria);
     }
+<<<<<<< HEAD
 
     /**
      * Resolves a magic method call to the proper existent method at `EntityRepository`.
@@ -313,4 +397,6 @@ class EntityRepository implements ObjectRepository, Selectable
 
         return $this->$method([$fieldName => $arguments[0]], ...array_slice($arguments, 1));
     }
+=======
+>>>>>>> contactmanager
 }

@@ -48,17 +48,29 @@ abstract class Base
     /**
      * @var array
      */
+<<<<<<< HEAD
     protected $allowedClasses = [];
+=======
+    protected $allowedClasses = array();
+>>>>>>> contactmanager
 
     /**
      * @var array
      */
+<<<<<<< HEAD
     protected $parts = [];
+=======
+    protected $parts = array();
+>>>>>>> contactmanager
 
     /**
      * @param array $args
      */
+<<<<<<< HEAD
     public function __construct($args = [])
+=======
+    public function __construct($args = array())
+>>>>>>> contactmanager
     {
         $this->addMultiple($args);
     }
@@ -68,7 +80,11 @@ abstract class Base
      *
      * @return Base
      */
+<<<<<<< HEAD
     public function addMultiple($args = [])
+=======
+    public function addMultiple($args = array())
+>>>>>>> contactmanager
     {
         foreach ((array) $args as $arg) {
             $this->add($arg);

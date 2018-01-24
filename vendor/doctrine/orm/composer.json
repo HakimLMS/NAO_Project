@@ -9,6 +9,7 @@
         {"name": "Guilherme Blanco", "email": "guilhermeblanco@gmail.com"},
         {"name": "Roman Borschel", "email": "roman@code-factory.org"},
         {"name": "Benjamin Eberlei", "email": "kontakt@beberlei.de"},
+<<<<<<< HEAD
         {"name": "Jonathan Wage", "email": "jonwage@gmail.com"},
         {"name": "Marco Pivetta", "email": "ocramius@gmail.com"}
     ],
@@ -31,11 +32,30 @@
         "phpunit/phpunit": "^6.5",
         "squizlabs/php_codesniffer": "^3.2",
         "symfony/yaml": "~3.4|~4.0"
+=======
+        {"name": "Jonathan Wage", "email": "jonwage@gmail.com"}
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4",
+        "ext-pdo": "*",
+        "doctrine/collections": "~1.2",
+        "doctrine/dbal": ">=2.5-dev,<2.7-dev",
+        "doctrine/instantiator": "^1.0.1",
+        "doctrine/common": ">=2.5-dev,<2.9-dev",
+        "doctrine/cache": "~1.4",
+        "symfony/console": "~2.5|~3.0|~4.0"
+    },
+    "require-dev": {
+        "symfony/yaml": "~2.3|~3.0|~4.0",
+        "phpunit/phpunit": "~4.0"
+>>>>>>> contactmanager
     },
     "suggest": {
         "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
     },
     "autoload": {
+<<<<<<< HEAD
         "psr-4": { "Doctrine\\ORM\\": "lib/Doctrine/ORM" }
     },
     "autoload-dev": {
@@ -45,12 +65,24 @@
         }
     },
     "bin": ["bin/doctrine"],
+=======
+        "psr-0": { "Doctrine\\ORM\\": "lib/" }
+    },
+    "autoload-dev": {
+        "psr-0": { "Doctrine\\Tests\\": "tests/" }
+    },
+    "bin": ["bin/doctrine", "bin/doctrine.php"],
+>>>>>>> contactmanager
     "extra": {
         "branch-alias": {
             "dev-master": "2.6.x-dev"
         }
     },
     "archive": {
+<<<<<<< HEAD
         "exclude": ["!vendor", "tests", "*phpunit.xml", ".travis.yml", "build.xml", "build.properties", "composer.phar", "vendor/satooshi", "lib/vendor", "*.swp"]
+=======
+        "exclude": ["!vendor", "tests", "*phpunit.xml", ".travis.yml", "build.xml", "build.properties", "composer.phar", "vendor/satooshi", "lib/vendor", "*.swp", "*coveralls.yml"]
+>>>>>>> contactmanager
     }
 }

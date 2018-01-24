@@ -35,11 +35,15 @@ class DateSubFunction extends DateAddFunction
 {
     /**
      * @override
+<<<<<<< HEAD
      * @inheritdoc
+=======
+>>>>>>> contactmanager
      */
     public function getSql(SqlWalker $sqlWalker)
     {
         switch (strtolower($this->unit->value)) {
+<<<<<<< HEAD
             case 'second':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubSecondsExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
@@ -50,6 +54,8 @@ class DateSubFunction extends DateAddFunction
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
+=======
+>>>>>>> contactmanager
             case 'hour':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubHourExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
@@ -60,16 +66,21 @@ class DateSubFunction extends DateAddFunction
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
+<<<<<<< HEAD
             case 'week':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubWeeksExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
+=======
+
+>>>>>>> contactmanager
             case 'month':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubMonthExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
+<<<<<<< HEAD
             case 'year':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubYearsExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
@@ -79,6 +90,12 @@ class DateSubFunction extends DateAddFunction
             default:
                 throw QueryException::semanticalError(
                     'DATE_SUB() only supports units of type second, minute, hour, day, week, month and year.'
+=======
+
+            default:
+                throw QueryException::semanticalError(
+                    'DATE_SUB() only supports units of type hour, day and month.'
+>>>>>>> contactmanager
                 );
         }
     }

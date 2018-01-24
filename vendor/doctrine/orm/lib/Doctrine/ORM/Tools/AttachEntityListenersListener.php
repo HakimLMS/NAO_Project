@@ -33,25 +33,44 @@ class AttachEntityListenersListener
     /**
      * @var array[]
      */
+<<<<<<< HEAD
     private $entityListeners = [];
+=======
+    private $entityListeners = array();
+>>>>>>> contactmanager
 
     /**
      * Adds a entity listener for a specific entity.
      *
+<<<<<<< HEAD
      * @param string      $entityClass      The entity to attach the listener.
      * @param string      $listenerClass    The listener class.
      * @param string      $eventName        The entity lifecycle event.
      * @param string|null $listenerCallback The listener callback method or NULL to use $eventName.
+=======
+     * @param string $entityClass           The entity to attach the listener.
+     * @param string $listenerClass         The listener class.
+     * @param string $eventName             The entity lifecycle event.
+     * @param string $listenerCallback|null The listener callback method or NULL to use $eventName.
+>>>>>>> contactmanager
      *
      * @return void
      */
     public function addEntityListener($entityClass, $listenerClass, $eventName, $listenerCallback = null)
     {
+<<<<<<< HEAD
         $this->entityListeners[ltrim($entityClass, '\\')][] = [
             'event'  => $eventName,
             'class'  => $listenerClass,
             'method' => $listenerCallback ?: $eventName
         ];
+=======
+        $this->entityListeners[ltrim($entityClass, '\\')][] = array(
+            'event'  => $eventName,
+            'class'  => $listenerClass,
+            'method' => $listenerCallback ?: $eventName
+        );
+>>>>>>> contactmanager
     }
 
     /**

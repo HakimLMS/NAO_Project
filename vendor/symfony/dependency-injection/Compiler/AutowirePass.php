@@ -329,10 +329,13 @@ class AutowirePass extends AbstractRecursivePass
         } else {
             $message = $this->container->has($type) ? 'this service is abstract' : 'no such service exists';
             $message = sprintf('references %s "%s" but %s.%s', $r->isInterface() ? 'interface' : 'class', $type, $message, $this->createTypeAlternatives($reference));
+<<<<<<< HEAD
 
             if ($r->isInterface()) {
                 $message .= ' Did you create a class that implements this interface?';
             }
+=======
+>>>>>>> contactmanager
         }
 
         $message = sprintf('Cannot autowire service "%s": %s %s', $this->currentId, $label, $message);

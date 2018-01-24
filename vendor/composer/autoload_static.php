@@ -8,9 +8,15 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+<<<<<<< HEAD
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+=======
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
+>>>>>>> contactmanager
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
@@ -22,12 +28,18 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         ),
         'T' => 
         array (
+<<<<<<< HEAD
             'Twig\\Extensions\\' => 16,
+=======
+>>>>>>> contactmanager
             'Twig\\' => 5,
         ),
         'S' => 
         array (
+<<<<<<< HEAD
             'Symfony\\Polyfill\\Util\\' => 22,
+=======
+>>>>>>> contactmanager
             'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Flex\\' => 13,
@@ -36,8 +48,11 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Stopwatch\\' => 28,
+<<<<<<< HEAD
             'Symfony\\Component\\Security\\Csrf\\' => 32,
             'Symfony\\Component\\Security\\' => 27,
+=======
+>>>>>>> contactmanager
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\PropertyAccess\\' => 33,
             'Symfony\\Component\\OptionsResolver\\' => 34,
@@ -59,12 +74,18 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
             'Symfony\\Bundle\\WebProfilerBundle\\' => 33,
             'Symfony\\Bundle\\TwigBundle\\' => 26,
             'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
+<<<<<<< HEAD
             'Symfony\\Bundle\\SecurityBundle\\' => 30,
             'Symfony\\Bundle\\MonologBundle\\' => 29,
             'Symfony\\Bundle\\MakerBundle\\' => 27,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
             'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\Monolog\\' => 23,
+=======
+            'Symfony\\Bundle\\MakerBundle\\' => 27,
+            'Symfony\\Bundle\\FrameworkBundle\\' => 31,
+            'Symfony\\Bridge\\Twig\\' => 20,
+>>>>>>> contactmanager
             'Symfony\\Bridge\\Doctrine\\' => 24,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
@@ -76,17 +97,23 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
             'Psr\\Cache\\' => 10,
             'PackageVersions\\' => 16,
         ),
+<<<<<<< HEAD
         'M' => 
         array (
             'Monolog\\' => 8,
         ),
+=======
+>>>>>>> contactmanager
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
         array (
+<<<<<<< HEAD
             'Doctrine\\ORM\\' => 13,
+=======
+>>>>>>> contactmanager
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\DBAL\\Migrations\\' => 25,
             'Doctrine\\Common\\Inflector\\' => 26,
@@ -113,18 +140,24 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-code/src',
         ),
+<<<<<<< HEAD
         'Twig\\Extensions\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/extensions/src',
         ),
+=======
+>>>>>>> contactmanager
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
+<<<<<<< HEAD
         'Symfony\\Polyfill\\Util\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-util',
         ),
+=======
+>>>>>>> contactmanager
         'Symfony\\Polyfill\\Php72\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
@@ -157,6 +190,7 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/symfony/stopwatch',
         ),
+<<<<<<< HEAD
         'Symfony\\Component\\Security\\Csrf\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/security-csrf',
@@ -165,6 +199,8 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/symfony/security',
         ),
+=======
+>>>>>>> contactmanager
         'Symfony\\Component\\Routing\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/routing',
@@ -249,6 +285,7 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/symfony/swiftmailer-bundle',
         ),
+<<<<<<< HEAD
         'Symfony\\Bundle\\SecurityBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/security-bundle',
@@ -257,6 +294,8 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/symfony/monolog-bundle',
         ),
+=======
+>>>>>>> contactmanager
         'Symfony\\Bundle\\MakerBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/maker-bundle/src',
@@ -269,10 +308,13 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/symfony/twig-bridge',
         ),
+<<<<<<< HEAD
         'Symfony\\Bridge\\Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/monolog-bridge',
         ),
+=======
+>>>>>>> contactmanager
         'Symfony\\Bridge\\Doctrine\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/doctrine-bridge',
@@ -301,18 +343,24 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
         ),
+<<<<<<< HEAD
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+=======
+>>>>>>> contactmanager
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
         ),
+<<<<<<< HEAD
         'Doctrine\\ORM\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM',
         ),
+=======
+>>>>>>> contactmanager
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
@@ -362,10 +410,13 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
     public static $prefixesPsr0 = array (
         'T' => 
         array (
+<<<<<<< HEAD
             'Twig_Extensions_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/extensions/lib',
             ),
+=======
+>>>>>>> contactmanager
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
@@ -380,6 +431,13 @@ class ComposerStaticInitc8138ad62392e0ac296f7e09f4b68681
         ),
         'D' => 
         array (
+<<<<<<< HEAD
+=======
+            'Doctrine\\ORM\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/orm/lib',
+            ),
+>>>>>>> contactmanager
             'Doctrine\\DBAL\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/dbal/lib',

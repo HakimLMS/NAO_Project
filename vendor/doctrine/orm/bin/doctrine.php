@@ -20,19 +20,31 @@
 use Symfony\Component\Console\Helper\HelperSet;
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
+<<<<<<< HEAD
 $autoloadFiles = [
     __DIR__ . '/../vendor/autoload.php',
     __DIR__ . '/../../../autoload.php'
 ];
+=======
+$autoloadFiles = array(__DIR__ . '/../vendor/autoload.php',
+                       __DIR__ . '/../../../autoload.php');
+>>>>>>> contactmanager
 
 foreach ($autoloadFiles as $autoloadFile) {
     if (file_exists($autoloadFile)) {
         require_once $autoloadFile;
+<<<<<<< HEAD
         break;
     }
 }
 
 $directories = [getcwd(), getcwd() . DIRECTORY_SEPARATOR . 'config'];
+=======
+    }
+}
+
+$directories = array(getcwd(), getcwd() . DIRECTORY_SEPARATOR . 'config');
+>>>>>>> contactmanager
 
 $configFile = null;
 foreach ($directories as $directory) {
@@ -53,7 +65,11 @@ if ( ! is_readable($configFile)) {
     exit(1);
 }
 
+<<<<<<< HEAD
 $commands = [];
+=======
+$commands = array();
+>>>>>>> contactmanager
 
 $helperSet = require $configFile;
 
@@ -66,4 +82,8 @@ if ( ! ($helperSet instanceof HelperSet)) {
     }
 }
 
+<<<<<<< HEAD
 ConsoleRunner::run($helperSet, $commands);
+=======
+\Doctrine\ORM\Tools\Console\ConsoleRunner::run($helperSet, $commands);
+>>>>>>> contactmanager

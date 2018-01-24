@@ -1852,7 +1852,10 @@ class Request
             'js' => array('application/javascript', 'application/x-javascript', 'text/javascript'),
             'css' => array('text/css'),
             'json' => array('application/json', 'application/x-json'),
+<<<<<<< HEAD
             'jsonld' => array('application/ld+json'),
+=======
+>>>>>>> contactmanager
             'xml' => array('text/xml', 'application/xml', 'application/x-xml'),
             'rdf' => array('application/rdf+xml'),
             'atom' => array('application/atom+xml'),
@@ -1928,13 +1931,21 @@ class Request
         $clientValues = array();
         $forwardedValues = array();
 
+<<<<<<< HEAD
         if ((self::$trustedHeaderSet & $type) && $this->headers->has(self::$trustedHeaders[$type])) {
+=======
+        if (self::$trustedHeaders[$type] && $this->headers->has(self::$trustedHeaders[$type])) {
+>>>>>>> contactmanager
             foreach (explode(',', $this->headers->get(self::$trustedHeaders[$type])) as $v) {
                 $clientValues[] = (self::HEADER_X_FORWARDED_PORT === $type ? '0.0.0.0:' : '').trim($v);
             }
         }
 
+<<<<<<< HEAD
         if ((self::$trustedHeaderSet & self::HEADER_FORWARDED) && $this->headers->has(self::$trustedHeaders[self::HEADER_FORWARDED])) {
+=======
+        if (self::$trustedHeaders[self::HEADER_FORWARDED] && $this->headers->has(self::$trustedHeaders[self::HEADER_FORWARDED])) {
+>>>>>>> contactmanager
             $forwardedValues = $this->headers->get(self::$trustedHeaders[self::HEADER_FORWARDED]);
             $forwardedValues = preg_match_all(sprintf('{(?:%s)=(?:"?\[?)([a-zA-Z0-9\.:_\-/]*+)}', self::$forwardedParams[$type]), $forwardedValues, $matches) ? $matches[1] : array();
         }

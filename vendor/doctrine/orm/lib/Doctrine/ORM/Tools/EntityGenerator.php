@@ -19,10 +19,16 @@
 
 namespace Doctrine\ORM\Tools;
 
+<<<<<<< HEAD
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Util\Inflector;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
+=======
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
+use Doctrine\Common\Util\Inflector;
+use Doctrine\DBAL\Types\Type;
+>>>>>>> contactmanager
 
 /**
  * Generic class used to generate PHP5 entity classes from ClassMetadataInfo instances.
@@ -79,7 +85,11 @@ class EntityGenerator
     /**
      * @var array
      */
+<<<<<<< HEAD
     protected $staticReflection = [];
+=======
+    protected $staticReflection = array();
+>>>>>>> contactmanager
 
     /**
      * Number of spaces to use for indention in generated code.
@@ -152,12 +162,17 @@ class EntityGenerator
      *
      * @var array
      */
+<<<<<<< HEAD
     protected $typeAlias = [
+=======
+    protected $typeAlias = array(
+>>>>>>> contactmanager
         Type::DATETIMETZ    => '\DateTime',
         Type::DATETIME      => '\DateTime',
         Type::DATE          => '\DateTime',
         Type::TIME          => '\DateTime',
         Type::OBJECT        => '\stdClass',
+<<<<<<< HEAD
         Type::INTEGER       => 'int',
         Type::BIGINT        => 'int',
         Type::SMALLINT      => 'int',
@@ -169,13 +184,27 @@ class EntityGenerator
         Type::SIMPLE_ARRAY  => 'array',
         Type::BOOLEAN       => 'bool',
     ];
+=======
+        Type::BIGINT        => 'integer',
+        Type::SMALLINT      => 'integer',
+        Type::TEXT          => 'string',
+        Type::BLOB          => 'string',
+        Type::DECIMAL       => 'string',
+        Type::JSON_ARRAY    => 'array',
+        Type::SIMPLE_ARRAY  => 'array',
+    );
+>>>>>>> contactmanager
 
     /**
      * Hash-map to handle generator types string.
      *
      * @var array
      */
+<<<<<<< HEAD
     protected static $generatorStrategyMap = [
+=======
+    protected static $generatorStrategyMap = array(
+>>>>>>> contactmanager
         ClassMetadataInfo::GENERATOR_TYPE_AUTO      => 'AUTO',
         ClassMetadataInfo::GENERATOR_TYPE_SEQUENCE  => 'SEQUENCE',
         ClassMetadataInfo::GENERATOR_TYPE_TABLE     => 'TABLE',
@@ -183,30 +212,50 @@ class EntityGenerator
         ClassMetadataInfo::GENERATOR_TYPE_NONE      => 'NONE',
         ClassMetadataInfo::GENERATOR_TYPE_UUID      => 'UUID',
         ClassMetadataInfo::GENERATOR_TYPE_CUSTOM    => 'CUSTOM'
+<<<<<<< HEAD
     ];
+=======
+    );
+>>>>>>> contactmanager
 
     /**
      * Hash-map to handle the change tracking policy string.
      *
      * @var array
      */
+<<<<<<< HEAD
     protected static $changeTrackingPolicyMap = [
         ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT  => 'DEFERRED_IMPLICIT',
         ClassMetadataInfo::CHANGETRACKING_DEFERRED_EXPLICIT  => 'DEFERRED_EXPLICIT',
         ClassMetadataInfo::CHANGETRACKING_NOTIFY             => 'NOTIFY',
     ];
+=======
+    protected static $changeTrackingPolicyMap = array(
+        ClassMetadataInfo::CHANGETRACKING_DEFERRED_IMPLICIT  => 'DEFERRED_IMPLICIT',
+        ClassMetadataInfo::CHANGETRACKING_DEFERRED_EXPLICIT  => 'DEFERRED_EXPLICIT',
+        ClassMetadataInfo::CHANGETRACKING_NOTIFY             => 'NOTIFY',
+    );
+>>>>>>> contactmanager
 
     /**
      * Hash-map to handle the inheritance type string.
      *
      * @var array
      */
+<<<<<<< HEAD
     protected static $inheritanceTypeMap = [
+=======
+    protected static $inheritanceTypeMap = array(
+>>>>>>> contactmanager
         ClassMetadataInfo::INHERITANCE_TYPE_NONE            => 'NONE',
         ClassMetadataInfo::INHERITANCE_TYPE_JOINED          => 'JOINED',
         ClassMetadataInfo::INHERITANCE_TYPE_SINGLE_TABLE    => 'SINGLE_TABLE',
         ClassMetadataInfo::INHERITANCE_TYPE_TABLE_PER_CLASS => 'TABLE_PER_CLASS',
+<<<<<<< HEAD
     ];
+=======
+    );
+>>>>>>> contactmanager
 
     /**
      * @var string
@@ -281,12 +330,19 @@ public function <methodName>(<methodTypeHint>$<variableName>)
  * <description>
  *
  * @param <variableType> $<variableName>
+<<<<<<< HEAD
  *
  * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
  */
 public function <methodName>(<methodTypeHint>$<variableName>)
 {
 <spaces>return $this-><fieldName>->removeElement($<variableName>);
+=======
+ */
+public function <methodName>(<methodTypeHint>$<variableName>)
+{
+<spaces>$this-><fieldName>->removeElement($<variableName>);
+>>>>>>> contactmanager
 }';
 
     /**
@@ -373,12 +429,20 @@ public function __construct(<params>)
             mkdir($dir, 0775, true);
         }
 
+<<<<<<< HEAD
         $this->isNew = ! file_exists($path) || $this->regenerateEntityIfExists;
+=======
+        $this->isNew = !file_exists($path) || (file_exists($path) && $this->regenerateEntityIfExists);
+>>>>>>> contactmanager
 
         if ( ! $this->isNew) {
             $this->parseTokensInEntityFile(file_get_contents($path));
         } else {
+<<<<<<< HEAD
             $this->staticReflection[$metadata->name] = ['properties' => [], 'methods' => []];
+=======
+            $this->staticReflection[$metadata->name] = array('properties' => array(), 'methods' => array());
+>>>>>>> contactmanager
         }
 
         if ($this->backupExisting && file_exists($path)) {
@@ -392,7 +456,11 @@ public function __construct(<params>)
         if ($this->isNew) {
             file_put_contents($path, $this->generateEntityClass($metadata));
         // If entity exists and we're allowed to update the entity class
+<<<<<<< HEAD
         } elseif ($this->updateEntityIfExists) {
+=======
+        } elseif ( ! $this->isNew && $this->updateEntityIfExists) {
+>>>>>>> contactmanager
             file_put_contents($path, $this->generateUpdatedEntityClass($metadata, $path));
         }
         chmod($path, 0664);
@@ -407,23 +475,39 @@ public function __construct(<params>)
      */
     public function generateEntityClass(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $placeHolders = [
+=======
+        $placeHolders = array(
+>>>>>>> contactmanager
             '<namespace>',
             '<useStatement>',
             '<entityAnnotation>',
             '<entityClassName>',
             '<entityBody>'
+<<<<<<< HEAD
         ];
 
         $replacements = [
+=======
+        );
+
+        $replacements = array(
+>>>>>>> contactmanager
             $this->generateEntityNamespace($metadata),
             $this->generateEntityUse(),
             $this->generateEntityDocBlock($metadata),
             $this->generateEntityClassName($metadata),
             $this->generateEntityBody($metadata)
+<<<<<<< HEAD
         ];
 
         $code = str_replace($placeHolders, $replacements, static::$classTemplate);
+=======
+        );
+
+        $code = str_replace($placeHolders, $replacements, static::$classTemplate) . "\n";
+>>>>>>> contactmanager
 
         return str_replace('<spaces>', $this->spaces, $code);
     }
@@ -444,7 +528,11 @@ public function __construct(<params>)
         $body = str_replace('<spaces>', $this->spaces, $body);
         $last = strrpos($currentCode, '}');
 
+<<<<<<< HEAD
         return substr($currentCode, 0, $last) . $body . ($body ? "\n" : '') . "}\n";
+=======
+        return substr($currentCode, 0, $last) . $body . (strlen($body) > 0 ? "\n" : '') . "}\n";
+>>>>>>> contactmanager
     }
 
     /**
@@ -605,6 +693,7 @@ public function __construct(<params>)
      */
     protected function generateEntityNamespace(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         if (! $this->hasNamespace($metadata)) {
             return '';
         }
@@ -622,6 +711,20 @@ public function __construct(<params>)
         }
 
         return "\n".'use Doctrine\ORM\Mapping as ORM;'."\n";
+=======
+        if ($this->hasNamespace($metadata)) {
+            return 'namespace ' . $this->getNamespace($metadata) .';';
+        }
+    }
+
+    protected function generateEntityUse()
+    {
+        if ($this->generateAnnotations) {
+            return "\n".'use Doctrine\ORM\Mapping as ORM;'."\n";
+        } else {
+            return "";
+        }
+>>>>>>> contactmanager
     }
 
     /**
@@ -648,7 +751,11 @@ public function __construct(<params>)
         $stubMethods = $this->generateEntityStubMethods ? $this->generateEntityStubMethods($metadata) : null;
         $lifecycleCallbackMethods = $this->generateEntityLifecycleCallbackMethods($metadata);
 
+<<<<<<< HEAD
         $code = [];
+=======
+        $code = array();
+>>>>>>> contactmanager
 
         if ($fieldMappingProperties) {
             $code[] = $fieldMappingProperties;
@@ -690,7 +797,11 @@ public function __construct(<params>)
             return $this->generateEmbeddableConstructor($metadata);
         }
 
+<<<<<<< HEAD
         $collections = [];
+=======
+        $collections = array();
+>>>>>>> contactmanager
 
         foreach ($metadata->associationMappings as $mapping) {
             if ($mapping['type'] & ClassMetadataInfo::TO_MANY) {
@@ -712,6 +823,7 @@ public function __construct(<params>)
      */
     private function generateEmbeddableConstructor(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $paramTypes = [];
         $paramVariables = [];
         $params = [];
@@ -720,6 +832,16 @@ public function __construct(<params>)
         // Resort fields to put optional fields at the end of the method signature.
         $requiredFields = [];
         $optionalFields = [];
+=======
+        $paramTypes = array();
+        $paramVariables = array();
+        $params = array();
+        $fields = array();
+
+        // Resort fields to put optional fields at the end of the method signature.
+        $requiredFields = array();
+        $optionalFields = array();
+>>>>>>> contactmanager
 
         foreach ($metadata->fieldMappings as $fieldMapping) {
             if (empty($fieldMapping['nullable'])) {
@@ -744,7 +866,13 @@ public function __construct(<params>)
         }
 
         foreach ($fieldMappings as $fieldMapping) {
+<<<<<<< HEAD
             if (isset($fieldMapping['declaredField'], $metadata->embeddedClasses[$fieldMapping['declaredField']])) {
+=======
+            if (isset($fieldMapping['declaredField']) &&
+                isset($metadata->embeddedClasses[$fieldMapping['declaredField']])
+            ) {
+>>>>>>> contactmanager
                 continue;
             }
 
@@ -782,11 +910,19 @@ public function __construct(<params>)
             $params = implode(', ', $params);
         }
 
+<<<<<<< HEAD
         $replacements = [
             '<paramTags>' => implode("\n * ", $paramTags),
             '<params>'    => $params,
             '<fields>'    => implode("\n" . $this->spaces, $fields),
         ];
+=======
+        $replacements = array(
+            '<paramTags>' => implode("\n * ", $paramTags),
+            '<params>'    => $params,
+            '<fields>'    => implode("\n" . $this->spaces, $fields),
+        );
+>>>>>>> contactmanager
 
         $constructor = str_replace(
             array_keys($replacements),
@@ -807,23 +943,39 @@ public function __construct(<params>)
     protected function parseTokensInEntityFile($src)
     {
         $tokens = token_get_all($src);
+<<<<<<< HEAD
         $tokensCount = count($tokens);
         $lastSeenNamespace = '';
+=======
+        $lastSeenNamespace = "";
+>>>>>>> contactmanager
         $lastSeenClass = false;
 
         $inNamespace = false;
         $inClass = false;
 
+<<<<<<< HEAD
         for ($i = 0; $i < $tokensCount; $i++) {
             $token = $tokens[$i];
             if (in_array($token[0], [T_WHITESPACE, T_COMMENT, T_DOC_COMMENT], true)) {
+=======
+        for ($i = 0; $i < count($tokens); $i++) {
+            $token = $tokens[$i];
+            if (in_array($token[0], array(T_WHITESPACE, T_COMMENT, T_DOC_COMMENT))) {
+>>>>>>> contactmanager
                 continue;
             }
 
             if ($inNamespace) {
+<<<<<<< HEAD
                 if (in_array($token[0], [T_NS_SEPARATOR, T_STRING], true)) {
                     $lastSeenNamespace .= $token[1];
                 } elseif (is_string($token) && in_array($token, [';', '{'], true)) {
+=======
+                if ($token[0] == T_NS_SEPARATOR || $token[0] == T_STRING) {
+                    $lastSeenNamespace .= $token[1];
+                } elseif (is_string($token) && in_array($token, array(';', '{'))) {
+>>>>>>> contactmanager
                     $inNamespace = false;
                 }
             }
@@ -831,6 +983,7 @@ public function __construct(<params>)
             if ($inClass) {
                 $inClass = false;
                 $lastSeenClass = $lastSeenNamespace . ($lastSeenNamespace ? '\\' : '') . $token[1];
+<<<<<<< HEAD
                 $this->staticReflection[$lastSeenClass]['properties'] = [];
                 $this->staticReflection[$lastSeenClass]['methods'] = [];
             }
@@ -847,6 +1000,24 @@ public function __construct(<params>)
                     $this->staticReflection[$lastSeenClass]['methods'][] = strtolower($tokens[$i+3][1]);
                 }
             } elseif (in_array($token[0], [T_VAR, T_PUBLIC, T_PRIVATE, T_PROTECTED], true) && T_FUNCTION !== $tokens[$i+2][0]) {
+=======
+                $this->staticReflection[$lastSeenClass]['properties'] = array();
+                $this->staticReflection[$lastSeenClass]['methods'] = array();
+            }
+
+            if ($token[0] == T_NAMESPACE) {
+                $lastSeenNamespace = "";
+                $inNamespace = true;
+            } elseif ($token[0] == T_CLASS && $tokens[$i-1][0] != T_DOUBLE_COLON) {
+                $inClass = true;
+            } elseif ($token[0] == T_FUNCTION) {
+                if ($tokens[$i+2][0] == T_STRING) {
+                    $this->staticReflection[$lastSeenClass]['methods'][] = strtolower($tokens[$i+2][1]);
+                } elseif ($tokens[$i+2] == "&" && $tokens[$i+3][0] == T_STRING) {
+                    $this->staticReflection[$lastSeenClass]['methods'][] = strtolower($tokens[$i+3][1]);
+                }
+            } elseif (in_array($token[0], array(T_VAR, T_PUBLIC, T_PRIVATE, T_PROTECTED)) && $tokens[$i+2][0] != T_FUNCTION) {
+>>>>>>> contactmanager
                 $this->staticReflection[$lastSeenClass]['properties'][] = substr($tokens[$i+2][1], 1);
             }
         }
@@ -877,7 +1048,11 @@ public function __construct(<params>)
 
         return (
             isset($this->staticReflection[$metadata->name]) &&
+<<<<<<< HEAD
             in_array($property, $this->staticReflection[$metadata->name]['properties'], true)
+=======
+            in_array($property, $this->staticReflection[$metadata->name]['properties'])
+>>>>>>> contactmanager
         );
     }
 
@@ -907,7 +1082,11 @@ public function __construct(<params>)
 
         return (
             isset($this->staticReflection[$metadata->name]) &&
+<<<<<<< HEAD
             in_array(strtolower($method), $this->staticReflection[$metadata->name]['methods'], true)
+=======
+            in_array(strtolower($method), $this->staticReflection[$metadata->name]['methods'])
+>>>>>>> contactmanager
         );
     }
 
@@ -915,8 +1094,11 @@ public function __construct(<params>)
      * @param ClassMetadataInfo $metadata
      *
      * @return array
+<<<<<<< HEAD
      *
      * @throws \ReflectionException
+=======
+>>>>>>> contactmanager
      */
     protected function getTraits(ClassMetadataInfo $metadata)
     {
@@ -924,9 +1106,17 @@ public function __construct(<params>)
             return [];
         }
 
+<<<<<<< HEAD
         $reflClass = $metadata->reflClass ?? new \ReflectionClass($metadata->name);
 
         $traits = [];
+=======
+        $reflClass = $metadata->reflClass === null
+            ? new \ReflectionClass($metadata->name)
+            : $metadata->reflClass;
+
+        $traits = array();
+>>>>>>> contactmanager
 
         while ($reflClass !== false) {
             $traits = array_merge($traits, $reflClass->getTraits());
@@ -944,7 +1134,11 @@ public function __construct(<params>)
      */
     protected function hasNamespace(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         return (bool) strpos($metadata->name, '\\');
+=======
+        return strpos($metadata->name, '\\') ? true : false;
+>>>>>>> contactmanager
     }
 
     /**
@@ -952,7 +1146,11 @@ public function __construct(<params>)
      */
     protected function extendsClass()
     {
+<<<<<<< HEAD
         return (bool) $this->classToExtend;
+=======
+        return $this->classToExtend ? true : false;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1001,21 +1199,33 @@ public function __construct(<params>)
      */
     protected function generateEntityDocBlock(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $lines = [];
+=======
+        $lines = array();
+>>>>>>> contactmanager
         $lines[] = '/**';
         $lines[] = ' * ' . $this->getClassName($metadata);
 
         if ($this->generateAnnotations) {
             $lines[] = ' *';
 
+<<<<<<< HEAD
             $methods = [
+=======
+            $methods = array(
+>>>>>>> contactmanager
                 'generateTableAnnotation',
                 'generateInheritanceAnnotation',
                 'generateDiscriminatorColumnAnnotation',
                 'generateDiscriminatorMapAnnotation',
                 'generateEntityAnnotation',
+<<<<<<< HEAD
                 'generateEntityListenerAnnotation',
             ];
+=======
+            );
+>>>>>>> contactmanager
 
             foreach ($methods as $method) {
                 if ($code = $this->$method($metadata)) {
@@ -1058,13 +1268,21 @@ public function __construct(<params>)
      *
      * @return string
      */
+<<<<<<< HEAD
     protected function generateTableAnnotation(ClassMetadataInfo $metadata)
+=======
+    protected function generateTableAnnotation($metadata)
+>>>>>>> contactmanager
     {
         if ($metadata->isEmbeddedClass) {
             return '';
         }
 
+<<<<<<< HEAD
         $table = [];
+=======
+        $table = array();
+>>>>>>> contactmanager
 
         if (isset($metadata->table['schema'])) {
             $table[] = 'schema="' . $metadata->table['schema'] . '"';
@@ -1097,17 +1315,28 @@ public function __construct(<params>)
      *
      * @return string
      */
+<<<<<<< HEAD
     protected function generateTableConstraints($constraintName, array $constraints)
     {
         $annotations = [];
         foreach ($constraints as $name => $constraint) {
             $columns = [];
+=======
+    protected function generateTableConstraints($constraintName, $constraints)
+    {
+        $annotations = array();
+        foreach ($constraints as $name => $constraint) {
+            $columns = array();
+>>>>>>> contactmanager
             foreach ($constraint['columns'] as $column) {
                 $columns[] = '"' . $column . '"';
             }
             $annotations[] = '@' . $this->annotationsPrefix . $constraintName . '(name="' . $name . '", columns={' . implode(', ', $columns) . '})';
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return implode(', ', $annotations);
     }
 
@@ -1116,6 +1345,7 @@ public function __construct(<params>)
      *
      * @return string
      */
+<<<<<<< HEAD
     protected function generateInheritanceAnnotation(ClassMetadataInfo $metadata)
     {
         if ($metadata->inheritanceType === ClassMetadataInfo::INHERITANCE_TYPE_NONE) {
@@ -1123,6 +1353,13 @@ public function __construct(<params>)
         }
 
         return '@' . $this->annotationsPrefix . 'InheritanceType("'.$this->getInheritanceTypeString($metadata->inheritanceType).'")';
+=======
+    protected function generateInheritanceAnnotation($metadata)
+    {
+        if ($metadata->inheritanceType != ClassMetadataInfo::INHERITANCE_TYPE_NONE) {
+            return '@' . $this->annotationsPrefix . 'InheritanceType("'.$this->getInheritanceTypeString($metadata->inheritanceType).'")';
+        }
+>>>>>>> contactmanager
     }
 
     /**
@@ -1130,6 +1367,7 @@ public function __construct(<params>)
      *
      * @return string
      */
+<<<<<<< HEAD
     protected function generateDiscriminatorColumnAnnotation(ClassMetadataInfo $metadata)
     {
         if ($metadata->inheritanceType === ClassMetadataInfo::INHERITANCE_TYPE_NONE) {
@@ -1142,6 +1380,18 @@ public function __construct(<params>)
             . '", length=' . $discrColumn['length'];
 
         return '@' . $this->annotationsPrefix . 'DiscriminatorColumn(' . $columnDefinition . ')';
+=======
+    protected function generateDiscriminatorColumnAnnotation($metadata)
+    {
+        if ($metadata->inheritanceType != ClassMetadataInfo::INHERITANCE_TYPE_NONE) {
+            $discrColumn = $metadata->discriminatorColumn;
+            $columnDefinition = 'name="' . $discrColumn['name']
+                . '", type="' . $discrColumn['type']
+                . '", length=' . $discrColumn['length'];
+
+            return '@' . $this->annotationsPrefix . 'DiscriminatorColumn(' . $columnDefinition . ')';
+        }
+>>>>>>> contactmanager
     }
 
     /**
@@ -1149,6 +1399,7 @@ public function __construct(<params>)
      *
      * @return string
      */
+<<<<<<< HEAD
     protected function generateDiscriminatorMapAnnotation(ClassMetadataInfo $metadata)
     {
         if ($metadata->inheritanceType === ClassMetadataInfo::INHERITANCE_TYPE_NONE) {
@@ -1162,6 +1413,19 @@ public function __construct(<params>)
         }
 
         return '@' . $this->annotationsPrefix . 'DiscriminatorMap({' . implode(', ', $inheritanceClassMap) . '})';
+=======
+    protected function generateDiscriminatorMapAnnotation($metadata)
+    {
+        if ($metadata->inheritanceType != ClassMetadataInfo::INHERITANCE_TYPE_NONE) {
+            $inheritanceClassMap = array();
+
+            foreach ($metadata->discriminatorMap as $type => $class) {
+                $inheritanceClassMap[] .= '"' . $type . '" = "' . $class . '"';
+            }
+
+            return '@' . $this->annotationsPrefix . 'DiscriminatorMap({' . implode(', ', $inheritanceClassMap) . '})';
+        }
+>>>>>>> contactmanager
     }
 
     /**
@@ -1171,6 +1435,7 @@ public function __construct(<params>)
      */
     protected function generateEntityStubMethods(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $methods = [];
 
         foreach ($metadata->fieldMappings as $fieldMapping) {
@@ -1188,6 +1453,28 @@ public function __construct(<params>)
             }
 
             if ($code = $this->generateEntityStubMethod($metadata, 'get', $fieldMapping['fieldName'], $fieldMapping['type'], $nullableField)) {
+=======
+        $methods = array();
+
+        foreach ($metadata->fieldMappings as $fieldMapping) {
+            if (isset($fieldMapping['declaredField']) &&
+                isset($metadata->embeddedClasses[$fieldMapping['declaredField']])
+            ) {
+                continue;
+            }
+
+            if (( ! isset($fieldMapping['id']) ||
+                    ! $fieldMapping['id'] ||
+                    $metadata->generatorType == ClassMetadataInfo::GENERATOR_TYPE_NONE
+                ) && (! $metadata->isEmbeddedClass || ! $this->embeddablesImmutable)
+            ) {
+                if ($code = $this->generateEntityStubMethod($metadata, 'set', $fieldMapping['fieldName'], $fieldMapping['type'])) {
+                    $methods[] = $code;
+                }
+            }
+
+            if ($code = $this->generateEntityStubMethod($metadata, 'get', $fieldMapping['fieldName'], $fieldMapping['type'])) {
+>>>>>>> contactmanager
                 $methods[] = $code;
             }
         }
@@ -1214,7 +1501,11 @@ public function __construct(<params>)
                 if ($code = $this->generateEntityStubMethod($metadata, 'set', $associationMapping['fieldName'], $associationMapping['targetEntity'], $nullable)) {
                     $methods[] = $code;
                 }
+<<<<<<< HEAD
                 if ($code = $this->generateEntityStubMethod($metadata, 'get', $associationMapping['fieldName'], $associationMapping['targetEntity'], $nullable)) {
+=======
+                if ($code = $this->generateEntityStubMethod($metadata, 'get', $associationMapping['fieldName'], $associationMapping['targetEntity'])) {
+>>>>>>> contactmanager
                     $methods[] = $code;
                 }
             } elseif ($associationMapping['type'] & ClassMetadataInfo::TO_MANY) {
@@ -1224,7 +1515,11 @@ public function __construct(<params>)
                 if ($code = $this->generateEntityStubMethod($metadata, 'remove', $associationMapping['fieldName'], $associationMapping['targetEntity'])) {
                     $methods[] = $code;
                 }
+<<<<<<< HEAD
                 if ($code = $this->generateEntityStubMethod($metadata, 'get', $associationMapping['fieldName'], Collection::class)) {
+=======
+                if ($code = $this->generateEntityStubMethod($metadata, 'get', $associationMapping['fieldName'], 'Doctrine\Common\Collections\Collection')) {
+>>>>>>> contactmanager
                     $methods[] = $code;
                 }
             }
@@ -1238,7 +1533,11 @@ public function __construct(<params>)
      *
      * @return bool
      */
+<<<<<<< HEAD
     protected function isAssociationIsNullable(array $associationMapping)
+=======
+    protected function isAssociationIsNullable($associationMapping)
+>>>>>>> contactmanager
     {
         if (isset($associationMapping['id']) && $associationMapping['id']) {
             return false;
@@ -1248,11 +1547,19 @@ public function __construct(<params>)
             $joinColumns = $associationMapping['joinColumns'];
         } else {
             //@todo there is no way to retrieve targetEntity metadata
+<<<<<<< HEAD
             $joinColumns = [];
         }
 
         foreach ($joinColumns as $joinColumn) {
             if (isset($joinColumn['nullable']) && !$joinColumn['nullable']) {
+=======
+            $joinColumns = array();
+        }
+
+        foreach ($joinColumns as $joinColumn) {
+            if(isset($joinColumn['nullable']) && !$joinColumn['nullable']) {
+>>>>>>> contactmanager
                 return false;
             }
         }
@@ -1267,6 +1574,7 @@ public function __construct(<params>)
      */
     protected function generateEntityLifecycleCallbackMethods(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         if (empty($metadata->lifecycleCallbacks)) {
             return '';
         }
@@ -1280,6 +1588,23 @@ public function __construct(<params>)
         }
 
         return implode("\n\n", array_filter($methods));
+=======
+        if (isset($metadata->lifecycleCallbacks) && $metadata->lifecycleCallbacks) {
+            $methods = array();
+
+            foreach ($metadata->lifecycleCallbacks as $name => $callbacks) {
+                foreach ($callbacks as $callback) {
+                    if ($code = $this->generateLifecycleCallbackMethod($name, $callback, $metadata)) {
+                        $methods[] = $code;
+                    }
+                }
+            }
+
+            return implode("\n\n", $methods);
+        }
+
+        return "";
+>>>>>>> contactmanager
     }
 
     /**
@@ -1289,7 +1614,11 @@ public function __construct(<params>)
      */
     protected function generateEntityAssociationMappingProperties(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $lines = [];
+=======
+        $lines = array();
+>>>>>>> contactmanager
 
         foreach ($metadata->associationMappings as $associationMapping) {
             if ($this->hasProperty($associationMapping['fieldName'], $metadata)) {
@@ -1311,12 +1640,24 @@ public function __construct(<params>)
      */
     protected function generateEntityFieldMappingProperties(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $lines = [];
 
         foreach ($metadata->fieldMappings as $fieldMapping) {
             if (isset($fieldMapping['declaredField'], $metadata->embeddedClasses[$fieldMapping['declaredField']]) ||
                 $this->hasProperty($fieldMapping['fieldName'], $metadata) ||
                 $metadata->isInheritedField($fieldMapping['fieldName'])
+=======
+        $lines = array();
+
+        foreach ($metadata->fieldMappings as $fieldMapping) {
+            if ($this->hasProperty($fieldMapping['fieldName'], $metadata) ||
+                $metadata->isInheritedField($fieldMapping['fieldName']) ||
+                (
+                    isset($fieldMapping['declaredField']) &&
+                    isset($metadata->embeddedClasses[$fieldMapping['declaredField']])
+                )
+>>>>>>> contactmanager
             ) {
                 continue;
             }
@@ -1336,7 +1677,11 @@ public function __construct(<params>)
      */
     protected function generateEntityEmbeddedProperties(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $lines = [];
+=======
+        $lines = array();
+>>>>>>> contactmanager
 
         foreach ($metadata->embeddedClasses as $fieldName => $embeddedClass) {
             if (isset($embeddedClass['declaredField']) || $this->hasProperty($fieldName, $metadata)) {
@@ -1359,11 +1704,19 @@ public function __construct(<params>)
      *
      * @return string
      */
+<<<<<<< HEAD
     protected function generateEntityStubMethod(ClassMetadataInfo $metadata, $type, $fieldName, $typeHint = null, $defaultValue = null)
     {
         $methodName = $type . Inflector::classify($fieldName);
         $variableName = Inflector::camelize($fieldName);
         if (in_array($type, ["add", "remove"])) {
+=======
+    protected function generateEntityStubMethod(ClassMetadataInfo $metadata, $type, $fieldName, $typeHint = null,  $defaultValue = null)
+    {
+        $methodName = $type . Inflector::classify($fieldName);
+        $variableName = Inflector::camelize($fieldName);
+        if (in_array($type, array("add", "remove"))) {
+>>>>>>> contactmanager
             $methodName = Inflector::singularize($methodName);
             $variableName = Inflector::singularize($variableName);
         }
@@ -1385,6 +1738,7 @@ public function __construct(<params>)
             $methodTypeHint =  '\\' . $typeHint . ' ';
         }
 
+<<<<<<< HEAD
         $replacements = [
           '<description>'       => ucfirst($type) . ' ' . $variableName . '.',
           '<methodTypeHint>'    => $methodTypeHint,
@@ -1395,6 +1749,18 @@ public function __construct(<params>)
           '<variableDefault>'   => ($defaultValue !== null ) ? (' = ' . $defaultValue) : '',
           '<entity>'            => $this->getClassName($metadata)
         ];
+=======
+        $replacements = array(
+          '<description>'       => ucfirst($type) . ' ' . $variableName,
+          '<methodTypeHint>'    => $methodTypeHint,
+          '<variableType>'      => $variableType,
+          '<variableName>'      => $variableName,
+          '<methodName>'        => $methodName,
+          '<fieldName>'         => $fieldName,
+          '<variableDefault>'   => ($defaultValue !== null ) ? (' = '.$defaultValue) : '',
+          '<entity>'            => $this->getClassName($metadata)
+        );
+>>>>>>> contactmanager
 
         $method = str_replace(
             array_keys($replacements),
@@ -1412,11 +1778,16 @@ public function __construct(<params>)
      *
      * @return string
      */
+<<<<<<< HEAD
     protected function generateLifecycleCallbackMethod($name, $methodName, ClassMetadataInfo $metadata)
+=======
+    protected function generateLifecycleCallbackMethod($name, $methodName, $metadata)
+>>>>>>> contactmanager
     {
         if ($this->hasMethod($methodName, $metadata)) {
             return '';
         }
+<<<<<<< HEAD
 
         $this->staticReflection[$metadata->name]['methods'][] = $methodName;
 
@@ -1424,6 +1795,14 @@ public function __construct(<params>)
             '<name>'        => $this->annotationsPrefix . ucfirst($name),
             '<methodName>'  => $methodName,
         ];
+=======
+        $this->staticReflection[$metadata->name]['methods'][] = $methodName;
+
+        $replacements = array(
+            '<name>'        => $this->annotationsPrefix . ucfirst($name),
+            '<methodName>'  => $methodName,
+        );
+>>>>>>> contactmanager
 
         $method = str_replace(
             array_keys($replacements),
@@ -1441,7 +1820,11 @@ public function __construct(<params>)
      */
     protected function generateJoinColumnAnnotation(array $joinColumn)
     {
+<<<<<<< HEAD
         $joinColumnAnnot = [];
+=======
+        $joinColumnAnnot = array();
+>>>>>>> contactmanager
 
         if (isset($joinColumn['name'])) {
             $joinColumnAnnot[] = 'name="' . $joinColumn['name'] . '"';
@@ -1478,7 +1861,11 @@ public function __construct(<params>)
      */
     protected function generateAssociationMappingPropertyDocBlock(array $associationMapping, ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $lines = [];
+=======
+        $lines = array();
+>>>>>>> contactmanager
         $lines[] = $this->spaces . '/**';
 
         if ($associationMapping['type'] & ClassMetadataInfo::TO_MANY) {
@@ -1513,7 +1900,11 @@ public function __construct(<params>)
                     $type = 'ManyToMany';
                     break;
             }
+<<<<<<< HEAD
             $typeOptions = [];
+=======
+            $typeOptions = array();
+>>>>>>> contactmanager
 
             if (isset($associationMapping['targetEntity'])) {
                 $typeOptions[] = 'targetEntity="' . $associationMapping['targetEntity'] . '"';
@@ -1528,7 +1919,11 @@ public function __construct(<params>)
             }
 
             if ($associationMapping['cascade']) {
+<<<<<<< HEAD
                 $cascades = [];
+=======
+                $cascades = array();
+>>>>>>> contactmanager
 
                 if ($associationMapping['isCascadePersist']) $cascades[] = '"persist"';
                 if ($associationMapping['isCascadeRemove']) $cascades[] = '"remove"';
@@ -1537,7 +1932,11 @@ public function __construct(<params>)
                 if ($associationMapping['isCascadeRefresh']) $cascades[] = '"refresh"';
 
                 if (count($cascades) === 5) {
+<<<<<<< HEAD
                     $cascades = ['"all"'];
+=======
+                    $cascades = array('"all"');
+>>>>>>> contactmanager
                 }
 
                 $typeOptions[] = 'cascade={' . implode(',', $cascades) . '}';
@@ -1548,10 +1947,17 @@ public function __construct(<params>)
             }
 
             if (isset($associationMapping['fetch']) && $associationMapping['fetch'] !== ClassMetadataInfo::FETCH_LAZY) {
+<<<<<<< HEAD
                 $fetchMap = [
                     ClassMetadataInfo::FETCH_EXTRA_LAZY => 'EXTRA_LAZY',
                     ClassMetadataInfo::FETCH_EAGER      => 'EAGER',
                 ];
+=======
+                $fetchMap = array(
+                    ClassMetadataInfo::FETCH_EXTRA_LAZY => 'EXTRA_LAZY',
+                    ClassMetadataInfo::FETCH_EAGER      => 'EAGER',
+                );
+>>>>>>> contactmanager
 
                 $typeOptions[] = 'fetch="' . $fetchMap[$associationMapping['fetch']] . '"';
             }
@@ -1561,7 +1967,11 @@ public function __construct(<params>)
             if (isset($associationMapping['joinColumns']) && $associationMapping['joinColumns']) {
                 $lines[] = $this->spaces . ' * @' . $this->annotationsPrefix . 'JoinColumns({';
 
+<<<<<<< HEAD
                 $joinColumnsLines = [];
+=======
+                $joinColumnsLines = array();
+>>>>>>> contactmanager
 
                 foreach ($associationMapping['joinColumns'] as $joinColumn) {
                     if ($joinColumnAnnot = $this->generateJoinColumnAnnotation($joinColumn)) {
@@ -1574,7 +1984,11 @@ public function __construct(<params>)
             }
 
             if (isset($associationMapping['joinTable']) && $associationMapping['joinTable']) {
+<<<<<<< HEAD
                 $joinTable = [];
+=======
+                $joinTable = array();
+>>>>>>> contactmanager
                 $joinTable[] = 'name="' . $associationMapping['joinTable']['name'] . '"';
 
                 if (isset($associationMapping['joinTable']['schema'])) {
@@ -1584,7 +1998,11 @@ public function __construct(<params>)
                 $lines[] = $this->spaces . ' * @' . $this->annotationsPrefix . 'JoinTable(' . implode(', ', $joinTable) . ',';
                 $lines[] = $this->spaces . ' *   joinColumns={';
 
+<<<<<<< HEAD
                 $joinColumnsLines = [];
+=======
+                $joinColumnsLines = array();
+>>>>>>> contactmanager
 
                 foreach ($associationMapping['joinTable']['joinColumns'] as $joinColumn) {
                     $joinColumnsLines[] = $this->spaces . ' *     ' . $this->generateJoinColumnAnnotation($joinColumn);
@@ -1594,7 +2012,11 @@ public function __construct(<params>)
                 $lines[] = $this->spaces . ' *   },';
                 $lines[] = $this->spaces . ' *   inverseJoinColumns={';
 
+<<<<<<< HEAD
                 $inverseJoinColumnsLines = [];
+=======
+                $inverseJoinColumnsLines = array();
+>>>>>>> contactmanager
 
                 foreach ($associationMapping['joinTable']['inverseJoinColumns'] as $joinColumn) {
                     $inverseJoinColumnsLines[] = $this->spaces . ' *     ' . $this->generateJoinColumnAnnotation($joinColumn);
@@ -1630,16 +2052,26 @@ public function __construct(<params>)
      */
     protected function generateFieldMappingPropertyDocBlock(array $fieldMapping, ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $lines = [];
         $lines[] = $this->spaces . '/**';
         $lines[] = $this->spaces . ' * @var '
             . $this->getType($fieldMapping['type'])
             . ($this->nullableFieldExpression($fieldMapping) ? '|null' : '');
+=======
+        $lines = array();
+        $lines[] = $this->spaces . '/**';
+        $lines[] = $this->spaces . ' * @var ' . $this->getType($fieldMapping['type']);
+>>>>>>> contactmanager
 
         if ($this->generateAnnotations) {
             $lines[] = $this->spaces . ' *';
 
+<<<<<<< HEAD
             $column = [];
+=======
+            $column = array();
+>>>>>>> contactmanager
             if (isset($fieldMapping['columnName'])) {
                 $column[] = 'name="' . $fieldMapping['columnName'] . '"';
             }
@@ -1664,6 +2096,7 @@ public function __construct(<params>)
                 $column[] = 'nullable=' .  var_export($fieldMapping['nullable'], true);
             }
 
+<<<<<<< HEAD
             $options = [];
 
             if (isset($fieldMapping['options']['default']) && $fieldMapping['options']['default']) {
@@ -1692,6 +2125,10 @@ public function __construct(<params>)
 
             if ($options) {
                 $column[] = 'options={'.implode(',', $options).'}';
+=======
+            if (isset($fieldMapping['unsigned']) && $fieldMapping['unsigned']) {
+                $column[] = 'options={"unsigned"=true}';
+>>>>>>> contactmanager
             }
 
             if (isset($fieldMapping['columnDefinition'])) {
@@ -1712,7 +2149,11 @@ public function __construct(<params>)
                 }
 
                 if ($metadata->sequenceGeneratorDefinition) {
+<<<<<<< HEAD
                     $sequenceGenerator = [];
+=======
+                    $sequenceGenerator = array();
+>>>>>>> contactmanager
 
                     if (isset($metadata->sequenceGeneratorDefinition['sequenceName'])) {
                         $sequenceGenerator[] = 'sequenceName="' . $metadata->sequenceGeneratorDefinition['sequenceName'] . '"';
@@ -1747,13 +2188,18 @@ public function __construct(<params>)
      */
     protected function generateEmbeddedPropertyDocBlock(array $embeddedClass)
     {
+<<<<<<< HEAD
         $lines = [];
+=======
+        $lines = array();
+>>>>>>> contactmanager
         $lines[] = $this->spaces . '/**';
         $lines[] = $this->spaces . ' * @var \\' . ltrim($embeddedClass['class'], '\\');
 
         if ($this->generateAnnotations) {
             $lines[] = $this->spaces . ' *';
 
+<<<<<<< HEAD
             $embedded = ['class="' . $embeddedClass['class'] . '"'];
 
             if (isset($embeddedClass['columnPrefix'])) {
@@ -1762,6 +2208,12 @@ public function __construct(<params>)
                 } else {
                     $embedded[] = 'columnPrefix=' . var_export($embeddedClass['columnPrefix'], true);
                 }
+=======
+            $embedded = array('class="' . $embeddedClass['class'] . '"');
+
+            if (isset($fieldMapping['columnPrefix'])) {
+                $embedded[] = 'columnPrefix=' . var_export($embeddedClass['columnPrefix'], true);
+>>>>>>> contactmanager
             }
 
             $lines[] = $this->spaces . ' * @' .
@@ -1773,6 +2225,7 @@ public function __construct(<params>)
         return implode("\n", $lines);
     }
 
+<<<<<<< HEAD
     private function generateEntityListenerAnnotation(ClassMetadataInfo $metadata): string
     {
         if (0 === \count($metadata->entityListeners)) {
@@ -1794,6 +2247,8 @@ public function __construct(<params>)
         );
     }
 
+=======
+>>>>>>> contactmanager
     /**
      * @param string $code
      * @param int    $num
@@ -1862,6 +2317,7 @@ public function __construct(<params>)
     }
 
     /**
+<<<<<<< HEAD
      * @param array $fieldMapping
      *
      * @return string|null
@@ -1887,6 +2343,17 @@ public function __construct(<params>)
         $optionsStr = [];
 
         foreach ($options as $name => $option) {
+=======
+     * Exports (nested) option elements.
+     *
+     * @param array $options
+     */
+    private function exportTableOptions(array $options)
+    {
+        $optionsStr = array();
+
+        foreach($options as $name => $option) {
+>>>>>>> contactmanager
             if (is_array($option)) {
                 $optionsStr[] = '"' . $name . '"={' . $this->exportTableOptions($option) . '}';
             } else {

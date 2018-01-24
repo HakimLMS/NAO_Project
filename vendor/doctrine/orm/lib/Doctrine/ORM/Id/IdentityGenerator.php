@@ -50,9 +50,16 @@ class IdentityGenerator extends AbstractIdGenerator
     /**
      * {@inheritDoc}
      */
+<<<<<<< HEAD
     public function generate(EntityManager $em, $entity)
     {
         return (int) $em->getConnection()->lastInsertId($this->sequenceName);
+=======
+    public function generate(
+        EntityManager $em, $entity)
+    {
+        return (int)$em->getConnection()->lastInsertId($this->sequenceName);
+>>>>>>> contactmanager
     }
 
     /**

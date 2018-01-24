@@ -19,11 +19,18 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\SchemaTool;
 
+<<<<<<< HEAD
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+=======
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Doctrine\ORM\Tools\SchemaTool;
+>>>>>>> contactmanager
 
 /**
  * Command to drop the database schema for a set of classes based on their mappings.
@@ -42,12 +49,35 @@ class DropCommand extends AbstractCommand
      */
     protected function configure()
     {
+<<<<<<< HEAD
         $this->setName('orm:schema-tool:drop')
              ->setDescription('Drop the complete database schema of EntityManager Storage Connection or generate the corresponding SQL output')
              ->addOption('dump-sql', null, InputOption::VALUE_NONE, 'Instead of trying to apply generated SQLs into EntityManager Storage Connection, output them.')
              ->addOption('force', 'f', InputOption::VALUE_NONE, "Don't ask for the deletion of the database, but force the operation to run.")
              ->addOption('full-database', null, InputOption::VALUE_NONE, 'Instead of using the Class Metadata to detect the database table schema, drop ALL assets that the database contains.')
              ->setHelp(<<<EOT
+=======
+        $this
+        ->setName('orm:schema-tool:drop')
+        ->setDescription(
+            'Drop the complete database schema of EntityManager Storage Connection or generate the corresponding SQL output.'
+        )
+        ->setDefinition(array(
+            new InputOption(
+                'dump-sql', null, InputOption::VALUE_NONE,
+                'Instead of trying to apply generated SQLs into EntityManager Storage Connection, output them.'
+            ),
+            new InputOption(
+                'force', 'f', InputOption::VALUE_NONE,
+                "Don't ask for the deletion of the database, but force the operation to run."
+            ),
+            new InputOption(
+                'full-database', null, InputOption::VALUE_NONE,
+                'Instead of using the Class Metadata to detect the database table schema, drop ALL assets that the database contains.'
+            ),
+        ))
+        ->setHelp(<<<EOT
+>>>>>>> contactmanager
 Processes the schema and either drop the database schema of EntityManager Storage Connection or generate the SQL output.
 Beware that the complete database is dropped by this command, even tables that are not relevant to your metadata model.
 
@@ -57,12 +87,17 @@ on a global level:
 
     \$config->setFilterSchemaAssetsExpression(\$regexp);
 EOT
+<<<<<<< HEAD
              );
+=======
+        );
+>>>>>>> contactmanager
     }
 
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas, SymfonyStyle $ui)
     {
         $isFullDatabaseDrop = $input->getOption('full-database');
@@ -70,24 +105,40 @@ EOT
         $force   = true === $input->getOption('force');
 
         if ($dumpSql) {
+=======
+    protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas)
+    {
+        $isFullDatabaseDrop = $input->getOption('full-database');
+
+        if ($input->getOption('dump-sql')) {
+>>>>>>> contactmanager
             if ($isFullDatabaseDrop) {
                 $sqls = $schemaTool->getDropDatabaseSQL();
             } else {
                 $sqls = $schemaTool->getDropSchemaSQL($metadatas);
             }
+<<<<<<< HEAD
             $ui->text('The following SQL statements will be executed:');
             $ui->newLine();
 
             foreach ($sqls as $sql) {
                 $ui->text(sprintf('    %s;', $sql));
             }
+=======
+            $output->writeln(implode(';' . PHP_EOL, $sqls));
+>>>>>>> contactmanager
 
             return 0;
         }
 
+<<<<<<< HEAD
         if ($force) {
             $ui->text('Dropping database schema...');
             $ui->newLine();
+=======
+        if ($input->getOption('force')) {
+            $output->writeln('Dropping database schema...');
+>>>>>>> contactmanager
 
             if ($isFullDatabaseDrop) {
                 $schemaTool->dropDatabase();
@@ -95,12 +146,20 @@ EOT
                 $schemaTool->dropSchema($metadatas);
             }
 
+<<<<<<< HEAD
             $ui->success('Database schema dropped successfully!');
+=======
+            $output->writeln('Database schema dropped successfully!');
+>>>>>>> contactmanager
 
             return 0;
         }
 
+<<<<<<< HEAD
         $ui->caution('This operation should not be executed in a production environment!');
+=======
+        $output->writeln('<comment>ATTENTION</comment>: This operation should not be executed in a production environment.' . PHP_EOL);
+>>>>>>> contactmanager
 
         if ($isFullDatabaseDrop) {
             $sqls = $schemaTool->getDropDatabaseSQL();
@@ -108,6 +167,7 @@ EOT
             $sqls = $schemaTool->getDropSchemaSQL($metadatas);
         }
 
+<<<<<<< HEAD
         if (empty($sqls)) {
             $ui->success('Nothing to drop. The database is empty!');
 
@@ -126,5 +186,20 @@ EOT
         );
 
         return 1;
+=======
+        if (count($sqls)) {
+            $output->writeln(sprintf('The Schema-Tool would execute <info>"%s"</info> queries to update the database.', count($sqls)));
+            $output->writeln('Please run the operation by passing one - or both - of the following options:');
+
+            $output->writeln(sprintf('    <info>%s --force</info> to execute the command', $this->getName()));
+            $output->writeln(sprintf('    <info>%s --dump-sql</info> to dump the SQL statements to the screen', $this->getName()));
+
+            return 1;
+        }
+
+        $output->writeln('Nothing to drop. The database is empty!');
+
+        return 0;
+>>>>>>> contactmanager
     }
 }

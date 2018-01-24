@@ -126,6 +126,7 @@ class TextDescriptor extends Descriptor
 
     private function normalizeAndSortOptionsColumns(array $options)
     {
+<<<<<<< HEAD
         foreach ($options as $group => $opts) {
             $sorted = false;
             foreach ($opts as $class => $opt) {
@@ -133,10 +134,16 @@ class TextDescriptor extends Descriptor
                     unset($options[$group][$class]);
                 }
 
+=======
+        foreach ($options as $group => &$opts) {
+            $sorted = false;
+            foreach ($opts as $class => $opt) {
+>>>>>>> contactmanager
                 if (!is_array($opt) || 0 === count($opt)) {
                     continue;
                 }
 
+<<<<<<< HEAD
                 if (!$sorted) {
                     $options[$group] = array();
                 } else {
@@ -152,6 +159,25 @@ class TextDescriptor extends Descriptor
 
             if (!$sorted) {
                 sort($options[$group]);
+=======
+                unset($opts[$class]);
+
+                if (!$sorted) {
+                    $opts = array();
+                } else {
+                    $opts[] = null;
+                }
+                $opts[] = sprintf('<info>%s</info>', (new \ReflectionClass($class))->getShortName());
+                $opts[] = new TableSeparator();
+
+                sort($opt);
+                $sorted = true;
+                $opts = array_merge($opts, $opt);
+            }
+
+            if (!$sorted) {
+                sort($opts);
+>>>>>>> contactmanager
             }
         }
 

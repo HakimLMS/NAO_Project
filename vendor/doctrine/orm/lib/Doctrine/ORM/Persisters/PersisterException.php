@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -16,6 +17,8 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
+=======
+>>>>>>> contactmanager
 
 namespace Doctrine\ORM\Persisters;
 
@@ -24,9 +27,12 @@ use Doctrine\ORM\ORMException;
 class PersisterException extends ORMException
 {
     /**
+<<<<<<< HEAD
      * @param string $class
      * @param string $associationName
      *
+=======
+>>>>>>> contactmanager
      * @return PersisterException
      */
     static public function matchingAssocationFieldRequiresObject($class, $associationName)

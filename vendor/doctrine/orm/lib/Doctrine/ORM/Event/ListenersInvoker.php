@@ -62,8 +62,13 @@ class ListenersInvoker
     /**
      * Get the subscribed event systems
      *
+<<<<<<< HEAD
      * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata  The entity metadata.
      * @param string                              $eventName The entity lifecycle event.
+=======
+     * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata The entity metadata.
+     * @param string $eventName                             The entity lifecycle event.
+>>>>>>> contactmanager
      *
      * @return integer Bitmask of subscribed event systems.
      */
@@ -89,6 +94,7 @@ class ListenersInvoker
     /**
      * Dispatches the lifecycle event of the given entity.
      *
+<<<<<<< HEAD
      * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata  The entity metadata.
      * @param string                              $eventName The entity lifecycle event.
      * @param object                              $entity    The Entity on which the event occurred.
@@ -98,12 +104,27 @@ class ListenersInvoker
     public function invoke(ClassMetadata $metadata, $eventName, $entity, EventArgs $event, $invoke)
     {
         if ($invoke & self::INVOKE_CALLBACKS) {
+=======
+     * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata The entity metadata.
+     * @param string $eventName                             The entity lifecycle event.
+     * @param object $entity                                The Entity on which the event occurred.
+     * @param \Doctrine\Common\EventArgs $event             The Event args.
+     * @param integer $invoke                               Bitmask to invoke listeners.
+     */
+    public function invoke(ClassMetadata $metadata, $eventName, $entity, EventArgs $event, $invoke)
+    {
+        if($invoke & self::INVOKE_CALLBACKS) {
+>>>>>>> contactmanager
             foreach ($metadata->lifecycleCallbacks[$eventName] as $callback) {
                 $entity->$callback($event);
             }
         }
 
+<<<<<<< HEAD
         if ($invoke & self::INVOKE_LISTENERS) {
+=======
+        if($invoke & self::INVOKE_LISTENERS) {
+>>>>>>> contactmanager
             foreach ($metadata->entityListeners[$eventName] as $listener) {
                 $class      = $listener['class'];
                 $method     = $listener['method'];
@@ -113,8 +134,16 @@ class ListenersInvoker
             }
         }
 
+<<<<<<< HEAD
         if ($invoke & self::INVOKE_MANAGER) {
             $this->eventManager->dispatchEvent($eventName, $event);
         }
     }
 }
+=======
+        if($invoke & self::INVOKE_MANAGER) {
+            $this->eventManager->dispatchEvent($eventName, $event);
+        }
+    }
+}
+>>>>>>> contactmanager

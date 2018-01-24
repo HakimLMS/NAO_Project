@@ -33,7 +33,11 @@ class GroupByClause extends Node
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $groupByItems = [];
+=======
+    public $groupByItems = array();
+>>>>>>> contactmanager
 
     /**
      * @param array $groupByItems

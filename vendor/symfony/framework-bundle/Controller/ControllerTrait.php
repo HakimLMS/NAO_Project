@@ -153,7 +153,11 @@ trait ControllerTrait
     protected function addFlash(string $type, string $message)
     {
         if (!$this->container->has('session')) {
+<<<<<<< HEAD
             throw new \LogicException('You can not use the addFlash method if sessions are disabled. Enable them in "config/packages/framework.yaml".');
+=======
+            throw new \LogicException('You can not use the addFlash method if sessions are disabled.');
+>>>>>>> contactmanager
         }
 
         $this->container->get('session')->getFlashBag()->add($type, $message);
@@ -169,7 +173,11 @@ trait ControllerTrait
     protected function isGranted($attributes, $subject = null): bool
     {
         if (!$this->container->has('security.authorization_checker')) {
+<<<<<<< HEAD
             throw new \LogicException('The SecurityBundle is not registered in your application. Try running "composer require symfony/security-bundle".');
+=======
+            throw new \LogicException('The SecurityBundle is not registered in your application.');
+>>>>>>> contactmanager
         }
 
         return $this->container->get('security.authorization_checker')->isGranted($attributes, $subject);
@@ -206,7 +214,11 @@ trait ControllerTrait
         }
 
         if (!$this->container->has('twig')) {
+<<<<<<< HEAD
             throw new \LogicException('You can not use the "renderView" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
+=======
+            throw new \LogicException('You can not use the "renderView" method if the Templating Component or the Twig Bundle are not available.');
+>>>>>>> contactmanager
         }
 
         return $this->container->get('twig')->render($view, $parameters);
@@ -224,7 +236,11 @@ trait ControllerTrait
         } elseif ($this->container->has('twig')) {
             $content = $this->container->get('twig')->render($view, $parameters);
         } else {
+<<<<<<< HEAD
             throw new \LogicException('You can not use the "render" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
+=======
+            throw new \LogicException('You can not use the "render" method if the Templating Component or the Twig Bundle are not available.');
+>>>>>>> contactmanager
         }
 
         if (null === $response) {
@@ -256,7 +272,11 @@ trait ControllerTrait
                 $twig->display($view, $parameters);
             };
         } else {
+<<<<<<< HEAD
             throw new \LogicException('You can not use the "stream" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
+=======
+            throw new \LogicException('You can not use the "stream" method if the Templating Component or the Twig Bundle are not available.');
+>>>>>>> contactmanager
         }
 
         if (null === $response) {
@@ -289,16 +309,22 @@ trait ControllerTrait
      *
      *     throw $this->createAccessDeniedException('Unable to access this page!');
      *
+<<<<<<< HEAD
      * @throws \LogicException If the Security component is not available
      *
+=======
+>>>>>>> contactmanager
      * @final since version 3.4
      */
     protected function createAccessDeniedException(string $message = 'Access Denied.', \Exception $previous = null): AccessDeniedException
     {
+<<<<<<< HEAD
         if (!class_exists(AccessDeniedException::class)) {
             throw new \LogicException('You can not use the "createAccessDeniedException" method if the Security component is not available. Try running "composer require symfony/security-bundle".');
         }
 
+=======
+>>>>>>> contactmanager
         return new AccessDeniedException($message, $previous);
     }
 
@@ -332,7 +358,11 @@ trait ControllerTrait
     protected function getDoctrine(): ManagerRegistry
     {
         if (!$this->container->has('doctrine')) {
+<<<<<<< HEAD
             throw new \LogicException('The DoctrineBundle is not registered in your application. Try running "composer require symfony/orm-pack".');
+=======
+            throw new \LogicException('The DoctrineBundle is not registered in your application.');
+>>>>>>> contactmanager
         }
 
         return $this->container->get('doctrine');
@@ -352,7 +382,11 @@ trait ControllerTrait
     protected function getUser()
     {
         if (!$this->container->has('security.token_storage')) {
+<<<<<<< HEAD
             throw new \LogicException('The SecurityBundle is not registered in your application. Try running "composer require symfony/security-bundle".');
+=======
+            throw new \LogicException('The SecurityBundle is not registered in your application.');
+>>>>>>> contactmanager
         }
 
         if (null === $token = $this->container->get('security.token_storage')->getToken()) {
@@ -378,7 +412,11 @@ trait ControllerTrait
     protected function isCsrfTokenValid(string $id, string $token): bool
     {
         if (!$this->container->has('security.csrf.token_manager')) {
+<<<<<<< HEAD
             throw new \LogicException('CSRF protection is not enabled in your application. Enable it with the "csrf_protection" key in "config/packages/framework.yaml".');
+=======
+            throw new \LogicException('CSRF protection is not enabled in your application.');
+>>>>>>> contactmanager
         }
 
         return $this->container->get('security.csrf.token_manager')->isTokenValid(new CsrfToken($id, $token));

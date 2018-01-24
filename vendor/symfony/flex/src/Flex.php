@@ -18,6 +18,7 @@ use Composer\DependencyResolver\Operation\InstallOperation;
 use Composer\DependencyResolver\Operation\OperationInterface;
 use Composer\DependencyResolver\Operation\UpdateOperation;
 use Composer\DependencyResolver\Operation\UninstallOperation;
+<<<<<<< HEAD
 use Composer\DependencyResolver\Pool;
 use Composer\Downloader\FileDownloader;
 use Composer\Factory;
@@ -25,10 +26,16 @@ use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\Installer;
 use Composer\Installer\InstallerEvent;
 use Composer\Installer\InstallerEvents;
+=======
+use Composer\Factory;
+use Composer\EventDispatcher\EventSubscriberInterface;
+use Composer\Installer;
+>>>>>>> contactmanager
 use Composer\Installer\PackageEvent;
 use Composer\Installer\PackageEvents;
 use Composer\Installer\SuggestedPackagesReporter;
 use Composer\IO\IOInterface;
+<<<<<<< HEAD
 use Composer\IO\NullIO;
 use Composer\Json\JsonFile;
 use Composer\Json\JsonManipulator;
@@ -46,18 +53,34 @@ use Symfony\Thanks\Thanks;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Nicolas Grekas <p@tchwork.com>
+=======
+use Composer\IO\ConsoleIO;
+use Composer\IO\NullIO;
+use Composer\Json\JsonFile;
+use Composer\Json\JsonManipulator;
+use Composer\Plugin\PluginInterface;
+use Composer\Script\Event;
+use Composer\Script\ScriptEvents;
+
+/**
+ * @author Fabien Potencier <fabien@symfony.com>
+>>>>>>> contactmanager
  */
 class Flex implements PluginInterface, EventSubscriberInterface
 {
     private $composer;
     private $io;
+<<<<<<< HEAD
     private $config;
+=======
+>>>>>>> contactmanager
     private $options;
     private $configurator;
     private $downloader;
     private $postInstallOutput = [''];
     private $operations = [];
     private $lock;
+<<<<<<< HEAD
     private $cacheDirPopulated = false;
     private $displayThanksReminder = false;
     private $rfs;
@@ -69,6 +92,9 @@ class Flex implements PluginInterface, EventSubscriberInterface
         'update' => true,
         'install' =>true,
     ];
+=======
+    private static $activated = true;
+>>>>>>> contactmanager
 
     public function activate(Composer $composer, IOInterface $io)
     {
@@ -89,6 +115,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
 
         $this->composer = $composer;
         $this->io = $io;
+<<<<<<< HEAD
         $this->config = $composer->getConfig();
         $this->options = $this->initOptions();
 
@@ -153,6 +180,42 @@ class Flex implements PluginInterface, EventSubscriberInterface
             }
 
             break;
+=======
+        $this->options = $this->initOptions();
+        $this->configurator = new Configurator($composer, $io, $this->options);
+        $this->downloader = new Downloader($composer, $io);
+        $this->downloader->setFlexId($this->getFlexId());
+        $this->lock = new Lock(str_replace(Factory::getComposerFile(), 'composer.json', 'symfony.lock'));
+
+        $search = 3;
+        foreach (debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT) as $trace) {
+            if (!isset($trace['object'])) {
+                continue;
+            }
+
+            if ($trace['object'] instanceof Application) {
+                --$search;
+                $app = $trace['object'];
+                $resolver = new PackageResolver($this->downloader);
+                $app->add(new Command\RequireCommand($resolver));
+                $app->add(new Command\UpdateCommand($resolver));
+                $app->add(new Command\RemoveCommand($resolver));
+            } elseif ($trace['object'] instanceof Installer) {
+                --$search;
+                $trace['object']->setSuggestedPackagesReporter(new SuggestedPackagesReporter(new NullIO()));
+            } elseif ($trace['object'] instanceof CreateProjectCommand) {
+                --$search;
+                if ($io instanceof ConsoleIO) {
+                    $p = new \ReflectionProperty($io, 'input');
+                    $p->setAccessible(true);
+                    $p->getValue($io)->setInteractive(false);
+                }
+            }
+
+            if (0 === $search) {
+                break;
+            }
+>>>>>>> contactmanager
         }
     }
 
@@ -160,8 +223,11 @@ class Flex implements PluginInterface, EventSubscriberInterface
     {
         $json = new JsonFile(Factory::getComposerFile());
         $manipulator = new JsonManipulator(file_get_contents($json->getPath()));
+<<<<<<< HEAD
         // new projects are most of the time proprietary
         $manipulator->addProperty('license', 'proprietary');
+=======
+>>>>>>> contactmanager
         // 'name' and 'description' are only required for public packages
         $manipulator->removeProperty('name');
         $manipulator->removeProperty('description');
@@ -213,6 +279,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
             }
         }
 
+<<<<<<< HEAD
         if ($this->displayThanksReminder) {
             $love = '\\' === DIRECTORY_SEPARATOR ? 'love' : '💖 ';
             $star = '\\' === DIRECTORY_SEPARATOR ? 'star' : '★ ';
@@ -223,6 +290,8 @@ class Flex implements PluginInterface, EventSubscriberInterface
             $this->io->writeError('');
         }
 
+=======
+>>>>>>> contactmanager
         if (!$recipes) {
             $this->lock->write();
 
@@ -231,7 +300,10 @@ class Flex implements PluginInterface, EventSubscriberInterface
 
         $this->io->writeError(sprintf('<info>Symfony operations: %d recipe%s (%s)</>', count($recipes), count($recipes) > 1 ? 's' : '', $this->downloader->getSessionId()));
         $installContribs = $this->composer->getPackage()->getExtra()['symfony']['allow-contrib'] ?? false;
+<<<<<<< HEAD
         $manifest = null;
+=======
+>>>>>>> contactmanager
         foreach ($recipes as $recipe) {
             if ('install' === $recipe->getJob() && !$installContribs && $recipe->isContrib()) {
                 $warning = $this->io->isInteractive() ? 'WARNING' : 'IGNORING';
@@ -243,8 +315,12 @@ class Flex implements PluginInterface, EventSubscriberInterface
     [<comment>a</>] Yes for all packages, only for the current installation session
     [<comment>p</>] Yes permanently, never ask again for this project
     (defaults to <comment>n</>): ';
+<<<<<<< HEAD
                 $answer = $this->io->askAndValidate(
                     $question,
+=======
+                $answer = $this->io->askAndValidate($question,
+>>>>>>> contactmanager
                     function ($value) {
                         if (null === $value) {
                             return 'n';
@@ -294,6 +370,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
             }
         }
 
+<<<<<<< HEAD
         if (null !== $manifest) {
             array_unshift(
                 $this->postInstallOutput,
@@ -313,6 +390,11 @@ class Flex implements PluginInterface, EventSubscriberInterface
         }
     }
 
+=======
+        $this->lock->write();
+    }
+
+>>>>>>> contactmanager
     public function executeAutoScripts(Event $event)
     {
         $event->stopPropagation();
@@ -329,6 +411,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
         $this->io->write($this->postInstallOutput);
     }
 
+<<<<<<< HEAD
     public function populateProvidersCacheDir(InstallerEvent $event)
     {
         $listed = [];
@@ -443,6 +526,8 @@ class Flex implements PluginInterface, EventSubscriberInterface
         }
     }
 
+=======
+>>>>>>> contactmanager
     private function fetchRecipes(): array
     {
         $devPackages = null;
@@ -476,7 +561,11 @@ class Flex implements PluginInterface, EventSubscriberInterface
                 $manifest = [];
                 $bundle = new SymfonyBundle($this->composer, $package, $job);
                 if (null === $devPackages) {
+<<<<<<< HEAD
                     $devPackages = array_column($this->composer->getLocker()->getLockData()['packages-dev'], 'name');
+=======
+                    $devPackages = array_map(function ($package) { return $package['name']; }, $this->composer->getLocker()->getLockData()['packages-dev']);
+>>>>>>> contactmanager
                 }
                 $envs = in_array($name, $devPackages) ? ['dev', 'test'] : ['all'];
                 foreach ($bundle->getClassNames() as $class) {
@@ -564,6 +653,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
         return false;
     }
 
+<<<<<<< HEAD
     private function populateRepoCacheDir()
     {
         $repos = [];
@@ -588,6 +678,8 @@ class Flex implements PluginInterface, EventSubscriberInterface
         });
     }
 
+=======
+>>>>>>> contactmanager
     public static function getSubscribedEvents(): array
     {
         if (!self::$activated) {
@@ -595,18 +687,24 @@ class Flex implements PluginInterface, EventSubscriberInterface
         }
 
         return [
+<<<<<<< HEAD
             InstallerEvents::PRE_DEPENDENCIES_SOLVING => [['populateProvidersCacheDir', PHP_INT_MAX]],
             InstallerEvents::POST_DEPENDENCIES_SOLVING => [['populateFilesCacheDir', PHP_INT_MAX]],
             PackageEvents::PRE_PACKAGE_INSTALL => [['populateFilesCacheDir', ~PHP_INT_MAX]],
             PackageEvents::PRE_PACKAGE_UPDATE => [['populateFilesCacheDir', ~PHP_INT_MAX]],
+=======
+>>>>>>> contactmanager
             PackageEvents::POST_PACKAGE_INSTALL => 'record',
             PackageEvents::POST_PACKAGE_UPDATE => 'record',
             PackageEvents::POST_PACKAGE_UNINSTALL => 'record',
             ScriptEvents::POST_CREATE_PROJECT_CMD => 'configureProject',
             ScriptEvents::POST_INSTALL_CMD => 'install',
             ScriptEvents::POST_UPDATE_CMD => 'update',
+<<<<<<< HEAD
             PluginEvents::COMMAND => 'inspectCommand',
             PluginEvents::PRE_FILE_DOWNLOAD => 'onFileDownload',
+=======
+>>>>>>> contactmanager
             'auto-scripts' => 'executeAutoScripts',
         ];
     }

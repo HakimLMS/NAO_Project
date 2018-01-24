@@ -11,7 +11,10 @@
 
 namespace Symfony\Flex\Configurator;
 
+<<<<<<< HEAD
 use LogicException;
+=======
+>>>>>>> contactmanager
 use Symfony\Flex\Recipe;
 
 /**
@@ -38,6 +41,7 @@ class CopyFromPackageConfigurator extends AbstractConfigurator
         foreach ($manifest as $source => $target) {
             $target = $this->options->expandTargetDir($target);
             if ('/' === substr($source, -1)) {
+<<<<<<< HEAD
                 $this->copyDir($this->path->concatenate([$from, $source]), $this->path->concatenate([$to, $target]));
             } else {
                 $targetPath = $this->path->concatenate([$to, $target]);
@@ -48,6 +52,16 @@ class CopyFromPackageConfigurator extends AbstractConfigurator
 
                 if (!file_exists($targetPath)) {
                     $this->copyFile($this->path->concatenate([$from, $source]), $targetPath);
+=======
+                $this->copyDir($from.'/'.$source, $to.'/'.$target);
+            } else {
+                if (!is_dir(dirname($to.'/'.$target))) {
+                    mkdir(dirname($to.'/'.$target), 0777, true);
+                }
+
+                if (!file_exists($to.'/'.$target)) {
+                    $this->copyFile($from.'/'.$source, $to.'/'.$target);
+>>>>>>> contactmanager
                 }
             }
         }
@@ -56,12 +70,20 @@ class CopyFromPackageConfigurator extends AbstractConfigurator
     private function removeFiles(array $manifest, string $from, string $to)
     {
         foreach ($manifest as $source => $target) {
+<<<<<<< HEAD
             $targetPath = $this->path->concatenate([$to, $target]);
             if ('/' === substr($source, -1)) {
                 $this->removeFilesFromDir($this->path->concatenate([$from, $source]), $this->path->concatenate([$to, $target]));
             } elseif (file_exists($targetPath)) {
                 @unlink($targetPath);
                 $this->write(sprintf('Removed <fg=green>"%s"</>', $this->path->relativize($targetPath)));
+=======
+            $target = $this->options->expandTargetDir($target);
+            if ('/' === substr($source, -1)) {
+                $this->removeFilesFromDir($from.'/'.$source, $to.'/'.$target);
+            } else {
+                @unlink($to.'/'.$target);
+>>>>>>> contactmanager
             }
         }
     }
@@ -72,6 +94,7 @@ class CopyFromPackageConfigurator extends AbstractConfigurator
             mkdir($target, 0777, true);
         }
 
+<<<<<<< HEAD
         $iterator = $this->createSourceIterator($source, \RecursiveIteratorIterator::SELF_FIRST);
         foreach ($iterator as $item) {
             $targetPath = $this->path->concatenate([$target, $iterator->getSubPathName()]);
@@ -82,6 +105,16 @@ class CopyFromPackageConfigurator extends AbstractConfigurator
                 }
             } elseif (!file_exists($targetPath)) {
                 $this->copyFile($item, $targetPath);
+=======
+        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($source, \RecursiveDirectoryIterator::SKIP_DOTS), \RecursiveIteratorIterator::SELF_FIRST);
+        foreach ($iterator as $item) {
+            if ($item->isDir()) {
+                if (!is_dir($new = $target.'/'.$iterator->getSubPathName())) {
+                    mkdir($new);
+                }
+            } elseif (!file_exists($target.'/'.$iterator->getSubPathName())) {
+                $this->copyFile($item, $target.'/'.$iterator->getSubPathName());
+>>>>>>> contactmanager
             }
         }
     }
@@ -91,6 +124,7 @@ class CopyFromPackageConfigurator extends AbstractConfigurator
         if (file_exists($target)) {
             return;
         }
+<<<<<<< HEAD
 
         if (!file_exists($source)) {
             throw new LogicException(sprintf('File "%s" does not exist!', $source));
@@ -99,10 +133,15 @@ class CopyFromPackageConfigurator extends AbstractConfigurator
         copy($source, $target);
         @chmod($target, fileperms($target) | (fileperms($source) & 0111));
         $this->write(sprintf('Created <fg=green>"%s"</>', $this->path->relativize($target)));
+=======
+        copy($source, $target);
+        @chmod($target, fileperms($target) | (fileperms($source) & 0111));
+>>>>>>> contactmanager
     }
 
     private function removeFilesFromDir(string $source, string $target)
     {
+<<<<<<< HEAD
         $iterator = $this->createSourceIterator($source, \RecursiveIteratorIterator::CHILD_FIRST);
         foreach ($iterator as $item) {
             $targetPath = $this->path->concatenate([$target, $iterator->getSubPathName()]);
@@ -121,4 +160,16 @@ class CopyFromPackageConfigurator extends AbstractConfigurator
     {
         return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($source, \RecursiveDirectoryIterator::SKIP_DOTS), $mode);
     }
+=======
+        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($source, \RecursiveDirectoryIterator::SKIP_DOTS), \RecursiveIteratorIterator::CHILD_FIRST);
+        foreach ($iterator as $item) {
+            if ($item->isDir()) {
+                // that removes the dir only if it is empty
+                @rmdir($target.'/'.$iterator->getSubPathName());
+            } else {
+                @unlink($target.'/'.$iterator->getSubPathName());
+            }
+        }
+    }
+>>>>>>> contactmanager
 }

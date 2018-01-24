@@ -46,12 +46,15 @@ class QuestionHelper extends Helper
         }
 
         if (!$input->isInteractive()) {
+<<<<<<< HEAD
             if ($question instanceof ChoiceQuestion) {
                 $choices = $question->getChoices();
 
                 return $choices[$question->getDefault()];
             }
 
+=======
+>>>>>>> contactmanager
             return $question->getDefault();
         }
 

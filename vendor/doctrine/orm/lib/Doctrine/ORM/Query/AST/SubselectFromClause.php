@@ -33,7 +33,11 @@ class SubselectFromClause extends Node
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $identificationVariableDeclarations = [];
+=======
+    public $identificationVariableDeclarations = array();
+>>>>>>> contactmanager
 
     /**
      * @param array $identificationVariableDeclarations

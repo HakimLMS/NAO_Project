@@ -31,12 +31,20 @@ class RegionsConfiguration
     /**
      * @var array
      */
+<<<<<<< HEAD
     private $lifetimes = [];
+=======
+    private $lifetimes = array();
+>>>>>>> contactmanager
 
     /**
      * @var array
      */
+<<<<<<< HEAD
     private $lockLifetimes = [];
+=======
+    private $lockLifetimes = array();
+>>>>>>> contactmanager
 
     /**
      * @var integer

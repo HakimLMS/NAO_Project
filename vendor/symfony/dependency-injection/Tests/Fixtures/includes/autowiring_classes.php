@@ -90,6 +90,7 @@ class J
     }
 }
 
+<<<<<<< HEAD
 class K
 {
     public function __construct(IInterface $i)
@@ -97,6 +98,8 @@ class K
     }
 }
 
+=======
+>>>>>>> contactmanager
 interface CollisionInterface
 {
 }

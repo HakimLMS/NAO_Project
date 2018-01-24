@@ -67,7 +67,11 @@ final class Column implements Annotation
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $options = [];
+=======
+    public $options = array();
+>>>>>>> contactmanager
 
     /**
      * @var string

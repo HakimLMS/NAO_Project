@@ -41,7 +41,11 @@ class YamlExporter extends AbstractExporter
      */
     public function exportClassMetadata(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $array = [];
+=======
+        $array = array();
+>>>>>>> contactmanager
 
         if ($metadata->isMappedSuperclass) {
             $array['type'] = 'mappedSuperclass';
@@ -91,7 +95,11 @@ class YamlExporter extends AbstractExporter
 
         $fieldMappings = $metadata->fieldMappings;
 
+<<<<<<< HEAD
         $ids = [];
+=======
+        $ids = array();
+>>>>>>> contactmanager
         foreach ($fieldMappings as $name => $fieldMapping) {
             $fieldMapping['column'] = $fieldMapping['columnName'];
 
@@ -118,13 +126,21 @@ class YamlExporter extends AbstractExporter
 
         if ($fieldMappings) {
             if ( ! isset($array['fields'])) {
+<<<<<<< HEAD
                 $array['fields'] = [];
+=======
+                $array['fields'] = array();
+>>>>>>> contactmanager
             }
             $array['fields'] = array_merge($array['fields'], $fieldMappings);
         }
 
         foreach ($metadata->associationMappings as $name => $associationMapping) {
+<<<<<<< HEAD
             $cascade = [];
+=======
+            $cascade = array();
+>>>>>>> contactmanager
 
             if ($associationMapping['isCascadeRemove']) {
                 $cascade[] = 'remove';
@@ -146,6 +162,7 @@ class YamlExporter extends AbstractExporter
                 $cascade[] = 'detach';
             }
             if (count($cascade) === 5) {
+<<<<<<< HEAD
                 $cascade = ['all'];
             }
 
@@ -153,18 +170,35 @@ class YamlExporter extends AbstractExporter
                 'targetEntity' => $associationMapping['targetEntity'],
                 'cascade'     => $cascade,
             ];
+=======
+                $cascade = array('all');
+            }
+
+            $associationMappingArray = array(
+                'targetEntity' => $associationMapping['targetEntity'],
+                'cascade'     => $cascade,
+            );
+>>>>>>> contactmanager
 
             if (isset($associationMapping['fetch'])) {
                 $associationMappingArray['fetch'] = $this->_getFetchModeString($associationMapping['fetch']);
             }
 
+<<<<<<< HEAD
             if (isset($associationMapping['id']) && $associationMapping['id'] === true) {
+=======
+            if (isset($mapping['id']) && $mapping['id'] === true) {
+>>>>>>> contactmanager
                 $array['id'][$name]['associationKey'] = true;
             }
 
             if ($associationMapping['type'] & ClassMetadataInfo::TO_ONE) {
                 $joinColumns = $associationMapping['isOwningSide'] ? $associationMapping['joinColumns'] : [];
+<<<<<<< HEAD
                 $newJoinColumns = [];
+=======
+                $newJoinColumns = array();
+>>>>>>> contactmanager
 
                 foreach ($joinColumns as $joinColumn) {
                     $newJoinColumns[$joinColumn['name']]['referencedColumnName'] = $joinColumn['referencedColumnName'];
@@ -174,12 +208,20 @@ class YamlExporter extends AbstractExporter
                     }
                 }
 
+<<<<<<< HEAD
                 $oneToOneMappingArray = [
+=======
+                $oneToOneMappingArray = array(
+>>>>>>> contactmanager
                     'mappedBy'      => $associationMapping['mappedBy'],
                     'inversedBy'    => $associationMapping['inversedBy'],
                     'joinColumns'   => $newJoinColumns,
                     'orphanRemoval' => $associationMapping['orphanRemoval'],
+<<<<<<< HEAD
                 ];
+=======
+                );
+>>>>>>> contactmanager
 
                 $associationMappingArray = array_merge($associationMappingArray, $oneToOneMappingArray);
 
@@ -189,22 +231,40 @@ class YamlExporter extends AbstractExporter
                     $array['manyToOne'][$name] = $associationMappingArray;
                 }
             } elseif ($associationMapping['type'] == ClassMetadataInfo::ONE_TO_MANY) {
+<<<<<<< HEAD
                 $oneToManyMappingArray = [
                     'mappedBy'      => $associationMapping['mappedBy'],
                     'inversedBy'    => $associationMapping['inversedBy'],
                     'orphanRemoval' => $associationMapping['orphanRemoval'],
                     'orderBy'       => $associationMapping['orderBy'] ?? null
                 ];
+=======
+                $oneToManyMappingArray = array(
+                    'mappedBy'      => $associationMapping['mappedBy'],
+                    'inversedBy'    => $associationMapping['inversedBy'],
+                    'orphanRemoval' => $associationMapping['orphanRemoval'],
+                    'orderBy'       => isset($associationMapping['orderBy']) ? $associationMapping['orderBy'] : null
+                );
+>>>>>>> contactmanager
 
                 $associationMappingArray = array_merge($associationMappingArray, $oneToManyMappingArray);
                 $array['oneToMany'][$name] = $associationMappingArray;
             } elseif ($associationMapping['type'] == ClassMetadataInfo::MANY_TO_MANY) {
+<<<<<<< HEAD
                 $manyToManyMappingArray = [
                     'mappedBy'   => $associationMapping['mappedBy'],
                     'inversedBy' => $associationMapping['inversedBy'],
                     'joinTable'  => $associationMapping['joinTable'] ?? null,
                     'orderBy'    => $associationMapping['orderBy'] ?? null
                 ];
+=======
+                $manyToManyMappingArray = array(
+                    'mappedBy'   => $associationMapping['mappedBy'],
+                    'inversedBy' => $associationMapping['inversedBy'],
+                    'joinTable'  => isset($associationMapping['joinTable']) ? $associationMapping['joinTable'] : null,
+                    'orderBy'    => isset($associationMapping['orderBy']) ? $associationMapping['orderBy'] : null
+                );
+>>>>>>> contactmanager
 
                 $associationMappingArray = array_merge($associationMappingArray, $manyToManyMappingArray);
                 $array['manyToMany'][$name] = $associationMappingArray;
@@ -214,9 +274,13 @@ class YamlExporter extends AbstractExporter
             $array['lifecycleCallbacks'] = $metadata->lifecycleCallbacks;
         }
 
+<<<<<<< HEAD
         $array = $this->processEntityListeners($metadata, $array);
 
         return $this->yamlDump([$metadata->name => $array], 10);
+=======
+        return $this->yamlDump(array($metadata->name => $array), 10);
+>>>>>>> contactmanager
     }
 
     /**
@@ -234,6 +298,7 @@ class YamlExporter extends AbstractExporter
     {
         return Yaml::dump($array, $inline);
     }
+<<<<<<< HEAD
 
     private function processEntityListeners(ClassMetadataInfo $metadata, array $array) : array
     {
@@ -262,4 +327,6 @@ class YamlExporter extends AbstractExporter
 
         return $array;
     }
+=======
+>>>>>>> contactmanager
 }

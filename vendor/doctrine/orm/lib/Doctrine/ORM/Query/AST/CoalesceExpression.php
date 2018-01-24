@@ -23,7 +23,11 @@ namespace Doctrine\ORM\Query\AST;
  * CoalesceExpression ::= "COALESCE" "(" ScalarExpression {"," ScalarExpression}* ")"
  *
  * @since   2.1
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> contactmanager
  * @link    www.doctrine-project.org
  * @author  Benjamin Eberlei <kontakt@beberlei.de>
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -35,7 +39,11 @@ class CoalesceExpression extends Node
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $scalarExpressions = [];
+=======
+    public $scalarExpressions = array();
+>>>>>>> contactmanager
 
     /**
      * @param array $scalarExpressions

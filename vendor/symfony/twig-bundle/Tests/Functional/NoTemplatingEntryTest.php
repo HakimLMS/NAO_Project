@@ -9,13 +9,20 @@
  * file that was distributed with this source code.
  */
 
+<<<<<<< HEAD
 namespace Symfony\Bundle\TwigBundle\Tests\Functional;
+=======
+namespace Symfony\Bundle\TwigBundle\Tests;
+>>>>>>> contactmanager
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+<<<<<<< HEAD
 use Symfony\Bundle\TwigBundle\Tests\TestCase;
+=======
+>>>>>>> contactmanager
 use Symfony\Bundle\TwigBundle\TwigBundle;
 
 class NoTemplatingEntryTest extends TestCase

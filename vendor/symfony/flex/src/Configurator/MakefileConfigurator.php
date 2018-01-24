@@ -20,7 +20,11 @@ class MakefileConfigurator extends AbstractConfigurator
 {
     public function configure(Recipe $recipe, $definitions)
     {
+<<<<<<< HEAD
         $this->write('Added Makefile entries');
+=======
+        $this->write('Adding Makefile entries');
+>>>>>>> contactmanager
 
         $makefile = getcwd().'/Makefile';
         if ($this->isFileMarked($recipe, $makefile)) {
@@ -30,9 +34,13 @@ class MakefileConfigurator extends AbstractConfigurator
         $data = $this->markData($recipe, implode("\n", $definitions));
 
         if (!file_exists($makefile)) {
+<<<<<<< HEAD
             file_put_contents(
                 getcwd().'/Makefile',
                 <<<EOF
+=======
+            file_put_contents(getcwd().'/Makefile', <<<EOF
+>>>>>>> contactmanager
 ifndef APP_ENV
 	include .env
 endif
@@ -59,7 +67,11 @@ EOF
             return;
         }
 
+<<<<<<< HEAD
         $this->write(sprintf('Removed Makefile entries from %s', $makefile));
+=======
+        $this->write(sprintf('Removing Makefile entries from %s', $makefile));
+>>>>>>> contactmanager
         if (!trim($contents)) {
             @unlink($makefile);
         } else {

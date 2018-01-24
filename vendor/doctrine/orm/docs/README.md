@@ -1,11 +1,16 @@
 # Doctrine ORM Documentation
 
+<<<<<<< HEAD
 ## How to Generate:
 Using Ubuntu 14.04 LTS:
+=======
+## How to Generate
+>>>>>>> contactmanager
 
 1. Run ./bin/install-dependencies.sh
 2. Run ./bin/generate-docs.sh
 
+<<<<<<< HEAD
 It will generate the documentation into the build directory of the checkout.
 
 
@@ -16,3 +21,6 @@ in which case you will need to run:
 
 1. git submodule init
 2. git submodule update
+=======
+It will generate the documentation into the build directory of the checkout.
+>>>>>>> contactmanager

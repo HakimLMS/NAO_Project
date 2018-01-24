@@ -35,9 +35,13 @@ class ArgumentNameConverterTest extends \PHPUnit_Framework_TestCase
         $request->attributes->add($requestAttributes);
 
         $converter = new ArgumentNameConverter($metadataFactory);
+<<<<<<< HEAD
         $event = new FilterControllerArgumentsEvent($this->getMockBuilder(HttpKernelInterface::class)->getMock(), function () {
             return new Response();
         }, $resolvedArguments, $request, null);
+=======
+        $event = new FilterControllerArgumentsEvent($this->getMockBuilder(HttpKernelInterface::class)->getMock(), function () { return new Response(); }, $resolvedArguments, $request, null);
+>>>>>>> contactmanager
         $actualArguments = $converter->getControllerArguments($event);
         $this->assertSame($expectedArguments, $actualArguments);
     }

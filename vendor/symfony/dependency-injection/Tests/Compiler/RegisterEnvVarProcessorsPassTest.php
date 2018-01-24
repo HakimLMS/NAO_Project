@@ -26,7 +26,11 @@ class RegisterEnvVarProcessorsPassTest extends TestCase
         (new RegisterEnvVarProcessorsPass())->process($container);
 
         $this->assertTrue($container->has('container.env_var_processors_locator'));
+<<<<<<< HEAD
         $this->assertInstanceOf(SimpleProcessor::class, $container->get('container.env_var_processors_locator')->get('foo'));
+=======
+        $this->assertInstanceof(SimpleProcessor::class, $container->get('container.env_var_processors_locator')->get('foo'));
+>>>>>>> contactmanager
 
         $expected = array(
             'foo' => array('string'),

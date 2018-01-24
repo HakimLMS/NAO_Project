@@ -57,7 +57,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $aliasMap = [];
+=======
+    public $aliasMap = array();
+>>>>>>> contactmanager
 
     /**
      * Maps alias names to related association field names.
@@ -65,7 +69,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $relationMap = [];
+=======
+    public $relationMap = array();
+>>>>>>> contactmanager
 
     /**
      * Maps alias names to parent alias names.
@@ -73,7 +81,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $parentAliasMap = [];
+=======
+    public $parentAliasMap = array();
+>>>>>>> contactmanager
 
     /**
      * Maps column names in the result set to field names for each class.
@@ -81,7 +93,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $fieldMappings = [];
+=======
+    public $fieldMappings = array();
+>>>>>>> contactmanager
 
     /**
      * Maps column names in the result set to the alias/field name to use in the mapped result.
@@ -89,7 +105,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $scalarMappings = [];
+=======
+    public $scalarMappings = array();
+>>>>>>> contactmanager
 
     /**
      * Maps column names in the result set to the alias/field type to use in the mapped result.
@@ -97,7 +117,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $typeMappings = [];
+=======
+    public $typeMappings = array();
+>>>>>>> contactmanager
 
     /**
      * Maps entities in the result set to the alias name to use in the mapped result.
@@ -105,7 +129,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $entityMappings = [];
+=======
+    public $entityMappings = array();
+>>>>>>> contactmanager
 
     /**
      * Maps column names of meta columns (foreign keys, discriminator columns, ...) to field names.
@@ -113,7 +141,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $metaMappings = [];
+=======
+    public $metaMappings = array();
+>>>>>>> contactmanager
 
     /**
      * Maps column names in the result set to the alias they belong to.
@@ -121,7 +153,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $columnOwnerMap = [];
+=======
+    public $columnOwnerMap = array();
+>>>>>>> contactmanager
 
     /**
      * List of columns in the result set that are used as discriminator columns.
@@ -129,7 +165,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $discriminatorColumns = [];
+=======
+    public $discriminatorColumns = array();
+>>>>>>> contactmanager
 
     /**
      * Maps alias names to field names that should be used for indexing.
@@ -137,7 +177,11 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $indexByMap = [];
+=======
+    public $indexByMap = array();
+>>>>>>> contactmanager
 
     /**
      * Map from column names to class names that declare the field the column is mapped to.
@@ -145,27 +189,40 @@ class ResultSetMapping
      * @ignore
      * @var array
      */
+<<<<<<< HEAD
     public $declaringClasses = [];
+=======
+    public $declaringClasses = array();
+>>>>>>> contactmanager
 
     /**
      * This is necessary to hydrate derivate foreign keys correctly.
      *
      * @var array
      */
+<<<<<<< HEAD
     public $isIdentifierColumn = [];
+=======
+    public $isIdentifierColumn = array();
+>>>>>>> contactmanager
 
     /**
      * Maps column names in the result set to field names for each new object expression.
      *
      * @var array
      */
+<<<<<<< HEAD
     public $newObjectMappings = [];
+=======
+    public $newObjectMappings = array();
+>>>>>>> contactmanager
 
     /**
      * Maps metadata parameter names to the metadata attribute.
      *
      * @var array
      */
+<<<<<<< HEAD
     public $metadataParameterMapping = [];
 
     /**
@@ -174,12 +231,20 @@ class ResultSetMapping
      * @var array
      */
     public $discriminatorParameters = [];
+=======
+    public $metadataParameterMapping = array();
+>>>>>>> contactmanager
 
     /**
      * Adds an entity result to this ResultSetMapping.
      *
+<<<<<<< HEAD
      * @param string      $class       The class name of the entity.
      * @param string      $alias       The alias for the class. The alias must be unique among all entity
+=======
+     * @param string $class            The class name of the entity.
+     * @param string $alias            The alias for the class. The alias must be unique among all entity
+>>>>>>> contactmanager
      *                                 results or joined entity results within this ResultSetMapping.
      * @param string|null $resultAlias The result alias with which the entity result should be
      *                                 placed in the result structure.
@@ -396,8 +461,13 @@ class ResultSetMapping
     /**
      * Adds a metadata parameter mappings.
      *
+<<<<<<< HEAD
      * @param mixed  $parameter The parameter name in the SQL result set.
      * @param string $attribute The metadata attribute.
+=======
+     * @param mixed $parameter      The parameter name in the SQL result set.
+     * @param string $attribute     The metadata attribute.
+>>>>>>> contactmanager
      */
     public function addMetadataParameterMapping($parameter, $attribute)
     {
@@ -458,7 +528,11 @@ class ResultSetMapping
     /**
      * @param string $alias
      *
+<<<<<<< HEAD
      * @return string
+=======
+     * @return AssociationMapping
+>>>>>>> contactmanager
      */
     public function getRelation($alias)
     {
@@ -558,6 +632,7 @@ class ResultSetMapping
     /**
      * Adds a meta column (foreign key or discriminator column) to the result set.
      *
+<<<<<<< HEAD
      * @param string $alias              The result alias with which the meta result should be placed in the result structure.
      * @param string $columnName         The name of the column in the SQL result set.
      * @param string $fieldName          The name of the field on the declaring class.
@@ -567,6 +642,15 @@ class ResultSetMapping
      * @return ResultSetMapping This ResultSetMapping instance.
      *
      * @todo Make all methods of this class require all parameters and not infer anything
+=======
+     * @param string $alias                 The result alias with which the meta result should be placed in the result structure.
+     * @param string $columnName            The name of the column in the SQL result set.
+     * @param string $fieldName             The name of the field on the declaring class.
+     * @param bool   $isIdentifierColumn
+     * @param string $type                  The column type
+     *
+     * @return ResultSetMapping This ResultSetMapping instance.
+>>>>>>> contactmanager
      */
     public function addMetaResult($alias, $columnName, $fieldName, $isIdentifierColumn = false, $type = null)
     {

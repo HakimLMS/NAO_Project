@@ -19,6 +19,7 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\ClearCache;
 
+<<<<<<< HEAD
 use Doctrine\ORM\Cache;
 use Doctrine\ORM\Cache\Region\DefaultRegion;
 use Symfony\Component\Console\Command\Command;
@@ -27,6 +28,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+=======
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Doctrine\ORM\Cache\Region\DefaultRegion;
+use Doctrine\ORM\Cache;
+>>>>>>> contactmanager
 
 /**
  * Command to clear a entity cache region.
@@ -41,6 +51,7 @@ class EntityRegionCommand extends Command
      */
     protected function configure()
     {
+<<<<<<< HEAD
         $this->setName('orm:clear-cache:region:entity')
              ->setDescription('Clear a second-level cache entity region')
              ->addArgument('entity-class', InputArgument::OPTIONAL, 'The entity name.')
@@ -48,6 +59,18 @@ class EntityRegionCommand extends Command
              ->addOption('all', null, InputOption::VALUE_NONE, 'If defined, all entity regions will be deleted/invalidated.')
              ->addOption('flush', null, InputOption::VALUE_NONE, 'If defined, all cache entries will be flushed.')
              ->setHelp(<<<EOT
+=======
+        $this
+        ->setName('orm:clear-cache:region:entity')
+        ->setDescription('Clear a second-level cache entity region.')
+        ->addArgument('entity-class', InputArgument::OPTIONAL, 'The entity name.')
+        ->addArgument('entity-id', InputArgument::OPTIONAL, 'The entity identifier.')
+        ->addOption('all', null, InputOption::VALUE_NONE, 'If defined, all entity regions will be deleted/invalidated.')
+        ->addOption('flush', null, InputOption::VALUE_NONE,'If defined, all cache entries will be flushed.');
+
+
+        $this->setHelp(<<<EOT
+>>>>>>> contactmanager
 The <info>%command.name%</info> command is meant to clear a second-level cache entity region for an associated Entity Manager.
 It is possible to delete/invalidate all entity region, a specific entity region or flushes the cache provider.
 
@@ -71,7 +94,11 @@ Alternatively, if you want to flush the configured cache provider for an entity 
 Finally, be aware that if <info>--flush</info> option is passed,
 not all cache providers are able to flush entries, because of a limitation of its execution nature.
 EOT
+<<<<<<< HEAD
              );
+=======
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -79,8 +106,11 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
+=======
+>>>>>>> contactmanager
         $em          = $this->getHelper('em')->getEntityManager();
         $entityClass = $input->getArgument('entity-class');
         $entityId    = $input->getArgument('entity-id');
@@ -106,13 +136,21 @@ EOT
 
             $entityRegion->getCache()->flushAll();
 
+<<<<<<< HEAD
             $ui->comment(sprintf('Flushing cache provider configured for entity named <info>"%s"</info>', $entityClass));
+=======
+            $output->writeln(sprintf('Flushing cache provider configured for entity named <info>"%s"</info>', $entityClass));
+>>>>>>> contactmanager
 
             return;
         }
 
         if ($input->getOption('all')) {
+<<<<<<< HEAD
             $ui->comment('Clearing <info>all</info> second-level cache entity regions');
+=======
+            $output->writeln('Clearing <info>all</info> second-level cache entity regions');
+>>>>>>> contactmanager
 
             $cache->evictEntityRegions();
 
@@ -120,6 +158,7 @@ EOT
         }
 
         if ($entityId) {
+<<<<<<< HEAD
             $ui->comment(
                 sprintf(
                     'Clearing second-level cache entry for entity <info>"%s"</info> identified by <info>"%s"</info>',
@@ -127,12 +166,22 @@ EOT
                     $entityId
                 )
             );
+=======
+            $output->writeln(sprintf('Clearing second-level cache entry for entity <info>"%s"</info> identified by <info>"%s"</info>', $entityClass, $entityId));
+>>>>>>> contactmanager
             $cache->evictEntity($entityClass, $entityId);
 
             return;
         }
 
+<<<<<<< HEAD
         $ui->comment(sprintf('Clearing second-level cache for entity <info>"%s"</info>', $entityClass));
         $cache->evictEntityRegion($entityClass);
     }
 }
+=======
+        $output->writeln(sprintf('Clearing second-level cache for entity <info>"%s"</info>', $entityClass));
+        $cache->evictEntityRegion($entityClass);
+    }
+}
+>>>>>>> contactmanager

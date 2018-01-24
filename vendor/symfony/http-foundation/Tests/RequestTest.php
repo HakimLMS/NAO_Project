@@ -372,7 +372,10 @@ class RequestTest extends TestCase
             array('js', array('application/javascript', 'application/x-javascript', 'text/javascript')),
             array('css', array('text/css')),
             array('json', array('application/json', 'application/x-json')),
+<<<<<<< HEAD
             array('jsonld', array('application/ld+json')),
+=======
+>>>>>>> contactmanager
             array('xml', array('text/xml', 'application/xml', 'application/x-xml')),
             array('rdf', array('application/rdf+xml')),
             array('atom', array('application/atom+xml')),
@@ -969,6 +972,7 @@ class RequestTest extends TestCase
         $request->getClientIps();
     }
 
+<<<<<<< HEAD
     /**
      * @dataProvider getClientIpsWithConflictingHeadersProvider
      */
@@ -989,6 +993,8 @@ class RequestTest extends TestCase
         $this->assertSame(array_reverse(explode(',', $httpXForwardedFor)), $request->getClientIps());
     }
 
+=======
+>>>>>>> contactmanager
     public function getClientIpsWithConflictingHeadersProvider()
     {
         //        $httpForwarded                   $httpXForwardedFor

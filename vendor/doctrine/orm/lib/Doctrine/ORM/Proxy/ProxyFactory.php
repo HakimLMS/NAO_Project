@@ -76,7 +76,11 @@ class ProxyFactory extends AbstractProxyFactory
     {
         $proxyGenerator = new ProxyGenerator($proxyDir, $proxyNs);
 
+<<<<<<< HEAD
         $proxyGenerator->setPlaceholder('baseProxyInterface', Proxy::class);
+=======
+        $proxyGenerator->setPlaceholder('baseProxyInterface', 'Doctrine\ORM\Proxy\Proxy');
+>>>>>>> contactmanager
         parent::__construct($proxyGenerator, $em->getMetadataFactory(), $autoGenerate);
 
         $this->em                  = $em;
@@ -125,9 +129,51 @@ class ProxyFactory extends AbstractProxyFactory
      */
     private function createInitializer(ClassMetadata $classMetadata, EntityPersister $entityPersister)
     {
+<<<<<<< HEAD
         $wakeupProxy = $classMetadata->getReflectionClass()->hasMethod('__wakeup');
 
         return function (BaseProxy $proxy) use ($entityPersister, $classMetadata, $wakeupProxy) {
+=======
+        if ($classMetadata->getReflectionClass()->hasMethod('__wakeup')) {
+            return function (BaseProxy $proxy) use ($entityPersister, $classMetadata) {
+                $initializer = $proxy->__getInitializer();
+                $cloner      = $proxy->__getCloner();
+
+                $proxy->__setInitializer(null);
+                $proxy->__setCloner(null);
+
+                if ($proxy->__isInitialized()) {
+                    return;
+                }
+
+                $properties = $proxy->__getLazyProperties();
+
+                foreach ($properties as $propertyName => $property) {
+                    if ( ! isset($proxy->$propertyName)) {
+                        $proxy->$propertyName = $properties[$propertyName];
+                    }
+                }
+
+                $proxy->__setInitialized(true);
+                $proxy->__wakeup();
+
+                $identifier = $classMetadata->getIdentifierValues($proxy);
+
+                if (null === $entityPersister->loadById($identifier, $proxy)) {
+                    $proxy->__setInitializer($initializer);
+                    $proxy->__setCloner($cloner);
+                    $proxy->__setInitialized(false);
+
+                    throw EntityNotFoundException::fromClassNameAndIdentifier(
+                        $classMetadata->getName(),
+                        $this->identifierFlattener->flattenIdentifier($classMetadata, $identifier)
+                    );
+                }
+            };
+        }
+
+        return function (BaseProxy $proxy) use ($entityPersister, $classMetadata) {
+>>>>>>> contactmanager
             $initializer = $proxy->__getInitializer();
             $cloner      = $proxy->__getCloner();
 
@@ -141,17 +187,24 @@ class ProxyFactory extends AbstractProxyFactory
             $properties = $proxy->__getLazyProperties();
 
             foreach ($properties as $propertyName => $property) {
+<<<<<<< HEAD
                 if ( ! isset($proxy->$propertyName)) {
+=======
+                if (!isset($proxy->$propertyName)) {
+>>>>>>> contactmanager
                     $proxy->$propertyName = $properties[$propertyName];
                 }
             }
 
             $proxy->__setInitialized(true);
 
+<<<<<<< HEAD
             if ($wakeupProxy) {
                 $proxy->__wakeup();
             }
 
+=======
+>>>>>>> contactmanager
             $identifier = $classMetadata->getIdentifierValues($proxy);
 
             if (null === $entityPersister->loadById($identifier, $proxy)) {

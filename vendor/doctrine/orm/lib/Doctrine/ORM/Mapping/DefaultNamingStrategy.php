@@ -23,7 +23,11 @@ namespace Doctrine\ORM\Mapping;
 /**
  * The default NamingStrategy
  *
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> contactmanager
  * @link    www.doctrine-project.org
  * @since   2.3
  * @author  Fabio B. Silva <fabio.bat.silva@gmail.com>
@@ -80,15 +84,25 @@ class DefaultNamingStrategy implements NamingStrategy
     public function joinTableName($sourceEntity, $targetEntity, $propertyName = null)
     {
         return strtolower($this->classToTableName($sourceEntity) . '_' .
+<<<<<<< HEAD
             $this->classToTableName($targetEntity));
     }
 
+=======
+                $this->classToTableName($targetEntity));
+    }
+    
+>>>>>>> contactmanager
     /**
      * {@inheritdoc}
      */
     public function joinKeyColumnName($entityName, $referencedColumnName = null)
     {
         return strtolower($this->classToTableName($entityName) . '_' .
+<<<<<<< HEAD
             ($referencedColumnName ?: $this->referenceColumnName()));
+=======
+                ($referencedColumnName ?: $this->referenceColumnName()));
+>>>>>>> contactmanager
     }
 }

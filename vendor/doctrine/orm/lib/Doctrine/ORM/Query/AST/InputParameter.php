@@ -47,7 +47,11 @@ class InputParameter extends Node
      */
     public function __construct($value)
     {
+<<<<<<< HEAD
         if (strlen($value) === 1) {
+=======
+        if (strlen($value) == 1) {
+>>>>>>> contactmanager
             throw \Doctrine\ORM\Query\QueryException::invalidParameterFormat($value);
         }
 

@@ -23,7 +23,11 @@ namespace Doctrine\ORM\Query\AST;
  * GeneralCaseExpression ::= "CASE" WhenClause {WhenClause}* "ELSE" ScalarExpression "END"
  *
  * @since   2.2
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> contactmanager
  * @link    www.doctrine-project.org
  * @author  Benjamin Eberlei <kontakt@beberlei.de>
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -35,7 +39,11 @@ class GeneralCaseExpression extends Node
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $whenClauses = [];
+=======
+    public $whenClauses = array();
+>>>>>>> contactmanager
 
     /**
      * @var mixed

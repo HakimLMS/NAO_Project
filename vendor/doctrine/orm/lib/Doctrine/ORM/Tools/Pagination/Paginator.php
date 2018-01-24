@@ -67,7 +67,11 @@ class Paginator implements \Countable, \IteratorAggregate
         }
 
         $this->query = $query;
+<<<<<<< HEAD
         $this->fetchJoinCollection = (bool) $fetchJoinCollection;
+=======
+        $this->fetchJoinCollection = (Boolean) $fetchJoinCollection;
+>>>>>>> contactmanager
     }
 
     /**
@@ -110,7 +114,10 @@ class Paginator implements \Countable, \IteratorAggregate
     public function setUseOutputWalkers($useOutputWalkers)
     {
         $this->useOutputWalkers = $useOutputWalkers;
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $this;
     }
 
@@ -122,7 +129,11 @@ class Paginator implements \Countable, \IteratorAggregate
         if ($this->count === null) {
             try {
                 $this->count = array_sum(array_map('current', $this->getCountQuery()->getScalarResult()));
+<<<<<<< HEAD
             } catch (NoResultException $e) {
+=======
+            } catch(NoResultException $e) {
+>>>>>>> contactmanager
                 $this->count = 0;
             }
         }
@@ -142,9 +153,15 @@ class Paginator implements \Countable, \IteratorAggregate
             $subQuery = $this->cloneQuery($this->query);
 
             if ($this->useOutputWalker($subQuery)) {
+<<<<<<< HEAD
                 $subQuery->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, LimitSubqueryOutputWalker::class);
             } else {
                 $this->appendTreeWalker($subQuery, LimitSubqueryWalker::class);
+=======
+                $subQuery->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Doctrine\ORM\Tools\Pagination\LimitSubqueryOutputWalker');
+            } else {
+                $this->appendTreeWalker($subQuery, 'Doctrine\ORM\Tools\Pagination\LimitSubqueryWalker');
+>>>>>>> contactmanager
             }
 
             $subQuery->setFirstResult($offset)->setMaxResults($length);
@@ -153,11 +170,19 @@ class Paginator implements \Countable, \IteratorAggregate
 
             $whereInQuery = $this->cloneQuery($this->query);
             // don't do this for an empty id array
+<<<<<<< HEAD
             if (count($ids) === 0) {
                 return new \ArrayIterator([]);
             }
 
             $this->appendTreeWalker($whereInQuery, WhereInWalker::class);
+=======
+            if (count($ids) == 0) {
+                return new \ArrayIterator(array());
+            }
+
+            $this->appendTreeWalker($whereInQuery, 'Doctrine\ORM\Tools\Pagination\WhereInWalker');
+>>>>>>> contactmanager
             $whereInQuery->setHint(WhereInWalker::HINT_PAGINATOR_ID_COUNT, count($ids));
             $whereInQuery->setFirstResult(null)->setMaxResults(null);
             $whereInQuery->setParameter(WhereInWalker::PAGINATOR_ID_ALIAS, $ids);
@@ -208,7 +233,11 @@ class Paginator implements \Countable, \IteratorAggregate
     private function useOutputWalker(Query $query)
     {
         if ($this->useOutputWalkers === null) {
+<<<<<<< HEAD
             return (bool) $query->getHint(Query::HINT_CUSTOM_OUTPUT_WALKER) === false;
+=======
+            return (Boolean) $query->getHint(Query::HINT_CUSTOM_OUTPUT_WALKER) == false;
+>>>>>>> contactmanager
         }
 
         return $this->useOutputWalkers;
@@ -217,7 +246,11 @@ class Paginator implements \Countable, \IteratorAggregate
     /**
      * Appends a custom tree walker to the tree walkers hint.
      *
+<<<<<<< HEAD
      * @param Query  $query
+=======
+     * @param Query $query
+>>>>>>> contactmanager
      * @param string $walkerClass
      */
     private function appendTreeWalker(Query $query, $walkerClass)
@@ -225,7 +258,11 @@ class Paginator implements \Countable, \IteratorAggregate
         $hints = $query->getHint(Query::HINT_CUSTOM_TREE_WALKERS);
 
         if ($hints === false) {
+<<<<<<< HEAD
             $hints = [];
+=======
+            $hints = array();
+>>>>>>> contactmanager
         }
 
         $hints[] = $walkerClass;
@@ -252,10 +289,17 @@ class Paginator implements \Countable, \IteratorAggregate
             $rsm = new ResultSetMapping();
             $rsm->addScalarResult($platform->getSQLResultCasing('dctrn_count'), 'count');
 
+<<<<<<< HEAD
             $countQuery->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, CountOutputWalker::class);
             $countQuery->setResultSetMapping($rsm);
         } else {
             $this->appendTreeWalker($countQuery, CountWalker::class);
+=======
+            $countQuery->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Doctrine\ORM\Tools\Pagination\CountOutputWalker');
+            $countQuery->setResultSetMapping($rsm);
+        } else {
+            $this->appendTreeWalker($countQuery, 'Doctrine\ORM\Tools\Pagination\CountWalker');
+>>>>>>> contactmanager
         }
 
         $countQuery->setFirstResult(null)->setMaxResults(null);
@@ -268,7 +312,11 @@ class Paginator implements \Countable, \IteratorAggregate
         foreach ($parameters as $key => $parameter) {
             $parameterName = $parameter->getName();
 
+<<<<<<< HEAD
             if ( ! (isset($parameterMappings[$parameterName]) || array_key_exists($parameterName, $parameterMappings))) {
+=======
+            if( ! (isset($parameterMappings[$parameterName]) || array_key_exists($parameterName, $parameterMappings))) {
+>>>>>>> contactmanager
                 unset($parameters[$key]);
             }
         }

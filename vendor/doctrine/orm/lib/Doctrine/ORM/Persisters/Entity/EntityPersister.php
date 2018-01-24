@@ -77,11 +77,18 @@ interface EntityPersister
     /**
      * Get the COUNT SQL to count entities (optionally based on a criteria)
      *
+<<<<<<< HEAD
      * @param array|\Doctrine\Common\Collections\Criteria $criteria
      *
      * @return string
      */
     public function getCountSQL($criteria = []);
+=======
+     * @param  array|\Doctrine\Common\Collections\Criteria $criteria
+     * @return string
+     */
+    public function getCountSQL($criteria = array());
+>>>>>>> contactmanager
 
     /**
      * Expands the parameters from the given criteria and use the correct binding types if found.
@@ -165,7 +172,11 @@ interface EntityPersister
      *
      * @return int
      */
+<<<<<<< HEAD
     public function count($criteria = []);
+=======
+    public function count($criteria = array());
+>>>>>>> contactmanager
 
     /**
      * Gets the name of the table that owns the column the given field is mapped to.
@@ -197,13 +208,22 @@ interface EntityPersister
      *
      * @todo Check identity map? loadById method? Try to guess whether $criteria is the id?
      */
+<<<<<<< HEAD
     public function load(array $criteria, $entity = null, $assoc = null, array $hints = [], $lockMode = null, $limit = null, array $orderBy = null);
+=======
+    public function load(array $criteria, $entity = null, $assoc = null, array $hints = array(), $lockMode = null, $limit = null, array $orderBy = null);
+>>>>>>> contactmanager
 
     /**
      * Loads an entity by identifier.
      *
+<<<<<<< HEAD
      * @param array       $identifier The entity identifier.
      * @param object|null $entity     The entity to load the data into. If not specified, a new entity is created.
+=======
+     * @param array       $identifier   The entity identifier.
+     * @param object|null $entity       The entity to load the data into. If not specified, a new entity is created.
+>>>>>>> contactmanager
      *
      * @return object The loaded and managed entity instance or NULL if the entity can not be found.
      *
@@ -225,7 +245,11 @@ interface EntityPersister
      *
      * @throws \Doctrine\ORM\Mapping\MappingException
      */
+<<<<<<< HEAD
     public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = []);
+=======
+    public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = array());
+>>>>>>> contactmanager
 
     /**
      * Refreshes a managed entity.
@@ -260,7 +284,11 @@ interface EntityPersister
      *
      * @return array
      */
+<<<<<<< HEAD
     public function loadAll(array $criteria = [], array $orderBy = null, $limit = null, $offset = null);
+=======
+    public function loadAll(array $criteria = array(), array $orderBy = null, $limit = null, $offset = null);
+>>>>>>> contactmanager
 
     /**
      * Gets (sliced or full) elements of the given collection.
@@ -290,7 +318,11 @@ interface EntityPersister
      *
      * @param array                $assoc
      * @param object               $sourceEntity
+<<<<<<< HEAD
      * @param PersistentCollection $collection   The collection to load/fill.
+=======
+     * @param PersistentCollection $collection         The collection to load/fill.
+>>>>>>> contactmanager
      *
      * @return array
      */

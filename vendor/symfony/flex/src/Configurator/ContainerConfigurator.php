@@ -27,7 +27,11 @@ class ContainerConfigurator extends AbstractConfigurator
     public function unconfigure(Recipe $recipe, $parameters)
     {
         $this->write('Unsetting parameters');
+<<<<<<< HEAD
         $target = $this->options->expandTargetDir('%CONFIG_DIR%/services.yaml');
+=======
+        $target = getcwd().'/config/services.yaml';
+>>>>>>> contactmanager
         $lines = [];
         foreach (file($target) as $line) {
             foreach (array_keys($parameters) as $key) {
@@ -42,7 +46,11 @@ class ContainerConfigurator extends AbstractConfigurator
 
     private function addParameters(array $parameters)
     {
+<<<<<<< HEAD
         $target = $this->options->expandTargetDir('%CONFIG_DIR%/services.yaml');
+=======
+        $target = getcwd().'/config/services.yaml';
+>>>>>>> contactmanager
         $endAt = 0;
         $isParameters = false;
         $lines = [];

@@ -25,7 +25,11 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
+<<<<<<< HEAD
  * @method Request|null  getRequest()  A Request instance
+=======
+ * @method Request|null getRequest() A Request instance
+>>>>>>> contactmanager
  * @method Response|null getResponse() A Response instance
  */
 class Client extends BaseClient

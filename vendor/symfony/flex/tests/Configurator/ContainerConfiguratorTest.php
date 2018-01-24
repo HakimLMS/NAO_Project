@@ -15,7 +15,10 @@ require_once __DIR__.'/TmpDirMock.php';
 
 use Symfony\Flex\Configurator\ContainerConfigurator;
 use PHPUnit\Framework\TestCase;
+<<<<<<< HEAD
 use Symfony\Flex\Options;
+=======
+>>>>>>> contactmanager
 
 class ContainerConfiguratorTest extends TestCase
 {
@@ -23,9 +26,13 @@ class ContainerConfiguratorTest extends TestCase
     {
         $recipe = $this->getMockBuilder('Symfony\Flex\Recipe')->disableOriginalConstructor()->getMock();
         $config = sys_get_temp_dir().'/config/services.yaml';
+<<<<<<< HEAD
         file_put_contents(
             $config,
             <<<EOF
+=======
+        file_put_contents($config, <<<EOF
+>>>>>>> contactmanager
 # comment
 parameters:
 
@@ -36,7 +43,11 @@ EOF
         $configurator = new ContainerConfigurator(
             $this->getMockBuilder('Composer\Composer')->getMock(),
             $this->getMockBuilder('Composer\IO\IOInterface')->getMock(),
+<<<<<<< HEAD
             new Options(['config-dir' => dirname($config)])
+=======
+            $this->getMockBuilder('Symfony\Flex\Options')->getMock()
+>>>>>>> contactmanager
         );
         $configurator->configure($recipe, ['locale' => 'en']);
         $this->assertEquals(<<<EOF
@@ -64,9 +75,13 @@ EOF
     {
         $recipe = $this->getMockBuilder('Symfony\Flex\Recipe')->disableOriginalConstructor()->getMock();
         $config = sys_get_temp_dir().'/config/services.yaml';
+<<<<<<< HEAD
         file_put_contents(
             $config,
             <<<EOF
+=======
+        file_put_contents($config, <<<EOF
+>>>>>>> contactmanager
 services:
 
 EOF
@@ -74,7 +89,11 @@ EOF
         $configurator = new ContainerConfigurator(
             $this->getMockBuilder('Composer\Composer')->getMock(),
             $this->getMockBuilder('Composer\IO\IOInterface')->getMock(),
+<<<<<<< HEAD
             new Options(['config-dir' => dirname($config)])
+=======
+            $this->getMockBuilder('Symfony\Flex\Options')->getMock()
+>>>>>>> contactmanager
         );
         $configurator->configure($recipe, ['locale' => 'en']);
         $this->assertEquals(<<<EOF
@@ -100,9 +119,13 @@ EOF
     {
         $recipe = $this->getMockBuilder('Symfony\Flex\Recipe')->disableOriginalConstructor()->getMock();
         $config = sys_get_temp_dir().'/config/services.yaml';
+<<<<<<< HEAD
         file_put_contents(
             $config,
             <<<EOF
+=======
+        file_put_contents($config, <<<EOF
+>>>>>>> contactmanager
 parameters:
     locale: es
 
@@ -113,7 +136,11 @@ EOF
         $configurator = new ContainerConfigurator(
             $this->getMockBuilder('Composer\Composer')->getMock(),
             $this->getMockBuilder('Composer\IO\IOInterface')->getMock(),
+<<<<<<< HEAD
             new Options(['config-dir' => dirname($config)])
+=======
+            $this->getMockBuilder('Symfony\Flex\Options')->getMock()
+>>>>>>> contactmanager
         );
         $configurator->configure($recipe, ['locale' => 'en']);
         $this->assertEquals(<<<EOF
@@ -139,9 +166,13 @@ EOF
     {
         $recipe = $this->getMockBuilder('Symfony\Flex\Recipe')->disableOriginalConstructor()->getMock();
         $config = sys_get_temp_dir().'/config/services.yaml';
+<<<<<<< HEAD
         file_put_contents(
             $config,
             <<<EOF
+=======
+        file_put_contents($config, <<<EOF
+>>>>>>> contactmanager
 parameters:
     # comment 1
     locale: es
@@ -156,7 +187,11 @@ EOF
         $configurator = new ContainerConfigurator(
             $this->getMockBuilder('Composer\Composer')->getMock(),
             $this->getMockBuilder('Composer\IO\IOInterface')->getMock(),
+<<<<<<< HEAD
             new Options(['config-dir' => dirname($config)])
+=======
+            $this->getMockBuilder('Symfony\Flex\Options')->getMock()
+>>>>>>> contactmanager
         );
         $configurator->configure($recipe, ['locale' => 'en', 'foobar' => 'baz']);
         $this->assertEquals(<<<EOF

@@ -3,7 +3,11 @@ Working with Indexed Associations
 
 .. note::
 
+<<<<<<< HEAD
     This feature is available from version 2.1 of Doctrine.
+=======
+    This feature is scheduled for version 2.1 of Doctrine and not included in the 2.0.x series.
+>>>>>>> contactmanager
 
 Doctrine 2 collections are modelled after PHPs native arrays. PHP arrays are an ordered hashmap, but in
 the first version of Doctrine keys retrieved from the database were always numerical unless ``INDEX BY``
@@ -13,8 +17,13 @@ The feature works like an implicit ``INDEX BY`` for the selected association but
 downsides also:
 
 -  You have to manage both the key and field if you want to change the index by field value.
+<<<<<<< HEAD
 -  On each request the keys are regenerated from the field value, and not from the previous collection key.
 -  Values of the Index-By keys are never considered during persistence. They only exist for accessing purposes.
+=======
+-  On each request the keys are regenerated from the field value not from the previous collection key.
+-  Values of the Index-By keys are never considered during persistence, it only exists for accessing purposes.
+>>>>>>> contactmanager
 -  Fields that are used for the index by feature **HAVE** to be unique in the database. The behavior for multiple entities
    with the same index-by field value is undefined.
 
@@ -164,6 +173,11 @@ here are the code and mappings for it:
             private $id;
 
             /**
+<<<<<<< HEAD
+=======
+             * For real this column would have to be unique=true. But I want to test behavior of non-unique overrides.
+             *
+>>>>>>> contactmanager
              * @Column(type="string", unique=true)
              */
             private $symbol;
@@ -225,7 +239,11 @@ here are the code and mappings for it:
 Querying indexed associations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+<<<<<<< HEAD
 Now that we defined the stocks collection to be indexed by symbol, we can take a look at some code
+=======
+Now that we defined the stocks collection to be indexed by symbol we can take a look at some code,
+>>>>>>> contactmanager
 that makes use of the indexing.
 
 First we will populate our database with two example stocks traded on a single market:
@@ -261,7 +279,11 @@ now query for the market:
 
     echo $stock->getSymbol(); // will print "AAPL"
 
+<<<<<<< HEAD
 The implementation of ``Market::addStock()``, in combination with ``indexBy``, allows us to access the collection
+=======
+The implementation ``Market::addStock()`` in combination with ``indexBy`` allows to access the collection
+>>>>>>> contactmanager
 consistently by the Stock symbol. It does not matter if Stock is managed by Doctrine or not.
 
 The same applies to DQL queries: The ``indexBy`` configuration acts as implicit "INDEX BY" to a join association.
@@ -283,8 +305,13 @@ The same applies to DQL queries: The ``indexBy`` configuration acts as implicit 
 
     echo $stock->getSymbol(); // will print "AAPL"
 
+<<<<<<< HEAD
 If you want to use ``INDEX BY`` explicitly on an indexed association you are free to do so. Additionally,
 indexed associations also work with the ``Collection::slice()`` functionality, even if the association's fetch mode is
+=======
+If you want to use ``INDEX BY`` explicitly on an indexed association you are free to do so. Additionally
+indexed associations also work with the ``Collection::slice()`` functionality, no matter if marked as
+>>>>>>> contactmanager
 LAZY or EXTRA_LAZY.
 
 Outlook into the Future
@@ -292,5 +319,9 @@ Outlook into the Future
 
 For the inverse side of a many-to-many associations there will be a way to persist the keys and the order
 as a third and fourth parameter into the join table. This feature is discussed in `DDC-213 <http://www.doctrine-project.org/jira/browse/DDC-213>`_
+<<<<<<< HEAD
 This feature cannot be implemented for one-to-many associations, because they are never the owning side.
+=======
+This feature cannot be implemented for One-To-Many associations, because they are never the owning side.
+>>>>>>> contactmanager
 

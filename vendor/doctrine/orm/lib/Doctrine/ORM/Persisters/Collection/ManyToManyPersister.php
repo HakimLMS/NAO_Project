@@ -21,6 +21,10 @@ namespace Doctrine\ORM\Persisters\Collection;
 
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping\ClassMetadata;
+<<<<<<< HEAD
+=======
+use Doctrine\ORM\Persisters\SqlExpressionVisitor;
+>>>>>>> contactmanager
 use Doctrine\ORM\Persisters\SqlValueVisitor;
 use Doctrine\ORM\PersistentCollection;
 use Doctrine\ORM\Query;
@@ -47,6 +51,7 @@ class ManyToManyPersister extends AbstractCollectionPersister
             return; // ignore inverse side
         }
 
+<<<<<<< HEAD
         $types = [];
         $class = $this->em->getClassMetadata($mapping['sourceEntity']);
 
@@ -55,6 +60,9 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
 
         $this->conn->executeUpdate($this->getDeleteSQL($collection), $this->getDeleteSQLParameters($collection), $types);
+=======
+        $this->conn->executeUpdate($this->getDeleteSQL($collection), $this->getDeleteSQLParameters($collection));
+>>>>>>> contactmanager
     }
 
     /**
@@ -104,7 +112,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
             ? $mapping['inversedBy']
             : $mapping['mappedBy'];
 
+<<<<<<< HEAD
         return $persister->load([$mappedKey => $collection->getOwner(), $mapping['indexBy'] => $index], null, $mapping, [], 0, 1);
+=======
+        return $persister->load(array($mappedKey => $collection->getOwner(), $mapping['indexBy'] => $index), null, $mapping, array(), 0, 1);
+>>>>>>> contactmanager
     }
 
     /**
@@ -112,9 +124,15 @@ class ManyToManyPersister extends AbstractCollectionPersister
      */
     public function count(PersistentCollection $collection)
     {
+<<<<<<< HEAD
         $conditions     = [];
         $params         = [];
         $types          = [];
+=======
+        $conditions     = array();
+        $params         = array();
+        $types          = array();
+>>>>>>> contactmanager
         $mapping        = $collection->getMapping();
         $id             = $this->uow->getEntityIdentifier($collection->getOwner());
         $sourceClass    = $this->em->getClassMetadata($mapping['sourceEntity']);
@@ -235,6 +253,7 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $mapping       = $collection->getMapping();
         $owner         = $collection->getOwner();
         $ownerMetadata = $this->em->getClassMetadata(get_class($owner));
+<<<<<<< HEAD
         $id            = $this->uow->getEntityIdentifier($owner);
         $targetClass   = $this->em->getClassMetadata($mapping['targetEntity']);
         $onConditions  = $this->getOnConditionSQL($mapping);
@@ -254,11 +273,19 @@ class ManyToManyPersister extends AbstractCollectionPersister
             $params[] = $ownerMetadata->containsForeignIdentifier
                 ? $id[$ownerMetadata->getFieldForColumn($value)]
                 : $id[$ownerMetadata->fieldNames[$value]];
+=======
+        $whereClauses  = $params = array();
+
+        foreach ($mapping['relationToSourceKeyColumns'] as $key => $value) {
+            $whereClauses[] = sprintf('t.%s = ?', $key);
+            $params[]       = $ownerMetadata->getFieldValue($owner, $value);
+>>>>>>> contactmanager
         }
 
         $parameters = $this->expandCriteriaParameters($criteria);
 
         foreach ($parameters as $parameter) {
+<<<<<<< HEAD
             [$name, $value, $operator] = $parameter;
 
             $field          = $this->quoteStrategy->getColumnName($name, $targetClass, $this->platform);
@@ -271,6 +298,22 @@ class ManyToManyPersister extends AbstractCollectionPersister
 
         $rsm = new Query\ResultSetMappingBuilder($this->em);
         $rsm->addRootEntityFromClassMetadata($targetClass->name, 'te');
+=======
+            list($name, $value, $operator) = $parameter;
+
+            $whereClauses[] = sprintf('te.%s %s ?', $name, $operator);
+            $params[]       = $value;
+        }
+
+        $mapping      = $collection->getMapping();
+        $targetClass  = $this->em->getClassMetadata($mapping['targetEntity']);
+        $tableName    = $this->quoteStrategy->getTableName($targetClass, $this->platform);
+        $joinTable    = $this->quoteStrategy->getJoinTableName($mapping, $ownerMetadata, $this->platform);
+        $onConditions = $this->getOnConditionSQL($mapping);
+
+        $rsm = new Query\ResultSetMappingBuilder($this->em);
+        $rsm->addRootEntityFromClassMetadata($mapping['targetEntity'], 'te');
+>>>>>>> contactmanager
 
         $sql = 'SELECT ' . $rsm->generateSelectClause()
             . ' FROM ' . $tableName . ' te'
@@ -278,10 +321,13 @@ class ManyToManyPersister extends AbstractCollectionPersister
             . implode(' AND ', $onConditions)
             . ' WHERE ' . implode(' AND ', $whereClauses);
 
+<<<<<<< HEAD
         $sql .= $this->getOrderingSql($criteria, $targetClass);
 
         $sql .= $this->getLimitSql($criteria);
 
+=======
+>>>>>>> contactmanager
         $stmt = $this->conn->executeQuery($sql, $params);
 
         return $this
@@ -312,7 +358,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $filterSql   = $this->generateFilterConditionSQL($rootClass, 'te');
 
         if ('' === $filterSql) {
+<<<<<<< HEAD
             return ['', ''];
+=======
+            return array('', '');
+>>>>>>> contactmanager
         }
 
         // A join is needed if there is filtering on the target entity
@@ -320,7 +370,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $joinSql   = ' JOIN ' . $tableName . ' te'
             . ' ON' . implode(' AND ', $this->getOnConditionSQL($mapping));
 
+<<<<<<< HEAD
         return [$joinSql, $filterSql];
+=======
+        return array($joinSql, $filterSql);
+>>>>>>> contactmanager
     }
 
     /**
@@ -333,7 +387,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
      */
     protected function generateFilterConditionSQL(ClassMetadata $targetEntity, $targetTableAlias)
     {
+<<<<<<< HEAD
         $filterClauses = [];
+=======
+        $filterClauses = array();
+>>>>>>> contactmanager
 
         foreach ($this->em->getFilters()->getEnabledFilters() as $filter) {
             if ($filterExpr = $filter->addFilterConstraint($targetEntity, $targetTableAlias)) {
@@ -364,7 +422,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
             ? $association['joinTable']['inverseJoinColumns']
             : $association['joinTable']['joinColumns'];
 
+<<<<<<< HEAD
         $conditions = [];
+=======
+        $conditions = array();
+>>>>>>> contactmanager
 
         foreach ($joinColumns as $joinColumn) {
             $joinColumnName = $this->quoteStrategy->getJoinColumnName($joinColumn, $targetClass, $this->platform);
@@ -383,7 +445,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
      */
     protected function getDeleteSQL(PersistentCollection $collection)
     {
+<<<<<<< HEAD
         $columns    = [];
+=======
+        $columns    = array();
+>>>>>>> contactmanager
         $mapping    = $collection->getMapping();
         $class      = $this->em->getClassMetadata(get_class($collection->getOwner()));
         $joinTable  = $this->quoteStrategy->getJoinTableName($mapping, $class, $this->platform);
@@ -409,12 +475,20 @@ class ManyToManyPersister extends AbstractCollectionPersister
 
         // Optimization for single column identifier
         if (count($mapping['relationToSourceKeyColumns']) === 1) {
+<<<<<<< HEAD
             return [reset($identifier)];
+=======
+            return array(reset($identifier));
+>>>>>>> contactmanager
         }
 
         // Composite identifier
         $sourceClass = $this->em->getClassMetadata($mapping['sourceEntity']);
+<<<<<<< HEAD
         $params      = [];
+=======
+        $params      = array();
+>>>>>>> contactmanager
 
         foreach ($mapping['relationToSourceKeyColumns'] as $columnName => $refColumnName) {
             $params[] = isset($sourceClass->fieldNames[$refColumnName])
@@ -438,8 +512,13 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $mapping     = $collection->getMapping();
         $class       = $this->em->getClassMetadata($mapping['sourceEntity']);
         $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
+<<<<<<< HEAD
         $columns     = [];
         $types       = [];
+=======
+        $columns     = array();
+        $types       = array();
+>>>>>>> contactmanager
 
         foreach ($mapping['joinTable']['joinColumns'] as $joinColumn) {
             $columns[] = $this->quoteStrategy->getJoinColumnName($joinColumn, $class, $this->platform);
@@ -451,11 +530,19 @@ class ManyToManyPersister extends AbstractCollectionPersister
             $types[]   = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
         }
 
+<<<<<<< HEAD
         return [
             'DELETE FROM ' . $this->quoteStrategy->getJoinTableName($mapping, $class, $this->platform)
             . ' WHERE ' . implode(' = ? AND ', $columns) . ' = ?',
             $types,
         ];
+=======
+        return array(
+            'DELETE FROM ' . $this->quoteStrategy->getJoinTableName($mapping, $class, $this->platform)
+            . ' WHERE ' . implode(' = ? AND ', $columns) . ' = ?',
+            $types,
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -484,8 +571,13 @@ class ManyToManyPersister extends AbstractCollectionPersister
      */
     protected function getInsertRowSQL(PersistentCollection $collection)
     {
+<<<<<<< HEAD
         $columns     = [];
         $types       = [];
+=======
+        $columns     = array();
+        $types       = array();
+>>>>>>> contactmanager
         $mapping     = $collection->getMapping();
         $class       = $this->em->getClassMetadata($mapping['sourceEntity']);
         $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
@@ -500,13 +592,21 @@ class ManyToManyPersister extends AbstractCollectionPersister
             $types[]   = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
         }
 
+<<<<<<< HEAD
         return [
+=======
+        return array(
+>>>>>>> contactmanager
             'INSERT INTO ' . $this->quoteStrategy->getJoinTableName($mapping, $class, $this->platform)
             . ' (' . implode(', ', $columns) . ')'
             . ' VALUES'
             . ' (' . implode(', ', array_fill(0, count($columns), '?')) . ')',
             $types,
+<<<<<<< HEAD
         ];
+=======
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -536,14 +636,21 @@ class ManyToManyPersister extends AbstractCollectionPersister
      */
     private function collectJoinTableColumnParameters(PersistentCollection $collection, $element)
     {
+<<<<<<< HEAD
         $params      = [];
+=======
+        $params      = array();
+>>>>>>> contactmanager
         $mapping     = $collection->getMapping();
         $isComposite = count($mapping['joinTableColumns']) > 2;
 
         $identifier1 = $this->uow->getEntityIdentifier($collection->getOwner());
         $identifier2 = $this->uow->getEntityIdentifier($element);
 
+<<<<<<< HEAD
         $class1 = $class2 = null;
+=======
+>>>>>>> contactmanager
         if ($isComposite) {
             $class1 = $this->em->getClassMetadata(get_class($collection->getOwner()));
             $class2 = $collection->getTypeClass();
@@ -604,14 +711,24 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
 
         $quotedJoinTable = $this->quoteStrategy->getJoinTableName($mapping, $associationSourceClass, $this->platform). ' t';
+<<<<<<< HEAD
         $whereClauses    = [];
         $params          = [];
         $types           = [];
+=======
+        $whereClauses    = array();
+        $params          = array();
+        $types           = array();
+>>>>>>> contactmanager
 
         $joinNeeded = ! in_array($indexBy, $targetClass->identifier);
 
         if ($joinNeeded) { // extra join needed if indexBy is not a @id
+<<<<<<< HEAD
             $joinConditions = [];
+=======
+            $joinConditions = array();
+>>>>>>> contactmanager
 
             foreach ($joinColumns as $joinTableColumn) {
                 $joinConditions[] = 't.' . $joinTableColumn['name'] . ' = tr.' . $joinTableColumn['referencedColumnName'];
@@ -652,7 +769,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
             }
         }
 
+<<<<<<< HEAD
         return [$quotedJoinTable, $whereClauses, $params, $types];
+=======
+        return array($quotedJoinTable, $whereClauses, $params, $types);
+>>>>>>> contactmanager
     }
 
     /**
@@ -686,9 +807,15 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
 
         $quotedJoinTable = $this->quoteStrategy->getJoinTableName($mapping, $sourceClass, $this->platform);
+<<<<<<< HEAD
         $whereClauses    = [];
         $params          = [];
         $types           = [];
+=======
+        $whereClauses    = array();
+        $params          = array();
+        $types           = array();
+>>>>>>> contactmanager
 
         foreach ($mapping['joinTableColumns'] as $joinTableColumn) {
             $whereClauses[] = ($addFilters ? 't.' : '') . $joinTableColumn . ' = ?';
@@ -718,7 +845,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
             }
         }
 
+<<<<<<< HEAD
         return [$quotedJoinTable, $whereClauses, $params, $types];
+=======
+        return array($quotedJoinTable, $whereClauses, $params, $types);
+>>>>>>> contactmanager
     }
 
     /**
@@ -734,13 +865,18 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $expression = $criteria->getWhereExpression();
 
         if ($expression === null) {
+<<<<<<< HEAD
             return [];
+=======
+            return array();
+>>>>>>> contactmanager
         }
 
         $valueVisitor = new SqlValueVisitor();
 
         $valueVisitor->dispatch($expression);
 
+<<<<<<< HEAD
         list(, $types) = $valueVisitor->getParamsAndTypes();
 
         return $types;
@@ -784,4 +920,10 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
         return '';
     }
+=======
+        list($values, $types) = $valueVisitor->getParamsAndTypes();
+
+        return $types;
+    }
+>>>>>>> contactmanager
 }

@@ -20,9 +20,14 @@
 namespace Doctrine\ORM\Persisters\Collection;
 
 use Doctrine\Common\Collections\Criteria;
+<<<<<<< HEAD
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\PersistentCollection;
 use Doctrine\ORM\Utility\PersisterHelper;
+=======
+use Doctrine\Common\Proxy\Proxy;
+use Doctrine\ORM\PersistentCollection;
+>>>>>>> contactmanager
 
 /**
  * Persister for one-to-many collections.
@@ -39,6 +44,7 @@ class OneToManyPersister extends AbstractCollectionPersister
      */
     public function delete(PersistentCollection $collection)
     {
+<<<<<<< HEAD
         // The only valid case here is when you have weak entities. In this
         // scenario, you have @OneToMany with orphanRemoval=true, and replacing
         // the entire collection with a new would trigger this operation.
@@ -56,6 +62,12 @@ class OneToManyPersister extends AbstractCollectionPersister
         return $targetClass->isInheritanceTypeJoined()
             ? $this->deleteJoinedEntityCollection($collection)
             : $this->deleteEntityCollection($collection);
+=======
+        // This can never happen. One to many can only be inverse side.
+        // For owning side one to many, it is required to have a join table,
+        // then classifying it as a ManyToManyPersister.
+        return;
+>>>>>>> contactmanager
     }
 
     /**
@@ -83,6 +95,7 @@ class OneToManyPersister extends AbstractCollectionPersister
         $persister = $this->uow->getEntityPersister($mapping['targetEntity']);
 
         return $persister->load(
+<<<<<<< HEAD
             [
                 $mapping['mappedBy'] => $collection->getOwner(),
                 $mapping['indexBy']  => $index
@@ -90,6 +103,15 @@ class OneToManyPersister extends AbstractCollectionPersister
             null,
             $mapping,
             [],
+=======
+            array(
+                $mapping['mappedBy'] => $collection->getOwner(),
+                $mapping['indexBy']  => $index
+            ),
+            null,
+            $mapping,
+            array(),
+>>>>>>> contactmanager
             null,
             1
         );
@@ -195,6 +217,7 @@ class OneToManyPersister extends AbstractCollectionPersister
     {
         throw new \BadMethodCallException("Filtering a collection by Criteria is not supported by this CollectionPersister.");
     }
+<<<<<<< HEAD
 
     /**
      * @param PersistentCollection $collection
@@ -288,4 +311,6 @@ class OneToManyPersister extends AbstractCollectionPersister
 
         return $numDeleted;
     }
+=======
+>>>>>>> contactmanager
 }

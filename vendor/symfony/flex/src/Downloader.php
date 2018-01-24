@@ -20,8 +20,11 @@ use Composer\Downloader\TransportException;
 use Composer\Factory;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
+<<<<<<< HEAD
 use Composer\Plugin\PluginEvents;
 use Composer\Plugin\PreFileDownloadEvent;
+=======
+>>>>>>> contactmanager
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -39,9 +42,14 @@ class Downloader
     private $endpoint;
     private $caFile;
     private $flexId;
+<<<<<<< HEAD
     private $eventDispatcher;
 
     public function __construct(Composer $composer, IoInterface $io, ParallelDownloader $rfs)
+=======
+
+    public function __construct(Composer $composer, IoInterface $io)
+>>>>>>> contactmanager
     {
         if (getenv('SYMFONY_CAFILE')) {
             $this->caFile = getenv('SYMFONY_CAFILE');
@@ -54,8 +62,12 @@ class Downloader
         $this->endpoint = rtrim($endpoint, '/');
         $this->io = $io;
         $config = $composer->getConfig();
+<<<<<<< HEAD
         $this->eventDispatcher = $composer->getEventDispatcher();
         $this->rfs = $rfs;
+=======
+        $this->rfs = Factory::createRemoteFilesystem($io, $config);
+>>>>>>> contactmanager
         $this->cache = new Cache($io, $config->get('cache-repo-dir').'/'.preg_replace('{[^a-z0-9.]}i', '-', $this->endpoint));
         $this->sess = bin2hex(random_bytes(16));
 
@@ -113,7 +125,11 @@ class Downloader
                 $path .= ','.$date->format('U');
             }
             if (strlen($chunk) + strlen($path) > self::$MAX_LENGTH) {
+<<<<<<< HEAD
                 $paths[] = ['/p/'.$chunk];
+=======
+                $paths[] = '/p/'.$chunk;
+>>>>>>> contactmanager
                 $chunk = $path;
             } elseif ($chunk) {
                 $chunk .= ';'.$path;
@@ -122,6 +138,7 @@ class Downloader
             }
         }
         if ($chunk) {
+<<<<<<< HEAD
             $paths[] = ['/p/'.$chunk];
         }
 
@@ -134,6 +151,16 @@ class Downloader
 
         $data = [];
         foreach ($bodies as $body) {
+=======
+            $paths[] = '/p/'.$chunk;
+        }
+
+        $data = [];
+        foreach ($paths as $path) {
+            if (!$body = $this->get($path, [], false)->getBody()) {
+                continue;
+            }
+>>>>>>> contactmanager
             foreach ($body['manifests'] as $name => $manifest) {
                 $data['manifests'][$name] = $manifest;
             }
@@ -144,7 +171,10 @@ class Downloader
                 $data['locks'][$name] = $lock;
             }
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return $data;
     }
 
@@ -183,7 +213,11 @@ class Downloader
             try {
                 $json = $this->rfs->getContents($this->endpoint, $url, false, $options);
 
+<<<<<<< HEAD
                 return $this->parseJson($json, $url, $cacheKey, $this->rfs->getLastHeaders());
+=======
+                return $this->parseJson($json, $url, $cacheKey);
+>>>>>>> contactmanager
             } catch (\Exception $e) {
                 if ($e instanceof TransportException && 404 === $e->getStatusCode()) {
                     throw $e;
@@ -217,7 +251,11 @@ class Downloader
                     return new Response('', $this->rfs->getLastHeaders(), 304);
                 }
 
+<<<<<<< HEAD
                 return $this->parseJson($json, $url, $cacheKey, $this->rfs->getLastHeaders());
+=======
+                return $this->parseJson($json, $url, $cacheKey);
+>>>>>>> contactmanager
             } catch (\Exception $e) {
                 if ($e instanceof TransportException && 404 === $e->getStatusCode()) {
                     throw $e;
@@ -235,7 +273,11 @@ class Downloader
         }
     }
 
+<<<<<<< HEAD
     private function parseJson(string $json, string $url, string $cacheKey, array $lastHeaders): Response
+=======
+    private function parseJson(string $json, string $url, string $cacheKey): Response
+>>>>>>> contactmanager
     {
         $data = JsonFile::parseJson($json, $url);
         if (!empty($data['warning'])) {
@@ -245,7 +287,11 @@ class Downloader
             $this->io->writeError('<info>Info from '.$url.': '.$data['info'].'</info>');
         }
 
+<<<<<<< HEAD
         $response = new Response($data, $lastHeaders);
+=======
+        $response = new Response($data, $this->rfs->getLastHeaders());
+>>>>>>> contactmanager
         if ($response->getHeader('last-modified')) {
             $this->cache->write($cacheKey, json_encode($response));
         }

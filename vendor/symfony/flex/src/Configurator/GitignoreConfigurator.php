@@ -20,7 +20,11 @@ class GitignoreConfigurator extends AbstractConfigurator
 {
     public function configure(Recipe $recipe, $vars)
     {
+<<<<<<< HEAD
         $this->write('Added entries to .gitignore');
+=======
+        $this->write('Adding entries to .gitignore');
+>>>>>>> contactmanager
 
         $gitignore = getcwd().'/.gitignore';
         if ($this->isFileMarked($recipe, $gitignore)) {
@@ -46,7 +50,11 @@ class GitignoreConfigurator extends AbstractConfigurator
             return;
         }
 
+<<<<<<< HEAD
         $this->write('Removed entries in .gitignore');
+=======
+        $this->write('Removing entries in .gitignore');
+>>>>>>> contactmanager
         file_put_contents($file, ltrim($contents, "\r\n"));
     }
 }

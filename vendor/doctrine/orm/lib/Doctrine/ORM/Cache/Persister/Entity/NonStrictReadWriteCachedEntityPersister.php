@@ -20,6 +20,10 @@
 
 namespace Doctrine\ORM\Cache\Persister\Entity;
 
+<<<<<<< HEAD
+=======
+use Doctrine\Common\Util\ClassUtils;
+>>>>>>> contactmanager
 use Doctrine\ORM\Cache\EntityCacheKey;
 
 /**
@@ -62,7 +66,11 @@ class NonStrictReadWriteCachedEntityPersister extends AbstractEntityPersister
             $this->timestampRegion->update($this->timestampKey);
         }
 
+<<<<<<< HEAD
         $this->queuedCache = [];
+=======
+        $this->queuedCache = array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -70,7 +78,11 @@ class NonStrictReadWriteCachedEntityPersister extends AbstractEntityPersister
      */
     public function afterTransactionRolledBack()
     {
+<<<<<<< HEAD
         $this->queuedCache = [];
+=======
+        $this->queuedCache = array();
+>>>>>>> contactmanager
     }
 
     /**

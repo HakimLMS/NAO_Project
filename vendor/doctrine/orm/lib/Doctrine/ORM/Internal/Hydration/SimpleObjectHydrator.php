@@ -20,6 +20,10 @@
 namespace Doctrine\ORM\Internal\Hydration;
 
 use PDO;
+<<<<<<< HEAD
+=======
+use Doctrine\DBAL\Types\Type;
+>>>>>>> contactmanager
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query;
 
@@ -62,7 +66,11 @@ class SimpleObjectHydrator extends AbstractHydrator
      */
     protected function hydrateAllData()
     {
+<<<<<<< HEAD
         $result = [];
+=======
+        $result = array();
+>>>>>>> contactmanager
 
         while ($row = $this->_stmt->fetch(PDO::FETCH_ASSOC)) {
             $this->hydrateRowData($row, $result);
@@ -79,7 +87,11 @@ class SimpleObjectHydrator extends AbstractHydrator
     protected function hydrateRowData(array $sqlResult, array &$result)
     {
         $entityName = $this->class->name;
+<<<<<<< HEAD
         $data       = [];
+=======
+        $data       = array();
+>>>>>>> contactmanager
 
         // We need to find the correct entity class name if we have inheritance in resultset
         if ($this->class->inheritanceType !== ClassMetadata::INHERITANCE_TYPE_NONE) {

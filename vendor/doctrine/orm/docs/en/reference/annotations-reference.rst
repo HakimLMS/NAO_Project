@@ -37,11 +37,16 @@ Index
 -  :ref:`@ColumnResult <annref_column_result>`
 -  :ref:`@Cache <annref_cache>`
 -  :ref:`@ChangeTrackingPolicy <annref_changetrackingpolicy>`
+<<<<<<< HEAD
 -  :ref:`@CustomIdGenerator <annref_customidgenerator>`
 -  :ref:`@DiscriminatorColumn <annref_discriminatorcolumn>`
 -  :ref:`@DiscriminatorMap <annref_discriminatormap>`
 -  :ref:`@Embeddable <annref_embeddable>`
 -  :ref:`@Embedded <annref_embedded>`
+=======
+-  :ref:`@DiscriminatorColumn <annref_discriminatorcolumn>`
+-  :ref:`@DiscriminatorMap <annref_discriminatormap>`
+>>>>>>> contactmanager
 -  :ref:`@Entity <annref_entity>`
 -  :ref:`@EntityResult <annref_entity_result>`
 -  :ref:`@FieldResult <annref_field_result>`
@@ -113,7 +118,11 @@ Optional attributes:
 -  **unique**: Boolean value to determine if the value of the column
    should be unique across all rows of the underlying entities table.
 
+<<<<<<< HEAD
 -  **nullable**: Determines if NULL values allowed for this column. If not specified, default value is false.
+=======
+-  **nullable**: Determines if NULL values allowed for this column.
+>>>>>>> contactmanager
 
 -  **options**: Array of additional options:
 
@@ -134,9 +143,12 @@ Optional attributes:
 
    -  ``collation``: The collation of the column (only supported by Drizzle, Mysql, PostgreSQL>=9.1, Sqlite and SQLServer).
 
+<<<<<<< HEAD
    -  ``check``: Adds a check constraint type to the column (might not
       be supported by all vendors).
 
+=======
+>>>>>>> contactmanager
 -  **columnDefinition**: DDL SQL snippet that starts after the column
    name and specifies the complete (non-portable!) column definition.
    This attribute allows to make use of advanced RMDBS features.
@@ -237,6 +249,7 @@ Example:
      */
     class User {}
 
+<<<<<<< HEAD
 .. _annref_customidgenerator:
 
 @CustomIdGenerator
@@ -261,19 +274,28 @@ Example:
      */
     public $id;
 
+=======
+>>>>>>> contactmanager
 .. _annref_discriminatorcolumn:
 
 @DiscriminatorColumn
 ~~~~~~~~~~~~~~~~~~~~~
 
+<<<<<<< HEAD
 This annotation is an optional annotation for the topmost/super
+=======
+This annotation is a required annotation for the topmost/super
+>>>>>>> contactmanager
 class of an inheritance hierarchy. It specifies the details of the
 column which saves the name of the class, which the entity is
 actually instantiated as.
 
+<<<<<<< HEAD
 If this annotation is not specified, the discriminator column defaults
 to a string column of length 255 called ``dtype``.
 
+=======
+>>>>>>> contactmanager
 Required attributes:
 
 
@@ -312,6 +334,7 @@ depending on whether the classes are in the namespace or not.
         // ...
     }
 
+<<<<<<< HEAD
 
 .. _annref_embeddable:
 
@@ -373,6 +396,8 @@ Required attributes:
     // ...
 
 
+=======
+>>>>>>> contactmanager
 .. _annref_entity:
 
 @Entity
@@ -451,12 +476,19 @@ conjunction with @Id.
 If this annotation is not specified with @Id the NONE strategy is
 used as default.
 
+<<<<<<< HEAD
 Optional attributes:
+=======
+Required attributes:
+>>>>>>> contactmanager
 
 
 -  **strategy**: Set the name of the identifier generation strategy.
    Valid values are AUTO, SEQUENCE, TABLE, IDENTITY, UUID, CUSTOM and NONE.
+<<<<<<< HEAD
    If not specified, default value is AUTO.
+=======
+>>>>>>> contactmanager
 
 Example:
 
@@ -1306,6 +1338,7 @@ Example with partial indexes:
 .. _annref_version:
 
 @Version
+<<<<<<< HEAD
 ~~~~~~~~
 
 Marker annotation that defines a specified column as version attribute used in
@@ -1313,6 +1346,14 @@ an :ref:`optimistic locking <transactions-and-concurrency_optimistic-locking>`
 scenario. It only works on :ref:`@Column <annref_column>` annotations that have
 the type ``integer`` or ``datetime``. Combining ``@Version`` with
 :ref:`@Id <annref_id>` is not supported.
+=======
+~~~~~~~~~~~~~~
+
+Marker annotation that defines a specified column as version
+attribute used in an optimistic locking scenario. It only works on
+:ref:`@Column <annref_column>` annotations that have the type integer or
+datetime. Combining @Version with :ref:`@Id <annref_id>` is not supported.
+>>>>>>> contactmanager
 
 Example:
 

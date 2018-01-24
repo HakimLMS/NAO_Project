@@ -91,6 +91,7 @@ class ClassMetadataBuilder
      */
     public function addEmbedded($fieldName, $class, $columnPrefix = null)
     {
+<<<<<<< HEAD
         $this->cm->mapEmbedded(
             [
                 'fieldName'    => $fieldName,
@@ -98,6 +99,13 @@ class ClassMetadataBuilder
                 'columnPrefix' => $columnPrefix
             ]
         );
+=======
+        $this->cm->mapEmbedded(array(
+            'fieldName'    => $fieldName,
+            'class'        => $class,
+            'columnPrefix' => $columnPrefix
+        ));
+>>>>>>> contactmanager
 
         return $this;
     }
@@ -137,7 +145,11 @@ class ClassMetadataBuilder
      */
     public function setTable($name)
     {
+<<<<<<< HEAD
         $this->cm->setPrimaryTable(['name' => $name]);
+=======
+        $this->cm->setPrimaryTable(array('name' => $name));
+>>>>>>> contactmanager
 
         return $this;
     }
@@ -153,10 +165,17 @@ class ClassMetadataBuilder
     public function addIndex(array $columns, $name)
     {
         if (!isset($this->cm->table['indexes'])) {
+<<<<<<< HEAD
             $this->cm->table['indexes'] = [];
         }
 
         $this->cm->table['indexes'][$name] = ['columns' => $columns];
+=======
+            $this->cm->table['indexes'] = array();
+        }
+
+        $this->cm->table['indexes'][$name] = array('columns' => $columns);
+>>>>>>> contactmanager
 
         return $this;
     }
@@ -172,10 +191,17 @@ class ClassMetadataBuilder
     public function addUniqueConstraint(array $columns, $name)
     {
         if ( ! isset($this->cm->table['uniqueConstraints'])) {
+<<<<<<< HEAD
             $this->cm->table['uniqueConstraints'] = [];
         }
 
         $this->cm->table['uniqueConstraints'][$name] = ['columns' => $columns];
+=======
+            $this->cm->table['uniqueConstraints'] = array();
+        }
+
+        $this->cm->table['uniqueConstraints'][$name] = array('columns' => $columns);
+>>>>>>> contactmanager
 
         return $this;
     }
@@ -190,12 +216,19 @@ class ClassMetadataBuilder
      */
     public function addNamedQuery($name, $dqlQuery)
     {
+<<<<<<< HEAD
         $this->cm->addNamedQuery(
             [
                 'name' => $name,
                 'query' => $dqlQuery,
             ]
         );
+=======
+        $this->cm->addNamedQuery(array(
+            'name' => $name,
+            'query' => $dqlQuery,
+        ));
+>>>>>>> contactmanager
 
         return $this;
     }
@@ -235,6 +268,7 @@ class ClassMetadataBuilder
      */
     public function setDiscriminatorColumn($name, $type = 'string', $length = 255)
     {
+<<<<<<< HEAD
         $this->cm->setDiscriminatorColumn(
             [
                 'name' => $name,
@@ -242,6 +276,13 @@ class ClassMetadataBuilder
                 'length' => $length,
             ]
         );
+=======
+        $this->cm->setDiscriminatorColumn(array(
+            'name' => $name,
+            'type' => $type,
+            'length' => $length,
+        ));
+>>>>>>> contactmanager
 
         return $this;
     }
@@ -309,7 +350,11 @@ class ClassMetadataBuilder
      *
      * @return ClassMetadataBuilder
      */
+<<<<<<< HEAD
     public function addField($name, $type, array $mapping = [])
+=======
+    public function addField($name, $type, array $mapping = array())
+>>>>>>> contactmanager
     {
         $mapping['fieldName'] = $name;
         $mapping['type'] = $type;
@@ -331,10 +376,17 @@ class ClassMetadataBuilder
     {
         return new FieldBuilder(
             $this,
+<<<<<<< HEAD
             [
                 'fieldName' => $name,
                 'type'      => $type
             ]
+=======
+            array(
+                'fieldName' => $name,
+                'type'      => $type
+            )
+>>>>>>> contactmanager
         );
     }
 
@@ -350,11 +402,19 @@ class ClassMetadataBuilder
     {
         return new EmbeddedBuilder(
             $this,
+<<<<<<< HEAD
             [
                 'fieldName'    => $fieldName,
                 'class'        => $class,
                 'columnPrefix' => null
             ]
+=======
+            array(
+                'fieldName'    => $fieldName,
+                'class'        => $class,
+                'columnPrefix' => null
+            )
+>>>>>>> contactmanager
         );
     }
 
@@ -392,10 +452,17 @@ class ClassMetadataBuilder
     {
         return new AssociationBuilder(
             $this,
+<<<<<<< HEAD
             [
                 'fieldName'    => $name,
                 'targetEntity' => $targetEntity
             ],
+=======
+            array(
+                'fieldName'    => $name,
+                'targetEntity' => $targetEntity
+            ),
+>>>>>>> contactmanager
             ClassMetadata::MANY_TO_ONE
         );
     }
@@ -412,10 +479,17 @@ class ClassMetadataBuilder
     {
         return new AssociationBuilder(
             $this,
+<<<<<<< HEAD
             [
                 'fieldName'    => $name,
                 'targetEntity' => $targetEntity
             ],
+=======
+            array(
+                'fieldName'    => $name,
+                'targetEntity' => $targetEntity
+            ),
+>>>>>>> contactmanager
             ClassMetadata::ONE_TO_ONE
         );
     }
@@ -469,10 +543,17 @@ class ClassMetadataBuilder
     {
         return new ManyToManyAssociationBuilder(
             $this,
+<<<<<<< HEAD
             [
                 'fieldName'    => $name,
                 'targetEntity' => $targetEntity
             ],
+=======
+            array(
+                'fieldName'    => $name,
+                'targetEntity' => $targetEntity
+            ),
+>>>>>>> contactmanager
             ClassMetadata::MANY_TO_MANY
         );
     }
@@ -526,10 +607,17 @@ class ClassMetadataBuilder
     {
         return new OneToManyAssociationBuilder(
             $this,
+<<<<<<< HEAD
             [
                 'fieldName'    => $name,
                 'targetEntity' => $targetEntity
             ],
+=======
+            array(
+                'fieldName'    => $name,
+                'targetEntity' => $targetEntity
+            ),
+>>>>>>> contactmanager
             ClassMetadata::ONE_TO_MANY
         );
     }

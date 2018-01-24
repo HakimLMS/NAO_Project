@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -15,6 +16,18 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
+=======
+/**
+ * Doctrine ORM
+ *
+ * LICENSE
+ *
+ * This source file is subject to the new BSD license that is bundled
+ * with this package in the file LICENSE.txt.
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to kontakt@beberlei.de so I can send you a copy immediately.
+>>>>>>> contactmanager
  */
 
 namespace Doctrine\ORM\Tools\Pagination;
@@ -24,9 +37,24 @@ use Doctrine\DBAL\Platforms\OraclePlatform;
 use Doctrine\DBAL\Platforms\PostgreSqlPlatform;
 use Doctrine\DBAL\Platforms\SQLAnywherePlatform;
 use Doctrine\DBAL\Platforms\SQLServerPlatform;
+<<<<<<< HEAD
 use Doctrine\ORM\Query\AST\OrderByClause;
 use Doctrine\ORM\Query\AST\PartialObjectExpression;
 use Doctrine\ORM\Query\AST\SelectExpression;
+=======
+use Doctrine\ORM\Query\AST\ArithmeticExpression;
+use Doctrine\ORM\Query\AST\ArithmeticFactor;
+use Doctrine\ORM\Query\AST\ArithmeticTerm;
+use Doctrine\ORM\Query\AST\Literal;
+use Doctrine\ORM\Query\AST\OrderByClause;
+use Doctrine\ORM\Query\AST\OrderByItem;
+use Doctrine\ORM\Query\AST\PartialObjectExpression;
+use Doctrine\ORM\Query\AST\PathExpression;
+use Doctrine\ORM\Query\AST\SelectExpression;
+use Doctrine\ORM\Query\AST\SimpleArithmeticExpression;
+use Doctrine\ORM\Query\Expr\OrderBy;
+use Doctrine\ORM\Query\Expr\Select;
+>>>>>>> contactmanager
 use Doctrine\ORM\Query\SqlWalker;
 use Doctrine\ORM\Query\AST\SelectStatement;
 
@@ -43,8 +71,11 @@ use Doctrine\ORM\Query\AST\SelectStatement;
  */
 class LimitSubqueryOutputWalker extends SqlWalker
 {
+<<<<<<< HEAD
     private const ORDER_BY_PATH_EXPRESSION = '/(?<![a-z0-9_])%s\.%s(?![a-z0-9_])/i';
 
+=======
+>>>>>>> contactmanager
     /**
      * @var \Doctrine\DBAL\Platforms\AbstractPlatform
      */
@@ -356,6 +387,7 @@ class LimitSubqueryOutputWalker extends SqlWalker
     /**
      * Generates new SQL for statements with an order by clause
      *
+<<<<<<< HEAD
      * @param array              $sqlIdentifier
      * @param string             $innerSql
      * @param string             $sql
@@ -445,6 +477,71 @@ class LimitSubqueryOutputWalker extends SqlWalker
 
             // If the field is from a joined child table, we won't be ordering on it.
             if (! isset($class->fieldMappings[$fieldName])) {
+=======
+     * @param array           $sqlIdentifier
+     * @param string          $innerSql
+     * @param string          $sql
+     * @param OrderByClause   $orderByClause
+     *
+     * @return string
+     */
+    private function preserveSqlOrdering(array $sqlIdentifier, $innerSql, $sql, $orderByClause)
+    {
+        // If the sql statement has an order by clause, we need to wrap it in a new select distinct
+        // statement
+        if (! $orderByClause instanceof OrderByClause) {
+            return $sql;
+        }
+
+        // Rebuild the order by clause to work in the scope of the new select statement
+        /* @var array $orderBy an array of rebuilt order by items */
+        $orderBy = $this->rebuildOrderByClauseForOuterScope($orderByClause);
+
+        // Build the select distinct statement
+        $sql = sprintf(
+            'SELECT DISTINCT %s FROM (%s) dctrn_result ORDER BY %s',
+            implode(', ', $sqlIdentifier),
+            $innerSql,
+            implode(', ', $orderBy)
+        );
+
+        return $sql;
+    }
+
+    /**
+     * Generates a new order by clause that works in the scope of a select query wrapping the original
+     *
+     * @param OrderByClause $orderByClause
+     * @return array
+     */
+    private function rebuildOrderByClauseForOuterScope(OrderByClause $orderByClause)
+    {
+        $dqlAliasToSqlTableAliasMap
+            = $searchPatterns
+            = $replacements
+            = $dqlAliasToClassMap
+            = $selectListAdditions
+            = $orderByItems
+            = [];
+
+        // Generate DQL alias -> SQL table alias mapping
+        foreach(array_keys($this->rsm->aliasMap) as $dqlAlias) {
+            $dqlAliasToClassMap[$dqlAlias] = $class = $this->queryComponents[$dqlAlias]['metadata'];
+            $dqlAliasToSqlTableAliasMap[$dqlAlias] = $this->getSQLTableAlias($class->getTableName(), $dqlAlias);
+        }
+
+        // Pattern to find table path expressions in the order by clause
+        $fieldSearchPattern = '/(?<![a-z0-9_])%s\.%s(?![a-z0-9_])/i';
+
+        // Generate search patterns for each field's path expression in the order by clause
+        foreach($this->rsm->fieldMappings as $fieldAlias => $fieldName) {
+            $dqlAliasForFieldAlias = $this->rsm->columnOwnerMap[$fieldAlias];
+            $class = $dqlAliasToClassMap[$dqlAliasForFieldAlias];
+
+            // If the field is from a joined child table, we won't be ordering
+            // on it.
+            if (!isset($class->fieldMappings[$fieldName])) {
+>>>>>>> contactmanager
                 continue;
             }
 
@@ -453,17 +550,26 @@ class LimitSubqueryOutputWalker extends SqlWalker
             // Get the proper column name as will appear in the select list
             $columnName = $this->quoteStrategy->getColumnName(
                 $fieldName,
+<<<<<<< HEAD
                 $metadataList[$dqlAliasForFieldAlias],
+=======
+                $dqlAliasToClassMap[$dqlAliasForFieldAlias],
+>>>>>>> contactmanager
                 $this->em->getConnection()->getDatabasePlatform()
             );
 
             // Get the SQL table alias for the entity and field
+<<<<<<< HEAD
             $sqlTableAliasForFieldAlias = $aliasMap[$dqlAliasForFieldAlias];
 
+=======
+            $sqlTableAliasForFieldAlias = $dqlAliasToSqlTableAliasMap[$dqlAliasForFieldAlias];
+>>>>>>> contactmanager
             if (isset($fieldMapping['declared']) && $fieldMapping['declared'] !== $class->name) {
                 // Field was declared in a parent class, so we need to get the proper SQL table alias
                 // for the joined parent table.
                 $otherClassMetadata = $this->em->getClassMetadata($fieldMapping['declared']);
+<<<<<<< HEAD
 
                 if (! $otherClassMetadata->isMappedSuperclass) {
                     $sqlTableAliasForFieldAlias = $this->getSQLTableAlias($otherClassMetadata->getTableName(), $dqlAliasForFieldAlias);
@@ -476,6 +582,30 @@ class LimitSubqueryOutputWalker extends SqlWalker
         }
 
         return [$searchPatterns, $replacements];
+=======
+                if (!$otherClassMetadata->isMappedSuperclass) {
+                    $sqlTableAliasForFieldAlias = $this->getSQLTableAlias($otherClassMetadata->getTableName(), $dqlAliasForFieldAlias);
+                    
+                }
+            }
+
+            // Compose search/replace patterns
+            $searchPatterns[] = sprintf($fieldSearchPattern, $sqlTableAliasForFieldAlias, $columnName);
+            $replacements[] = $fieldAlias;
+        }
+
+        foreach($orderByClause->orderByItems as $orderByItem) {
+            // Walk order by item to get string representation of it
+            $orderByItemString = $this->walkOrderByItem($orderByItem);
+
+            // Replace path expressions in the order by clause with their column alias
+            $orderByItemString = preg_replace($searchPatterns, $replacements, $orderByItemString);
+
+            $orderByItems[] = $orderByItemString;
+        }
+
+        return $orderByItems;
+>>>>>>> contactmanager
     }
 
     /**

@@ -19,6 +19,7 @@
 
 namespace Doctrine\ORM;
 
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\NotifyPropertyChanged;
@@ -46,6 +47,39 @@ use Doctrine\ORM\Utility\IdentifierFlattener;
 use InvalidArgumentException;
 use Throwable;
 use UnexpectedValueException;
+=======
+use Doctrine\Common\Persistence\Mapping\RuntimeReflectionService;
+use Doctrine\DBAL\LockMode;
+use Doctrine\ORM\Internal\HydrationCompleteHandler;
+use Doctrine\ORM\Mapping\Reflection\ReflectionPropertiesGetter;
+use Exception;
+use InvalidArgumentException;
+use UnexpectedValueException;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\NotifyPropertyChanged;
+use Doctrine\Common\PropertyChangedListener;
+use Doctrine\Common\Persistence\ObjectManagerAware;
+use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\ORM\Proxy\Proxy;
+
+use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\Event\PreUpdateEventArgs;
+use Doctrine\ORM\Event\PreFlushEventArgs;
+use Doctrine\ORM\Event\OnFlushEventArgs;
+use Doctrine\ORM\Event\PostFlushEventArgs;
+use Doctrine\ORM\Event\ListenersInvoker;
+
+use Doctrine\ORM\Cache\Persister\CachedPersister;
+use Doctrine\ORM\Persisters\Entity\BasicEntityPersister;
+use Doctrine\ORM\Persisters\Entity\SingleTablePersister;
+use Doctrine\ORM\Persisters\Entity\JoinedSubclassPersister;
+use Doctrine\ORM\Persisters\Collection\OneToManyPersister;
+use Doctrine\ORM\Persisters\Collection\ManyToManyPersister;
+use Doctrine\ORM\Utility\IdentifierFlattener;
+use Doctrine\ORM\Cache\AssociationCacheEntry;
+>>>>>>> contactmanager
 
 /**
  * The UnitOfWork is responsible for tracking changes to objects during an
@@ -102,7 +136,11 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @var array
      */
+<<<<<<< HEAD
     private $identityMap = [];
+=======
+    private $identityMap = array();
+>>>>>>> contactmanager
 
     /**
      * Map of all identifiers of managed entities.
@@ -110,7 +148,11 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @var array
      */
+<<<<<<< HEAD
     private $entityIdentifiers = [];
+=======
+    private $entityIdentifiers = array();
+>>>>>>> contactmanager
 
     /**
      * Map of the original entity data of managed entities.
@@ -123,7 +165,11 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @var array
      */
+<<<<<<< HEAD
     private $originalEntityData = [];
+=======
+    private $originalEntityData = array();
+>>>>>>> contactmanager
 
     /**
      * Map of entity changes. Keys are object ids (spl_object_hash).
@@ -131,7 +177,11 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @var array
      */
+<<<<<<< HEAD
     private $entityChangeSets = [];
+=======
+    private $entityChangeSets = array();
+>>>>>>> contactmanager
 
     /**
      * The (cached) states of any known entities.
@@ -139,7 +189,11 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @var array
      */
+<<<<<<< HEAD
     private $entityStates = [];
+=======
+    private $entityStates = array();
+>>>>>>> contactmanager
 
     /**
      * Map of entities that are scheduled for dirty checking at commit time.
@@ -148,34 +202,51 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @var array
      */
+<<<<<<< HEAD
     private $scheduledForSynchronization = [];
+=======
+    private $scheduledForSynchronization = array();
+>>>>>>> contactmanager
 
     /**
      * A list of all pending entity insertions.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $entityInsertions = [];
+=======
+    private $entityInsertions = array();
+>>>>>>> contactmanager
 
     /**
      * A list of all pending entity updates.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $entityUpdates = [];
+=======
+    private $entityUpdates = array();
+>>>>>>> contactmanager
 
     /**
      * Any pending extra updates that have been scheduled by persisters.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $extraUpdates = [];
+=======
+    private $extraUpdates = array();
+>>>>>>> contactmanager
 
     /**
      * A list of all pending entity deletions.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $entityDeletions = [];
 
     /**
@@ -190,20 +261,31 @@ class UnitOfWork implements PropertyChangedListener
      * @var object[][]|array[][] indexed by respective object spl_object_hash()
      */
     private $nonCascadedNewDetectedEntities = [];
+=======
+    private $entityDeletions = array();
+>>>>>>> contactmanager
 
     /**
      * All pending collection deletions.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $collectionDeletions = [];
+=======
+    private $collectionDeletions = array();
+>>>>>>> contactmanager
 
     /**
      * All pending collection updates.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $collectionUpdates = [];
+=======
+    private $collectionUpdates = array();
+>>>>>>> contactmanager
 
     /**
      * List of collections visited during changeset calculation on a commit-phase of a UnitOfWork.
@@ -212,7 +294,11 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @var array
      */
+<<<<<<< HEAD
     private $visitedCollections = [];
+=======
+    private $visitedCollections = array();
+>>>>>>> contactmanager
 
     /**
      * The EntityManager that "owns" this UnitOfWork instance.
@@ -222,18 +308,37 @@ class UnitOfWork implements PropertyChangedListener
     private $em;
 
     /**
+<<<<<<< HEAD
+=======
+     * The calculator used to calculate the order in which changes to
+     * entities need to be written to the database.
+     *
+     * @var \Doctrine\ORM\Internal\CommitOrderCalculator
+     */
+    private $commitOrderCalculator;
+
+    /**
+>>>>>>> contactmanager
      * The entity persister instances used to persist entity instances.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $persisters = [];
+=======
+    private $persisters = array();
+>>>>>>> contactmanager
 
     /**
      * The collection persister instances used to persist collections.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $collectionPersisters = [];
+=======
+    private $collectionPersisters = array();
+>>>>>>> contactmanager
 
     /**
      * The EventManager used for dispatching events.
@@ -261,21 +366,33 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @var array
      */
+<<<<<<< HEAD
     private $orphanRemovals = [];
+=======
+    private $orphanRemovals = array();
+>>>>>>> contactmanager
 
     /**
      * Read-Only objects are never evaluated
      *
      * @var array
      */
+<<<<<<< HEAD
     private $readOnlyObjects = [];
+=======
+    private $readOnlyObjects = array();
+>>>>>>> contactmanager
 
     /**
      * Map of Entity Class-Names and corresponding IDs that should eager loaded when requested.
      *
      * @var array
      */
+<<<<<<< HEAD
     private $eagerLoadingEntities = [];
+=======
+    private $eagerLoadingEntities = array();
+>>>>>>> contactmanager
 
     /**
      * @var boolean
@@ -337,7 +454,11 @@ class UnitOfWork implements PropertyChangedListener
         }
 
         // Compute changes done since last commit.
+<<<<<<< HEAD
         if (null === $entity) {
+=======
+        if ($entity === null) {
+>>>>>>> contactmanager
             $this->computeChangeSets();
         } elseif (is_object($entity)) {
             $this->computeSingleEntityChangeSet($entity);
@@ -359,8 +480,11 @@ class UnitOfWork implements PropertyChangedListener
             return; // Nothing to do.
         }
 
+<<<<<<< HEAD
         $this->assertThatThereAreNoUnintentionallyNonPersistedAssociations();
 
+=======
+>>>>>>> contactmanager
         if ($this->orphanRemovals) {
             foreach ($this->orphanRemovals as $orphan) {
                 $this->remove($orphan);
@@ -376,11 +500,14 @@ class UnitOfWork implements PropertyChangedListener
         $conn->beginTransaction();
 
         try {
+<<<<<<< HEAD
             // Collection deletions (deletions of complete collections)
             foreach ($this->collectionDeletions as $collectionToDelete) {
                 $this->getCollectionPersister($collectionToDelete->getMapping())->delete($collectionToDelete);
             }
 
+=======
+>>>>>>> contactmanager
             if ($this->entityInsertions) {
                 foreach ($commitOrder as $class) {
                     $this->executeInserts($class);
@@ -398,6 +525,14 @@ class UnitOfWork implements PropertyChangedListener
                 $this->executeExtraUpdates();
             }
 
+<<<<<<< HEAD
+=======
+            // Collection deletions (deletions of complete collections)
+            foreach ($this->collectionDeletions as $collectionToDelete) {
+                $this->getCollectionPersister($collectionToDelete->getMapping())->delete($collectionToDelete);
+            }
+
+>>>>>>> contactmanager
             // Collection updates (deleteRows, updateRows, insertRows)
             foreach ($this->collectionUpdates as $collectionToUpdate) {
                 $this->getCollectionPersister($collectionToUpdate->getMapping())->update($collectionToUpdate);
@@ -411,9 +546,15 @@ class UnitOfWork implements PropertyChangedListener
             }
 
             $conn->commit();
+<<<<<<< HEAD
         } catch (Throwable $e) {
             $this->em->close();
             $conn->rollBack();
+=======
+        } catch (Exception $e) {
+            $this->em->close();
+            $conn->rollback();
+>>>>>>> contactmanager
 
             $this->afterTransactionRolledBack();
 
@@ -429,6 +570,7 @@ class UnitOfWork implements PropertyChangedListener
 
         $this->dispatchPostFlushEvent();
 
+<<<<<<< HEAD
         $this->postCommitCleanup($entity);
     }
 
@@ -437,10 +579,14 @@ class UnitOfWork implements PropertyChangedListener
      */
     private function postCommitCleanup($entity) : void
     {
+=======
+        // Clear up
+>>>>>>> contactmanager
         $this->entityInsertions =
         $this->entityUpdates =
         $this->entityDeletions =
         $this->extraUpdates =
+<<<<<<< HEAD
         $this->collectionUpdates =
         $this->nonCascadedNewDetectedEntities =
         $this->collectionDeletions =
@@ -464,6 +610,14 @@ class UnitOfWork implements PropertyChangedListener
 
             unset($this->scheduledForSynchronization[$this->em->getClassMetadata(\get_class($object))->rootEntityName][$oid]);
         }
+=======
+        $this->entityChangeSets =
+        $this->collectionUpdates =
+        $this->collectionDeletions =
+        $this->visitedCollections =
+        $this->scheduledForSynchronization =
+        $this->orphanRemovals = array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -540,7 +694,11 @@ class UnitOfWork implements PropertyChangedListener
             $this->getEntityPersister(get_class($entity))->update($entity);
         }
 
+<<<<<<< HEAD
         $this->extraUpdates = [];
+=======
+        $this->extraUpdates = array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -550,6 +708,7 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @return array
      */
+<<<<<<< HEAD
     public function & getEntityChangeSet($entity)
     {
         $oid  = spl_object_hash($entity);
@@ -560,6 +719,17 @@ class UnitOfWork implements PropertyChangedListener
         }
 
         return $this->entityChangeSets[$oid];
+=======
+    public function getEntityChangeSet($entity)
+    {
+        $oid = spl_object_hash($entity);
+
+        if (isset($this->entityChangeSets[$oid])) {
+            return $this->entityChangeSets[$oid];
+        }
+
+        return array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -591,8 +761,13 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @internal Don't call from the outside.
      *
+<<<<<<< HEAD
      * @param ClassMetadata $class  The class descriptor of the entity.
      * @param object        $entity The entity for which to compute the changes.
+=======
+     * @param ClassMetadata $class The class descriptor of the entity.
+     * @param object $entity The entity for which to compute the changes.
+>>>>>>> contactmanager
      *
      * @return void
      */
@@ -614,7 +789,11 @@ class UnitOfWork implements PropertyChangedListener
             $this->listenersInvoker->invoke($class, Events::preFlush, $entity, new PreFlushEventArgs($this->em), $invoke);
         }
 
+<<<<<<< HEAD
         $actualData = [];
+=======
+        $actualData = array();
+>>>>>>> contactmanager
 
         foreach ($class->reflFields as $name => $refProp) {
             $value = $refProp->getValue($entity);
@@ -658,11 +837,19 @@ class UnitOfWork implements PropertyChangedListener
             // Entity is either NEW or MANAGED but not yet fully persisted (only has an id).
             // These result in an INSERT.
             $this->originalEntityData[$oid] = $actualData;
+<<<<<<< HEAD
             $changeSet = [];
 
             foreach ($actualData as $propName => $actualValue) {
                 if ( ! isset($class->associationMappings[$propName])) {
                     $changeSet[$propName] = [null, $actualValue];
+=======
+            $changeSet = array();
+
+            foreach ($actualData as $propName => $actualValue) {
+                if ( ! isset($class->associationMappings[$propName])) {
+                    $changeSet[$propName] = array(null, $actualValue);
+>>>>>>> contactmanager
 
                     continue;
                 }
@@ -670,7 +857,11 @@ class UnitOfWork implements PropertyChangedListener
                 $assoc = $class->associationMappings[$propName];
 
                 if ($assoc['isOwningSide'] && $assoc['type'] & ClassMetadata::TO_ONE) {
+<<<<<<< HEAD
                     $changeSet[$propName] = [null, $actualValue];
+=======
+                    $changeSet[$propName] = array(null, $actualValue);
+>>>>>>> contactmanager
                 }
             }
 
@@ -682,7 +873,11 @@ class UnitOfWork implements PropertyChangedListener
             $isChangeTrackingNotify = $class->isChangeTrackingNotify();
             $changeSet              = ($isChangeTrackingNotify && isset($this->entityChangeSets[$oid]))
                 ? $this->entityChangeSets[$oid]
+<<<<<<< HEAD
                 : [];
+=======
+                : array();
+>>>>>>> contactmanager
 
             foreach ($actualData as $propName => $actualValue) {
                 // skip field, its a partially omitted one!
@@ -703,7 +898,11 @@ class UnitOfWork implements PropertyChangedListener
                         continue;
                     }
 
+<<<<<<< HEAD
                     $changeSet[$propName] = [$orgValue, $actualValue];
+=======
+                    $changeSet[$propName] = array($orgValue, $actualValue);
+>>>>>>> contactmanager
 
                     continue;
                 }
@@ -743,7 +942,11 @@ class UnitOfWork implements PropertyChangedListener
 
                 if ($assoc['type'] & ClassMetadata::TO_ONE) {
                     if ($assoc['isOwningSide']) {
+<<<<<<< HEAD
                         $changeSet[$propName] = [$orgValue, $actualValue];
+=======
+                        $changeSet[$propName] = array($orgValue, $actualValue);
+>>>>>>> contactmanager
                     }
 
                     if ($orgValue !== null && $assoc['orphanRemoval']) {
@@ -773,7 +976,11 @@ class UnitOfWork implements PropertyChangedListener
                 $val instanceof PersistentCollection &&
                 $val->isDirty()) {
 
+<<<<<<< HEAD
                 $this->entityChangeSets[$oid]   = [];
+=======
+                $this->entityChangeSets[$oid]   = array();
+>>>>>>> contactmanager
                 $this->originalEntityData[$oid] = $actualData;
                 $this->entityUpdates[$oid]      = $entity;
             }
@@ -813,7 +1020,11 @@ class UnitOfWork implements PropertyChangedListener
                     break;
 
                 default:
+<<<<<<< HEAD
                     $entitiesToProcess = [];
+=======
+                    $entitiesToProcess = array();
+>>>>>>> contactmanager
 
             }
 
@@ -836,8 +1047,13 @@ class UnitOfWork implements PropertyChangedListener
     /**
      * Computes the changes of an association.
      *
+<<<<<<< HEAD
      * @param array $assoc The association mapping.
      * @param mixed $value The value of the association.
+=======
+     * @param array $assoc  The association mapping.
+     * @param mixed $value  The value of the association.
+>>>>>>> contactmanager
      *
      * @throws ORMInvalidArgumentException
      * @throws ORMException
@@ -860,7 +1076,11 @@ class UnitOfWork implements PropertyChangedListener
         // Look through the entities, and in any of their associations,
         // for transient (new) entities, recursively. ("Persistence by reachability")
         // Unwrap. Uninitialized collections will simply be empty.
+<<<<<<< HEAD
         $unwrappedValue = ($assoc['type'] & ClassMetadata::TO_ONE) ? [$value] : $value->unwrap();
+=======
+        $unwrappedValue = ($assoc['type'] & ClassMetadata::TO_ONE) ? array($value) : $value->unwrap();
+>>>>>>> contactmanager
         $targetClass    = $this->em->getClassMetadata($assoc['targetEntity']);
 
         foreach ($unwrappedValue as $key => $entry) {
@@ -877,6 +1097,7 @@ class UnitOfWork implements PropertyChangedListener
             switch ($state) {
                 case self::STATE_NEW:
                     if ( ! $assoc['isCascadePersist']) {
+<<<<<<< HEAD
                         /*
                          * For now just record the details, because this may
                          * not be an issue if we later discover another pathway
@@ -886,11 +1107,17 @@ class UnitOfWork implements PropertyChangedListener
                         $this->nonCascadedNewDetectedEntities[\spl_object_hash($entry)] = [$assoc, $entry];
 
                         break;
+=======
+                        throw ORMInvalidArgumentException::newEntityFoundThroughRelationship($assoc, $entry);
+>>>>>>> contactmanager
                     }
 
                     $this->persistNew($targetClass, $entry);
                     $this->computeChangeSet($targetClass, $entry);
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
                     break;
 
                 case self::STATE_REMOVED:
@@ -916,7 +1143,11 @@ class UnitOfWork implements PropertyChangedListener
 
     /**
      * @param \Doctrine\ORM\Mapping\ClassMetadata $class
+<<<<<<< HEAD
      * @param object                              $entity
+=======
+     * @param object        $entity
+>>>>>>> contactmanager
      *
      * @return void
      */
@@ -935,7 +1166,11 @@ class UnitOfWork implements PropertyChangedListener
             $idValue = $idGen->generate($this->em, $entity);
 
             if ( ! $idGen instanceof \Doctrine\ORM\Id\AssignedGenerator) {
+<<<<<<< HEAD
                 $idValue = [$class->getSingleIdentifierFieldName() => $this->convertSingleFieldIdentifierToPHPValue($class, $idValue)];
+=======
+                $idValue = array($class->identifier[0] => $idValue);
+>>>>>>> contactmanager
 
                 $class->setIdentifierValues($entity, $idValue);
             }
@@ -983,7 +1218,11 @@ class UnitOfWork implements PropertyChangedListener
             $class = $this->em->getClassMetadata(get_class($entity));
         }
 
+<<<<<<< HEAD
         $actualData = [];
+=======
+        $actualData = array();
+>>>>>>> contactmanager
 
         foreach ($class->reflFields as $name => $refProp) {
             if (( ! $class->isIdentifier($name) || ! $class->isIdGeneratorIdentity())
@@ -998,6 +1237,7 @@ class UnitOfWork implements PropertyChangedListener
         }
 
         $originalData = $this->originalEntityData[$oid];
+<<<<<<< HEAD
         $changeSet = [];
 
         foreach ($actualData as $propName => $actualValue) {
@@ -1005,6 +1245,15 @@ class UnitOfWork implements PropertyChangedListener
 
             if ($orgValue !== $actualValue) {
                 $changeSet[$propName] = [$orgValue, $actualValue];
+=======
+        $changeSet = array();
+
+        foreach ($actualData as $propName => $actualValue) {
+            $orgValue = isset($originalData[$propName]) ? $originalData[$propName] : null;
+
+            if ($orgValue !== $actualValue) {
+                $changeSet[$propName] = array($orgValue, $actualValue);
+>>>>>>> contactmanager
             }
         }
 
@@ -1028,7 +1277,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     private function executeInserts($class)
     {
+<<<<<<< HEAD
         $entities   = [];
+=======
+        $entities   = array();
+>>>>>>> contactmanager
         $className  = $class->name;
         $persister  = $this->getEntityPersister($className);
         $invoke     = $this->listenersInvoker->getSubscribedSystems($class, Events::postPersist);
@@ -1053,6 +1306,7 @@ class UnitOfWork implements PropertyChangedListener
         if ($postInsertIds) {
             // Persister returned post-insert IDs
             foreach ($postInsertIds as $postInsertId) {
+<<<<<<< HEAD
                 $idField = $class->getSingleIdentifierFieldName();
                 $idValue = $this->convertSingleFieldIdentifierToPHPValue($class, $postInsertId['generatedId']);
 
@@ -1064,6 +1318,18 @@ class UnitOfWork implements PropertyChangedListener
                 $this->entityIdentifiers[$oid] = [$idField => $idValue];
                 $this->entityStates[$oid] = self::STATE_MANAGED;
                 $this->originalEntityData[$oid][$idField] = $idValue;
+=======
+                $id      = $postInsertId['generatedId'];
+                $entity  = $postInsertId['entity'];
+                $oid     = spl_object_hash($entity);
+                $idField = $class->identifier[0];
+
+                $class->reflFields[$idField]->setValue($entity, $id);
+
+                $this->entityIdentifiers[$oid] = array($idField => $id);
+                $this->entityStates[$oid] = self::STATE_MANAGED;
+                $this->originalEntityData[$oid][$idField] = $id;
+>>>>>>> contactmanager
 
                 $this->addToIdentityMap($entity);
             }
@@ -1089,13 +1355,21 @@ class UnitOfWork implements PropertyChangedListener
         $postUpdateInvoke   = $this->listenersInvoker->getSubscribedSystems($class, Events::postUpdate);
 
         foreach ($this->entityUpdates as $oid => $entity) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> contactmanager
             if ($this->em->getClassMetadata(get_class($entity))->name !== $className) {
                 continue;
             }
 
             if ($preUpdateInvoke != ListenersInvoker::INVOKE_NONE) {
+<<<<<<< HEAD
                 $this->listenersInvoker->invoke($class, Events::preUpdate, $entity, new PreUpdateEventArgs($entity, $this->em, $this->getEntityChangeSet($entity)), $preUpdateInvoke);
 
+=======
+                $this->listenersInvoker->invoke($class, Events::preUpdate, $entity, new PreUpdateEventArgs($entity, $this->em, $this->entityChangeSets[$oid]), $preUpdateInvoke);
+>>>>>>> contactmanager
                 $this->recomputeSingleEntityChangeSet($class, $entity);
             }
 
@@ -1171,16 +1445,28 @@ class UnitOfWork implements PropertyChangedListener
         // We have to inspect changeSet to be able to correctly build dependencies.
         // It is not possible to use IdentityMap here because post inserted ids
         // are not yet available.
+<<<<<<< HEAD
         $newNodes = [];
+=======
+        $newNodes = array();
+>>>>>>> contactmanager
 
         foreach ($entityChangeSet as $entity) {
             $class = $this->em->getClassMetadata(get_class($entity));
 
+<<<<<<< HEAD
             if ($calc->hasNode($class->name)) {
                 continue;
             }
 
             $calc->addNode($class->name, $class);
+=======
+            if ($calc->hasClass($class->name)) {
+                continue;
+            }
+
+            $calc->addClass($class);
+>>>>>>> contactmanager
 
             $newNodes[] = $class;
         }
@@ -1194,15 +1480,24 @@ class UnitOfWork implements PropertyChangedListener
 
                 $targetClass = $this->em->getClassMetadata($assoc['targetEntity']);
 
+<<<<<<< HEAD
                 if ( ! $calc->hasNode($targetClass->name)) {
                     $calc->addNode($targetClass->name, $targetClass);
+=======
+                if ( ! $calc->hasClass($targetClass->name)) {
+                    $calc->addClass($targetClass);
+>>>>>>> contactmanager
 
                     $newNodes[] = $targetClass;
                 }
 
+<<<<<<< HEAD
                 $joinColumns = reset($assoc['joinColumns']);
 
                 $calc->addDependency($targetClass->name, $class->name, (int)empty($joinColumns['nullable']));
+=======
+                $calc->addDependency($targetClass, $class);
+>>>>>>> contactmanager
 
                 // If the target class has mapped subclasses, these share the same dependency.
                 if ( ! $targetClass->subClasses) {
@@ -1212,18 +1507,31 @@ class UnitOfWork implements PropertyChangedListener
                 foreach ($targetClass->subClasses as $subClassName) {
                     $targetSubClass = $this->em->getClassMetadata($subClassName);
 
+<<<<<<< HEAD
                     if ( ! $calc->hasNode($subClassName)) {
                         $calc->addNode($targetSubClass->name, $targetSubClass);
+=======
+                    if ( ! $calc->hasClass($subClassName)) {
+                        $calc->addClass($targetSubClass);
+>>>>>>> contactmanager
 
                         $newNodes[] = $targetSubClass;
                     }
 
+<<<<<<< HEAD
                     $calc->addDependency($targetSubClass->name, $class->name, 1);
+=======
+                    $calc->addDependency($targetSubClass, $class);
+>>>>>>> contactmanager
                 }
             }
         }
 
+<<<<<<< HEAD
         return $calc->sort();
+=======
+        return $calc->getCommitOrder();
+>>>>>>> contactmanager
     }
 
     /**
@@ -1322,12 +1630,21 @@ class UnitOfWork implements PropertyChangedListener
     public function scheduleExtraUpdate($entity, array $changeset)
     {
         $oid         = spl_object_hash($entity);
+<<<<<<< HEAD
         $extraUpdate = [$entity, $changeset];
 
         if (isset($this->extraUpdates[$oid])) {
             list(, $changeset2) = $this->extraUpdates[$oid];
 
             $extraUpdate = [$entity, $changeset + $changeset2];
+=======
+        $extraUpdate = array($entity, $changeset);
+
+        if (isset($this->extraUpdates[$oid])) {
+            list($ignored, $changeset2) = $this->extraUpdates[$oid];
+
+            $extraUpdate = array($entity, $changeset + $changeset2);
+>>>>>>> contactmanager
         }
 
         $this->extraUpdates[$oid] = $extraUpdate;
@@ -1389,7 +1706,13 @@ class UnitOfWork implements PropertyChangedListener
 
         $this->removeFromIdentityMap($entity);
 
+<<<<<<< HEAD
         unset($this->entityUpdates[$oid]);
+=======
+        if (isset($this->entityUpdates[$oid])) {
+            unset($this->entityUpdates[$oid]);
+        }
+>>>>>>> contactmanager
 
         if ( ! isset($this->entityDeletions[$oid])) {
             $this->entityDeletions[$oid] = $entity;
@@ -1434,7 +1757,11 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @ignore
      *
+<<<<<<< HEAD
      * @param object $entity The entity to register.
+=======
+     * @param object $entity  The entity to register.
+>>>>>>> contactmanager
      *
      * @return boolean TRUE if the registration was successful, FALSE if the identity of
      *                 the entity in question is already managed.
@@ -1444,6 +1771,7 @@ class UnitOfWork implements PropertyChangedListener
     public function addToIdentityMap($entity)
     {
         $classMetadata = $this->em->getClassMetadata(get_class($entity));
+<<<<<<< HEAD
         $identifier    = $this->entityIdentifiers[spl_object_hash($entity)];
 
         if (empty($identifier) || in_array(null, $identifier, true)) {
@@ -1451,6 +1779,14 @@ class UnitOfWork implements PropertyChangedListener
         }
 
         $idHash    = implode(' ', $identifier);
+=======
+        $idHash        = implode(' ', $this->entityIdentifiers[spl_object_hash($entity)]);
+
+        if ($idHash === '') {
+            throw ORMInvalidArgumentException::entityWithoutIdentity($classMetadata->name, $entity);
+        }
+
+>>>>>>> contactmanager
         $className = $classMetadata->rootEntityName;
 
         if (isset($this->identityMap[$className][$idHash])) {
@@ -1612,9 +1948,17 @@ class UnitOfWork implements PropertyChangedListener
     {
         $stringIdHash = (string) $idHash;
 
+<<<<<<< HEAD
         return isset($this->identityMap[$rootClassName][$stringIdHash])
             ? $this->identityMap[$rootClassName][$stringIdHash]
             : false;
+=======
+        if (isset($this->identityMap[$rootClassName][$stringIdHash])) {
+            return $this->identityMap[$rootClassName][$stringIdHash];
+        }
+
+        return false;
+>>>>>>> contactmanager
     }
 
     /**
@@ -1628,13 +1972,24 @@ class UnitOfWork implements PropertyChangedListener
     {
         $oid = spl_object_hash($entity);
 
+<<<<<<< HEAD
         if (empty($this->entityIdentifiers[$oid])) {
+=======
+        if ( ! isset($this->entityIdentifiers[$oid])) {
+>>>>>>> contactmanager
             return false;
         }
 
         $classMetadata = $this->em->getClassMetadata(get_class($entity));
         $idHash        = implode(' ', $this->entityIdentifiers[$oid]);
 
+<<<<<<< HEAD
+=======
+        if ($idHash === '') {
+            return false;
+        }
+
+>>>>>>> contactmanager
         return isset($this->identityMap[$classMetadata->rootEntityName][$idHash]);
     }
 
@@ -1663,7 +2018,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     public function persist($entity)
     {
+<<<<<<< HEAD
         $visited = [];
+=======
+        $visited = array();
+>>>>>>> contactmanager
 
         $this->doPersist($entity, $visited);
     }
@@ -1740,7 +2099,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     public function remove($entity)
     {
+<<<<<<< HEAD
         $visited = [];
+=======
+        $visited = array();
+>>>>>>> contactmanager
 
         $this->doRemove($entity, $visited);
     }
@@ -1814,7 +2177,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     public function merge($entity)
     {
+<<<<<<< HEAD
         $visited = [];
+=======
+        $visited = array();
+>>>>>>> contactmanager
 
         return $this->doMerge($entity, $visited);
     }
@@ -1834,7 +2201,11 @@ class UnitOfWork implements PropertyChangedListener
      * @throws ORMInvalidArgumentException If the entity instance is NEW.
      * @throws EntityNotFoundException if an assigned identifier is used in the entity, but none is provided
      */
+<<<<<<< HEAD
     private function doMerge($entity, array &$visited, $prevManagedCopy = null, array $assoc = [])
+=======
+    private function doMerge($entity, array &$visited, $prevManagedCopy = null, $assoc = null)
+>>>>>>> contactmanager
     {
         $oid = spl_object_hash($entity);
 
@@ -2003,7 +2374,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     public function detach($entity)
     {
+<<<<<<< HEAD
         $visited = [];
+=======
+        $visited = array();
+>>>>>>> contactmanager
 
         $this->doDetach($entity, $visited);
     }
@@ -2064,7 +2439,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     public function refresh($entity)
     {
+<<<<<<< HEAD
         $visited = [];
+=======
+        $visited = array();
+>>>>>>> contactmanager
 
         $this->doRefresh($entity, $visited);
     }
@@ -2306,7 +2685,11 @@ class UnitOfWork implements PropertyChangedListener
             function ($assoc) { return $assoc['isCascadeRemove']; }
         );
 
+<<<<<<< HEAD
         $entitiesToCascade = [];
+=======
+        $entitiesToCascade = array();
+>>>>>>> contactmanager
 
         foreach ($associationMappings as $assoc) {
             if ($entity instanceof Proxy && !$entity->__isInitialized__) {
@@ -2412,7 +2795,15 @@ class UnitOfWork implements PropertyChangedListener
      */
     public function getCommitOrderCalculator()
     {
+<<<<<<< HEAD
         return new Internal\CommitOrderCalculator();
+=======
+        if ($this->commitOrderCalculator === null) {
+            $this->commitOrderCalculator = new Internal\CommitOrderCalculator;
+        }
+
+        return $this->commitOrderCalculator;
+>>>>>>> contactmanager
     }
 
     /**
@@ -2421,8 +2812,11 @@ class UnitOfWork implements PropertyChangedListener
      * @param string|null $entityName if given, only entities of this type will get detached.
      *
      * @return void
+<<<<<<< HEAD
      *
      * @throws ORMInvalidArgumentException if an invalid entity name is given
+=======
+>>>>>>> contactmanager
      */
     public function clear($entityName = null)
     {
@@ -2436,13 +2830,24 @@ class UnitOfWork implements PropertyChangedListener
             $this->entityInsertions =
             $this->entityUpdates =
             $this->entityDeletions =
+<<<<<<< HEAD
             $this->nonCascadedNewDetectedEntities =
+=======
+>>>>>>> contactmanager
             $this->collectionDeletions =
             $this->collectionUpdates =
             $this->extraUpdates =
             $this->readOnlyObjects =
             $this->visitedCollections =
+<<<<<<< HEAD
             $this->orphanRemovals = [];
+=======
+            $this->orphanRemovals = array();
+
+            if ($this->commitOrderCalculator !== null) {
+                $this->commitOrderCalculator->clear();
+            }
+>>>>>>> contactmanager
         } else {
             $this->clearIdentityMapForEntityName($entityName);
             $this->clearEntityInsertionsForEntityName($entityName);
@@ -2472,6 +2877,7 @@ class UnitOfWork implements PropertyChangedListener
 
     /**
      * INTERNAL:
+<<<<<<< HEAD
      * Cancels a previously scheduled orphan removal.
      *
      * @ignore
@@ -2487,6 +2893,8 @@ class UnitOfWork implements PropertyChangedListener
 
     /**
      * INTERNAL:
+=======
+>>>>>>> contactmanager
      * Schedules a complete collection for removal when this UnitOfWork commits.
      *
      * @param PersistentCollection $coll
@@ -2499,7 +2907,13 @@ class UnitOfWork implements PropertyChangedListener
 
         // TODO: if $coll is already scheduled for recreation ... what to do?
         // Just remove $coll from the scheduled recreations?
+<<<<<<< HEAD
         unset($this->collectionUpdates[$coid]);
+=======
+        if (isset($this->collectionUpdates[$coid])) {
+            unset($this->collectionUpdates[$coid]);
+        }
+>>>>>>> contactmanager
 
         $this->collectionDeletions[$coid] = $coll;
     }
@@ -2546,9 +2960,16 @@ class UnitOfWork implements PropertyChangedListener
      *
      * @todo Rename: getOrCreateEntity
      */
+<<<<<<< HEAD
     public function createEntity($className, array $data, &$hints = [])
     {
         $class = $this->em->getClassMetadata($className);
+=======
+    public function createEntity($className, array $data, &$hints = array())
+    {
+        $class = $this->em->getClassMetadata($className);
+        //$isReadOnly = isset($hints[Query::HINT_READ_ONLY]);
+>>>>>>> contactmanager
 
         $id = $this->identifierFlattener->flattenIdentifier($class, $data);
         $idHash = implode(' ', $id);
@@ -2578,10 +2999,16 @@ class UnitOfWork implements PropertyChangedListener
             if ($entity instanceof Proxy && ! $entity->__isInitialized()) {
                 $entity->__setInitialized(true);
 
+<<<<<<< HEAD
+=======
+                $overrideLocalValues = true;
+
+>>>>>>> contactmanager
                 if ($entity instanceof NotifyPropertyChanged) {
                     $entity->addPropertyChangedListener($this);
                 }
             } else {
+<<<<<<< HEAD
                 if ( ! isset($hints[Query::HINT_REFRESH])
                     || (isset($hints[Query::HINT_REFRESH_ENTITY]) && $hints[Query::HINT_REFRESH_ENTITY] !== $entity)) {
                     return $entity;
@@ -2594,6 +3021,24 @@ class UnitOfWork implements PropertyChangedListener
             }
 
             $this->originalEntityData[$oid] = $data;
+=======
+                $overrideLocalValues = isset($hints[Query::HINT_REFRESH]);
+
+                // If only a specific entity is set to refresh, check that it's the one
+                if (isset($hints[Query::HINT_REFRESH_ENTITY])) {
+                    $overrideLocalValues = $hints[Query::HINT_REFRESH_ENTITY] === $entity;
+                }
+            }
+
+            if ($overrideLocalValues) {
+                // inject ObjectManager upon refresh.
+                if ($entity instanceof ObjectManagerAware) {
+                    $entity->injectObjectManager($this->em, $class);
+                }
+
+                $this->originalEntityData[$oid] = $data;
+            }
+>>>>>>> contactmanager
         } else {
             $entity = $this->newInstance($class);
             $oid    = spl_object_hash($entity);
@@ -2607,6 +3052,15 @@ class UnitOfWork implements PropertyChangedListener
             if ($entity instanceof NotifyPropertyChanged) {
                 $entity->addPropertyChangedListener($this);
             }
+<<<<<<< HEAD
+=======
+
+            $overrideLocalValues = true;
+        }
+
+        if ( ! $overrideLocalValues) {
+            return $entity;
+>>>>>>> contactmanager
         }
 
         foreach ($data as $field => $value) {
@@ -2664,11 +3118,19 @@ class UnitOfWork implements PropertyChangedListener
                         continue;
                     }
 
+<<<<<<< HEAD
                     $associatedId = [];
 
                     // TODO: Is this even computed right in all cases of composite keys?
                     foreach ($assoc['targetToSourceKeyColumns'] as $targetColumn => $srcColumn) {
                         $joinColumnValue = $data[$srcColumn] ?? null;
+=======
+                    $associatedId = array();
+
+                    // TODO: Is this even computed right in all cases of composite keys?
+                    foreach ($assoc['targetToSourceKeyColumns'] as $targetColumn => $srcColumn) {
+                        $joinColumnValue = isset($data[$srcColumn]) ? $data[$srcColumn] : null;
+>>>>>>> contactmanager
 
                         if ($joinColumnValue !== null) {
                             if ($targetClass->containsForeignIdentifier) {
@@ -2680,7 +3142,11 @@ class UnitOfWork implements PropertyChangedListener
                             && in_array($targetClass->getFieldForColumn($targetColumn), $targetClass->identifier, true)
                         ) {
                             // the missing key is part of target's entity primary key
+<<<<<<< HEAD
                             $associatedId = [];
+=======
+                            $associatedId = array();
+>>>>>>> contactmanager
                             break;
                         }
                     }
@@ -2810,8 +3276,15 @@ class UnitOfWork implements PropertyChangedListener
             }
         }
 
+<<<<<<< HEAD
         // defer invoking of postLoad event to hydration complete step
         $this->hydrationCompleteHandler->deferPostLoadInvoking($class, $entity);
+=======
+        if ($overrideLocalValues) {
+            // defer invoking of postLoad event to hydration complete step
+            $this->hydrationCompleteHandler->deferPostLoadInvoking($class, $entity);
+        }
+>>>>>>> contactmanager
 
         return $entity;
     }
@@ -2827,7 +3300,11 @@ class UnitOfWork implements PropertyChangedListener
 
         // avoid infinite recursion
         $eagerLoadingEntities       = $this->eagerLoadingEntities;
+<<<<<<< HEAD
         $this->eagerLoadingEntities = [];
+=======
+        $this->eagerLoadingEntities = array();
+>>>>>>> contactmanager
 
         foreach ($eagerLoadingEntities as $entityName => $ids) {
             if ( ! $ids) {
@@ -2837,7 +3314,11 @@ class UnitOfWork implements PropertyChangedListener
             $class = $this->em->getClassMetadata($entityName);
 
             $this->getEntityPersister($entityName)->loadAll(
+<<<<<<< HEAD
                 array_combine($class->identifier, [array_values($ids)])
+=======
+                array_combine($class->identifier, array(array_values($ids)))
+>>>>>>> contactmanager
             );
         }
     }
@@ -2891,9 +3372,17 @@ class UnitOfWork implements PropertyChangedListener
     {
         $oid = spl_object_hash($entity);
 
+<<<<<<< HEAD
         return isset($this->originalEntityData[$oid])
             ? $this->originalEntityData[$oid]
             : [];
+=======
+        if (isset($this->originalEntityData[$oid])) {
+            return $this->originalEntityData[$oid];
+        }
+
+        return array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -2979,9 +3468,17 @@ class UnitOfWork implements PropertyChangedListener
     {
         $idHash = implode(' ', (array) $id);
 
+<<<<<<< HEAD
         return isset($this->identityMap[$rootClassName][$idHash])
             ? $this->identityMap[$rootClassName][$idHash]
             : false;
+=======
+        if (isset($this->identityMap[$rootClassName][$idHash])) {
+            return $this->identityMap[$rootClassName][$idHash];
+        }
+
+        return false;
+>>>>>>> contactmanager
     }
 
     /**
@@ -3018,7 +3515,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     public function size()
     {
+<<<<<<< HEAD
         $countArray = array_map('count', $this->identityMap);
+=======
+        $countArray = array_map(function ($item) { return count($item); }, $this->identityMap);
+>>>>>>> contactmanager
 
         return array_sum($countArray);
     }
@@ -3135,7 +3636,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     public function clearEntityChangeSet($oid)
     {
+<<<<<<< HEAD
         unset($this->entityChangeSets[$oid]);
+=======
+        $this->entityChangeSets[$oid] = array();
+>>>>>>> contactmanager
     }
 
     /* PropertyChangedListener implementation */
@@ -3162,7 +3667,11 @@ class UnitOfWork implements PropertyChangedListener
         }
 
         // Update changeset and mark entity for synchronization
+<<<<<<< HEAD
         $this->entityChangeSets[$oid][$propertyName] = [$oldValue, $newValue];
+=======
+        $this->entityChangeSets[$oid][$propertyName] = array($oldValue, $newValue);
+>>>>>>> contactmanager
 
         if ( ! isset($this->scheduledForSynchronization[$class->rootEntityName][$oid])) {
             $this->scheduleForDirtyCheck($entity);
@@ -3248,7 +3757,11 @@ class UnitOfWork implements PropertyChangedListener
      */
     private static function objToStr($obj)
     {
+<<<<<<< HEAD
         return method_exists($obj, '__toString') ? (string) $obj : get_class($obj).'@'.spl_object_hash($obj);
+=======
+        return method_exists($obj, '__toString') ? (string)$obj : get_class($obj).'@'.spl_object_hash($obj);
+>>>>>>> contactmanager
     }
 
     /**
@@ -3295,9 +3808,27 @@ class UnitOfWork implements PropertyChangedListener
      */
     private function afterTransactionComplete()
     {
+<<<<<<< HEAD
         $this->performCallbackOnCachedPersister(function (CachedPersister $persister) {
             $persister->afterTransactionComplete();
         });
+=======
+        if ( ! $this->hasCache) {
+            return;
+        }
+
+        foreach ($this->persisters as $persister) {
+            if ($persister instanceof CachedPersister) {
+                $persister->afterTransactionComplete();
+            }
+        }
+
+        foreach ($this->collectionPersisters as $persister) {
+            if ($persister instanceof CachedPersister) {
+                $persister->afterTransactionComplete();
+            }
+        }
+>>>>>>> contactmanager
     }
 
     /**
@@ -3305,6 +3836,7 @@ class UnitOfWork implements PropertyChangedListener
      */
     private function afterTransactionRolledBack()
     {
+<<<<<<< HEAD
         $this->performCallbackOnCachedPersister(function (CachedPersister $persister) {
             $persister->afterTransactionRolledBack();
         });
@@ -3317,13 +3849,27 @@ class UnitOfWork implements PropertyChangedListener
      */
     private function performCallbackOnCachedPersister(callable $callback)
     {
+=======
+>>>>>>> contactmanager
         if ( ! $this->hasCache) {
             return;
         }
 
+<<<<<<< HEAD
         foreach (array_merge($this->persisters, $this->collectionPersisters) as $persister) {
             if ($persister instanceof CachedPersister) {
                 $callback($persister);
+=======
+        foreach ($this->persisters as $persister) {
+            if ($persister instanceof CachedPersister) {
+                $persister->afterTransactionRolledBack();
+            }
+        }
+
+        foreach ($this->collectionPersisters as $persister) {
+            if ($persister instanceof CachedPersister) {
+                $persister->afterTransactionRolledBack();
+>>>>>>> contactmanager
             }
         }
     }
@@ -3376,6 +3922,7 @@ class UnitOfWork implements PropertyChangedListener
     }
 
     /**
+<<<<<<< HEAD
      * @throws ORMInvalidArgumentException
      */
     private function assertThatThereAreNoUnintentionallyNonPersistedAssociations() : void
@@ -3392,6 +3939,8 @@ class UnitOfWork implements PropertyChangedListener
     }
 
     /**
+=======
+>>>>>>> contactmanager
      * @param object $entity
      * @param object $managedCopy
      *
@@ -3445,7 +3994,11 @@ class UnitOfWork implements PropertyChangedListener
                                         $assoc2['targetEntity'],
                                         $relatedId
                                     );
+<<<<<<< HEAD
                                     $this->registerManaged($other, $relatedId, []);
+=======
+                                    $this->registerManaged($other, $relatedId, array());
+>>>>>>> contactmanager
                                 }
                             }
 
@@ -3532,12 +4085,17 @@ class UnitOfWork implements PropertyChangedListener
     private function clearEntityInsertionsForEntityName($entityName)
     {
         foreach ($this->entityInsertions as $hash => $entity) {
+<<<<<<< HEAD
             // note: performance optimization - `instanceof` is much faster than a function call
             if ($entity instanceof $entityName && get_class($entity) === $entityName) {
+=======
+            if (get_class($entity) === $entityName) {
+>>>>>>> contactmanager
                 unset($this->entityInsertions[$hash]);
             }
         }
     }
+<<<<<<< HEAD
 
     /**
      * @param ClassMetadata $class
@@ -3554,4 +4112,6 @@ class UnitOfWork implements PropertyChangedListener
             $class->getTypeOfField($class->getSingleIdentifierFieldName())
         );
     }
+=======
+>>>>>>> contactmanager
 }

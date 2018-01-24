@@ -31,8 +31,13 @@ interface EntityListenerResolver
     /**
      * Clear all instances from the set, or a specific class when given.
      *
+<<<<<<< HEAD
      * @param string $className The fully-qualified class name
      *
+=======
+     * @param  string $className The fully-qualified class name
+     * 
+>>>>>>> contactmanager
      * @return void
      */
     function clear($className = null);
@@ -40,16 +45,29 @@ interface EntityListenerResolver
     /**
      * Returns a entity listener instance for the given class name.
      *
+<<<<<<< HEAD
      * @param string $className The fully-qualified class name
      *
      * @return object An entity listener
+=======
+     * @param   string $className The fully-qualified class name
+     * 
+     * @return  object An entity listener
+>>>>>>> contactmanager
      */
     function resolve($className);
 
     /**
      * Register a entity listener instance.
      *
+<<<<<<< HEAD
      * @param object $object An entity listener
      */
     function register($object);
 }
+=======
+     * @param   object $object An entity listener
+     */
+    function register($object);
+}
+>>>>>>> contactmanager

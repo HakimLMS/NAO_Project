@@ -53,7 +53,11 @@ class DefaultCache implements Cache
     /**
      * @var \Doctrine\ORM\Cache\QueryCache[]
      */
+<<<<<<< HEAD
     private $queryCaches = [];
+=======
+    private $queryCaches = array();
+>>>>>>> contactmanager
 
     /**
      * @var \Doctrine\ORM\Cache\QueryCache
@@ -314,7 +318,11 @@ class DefaultCache implements Cache
     private function buildCollectionCacheKey(ClassMetadata $metadata, $association, $ownerIdentifier)
     {
         if ( ! is_array($ownerIdentifier)) {
+<<<<<<< HEAD
             $ownerIdentifier = $this->toIdentifierArray($metadata, $ownerIdentifier);
+=======
+            $ownerIdentifier = $this->toIdentifierArray($metadata, $ownerIdentifier);;
+>>>>>>> contactmanager
         }
 
         return new CollectionCacheKey($metadata->rootEntityName, $association, $ownerIdentifier);
@@ -336,7 +344,11 @@ class DefaultCache implements Cache
             }
         }
 
+<<<<<<< HEAD
         return [$metadata->identifier[0] => $identifier];
+=======
+        return array($metadata->identifier[0] => $identifier);
+>>>>>>> contactmanager
     }
 
 }

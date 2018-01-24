@@ -32,6 +32,7 @@ class ClassMetadataExporter
     /**
      * @var array
      */
+<<<<<<< HEAD
     private static $_exporterDrivers = [
         'xml' => Driver\XmlExporter::class,
         'yaml' => Driver\YamlExporter::class,
@@ -39,6 +40,15 @@ class ClassMetadataExporter
         'php' => Driver\PhpExporter::class,
         'annotation' => Driver\AnnotationExporter::class
     ];
+=======
+    private static $_exporterDrivers = array(
+        'xml' => 'Doctrine\ORM\Tools\Export\Driver\XmlExporter',
+        'yaml' => 'Doctrine\ORM\Tools\Export\Driver\YamlExporter',
+        'yml' => 'Doctrine\ORM\Tools\Export\Driver\YamlExporter',
+        'php' => 'Doctrine\ORM\Tools\Export\Driver\PhpExporter',
+        'annotation' => 'Doctrine\ORM\Tools\Export\Driver\AnnotationExporter'
+    );
+>>>>>>> contactmanager
 
     /**
      * Registers a new exporter driver class under a specified name.

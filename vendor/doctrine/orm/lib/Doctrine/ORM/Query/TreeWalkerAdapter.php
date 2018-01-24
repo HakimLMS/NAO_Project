@@ -72,7 +72,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
      */
     public function setQueryComponent($dqlAlias, array $queryComponent)
     {
+<<<<<<< HEAD
         $requiredKeys = ['metadata', 'parent', 'relation', 'map', 'nestingLevel', 'token'];
+=======
+        $requiredKeys = array('metadata', 'parent', 'relation', 'map', 'nestingLevel', 'token');
+>>>>>>> contactmanager
 
         if (array_diff($requiredKeys, array_keys($queryComponent))) {
             throw QueryException::invalidQueryComponent($dqlAlias);
@@ -336,7 +340,11 @@ abstract class TreeWalkerAdapter implements TreeWalker
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function walkInstanceOfExpression($instanceOfExpr)
+=======
+    function walkInstanceOfExpression($instanceOfExpr)
+>>>>>>> contactmanager
     {
     }
 

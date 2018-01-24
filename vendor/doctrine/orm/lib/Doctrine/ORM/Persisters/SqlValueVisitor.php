@@ -34,18 +34,27 @@ class SqlValueVisitor extends ExpressionVisitor
     /**
      * @var array
      */
+<<<<<<< HEAD
     private $values = [];
+=======
+    private $values = array();
+>>>>>>> contactmanager
 
     /**
      * @var array
      */
+<<<<<<< HEAD
     private $types  = [];
+=======
+    private $types  = array();
+>>>>>>> contactmanager
 
     /**
      * Converts a comparison expression into the target query language output.
      *
      * @param \Doctrine\Common\Collections\Expr\Comparison $comparison
      *
+<<<<<<< HEAD
      * @return void
      */
     public function walkComparison(Comparison $comparison)
@@ -53,6 +62,15 @@ class SqlValueVisitor extends ExpressionVisitor
         $value    = $this->getValueFromComparison($comparison);
         $field    = $comparison->getField();
         $operator = $comparison->getOperator();
+=======
+     * @return mixed
+     */
+    public function walkComparison(Comparison $comparison)
+    {
+        $value          = $this->getValueFromComparison($comparison);
+        $field          = $comparison->getField();
+        $operator       = $comparison->getOperator();
+>>>>>>> contactmanager
 
         if (($operator === Comparison::EQ || $operator === Comparison::IS) && $value === null) {
             return;
@@ -61,7 +79,11 @@ class SqlValueVisitor extends ExpressionVisitor
         }
 
         $this->values[] = $value;
+<<<<<<< HEAD
         $this->types[]  = [$field, $value, $operator];
+=======
+        $this->types[]  = array($field, $value, $operator);
+>>>>>>> contactmanager
     }
 
     /**
@@ -69,7 +91,11 @@ class SqlValueVisitor extends ExpressionVisitor
      *
      * @param \Doctrine\Common\Collections\Expr\CompositeExpression $expr
      *
+<<<<<<< HEAD
      * @return void
+=======
+     * @return mixed
+>>>>>>> contactmanager
      */
     public function walkCompositeExpression(CompositeExpression $expr)
     {
@@ -97,7 +123,11 @@ class SqlValueVisitor extends ExpressionVisitor
      */
     public function getParamsAndTypes()
     {
+<<<<<<< HEAD
         return [$this->values, $this->types];
+=======
+        return array($this->values, $this->types);
+>>>>>>> contactmanager
     }
 
     /**
@@ -111,6 +141,7 @@ class SqlValueVisitor extends ExpressionVisitor
     {
         $value = $comparison->getValue()->getValue();
 
+<<<<<<< HEAD
         switch ($comparison->getOperator()) {
             case Comparison::CONTAINS:
                 return "%{$value}%";
@@ -124,5 +155,10 @@ class SqlValueVisitor extends ExpressionVisitor
             default:
                 return $value;
         }
+=======
+        return $comparison->getOperator() == Comparison::CONTAINS
+            ? "%{$value}%"
+            : $value;
+>>>>>>> contactmanager
     }
 }

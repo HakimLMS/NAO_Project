@@ -19,15 +19,24 @@
 
 namespace Doctrine\ORM;
 
+<<<<<<< HEAD
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
+=======
+use Exception;
+use Doctrine\Common\EventManager;
+use Doctrine\DBAL\Connection;
+>>>>>>> contactmanager
 use Doctrine\DBAL\LockMode;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\ORM\Proxy\ProxyFactory;
 use Doctrine\ORM\Query\FilterCollection;
 use Doctrine\Common\Util\ClassUtils;
+<<<<<<< HEAD
 use Throwable;
+=======
+>>>>>>> contactmanager
 
 /**
  * The EntityManager is the central access point to ORM functionality.
@@ -237,9 +246,15 @@ use Throwable;
             $this->conn->commit();
 
             return $return ?: true;
+<<<<<<< HEAD
         } catch (Throwable $e) {
             $this->close();
             $this->conn->rollBack();
+=======
+        } catch (Exception $e) {
+            $this->close();
+            $this->conn->rollback();
+>>>>>>> contactmanager
 
             throw $e;
         }
@@ -258,7 +273,11 @@ use Throwable;
      */
     public function rollback()
     {
+<<<<<<< HEAD
         $this->conn->rollBack();
+=======
+        $this->conn->rollback();
+>>>>>>> contactmanager
     }
 
     /**
@@ -290,7 +309,11 @@ use Throwable;
         $query = new Query($this);
 
         if ( ! empty($dql)) {
+<<<<<<< HEAD
             $query->setDQL($dql);
+=======
+            $query->setDql($dql);
+>>>>>>> contactmanager
         }
 
         return $query;
@@ -311,7 +334,11 @@ use Throwable;
     {
         $query = new NativeQuery($this);
 
+<<<<<<< HEAD
         $query->setSQL($sql);
+=======
+        $query->setSql($sql);
+>>>>>>> contactmanager
         $query->setResultSetMapping($rsm);
 
         return $query;
@@ -349,7 +376,10 @@ use Throwable;
      *
      * @throws \Doctrine\ORM\OptimisticLockException If a version check on an entity that
      *         makes use of optimistic locking fails.
+<<<<<<< HEAD
      * @throws ORMException
+=======
+>>>>>>> contactmanager
      */
     public function flush($entity = null)
     {
@@ -385,7 +415,11 @@ use Throwable;
                 throw ORMInvalidArgumentException::invalidCompositeIdentifier();
             }
 
+<<<<<<< HEAD
             $id = [$class->identifier[0] => $id];
+=======
+            $id = array($class->identifier[0] => $id);
+>>>>>>> contactmanager
         }
 
         foreach ($id as $i => $value) {
@@ -398,7 +432,11 @@ use Throwable;
             }
         }
 
+<<<<<<< HEAD
         $sortedId = [];
+=======
+        $sortedId = array();
+>>>>>>> contactmanager
 
         foreach ($class->identifier as $identifier) {
             if ( ! isset($id[$identifier])) {
@@ -451,13 +489,21 @@ use Throwable;
 
                 return $entity;
 
+<<<<<<< HEAD
+=======
+            case LockMode::NONE === $lockMode:
+>>>>>>> contactmanager
             case LockMode::PESSIMISTIC_READ === $lockMode:
             case LockMode::PESSIMISTIC_WRITE === $lockMode:
                 if ( ! $this->getConnection()->isTransactionActive()) {
                     throw TransactionRequiredException::transactionRequired();
                 }
 
+<<<<<<< HEAD
                 return $persister->load($sortedId, null, null, [], $lockMode);
+=======
+                return $persister->load($sortedId, null, null, array(), $lockMode);
+>>>>>>> contactmanager
 
             default:
                 return $persister->loadById($sortedId);
@@ -472,10 +518,17 @@ use Throwable;
         $class = $this->metadataFactory->getMetadataFor(ltrim($entityName, '\\'));
 
         if ( ! is_array($id)) {
+<<<<<<< HEAD
             $id = [$class->identifier[0] => $id];
         }
 
         $sortedId = [];
+=======
+            $id = array($class->identifier[0] => $id);
+        }
+
+        $sortedId = array();
+>>>>>>> contactmanager
 
         foreach ($class->identifier as $identifier) {
             if ( ! isset($id[$identifier])) {
@@ -483,11 +536,14 @@ use Throwable;
             }
 
             $sortedId[$identifier] = $id[$identifier];
+<<<<<<< HEAD
             unset($id[$identifier]);
         }
 
         if ($id) {
             throw ORMException::unrecognizedIdentifierFields($class->name, array_keys($id));
+=======
+>>>>>>> contactmanager
         }
 
         // Check identity map first, if its already in there just return it.
@@ -499,9 +555,19 @@ use Throwable;
             return $this->find($entityName, $sortedId);
         }
 
+<<<<<<< HEAD
         $entity = $this->proxyFactory->getProxy($class->name, $sortedId);
 
         $this->unitOfWork->registerManaged($entity, $sortedId, []);
+=======
+        if ( ! is_array($sortedId)) {
+            $sortedId = array($class->identifier[0] => $sortedId);
+        }
+
+        $entity = $this->proxyFactory->getProxy($class->name, $sortedId);
+
+        $this->unitOfWork->registerManaged($entity, $sortedId, array());
+>>>>>>> contactmanager
 
         return $entity;
     }
@@ -519,14 +585,22 @@ use Throwable;
         }
 
         if ( ! is_array($identifier)) {
+<<<<<<< HEAD
             $identifier = [$class->identifier[0] => $identifier];
+=======
+            $identifier = array($class->identifier[0] => $identifier);
+>>>>>>> contactmanager
         }
 
         $entity = $class->newInstance();
 
         $class->setIdentifierValues($entity, $identifier);
 
+<<<<<<< HEAD
         $this->unitOfWork->registerManaged($entity, $identifier, []);
+=======
+        $this->unitOfWork->registerManaged($entity, $identifier, array());
+>>>>>>> contactmanager
         $this->unitOfWork->markReadOnly($entity);
 
         return $entity;
@@ -539,6 +613,7 @@ use Throwable;
      * @param string|null $entityName if given, only entities of this type will get detached
      *
      * @return void
+<<<<<<< HEAD
      *
      * @throws ORMInvalidArgumentException                           if a non-null non-string value is given
      * @throws \Doctrine\Common\Persistence\Mapping\MappingException if a $entityName is given, but that entity is not
@@ -555,6 +630,12 @@ use Throwable;
                 ? null
                 : $this->metadataFactory->getMetadataFor($entityName)->getName()
         );
+=======
+     */
+    public function clear($entityName = null)
+    {
+        $this->unitOfWork->clear($entityName);
+>>>>>>> contactmanager
     }
 
     /**
@@ -581,12 +662,19 @@ use Throwable;
      * @return void
      *
      * @throws ORMInvalidArgumentException
+<<<<<<< HEAD
      * @throws ORMException
+=======
+>>>>>>> contactmanager
      */
     public function persist($entity)
     {
         if ( ! is_object($entity)) {
+<<<<<<< HEAD
             throw ORMInvalidArgumentException::invalidObject('EntityManager#persist()', $entity);
+=======
+            throw ORMInvalidArgumentException::invalidObject('EntityManager#persist()' , $entity);
+>>>>>>> contactmanager
         }
 
         $this->errorIfClosed();
@@ -605,12 +693,19 @@ use Throwable;
      * @return void
      *
      * @throws ORMInvalidArgumentException
+<<<<<<< HEAD
      * @throws ORMException
+=======
+>>>>>>> contactmanager
      */
     public function remove($entity)
     {
         if ( ! is_object($entity)) {
+<<<<<<< HEAD
             throw ORMInvalidArgumentException::invalidObject('EntityManager#remove()', $entity);
+=======
+            throw ORMInvalidArgumentException::invalidObject('EntityManager#remove()' , $entity);
+>>>>>>> contactmanager
         }
 
         $this->errorIfClosed();
@@ -627,12 +722,19 @@ use Throwable;
      * @return void
      *
      * @throws ORMInvalidArgumentException
+<<<<<<< HEAD
      * @throws ORMException
+=======
+>>>>>>> contactmanager
      */
     public function refresh($entity)
     {
         if ( ! is_object($entity)) {
+<<<<<<< HEAD
             throw ORMInvalidArgumentException::invalidObject('EntityManager#refresh()', $entity);
+=======
+            throw ORMInvalidArgumentException::invalidObject('EntityManager#refresh()' , $entity);
+>>>>>>> contactmanager
         }
 
         $this->errorIfClosed();
@@ -656,7 +758,11 @@ use Throwable;
     public function detach($entity)
     {
         if ( ! is_object($entity)) {
+<<<<<<< HEAD
             throw ORMInvalidArgumentException::invalidObject('EntityManager#detach()', $entity);
+=======
+            throw ORMInvalidArgumentException::invalidObject('EntityManager#detach()' , $entity);
+>>>>>>> contactmanager
         }
 
         $this->unitOfWork->detach($entity);
@@ -672,12 +778,19 @@ use Throwable;
      * @return object The managed copy of the entity.
      *
      * @throws ORMInvalidArgumentException
+<<<<<<< HEAD
      * @throws ORMException
+=======
+>>>>>>> contactmanager
      */
     public function merge($entity)
     {
         if ( ! is_object($entity)) {
+<<<<<<< HEAD
             throw ORMInvalidArgumentException::invalidObject('EntityManager#merge()', $entity);
+=======
+            throw ORMInvalidArgumentException::invalidObject('EntityManager#merge()' , $entity);
+>>>>>>> contactmanager
         }
 
         $this->errorIfClosed();
@@ -709,7 +822,11 @@ use Throwable;
      *
      * @param string $entityName The name of the entity.
      *
+<<<<<<< HEAD
      * @return \Doctrine\Common\Persistence\ObjectRepository|\Doctrine\ORM\EntityRepository The repository class.
+=======
+     * @return \Doctrine\ORM\EntityRepository The repository class.
+>>>>>>> contactmanager
      */
     public function getRepository($entityName)
     {
@@ -833,21 +950,32 @@ use Throwable;
     /**
      * Factory method to create EntityManager instances.
      *
+<<<<<<< HEAD
      * @param array|Connection $connection   An array with the connection parameters or an existing Connection instance.
      * @param Configuration    $config       The Configuration instance to use.
      * @param EventManager     $eventManager The EventManager instance to use.
+=======
+     * @param mixed         $conn         An array with the connection parameters or an existing Connection instance.
+     * @param Configuration $config       The Configuration instance to use.
+     * @param EventManager  $eventManager The EventManager instance to use.
+>>>>>>> contactmanager
      *
      * @return EntityManager The created EntityManager.
      *
      * @throws \InvalidArgumentException
      * @throws ORMException
      */
+<<<<<<< HEAD
     public static function create($connection, Configuration $config, EventManager $eventManager = null)
+=======
+    public static function create($conn, Configuration $config, EventManager $eventManager = null)
+>>>>>>> contactmanager
     {
         if ( ! $config->getMetadataDriverImpl()) {
             throw ORMException::missingMappingDriverImpl();
         }
 
+<<<<<<< HEAD
         $connection = static::createConnection($connection, $config, $eventManager);
 
         return new EntityManager($connection, $config, $connection->getEventManager());
@@ -886,6 +1014,26 @@ use Throwable;
         }
 
         return $connection;
+=======
+        switch (true) {
+            case (is_array($conn)):
+                $conn = \Doctrine\DBAL\DriverManager::getConnection(
+                    $conn, $config, ($eventManager ?: new EventManager())
+                );
+                break;
+
+            case ($conn instanceof Connection):
+                if ($eventManager !== null && $conn->getEventManager() !== $eventManager) {
+                     throw ORMException::mismatchedEventManager();
+                }
+                break;
+
+            default:
+                throw new \InvalidArgumentException("Invalid argument: " . $conn);
+        }
+
+        return new EntityManager($conn, $config, $conn->getEventManager());
+>>>>>>> contactmanager
     }
 
     /**

@@ -19,6 +19,7 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\ClearCache;
 
+<<<<<<< HEAD
 use Doctrine\Common\Cache\ApcCache;
 use Doctrine\Common\Cache\XcacheCache;
 use Symfony\Component\Console\Command\Command;
@@ -26,6 +27,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+=======
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Doctrine\Common\Cache\ApcCache;
+use Doctrine\Common\Cache\XcacheCache;
+>>>>>>> contactmanager
 
 /**
  * Command to clear the query cache of the various cache drivers.
@@ -44,10 +53,24 @@ class QueryCommand extends Command
      */
     protected function configure()
     {
+<<<<<<< HEAD
         $this->setName('orm:clear-cache:query')
              ->setDescription('Clear all query cache of the various cache drivers')
              ->addOption('flush', null, InputOption::VALUE_NONE, 'If defined, cache entries will be flushed instead of deleted/invalidated.')
              ->setHelp(<<<EOT
+=======
+        $this
+        ->setName('orm:clear-cache:query')
+        ->setDescription('Clear all query cache of the various cache drivers.')
+        ->setDefinition(array(
+            new InputOption(
+                'flush', null, InputOption::VALUE_NONE,
+                'If defined, cache entries will be flushed instead of deleted/invalidated.'
+            )
+        ));
+
+        $this->setHelp(<<<EOT
+>>>>>>> contactmanager
 The <info>%command.name%</info> command is meant to clear the query cache of associated Entity Manager.
 It is possible to invalidate all cache entries at once - called delete -, or flushes the cache provider
 instance completely.
@@ -64,7 +87,11 @@ Alternatively, if you want to flush the cache provider using this command:
 Finally, be aware that if <info>--flush</info> option is passed, not all cache providers are able to flush entries,
 because of a limitation of its execution nature.
 EOT
+<<<<<<< HEAD
              );
+=======
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -72,8 +99,11 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
+=======
+>>>>>>> contactmanager
         $em = $this->getHelper('em')->getEntityManager();
         $cacheDriver = $em->getConfiguration()->getQueryCacheImpl();
 
@@ -87,8 +117,13 @@ EOT
         if ($cacheDriver instanceof XcacheCache) {
             throw new \LogicException("Cannot clear XCache Cache from Console, its shared in the Webserver memory and not accessible from the CLI.");
         }
+<<<<<<< HEAD
 
         $ui->comment('Clearing <info>all</info> Query cache entries');
+=======
+        
+        $output->write('Clearing ALL Query cache entries' . PHP_EOL);
+>>>>>>> contactmanager
 
         $result  = $cacheDriver->deleteAll();
         $message = ($result) ? 'Successfully deleted cache entries.' : 'No cache entries were deleted.';
@@ -98,6 +133,7 @@ EOT
             $message = ($result) ? 'Successfully flushed cache entries.' : $message;
         }
 
+<<<<<<< HEAD
         if ( ! $result) {
             $ui->error($message);
 
@@ -107,5 +143,8 @@ EOT
         $ui->success($message);
 
         return 0;
+=======
+        $output->write($message . PHP_EOL);
+>>>>>>> contactmanager
     }
 }

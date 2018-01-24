@@ -64,6 +64,7 @@ class KernelTest extends TestCase
         $this->assertNull($clone->getContainer());
     }
 
+<<<<<<< HEAD
     public function testInitializeContainerClearsOldContainers()
     {
         $fs = new Filesystem();
@@ -89,6 +90,8 @@ class KernelTest extends TestCase
         $this->assertFileNotExists($legacyContainerDir.'.legacy');
     }
 
+=======
+>>>>>>> contactmanager
     public function testBootInitializesBundlesAndContainer()
     {
         $kernel = $this->getKernel(array('initializeBundles', 'initializeContainer'));
@@ -735,7 +738,11 @@ class CustomProjectDirKernel extends Kernel
 
 class PassKernel extends CustomProjectDirKernel implements CompilerPassInterface
 {
+<<<<<<< HEAD
     public function __construct()
+=======
+    public function __construct(\Closure $buildContainer = null)
+>>>>>>> contactmanager
     {
         parent::__construct();
         Kernel::__construct('pass', true);

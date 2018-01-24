@@ -9,7 +9,11 @@
  * file that was distributed with this source code.
  */
 
+<<<<<<< HEAD
 namespace Symfony\Bridge\Doctrine\Tests\PropertyInfo;
+=======
+namespace Symfony\Bridge\Doctrine\PropertyInfo\Tests;
+>>>>>>> contactmanager
 
 use Doctrine\DBAL\Types\Type as DBALType;
 use Doctrine\ORM\EntityManager;

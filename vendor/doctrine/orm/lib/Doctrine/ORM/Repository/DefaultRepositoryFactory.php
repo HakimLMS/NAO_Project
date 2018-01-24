@@ -34,7 +34,11 @@ final class DefaultRepositoryFactory implements RepositoryFactory
      *
      * @var \Doctrine\Common\Persistence\ObjectRepository[]
      */
+<<<<<<< HEAD
     private $repositoryList = [];
+=======
+    private $repositoryList = array();
+>>>>>>> contactmanager
 
     /**
      * {@inheritdoc}

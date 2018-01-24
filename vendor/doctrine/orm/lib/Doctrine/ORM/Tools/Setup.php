@@ -122,8 +122,12 @@ class Setup
     public static function createConfiguration($isDevMode = false, $proxyDir = null, Cache $cache = null)
     {
         $proxyDir = $proxyDir ?: sys_get_temp_dir();
+<<<<<<< HEAD
 
         $cache = self::createCacheConfiguration($isDevMode, $proxyDir, $cache);
+=======
+        $cache    = self::createCacheConfiguration($isDevMode, $proxyDir, $cache);
+>>>>>>> contactmanager
 
         $config = new Configuration();
         $config->setMetadataCacheImpl($cache);
@@ -136,7 +140,18 @@ class Setup
         return $config;
     }
 
+<<<<<<< HEAD
     private static function createCacheConfiguration(bool $isDevMode, string $proxyDir, ?Cache $cache) :  Cache
+=======
+    /**
+     * @param bool       $isDevMode
+     * @param string     $proxyDir
+     * @param Cache|null $cache
+     *
+     * @return Cache
+     */
+    private static function createCacheConfiguration($isDevMode, $proxyDir, Cache $cache = null)
+>>>>>>> contactmanager
     {
         $cache = self::createCacheInstance($isDevMode, $cache);
 
@@ -155,7 +170,17 @@ class Setup
         return $cache;
     }
 
+<<<<<<< HEAD
     private static function createCacheInstance(bool $isDevMode, ?Cache $cache) : Cache
+=======
+    /**
+     * @param bool       $isDevMode
+     * @param Cache|null $cache
+     *
+     * @return Cache
+     */
+    private static function createCacheInstance($isDevMode, Cache $cache = null)
+>>>>>>> contactmanager
     {
         if ($cache !== null) {
             return $cache;
@@ -165,6 +190,7 @@ class Setup
             return new ArrayCache();
         }
 
+<<<<<<< HEAD
         if (extension_loaded('apcu')) {
             return new \Doctrine\Common\Cache\ApcuCache();
         }
@@ -175,6 +201,21 @@ class Setup
             $memcache->addServer('127.0.0.1', 11211);
 
             $cache = new \Doctrine\Common\Cache\MemcachedCache();
+=======
+        if (extension_loaded('apc')) {
+            return new \Doctrine\Common\Cache\ApcCache();
+        }
+
+        if (extension_loaded('xcache')) {
+            return new \Doctrine\Common\Cache\XcacheCache();
+        }
+
+        if (extension_loaded('memcache')) {
+            $memcache = new \Memcache();
+            $memcache->connect('127.0.0.1');
+
+            $cache = new \Doctrine\Common\Cache\MemcacheCache();
+>>>>>>> contactmanager
             $cache->setMemcache($memcache);
 
             return $cache;

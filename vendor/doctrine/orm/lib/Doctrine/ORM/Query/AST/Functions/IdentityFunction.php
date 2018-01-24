@@ -27,7 +27,11 @@ use Doctrine\ORM\Query\QueryException;
 /**
  * "IDENTITY" "(" SingleValuedAssociationPathExpression {"," string} ")"
  *
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> contactmanager
  * @link    www.doctrine-project.org
  * @since   2.2
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -70,7 +74,11 @@ class IdentityFunction extends FunctionNode
 
             foreach ($assoc['joinColumns'] as $mapping) {
 
+<<<<<<< HEAD
                 if ($mapping['referencedColumnName'] === $field['columnName']) {
+=======
+                if($mapping['referencedColumnName'] === $field['columnName']) {
+>>>>>>> contactmanager
                     $joinColumn = $mapping;
 
                     break;

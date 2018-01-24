@@ -43,7 +43,13 @@ class Select extends Base
     /**
      * @var array
      */
+<<<<<<< HEAD
     protected $allowedClasses = [Func::class];
+=======
+    protected $allowedClasses = array(
+        'Doctrine\ORM\Query\Expr\Func'
+    );
+>>>>>>> contactmanager
 
     /**
      * @return array

@@ -33,7 +33,11 @@ class ConditionalExpression extends Node
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $conditionalTerms = [];
+=======
+    public $conditionalTerms = array();
+>>>>>>> contactmanager
 
     /**
      * @param array $conditionalTerms

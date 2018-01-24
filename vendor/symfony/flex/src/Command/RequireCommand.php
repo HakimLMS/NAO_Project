@@ -12,6 +12,7 @@
 namespace Symfony\Flex\Command;
 
 use Composer\Command\RequireCommand as BaseRequireCommand;
+<<<<<<< HEAD
 use Composer\Package\Version\VersionParser;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -19,6 +20,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Flex\PackageResolver;
 use Symfony\Flex\Unpacker;
 use Symfony\Flex\Unpack\Operation;
+=======
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Flex\PackageResolver;
+>>>>>>> contactmanager
 
 class RequireCommand extends BaseRequireCommand
 {
@@ -31,6 +37,7 @@ class RequireCommand extends BaseRequireCommand
         parent::__construct();
     }
 
+<<<<<<< HEAD
     protected function configure()
     {
         parent::configure();
@@ -60,6 +67,11 @@ class RequireCommand extends BaseRequireCommand
 
             return 1;
         }
+=======
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $input->setArgument('packages', $this->resolver->resolve($input->getArgument('packages'), true));
+>>>>>>> contactmanager
 
         if ($input->hasOption('no-suggest')) {
             $input->setOption('no-suggest', true);

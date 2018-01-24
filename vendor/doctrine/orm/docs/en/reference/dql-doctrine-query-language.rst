@@ -2,7 +2,11 @@ Doctrine Query Language
 ===========================
 
 DQL stands for Doctrine Query Language and is an Object
+<<<<<<< HEAD
 Query Language derivative that is very similar to the Hibernate
+=======
+Query Language derivate that is very similar to the Hibernate
+>>>>>>> contactmanager
 Query Language (HQL) or the Java Persistence Query Language (JPQL).
 
 In essence, DQL provides powerful querying capabilities over your
@@ -34,9 +38,15 @@ object model.
 
 DQL SELECT statements are a very powerful way of retrieving parts
 of your domain model that are not accessible via associations.
+<<<<<<< HEAD
 Additionally they allow you to retrieve entities and their associations
 in one single SQL select statement which can make a huge difference
 in performance compared to using several queries.
+=======
+Additionally they allow to retrieve entities and their associations
+in one single SQL select statement which can make a huge difference
+in performance in contrast to using several queries.
+>>>>>>> contactmanager
 
 DQL UPDATE and DELETE statements offer a way to execute bulk
 changes on the entities of your domain model. This is often
@@ -49,6 +59,13 @@ SELECT queries
 DQL SELECT clause
 ~~~~~~~~~~~~~~~~~
 
+<<<<<<< HEAD
+=======
+The select clause of a DQL query specifies what appears in the
+query result. The composition of all the expressions in the select
+clause also influences the nature of the query result.
+
+>>>>>>> contactmanager
 Here is an example that selects all users with an age > 20:
 
 .. code-block:: php
@@ -79,6 +96,7 @@ Lets examine the query:
 The result of this query would be a list of User objects where all
 users are older than 20.
 
+<<<<<<< HEAD
 Result format
 ~~~~~~~~~~~~~
 The composition of the expressions in the SELECT clause also
@@ -131,6 +149,16 @@ multiple FROM clauses.
 
     Doctrine throws an exception if you violate this constraint.
 
+=======
+The SELECT clause allows to specify both class identification
+variables that signal the hydration of a complete entity class or
+just fields of the entity using the syntax ``u.name``. Combinations
+of both are also allowed and it is possible to wrap both fields and
+identification values into aggregation and DQL functions. Numerical
+fields can be part of computations using mathematical operations.
+See the sub-section on `Functions, Operators, Aggregates`_ for
+more information.
+>>>>>>> contactmanager
 
 Joins
 ~~~~~
@@ -359,8 +387,12 @@ article-ids:
     $query = $em->createQuery('SELECT u.id, a.id as article_id FROM CmsUser u LEFT JOIN u.articles a');
     $results = $query->getResult(); // array of user ids and every article_id for each user
 
+<<<<<<< HEAD
 Restricting a JOIN clause by additional conditions specified by
 WITH:
+=======
+Restricting a JOIN clause by additional conditions:
+>>>>>>> contactmanager
 
 .. code-block:: php
 
@@ -493,6 +525,7 @@ Joins between entities without associations were not possible until version
     <?php
     $query = $em->createQuery('SELECT u FROM User u JOIN Blacklist b WITH u.email = b.email');
 
+<<<<<<< HEAD
 .. note::
     The differences between WHERE, WITH and HAVING clauses may be
     confusing.
@@ -505,6 +538,8 @@ Joins between entities without associations were not possible until version
       aggregation (GROUP BY)
 
 
+=======
+>>>>>>> contactmanager
 Partial Object Syntax
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -539,9 +574,15 @@ You use the partial syntax when joining as well:
 Using the ``NEW`` operator you can construct Data Transfer Objects (DTOs) directly from DQL queries.
 
 - When using ``SELECT NEW`` you don't need to specify a mapped entity.
+<<<<<<< HEAD
 - You can specify any PHP class, it only requires that the constructor of this class matches the ``NEW`` statement.
 - This approach involves determining exactly which columns you really need,
   and instantiating a data-transfer object that contains a constructor with those arguments.
+=======
+- You can specify any PHP class, it's only require that the constructor of this class matches the ``NEW`` statement.
+- This approach involves determining exactly which columns you really need,
+  and instantiating data-transfer object that containing a constructor with those arguments.
+>>>>>>> contactmanager
 
 If you want to select data-transfer objects you should create a class:
 
@@ -654,15 +695,22 @@ The same restrictions apply for the reference of related entities.
     DQL DELETE statements are ported directly into a
     Database DELETE statement and therefore bypass any events and checks for the
     version column if they are not explicitly added to the WHERE clause
+<<<<<<< HEAD
     of the query. Additionally Deletes of specified entities are *NOT*
+=======
+    of the query. Additionally Deletes of specifies entities are *NOT*
+>>>>>>> contactmanager
     cascaded to related entities even if specified in the metadata.
 
 
 Functions, Operators, Aggregates
 --------------------------------
+<<<<<<< HEAD
 It is possible to wrap both fields and identification values into
 aggregation and DQL functions. Numerical fields can be part of
 computations using mathematical operations.
+=======
+>>>>>>> contactmanager
 
 DQL Functions
 ~~~~~~~~~~~~~
@@ -775,6 +823,11 @@ classes have to implement the base class :
 
         public function parse(\Doctrine\ORM\Query\Parser $parser)
         {
+<<<<<<< HEAD
+=======
+            $lexer = $parser->getLexer();
+
+>>>>>>> contactmanager
             $parser->match(Lexer::T_IDENTIFIER);
             $parser->match(Lexer::T_OPEN_PARENTHESIS);
 
@@ -965,7 +1018,11 @@ An instance of the ``Doctrine\ORM\Query`` class represents a DQL
 query. You create a Query instance be calling
 ``EntityManager#createQuery($dql)``, passing the DQL query string.
 Alternatively you can create an empty ``Query`` instance and invoke
+<<<<<<< HEAD
 ``Query#setDQL($dql)`` afterwards. Here are some examples:
+=======
+``Query#setDql($dql)`` afterwards. Here are some examples:
+>>>>>>> contactmanager
 
 .. code-block:: php
 
@@ -975,9 +1032,15 @@ Alternatively you can create an empty ``Query`` instance and invoke
     // example1: passing a DQL string
     $q = $em->createQuery('select u from MyProject\Model\User u');
 
+<<<<<<< HEAD
     // example2: using setDQL
     $q = $em->createQuery();
     $q->setDQL('select u from MyProject\Model\User u');
+=======
+    // example2: using setDql
+    $q = $em->createQuery();
+    $q->setDql('select u from MyProject\Model\User u');
+>>>>>>> contactmanager
 
 Query Result Formats
 ~~~~~~~~~~~~~~~~~~~~
@@ -1060,7 +1123,11 @@ structure:
 
 .. code-block:: php
 
+<<<<<<< HEAD
     $dql = "SELECT u, 'some scalar string', count(g.id) AS num FROM User u JOIN u.groups g GROUP BY u.id";
+=======
+    $dql = "SELECT u, 'some scalar string', count(u.groups) AS num FROM User u JOIN u.groups g GROUP BY u.id";
+>>>>>>> contactmanager
 
     array
         [0]
@@ -1160,6 +1227,7 @@ Object hydration hydrates the result set into the object graph:
     $query = $em->createQuery('SELECT u FROM CmsUser u');
     $users = $query->getResult(Query::HYDRATE_OBJECT);
 
+<<<<<<< HEAD
 Sometimes the behavior in the object hydrator can be confusing, which is
 why we are listing as many of the assumptions here for reference:
 
@@ -1176,6 +1244,8 @@ why we are listing as many of the assumptions here for reference:
 
 This list might be incomplete.
 
+=======
+>>>>>>> contactmanager
 Array Hydration
 ^^^^^^^^^^^^^^^
 
@@ -1452,6 +1522,7 @@ Given that there are 10 users and corresponding addresses in the database the ex
     SELECT * FROM address WHERE id IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 .. note::
+<<<<<<< HEAD
     Changing the fetch mode during a query mostly makes sense for one-to-one and many-to-one relations. In that case, 
     all the necessary IDs are available after the root entity (``user`` in the above example) has been loaded. So, one
     query per association can be executed to fetch all the referred-to entities (``address``).
@@ -1459,6 +1530,9 @@ Given that there are 10 users and corresponding addresses in the database the ex
     For one-to-many relations, changing the fetch mode to eager will cause to execute one query **for every root entity
     loaded**. This gives no improvement over the ``lazy`` fetch mode which will also initialize the associations on
     a one-by-one basis once they are accessed.
+=======
+    Changing the fetch mode during a query is only possible for one-to-one and many-to-one relations.
+>>>>>>> contactmanager
 
 
 EBNF
@@ -1487,9 +1561,13 @@ Terminals
 ~~~~~~~~~
 
 
+<<<<<<< HEAD
 -  identifier (name, email, ...) must match ``[a-z_][a-z0-9_]*``
 -  fully_qualified_name (Doctrine\Tests\Models\CMS\CmsUser) matches PHP's fully qualified class names
 -  aliased_name (CMS:CmsUser) uses two identifiers, one for the namespace alias and one for the class inside it
+=======
+-  identifier (name, email, ...)
+>>>>>>> contactmanager
 -  string ('foo', 'bar''s house', '%ninja%', ...)
 -  char ('/', '\\', ' ', ...)
 -  integer (-1, 0, 1, 34, ...)
@@ -1523,8 +1601,13 @@ Identifiers
     /* Alias Identification declaration (the "u" of "FROM User u") */
     AliasIdentificationVariable :: = identifier
 
+<<<<<<< HEAD
     /* identifier that must be a class name (the "User" of "FROM User u"), possibly as a fully qualified class name or namespace-aliased */
     AbstractSchemaName ::= fully_qualified_name | aliased_name | identifier
+=======
+    /* identifier that must be a class name (the "User" of "FROM User u") */
+    AbstractSchemaName ::= identifier
+>>>>>>> contactmanager
 
     /* Alias ResultVariable declaration (the "total" of "COUNT(*) AS total") */
     AliasResultVariable = identifier
@@ -1623,7 +1706,11 @@ Select Expressions
     SimpleSelectExpression  ::= (StateFieldPathExpression | IdentificationVariable | FunctionDeclaration | AggregateExpression | "(" Subselect ")" | ScalarExpression) [["AS"] AliasResultVariable]
     PartialObjectExpression ::= "PARTIAL" IdentificationVariable "." PartialFieldSet
     PartialFieldSet         ::= "{" SimpleStateField {"," SimpleStateField}* "}"
+<<<<<<< HEAD
     NewObjectExpression     ::= "NEW" AbstractSchemaName "(" NewObjectArg {"," NewObjectArg}* ")"
+=======
+    NewObjectExpression     ::= "NEW" IdentificationVariable "(" NewObjectArg {"," NewObjectArg}* ")"
+>>>>>>> contactmanager
     NewObjectArg            ::= ScalarExpression | "(" Subselect ")"
 
 Conditional Expressions

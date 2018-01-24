@@ -14,7 +14,10 @@ namespace Symfony\Flex\Configurator;
 use Composer\Composer;
 use Composer\IO\IOInterface;
 use Symfony\Flex\Options;
+<<<<<<< HEAD
 use Symfony\Flex\Path;
+=======
+>>>>>>> contactmanager
 use Symfony\Flex\Recipe;
 
 /**
@@ -25,14 +28,20 @@ abstract class AbstractConfigurator
     protected $composer;
     protected $io;
     protected $options;
+<<<<<<< HEAD
     protected $path;
+=======
+>>>>>>> contactmanager
 
     public function __construct(Composer $composer, IOInterface $io, Options $options)
     {
         $this->composer = $composer;
         $this->io = $io;
         $this->options = $options;
+<<<<<<< HEAD
         $this->path = new Path(getcwd());
+=======
+>>>>>>> contactmanager
     }
 
     abstract public function configure(Recipe $recipe, $config);

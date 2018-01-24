@@ -15,7 +15,11 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
+<<<<<<< HEAD
  */
+=======
+*/
+>>>>>>> contactmanager
 
 namespace Doctrine\ORM\Event;
 

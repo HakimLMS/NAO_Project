@@ -34,8 +34,11 @@ class Route implements \Serializable
     private $compiled;
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
+=======
+>>>>>>> contactmanager
      * Available options:
      *
      *  * compiler_class: A class name able to compile this route instance (RouteCompiler by default)

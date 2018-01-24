@@ -220,7 +220,11 @@ class Expr
      */
     public function avg($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('AVG', [$x]);
+=======
+        return new Expr\Func('AVG', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -232,7 +236,11 @@ class Expr
      */
     public function max($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('MAX', [$x]);
+=======
+        return new Expr\Func('MAX', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -244,7 +252,11 @@ class Expr
      */
     public function min($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('MIN', [$x]);
+=======
+        return new Expr\Func('MIN', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -256,7 +268,11 @@ class Expr
      */
     public function count($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('COUNT', [$x]);
+=======
+        return new Expr\Func('COUNT', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -280,7 +296,11 @@ class Expr
      */
     public function exists($subquery)
     {
+<<<<<<< HEAD
         return new Expr\Func('EXISTS', [$subquery]);
+=======
+        return new Expr\Func('EXISTS', array($subquery));
+>>>>>>> contactmanager
     }
 
     /**
@@ -292,7 +312,11 @@ class Expr
      */
     public function all($subquery)
     {
+<<<<<<< HEAD
         return new Expr\Func('ALL', [$subquery]);
+=======
+        return new Expr\Func('ALL', array($subquery));
+>>>>>>> contactmanager
     }
 
     /**
@@ -304,7 +328,11 @@ class Expr
      */
     public function some($subquery)
     {
+<<<<<<< HEAD
         return new Expr\Func('SOME', [$subquery]);
+=======
+        return new Expr\Func('SOME', array($subquery));
+>>>>>>> contactmanager
     }
 
     /**
@@ -316,7 +344,11 @@ class Expr
      */
     public function any($subquery)
     {
+<<<<<<< HEAD
         return new Expr\Func('ANY', [$subquery]);
+=======
+        return new Expr\Func('ANY', array($subquery));
+>>>>>>> contactmanager
     }
 
     /**
@@ -328,7 +360,11 @@ class Expr
      */
     public function not($restriction)
     {
+<<<<<<< HEAD
         return new Expr\Func('NOT', [$restriction]);
+=======
+        return new Expr\Func('NOT', array($restriction));
+>>>>>>> contactmanager
     }
 
     /**
@@ -340,7 +376,11 @@ class Expr
      */
     public function abs($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('ABS', [$x]);
+=======
+        return new Expr\Func('ABS', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -389,7 +429,11 @@ class Expr
      *
      *     [php]
      *     // u.numChildren + 1
+<<<<<<< HEAD
      *     $q->expr()->sum('u.numChildren', '1')
+=======
+     *     $q->expr()->diff('u.numChildren', '1')
+>>>>>>> contactmanager
      *
      * @param mixed $x Left expression.
      * @param mixed $y Right expression.
@@ -429,7 +473,11 @@ class Expr
      */
     public function sqrt($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('SQRT', [$x]);
+=======
+        return new Expr\Func('SQRT', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -449,7 +497,10 @@ class Expr
                 }
             }
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return new Expr\Func($x . ' IN', (array) $y);
     }
 
@@ -457,7 +508,11 @@ class Expr
      * Creates a NOT IN() expression with the given arguments.
      *
      * @param string $x Field in string format to be restricted by NOT IN() function.
+<<<<<<< HEAD
      * @param mixed  $y Argument to be used in NOT IN() function.
+=======
+     * @param mixed $y Argument to be used in NOT IN() function.
+>>>>>>> contactmanager
      *
      * @return Expr\Func
      */
@@ -470,7 +525,10 @@ class Expr
                 }
             }
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> contactmanager
         return new Expr\Func($x . ' NOT IN', (array) $y);
     }
 
@@ -528,13 +586,21 @@ class Expr
      * Creates a CONCAT() function expression with the given arguments.
      *
      * @param mixed $x First argument to be used in CONCAT() function.
+<<<<<<< HEAD
      * @param mixed $y,... Other arguments to be used in CONCAT() function.
+=======
+     * @param mixed $y Second argument to be used in CONCAT() function.
+>>>>>>> contactmanager
      *
      * @return Expr\Func
      */
     public function concat($x, $y)
     {
+<<<<<<< HEAD
         return new Expr\Func('CONCAT', func_get_args());
+=======
+        return new Expr\Func('CONCAT', array($x, $y));
+>>>>>>> contactmanager
     }
 
     /**
@@ -548,11 +614,18 @@ class Expr
      */
     public function substring($x, $from, $len = null)
     {
+<<<<<<< HEAD
         $args = [$x, $from];
         if (null !== $len) {
             $args[] = $len;
         }
 
+=======
+        $args = array($x, $from);
+        if (null !== $len) {
+            $args[] = $len;
+        }
+>>>>>>> contactmanager
         return new Expr\Func('SUBSTRING', $args);
     }
 
@@ -565,7 +638,11 @@ class Expr
      */
     public function lower($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('LOWER', [$x]);
+=======
+        return new Expr\Func('LOWER', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -577,7 +654,11 @@ class Expr
      */
     public function upper($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('UPPER', [$x]);
+=======
+        return new Expr\Func('UPPER', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -589,7 +670,11 @@ class Expr
      */
     public function length($x)
     {
+<<<<<<< HEAD
         return new Expr\Func('LENGTH', [$x]);
+=======
+        return new Expr\Func('LENGTH', array($x));
+>>>>>>> contactmanager
     }
 
     /**
@@ -617,17 +702,29 @@ class Expr
             return (string) $literal;
         } else if (is_bool($literal)) {
             return $literal ? "true" : "false";
+<<<<<<< HEAD
         }
 
         return "'" . str_replace("'", "''", $literal) . "'";
+=======
+        } else {
+            return "'" . str_replace("'", "''", $literal) . "'";
+        }
+>>>>>>> contactmanager
     }
 
     /**
      * Creates an instance of BETWEEN() function, with the given argument.
      *
+<<<<<<< HEAD
      * @param mixed          $val Valued to be inspected by range values.
      * @param integer|string $x   Starting range value to be used in BETWEEN() function.
      * @param integer|string $y   End point value to be used in BETWEEN() function.
+=======
+     * @param mixed   $val Valued to be inspected by range values.
+     * @param integer $x   Starting range value to be used in BETWEEN() function.
+     * @param integer $y   End point value to be used in BETWEEN() function.
+>>>>>>> contactmanager
      *
      * @return Expr\Func A BETWEEN expression.
      */

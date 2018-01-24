@@ -20,7 +20,11 @@ class EnvConfigurator extends AbstractConfigurator
 {
     public function configure(Recipe $recipe, $vars)
     {
+<<<<<<< HEAD
         $this->write('Added environment variable defaults');
+=======
+        $this->write('Adding environment variable defaults');
+>>>>>>> contactmanager
 
         $this->configureEnvDist($recipe, $vars);
         $this->configurePhpUnit($recipe, $vars);
@@ -44,7 +48,11 @@ class EnvConfigurator extends AbstractConfigurator
             if ('%generate(secret)%' === $value) {
                 $value = bin2hex(random_bytes(16));
             }
+<<<<<<< HEAD
             if ('#' === $key[0] && is_numeric(substr($key, 1))) {
+=======
+            if ('#' === $key[0] && ctype_digit(substr($key, 1))) {
+>>>>>>> contactmanager
                 $data .= '# '.$value."\n";
 
                 continue;
@@ -82,7 +90,11 @@ class EnvConfigurator extends AbstractConfigurator
                     $value = bin2hex(random_bytes(16));
                 }
                 if ('#' === $key[0]) {
+<<<<<<< HEAD
                     if (is_numeric(substr($key, 1))) {
+=======
+                    if (ctype_digit(substr($key, 1))) {
+>>>>>>> contactmanager
                         $doc = new \DOMDocument();
                         $data .= '        '.$doc->saveXML($doc->createComment(' '.$value.' '))."\n";
                     } else {
@@ -138,7 +150,11 @@ class EnvConfigurator extends AbstractConfigurator
                 continue;
             }
 
+<<<<<<< HEAD
             $this->write(sprintf('Removed environment variables from %s', $file));
+=======
+            $this->write(sprintf('Removing environment variables from %s', $file));
+>>>>>>> contactmanager
             file_put_contents($phpunit, $contents);
         }
     }

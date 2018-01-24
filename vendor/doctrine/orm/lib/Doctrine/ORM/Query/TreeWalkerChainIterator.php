@@ -20,14 +20,22 @@
 namespace Doctrine\ORM\Query;
 
 /**
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> contactmanager
  */
 class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
 {
     /**
      * @var TreeWalker[]
      */
+<<<<<<< HEAD
     private $walkers = [];
+=======
+    private $walkers = array();
+>>>>>>> contactmanager
     /**
      * @var TreeWalkerChain
      */
@@ -51,7 +59,11 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function rewind()
+=======
+    function rewind()
+>>>>>>> contactmanager
     {
         return reset($this->walkers);
     }
@@ -59,7 +71,11 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function current()
+=======
+    function current()
+>>>>>>> contactmanager
     {
         return $this->offsetGet(key($this->walkers));
     }
@@ -67,7 +83,11 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function key()
+=======
+    function key()
+>>>>>>> contactmanager
     {
         return key($this->walkers);
     }
@@ -75,7 +95,11 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function next()
+=======
+    function next()
+>>>>>>> contactmanager
     {
         next($this->walkers);
 
@@ -85,11 +109,19 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function valid()
+=======
+    function valid()
+>>>>>>> contactmanager
     {
         return key($this->walkers) !== null;
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> contactmanager
     /**
      * {@inheritdoc}
      */
@@ -119,7 +151,11 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
      */
     public function offsetSet($offset, $value)
     {
+<<<<<<< HEAD
         if (null === $offset) {
+=======
+        if (is_null($offset)) {
+>>>>>>> contactmanager
             $this->walkers[] = $value;
         } else {
             $this->walkers[$offset] = $value;
@@ -135,4 +171,8 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
             unset($this->walkers[$offset]);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> contactmanager

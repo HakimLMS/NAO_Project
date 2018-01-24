@@ -73,7 +73,10 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $fs = $this->filesystem;
+=======
+>>>>>>> contactmanager
         $io = new SymfonyStyle($input, $output);
 
         $kernel = $this->getApplication()->getKernel();
@@ -81,18 +84,29 @@ EOF
         // the old cache dir name must not be longer than the real one to avoid exceeding
         // the maximum length of a directory or file path within it (esp. Windows MAX_PATH)
         $oldCacheDir = substr($realCacheDir, 0, -1).('~' === substr($realCacheDir, -1) ? '+' : '~');
+<<<<<<< HEAD
         $fs->remove($oldCacheDir);
+=======
+>>>>>>> contactmanager
 
         if (!is_writable($realCacheDir)) {
             throw new \RuntimeException(sprintf('Unable to write in the "%s" directory', $realCacheDir));
         }
 
+<<<<<<< HEAD
+=======
+        if ($this->filesystem->exists($oldCacheDir)) {
+            $this->filesystem->remove($oldCacheDir);
+        }
+
+>>>>>>> contactmanager
         $io->comment(sprintf('Clearing the cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
         $this->cacheClearer->clear($realCacheDir);
 
         // The current event dispatcher is stale, let's not use it anymore
         $this->getApplication()->setDispatcher(new EventDispatcher());
 
+<<<<<<< HEAD
         $containerDir = new \ReflectionObject($kernel->getContainer());
         $containerDir = basename(dirname($containerDir->getFileName()));
 
@@ -121,6 +135,12 @@ EOF
         if ($containerDir) {
             $fs->rename($oldCacheDir.'/'.$containerDir, $realCacheDir.'/'.$containerDir);
             touch($realCacheDir.'/'.$containerDir.'.legacy');
+=======
+        if ($input->getOption('no-warmup')) {
+            $this->filesystem->rename($realCacheDir, $oldCacheDir);
+        } else {
+            $this->warmupCache($input, $output, $realCacheDir, $oldCacheDir);
+>>>>>>> contactmanager
         }
 
         if ($output->isVerbose()) {
@@ -128,7 +148,11 @@ EOF
         }
 
         try {
+<<<<<<< HEAD
             $fs->remove($oldCacheDir);
+=======
+            $this->filesystem->remove($oldCacheDir);
+>>>>>>> contactmanager
         } catch (IOException $e) {
             $io->warning($e->getMessage());
         }
@@ -140,6 +164,37 @@ EOF
         $io->success(sprintf('Cache for the "%s" environment (debug=%s) was successfully cleared.', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
     }
 
+<<<<<<< HEAD
+=======
+    private function warmupCache(InputInterface $input, OutputInterface $output, string $realCacheDir, string $oldCacheDir)
+    {
+        $io = new SymfonyStyle($input, $output);
+
+        // the warmup cache dir name must have the same length than the real one
+        // to avoid the many problems in serialized resources files
+        $realCacheDir = realpath($realCacheDir);
+        $warmupDir = substr($realCacheDir, 0, -1).('_' === substr($realCacheDir, -1) ? '-' : '_');
+
+        if ($this->filesystem->exists($warmupDir)) {
+            if ($output->isVerbose()) {
+                $io->comment('Clearing outdated warmup directory...');
+            }
+            $this->filesystem->remove($warmupDir);
+        }
+
+        if ($output->isVerbose()) {
+            $io->comment('Warming up cache...');
+        }
+        $this->warmup($warmupDir, $realCacheDir, !$input->getOption('no-optional-warmers'));
+
+        $this->filesystem->rename($realCacheDir, $oldCacheDir);
+        if ('\\' === DIRECTORY_SEPARATOR) {
+            sleep(1);  // workaround for Windows PHP rename bug
+        }
+        $this->filesystem->rename($warmupDir, $realCacheDir);
+    }
+
+>>>>>>> contactmanager
     private function warmup(string $warmupDir, string $realCacheDir, bool $enableOptionalWarmers = true)
     {
         // create a temporary kernel

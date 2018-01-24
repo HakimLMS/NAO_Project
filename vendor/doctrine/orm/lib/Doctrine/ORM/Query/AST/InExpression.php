@@ -42,7 +42,11 @@ class InExpression extends Node
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $literals = [];
+=======
+    public $literals = array();
+>>>>>>> contactmanager
 
     /**
      * @var Subselect|null

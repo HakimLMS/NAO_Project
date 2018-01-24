@@ -73,7 +73,11 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
             $this->timestampRegion->update($this->timestampKey);
         }
 
+<<<<<<< HEAD
         $this->queuedCache = [];
+=======
+        $this->queuedCache = array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -93,7 +97,11 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
             }
         }
 
+<<<<<<< HEAD
         $this->queuedCache = [];
+=======
+        $this->queuedCache = array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -113,10 +121,17 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
             return $deleted;
         }
 
+<<<<<<< HEAD
         $this->queuedCache['delete'][] = [
             'lock'   => $lock,
             'key'    => $key
         ];
+=======
+        $this->queuedCache['delete'][] = array(
+            'lock'   => $lock,
+            'key'    => $key
+        );
+>>>>>>> contactmanager
 
         return $deleted;
     }
@@ -135,9 +150,16 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
             return;
         }
 
+<<<<<<< HEAD
         $this->queuedCache['update'][] = [
             'lock'   => $lock,
             'key'    => $key
         ];
+=======
+        $this->queuedCache['update'][] = array(
+            'lock'   => $lock,
+            'key'    => $key
+        );
+>>>>>>> contactmanager
     }
 }

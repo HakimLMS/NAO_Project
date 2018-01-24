@@ -31,7 +31,11 @@ class DefaultEntityListenerResolver implements EntityListenerResolver
     /**
      * @var array Map to store entity listener instances.
      */
+<<<<<<< HEAD
     private $instances = [];
+=======
+    private $instances = array();
+>>>>>>> contactmanager
 
     /**
      * {@inheritdoc}
@@ -39,7 +43,11 @@ class DefaultEntityListenerResolver implements EntityListenerResolver
     public function clear($className = null)
     {
         if ($className === null) {
+<<<<<<< HEAD
             $this->instances = [];
+=======
+            $this->instances = array();
+>>>>>>> contactmanager
 
             return;
         }
@@ -72,4 +80,8 @@ class DefaultEntityListenerResolver implements EntityListenerResolver
 
         return $this->instances[$className] = new $className();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> contactmanager

@@ -59,7 +59,11 @@ class FilterCollection
      *
      * @var \Doctrine\ORM\Query\Filter\SQLFilter[]
      */
+<<<<<<< HEAD
     private $enabledFilters = [];
+=======
+    private $enabledFilters = array();
+>>>>>>> contactmanager
 
     /**
      * @var string The filter hash from the last time the query was parsed.
@@ -176,16 +180,26 @@ class FilterCollection
 
     /**
      * Checks if a filter is enabled.
+<<<<<<< HEAD
      *
      * @param string $name Name of the filter.
      *
+=======
+     * 
+     * @param string $name Name of the filter.
+     * 
+>>>>>>> contactmanager
      * @return boolean True if the filter is enabled, false otherwise.
      */
     public function isEnabled($name)
     {
         return isset($this->enabledFilters[$name]);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> contactmanager
     /**
      * @return boolean True, if the filter collection is clean.
      */

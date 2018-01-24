@@ -38,7 +38,10 @@ class DateDiffFunction extends FunctionNode
 
     /**
      * @override
+<<<<<<< HEAD
      * @inheritdoc
+=======
+>>>>>>> contactmanager
      */
     public function getSql(SqlWalker $sqlWalker)
     {
@@ -50,7 +53,10 @@ class DateDiffFunction extends FunctionNode
 
     /**
      * @override
+<<<<<<< HEAD
      * @inheritdoc
+=======
+>>>>>>> contactmanager
      */
     public function parse(Parser $parser)
     {

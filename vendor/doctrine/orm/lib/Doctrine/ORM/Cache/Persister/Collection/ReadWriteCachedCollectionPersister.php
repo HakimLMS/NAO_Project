@@ -60,7 +60,11 @@ class ReadWriteCachedCollectionPersister extends AbstractCollectionPersister
             }
         }
 
+<<<<<<< HEAD
         $this->queuedCache = [];
+=======
+        $this->queuedCache = array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -80,7 +84,11 @@ class ReadWriteCachedCollectionPersister extends AbstractCollectionPersister
             }
         }
 
+<<<<<<< HEAD
         $this->queuedCache = [];
+=======
+        $this->queuedCache = array();
+>>>>>>> contactmanager
     }
 
     /**
@@ -98,10 +106,17 @@ class ReadWriteCachedCollectionPersister extends AbstractCollectionPersister
             return;
         }
 
+<<<<<<< HEAD
         $this->queuedCache['delete'][spl_object_hash($collection)] = [
             'key'   => $key,
             'lock'  => $lock
         ];
+=======
+        $this->queuedCache['delete'][spl_object_hash($collection)] = array(
+            'key'   => $key,
+            'lock'  => $lock
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -126,9 +141,16 @@ class ReadWriteCachedCollectionPersister extends AbstractCollectionPersister
             return;
         }
 
+<<<<<<< HEAD
         $this->queuedCache['update'][spl_object_hash($collection)] = [
             'key'   => $key,
             'lock'  => $lock
         ];
+=======
+        $this->queuedCache['update'][spl_object_hash($collection)] = array(
+            'key'   => $key,
+            'lock'  => $lock
+        );
+>>>>>>> contactmanager
     }
 }

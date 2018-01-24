@@ -13,7 +13,11 @@ This tutorial shows how the semantics of composite primary keys work and how the
 General Considerations
 ~~~~~~~~~~~~~~~~~~~~~~
 
+<<<<<<< HEAD
 Every entity with a composite key cannot use an id generator other than "NONE". That means
+=======
+Every entity with a composite key cannot use an id generator other than "ASSIGNED". That means
+>>>>>>> contactmanager
 the ID fields have to have their values set before you call ``EntityManager#persist($entity)``.
 
 Primitive Types only
@@ -38,7 +42,11 @@ and year of production as primary keys:
             /** @Id @Column(type="string") */
             private $name;
             /** @Id @Column(type="integer") */
+<<<<<<< HEAD
             private $year;
+=======
+            private $year
+>>>>>>> contactmanager
 
             public function __construct($name, $year)
             {

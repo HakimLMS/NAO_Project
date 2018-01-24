@@ -20,7 +20,10 @@
 namespace Doctrine\ORM\Tools\Export\Driver;
 
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
+<<<<<<< HEAD
 use SimpleXMLElement;
+=======
+>>>>>>> contactmanager
 
 /**
  * ClassMetadata exporter for Doctrine XML mapping files.
@@ -41,10 +44,17 @@ class XmlExporter extends AbstractExporter
      */
     public function exportClassMetadata(ClassMetadataInfo $metadata)
     {
+<<<<<<< HEAD
         $xml = new SimpleXmlElement('<?xml version="1.0" encoding="utf-8"?><doctrine-mapping ' .
             'xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" ' .
             'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' .
             'xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd" />');
+=======
+        $xml = new \SimpleXmlElement("<?xml version=\"1.0\" encoding=\"utf-8\"?><doctrine-mapping ".
+            "xmlns=\"http://doctrine-project.org/schemas/orm/doctrine-mapping\" " .
+            "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ".
+            "xsi:schemaLocation=\"http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd\" />");
+>>>>>>> contactmanager
 
         if ($metadata->isMappedSuperclass) {
             $root = $xml->addChild('mapped-superclass');
@@ -109,7 +119,11 @@ class XmlExporter extends AbstractExporter
                 $indexXml = $indexesXml->addChild('index');
                 $indexXml->addAttribute('name', $name);
                 $indexXml->addAttribute('columns', implode(',', $index['columns']));
+<<<<<<< HEAD
                 if (isset($index['flags'])) {
+=======
+                if(isset($index['flags'])) {
+>>>>>>> contactmanager
                     $indexXml->addAttribute('flags', implode(',', $index['flags']));
                 }
             }
@@ -127,7 +141,11 @@ class XmlExporter extends AbstractExporter
 
         $fields = $metadata->fieldMappings;
 
+<<<<<<< HEAD
         $id = [];
+=======
+        $id = array();
+>>>>>>> contactmanager
         foreach ($fields as $name => $field) {
             if (isset($field['id']) && $field['id']) {
                 $id[$name] = $field;
@@ -137,10 +155,17 @@ class XmlExporter extends AbstractExporter
 
         foreach ($metadata->associationMappings as $name => $assoc) {
             if (isset($assoc['id']) && $assoc['id']) {
+<<<<<<< HEAD
                 $id[$name] = [
                     'fieldName' => $name,
                     'associationKey' => true
                 ];
+=======
+                $id[$name] = array(
+                    'fieldName' => $name,
+                    'associationKey' => true
+                );
+>>>>>>> contactmanager
             }
         }
 
@@ -226,12 +251,20 @@ class XmlExporter extends AbstractExporter
             }
         }
 
+<<<<<<< HEAD
         $orderMap = [
+=======
+        $orderMap = array(
+>>>>>>> contactmanager
             ClassMetadataInfo::ONE_TO_ONE,
             ClassMetadataInfo::ONE_TO_MANY,
             ClassMetadataInfo::MANY_TO_ONE,
             ClassMetadataInfo::MANY_TO_MANY,
+<<<<<<< HEAD
         ];
+=======
+        );
+>>>>>>> contactmanager
 
         uasort($metadata->associationMappings, function($m1, $m2) use (&$orderMap){
             $a1 = array_search($m1['type'], $orderMap);
@@ -241,7 +274,10 @@ class XmlExporter extends AbstractExporter
         });
 
         foreach ($metadata->associationMappings as $associationMapping) {
+<<<<<<< HEAD
             $associationMappingXml = null;
+=======
+>>>>>>> contactmanager
             if ($associationMapping['type'] == ClassMetadataInfo::ONE_TO_ONE) {
                 $associationMappingXml = $root->addChild('one-to-one');
             } elseif ($associationMapping['type'] == ClassMetadataInfo::MANY_TO_ONE) {
@@ -275,7 +311,11 @@ class XmlExporter extends AbstractExporter
                 $associationMappingXml->addAttribute('fetch', $this->_getFetchModeString($associationMapping['fetch']));
             }
 
+<<<<<<< HEAD
             $cascade = [];
+=======
+            $cascade = array();
+>>>>>>> contactmanager
             if ($associationMapping['isCascadeRemove']) {
                 $cascade[] = 'cascade-remove';
             }
@@ -297,7 +337,11 @@ class XmlExporter extends AbstractExporter
             }
 
             if (count($cascade) === 5) {
+<<<<<<< HEAD
                 $cascade  = ['cascade-all'];
+=======
+                $cascade  = array('cascade-all');
+>>>>>>> contactmanager
             }
 
             if ($cascade) {
@@ -391,18 +435,28 @@ class XmlExporter extends AbstractExporter
             }
         }
 
+<<<<<<< HEAD
         $this->processEntityListeners($metadata, $root);
 
+=======
+>>>>>>> contactmanager
         return $this->_asXml($xml);
     }
 
     /**
      * Exports (nested) option elements.
      *
+<<<<<<< HEAD
      * @param SimpleXMLElement $parentXml
      * @param array            $options
      */
     private function exportTableOptions(SimpleXMLElement $parentXml, array $options) : void
+=======
+     * @param \SimpleXMLElement $parentXml
+     * @param array $options
+     */
+    private function exportTableOptions(\SimpleXMLElement $parentXml, array $options)
+>>>>>>> contactmanager
     {
         foreach ($options as $name => $option) {
             $isArray   = is_array($option);
@@ -421,12 +475,20 @@ class XmlExporter extends AbstractExporter
     /**
      * Export sequence information (if available/configured) into the current identifier XML node
      *
+<<<<<<< HEAD
      * @param SimpleXMLElement  $identifierXmlNode
+=======
+     * @param \SimpleXMLElement $identifierXmlNode
+>>>>>>> contactmanager
      * @param ClassMetadataInfo $metadata
      *
      * @return void
      */
+<<<<<<< HEAD
     private function exportSequenceInformation(SimpleXMLElement $identifierXmlNode, ClassMetadataInfo $metadata) : void
+=======
+    private function exportSequenceInformation(\SimpleXMLElement $identifierXmlNode, ClassMetadataInfo $metadata)
+>>>>>>> contactmanager
     {
         $sequenceDefinition = $metadata->sequenceGeneratorDefinition;
 
@@ -441,7 +503,16 @@ class XmlExporter extends AbstractExporter
         $sequenceGeneratorXml->addAttribute('initial-value', $sequenceDefinition['initialValue']);
     }
 
+<<<<<<< HEAD
     private function _asXml(SimpleXMLElement $simpleXml) : string
+=======
+    /**
+     * @param \SimpleXMLElement $simpleXml
+     *
+     * @return string $xml
+     */
+    private function _asXml($simpleXml)
+>>>>>>> contactmanager
     {
         $dom = new \DOMDocument('1.0', 'UTF-8');
         $dom->loadXML($simpleXml->asXML());
@@ -449,6 +520,7 @@ class XmlExporter extends AbstractExporter
 
         return $dom->saveXML();
     }
+<<<<<<< HEAD
 
     private function processEntityListeners(ClassMetadataInfo $metadata, SimpleXMLElement $root): void
     {
@@ -491,4 +563,6 @@ class XmlExporter extends AbstractExporter
 
         return $entityListenerXml;
     }
+=======
+>>>>>>> contactmanager
 }

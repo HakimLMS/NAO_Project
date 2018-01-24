@@ -20,10 +20,16 @@
 namespace Doctrine\ORM\Tools\Console\Command;
 
 use Doctrine\ORM\Mapping\MappingException;
+<<<<<<< HEAD
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+=======
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Command\Command;
+>>>>>>> contactmanager
 
 /**
  * Show information about mapped entities.
@@ -39,14 +45,25 @@ class InfoCommand extends Command
      */
     protected function configure()
     {
+<<<<<<< HEAD
         $this->setName('orm:info')
              ->setDescription('Show basic information about all mapped entities')
              ->setHelp(<<<EOT
+=======
+        $this
+            ->setName('orm:info')
+            ->setDescription('Show basic information about all mapped entities')
+            ->setHelp(<<<EOT
+>>>>>>> contactmanager
 The <info>%command.name%</info> shows basic information about which
 entities exist and possibly if their mapping information contains errors or
 not.
 EOT
+<<<<<<< HEAD
              );
+=======
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -54,8 +71,11 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
+=======
+>>>>>>> contactmanager
         /* @var $entityManager \Doctrine\ORM\EntityManager */
         $entityManager = $this->getHelper('em')->getEntityManager();
 
@@ -63,6 +83,7 @@ EOT
                                           ->getMetadataDriverImpl()
                                           ->getAllClassNames();
 
+<<<<<<< HEAD
         if ( ! $entityClassNames) {
             $ui->caution(
                 [
@@ -76,12 +97,23 @@ EOT
 
         $ui->text(sprintf("Found <info>%d</info> mapped entities:", count($entityClassNames)));
         $ui->newLine();
+=======
+        if (!$entityClassNames) {
+            throw new \Exception(
+                'You do not have any mapped Doctrine ORM entities according to the current configuration. '.
+                'If you have entities or mapping files you should check your mapping configuration for errors.'
+            );
+        }
+
+        $output->writeln(sprintf("Found <info>%d</info> mapped entities:", count($entityClassNames)));
+>>>>>>> contactmanager
 
         $failure = false;
 
         foreach ($entityClassNames as $entityClassName) {
             try {
                 $entityManager->getClassMetadata($entityClassName);
+<<<<<<< HEAD
                 $ui->text(sprintf("<info>[OK]</info>   %s", $entityClassName));
             } catch (MappingException $e) {
                 $ui->text(
@@ -91,6 +123,13 @@ EOT
                         ''
                     ]
                 );
+=======
+                $output->writeln(sprintf("<info>[OK]</info>   %s", $entityClassName));
+            } catch (MappingException $e) {
+                $output->writeln("<error>[FAIL]</error> ".$entityClassName);
+                $output->writeln(sprintf("<comment>%s</comment>", $e->getMessage()));
+                $output->writeln('');
+>>>>>>> contactmanager
 
                 $failure = true;
             }

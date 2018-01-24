@@ -19,6 +19,7 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\ClearCache;
 
+<<<<<<< HEAD
 use Doctrine\ORM\Cache;
 use Doctrine\ORM\Cache\Region\DefaultRegion;
 use Symfony\Component\Console\Command\Command;
@@ -27,6 +28,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+=======
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Doctrine\ORM\Cache\Region\DefaultRegion;
+use Doctrine\ORM\Cache;
+>>>>>>> contactmanager
 
 /**
  * Command to clear a collection cache region.
@@ -41,6 +51,7 @@ class CollectionRegionCommand extends Command
      */
     protected function configure()
     {
+<<<<<<< HEAD
         $this->setName('orm:clear-cache:region:collection')
              ->setDescription('Clear a second-level cache collection region')
              ->addArgument('owner-class', InputArgument::OPTIONAL, 'The owner entity name.')
@@ -49,6 +60,19 @@ class CollectionRegionCommand extends Command
              ->addOption('all', null, InputOption::VALUE_NONE, 'If defined, all entity regions will be deleted/invalidated.')
              ->addOption('flush', null, InputOption::VALUE_NONE, 'If defined, all cache entries will be flushed.')
              ->setHelp(<<<EOT
+=======
+        $this
+        ->setName('orm:clear-cache:region:collection')
+        ->setDescription('Clear a second-level cache collection region.')
+        ->addArgument('owner-class', InputArgument::OPTIONAL, 'The owner entity name.')
+        ->addArgument('association', InputArgument::OPTIONAL, 'The association collection name.')
+        ->addArgument('owner-id', InputArgument::OPTIONAL, 'The owner identifier.')
+        ->addOption('all', null, InputOption::VALUE_NONE, 'If defined, all entity regions will be deleted/invalidated.')
+        ->addOption('flush', null, InputOption::VALUE_NONE,'If defined, all cache entries will be flushed.');
+
+
+        $this->setHelp(<<<EOT
+>>>>>>> contactmanager
 The <info>%command.name%</info> command is meant to clear a second-level cache collection regions for an associated Entity Manager.
 It is possible to delete/invalidate all collection region, a specific collection region or flushes the cache provider.
 
@@ -72,7 +96,11 @@ Alternatively, if you want to flush the configured cache provider for an collect
 Finally, be aware that if <info>--flush</info> option is passed,
 not all cache providers are able to flush entries, because of a limitation of its execution nature.
 EOT
+<<<<<<< HEAD
              );
+=======
+        );
+>>>>>>> contactmanager
     }
 
     /**
@@ -80,8 +108,11 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
+=======
+>>>>>>> contactmanager
         $em          = $this->getHelper('em')->getEntityManager();
         $ownerClass  = $input->getArgument('owner-class');
         $assoc       = $input->getArgument('association');
@@ -92,7 +123,11 @@ EOT
             throw new \InvalidArgumentException('No second-level cache is configured on the given EntityManager.');
         }
 
+<<<<<<< HEAD
         if (( ! $ownerClass || ! $assoc) && ! $input->getOption('all')) {
+=======
+        if ( (! $ownerClass || ! $assoc) && ! $input->getOption('all')) {
+>>>>>>> contactmanager
             throw new \InvalidArgumentException('Missing arguments "--owner-class" "--association"');
         }
 
@@ -108,6 +143,7 @@ EOT
 
             $collectionRegion->getCache()->flushAll();
 
+<<<<<<< HEAD
             $ui->comment(
                 sprintf(
                     'Flushing cache provider configured for <info>"%s#%s"</info>',
@@ -115,12 +151,19 @@ EOT
                     $assoc
                 )
             );
+=======
+            $output->writeln(sprintf('Flushing cache provider configured for <info>"%s#%s"</info>', $ownerClass, $assoc));
+>>>>>>> contactmanager
 
             return;
         }
 
         if ($input->getOption('all')) {
+<<<<<<< HEAD
             $ui->comment('Clearing <info>all</info> second-level cache collection regions');
+=======
+            $output->writeln('Clearing <info>all</info> second-level cache collection regions');
+>>>>>>> contactmanager
 
             $cache->evictEntityRegions();
 
@@ -128,6 +171,7 @@ EOT
         }
 
         if ($ownerId) {
+<<<<<<< HEAD
             $ui->comment(
                 sprintf(
                     'Clearing second-level cache entry for collection <info>"%s#%s"</info> owner entity identified by <info>"%s"</info>',
@@ -136,12 +180,22 @@ EOT
                     $ownerId
                 )
             );
+=======
+            $output->writeln(sprintf('Clearing second-level cache entry for collection <info>"%s#%s"</info> owner entity identified by <info>"%s"</info>', $ownerClass, $assoc, $ownerId));
+>>>>>>> contactmanager
             $cache->evictCollection($ownerClass, $assoc, $ownerId);
 
             return;
         }
 
+<<<<<<< HEAD
         $ui->comment(sprintf('Clearing second-level cache for collection <info>"%s#%s"</info>', $ownerClass, $assoc));
         $cache->evictCollectionRegion($ownerClass, $assoc);
     }
 }
+=======
+        $output->writeln(sprintf('Clearing second-level cache for collection <info>"%s#%s"</info>', $ownerClass, $assoc));
+        $cache->evictCollectionRegion($ownerClass, $assoc);
+    }
+}
+>>>>>>> contactmanager

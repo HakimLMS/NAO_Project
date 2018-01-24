@@ -238,6 +238,7 @@ the database permanently.
 
 Notice how both sides of the bidirectional association are always
 updated. Unidirectional associations are consequently simpler to
+<<<<<<< HEAD
 handle.
 
 Also note that if you use type-hinting in your methods, you will 
@@ -246,6 +247,16 @@ otherwise ``setAddress(null)`` will fail to remove the association.
 Another way to deal with this is to provide a special method, like
 ``removeAddress()``. This can also provide better encapsulation as
 it hides the internal meaning of not having an address.
+=======
+handle. Also note that if you use type-hinting in your methods, i.e.
+``setAddress(Address $address)``, PHP will only allow null
+values if ``null`` is set as default value. Otherwise
+setAddress(null) will fail for removing the association. If you
+insist on type-hinting a typical way to deal with this is to
+provide a special method, like ``removeAddress()``. This can also
+provide better encapsulation as it hides the internal meaning of
+not having an address.
+>>>>>>> contactmanager
 
 When working with collections, keep in mind that a Collection is
 essentially an ordered map (just like a PHP array). That is why the
@@ -396,12 +407,17 @@ There are two approaches to handle this problem in your code:
 
 1. Ignore updating the inverse side of bidirectional collections,
    BUT never read from them in requests that changed their state. In
+<<<<<<< HEAD
    the next request Doctrine hydrates the consistent collection state
+=======
+   the next Request Doctrine hydrates the consistent collection state
+>>>>>>> contactmanager
    again.
 2. Always keep the bidirectional collections in sync through
    association management methods. Reads of the Collections directly
    after changes are consistent then.
 
+<<<<<<< HEAD
 .. _transitive-persistence:
 
 Transitive persistence / Cascade Operations
@@ -415,6 +431,50 @@ entities can be configured to automatically cascade the following operations to 
 The main use case for ``cascade: persist`` is to avoid "exposing" associated entities to your PHP application.
 Continuing with the User-Comment example of this chapter, this is how the creation of a new user and a new
 comment might look like in your controller (without ``cascade: persist``):
+=======
+Transitive persistence / Cascade Operations
+-------------------------------------------
+
+Persisting, removing, detaching, refreshing and merging individual entities can
+become pretty cumbersome, especially when a highly interweaved object graph
+is involved. Therefore Doctrine 2 provides a
+mechanism for transitive persistence through cascading of these
+operations. Each association to another entity or a collection of
+entities can be configured to automatically cascade certain
+operations. By default, no operations are cascaded.
+
+The following cascade options exist:
+
+
+-  persist : Cascades persist operations to the associated
+   entities.
+-  remove : Cascades remove operations to the associated entities.
+-  merge : Cascades merge operations to the associated entities.
+-  detach : Cascades detach operations to the associated entities.
+-  refresh : Cascades refresh operations to the associated entities.
+-  all : Cascades persist, remove, merge, refresh and detach operations to
+   associated entities.
+
+.. note::
+
+    Cascade operations are performed in memory. That means collections and related entities
+    are fetched into memory, even if they are still marked as lazy when
+    the cascade operation is about to be performed. However this approach allows
+    entity lifecycle events to be performed for each of these operations.
+
+    However, pulling objects graph into memory on cascade can cause considerable performance
+    overhead, especially when cascading collections are large. Makes sure
+    to weigh the benefits and downsides of each cascade operation that you define.
+
+    To rely on the database level cascade operations for the delete operation instead, you can
+    configure each join column with the **onDelete** option. See the respective
+    mapping driver chapters for more information.
+
+The following example is an extension to the User-Comment example
+of this chapter. Suppose in our application a user is created
+whenever he writes his first comment. In this case we would use the
+following code:
+>>>>>>> contactmanager
 
 .. code-block:: php
 
@@ -424,16 +484,31 @@ comment might look like in your controller (without ``cascade: persist``):
     $user->addComment($myFirstComment);
     
     $em->persist($user);
+<<<<<<< HEAD
     $em->persist($myFirstComment); // required, if `cascade: persist` is not set
     $em->flush();
 
 Note that the Comment entity is instantiated right here in the controller.
 To avoid this, ``cascade: persist`` allows you to "hide" the Comment entity from the controller,
 only accessing it through the User entity:
+=======
+    $em->persist($myFirstComment);
+    $em->flush();
+
+Even if you *persist* a new User that contains our new Comment this
+code would fail if you removed the call to
+``EntityManager#persist($myFirstComment)``. Doctrine 2 does not
+cascade the persist operation to all nested entities that are new
+as well.
+
+More complicated is the deletion of all of a user's comments when he is
+removed from the system:
+>>>>>>> contactmanager
 
 .. code-block:: php
 
     <?php
+<<<<<<< HEAD
     // User entity
     class User
     {
@@ -457,6 +532,24 @@ only accessing it through the User entity:
     }
 
 If you then set up the cascading to the ``User#commentsAuthored`` property...
+=======
+    $user = $em->find('User', $deleteUserId);
+    
+    foreach ($user->getAuthoredComments() as $comment) {
+        $em->remove($comment);
+    }
+    $em->remove($user);
+    $em->flush();
+
+Without the loop over all the authored comments Doctrine would use
+an UPDATE statement only to set the foreign key to NULL and only
+the User would be deleted from the database during the
+flush()-Operation.
+
+To have Doctrine handle both cases automatically we can change the
+``User#commentsAuthored`` property to cascade both the "persist"
+and the "remove" operation.
+>>>>>>> contactmanager
 
 .. code-block:: php
 
@@ -473,6 +566,7 @@ If you then set up the cascading to the ``User#commentsAuthored`` property...
         //...
     }
 
+<<<<<<< HEAD
 ...you can now create a user and an associated comment like this:
 
 .. code-block:: php
@@ -518,6 +612,12 @@ Even though automatic cascading is convenient, it should be used
 with care. Do not blindly apply ``cascade=all`` to all associations as
 it will unnecessarily degrade the performance of your application.
 For each cascade operation that gets activated, Doctrine also
+=======
+Even though automatic cascading is convenient it should be used
+with care. Do not blindly apply cascade=all to all associations as
+it will unnecessarily degrade the performance of your application.
+For each cascade operation that gets activated Doctrine also
+>>>>>>> contactmanager
 applies that operation to the association, be it single or
 collection valued.
 
@@ -525,20 +625,36 @@ Persistence by Reachability: Cascade Persist
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are additional semantics that apply to the Cascade Persist
+<<<<<<< HEAD
 operation. During each ``flush()`` operation Doctrine detects if there
+=======
+operation. During each flush() operation Doctrine detects if there
+>>>>>>> contactmanager
 are new entities in any collection and three possible cases can
 happen:
 
 
+<<<<<<< HEAD
 1. New entities in a collection marked as ``cascade: persist`` will be
    directly persisted by Doctrine.
 2. New entities in a collection not marked as ``cascade: persist`` will
    produce an Exception and rollback the ``flush()`` operation.
+=======
+1. New entities in a collection marked as cascade persist will be
+   directly persisted by Doctrine.
+2. New entities in a collection not marked as cascade persist will
+   produce an Exception and rollback the flush() operation.
+>>>>>>> contactmanager
 3. Collections without new entities are skipped.
 
 This concept is called Persistence by Reachability: New entities
 that are found on already managed entities are automatically
+<<<<<<< HEAD
 persisted as long as the association is defined as ``cascade: persist``.
+=======
+persisted as long as the association is defined as cascade
+persist.
+>>>>>>> contactmanager
 
 Orphan Removal
 --------------
@@ -616,11 +732,19 @@ address reference. When flush is called not only are the references removed
 but both the old standing data and the one address entity are also deleted 
 from the database.
 
+<<<<<<< HEAD
 .. _filtering-collections:
 
 Filtering Collections
 ---------------------
 
+=======
+Filtering Collections
+---------------------
+
+.. filtering-collections:
+
+>>>>>>> contactmanager
 Collections have a filtering API that allows to slice parts of data from
 a collection. If the collection has not been loaded from the database yet,
 the filtering API can work on the SQL level to make optimized access to
@@ -716,8 +840,11 @@ methods:
 * ``in($field, array $values)``
 * ``notIn($field, array $values)``
 * ``contains($field, $value)``
+<<<<<<< HEAD
 * ``startsWith($field, $value)``
 * ``endsWith($field, $value)``
+=======
+>>>>>>> contactmanager
 
 
 .. note::

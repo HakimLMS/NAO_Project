@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -15,6 +16,18 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
+=======
+/**
+ * Doctrine ORM
+ *
+ * LICENSE
+ *
+ * This source file is subject to the new BSD license that is bundled
+ * with this package in the file LICENSE.txt.
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to kontakt@beberlei.de so I can send you a copy immediately.
+>>>>>>> contactmanager
  */
 
 namespace Doctrine\ORM\Tools\Pagination;
@@ -116,7 +129,11 @@ class CountOutputWalker extends SqlWalker
         $rootIdentifier = $rootClass->identifier;
 
         // For every identifier, find out the SQL alias by combing through the ResultSetMapping
+<<<<<<< HEAD
         $sqlIdentifier = [];
+=======
+        $sqlIdentifier = array();
+>>>>>>> contactmanager
         foreach ($rootIdentifier as $property) {
             if (isset($rootClass->fieldMappings[$property])) {
                 foreach (array_keys($this->rsm->fieldMappings, $property) as $alias) {

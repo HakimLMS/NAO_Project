@@ -33,7 +33,11 @@ class OrderByClause extends Node
     /**
      * @var array
      */
+<<<<<<< HEAD
     public $orderByItems = [];
+=======
+    public $orderByItems = array();
+>>>>>>> contactmanager
 
     /**
      * @param array $orderByItems

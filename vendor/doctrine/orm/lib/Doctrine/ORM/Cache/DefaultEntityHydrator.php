@@ -36,7 +36,11 @@ use Doctrine\ORM\Utility\IdentifierFlattener;
 class DefaultEntityHydrator implements EntityHydrator
 {
     /**
+<<<<<<< HEAD
      * @var \Doctrine\ORM\EntityManagerInterface
+=======
+     * @var \Doctrine\ORM\EntityManager
+>>>>>>> contactmanager
      */
     private $em;
 
@@ -55,7 +59,11 @@ class DefaultEntityHydrator implements EntityHydrator
     /**
      * @var array
      */
+<<<<<<< HEAD
     private static $hints = [Query::HINT_CACHE_ENABLED => true];
+=======
+    private static $hints = array(Query::HINT_CACHE_ENABLED => true);
+>>>>>>> contactmanager
 
     /**
      * @param \Doctrine\ORM\EntityManagerInterface $em The entity manager.
@@ -76,18 +84,28 @@ class DefaultEntityHydrator implements EntityHydrator
         $data = array_merge($data, $metadata->getIdentifierValues($entity)); // why update has no identifier values ?
 
         foreach ($metadata->associationMappings as $name => $assoc) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> contactmanager
             if ( ! isset($data[$name])) {
                 continue;
             }
 
+<<<<<<< HEAD
             if ( ! ($assoc['type'] & ClassMetadata::TO_ONE)) {
                 unset($data[$name]);
 
+=======
+            if (! ($assoc['type'] & ClassMetadata::TO_ONE)) {
+                unset($data[$name]);
+>>>>>>> contactmanager
                 continue;
             }
 
             if ( ! isset($assoc['cache'])) {
                 $targetClassMetadata = $this->em->getClassMetadata($assoc['targetEntity']);
+<<<<<<< HEAD
                 $owningAssociation   = ( ! $assoc['isOwningSide'])
                     ? $targetClassMetadata->associationMappings[$assoc['mappedBy']]
                     : $assoc;
@@ -113,6 +131,24 @@ class DefaultEntityHydrator implements EntityHydrator
                         if (isset($targetAssoc['sourceToTargetKeyColumns'][$referencedColumn])) {
                             $data[$localColumn] = $fieldValue;
                         }
+=======
+                $associationIds = $this->identifierFlattener->flattenIdentifier($targetClassMetadata, $targetClassMetadata->getIdentifierValues($data[$name]));
+                unset($data[$name]);
+
+                foreach ($associationIds as $fieldName => $fieldValue) {
+
+                    if (isset($targetClassMetadata->associationMappings[$fieldName])){
+                        $targetAssoc = $targetClassMetadata->associationMappings[$fieldName];
+
+                        foreach($assoc['targetToSourceKeyColumns'] as $referencedColumn => $localColumn) {
+
+                            if (isset($targetAssoc['sourceToTargetKeyColumns'][$referencedColumn])) {
+                                $data[$localColumn] = $fieldValue;
+                            }
+                        }
+                    }else{
+                        $data[$assoc['targetToSourceKeyColumns'][$targetClassMetadata->columnNames[$fieldName]]] = $fieldValue;
+>>>>>>> contactmanager
                     }
                 }
 
@@ -135,10 +171,18 @@ class DefaultEntityHydrator implements EntityHydrator
             // @TODO - fix it !
             // handle UnitOfWork#createEntity hash generation
             if ( ! is_array($targetId)) {
+<<<<<<< HEAD
                 $data[reset($assoc['joinColumnFieldNames'])] = $targetId;
 
                 $targetEntity = $this->em->getClassMetadata($assoc['targetEntity']);
                 $targetId     = [$targetEntity->identifier[0] => $targetId];
+=======
+
+                $data[reset($assoc['joinColumnFieldNames'])] = $targetId;
+
+                $targetEntity = $this->em->getClassMetadata($assoc['targetEntity']);
+                $targetId     = array($targetEntity->identifier[0] => $targetId);
+>>>>>>> contactmanager
             }
 
             $data[$name] = new AssociationCacheEntry($assoc['targetEntity'], $targetId);
@@ -175,8 +219,12 @@ class DefaultEntityHydrator implements EntityHydrator
                 continue;
             }
 
+<<<<<<< HEAD
             $assocMetadata  = $this->em->getClassMetadata($assoc['targetEntity']);
             $assocKey       = new EntityCacheKey($assocMetadata->rootEntityName, $assocId);
+=======
+            $assocKey       = new EntityCacheKey($assoc['targetEntity'], $assocId);
+>>>>>>> contactmanager
             $assocPersister = $this->uow->getEntityPersister($assoc['targetEntity']);
             $assocRegion    = $assocPersister->getCacheRegion();
             $assocEntry     = $assocRegion->get($assocKey);
