@@ -21,9 +21,12 @@ namespace Doctrine\ORM\Persisters\Entity;
 
 use Doctrine\ORM\Mapping\ClassMetadata;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Doctrine\ORM\Query\ResultSetMapping;
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
 use Doctrine\DBAL\LockMode;
 use Doctrine\DBAL\Types\Type;
@@ -50,10 +53,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $owningTableMap = [];
 =======
     private $owningTableMap = array();
 >>>>>>> contactmanager
+=======
+    private $owningTableMap = [];
+>>>>>>> donmanager
 
     /**
      * Map of table to quoted table names.
@@ -61,10 +68,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $quotedTableMap = [];
 =======
     private $quotedTableMap = array();
 >>>>>>> contactmanager
+=======
+    private $quotedTableMap = [];
+>>>>>>> donmanager
 
     /**
      * {@inheritdoc}
@@ -140,6 +151,7 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
     {
         if ( ! $this->queuedInserts) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return [];
         }
 
@@ -150,6 +162,12 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
 
         $postInsertIds  = array();
 >>>>>>> contactmanager
+=======
+            return [];
+        }
+
+        $postInsertIds  = [];
+>>>>>>> donmanager
         $idGenerator    = $this->class->idGenerator;
         $isPostInsertId = $idGenerator->isPostInsertGenerator();
         $rootClass      = ($this->class->name !== $this->class->rootEntityName)
@@ -163,10 +181,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
 
         // Prepare statements for sub tables.
 <<<<<<< HEAD
+<<<<<<< HEAD
         $subTableStmts = [];
 =======
         $subTableStmts = array();
 >>>>>>> contactmanager
+=======
+        $subTableStmts = [];
+>>>>>>> donmanager
 
         if ($rootClass !== $this->class) {
             $subTableStmts[$this->class->getTableName()] = $this->conn->prepare($this->getInsertSQL());
@@ -200,6 +222,7 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
             if ($isPostInsertId) {
                 $generatedId = $idGenerator->generate($this->em, $entity);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $id = [
                     $this->class->identifier[0] => $generatedId
                 ];
@@ -209,13 +232,20 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
                 ];
 =======
                 $id = array(
+=======
+                $id = [
+>>>>>>> donmanager
                     $this->class->identifier[0] => $generatedId
-                );
-                $postInsertIds[] = array(
+                ];
+                $postInsertIds[] = [
                     'generatedId' => $generatedId,
                     'entity' => $entity,
+<<<<<<< HEAD
                 );
 >>>>>>> contactmanager
+=======
+                ];
+>>>>>>> donmanager
             } else {
                 $id = $this->em->getUnitOfWork()->getEntityIdentifier($entity);
             }
@@ -230,12 +260,16 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
                 /** @var \Doctrine\DBAL\Statement $stmt */
                 $paramIndex = 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $data       = $insertData[$tableName] ?? [];
 =======
                 $data       = isset($insertData[$tableName])
                     ? $insertData[$tableName]
                     : array();
 >>>>>>> contactmanager
+=======
+                $data       = $insertData[$tableName] ?? [];
+>>>>>>> donmanager
 
                 foreach ((array) $id as $idName => $idVal) {
                     $type = isset($this->columnTypes[$idName]) ? $this->columnTypes[$idName] : Type::STRING;
@@ -260,10 +294,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->queuedInserts = [];
 =======
         $this->queuedInserts = array();
 >>>>>>> contactmanager
+=======
+        $this->queuedInserts = [];
+>>>>>>> donmanager
 
         return $postInsertIds;
     }
@@ -298,6 +336,7 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
         if ($isVersioned) {
             if ( ! isset($updateData[$versionedTable])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $tableName = $this->quoteStrategy->getTableName($versionedClass, $this->platform);
 
                 $this->updateTable($entity, $tableName, [], true);
@@ -312,6 +351,15 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
 
             $identifiers = $this->em->getUnitOfWork()->getEntityIdentifier($entity);
 >>>>>>> contactmanager
+=======
+                $tableName = $this->quoteStrategy->getTableName($versionedClass, $this->platform);
+
+                $this->updateTable($entity, $tableName, [], true);
+            }
+
+            $identifiers = $this->em->getUnitOfWork()->getEntityIdentifier($entity);
+
+>>>>>>> donmanager
             $this->assignDefaultVersionValue($entity, $identifiers);
         }
     }
@@ -391,20 +439,28 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
             case LockMode::PESSIMISTIC_READ:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $lockSql = ' ' . $this->platform->getReadLockSQL();
 =======
                 $lockSql = ' ' . $this->platform->getReadLockSql();
 >>>>>>> contactmanager
+=======
+                $lockSql = ' ' . $this->platform->getReadLockSQL();
+>>>>>>> donmanager
 
                 break;
 
             case LockMode::PESSIMISTIC_WRITE:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $lockSql = ' ' . $this->platform->getWriteLockSQL();
 =======
                 $lockSql = ' ' . $this->platform->getWriteLockSql();
 >>>>>>> contactmanager
+=======
+                $lockSql = ' ' . $this->platform->getWriteLockSQL();
+>>>>>>> donmanager
 
                 break;
         }
@@ -427,10 +483,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
      * {@inheritDoc}
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function getCountSQL($criteria = [])
 =======
     public function getCountSQL($criteria = array())
 >>>>>>> contactmanager
+=======
+    public function getCountSQL($criteria = [])
+>>>>>>> donmanager
     {
         $tableName      = $this->quoteStrategy->getTableName($this->class, $this->platform);
         $baseTableAlias = $this->getSQLTableAlias($this->class->name);
@@ -468,10 +528,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
         // INNER JOIN parent tables
         foreach ($this->class->parentClasses as $parentClassName) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $conditions     = [];
 =======
             $conditions     = array();
 >>>>>>> contactmanager
+=======
+            $conditions     = [];
+>>>>>>> donmanager
             $tableAlias     = $this->getSQLTableAlias($parentClassName);
             $parentClass    = $this->em->getClassMetadata($parentClassName);
             $joinSql       .= ' INNER JOIN ' . $this->quoteStrategy->getTableName($parentClass, $this->platform) . ' ' . $tableAlias . ' ON ';
@@ -499,6 +563,7 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $columnList         = [];
         $discrColumn        = $this->class->discriminatorColumn['name'];
         $discrColumnType    = $this->class->discriminatorColumn['type'];
@@ -506,16 +571,25 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
         $columnList         = array();
         $discrColumn        = $this->class->discriminatorColumn['name'];
 >>>>>>> contactmanager
+=======
+        $columnList         = [];
+        $discrColumn        = $this->class->discriminatorColumn['name'];
+        $discrColumnType    = $this->class->discriminatorColumn['type'];
+>>>>>>> donmanager
         $baseTableAlias     = $this->getSQLTableAlias($this->class->name);
         $resultColumnName   = $this->platform->getSQLResultCasing($discrColumn);
 
         $this->currentPersisterContext->rsm->addEntityResult($this->class->name, 'r');
         $this->currentPersisterContext->rsm->setDiscriminatorColumn('r', $resultColumnName);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->currentPersisterContext->rsm->addMetaResult('r', $resultColumnName, $discrColumn, false, $discrColumnType);
 =======
         $this->currentPersisterContext->rsm->addMetaResult('r', $resultColumnName, $discrColumn);
 >>>>>>> contactmanager
+=======
+        $this->currentPersisterContext->rsm->addMetaResult('r', $resultColumnName, $discrColumn, false, $discrColumnType);
+>>>>>>> donmanager
 
         // Add regular columns
         foreach ($this->class->fieldMappings as $fieldName => $mapping) {
@@ -537,6 +611,7 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
                 : $baseTableAlias;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
 
             foreach ($mapping['joinColumns'] as $joinColumn) {
@@ -552,9 +627,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
                     : $this->class->name;
 
                 $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
+=======
+            $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
+>>>>>>> donmanager
 
+            foreach ($mapping['joinColumns'] as $joinColumn) {
                 $columnList[] = $this->getSelectJoinColumnSQL(
                     $tableAlias,
+<<<<<<< HEAD
                     $srcColumn,
                     $className,
                     PersisterHelper::getTypeOfColumn(
@@ -563,6 +643,11 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
                         $this->em
                     )
 >>>>>>> contactmanager
+=======
+                    $joinColumn['name'],
+                    $this->quoteStrategy->getJoinColumnName($joinColumn, $this->class, $this->platform),
+                    PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em)
+>>>>>>> donmanager
                 );
             }
         }
@@ -597,6 +682,7 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
                 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
 
                 foreach ($mapping['joinColumns'] as $joinColumn) {
@@ -612,9 +698,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
                         : $subClass->name;
 
                     $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
+=======
+                $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
+>>>>>>> donmanager
 
+                foreach ($mapping['joinColumns'] as $joinColumn) {
                     $columnList[] = $this->getSelectJoinColumnSQL(
                         $tableAlias,
+<<<<<<< HEAD
                         $srcColumn,
                         $className,
                         PersisterHelper::getTypeOfColumn(
@@ -623,6 +714,11 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
                             $this->em
                         )
 >>>>>>> contactmanager
+=======
+                        $joinColumn['name'],
+                        $this->quoteStrategy->getJoinColumnName($joinColumn, $subClass, $this->platform),
+                        PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em)
+>>>>>>> donmanager
                     );
                 }
             }
@@ -642,10 +738,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
         $columns = $this->class->parentClasses
             ? $this->class->getIdentifierColumnNames()
 <<<<<<< HEAD
+<<<<<<< HEAD
             : [];
 =======
             : array();
 >>>>>>> contactmanager
+=======
+            : [];
+>>>>>>> donmanager
 
         foreach ($this->class->reflFields as $name => $field) {
             if (isset($this->class->fieldMappings[$name]['inherited'])
@@ -689,11 +789,16 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param string $baseTableAlias
      *
 =======
      * @param  string $baseTableAlias
 >>>>>>> contactmanager
+=======
+     * @param string $baseTableAlias
+     *
+>>>>>>> donmanager
      * @return string
      */
     private function getJoinSql($baseTableAlias)
@@ -704,10 +809,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
         // INNER JOIN parent tables
         foreach ($this->class->parentClasses as $parentClassName) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $conditions   = [];
 =======
             $conditions   = array();
 >>>>>>> contactmanager
+=======
+            $conditions   = [];
+>>>>>>> donmanager
             $parentClass  = $this->em->getClassMetadata($parentClassName);
             $tableAlias   = $this->getSQLTableAlias($parentClassName);
             $joinSql     .= ' INNER JOIN ' . $this->quoteStrategy->getTableName($parentClass, $this->platform) . ' ' . $tableAlias . ' ON ';
@@ -723,10 +832,14 @@ class JoinedSubclassPersister extends AbstractEntityInheritancePersister
         // OUTER JOIN sub tables
         foreach ($this->class->subClasses as $subClassName) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $conditions  = [];
 =======
             $conditions  = array();
 >>>>>>> contactmanager
+=======
+            $conditions  = [];
+>>>>>>> donmanager
             $subClass    = $this->em->getClassMetadata($subClassName);
             $tableAlias  = $this->getSQLTableAlias($subClassName);
             $joinSql    .= ' LEFT JOIN ' . $this->quoteStrategy->getTableName($subClass, $this->platform) . ' ' . $tableAlias . ' ON ';

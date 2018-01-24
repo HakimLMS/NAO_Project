@@ -20,10 +20,15 @@
 namespace Doctrine\ORM\Query;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\Query\AST\PathExpression;
 
 =======
 >>>>>>> contactmanager
+=======
+use Doctrine\ORM\Query\AST\PathExpression;
+
+>>>>>>> donmanager
 /**
  * Description of QueryException.
  *
@@ -210,6 +215,7 @@ class QueryException extends \Doctrine\ORM\ORMException
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param PathExpression $pathExpr
      *
      * @return QueryException
@@ -220,14 +226,23 @@ class QueryException extends \Doctrine\ORM\ORMException
             'A single-valued association path expression to an inverse side is not supported in DQL queries. ' .
             'Instead of "' . $pathExpr->identificationVariable . '.' . $pathExpr->field . '" use an explicit join.'
 =======
+=======
+     * @param PathExpression $pathExpr
+     *
+>>>>>>> donmanager
      * @return QueryException
      */
-    public static function associationPathInverseSideNotSupported()
+    public static function associationPathInverseSideNotSupported(PathExpression $pathExpr)
     {
         return new self(
+<<<<<<< HEAD
             "A single-valued association path expression to an inverse side is not supported".
             " in DQL queries. Use an explicit join instead."
 >>>>>>> contactmanager
+=======
+            'A single-valued association path expression to an inverse side is not supported in DQL queries. ' .
+            'Instead of "' . $pathExpr->identificationVariable . '.' . $pathExpr->field . '" use an explicit join.'
+>>>>>>> donmanager
         );
     }
 
@@ -266,10 +281,14 @@ class QueryException extends \Doctrine\ORM\ORMException
     {
         return new self("Cannot check if a child of '" . $rootClass . "' is instanceof '" . $className . "', " .
 <<<<<<< HEAD
+<<<<<<< HEAD
             "inheritance hierarchy does not exists between these two classes.");
 =======
                 "inheritance hierarchy does not exists between these two classes.");
 >>>>>>> contactmanager
+=======
+            "inheritance hierarchy does not exists between these two classes.");
+>>>>>>> donmanager
     }
 
     /**

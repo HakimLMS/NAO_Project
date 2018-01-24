@@ -70,10 +70,14 @@ abstract class AbstractHydrator
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $_metadataCache = [];
 =======
     protected $_metadataCache = array();
 >>>>>>> contactmanager
+=======
+    protected $_metadataCache = [];
+>>>>>>> donmanager
 
     /**
      * The cache used during row-by-row hydration.
@@ -81,10 +85,14 @@ abstract class AbstractHydrator
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $_cache = [];
 =======
     protected $_cache = array();
 >>>>>>> contactmanager
+=======
+    protected $_cache = [];
+>>>>>>> donmanager
 
     /**
      * The statement that provides the data to hydrate.
@@ -122,10 +130,14 @@ abstract class AbstractHydrator
      * @return IterableResult
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function iterate($stmt, $resultSetMapping, array $hints = [])
 =======
     public function iterate($stmt, $resultSetMapping, array $hints = array())
 >>>>>>> contactmanager
+=======
+    public function iterate($stmt, $resultSetMapping, array $hints = [])
+>>>>>>> donmanager
     {
         $this->_stmt  = $stmt;
         $this->_rsm   = $resultSetMapping;
@@ -133,11 +145,16 @@ abstract class AbstractHydrator
 
         $evm = $this->_em->getEventManager();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         $evm->addEventListener([Events::onClear], $this);
 =======
         $evm->addEventListener(array(Events::onClear), $this);
 >>>>>>> contactmanager
+=======
+
+        $evm->addEventListener([Events::onClear], $this);
+>>>>>>> donmanager
 
         $this->prepare();
 
@@ -154,21 +171,29 @@ abstract class AbstractHydrator
      * @return array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function hydrateAll($stmt, $resultSetMapping, array $hints = [])
 =======
     public function hydrateAll($stmt, $resultSetMapping, array $hints = array())
 >>>>>>> contactmanager
+=======
+    public function hydrateAll($stmt, $resultSetMapping, array $hints = [])
+>>>>>>> donmanager
     {
         $this->_stmt  = $stmt;
         $this->_rsm   = $resultSetMapping;
         $this->_hints = $hints;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->_em->getEventManager()->addEventListener([Events::onClear], $this);
 =======
         $evm = $this->_em->getEventManager();
         $evm->addEventListener(array(Events::onClear), $this);
 >>>>>>> contactmanager
+=======
+        $this->_em->getEventManager()->addEventListener([Events::onClear], $this);
+>>>>>>> donmanager
 
         $this->prepare();
 
@@ -196,10 +221,14 @@ abstract class AbstractHydrator
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $result = [];
 =======
         $result = array();
 >>>>>>> contactmanager
+=======
+        $result = [];
+>>>>>>> donmanager
 
         $this->hydrateRowData($row, $result);
 
@@ -241,6 +270,7 @@ abstract class AbstractHydrator
         $this->_stmt          = null;
         $this->_rsm           = null;
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->_cache         = [];
         $this->_metadataCache = [];
 
@@ -255,6 +285,15 @@ abstract class AbstractHydrator
         $evm = $this->_em->getEventManager();
         $evm->removeEventListener(array(Events::onClear), $this);
 >>>>>>> contactmanager
+=======
+        $this->_cache         = [];
+        $this->_metadataCache = [];
+
+        $this
+            ->_em
+            ->getEventManager()
+            ->removeEventListener([Events::onClear], $this);
+>>>>>>> donmanager
     }
 
     /**
@@ -300,10 +339,14 @@ abstract class AbstractHydrator
     protected function gatherRowData(array $data, array &$id, array &$nonemptyComponents)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $rowData = ['data' => []];
 =======
         $rowData = array('data' => array());
 >>>>>>> contactmanager
+=======
+        $rowData = ['data' => []];
+>>>>>>> donmanager
 
         foreach ($data as $key => $value) {
             if (($cacheKeyInfo = $this->hydrateColumnInfo($key)) === null) {
@@ -336,6 +379,9 @@ abstract class AbstractHydrator
                     $type     = $cacheKeyInfo['type'];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
                     // If there are field name collisions in the child class, then we need
                     // to only hydrate if we are looking at the correct discriminator value
                     if(
@@ -347,8 +393,11 @@ abstract class AbstractHydrator
                         break;
                     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
                     // in an inheritance hierarchy the same field could be defined several times.
                     // We overwrite this value so long we don't have a non-null value, that value we keep.
                     // Per definition it cannot be that a field is defined several times and has several values.
@@ -386,10 +435,14 @@ abstract class AbstractHydrator
     protected function gatherScalarRowData(&$data)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $rowData = [];
 =======
         $rowData = array();
 >>>>>>> contactmanager
+=======
+        $rowData = [];
+>>>>>>> donmanager
 
         foreach ($data as $key => $value) {
             if (($cacheKeyInfo = $this->hydrateColumnInfo($key)) === null) {
@@ -435,6 +488,7 @@ abstract class AbstractHydrator
                 $fieldName     = $this->_rsm->fieldMappings[$key];
                 $fieldMapping  = $classMetadata->fieldMappings[$fieldName];
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $ownerMap      = $this->_rsm->columnOwnerMap[$key];
                 $columnInfo    = [
                     'isIdentifier' => \in_array($fieldName, $classMetadata->identifier, true),
@@ -465,16 +519,43 @@ abstract class AbstractHydrator
                     'dqlAlias'     => $this->_rsm->columnOwnerMap[$key],
                 );
 >>>>>>> contactmanager
+=======
+                $ownerMap      = $this->_rsm->columnOwnerMap[$key];
+                $columnInfo    = [
+                    'isIdentifier' => \in_array($fieldName, $classMetadata->identifier, true),
+                    'fieldName'    => $fieldName,
+                    'type'         => Type::getType($fieldMapping['type']),
+                    'dqlAlias'     => $ownerMap,
+                ];
+
+                // the current discriminator value must be saved in order to disambiguate fields hydration,
+                // should there be field name collisions
+                if ($classMetadata->parentClasses && isset($this->_rsm->discriminatorColumns[$ownerMap])) {
+                    return $this->_cache[$key] = \array_merge(
+                        $columnInfo,
+                        [
+                            'discriminatorColumn' => $this->_rsm->discriminatorColumns[$ownerMap],
+                            'discriminatorValue'  => $classMetadata->discriminatorValue
+                        ]
+                    );
+                }
+
+                return $this->_cache[$key] = $columnInfo;
+>>>>>>> donmanager
 
             case (isset($this->_rsm->newObjectMappings[$key])):
                 // WARNING: A NEW object is also a scalar, so it must be declared before!
                 $mapping = $this->_rsm->newObjectMappings[$key];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 return $this->_cache[$key] = [
 =======
                 return $this->_cache[$key] = array(
 >>>>>>> contactmanager
+=======
+                return $this->_cache[$key] = [
+>>>>>>> donmanager
                     'isScalar'             => true,
                     'isNewObjectParameter' => true,
                     'fieldName'            => $this->_rsm->scalarMappings[$key],
@@ -482,6 +563,7 @@ abstract class AbstractHydrator
                     'argIndex'             => $mapping['argIndex'],
                     'objIndex'             => $mapping['objIndex'],
                     'class'                => new \ReflectionClass($mapping['className']),
+<<<<<<< HEAD
 <<<<<<< HEAD
                 ];
 
@@ -506,35 +588,48 @@ abstract class AbstractHydrator
                 return $this->_cache[$key] = [
 =======
                 );
+=======
+                ];
+>>>>>>> donmanager
 
             case (isset($this->_rsm->scalarMappings[$key])):
-                return $this->_cache[$key] = array(
+                return $this->_cache[$key] = [
                     'isScalar'  => true,
                     'fieldName' => $this->_rsm->scalarMappings[$key],
                     'type'      => Type::getType($this->_rsm->typeMappings[$key]),
-                );
+                ];
 
             case (isset($this->_rsm->metaMappings[$key])):
                 // Meta column (has meaning in relational schema only, i.e. foreign keys or discriminator columns).
-                $fieldName     = $this->_rsm->metaMappings[$key];
-                $dqlAlias      = $this->_rsm->columnOwnerMap[$key];
-                $classMetadata = $this->getClassMetadata($this->_rsm->aliasMap[$dqlAlias]);
-                $type          = isset($this->_rsm->typeMappings[$key])
+                $fieldName = $this->_rsm->metaMappings[$key];
+                $dqlAlias  = $this->_rsm->columnOwnerMap[$key];
+                $type      = isset($this->_rsm->typeMappings[$key])
                     ? Type::getType($this->_rsm->typeMappings[$key])
                     : null;
 
+<<<<<<< HEAD
                 return $this->_cache[$key] = array(
 >>>>>>> contactmanager
+=======
+                // Cache metadata fetch
+                $this->getClassMetadata($this->_rsm->aliasMap[$dqlAlias]);
+
+                return $this->_cache[$key] = [
+>>>>>>> donmanager
                     'isIdentifier' => isset($this->_rsm->isIdentifierColumn[$dqlAlias][$key]),
                     'isMetaColumn' => true,
                     'fieldName'    => $fieldName,
                     'type'         => $type,
                     'dqlAlias'     => $dqlAlias,
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ];
 =======
                 );
 >>>>>>> contactmanager
+=======
+                ];
+>>>>>>> donmanager
         }
 
         // this column is a left over, maybe from a LIMIT query hack for example in Oracle or DB2
@@ -573,10 +668,14 @@ abstract class AbstractHydrator
     {
         if ($class->isIdentifierComposite) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $id = [];
 =======
             $id = array();
 >>>>>>> contactmanager
+=======
+            $id = [];
+>>>>>>> donmanager
 
             foreach ($class->identifier as $fieldName) {
                 $id[$fieldName] = isset($class->associationMappings[$fieldName])
@@ -585,6 +684,7 @@ abstract class AbstractHydrator
             }
         } else {
             $fieldName = $class->identifier[0];
+<<<<<<< HEAD
 <<<<<<< HEAD
             $id        = [
                 $fieldName => isset($class->associationMappings[$fieldName])
@@ -598,6 +698,13 @@ abstract class AbstractHydrator
                     : $data[$fieldName]
             );
 >>>>>>> contactmanager
+=======
+            $id        = [
+                $fieldName => isset($class->associationMappings[$fieldName])
+                    ? $data[$class->associationMappings[$fieldName]['joinColumns'][0]['name']]
+                    : $data[$fieldName]
+            ];
+>>>>>>> donmanager
         }
 
         $this->_em->getUnitOfWork()->registerManaged($entity, $id, $data);

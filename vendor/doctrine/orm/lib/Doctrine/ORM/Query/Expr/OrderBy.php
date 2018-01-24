@@ -49,19 +49,27 @@ class OrderBy
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $allowedClasses = [];
 =======
     protected $allowedClasses = array();
 >>>>>>> contactmanager
+=======
+    protected $allowedClasses = [];
+>>>>>>> donmanager
 
     /**
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $parts = [];
 =======
     protected $parts = array();
 >>>>>>> contactmanager
+=======
+    protected $parts = [];
+>>>>>>> donmanager
 
     /**
      * @param string|null $sort
@@ -106,10 +114,14 @@ class OrderBy
      * @return string
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function __toString()
 =======
     public function __tostring()
 >>>>>>> contactmanager
+=======
+    public function __toString()
+>>>>>>> donmanager
     {
         return $this->preSeparator . implode($this->separator, $this->parts) . $this->postSeparator;
     }

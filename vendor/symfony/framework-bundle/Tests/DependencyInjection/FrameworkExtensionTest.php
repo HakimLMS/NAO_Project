@@ -142,6 +142,7 @@ abstract class FrameworkExtensionTest extends TestCase
 
         $this->assertFalse($container->hasDefinition('fragment.renderer.esi'), 'The ESI fragment renderer is not registered');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     }
 
@@ -151,6 +152,8 @@ abstract class FrameworkExtensionTest extends TestCase
 
         $this->assertFalse($container->hasDefinition('fragment.renderer.esi'));
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         $this->assertFalse($container->hasDefinition('esi'));
     }
 
@@ -168,9 +171,13 @@ abstract class FrameworkExtensionTest extends TestCase
 
         $this->assertFalse($container->hasDefinition('fragment.renderer.ssi'), 'The SSI fragment renderer is not registered');
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->assertFalse($container->hasDefinition('ssi'));
 =======
 >>>>>>> contactmanager
+=======
+        $this->assertFalse($container->hasDefinition('ssi'));
+>>>>>>> donmanager
     }
 
     public function testEsiAndSsiWithoutFragments()
@@ -183,6 +190,7 @@ abstract class FrameworkExtensionTest extends TestCase
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public function testSsiInactive()
     {
@@ -193,6 +201,8 @@ abstract class FrameworkExtensionTest extends TestCase
     }
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     public function testEnabledProfiler()
     {
         $container = $this->createContainerFromFile('profiler');
@@ -1048,11 +1058,17 @@ abstract class FrameworkExtensionTest extends TestCase
             'kernel.root_dir' => __DIR__,
             'kernel.container_class' => 'testContainer',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'container.build_hash' => 'Abc1234',
             'container.build_id' => hash('crc32', 'Abc123423456789'),
             'container.build_time' => 23456789,
 =======
 >>>>>>> contactmanager
+=======
+            'container.build_hash' => 'Abc1234',
+            'container.build_id' => hash('crc32', 'Abc123423456789'),
+            'container.build_time' => 23456789,
+>>>>>>> donmanager
         ), $data)));
     }
 

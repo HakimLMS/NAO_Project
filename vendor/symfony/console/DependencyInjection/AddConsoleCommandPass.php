@@ -42,19 +42,25 @@ class AddConsoleCommandPass implements CompilerPassInterface
         $lazyCommandRefs = array();
         $serviceIds = array();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         $lazyServiceIds = array();
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
         foreach ($commandServices as $id => $tags) {
             $definition = $container->getDefinition($id);
             $class = $container->getParameterBag()->resolveValue($definition->getClass());
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             $commandId = 'console.command.'.strtolower(str_replace('\\', '_', $class));
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             if (isset($tags[0]['command'])) {
                 $commandName = $tags[0]['command'];
             } else {
@@ -69,6 +75,7 @@ class AddConsoleCommandPass implements CompilerPassInterface
 
             if (null === $commandName) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (!$definition->isPublic() || $definition->isPrivate()) {
                     $commandId = 'console.command.public_alias.'.$id;
                     $container->setAlias($commandId, $id)->setPublic(true);
@@ -79,21 +86,31 @@ class AddConsoleCommandPass implements CompilerPassInterface
                 if (isset($serviceIds[$commandId]) || $container->hasAlias($commandId)) {
                     $commandId = $commandId.'_'.$id;
                 }
+=======
+>>>>>>> donmanager
                 if (!$definition->isPublic() || $definition->isPrivate()) {
+                    $commandId = 'console.command.public_alias.'.$id;
                     $container->setAlias($commandId, $id)->setPublic(true);
                     $id = $commandId;
                 }
+<<<<<<< HEAD
                 $serviceIds[$commandId] = $id;
 >>>>>>> contactmanager
+=======
+                $serviceIds[] = $id;
+>>>>>>> donmanager
 
                 continue;
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             $serviceIds[$commandId] = $id;
             $lazyServiceIds[$id] = true;
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             unset($tags[0]);
             $lazyCommandMap[$commandName] = $id;
             $lazyCommandRefs[$id] = new TypedReference($id, $class);
@@ -120,8 +137,11 @@ class AddConsoleCommandPass implements CompilerPassInterface
 
         $container->setParameter('console.command.ids', $serviceIds);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         $container->setParameter('console.lazy_command.ids', $lazyServiceIds);
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     }
 }

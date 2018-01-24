@@ -31,6 +31,9 @@ class Lexer extends \Doctrine\Common\Lexer
 {
     // All tokens that are not valid identifiers must be < 100
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     const T_NONE                 = 1;
     const T_INTEGER              = 2;
     const T_STRING               = 3;
@@ -114,6 +117,7 @@ class Lexer extends \Doctrine\Common\Lexer
     const T_WHEN                 = 254;
     const T_WHERE                = 255;
     const T_WITH                 = 256;
+<<<<<<< HEAD
 =======
     const T_NONE                = 1;
     const T_INTEGER             = 2;
@@ -195,6 +199,8 @@ class Lexer extends \Doctrine\Common\Lexer
     const T_PARTIAL             = 156;
     const T_NEW                 = 157;
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
     /**
      * Creates a new query scanner object.
@@ -207,6 +213,7 @@ class Lexer extends \Doctrine\Common\Lexer
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * {@inheritdoc}
      */
@@ -233,28 +240,36 @@ class Lexer extends \Doctrine\Common\Lexer
      * {@inheritdoc}
 =======
      * @inheritdoc
+=======
+     * {@inheritdoc}
+>>>>>>> donmanager
      */
     protected function getCatchablePatterns()
     {
-        return array(
-            '[a-z_\\\][a-z0-9_\:\\\]*[a-z0-9_]{1}',
-            '(?:[0-9]+(?:[\.][0-9]+)*)(?:e[+-]?[0-9]+)?',
-            "'(?:[^']|'')*'",
-            '\?[0-9]*|:[a-z_][a-z0-9_]*'
-        );
+        return [
+            '[a-z_][a-z0-9_]*\:[a-z_][a-z0-9_]*(?:\\\[a-z_][a-z0-9_]*)*', // aliased name
+            '[a-z_\\\][a-z0-9_]*(?:\\\[a-z_][a-z0-9_]*)*', // identifier or qualified name
+            '(?:[0-9]+(?:[\.][0-9]+)*)(?:e[+-]?[0-9]+)?', // numbers
+            "'(?:[^']|'')*'", // quoted strings
+            '\?[0-9]*|:[a-z_][a-z0-9_]*' // parameters
+        ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function getNonCatchablePatterns()
     {
-        return array('\s+', '(.)');
+        return ['\s+', '(.)'];
     }
 
     /**
+<<<<<<< HEAD
      * @inheritdoc
 >>>>>>> contactmanager
+=======
+     * {@inheritdoc}
+>>>>>>> donmanager
      */
     protected function getType(&$value)
     {
@@ -276,12 +291,17 @@ class Lexer extends \Doctrine\Common\Lexer
                 return self::T_STRING;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // Recognize identifiers, aliased or qualified names
             case (ctype_alpha($value[0]) || $value[0] === '_' || $value[0] === '\\'):
 =======
             // Recognize identifiers
             case (ctype_alpha($value[0]) || $value[0] === '_'):
 >>>>>>> contactmanager
+=======
+            // Recognize identifiers, aliased or qualified names
+            case (ctype_alpha($value[0]) || $value[0] === '_' || $value[0] === '\\'):
+>>>>>>> donmanager
                 $name = 'Doctrine\ORM\Query\Lexer::T_' . strtoupper($value);
 
                 if (defined($name)) {
@@ -293,6 +313,9 @@ class Lexer extends \Doctrine\Common\Lexer
                 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
                 if (strpos($value, ':') !== false) {
                     return self::T_ALIASED_NAME;
                 }
@@ -301,8 +324,11 @@ class Lexer extends \Doctrine\Common\Lexer
                     return self::T_FULLY_QUALIFIED_NAME;
                 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
                 return self::T_IDENTIFIER;
 
             // Recognize input parameters

@@ -123,11 +123,16 @@ class Setup
     {
         $proxyDir = $proxyDir ?: sys_get_temp_dir();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         $cache = self::createCacheConfiguration($isDevMode, $proxyDir, $cache);
 =======
         $cache    = self::createCacheConfiguration($isDevMode, $proxyDir, $cache);
 >>>>>>> contactmanager
+=======
+
+        $cache = self::createCacheConfiguration($isDevMode, $proxyDir, $cache);
+>>>>>>> donmanager
 
         $config = new Configuration();
         $config->setMetadataCacheImpl($cache);
@@ -141,6 +146,7 @@ class Setup
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private static function createCacheConfiguration(bool $isDevMode, string $proxyDir, ?Cache $cache) :  Cache
 =======
     /**
@@ -152,6 +158,9 @@ class Setup
      */
     private static function createCacheConfiguration($isDevMode, $proxyDir, Cache $cache = null)
 >>>>>>> contactmanager
+=======
+    private static function createCacheConfiguration(bool $isDevMode, string $proxyDir, ?Cache $cache) :  Cache
+>>>>>>> donmanager
     {
         $cache = self::createCacheInstance($isDevMode, $cache);
 
@@ -171,6 +180,7 @@ class Setup
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private static function createCacheInstance(bool $isDevMode, ?Cache $cache) : Cache
 =======
     /**
@@ -181,6 +191,9 @@ class Setup
      */
     private static function createCacheInstance($isDevMode, Cache $cache = null)
 >>>>>>> contactmanager
+=======
+    private static function createCacheInstance(bool $isDevMode, ?Cache $cache) : Cache
+>>>>>>> donmanager
     {
         if ($cache !== null) {
             return $cache;
@@ -190,6 +203,7 @@ class Setup
             return new ArrayCache();
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         if (extension_loaded('apcu')) {
             return new \Doctrine\Common\Cache\ApcuCache();
@@ -204,18 +218,23 @@ class Setup
 =======
         if (extension_loaded('apc')) {
             return new \Doctrine\Common\Cache\ApcCache();
+=======
+        if (extension_loaded('apcu')) {
+            return new \Doctrine\Common\Cache\ApcuCache();
+>>>>>>> donmanager
         }
 
-        if (extension_loaded('xcache')) {
-            return new \Doctrine\Common\Cache\XcacheCache();
-        }
 
-        if (extension_loaded('memcache')) {
-            $memcache = new \Memcache();
-            $memcache->connect('127.0.0.1');
+        if (extension_loaded('memcached')) {
+            $memcache = new \Memcached();
+            $memcache->addServer('127.0.0.1', 11211);
 
+<<<<<<< HEAD
             $cache = new \Doctrine\Common\Cache\MemcacheCache();
 >>>>>>> contactmanager
+=======
+            $cache = new \Doctrine\Common\Cache\MemcachedCache();
+>>>>>>> donmanager
             $cache->setMemcache($memcache);
 
             return $cache;

@@ -38,15 +38,21 @@ Index
 -  :ref:`@Cache <annref_cache>`
 -  :ref:`@ChangeTrackingPolicy <annref_changetrackingpolicy>`
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 -  :ref:`@CustomIdGenerator <annref_customidgenerator>`
 -  :ref:`@DiscriminatorColumn <annref_discriminatorcolumn>`
 -  :ref:`@DiscriminatorMap <annref_discriminatormap>`
 -  :ref:`@Embeddable <annref_embeddable>`
 -  :ref:`@Embedded <annref_embedded>`
+<<<<<<< HEAD
 =======
 -  :ref:`@DiscriminatorColumn <annref_discriminatorcolumn>`
 -  :ref:`@DiscriminatorMap <annref_discriminatormap>`
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 -  :ref:`@Entity <annref_entity>`
 -  :ref:`@EntityResult <annref_entity_result>`
 -  :ref:`@FieldResult <annref_field_result>`
@@ -119,10 +125,14 @@ Optional attributes:
    should be unique across all rows of the underlying entities table.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 -  **nullable**: Determines if NULL values allowed for this column. If not specified, default value is false.
 =======
 -  **nullable**: Determines if NULL values allowed for this column.
 >>>>>>> contactmanager
+=======
+-  **nullable**: Determines if NULL values allowed for this column. If not specified, default value is false.
+>>>>>>> donmanager
 
 -  **options**: Array of additional options:
 
@@ -144,11 +154,17 @@ Optional attributes:
    -  ``collation``: The collation of the column (only supported by Drizzle, Mysql, PostgreSQL>=9.1, Sqlite and SQLServer).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
    -  ``check``: Adds a check constraint type to the column (might not
       be supported by all vendors).
 
 =======
 >>>>>>> contactmanager
+=======
+   -  ``check``: Adds a check constraint type to the column (might not
+      be supported by all vendors).
+
+>>>>>>> donmanager
 -  **columnDefinition**: DDL SQL snippet that starts after the column
    name and specifies the complete (non-portable!) column definition.
    This attribute allows to make use of advanced RMDBS features.
@@ -250,6 +266,9 @@ Example:
     class User {}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 .. _annref_customidgenerator:
 
 @CustomIdGenerator
@@ -274,28 +293,41 @@ Example:
      */
     public $id;
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 .. _annref_discriminatorcolumn:
 
 @DiscriminatorColumn
 ~~~~~~~~~~~~~~~~~~~~~
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 This annotation is an optional annotation for the topmost/super
 =======
 This annotation is a required annotation for the topmost/super
 >>>>>>> contactmanager
+=======
+This annotation is an optional annotation for the topmost/super
+>>>>>>> donmanager
 class of an inheritance hierarchy. It specifies the details of the
 column which saves the name of the class, which the entity is
 actually instantiated as.
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 If this annotation is not specified, the discriminator column defaults
 to a string column of length 255 called ``dtype``.
 
 =======
 >>>>>>> contactmanager
+=======
+If this annotation is not specified, the discriminator column defaults
+to a string column of length 255 called ``dtype``.
+
+>>>>>>> donmanager
 Required attributes:
 
 
@@ -335,6 +367,9 @@ depending on whether the classes are in the namespace or not.
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 
 .. _annref_embeddable:
 
@@ -396,8 +431,11 @@ Required attributes:
     // ...
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 .. _annref_entity:
 
 @Entity
@@ -477,18 +515,26 @@ If this annotation is not specified with @Id the NONE strategy is
 used as default.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Optional attributes:
 =======
 Required attributes:
 >>>>>>> contactmanager
+=======
+Optional attributes:
+>>>>>>> donmanager
 
 
 -  **strategy**: Set the name of the identifier generation strategy.
    Valid values are AUTO, SEQUENCE, TABLE, IDENTITY, UUID, CUSTOM and NONE.
 <<<<<<< HEAD
+<<<<<<< HEAD
    If not specified, default value is AUTO.
 =======
 >>>>>>> contactmanager
+=======
+   If not specified, default value is AUTO.
+>>>>>>> donmanager
 
 Example:
 
@@ -1339,6 +1385,7 @@ Example with partial indexes:
 
 @Version
 <<<<<<< HEAD
+<<<<<<< HEAD
 ~~~~~~~~
 
 Marker annotation that defines a specified column as version attribute used in
@@ -1354,6 +1401,15 @@ attribute used in an optimistic locking scenario. It only works on
 :ref:`@Column <annref_column>` annotations that have the type integer or
 datetime. Combining @Version with :ref:`@Id <annref_id>` is not supported.
 >>>>>>> contactmanager
+=======
+~~~~~~~~
+
+Marker annotation that defines a specified column as version attribute used in
+an :ref:`optimistic locking <transactions-and-concurrency_optimistic-locking>`
+scenario. It only works on :ref:`@Column <annref_column>` annotations that have
+the type ``integer`` or ``datetime``. Combining ``@Version`` with
+:ref:`@Id <annref_id>` is not supported.
+>>>>>>> donmanager
 
 Example:
 

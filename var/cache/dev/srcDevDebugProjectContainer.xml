@@ -2,6 +2,7 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <parameter key="kernel.root_dir">E:\wamp64\www\NAO_project\src</parameter>
     <parameter key="kernel.project_dir">E:\wamp64\www\NAO_project</parameter>
     <parameter key="kernel.environment">dev</parameter>
@@ -18,6 +19,15 @@
     <parameter key="kernel.cache_dir">C:\wamp64\www\NAO_Project\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\wamp64\www\NAO_Project\var\log</parameter>
 >>>>>>> contactmanager
+=======
+    <parameter key="kernel.root_dir">C:\wamp64\www\NAO_Project\src</parameter>
+    <parameter key="kernel.project_dir">C:\wamp64\www\NAO_Project</parameter>
+    <parameter key="kernel.environment">dev</parameter>
+    <parameter key="kernel.debug">true</parameter>
+    <parameter key="kernel.name">src</parameter>
+    <parameter key="kernel.cache_dir">C:\wamp64\www\NAO_Project\var\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">C:\wamp64\www\NAO_Project\var\log</parameter>
+>>>>>>> donmanager
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="TwigBundle">Symfony\Bundle\TwigBundle\TwigBundle</parameter>
@@ -28,47 +38,57 @@
       <parameter key="DoctrineMigrationsBundle">Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="MonologBundle">Symfony\Bundle\MonologBundle\MonologBundle</parameter>
 =======
 >>>>>>> contactmanager
+=======
+      <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
+      <parameter key="MonologBundle">Symfony\Bundle\MonologBundle\MonologBundle</parameter>
+>>>>>>> donmanager
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <parameter key="path">E:\wamp64\www\NAO_project\vendor\symfony\framework-bundle</parameter>
+=======
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\symfony\framework-bundle</parameter>
+>>>>>>> donmanager
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
-        <parameter key="path">E:\wamp64\www\NAO_project\vendor\symfony\twig-bundle</parameter>
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\symfony\twig-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
-        <parameter key="path">E:\wamp64\www\NAO_project\vendor\sensio\framework-extra-bundle</parameter>
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\sensio\framework-extra-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
-        <parameter key="path">E:\wamp64\www\NAO_project\vendor\symfony\web-profiler-bundle</parameter>
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\symfony\web-profiler-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
       <parameter key="DoctrineCacheBundle" type="collection">
-        <parameter key="path">E:\wamp64\www\NAO_project\vendor\doctrine\doctrine-cache-bundle</parameter>
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\doctrine\doctrine-cache-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineCacheBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
-        <parameter key="path">E:\wamp64\www\NAO_project\vendor\doctrine\doctrine-bundle</parameter>
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\doctrine\doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="DoctrineMigrationsBundle" type="collection">
-        <parameter key="path">E:\wamp64\www\NAO_project\vendor\doctrine\doctrine-migrations-bundle</parameter>
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\doctrine\doctrine-migrations-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="MakerBundle" type="collection">
-        <parameter key="path">E:\wamp64\www\NAO_project\vendor\symfony\maker-bundle\src</parameter>
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\symfony\maker-bundle\src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
+<<<<<<< HEAD
         <parameter key="path">E:\wamp64\www\NAO_project\vendor\symfony\security-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
@@ -113,6 +133,17 @@
       <parameter key="SwiftmailerBundle" type="collection">
         <parameter key="path">C:\wamp64\www\NAO_Project\vendor\symfony\swiftmailer-bundle</parameter>
 >>>>>>> contactmanager
+=======
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\symfony\security-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
+      </parameter>
+      <parameter key="MonologBundle" type="collection">
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\symfony\monolog-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
+      </parameter>
+      <parameter key="SwiftmailerBundle" type="collection">
+        <parameter key="path">C:\wamp64\www\NAO_Project\vendor\symfony\swiftmailer-bundle</parameter>
+>>>>>>> donmanager
         <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
       </parameter>
     </parameter>
@@ -135,25 +166,37 @@
     <parameter key="templating.helper.code.file_link_format">null</parameter>
     <parameter key="debug.file_link_format">null</parameter>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter">0</parameter>
       <parameter key="cookie_httponly">true</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
+<<<<<<< HEAD
     <parameter key="session.save_path">E:\wamp64\www\NAO_project\src/../var/sessions/dev</parameter>
+=======
+    <parameter key="session.save_path">C:\wamp64\www\NAO_Project\src/../var/sessions/dev</parameter>
+>>>>>>> donmanager
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
     <parameter key="asset.request_context.base_path"></parameter>
     <parameter key="asset.request_context.secure">false</parameter>
     <parameter key="validator.mapping.cache.prefix"></parameter>
+<<<<<<< HEAD
     <parameter key="validator.mapping.cache.file">E:\wamp64\www\NAO_project\var\cache\dev/validation.php</parameter>
+=======
+    <parameter key="validator.mapping.cache.file">C:\wamp64\www\NAO_Project\var\cache\dev/validation.php</parameter>
+>>>>>>> donmanager
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="translator.logging">true</parameter>
-    <parameter key="translator.default_path">E:\wamp64\www\NAO_project/translations</parameter>
+    <parameter key="translator.default_path">C:\wamp64\www\NAO_Project/translations</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
+<<<<<<< HEAD
     <parameter key="profiler.storage.dsn">file:E:\wamp64\www\NAO_project\var\cache\dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
     <parameter key="debug.container.dump">E:\wamp64\www\NAO_project\var\cache\dev/srcDevDebugProjectContainer.xml</parameter>
@@ -172,6 +215,11 @@
     <parameter key="debug.error_handler.throw_at">-1</parameter>
     <parameter key="debug.container.dump">C:\wamp64\www\NAO_Project\var\cache\dev/srcDevDebugProjectContainer.xml</parameter>
 >>>>>>> contactmanager
+=======
+    <parameter key="profiler.storage.dsn">file:C:\wamp64\www\NAO_Project\var\cache\dev/profiler</parameter>
+    <parameter key="debug.error_handler.throw_at">-1</parameter>
+    <parameter key="debug.container.dump">C:\wamp64\www\NAO_Project\var\cache\dev/srcDevDebugProjectContainer.xml</parameter>
+>>>>>>> donmanager
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
@@ -184,10 +232,14 @@
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <parameter key="twig.default_path">E:\wamp64\www\NAO_project/templates</parameter>
 =======
     <parameter key="twig.default_path">C:\wamp64\www\NAO_Project/templates</parameter>
 >>>>>>> contactmanager
+=======
+    <parameter key="twig.default_path">C:\wamp64\www\NAO_Project/templates</parameter>
+>>>>>>> donmanager
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="doctrine_cache.apc.class">Doctrine\Common\Cache\ApcCache</parameter>
@@ -298,6 +350,7 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <parameter key="doctrine.orm.proxy_dir">E:\wamp64\www\NAO_project\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine_migrations.dir_name">E:\wamp64\www\NAO_project/src/Migrations</parameter>
@@ -306,12 +359,20 @@
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine_migrations.dir_name">C:\wamp64\www\NAO_Project/src/Migrations</parameter>
 >>>>>>> contactmanager
+=======
+    <parameter key="doctrine.orm.proxy_dir">C:\wamp64\www\NAO_Project\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
+    <parameter key="doctrine_migrations.dir_name">C:\wamp64\www\NAO_Project/src/Migrations</parameter>
+>>>>>>> donmanager
     <parameter key="doctrine_migrations.namespace">DoctrineMigrations</parameter>
     <parameter key="doctrine_migrations.table_name">migration_versions</parameter>
     <parameter key="doctrine_migrations.name">Application Migrations</parameter>
     <parameter key="doctrine_migrations.custom_template">null</parameter>
     <parameter key="doctrine_migrations.organize_migrations">false</parameter>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     <parameter key="security.authentication.trust_resolver.anonymous_class">Symfony\Component\Security\Core\Authentication\Token\AnonymousToken</parameter>
     <parameter key="security.authentication.trust_resolver.rememberme_class">Symfony\Component\Security\Core\Authentication\Token\RememberMeToken</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection">
@@ -347,11 +408,15 @@
       </parameter>
     </parameter>
     <parameter key="swiftmailer.mailer.default.transport.name">dynamic</parameter>
+<<<<<<< HEAD
     <parameter key="swiftmailer.spool.default.memory.path">E:\wamp64\www\NAO_project\var\cache\dev/swiftmailer/spool/default</parameter>
 =======
     <parameter key="swiftmailer.mailer.default.transport.name">dynamic</parameter>
     <parameter key="swiftmailer.spool.default.memory.path">C:\wamp64\www\NAO_Project\var\cache\dev/swiftmailer/spool/default</parameter>
 >>>>>>> contactmanager
+=======
+    <parameter key="swiftmailer.spool.default.memory.path">C:\wamp64\www\NAO_Project\var\cache\dev/swiftmailer/spool/default</parameter>
+>>>>>>> donmanager
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -413,12 +478,18 @@
         <parameter>@WebProfiler/Collector/translation.html.twig</parameter>
       </parameter>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
       <parameter key="data_collector.security" type="collection">
         <parameter>security</parameter>
         <parameter>@Security/Collector/security.html.twig</parameter>
       </parameter>
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
       <parameter key="data_collector.twig" type="collection">
         <parameter>twig</parameter>
         <parameter>@WebProfiler/Collector/twig.html.twig</parameter>
@@ -438,6 +509,9 @@
     </parameter>
     <parameter key="console.command.ids" type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
       <parameter>console.command.public_alias.doctrine_cache.contains_command</parameter>
       <parameter>console.command.public_alias.doctrine_cache.delete_command</parameter>
       <parameter>console.command.public_alias.doctrine_cache.flush_command</parameter>
@@ -449,6 +523,7 @@
       <parameter>console.command.public_alias.doctrine_migrations.migrate_command</parameter>
       <parameter>console.command.public_alias.doctrine_migrations.status_command</parameter>
       <parameter>console.command.public_alias.doctrine_migrations.version_command</parameter>
+<<<<<<< HEAD
 =======
       <parameter key="console.command.symfony_bundle_frameworkbundle_command_aboutcommand">console.command.about</parameter>
       <parameter key="console.command.symfony_bundle_frameworkbundle_command_assetsinstallcommand">console.command.assets_install</parameter>
@@ -563,14 +638,25 @@
       <parameter key="maker.auto_command.make_validator">true</parameter>
       <parameter key="maker.auto_command.make_voter">true</parameter>
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     </parameter>
   </parameters>
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="App\Controller\BlogController" class="App\Controller\BlogController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
+=======
+    <service id="App\Controller\BlogController" class="App\Controller\BlogController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
+    <service id="App\Controller\DonController" class="App\Controller\DonController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
+>>>>>>> donmanager
     <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
@@ -580,6 +666,7 @@
     <service id="App\Form\CommentType" class="App\Form\CommentType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+<<<<<<< HEAD
     <service id="App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -593,6 +680,12 @@
     </service>
     <service id="App\Form\ContactType" class="App\Form\ContactType" public="false" autowire="true" autoconfigure="true">
 >>>>>>> contactmanager
+=======
+    <service id="App\Form\DonType" class="App\Form\DonType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" autoconfigure="true">
+>>>>>>> donmanager
       <tag name="form.type"/>
     </service>
     <service id="App\Kernel" class="App\Kernel" public="false" autowire="true" autoconfigure="true"/>
@@ -601,6 +694,9 @@
       <argument type="service" id="doctrine"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     <service id="App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -609,12 +705,22 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+<<<<<<< HEAD
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Services\ArticleListDataGenerator\ListArticleService" class="App\Services\ArticleListDataGenerator\ListArticleService" public="false" autowire="true" autoconfigure="true">
+=======
+    <service id="App\Repository\DonRepository" class="App\Repository\DonRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" public="false" autowire="true" autoconfigure="true"/>
+    <service id="App\Services\ArticleService" class="App\Services\ArticleService" public="false" autowire="true" autoconfigure="true">
+>>>>>>> donmanager
       <argument type="service" id="App\Repository\ArticleRepository"/>
     </service>
     <service id="App\Services\DashboardDataGenerator\AdminDashboard" class="App\Services\DashboardDataGenerator\AdminDashboard" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
+<<<<<<< HEAD
       <argument type="service" id="App\Services\ArticleListDataGenerator\ListArticleService"/>
     </service>
     <service id="App\Services\DashboardDataGenerator\OrganizerDashboard" class="App\Services\DashboardDataGenerator\OrganizerDashboard" public="false" autowire="true" autoconfigure="true"/>
@@ -630,11 +736,18 @@
     <service id="App\Services\DeleteArticleHandler" class="App\Services\DeleteArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.authorization_checker"/>
+=======
+    </service>
+    <service id="App\Services\DashboardHandler" class="App\Services\DashboardHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="security.authorization_checker"/>
+      <argument type="service" id="App\Services\DashboardDataGenerator\AdminDashboard"/>
+>>>>>>> donmanager
     </service>
     <service id="App\Services\DowngradeUserHandler" class="App\Services\DowngradeUserHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
     </service>
+<<<<<<< HEAD
     <service id="App\Services\ModifyArticleHandler" class="App\Services\ModifyArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.authorization_checker"/>
@@ -663,6 +776,8 @@
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="security.authorization_checker"/>
     </service>
+=======
+>>>>>>> donmanager
     <service id="App\Services\SubscribeDataGenerator\CheckUserRoleService" class="App\Services\SubscribeDataGenerator\CheckUserRoleService" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Services\SubscribeDataGenerator\FlusherService" class="App\Services\SubscribeDataGenerator\FlusherService" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -680,6 +795,7 @@
     <service id="App\Services\ValidateUserHandler" class="App\Services\ValidateUserHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+<<<<<<< HEAD
 =======
     <service id="App\Repository\BirdImageRepository" class="App\Repository\BirdImageRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -701,6 +817,8 @@
       <argument type="service" id="swiftmailer.mailer.default"/>
       <argument type="service" id="twig"/>
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -719,10 +837,14 @@
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="service_locator.iUOLFh6"/>
 =======
       <argument type="service" id="service_locator.ud31s5o"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="service_locator.2w0bLLK"/>
+>>>>>>> donmanager
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -775,6 +897,7 @@
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator" public="false">
       <argument type="service" id="kernel"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\src/Resources</argument>
       <argument type="collection">
         <argument>E:\wamp64\www\NAO_project\src</argument>
@@ -783,6 +906,11 @@
       <argument type="collection">
         <argument>C:\wamp64\www\NAO_Project\src</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project\src/Resources</argument>
+      <argument type="collection">
+        <argument>C:\wamp64\www\NAO_Project\src</argument>
+>>>>>>> donmanager
       </argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner" public="false">
@@ -805,9 +933,13 @@
         <argument key="debug.stopwatch" type="service" id="debug.stopwatch" on-invalid="ignore_uninitialized"/>
         <argument key="form.type.entity" type="service" id="form.type.entity" on-invalid="ignore_uninitialized"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore_uninitialized"/>
 =======
 >>>>>>> contactmanager
+=======
+        <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore_uninitialized"/>
+>>>>>>> donmanager
       </argument>
       <argument type="collection">
         <argument key="profiler">reset</argument>
@@ -815,9 +947,13 @@
         <argument key="debug.stopwatch">reset</argument>
         <argument key="form.type.entity">reset</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument key="security.token_storage">setToken</argument>
 =======
 >>>>>>> contactmanager
+=======
+        <argument key="security.token_storage">setToken</argument>
+>>>>>>> donmanager
       </argument>
     </service>
     <service id="fragment.handler" class="Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler" public="false">
@@ -837,10 +973,14 @@
       <tag name="kernel.event_subscriber"/>
       <tag name="monolog.logger" channel="console"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.console" on-invalid="null"/>
 =======
       <argument type="service" id="logger" on-invalid="null"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.console" on-invalid="null"/>
+>>>>>>> donmanager
     </service>
     <service id="console.command.about" class="Symfony\Bundle\FrameworkBundle\Command\AboutCommand" public="false">
       <tag name="console.command" command="about"/>
@@ -935,12 +1075,17 @@
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project/translations</argument>
       <argument>E:\wamp64\www\NAO_project/templates</argument>
 =======
       <argument>C:\wamp64\www\NAO_Project/translations</argument>
       <argument>C:\wamp64\www\NAO_Project/templates</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project/translations</argument>
+      <argument>C:\wamp64\www\NAO_Project/templates</argument>
+>>>>>>> donmanager
       <call method="setName">
         <argument>debug:translation</argument>
       </call>
@@ -952,12 +1097,17 @@
       <argument type="service" id="translation.extractor"/>
       <argument>en</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project/translations</argument>
       <argument>E:\wamp64\www\NAO_project/templates</argument>
 =======
       <argument>C:\wamp64\www\NAO_Project/translations</argument>
       <argument>C:\wamp64\www\NAO_Project/templates</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project/translations</argument>
+      <argument>C:\wamp64\www\NAO_Project/templates</argument>
+>>>>>>> donmanager
       <call method="setName">
         <argument>translation:update</argument>
       </call>
@@ -984,6 +1134,7 @@
       </argument>
       <argument type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument>App\Form\ArticleType</argument>
         <argument>App\Form\CommentType</argument>
         <argument>App\Form\SubscriptionType</argument>
@@ -991,6 +1142,12 @@
 =======
         <argument>App\Form\ContactType</argument>
 >>>>>>> contactmanager
+=======
+        <argument>App\Form\ArticleType</argument>
+        <argument>App\Form\CommentType</argument>
+        <argument>App\Form\DonType</argument>
+        <argument>App\Form\SubscriptionType</argument>
+>>>>>>> donmanager
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
@@ -1002,9 +1159,13 @@
         <argument>Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension</argument>
         <argument>Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument>Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension</argument>
 =======
 >>>>>>> contactmanager
+=======
+        <argument>Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension</argument>
+>>>>>>> donmanager
         <argument>Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension</argument>
       </argument>
       <argument type="collection">
@@ -1041,6 +1202,7 @@
       <argument></argument>
       <argument>0</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>%container.build_id%</argument>
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1049,6 +1211,11 @@
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
 >>>>>>> contactmanager
+=======
+      <argument>%container.build_id%</argument>
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
+      <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+>>>>>>> donmanager
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.adapter.apcu" class="Symfony\Component\Cache\Adapter\ApcuAdapter" public="false" abstract="true">
@@ -1056,6 +1223,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <argument>%container.build_id%</argument>
       <call method="setLogger">
@@ -1065,6 +1233,11 @@
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
 >>>>>>> contactmanager
+=======
+      <argument>%container.build_id%</argument>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+>>>>>>> donmanager
       </call>
     </service>
     <service id="cache.adapter.doctrine" class="Symfony\Component\Cache\Adapter\DoctrineAdapter" public="false" abstract="true">
@@ -1075,10 +1248,14 @@
       <argument>0</argument>
       <call method="setLogger">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
 =======
         <argument type="service" id="logger" on-invalid="ignore"/>
 >>>>>>> contactmanager
+=======
+        <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+>>>>>>> donmanager
       </call>
     </service>
     <service id="cache.adapter.filesystem" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false" abstract="true">
@@ -1086,6 +1263,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
       <call method="setLogger">
@@ -1095,6 +1273,11 @@
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+>>>>>>> donmanager
       </call>
     </service>
     <service id="cache.adapter.psr6" class="Symfony\Component\Cache\Adapter\ProxyAdapter" public="false" abstract="true">
@@ -1111,10 +1294,14 @@
       <argument>0</argument>
       <call method="setLogger">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
 =======
         <argument type="service" id="logger" on-invalid="ignore"/>
 >>>>>>> contactmanager
+=======
+        <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+>>>>>>> donmanager
       </call>
     </service>
     <service id="cache.adapter.memcached" class="Symfony\Component\Cache\Adapter\MemcachedAdapter" public="false" abstract="true">
@@ -1125,10 +1312,14 @@
       <argument>0</argument>
       <call method="setLogger">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
 =======
         <argument type="service" id="logger" on-invalid="ignore"/>
 >>>>>>> contactmanager
+=======
+        <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+>>>>>>> donmanager
       </call>
     </service>
     <service id="cache.default_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="false">
@@ -1159,14 +1350,23 @@
     </service>
     <service id="translator.selector" class="Symfony\Component\Translation\MessageSelector" public="false"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="2_ServiceLocator~7JMq9oa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+=======
+    <service id="2_ServiceLocator~hZLhXq2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> donmanager
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="session" type="service" id="session" on-invalid="ignore"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id="1_NativeFileSessionHandler~7JMq9oa" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
       <argument>E:\wamp64\www\NAO_project\src/../var/sessions/dev</argument>
+=======
+    <service id="1_NativeFileSessionHandler~hZLhXq2" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
+      <argument>C:\wamp64\www\NAO_Project\src/../var/sessions/dev</argument>
+>>>>>>> donmanager
     </service>
     <service id="session" class="Symfony\Component\HttpFoundation\Session\Session" public="true">
       <argument type="service" id="session.storage.native"/>
@@ -1189,28 +1389,44 @@
     <service id="session.flash_bag" class="Symfony\Component\HttpFoundation\Session\Flash\FlashBag" public="false"/>
     <service id="session.attribute_bag" class="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag" public="false"/>
     <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/sessions</argument>
+=======
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/sessions</argument>
+>>>>>>> donmanager
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler" public="false">
+<<<<<<< HEAD
       <argument type="service" id="1_NativeFileSessionHandler~7JMq9oa"/>
+=======
+      <argument type="service" id="1_NativeFileSessionHandler~hZLhXq2"/>
+>>>>>>> donmanager
     </service>
     <service id="session_listener" class="Symfony\Component\HttpKernel\EventListener\SessionListener" public="false">
       <tag name="kernel.event_subscriber"/>
       <tag name="container.hot_path"/>
+<<<<<<< HEAD
       <argument type="service" id="2_ServiceLocator~7JMq9oa"/>
+=======
+      <argument type="service" id="2_ServiceLocator~hZLhXq2"/>
+>>>>>>> donmanager
     </service>
     <service id="session.save_listener" class="Symfony\Component\HttpKernel\EventListener\SaveSessionListener" public="false">
       <tag name="kernel.event_subscriber"/>
       <tag name="container.hot_path"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy" public="false">
+<<<<<<< HEAD
       <argument type="service" id="1_ResolvedFormTypeFactory~ndprhFJ"/>
 =======
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy" public="false">
       <argument type="service" id="1_ResolvedFormTypeFactory~At.54W5"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="1_ResolvedFormTypeFactory~At.54W5"/>
+>>>>>>> donmanager
       <argument type="service" id="data_collector.form"/>
     </service>
     <service id="form.registry" class="Symfony\Component\Form\FormRegistry" public="false">
@@ -1225,19 +1441,27 @@
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="service_locator.T4TZ_lh"/>
 =======
       <argument type="service" id="service_locator.eZ3m8mY"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="service_locator.DDrrRaA"/>
+>>>>>>> donmanager
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
           <argument type="service" id="form.type_extension.form.validator"/>
           <argument type="service" id="form.type_extension.upload.validator"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <argument type="service" id="form.type_extension.csrf"/>
 =======
 >>>>>>> contactmanager
+=======
+          <argument type="service" id="form.type_extension.csrf"/>
+>>>>>>> donmanager
           <argument type="service" id="form.type_extension.form.data_collector"/>
         </argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="iterator">
@@ -1298,6 +1522,9 @@
       <argument>validators</argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     <service id="form.type_extension.csrf" class="Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension" public="false">
       <tag name="form.type_extension" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
       <argument type="service" id="security.csrf.token_manager"/>
@@ -1316,8 +1543,11 @@
       <argument type="service" id="security.csrf.token_storage"/>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     <service id="assets.packages" class="Symfony\Component\Asset\Packages" public="false">
       <argument type="service" id="assets._default_package"/>
       <argument type="collection"/>
@@ -1354,12 +1584,17 @@
       <argument type="service" id="assets.context"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="1_PhpArrayAdapter~R_rj9WU" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/validation.php</argument>
 =======
     <service id="1_PhpArrayAdapter~buouAhK" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/validation.php</argument>
 >>>>>>> contactmanager
+=======
+    <service id="1_PhpArrayAdapter~buouAhK" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/validation.php</argument>
+>>>>>>> donmanager
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1376,10 +1611,14 @@
       <call method="addXmlMappings">
         <argument type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/config/validation.xml</argument>
 =======
           <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/config/validation.xml</argument>
 >>>>>>> contactmanager
+=======
+          <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/config/validation.xml</argument>
+>>>>>>> donmanager
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1399,14 +1638,19 @@
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/validation.php</argument>
+=======
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/validation.php</argument>
+>>>>>>> donmanager
       <argument type="service" id="cache.validator"/>
     </service>
     <service id="validator.mapping.cache.symfony" class="Symfony\Component\Validator\Mapping\Cache\Psr6Cache" public="false">
-      <argument type="service" id="1_PhpArrayAdapter~R_rj9WU"/>
+      <argument type="service" id="1_PhpArrayAdapter~buouAhK"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory" public="false">
       <argument type="service" id="service_locator.O9Ft2wK"/>
+<<<<<<< HEAD
 =======
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
@@ -1417,6 +1661,8 @@
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory" public="false">
       <argument type="service" id="service_locator.MNxRW1y"/>
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator" public="false">
       <tag name="validator.constraint_validator" alias="validator.expression"/>
@@ -1468,13 +1714,18 @@
       </argument>
       <argument type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument key="cache_dir">E:\wamp64\www\NAO_project\var\cache\dev/translations</argument>
+=======
+        <argument key="cache_dir">C:\wamp64\www\NAO_Project\var\cache\dev/translations</argument>
+>>>>>>> donmanager
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
           </argument>
           <argument key="ar" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.ar.xlf</argument>
@@ -1498,11 +1749,37 @@
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.cs.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.ar.xlf</argument>
+          </argument>
+          <argument key="az" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.az.xlf</argument>
+          </argument>
+          <argument key="bg" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.bg.xlf</argument>
+          </argument>
+          <argument key="ca" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.ca.xlf</argument>
+          </argument>
+          <argument key="cs" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.cs.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="cy" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
           </argument>
           <argument key="da" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.da.xlf</argument>
@@ -1526,25 +1803,57 @@
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.es.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.da.xlf</argument>
+          </argument>
+          <argument key="de" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.de.xlf</argument>
+          </argument>
+          <argument key="el" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.el.xlf</argument>
+          </argument>
+          <argument key="en" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.en.xlf</argument>
+          </argument>
+          <argument key="es" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.es.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="et" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
           </argument>
           <argument key="eu" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.fa.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.fa.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="fi" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.fr.xlf</argument>
@@ -1568,12 +1877,38 @@
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.hu.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.fr.xlf</argument>
+          </argument>
+          <argument key="gl" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.gl.xlf</argument>
+          </argument>
+          <argument key="he" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.he.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.he.xlf</argument>
+          </argument>
+          <argument key="hr" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.hr.xlf</argument>
+          </argument>
+          <argument key="hu" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.hu.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="hy" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
           </argument>
           <argument key="id" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.id.xlf</argument>
@@ -1602,20 +1937,57 @@
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.lv.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.id.xlf</argument>
+          </argument>
+          <argument key="it" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.it.xlf</argument>
+          </argument>
+          <argument key="ja" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.ja.xlf</argument>
+          </argument>
+          <argument key="lb" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.lb.xlf</argument>
+          </argument>
+          <argument key="lt" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.lt.xlf</argument>
+          </argument>
+          <argument key="lv" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.lv.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="mn" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
           </argument>
           <argument key="nl" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.nl.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.nl.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="nn" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
           </argument>
           <argument key="no" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.no.xlf</argument>
@@ -1624,12 +1996,23 @@
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.pl.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.no.xlf</argument>
+          </argument>
+          <argument key="pl" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.pl.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="pt" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.pt_BR.xlf</argument>
@@ -1653,11 +2036,37 @@
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.sl.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.pt_BR.xlf</argument>
+          </argument>
+          <argument key="ro" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.ro.xlf</argument>
+          </argument>
+          <argument key="ru" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.ru.xlf</argument>
+          </argument>
+          <argument key="sk" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.sk.xlf</argument>
+          </argument>
+          <argument key="sl" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.sl.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="sq" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
           </argument>
           <argument key="sr_Cyrl" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.sr_Cyrl.xlf</argument>
@@ -1679,12 +2088,36 @@
           <argument key="tr" type="collection">
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.tr.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.sr_Cyrl.xlf</argument>
+          </argument>
+          <argument key="sr_Latn" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.sr_Latn.xlf</argument>
+          </argument>
+          <argument key="sv" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.sv.xlf</argument>
+          </argument>
+          <argument key="th" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.th.xlf</argument>
+          </argument>
+          <argument key="tr" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.tr.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="uk" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
+<<<<<<< HEAD
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.vi.xlf</argument>
           </argument>
@@ -1692,9 +2125,24 @@
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.zh_CN.xlf</argument>
+=======
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.vi.xlf</argument>
+          </argument>
+          <argument key="zh_CN" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.zh_CN.xlf</argument>
+>>>>>>> donmanager
           </argument>
           <argument key="zh_TW" type="collection">
-            <argument>E:\wamp64\www\NAO_project\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
+          </argument>
+          <argument key="pt_PT" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.pt_PT.xlf</argument>
+          </argument>
+          <argument key="ua" type="collection">
+            <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security\Core/Resources/translations\security.ua.xlf</argument>
           </argument>
           <argument key="pt_PT" type="collection">
             <argument>E:\wamp64\www\NAO_project\vendor\symfony\security\Core/Resources/translations\security.pt_PT.xlf</argument>
@@ -1908,12 +2356,17 @@
     <service id="translator.logging" class="Symfony\Component\Translation\LoggingTranslator" public="false">
       <tag name="monolog.logger" channel="translation"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="translator.default"/>
       <argument type="service" id="monolog.logger.translation"/>
 =======
       <argument type="service" id="translator.logging.inner"/>
       <argument type="service" id="logger"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="translator.default"/>
+      <argument type="service" id="monolog.logger.translation"/>
+>>>>>>> donmanager
     </service>
     <service id="translator.formatter.default" class="Symfony\Component\Translation\Formatter\MessageFormatter" public="false">
       <argument type="service" id="translator.selector"/>
@@ -2100,6 +2553,7 @@
     </service>
     <service id="translation.warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <tag name="kernel.cache_warmer"/>
       <tag name="container.service_subscriber" key="translator" id="translator.logging.inner"/>
       <tag name="container.service_subscriber.locator" id="service_locator.8Aulsw0.translation.warmer"/>
@@ -2110,6 +2564,12 @@
       <tag name="container.service_subscriber.locator" id="service_locator.evpbTNo.translation.warmer"/>
       <argument type="service" id="service_locator.evpbTNo.translation.warmer"/>
 >>>>>>> contactmanager
+=======
+      <tag name="kernel.cache_warmer"/>
+      <tag name="container.service_subscriber" key="translator" id="translator.logging.inner"/>
+      <tag name="container.service_subscriber.locator" id="service_locator.8Aulsw0.translation.warmer"/>
+      <argument type="service" id="service_locator.8Aulsw0.translation.warmer"/>
+>>>>>>> donmanager
     </service>
     <service id="translator_listener" class="Symfony\Component\HttpKernel\EventListener\TranslatorListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -2123,10 +2583,14 @@
       <tag name="kernel.reset" method="reset"/>
       <argument type="service" id="profiler.storage"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.profiler" on-invalid="null"/>
 =======
       <argument type="service" id="logger" on-invalid="null"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.profiler" on-invalid="null"/>
+>>>>>>> donmanager
       <argument>true</argument>
       <call method="add">
         <argument type="service" id="data_collector.request"/>
@@ -2166,11 +2630,17 @@
       </call>
       <call method="add">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument type="service" id="data_collector.security"/>
       </call>
       <call method="add">
 =======
 >>>>>>> contactmanager
+=======
+        <argument type="service" id="data_collector.security"/>
+      </call>
+      <call method="add">
+>>>>>>> donmanager
         <argument type="service" id="data_collector.twig"/>
       </call>
       <call method="add">
@@ -2185,10 +2655,14 @@
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>file:E:\wamp64\www\NAO_project\var\cache\dev/profiler</argument>
 =======
       <argument>file:C:\wamp64\www\NAO_Project\var\cache\dev/profiler</argument>
 >>>>>>> contactmanager
+=======
+      <argument>file:C:\wamp64\www\NAO_Project\var\cache\dev/profiler</argument>
+>>>>>>> donmanager
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -2225,12 +2699,17 @@
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <tag name="monolog.logger" channel="profiler"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/srcDevDebugProjectContainer</argument>
 =======
       <argument type="service" id="logger" on-invalid="ignore"/>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/srcDevDebugProjectContainer</argument>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/srcDevDebugProjectContainer</argument>
+>>>>>>> donmanager
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector" public="false">
       <tag name="data_collector" template="@WebProfiler/Collector/time.html.twig" id="time" priority="330"/>
@@ -2269,10 +2748,14 @@
       </call>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="1_ResolvedFormTypeFactory~ndprhFJ" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
 =======
     <service id="1_ResolvedFormTypeFactory~At.54W5" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
 >>>>>>> contactmanager
+=======
+    <service id="1_ResolvedFormTypeFactory~At.54W5" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
+>>>>>>> donmanager
     <service id="form.type_extension.form.data_collector" class="Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension" public="false">
       <tag name="form.type_extension" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
       <argument type="service" id="data_collector.form"/>
@@ -2292,10 +2775,14 @@
     </service>
     <service id="translator.data_collector" class="Symfony\Component\Translation\DataCollectorTranslator" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="translator.logging"/>
 =======
       <argument type="service" id="translator.default"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="translator.logging"/>
+>>>>>>> donmanager
     </service>
     <service id="data_collector.translation" class="Symfony\Component\Translation\DataCollector\TranslationDataCollector" public="false">
       <tag name="data_collector" template="@WebProfiler/Collector/translation.html.twig" id="translation" priority="275"/>
@@ -2325,10 +2812,14 @@
       <tag name="container.hot_path"/>
       <argument>null</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.php" on-invalid="null"/>
 =======
       <argument type="service" id="logger" on-invalid="null"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.php" on-invalid="null"/>
+>>>>>>> donmanager
       <argument>-1</argument>
       <argument>-1</argument>
       <argument>true</argument>
@@ -2339,10 +2830,14 @@
       <argument>null</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project</argument>
 =======
       <argument>C:\wamp64\www\NAO_Project</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project</argument>
+>>>>>>> donmanager
       <argument>/_profiler/open?file=%%f&amp;line=%%l#line%%l</argument>
     </service>
     <service id="debug.stopwatch" class="Symfony\Component\Stopwatch\Stopwatch">
@@ -2355,10 +2850,14 @@
       <argument type="service" id="debug.event_dispatcher.inner"/>
       <argument type="service" id="debug.stopwatch"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.event" on-invalid="null"/>
 =======
       <argument type="service" id="logger" on-invalid="null"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.event" on-invalid="null"/>
+>>>>>>> donmanager
       <call method="addListener">
         <argument>kernel.controller</argument>
         <argument type="collection">
@@ -2435,6 +2934,9 @@
         <argument>kernel.request</argument>
         <argument type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
           <argument type="service" id="session_listener"/>
           <argument>onKernelRequest</argument>
         </argument>
@@ -2451,8 +2953,11 @@
       <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
           <argument type="service" id="translator_listener"/>
           <argument>onKernelRequest</argument>
         </argument>
@@ -2601,6 +3106,9 @@
         <argument>kernel.controller_arguments</argument>
         <argument type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
           <argument type="service" id="sensio_framework_extra.security.listener"/>
           <argument>onKernelControllerArguments</argument>
         </argument>
@@ -2609,8 +3117,11 @@
       <call method="addListener">
         <argument>kernel.controller_arguments</argument>
         <argument type="collection">
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
           <argument type="service" id="framework_extra_bundle.event.is_granted"/>
           <argument>onKernelControllerArguments</argument>
         </argument>
@@ -2642,6 +3153,9 @@
       </call>
       <call method="addListener">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument type="service" id="security.rememberme.response_listener"/>
@@ -2682,8 +3196,11 @@
         <argument>-255</argument>
       </call>
       <call method="addListener">
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         <argument>kernel.exception</argument>
         <argument type="collection">
           <argument type="service" id="swiftmailer.email_sender.listener"/>
@@ -2726,9 +3243,13 @@
       <argument type="service" id="debug.stopwatch"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor" public="false"/>
 =======
 >>>>>>> contactmanager
+=======
+    <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor" public="false"/>
+>>>>>>> donmanager
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver" public="false">
       <call method="addLoader">
         <argument type="service" id="routing.loader.xml"/>
@@ -2800,10 +3321,14 @@
       <argument>kernel:loadRoutes</argument>
       <argument type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument key="cache_dir">E:\wamp64\www\NAO_project\var\cache\dev</argument>
 =======
         <argument key="cache_dir">C:\wamp64\www\NAO_Project\var\cache\dev</argument>
 >>>>>>> contactmanager
+=======
+        <argument key="cache_dir">C:\wamp64\www\NAO_Project\var\cache\dev</argument>
+>>>>>>> donmanager
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -2844,12 +3369,17 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
       <argument>E:\wamp64\www\NAO_project</argument>
 =======
       <argument type="service" id="logger" on-invalid="ignore"/>
       <argument>C:\wamp64\www\NAO_Project</argument>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
+      <argument>C:\wamp64\www\NAO_Project</argument>
+>>>>>>> donmanager
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
@@ -2876,6 +3406,7 @@
       <argument type="service" id="routing.loader.annotation"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="2_PhpArrayAdapter~B8jhOgG" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
@@ -2890,6 +3421,14 @@
     </service>
     <service id="1_ArrayCache~gveYEXd" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
 >>>>>>> contactmanager
+=======
+    <service id="2_PhpArrayAdapter~gveYEXd" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/annotations.php</argument>
+      <argument type="service" id="cache.annotations"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="1_ArrayCache~gveYEXd" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+>>>>>>> donmanager
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
@@ -2908,19 +3447,27 @@
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/annotations.php</argument>
 =======
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/annotations.php</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/annotations.php</argument>
+>>>>>>> donmanager
       <argument type="service" id="cache.annotations"/>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!AbstractController$|Controller$))#</argument>
     </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="2_PhpArrayAdapter~B8jhOgG"/>
 =======
       <argument type="service" id="2_PhpArrayAdapter~gveYEXd"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="2_PhpArrayAdapter~gveYEXd"/>
+>>>>>>> donmanager
     </service>
     <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor" public="false">
       <argument>false</argument>
@@ -2932,10 +3479,14 @@
       <argument type="collection">
         <argument key="paths" type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <argument key="E:\wamp64\www\NAO_project/templates">null</argument>
 =======
           <argument key="C:\wamp64\www\NAO_Project/templates">null</argument>
 >>>>>>> contactmanager
+=======
+          <argument key="C:\wamp64\www\NAO_Project/templates">null</argument>
+>>>>>>> donmanager
         </argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -2945,6 +3496,7 @@
         </argument>
         <argument key="autoescape">name</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument key="cache">E:\wamp64\www\NAO_project\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="default_path">E:\wamp64\www\NAO_project/templates</argument>
@@ -2953,6 +3505,11 @@
         <argument key="charset">UTF-8</argument>
         <argument key="default_path">C:\wamp64\www\NAO_Project/templates</argument>
 >>>>>>> contactmanager
+=======
+        <argument key="cache">C:\wamp64\www\NAO_Project\var\cache\dev/twig</argument>
+        <argument key="charset">UTF-8</argument>
+        <argument key="default_path">C:\wamp64\www\NAO_Project/templates</argument>
+>>>>>>> donmanager
         <argument key="date" type="collection">
           <argument key="format">F j, Y H:i</argument>
           <argument key="interval_format">%d days</argument>
@@ -3004,14 +3561,20 @@
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
       </call>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
       <call method="addExtension">
         <argument type="service" id="twig.extension.logout_url"/>
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.security"/>
       </call>
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3029,11 +3592,17 @@
         <argument>true</argument>
       </call>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <call method="setTokenStorage">
         <argument type="service" id="security.token_storage" on-invalid="ignore"/>
       </call>
 =======
 >>>>>>> contactmanager
+=======
+      <call method="setTokenStorage">
+        <argument type="service" id="security.token_storage" on-invalid="ignore"/>
+      </call>
+>>>>>>> donmanager
       <call method="setRequestStack">
         <argument type="service" id="request_stack" on-invalid="ignore"/>
       </call>
@@ -3046,16 +3615,22 @@
       <argument>null</argument>
       <argument type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument key="E:\wamp64\www\NAO_project/templates">null</argument>
         <argument key="E:\wamp64\www\NAO_project\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
 =======
         <argument key="C:\wamp64\www\NAO_Project/templates">null</argument>
         <argument key="C:\wamp64\www\NAO_Project\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
 >>>>>>> contactmanager
+=======
+        <argument key="C:\wamp64\www\NAO_Project/templates">null</argument>
+        <argument key="C:\wamp64\www\NAO_Project\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
+>>>>>>> donmanager
       </argument>
     </service>
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
       <argument type="service" id="kernel"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\src</argument>
       <argument type="collection">
@@ -3067,6 +3642,12 @@
         <argument key="C:\wamp64\www\NAO_Project/templates">null</argument>
         <argument key="C:\wamp64\www\NAO_Project\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project\src</argument>
+      <argument type="collection">
+        <argument key="C:\wamp64\www\NAO_Project/templates">null</argument>
+        <argument key="C:\wamp64\www\NAO_Project\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
+>>>>>>> donmanager
       </argument>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
@@ -3080,51 +3661,56 @@
       <tag name="twig.loader"/>
       <argument type="collection"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project</argument>
+=======
+      <argument>C:\wamp64\www\NAO_Project</argument>
+>>>>>>> donmanager
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project/templates</argument>
+        <argument>C:\wamp64\www\NAO_Project/templates</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\symfony\framework-bundle/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\framework-bundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\symfony\framework-bundle/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\framework-bundle/Resources/views</argument>
         <argument>!Framework</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\symfony\twig-bundle/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\twig-bundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\symfony\twig-bundle/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\twig-bundle/Resources/views</argument>
         <argument>!Twig</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>!WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\symfony\maker-bundle\src/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\maker-bundle\src/Resources/views</argument>
         <argument>Maker</argument>
       </call>
       <call method="addPath">
-        <argument>E:\wamp64\www\NAO_project\vendor\symfony\maker-bundle\src/Resources/views</argument>
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\maker-bundle\src/Resources/views</argument>
         <argument>!Maker</argument>
       </call>
       <call method="addPath">
+<<<<<<< HEAD
         <argument>E:\wamp64\www\NAO_project\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
@@ -3204,6 +3790,28 @@
       <call method="addPath">
         <argument>C:\wamp64\www\NAO_Project\vendor\symfony\twig-bridge/Resources/views/Form</argument>
 >>>>>>> contactmanager
+=======
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>!Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>!Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\NAO_Project/templates</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\NAO_Project\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+>>>>>>> donmanager
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader" public="false"/>
@@ -3230,10 +3838,14 @@
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\src</argument>
 =======
       <argument>C:\wamp64\www\NAO_Project\src</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project\src</argument>
+>>>>>>> donmanager
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension" public="false">
@@ -3272,10 +3884,14 @@
       <tag name="monolog.logger" channel="request"/>
       <argument>twig.controller.exception:showAction</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.request" on-invalid="null"/>
 =======
       <argument type="service" id="logger" on-invalid="null"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.request" on-invalid="null"/>
+>>>>>>> donmanager
     </service>
     <service id="twig.controller.exception" class="Symfony\Bundle\TwigBundle\Controller\ExceptionController" public="true">
       <argument type="service" id="twig"/>
@@ -3311,19 +3927,27 @@
       <tag name="twig.runtime"/>
       <argument type="service" id="twig.form.engine"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="security.csrf.token_manager" on-invalid="null"/>
 =======
       <argument>null</argument>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="security.csrf.token_manager" on-invalid="null"/>
+>>>>>>> donmanager
     </service>
     <service id="twig.command.debug" class="Symfony\Bridge\Twig\Command\DebugCommand" public="false">
       <tag name="console.command" command="debug:twig"/>
       <argument type="service" id="twig"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project</argument>
 =======
       <argument>C:\wamp64\www\NAO_Project</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project</argument>
+>>>>>>> donmanager
       <call method="setName">
         <argument>debug:twig</argument>
       </call>
@@ -3395,6 +4019,7 @@
       <tag name="container.hot_path"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="sensio_framework_extra.security.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener" public="false">
       <tag name="kernel.event_subscriber"/>
       <tag name="container.hot_path"/>
@@ -3409,6 +4034,9 @@
 =======
 >>>>>>> contactmanager
     <service id="framework_extra_bundle.event.is_granted" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\IsGrantedListener" public="false">
+=======
+    <service id="sensio_framework_extra.security.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener" public="false">
+>>>>>>> donmanager
       <tag name="kernel.event_subscriber"/>
       <tag name="container.hot_path"/>
       <argument type="service" id="framework_extra_bundle.argument_name_convertor"/>
@@ -3416,16 +4044,34 @@
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
 =======
       <argument>null</argument>
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
+      <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
+      <argument type="service" id="security.token_storage" on-invalid="null"/>
+      <argument type="service" id="security.authorization_checker" on-invalid="null"/>
+      <argument type="service" id="monolog.logger" on-invalid="null"/>
+    </service>
+    <service id="framework_extra_bundle.event.is_granted" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\IsGrantedListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="framework_extra_bundle.argument_name_convertor"/>
+      <argument type="service" id="security.authorization_checker" on-invalid="null"/>
+>>>>>>> donmanager
     </service>
     <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter" public="false">
       <argument type="service" id="argument_metadata_factory"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="2_HtmlDumper~7D2.aWn" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
 =======
     <service id="2_HtmlDumper~zrn5UF." class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
 >>>>>>> contactmanager
+=======
+    <service id="2_HtmlDumper~zrn5UF." class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
+>>>>>>> donmanager
       <argument>null</argument>
       <argument>UTF-8</argument>
       <argument>1</argument>
@@ -3437,10 +4083,14 @@
       </call>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="1_NonceGenerator~7D2.aWn" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
 =======
     <service id="1_NonceGenerator~zrn5UF." class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
 >>>>>>> contactmanager
+=======
+    <service id="1_NonceGenerator~zrn5UF." class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
+>>>>>>> donmanager
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController" public="true">
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3448,10 +4098,14 @@
       <argument>%data_collector.templates%</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project</argument>
 =======
       <argument>C:\wamp64\www\NAO_Project</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project</argument>
+>>>>>>> donmanager
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController" public="true">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3465,6 +4119,7 @@
     </service>
     <service id="web_profiler.csp.handler" class="Symfony\Bundle\WebProfilerBundle\Csp\ContentSecurityPolicyHandler" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="1_NonceGenerator~7D2.aWn"/>
     </service>
     <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
@@ -3477,6 +4132,13 @@
       <tag name="twig.extension"/>
       <argument type="service" id="2_HtmlDumper~zrn5UF."/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="1_NonceGenerator~zrn5UF."/>
+    </service>
+    <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="2_HtmlDumper~zrn5UF."/>
+>>>>>>> donmanager
     </service>
     <service id="web_profiler.debug_toolbar" class="Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -3527,10 +4189,14 @@
     <service id="doctrine.dbal.logger" class="Symfony\Bridge\Doctrine\Logger\DbalLogger" public="false">
       <tag name="monolog.logger" channel="doctrine"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.doctrine" on-invalid="null"/>
 =======
       <argument type="service" id="logger" on-invalid="null"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.doctrine" on-invalid="null"/>
+>>>>>>> donmanager
       <argument type="service" id="debug.stopwatch" on-invalid="null"/>
     </service>
     <service id="data_collector.doctrine" class="Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector" public="false">
@@ -3645,10 +4311,14 @@
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="service_locator.qr.0oDN"/>
 =======
       <argument type="service" id="service_locator.9.8a4ZB"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="service_locator.Dgu60P6"/>
+>>>>>>> donmanager
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3786,10 +4456,14 @@
       </call>
       <call method="setProxyDir">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument>E:\wamp64\www\NAO_project\var\cache\dev/doctrine/orm/Proxies</argument>
 =======
         <argument>C:\wamp64\www\NAO_Project\var\cache\dev/doctrine/orm/Proxies</argument>
 >>>>>>> contactmanager
+=======
+        <argument>C:\wamp64\www\NAO_Project\var\cache\dev/doctrine/orm/Proxies</argument>
+>>>>>>> donmanager
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -3820,10 +4494,14 @@
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument>E:\wamp64\www\NAO_project\src\Entity</argument>
 =======
         <argument>C:\wamp64\www\NAO_Project\src\Entity</argument>
 >>>>>>> contactmanager
+=======
+        <argument>C:\wamp64\www\NAO_Project\src\Entity</argument>
+>>>>>>> donmanager
       </argument>
     </service>
     <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
@@ -3835,28 +4513,40 @@
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument>sf_orm_default_63ddc43ef274760969af24a77a9ebbc180f9ea6c73748742d79b1eae750244c0</argument>
 =======
         <argument>sf_orm_default_e87dd39e7a21af2a2ff5391777d61d44e629d921ae7d510d87032568129bc8da</argument>
 >>>>>>> contactmanager
+=======
+        <argument>sf_orm_default_e87dd39e7a21af2a2ff5391777d61d44e629d921ae7d510d87032568129bc8da</argument>
+>>>>>>> donmanager
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
 <<<<<<< HEAD
-        <argument>sf_orm_default_63ddc43ef274760969af24a77a9ebbc180f9ea6c73748742d79b1eae750244c0</argument>
-=======
-        <argument>sf_orm_default_e87dd39e7a21af2a2ff5391777d61d44e629d921ae7d510d87032568129bc8da</argument>
->>>>>>> contactmanager
-      </call>
-    </service>
-    <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
-      <call method="setNamespace">
 <<<<<<< HEAD
         <argument>sf_orm_default_63ddc43ef274760969af24a77a9ebbc180f9ea6c73748742d79b1eae750244c0</argument>
 =======
         <argument>sf_orm_default_e87dd39e7a21af2a2ff5391777d61d44e629d921ae7d510d87032568129bc8da</argument>
 >>>>>>> contactmanager
+=======
+        <argument>sf_orm_default_e87dd39e7a21af2a2ff5391777d61d44e629d921ae7d510d87032568129bc8da</argument>
+>>>>>>> donmanager
+      </call>
+    </service>
+    <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
+      <call method="setNamespace">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <argument>sf_orm_default_63ddc43ef274760969af24a77a9ebbc180f9ea6c73748742d79b1eae750244c0</argument>
+=======
+        <argument>sf_orm_default_e87dd39e7a21af2a2ff5391777d61d44e629d921ae7d510d87032568129bc8da</argument>
+>>>>>>> contactmanager
+=======
+        <argument>sf_orm_default_e87dd39e7a21af2a2ff5391777d61d44e629d921ae7d510d87032568129bc8da</argument>
+>>>>>>> donmanager
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver">
@@ -3899,10 +4589,14 @@
     <service id="maker.file_manager" class="Symfony\Bundle\MakerBundle\FileManager" public="false">
       <argument type="service" id="filesystem"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project</argument>
 =======
       <argument>C:\wamp64\www\NAO_Project</argument>
 >>>>>>> contactmanager
+=======
+      <argument>C:\wamp64\www\NAO_Project</argument>
+>>>>>>> donmanager
     </service>
     <service id="maker.generator" class="Symfony\Bundle\MakerBundle\Generator" public="false">
       <argument type="service" id="maker.file_manager"/>
@@ -3952,7 +4646,11 @@
       <tag name="maker.command"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="1_ServiceLocator~YmEiKxx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+=======
+    <service id="1_ServiceLocator~oeHuG.s" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> donmanager
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="security.authorization_checker" type="service" id="security.authorization_checker"/>
@@ -3969,7 +4667,11 @@
       <tag name="kernel.reset" method="setToken"/>
     </service>
     <service id="security.helper" class="Symfony\Component\Security\Core\Security" public="false">
+<<<<<<< HEAD
       <argument type="service" id="1_ServiceLocator~YmEiKxx"/>
+=======
+      <argument type="service" id="1_ServiceLocator~oeHuG.s"/>
+>>>>>>> donmanager
     </service>
     <service id="security.user_value_resolver" class="Symfony\Bundle\SecurityBundle\SecurityUserValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="40"/>
@@ -4014,6 +4716,8 @@
     <service id="security.user_checker" class="Symfony\Component\Security\Core\User\UserChecker" public="false"/>
     <service id="security.authentication_utils" class="Symfony\Component\Security\Http\Authentication\AuthenticationUtils" public="true">
       <argument type="service" id="request_stack"/>
+<<<<<<< HEAD
+=======
     </service>
     <service id="security.role_hierarchy" class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
       <argument>%security.role_hierarchy.roles%</argument>
@@ -4030,7 +4734,7 @@
       <argument type="service" id="service_locator.Yy3h0rs"/>
       <argument type="iterator">
         <argument key="security.firewall.map.context.dev" type="service" id="security.request_matcher.zfHj2lW"/>
-        <argument key="security.firewall.map.context.main" type="service" id="security.request_matcher.00qF1Z7"/>
+        <argument key="security.firewall.map.context.main" type="service" id="security.request_matcher.6Rxly79"/>
       </argument>
     </service>
     <service id="security.firewall.context" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext" public="false" abstract="true">
@@ -4038,6 +4742,883 @@
       <argument type="service" id="security.exception_listener"/>
       <argument></argument>
     </service>
+    <service id="security.firewall.config" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument type="collection"/>
+      <argument></argument>
+    </service>
+    <service id="security.logout_url_generator" class="Symfony\Component\Security\Http\Logout\LogoutUrlGenerator" public="false">
+      <argument type="service" id="request_stack" on-invalid="null"/>
+      <argument type="service" id="router.default" on-invalid="null"/>
+      <argument type="service" id="security.token_storage" on-invalid="null"/>
+    </service>
+    <service id="security.user.provider.in_memory" class="Symfony\Component\Security\Core\User\InMemoryUserProvider" public="false" abstract="true"/>
+    <service id="security.user.provider.in_memory.user" class="Symfony\Component\Security\Core\User\User" public="false" abstract="true"/>
+    <service id="security.user.provider.ldap" class="Symfony\Component\Security\Core\User\LdapUserProvider" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="security.user.provider.chain" class="Symfony\Component\Security\Core\User\ChainUserProvider" public="false" abstract="true"/>
+    <service id="security.http_utils" class="Symfony\Component\Security\Http\HttpUtils" public="false">
+      <argument type="service" id="router.default" on-invalid="null"/>
+      <argument type="service" id="router.default" on-invalid="null"/>
+    </service>
+    <service id="security.validator.user_password" class="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator" public="false">
+      <tag name="validator.constraint_validator" alias="security.validator.user_password"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.encoder_factory.generic"/>
+    </service>
+    <service id="security.authentication.listener.anonymous" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument></argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="security.authentication.manager"/>
+    </service>
+    <service id="security.authentication.provider.anonymous" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
+      <argument></argument>
+    </service>
+    <service id="security.authentication.retry_entry_point" class="Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint" public="false">
+      <argument>80</argument>
+      <argument>443</argument>
+    </service>
+    <service id="security.authentication.basic_entry_point" class="Symfony\Component\Security\Http\EntryPoint\BasicAuthenticationEntryPoint" public="false"/>
+    <service id="security.channel_listener" class="Symfony\Component\Security\Http\Firewall\ChannelListener" public="false">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.access_map"/>
+      <argument type="service" id="security.authentication.retry_entry_point"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap" public="false">
+      <call method="add">
+        <argument type="service" id="security.request_matcher.u7CLYTh"/>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id="security.request_matcher.LGxF6tL"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id="security.request_matcher.LGxF6tL"/>
+        <argument type="collection">
+          <argument>ROLE_ORGANISER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id="security.request_matcher.LGxF6tL"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="iterator">
+        <argument type="service" id="security.user.provider.concrete.chain_provider"/>
+        <argument type="service" id="security.user.provider.concrete.in_memory"/>
+        <argument type="service" id="security.user.provider.concrete.db_provider"/>
+      </argument>
+      <argument></argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+      <argument type="service" id="security.authentication.trust_resolver"/>
+    </service>
+    <service id="security.logout_listener" class="Symfony\Component\Security\Http\Firewall\LogoutListener" public="false" abstract="true">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument type="service" id="security.logout.success_handler"/>
+      <argument></argument>
+    </service>
+    <service id="security.logout.handler.session" class="Symfony\Component\Security\Http\Logout\SessionLogoutHandler" public="false"/>
+    <service id="security.logout.handler.cookie_clearing" class="Symfony\Component\Security\Http\Logout\CookieClearingLogoutHandler" public="false" abstract="true"/>
+    <service id="security.logout.success_handler" class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false" abstract="true">
+      <argument type="service" id="security.http_utils"/>
+      <argument>/</argument>
+    </service>
+    <service id="security.authentication.form_entry_point" class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false" abstract="true">
+      <argument type="service" id="http_kernel"/>
+    </service>
+    <service id="security.authentication.listener.abstract" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument type="service" id="security.authentication.session_strategy"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument></argument>
+      <argument type="service" id="security.authentication.success_handler"/>
+      <argument type="service" id="security.authentication.failure_handler"/>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.custom_success_handler" class="Symfony\Component\Security\Http\Authentication\CustomAuthenticationSuccessHandler" public="false" abstract="true">
+      <argument></argument>
+      <argument type="collection"/>
+      <argument></argument>
+    </service>
+    <service id="security.authentication.success_handler" class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler" public="false" abstract="true">
+      <argument type="service" id="security.http_utils"/>
+      <argument type="collection"/>
+    </service>
+    <service id="security.authentication.custom_failure_handler" class="Symfony\Component\Security\Http\Authentication\CustomAuthenticationFailureHandler" public="false" abstract="true">
+      <argument></argument>
+      <argument type="collection"/>
+    </service>
+    <service id="security.authentication.failure_handler" class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="http_kernel"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.listener.form" class="Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener" public="false" abstract="true">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument type="service" id="security.authentication.session_strategy"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument></argument>
+      <argument type="service" id="security.authentication.success_handler"/>
+      <argument type="service" id="security.authentication.failure_handler"/>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.listener.simple_form" class="Symfony\Component\Security\Http\Firewall\SimpleFormAuthenticationListener" public="false" abstract="true">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument type="service" id="security.authentication.session_strategy"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument></argument>
+      <argument type="service" id="security.authentication.success_handler"/>
+      <argument type="service" id="security.authentication.failure_handler"/>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.simple_success_failure_handler" class="Symfony\Component\Security\Http\Authentication\SimpleAuthenticationHandler" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument></argument>
+      <argument type="service" id="security.authentication.success_handler"/>
+      <argument type="service" id="security.authentication.failure_handler"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.listener.simple_preauth" class="Symfony\Component\Security\Http\Firewall\SimplePreAuthenticationListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument></argument>
+      <argument></argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.listener.x509" class="Symfony\Component\Security\Http\Firewall\X509AuthenticationListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.listener.json" class="Symfony\Component\Security\Http\Firewall\UsernamePasswordJsonAuthenticationListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+      <argument type="service" id="property_accessor" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.listener.remote_user" class="Symfony\Component\Security\Http\Firewall\RemoteUserAuthenticationListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument></argument>
+      <argument></argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.listener.basic" class="Symfony\Component\Security\Http\Firewall\BasicAuthenticationListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument></argument>
+      <argument></argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.provider.dao" class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument type="service" id="security.encoder_factory.generic"/>
+      <argument>true</argument>
+    </service>
+    <service id="security.authentication.provider.ldap_bind" class="Symfony\Component\Security\Core\Authentication\Provider\LdapBindAuthenticationProvider" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument>true</argument>
+    </service>
+    <service id="security.authentication.provider.simple" class="Symfony\Component\Security\Core\Authentication\Provider\SimpleAuthenticationProvider" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="security.authentication.provider.pre_authenticated" class="Symfony\Component\Security\Core\Authentication\Provider\PreAuthenticatedAuthenticationProvider" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="security.exception_listener" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.trust_resolver"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument></argument>
+      <argument type="service" id="security.authentication.entry_point" on-invalid="null"/>
+      <argument>null</argument>
+      <argument type="service" id="security.access.denied_handler" on-invalid="null"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument>false</argument>
+    </service>
+    <service id="security.authentication.switchuser_listener" class="Symfony\Component\Security\Http\Firewall\SwitchUserListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument type="service" id="debug.security.access.decision_manager"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument>_switch_user</argument>
+      <argument>ROLE_ALLOWED_TO_SWITCH</argument>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+      <argument>false</argument>
+    </service>
+    <service id="security.access_listener" class="Symfony\Component\Security\Http\Firewall\AccessListener" public="false">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="debug.security.access.decision_manager"/>
+      <argument type="service" id="security.access_map"/>
+      <argument type="service" id="security.authentication.manager"/>
+    </service>
+    <service id="security.authentication.listener.rememberme" class="Symfony\Component\Security\Http\Firewall\RememberMeListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.rememberme"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+      <argument></argument>
+      <argument type="service" id="security.authentication.session_strategy"/>
+    </service>
+    <service id="security.authentication.provider.rememberme" class="Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider" public="false" abstract="true">
+      <argument></argument>
+    </service>
+    <service id="security.rememberme.token.provider.in_memory" class="Symfony\Component\Security\Core\Authentication\RememberMe\InMemoryTokenProvider" public="false"/>
+    <service id="security.authentication.rememberme.services.abstract" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="collection"/>
+      <argument></argument>
+      <argument></argument>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.rememberme.services.persistent" class="Symfony\Component\Security\Http\RememberMe\PersistentTokenBasedRememberMeServices" public="false" abstract="true">
+      <argument type="collection"/>
+      <argument></argument>
+      <argument></argument>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.rememberme.services.simplehash" class="Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices" public="false" abstract="true">
+      <argument type="collection"/>
+      <argument></argument>
+      <argument></argument>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="security.rememberme.response_listener" class="Symfony\Component\Security\Http\RememberMe\ResponseListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+    </service>
+    <service id="templating.helper.logout_url" class="Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper" public="false">
+      <tag name="templating.helper" alias="logout_url"/>
+      <argument type="service" id="security.logout_url_generator"/>
+    </service>
+    <service id="templating.helper.security" class="Symfony\Bundle\SecurityBundle\Templating\Helper\SecurityHelper" public="false">
+      <tag name="templating.helper" alias="security"/>
+      <argument type="service" id="security.authorization_checker" on-invalid="ignore"/>
+    </service>
+    <service id="twig.extension.logout_url" class="Symfony\Bridge\Twig\Extension\LogoutUrlExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="security.logout_url_generator"/>
+    </service>
+    <service id="twig.extension.security" class="Symfony\Bridge\Twig\Extension\SecurityExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="security.authorization_checker" on-invalid="ignore"/>
+    </service>
+    <service id="data_collector.security" class="Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector" public="false">
+      <tag name="data_collector" template="@Security/Collector/security.html.twig" id="security" priority="270"/>
+      <argument type="service" id="security.token_storage" on-invalid="ignore"/>
+      <argument type="service" id="security.role_hierarchy"/>
+      <argument type="service" id="security.logout_url_generator"/>
+      <argument type="service" id="debug.security.access.decision_manager"/>
+      <argument type="service" id="security.firewall.map"/>
+      <argument type="service" id="debug.security.firewall" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.guard_handler" class="Symfony\Component\Security\Guard\GuardAuthenticatorHandler" public="false">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+    </service>
+    <service id="security.authentication.provider.guard" class="Symfony\Component\Security\Guard\Provider\GuardAuthenticationProvider" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="security.authentication.listener.guard" class="Symfony\Component\Security\Guard\Firewall\GuardAuthenticationListener" public="false" abstract="true">
+      <tag name="monolog.logger" channel="security"/>
+      <argument type="service" id="security.authentication.guard_handler"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument></argument>
+      <argument></argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+    </service>
+    <service id="debug.security.access.decision_manager" class="Symfony\Component\Security\Core\Authorization\TraceableAccessDecisionManager" public="false">
+      <argument type="service" id="debug.security.access.decision_manager.inner"/>
+    </service>
+    <service id="debug.security.firewall" class="Symfony\Bundle\SecurityBundle\Debug\TraceableFirewallListener" public="false">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="security.firewall.map"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="security.logout_url_generator"/>
+    </service>
+    <service id="security.user.provider.concrete.chain_provider" class="Symfony\Component\Security\Core\User\ChainUserProvider" public="false">
+      <argument type="iterator">
+        <argument type="service" id="security.user.provider.concrete.in_memory"/>
+        <argument type="service" id="security.user.provider.concrete.db_provider"/>
+      </argument>
+    </service>
+    <service id="security.user.provider.concrete.in_memory" class="Symfony\Component\Security\Core\User\InMemoryUserProvider" public="false">
+      <call method="createUser">
+        <argument type="service" id="security.user.provider.concrete.in_memory_admin"/>
+      </call>
+    </service>
+    <service id="security.user.provider.concrete.in_memory_admin" class="Symfony\Component\Security\Core\User\User" public="false">
+      <argument>admin</argument>
+      <argument>$2y$12$y58R1f1AvZdhpXbGag5In.h7I3/pHyXjOchbP4vurX1zKchXUlS5e</argument>
+      <argument type="collection">
+        <argument>ROLE_ADMIN</argument>
+      </argument>
+    </service>
+    <service id="security.user.provider.concrete.db_provider" class="Symfony\Bridge\Doctrine\Security\User\EntityUserProvider" public="false">
+      <argument type="service" id="doctrine"/>
+      <argument>App\Entity\User</argument>
+      <argument>null</argument>
+      <argument>null</argument>
+    </service>
+    <service id="security.firewall.map.config.dev" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false">
+      <argument>dev</argument>
+      <argument>security.user_checker</argument>
+      <argument>security.request_matcher.zfHj2lW</argument>
+      <argument>false</argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument type="collection"/>
+      <argument></argument>
+    </service>
+    <service id="security.request_matcher.zfHj2lW" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/(_(profiler|wdt)|css|images|js)/</argument>
+    </service>
+    <service id="security.firewall.map.context.dev" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext" public="false">
+      <argument type="iterator"/>
+      <argument>null</argument>
+      <argument type="service" id="security.firewall.map.config.dev"/>
+    </service>
+    <service id="security.firewall.map.config.main" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false">
+      <argument>main</argument>
+      <argument>security.user_checker</argument>
+      <argument>security.request_matcher.6Rxly79</argument>
+      <argument>true</argument>
+      <argument>false</argument>
+      <argument>security.user.provider.concrete.chain_provider</argument>
+      <argument>main</argument>
+      <argument>security.authentication.form_entry_point.main</argument>
+      <argument>null</argument>
+      <argument>null</argument>
+      <argument type="collection">
+        <argument>form_login</argument>
+        <argument>anonymous</argument>
+      </argument>
+      <argument>null</argument>
+    </service>
+    <service id="security.request_matcher.6Rxly79" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/user/</argument>
+    </service>
+    <service id="security.context_listener.0" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="iterator">
+        <argument type="service" id="security.user.provider.concrete.chain_provider"/>
+        <argument type="service" id="security.user.provider.concrete.in_memory"/>
+        <argument type="service" id="security.user.provider.concrete.db_provider"/>
+      </argument>
+      <argument>main</argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+      <argument type="service" id="security.authentication.trust_resolver"/>
+    </service>
+    <service id="security.authentication.provider.dao.main" class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
+      <argument type="service" id="security.user.provider.concrete.chain_provider"/>
+      <argument type="service" id="security.user_checker"/>
+      <argument>main</argument>
+      <argument type="service" id="security.encoder_factory.generic"/>
+      <argument>true</argument>
+    </service>
+    <service id="security.authentication.success_handler.main.form_login" class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler" public="false">
+      <argument type="service" id="security.http_utils"/>
+      <argument type="collection"/>
+      <call method="setOptions">
+        <argument type="collection">
+          <argument key="login_path">login</argument>
+          <argument key="default_target_path">dashboard</argument>
+          <argument key="always_use_default_target_path">false</argument>
+          <argument key="target_path_parameter">_target_path</argument>
+          <argument key="use_referer">false</argument>
+        </argument>
+      </call>
+      <call method="setProviderKey">
+        <argument>main</argument>
+      </call>
+    </service>
+    <service id="security.authentication.failure_handler.main.form_login" class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler" public="false">
+      <argument type="service" id="http_kernel"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument type="collection"/>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <call method="setOptions">
+        <argument type="collection">
+          <argument key="login_path">login</argument>
+          <argument key="failure_path">null</argument>
+          <argument key="failure_forward">false</argument>
+          <argument key="failure_path_parameter">_failure_path</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="security.authentication.listener.form.main" class="Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener" public="false">
+      <tag name="security.remember_me_aware" id="main" provider="security.user.provider.concrete.chain_provider"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.manager"/>
+      <argument type="service" id="security.authentication.session_strategy"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument>main</argument>
+      <argument type="service" id="security.authentication.success_handler.main.form_login"/>
+      <argument type="service" id="security.authentication.failure_handler.main.form_login"/>
+      <argument type="collection">
+        <argument key="check_path">login</argument>
+        <argument key="username_parameter">_username</argument>
+        <argument key="password_parameter">_password</argument>
+        <argument key="post_only">true</argument>
+        <argument key="use_forward">false</argument>
+        <argument key="require_previous_session">false</argument>
+        <argument key="csrf_parameter">_csrf_token</argument>
+        <argument key="csrf_token_id">authenticate</argument>
+      </argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+      <argument type="service" id="security.csrf.token_manager"/>
+    </service>
+    <service id="security.authentication.form_entry_point.main" class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
+      <argument type="service" id="http_kernel"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument>login</argument>
+      <argument>false</argument>
+    </service>
+    <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
+      <argument type="service" id="security.token_storage"/>
+      <argument>%container.build_hash%</argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="security.authentication.manager"/>
+    </service>
+    <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
+      <argument>%container.build_hash%</argument>
+    </service>
+    <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.authentication.trust_resolver"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument>main</argument>
+      <argument type="service" id="security.authentication.form_entry_point.main"/>
+      <argument>null</argument>
+      <argument>null</argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument>false</argument>
+    </service>
+    <service id="security.firewall.map.context.main" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext" public="false">
+      <argument type="iterator">
+        <argument type="service" id="security.channel_listener"/>
+        <argument type="service" id="security.context_listener.0"/>
+        <argument type="service" id="security.authentication.listener.form.main"/>
+        <argument type="service" id="security.authentication.listener.anonymous.main"/>
+        <argument type="service" id="security.access_listener"/>
+      </argument>
+      <argument type="service" id="security.exception_listener.main"/>
+      <argument type="service" id="security.firewall.map.config.main"/>
+    </service>
+    <service id="service_locator.Yy3h0rs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="security.firewall.map.context.dev" type="service" id="security.firewall.map.context.dev"/>
+        <argument key="security.firewall.map.context.main" type="service" id="security.firewall.map.context.main"/>
+      </argument>
+    </service>
+    <service id="security.request_matcher.u7CLYTh" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/user/login</argument>
+    </service>
+    <service id="security.request_matcher.LGxF6tL" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/user/</argument>
+    </service>
+    <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand" public="false">
+      <tag name="console.command" command="security:encode-password"/>
+      <argument type="service" id="security.encoder_factory.generic"/>
+      <argument type="collection">
+        <argument>App\Entity\User</argument>
+        <argument>Symfony\Component\Security\Core\User\User</argument>
+      </argument>
+      <call method="setName">
+        <argument>security:encode-password</argument>
+      </call>
+    </service>
+    <service id="monolog.logger" class="Symfony\Bridge\Monolog\Logger" public="false">
+      <argument>app</argument>
+      <call method="pushProcessor">
+        <argument type="service" id="debug.log_processor"/>
+      </call>
+      <call method="useMicrosecondTimestamps">
+        <argument>true</argument>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+    </service>
+    <service id="monolog.logger_prototype" class="Symfony\Bridge\Monolog\Logger" abstract="true">
+      <argument></argument>
+      <call method="pushProcessor">
+        <argument type="service" id="debug.log_processor"/>
+      </call>
+    </service>
+    <service id="monolog.activation_strategy.not_found" class="Symfony\Bridge\Monolog\Handler\FingersCrossed\NotFoundActivationStrategy"/>
+    <service id="monolog.handler.fingers_crossed.error_level_activation_strategy" class="Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy"/>
+    <service id="monolog.formatter.chrome_php" class="Monolog\Formatter\ChromePHPFormatter" public="false"/>
+    <service id="monolog.formatter.gelf_message" class="Monolog\Formatter\GelfMessageFormatter" public="false"/>
+    <service id="monolog.formatter.html" class="Monolog\Formatter\HtmlFormatter" public="false"/>
+    <service id="monolog.formatter.json" class="Monolog\Formatter\JsonFormatter" public="false"/>
+    <service id="monolog.formatter.line" class="Monolog\Formatter\LineFormatter" public="false"/>
+    <service id="monolog.formatter.loggly" class="Monolog\Formatter\LogglyFormatter" public="false"/>
+    <service id="monolog.formatter.normalizer" class="Monolog\Formatter\NormalizerFormatter" public="false"/>
+    <service id="monolog.formatter.scalar" class="Monolog\Formatter\ScalarFormatter" public="false"/>
+    <service id="monolog.formatter.wildfire" class="Monolog\Formatter\WildfireFormatter" public="false"/>
+    <service id="monolog.formatter.logstash" class="Monolog\Formatter\LogstashFormatter" public="false">
+      <argument>app</argument>
+    </service>
+    <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor" public="false"/>
+    <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
+      <argument>C:\wamp64\www\NAO_Project\var\log/dev.log</argument>
+      <argument>100</argument>
+      <argument>true</argument>
+      <argument>null</argument>
+      <call method="pushProcessor">
+        <argument type="service" id="monolog.processor.psr_log_message"/>
+      </call>
+    </service>
+    <service id="monolog.handler.console" class="Symfony\Bridge\Monolog\Handler\ConsoleHandler">
+      <tag name="kernel.event_subscriber"/>
+      <argument>null</argument>
+      <argument>true</argument>
+      <argument type="collection"/>
+    </service>
+    <service id="4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~_HrQRp3" class="Swift_Transport_Esmtp_Auth_NTLMAuthenticator" public="false"/>
+    <service id="3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~_HrQRp3" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false"/>
+    <service id="2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~_HrQRp3" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false"/>
+    <service id="1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~_HrQRp3" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false"/>
+    <service id="swiftmailer.mailer.abstract" class="Swift_Mailer" public="true" abstract="true">
+      <argument type="service" id="swiftmailer.mailer.default.transport.spool"/>
+    </service>
+    <service id="swiftmailer.transport.smtp.configurator.abstract" class="Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SmtpTransportConfigurator" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.sendmail.abstract" class="Swift_Transport_SendmailTransport" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.null.abstract" class="Swift_Transport_NullTransport" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.failover" class="Swift_Transport_FailoverTransport" public="false"/>
+    <service id="swiftmailer.transport.buffer.abstract" class="Swift_Transport_StreamBuffer" public="false" abstract="true">
+      <argument type="service" id="swiftmailer.transport.replacementfactory"/>
+    </service>
+    <service id="swiftmailer.transport.authhandler.abstract" class="Swift_Transport_Esmtp_AuthHandler" public="false" abstract="true">
+      <argument type="collection">
+        <argument type="service" id="1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~_HrQRp3"/>
+        <argument type="service" id="2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~_HrQRp3"/>
+        <argument type="service" id="3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~_HrQRp3"/>
+        <argument type="service" id="4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~_HrQRp3"/>
+      </argument>
+    </service>
+    <service id="swiftmailer.transport.eventdispatcher.abstract" class="Swift_Events_SimpleEventDispatcher" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.replacementfactory" class="Swift_StreamFilters_StringReplacementFilterFactory" public="false"/>
+    <service id="swiftmailer.plugin.redirecting.abstract" class="Swift_Plugins_RedirectingPlugin" public="false" abstract="true"/>
+    <service id="swiftmailer.plugin.antiflood.abstract" class="Swift_Plugins_AntiFloodPlugin" public="false" abstract="true"/>
+    <service id="swiftmailer.plugin.impersonate.abstract" class="Swift_Plugins_ImpersonatePlugin" public="false" abstract="true"/>
+    <service id="swiftmailer.plugin.messagelogger.abstract" class="Swift_Plugins_MessageLogger" abstract="true"/>
+    <service id="swiftmailer.transport.smtp.abstract" class="Swift_Transport_EsmtpTransport" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.spool.abstract" class="Swift_Transport_SpoolTransport" public="false" abstract="true"/>
+    <service id="swiftmailer.spool.file.abstract" class="Swift_FileSpool" public="false" abstract="true">
+      <argument>C:\wamp64\www\NAO_Project\src/../data/swiftmailer/spool</argument>
+    </service>
+    <service id="swiftmailer.spool.memory.abstract" class="Swift_MemorySpool" public="false" abstract="true"/>
+    <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="monolog.logger" on-invalid="null"/>
+    </service>
+    <service id="swiftmailer.data_collector" class="Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector" public="false">
+      <tag name="data_collector" template="@Swiftmailer/Collector/swiftmailer.html.twig" id="swiftmailer" priority="245"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="swiftmailer.command.debug" class="Symfony\Bundle\SwiftmailerBundle\Command\DebugCommand">
+      <tag name="console.command" command="debug:swiftmailer"/>
+      <call method="setName">
+        <argument>debug:swiftmailer</argument>
+      </call>
+    </service>
+    <service id="swiftmailer.command.new_email" class="Symfony\Bundle\SwiftmailerBundle\Command\NewEmailCommand">
+      <tag name="console.command" command="swiftmailer:email:send"/>
+      <call method="setName">
+        <argument>swiftmailer:email:send</argument>
+      </call>
+    </service>
+    <service id="swiftmailer.command.send_email" class="Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand">
+      <tag name="console.command" command="swiftmailer:spool:send"/>
+      <call method="setName">
+        <argument>swiftmailer:spool:send</argument>
+      </call>
+    </service>
+    <service id="swiftmailer.mailer.default.transport.eventdispatcher" class="Swift_Events_SimpleEventDispatcher" public="false"/>
+    <service id="swiftmailer.mailer.default.transport.dynamic" class="Swift_Transport">
+      <argument type="collection">
+        <argument key="transport">smtp</argument>
+        <argument key="url">%env(MAILER_URL)%</argument>
+        <argument key="username">null</argument>
+        <argument key="password">null</argument>
+        <argument key="host">localhost</argument>
+        <argument key="port">null</argument>
+        <argument key="timeout">30</argument>
+        <argument key="source_ip">null</argument>
+        <argument key="local_domain">null</argument>
+        <argument key="encryption">null</argument>
+        <argument key="auth_mode">null</argument>
+      </argument>
+      <argument type="service" id="router.request_context" on-invalid="null"/>
+      <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
+      <factory class="Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SwiftmailerTransportFactory" method="createTransport"/>
+    </service>
+    <service id="swiftmailer.mailer.default" class="Swift_Mailer" public="true">
+      <argument type="service" id="swiftmailer.mailer.default.transport.spool"/>
+    </service>
+    <service id="swiftmailer.mailer.default.spool.memory" class="Swift_MemorySpool" public="false"/>
+    <service id="swiftmailer.mailer.default.transport.spool" class="Swift_Transport_SpoolTransport" public="false">
+      <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
+      <argument type="service" id="swiftmailer.mailer.default.spool.memory"/>
+      <call method="registerPlugin">
+        <argument type="service" id="swiftmailer.mailer.default.plugin.messagelogger"/>
+      </call>
+    </service>
+    <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
+      <tag name="swiftmailer.default.plugin"/>
+    </service>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\BlogController" class="App\Controller\BlogController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\BlogController" class="App\Controller\BlogController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\DonController" class="App\Controller\DonController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\DonController" class="App\Controller\DonController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\UserController" class="App\Controller\UserController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ArticleType" class="App\Form\ArticleType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\ArticleType" class="App\Form\ArticleType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CommentType" class="App\Form\CommentType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\CommentType" class="App\Form\CommentType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DonType" class="App\Form\DonType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\DonType" class="App\Form\DonType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleImageRepository" class="App\Repository\ArticleImageRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\ArticleImageRepository" class="App\Repository\ArticleImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentRepository" class="App\Repository\CommentRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\CommentRepository" class="App\Repository\CommentRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DonRepository" class="App\Repository\DonRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\DonRepository" class="App\Repository\DonRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:auth"/>
+      <argument type="service" id="maker.maker.make_authenticator"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:auth</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_command" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:command"/>
+      <argument type="service" id="maker.maker.make_command"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:command</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_controller" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:controller"/>
+      <argument type="service" id="maker.maker.make_controller"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:controller</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_entity" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:entity"/>
+      <argument type="service" id="maker.maker.make_entity"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:entity</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_form" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:form"/>
+      <argument type="service" id="maker.maker.make_form"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:form</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_functional_test" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:functional-test"/>
+      <argument type="service" id="maker.maker.make_functional_test"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:functional-test</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_serializer_encoder" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:serializer:encoder"/>
+      <argument type="service" id="maker.maker.make_serializer_encoder"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:serializer:encoder</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_subscriber" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:subscriber"/>
+      <argument type="service" id="maker.maker.make_subscriber"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:subscriber</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_twig_extension" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:twig-extension"/>
+      <argument type="service" id="maker.maker.make_twig_extension"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:twig-extension</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_unit_test" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:unit-test"/>
+      <argument type="service" id="maker.maker.make_unit_test"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:unit-test</argument>
+      </call>
+    </service>
+    <service id="maker.auto_command.make_validator" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
+      <tag name="console.command" command="make:validator"/>
+      <argument type="service" id="maker.maker.make_validator"/>
+      <argument type="service" id="maker.generator"/>
+      <call method="setName">
+        <argument>make:validator</argument>
+      </call>
+>>>>>>> donmanager
+    </service>
+    <service id="security.role_hierarchy" class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
+      <argument>%security.role_hierarchy.roles%</argument>
+    </service>
+<<<<<<< HEAD
+    <service id="security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter" public="false">
+      <tag name="security.voter" priority="250"/>
+      <argument type="service" id="security.authentication.trust_resolver"/>
+    </service>
+    <service id="security.access.role_hierarchy_voter" class="Symfony\Component\Security\Core\Authorization\Voter\RoleHierarchyVoter" public="false">
+      <tag name="security.voter" priority="245"/>
+      <argument type="service" id="security.role_hierarchy"/>
+    </service>
+    <service id="security.firewall.map" class="Symfony\Bundle\SecurityBundle\Security\FirewallMap" public="false">
+      <argument type="service" id="service_locator.Yy3h0rs"/>
+      <argument type="iterator">
+        <argument key="security.firewall.map.context.dev" type="service" id="security.request_matcher.zfHj2lW"/>
+        <argument key="security.firewall.map.context.main" type="service" id="security.request_matcher.00qF1Z7"/>
+      </argument>
+    </service>
+    <service id="security.firewall.context" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext" public="false" abstract="true">
+=======
+    <service id="service_locator.oTHV_I7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="articleService" type="service" id="App\Services\ArticleService" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.VGaxxgJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id="service_locator.PVJdAhH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+>>>>>>> donmanager
+      <argument type="collection"/>
+      <argument type="service" id="security.exception_listener"/>
+      <argument></argument>
+    </service>
+<<<<<<< HEAD
     <service id="security.firewall.config" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false" abstract="true">
       <argument></argument>
       <argument></argument>
@@ -4987,6 +6568,8 @@
         <argument key="modifyArticle" type="service" id="App\Services\ModifyArticleHandler" on-invalid="ignore"/>
       </argument>
     </service>
+=======
+>>>>>>> donmanager
     <service id="service_locator.R6oaVOY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5017,6 +6600,7 @@
         <argument key="downgradeUHandler" type="service" id="App\Services\DowngradeUserHandler" on-invalid="ignore"/>
       </argument>
     </service>
+<<<<<<< HEAD
     <service id="service_locator.6G1AhUG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5046,12 +6630,30 @@
         <argument key="App\Controller\UserController::downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController::login" type="service" id="service_locator.NkUBxsb"/>
         <argument key="App\Controller\UserController::modifyUserAction" type="service" id="service_locator.6G1AhUG"/>
+=======
+    <service id="service_locator.2w0bLLK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\BlogController:index" type="service" id="service_locator.oTHV_I7"/>
+        <argument key="App\Controller\BlogController:list" type="service" id="service_locator.oTHV_I7"/>
+        <argument key="App\Controller\UserController:dashboardAction" type="service" id="service_locator.saQ8x6M"/>
+        <argument key="App\Controller\UserController:downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
+        <argument key="App\Controller\UserController:login" type="service" id="service_locator.NkUBxsb"/>
+        <argument key="App\Controller\UserController:subscribeAction" type="service" id="service_locator.R6oaVOY"/>
+        <argument key="App\Controller\UserController:validateUserAction" type="service" id="service_locator.xiVkYm3"/>
+        <argument key="App\Controller\BlogController::index" type="service" id="service_locator.oTHV_I7"/>
+        <argument key="App\Controller\BlogController::list" type="service" id="service_locator.oTHV_I7"/>
+        <argument key="App\Controller\UserController::dashboardAction" type="service" id="service_locator.saQ8x6M"/>
+        <argument key="App\Controller\UserController::downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
+        <argument key="App\Controller\UserController::login" type="service" id="service_locator.NkUBxsb"/>
+>>>>>>> donmanager
         <argument key="App\Controller\UserController::subscribeAction" type="service" id="service_locator.R6oaVOY"/>
         <argument key="App\Controller\UserController::validateUserAction" type="service" id="service_locator.xiVkYm3"/>
       </argument>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id="service_locator.Du3DesY"/>
+<<<<<<< HEAD
 =======
     <service id="service_locator.srmxvxF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5069,6 +6671,8 @@
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id="service_locator.fVRD8Sw"/>
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -5111,9 +6715,13 @@
         <argument key="doctrine:schema:update">doctrine.schema_update_command</argument>
         <argument key="doctrine:schema:validate">doctrine.schema_validate_command</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument key="security:encode-password">security.command.user_password_encoder</argument>
 =======
 >>>>>>> contactmanager
+=======
+        <argument key="security:encode-password">security.command.user_password_encoder</argument>
+>>>>>>> donmanager
         <argument key="debug:swiftmailer">swiftmailer.command.debug</argument>
         <argument key="swiftmailer:email:send">swiftmailer.command.new_email</argument>
         <argument key="swiftmailer:spool:send">swiftmailer.command.send_email</argument>
@@ -5132,10 +6740,14 @@
       </argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="service_locator.Du3DesY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
 =======
     <service id="service_locator.fVRD8Sw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
 >>>>>>> contactmanager
+=======
+    <service id="service_locator.Du3DesY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> donmanager
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service" id="console.command.about"/>
@@ -5189,9 +6801,13 @@
         <argument key="maker.auto_command.make_validator" type="service" id="maker.auto_command.make_validator"/>
         <argument key="maker.auto_command.make_voter" type="service" id="maker.auto_command.make_voter"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument key="security.command.user_password_encoder" type="service" id="security.command.user_password_encoder"/>
 =======
 >>>>>>> contactmanager
+=======
+        <argument key="security.command.user_password_encoder" type="service" id="security.command.user_password_encoder"/>
+>>>>>>> donmanager
         <argument key="swiftmailer.command.debug" type="service" id="swiftmailer.command.debug"/>
         <argument key="swiftmailer.command.new_email" type="service" id="swiftmailer.command.new_email"/>
         <argument key="swiftmailer.command.send_email" type="service" id="swiftmailer.command.send_email"/>
@@ -5222,11 +6838,16 @@
       </argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="service_locator.T4TZ_lh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+=======
+    <service id="service_locator.DDrrRaA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> donmanager
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleType" type="service" id="App\Form\ArticleType"/>
         <argument key="App\Form\CommentType" type="service" id="App\Form\CommentType"/>
+<<<<<<< HEAD
         <argument key="App\Form\SubscriptionType" type="service" id="App\Form\SubscriptionType"/>
         <argument key="App\Form\UserModifyType" type="service" id="App\Form\UserModifyType"/>
 =======
@@ -5235,18 +6856,30 @@
       <argument type="collection">
         <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
 >>>>>>> contactmanager
+=======
+        <argument key="App\Form\DonType" type="service" id="App\Form\DonType"/>
+        <argument key="App\Form\SubscriptionType" type="service" id="App\Form\SubscriptionType"/>
+>>>>>>> donmanager
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="service_locator.qr.0oDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+=======
+    <service id="service_locator.Dgu60P6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> donmanager
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ArticleImageRepository" type="service" id="App\Repository\ArticleImageRepository"/>
         <argument key="App\Repository\ArticleRepository" type="service" id="App\Repository\ArticleRepository"/>
         <argument key="App\Repository\CommentRepository" type="service" id="App\Repository\CommentRepository"/>
+<<<<<<< HEAD
+=======
+        <argument key="App\Repository\DonRepository" type="service" id="App\Repository\DonRepository"/>
+>>>>>>> donmanager
       </argument>
     </service>
     <service id="monolog.logger.request" class="Symfony\Bridge\Monolog\Logger">
@@ -5349,6 +6982,7 @@
       </call>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
+<<<<<<< HEAD
 =======
     <service id="service_locator.9.8a4ZB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5362,6 +6996,8 @@
     </service>
     <service id="logger" class="Symfony\Component\HttpKernel\Log\Logger" public="false"/>
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     <service id="debug.validator.inner" class="Symfony\Component\Validator\Validator\ValidatorInterface" public="false">
       <factory service="validator.builder" method="getValidator"/>
     </service>
@@ -5370,10 +7006,14 @@
       <argument type="service" id="service_container"/>
       <argument type="service" id="controller_name_converter"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
 =======
       <argument type="service" id="logger" on-invalid="ignore"/>
 >>>>>>> contactmanager
+=======
+      <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
+>>>>>>> donmanager
     </service>
     <service id="debug.argument_resolver.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver" public="false">
       <argument type="service" id="argument_metadata_factory"/>
@@ -5382,15 +7022,22 @@
         <argument type="service" id="argument_resolver.request"/>
         <argument type="service" id="argument_resolver.session"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <argument type="service" id="security.user_value_resolver"/>
 =======
 >>>>>>> contactmanager
+=======
+        <argument type="service" id="security.user_value_resolver"/>
+>>>>>>> donmanager
         <argument type="service" id="argument_resolver.service"/>
         <argument type="service" id="argument_resolver.default"/>
         <argument type="service" id="argument_resolver.variadic"/>
       </argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     <service id="debug.security.access.decision_manager.inner" class="Symfony\Component\Security\Core\Authorization\AccessDecisionManager" public="false">
       <argument type="iterator">
         <argument type="service" id="security.access.authenticated_voter"/>
@@ -5401,6 +7048,7 @@
       <argument>true</argument>
     </service>
     <service id="service_locator.8Aulsw0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+<<<<<<< HEAD
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="translator" type="service" id="translator.default"/>
@@ -5412,16 +7060,22 @@
       <factory service="service_locator.8Aulsw0" method="withContext"/>
 =======
     <service id="service_locator.evpbTNo" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+=======
+>>>>>>> donmanager
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="translator" type="service" id="translator.data_collector"/>
+        <argument key="translator" type="service" id="translator.default"/>
       </argument>
     </service>
-    <service id="service_locator.evpbTNo.translation.warmer" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.8Aulsw0.translation.warmer" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument>translation.warmer</argument>
       <argument type="service" id="service_container"/>
+<<<<<<< HEAD
       <factory service="service_locator.evpbTNo" method="withContext"/>
 >>>>>>> contactmanager
+=======
+      <factory service="service_locator.8Aulsw0" method="withContext"/>
+>>>>>>> donmanager
     </service>
     <service id="service_locator.gvlXfzv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5457,6 +7111,7 @@
       <factory service="service_locator.k8D6bKn" method="withContext"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="service_locator.O9Ft2wK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5468,13 +7123,21 @@
         <argument key="security.validator.user_password" type="service" id="security.validator.user_password"/>
 =======
     <service id="service_locator.MNxRW1y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+=======
+    <service id="service_locator.O9Ft2wK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> donmanager
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator" type="service" id="doctrine.orm.validator.unique"/>
+        <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator" type="service" id="security.validator.user_password"/>
         <argument key="Symfony\Component\Validator\Constraints\EmailValidator" type="service" id="validator.email"/>
         <argument key="Symfony\Component\Validator\Constraints\ExpressionValidator" type="service" id="validator.expression"/>
         <argument key="doctrine.orm.validator.unique" type="service" id="doctrine.orm.validator.unique"/>
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+        <argument key="security.validator.user_password" type="service" id="security.validator.user_password"/>
+>>>>>>> donmanager
         <argument key="validator.expression" type="service" id="validator.expression"/>
       </argument>
     </service>
@@ -5486,41 +7149,60 @@
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument>K4qzxEgR55</argument>
       <argument>0</argument>
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
+=======
+      <argument>H1Y-Uir1ii</argument>
+      <argument>0</argument>
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
+>>>>>>> donmanager
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>-qsQNvUJkM</argument>
+      <argument>jxispVx-13</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
+=======
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
+>>>>>>> donmanager
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>OGIBcEVZBe</argument>
+      <argument>WnZ4seOtP-</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
+=======
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
+>>>>>>> donmanager
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>El1rh4-Fk8</argument>
+      <argument>RlQdHddvyy</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
+=======
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
+>>>>>>> donmanager
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>SfncyiH6JW</argument>
+      <argument>Jj3OdmLMjB</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
+<<<<<<< HEAD
       <argument>E:\wamp64\www\NAO_project\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
 =======
@@ -5545,6 +7227,10 @@
       <argument>V664PRgtX3oUh+pKdNpQ2y</argument>
       <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
+=======
+      <argument>C:\wamp64\www\NAO_Project\var\cache\dev/pools</argument>
+      <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+>>>>>>> donmanager
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
@@ -5584,6 +7270,9 @@
     <service id="Symfony\Component\Cache\Adapter\AdapterInterface" alias="cache.app" public="false"/>
     <service id="Symfony\Component\Translation\TranslatorInterface" alias="translator.data_collector" public="false"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     <service id="Symfony\Component\HttpFoundation\Session\SessionInterface" alias="session" public="false"/>
     <service id="Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface" alias="session.storage.native" public="false"/>
     <service id="SessionHandlerInterface" alias="session.handler.native_file" public="false"/>
@@ -5591,19 +7280,28 @@
     <service id="session.storage.filesystem" alias="session.storage.mock_file" public="false"/>
     <service id="session.storage" alias="session.storage.native"/>
     <service id="session.handler" alias="session.handler.native_file"/>
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     <service id="Symfony\Component\Form\ResolvedFormTypeFactoryInterface" alias="form.resolved_type_factory" public="false"/>
     <service id="Symfony\Component\Form\FormRegistryInterface" alias="form.registry" public="false"/>
     <service id="Symfony\Component\Form\FormFactoryInterface" alias="form.factory" public="false"/>
     <service id="form.property_accessor" alias="property_accessor" public="false"/>
     <service id="form.choice_list_factory" alias="form.choice_list_factory.cached" public="false"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface" alias="security.csrf.token_generator" public="false"/>
     <service id="Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface" alias="security.csrf.token_storage" public="false"/>
     <service id="Symfony\Component\Security\Csrf\CsrfTokenManagerInterface" alias="security.csrf.token_manager" public="false"/>
 =======
 >>>>>>> contactmanager
+=======
+    <service id="Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface" alias="security.csrf.token_generator" public="false"/>
+    <service id="Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface" alias="security.csrf.token_storage" public="false"/>
+    <service id="Symfony\Component\Security\Csrf\CsrfTokenManagerInterface" alias="security.csrf.token_manager" public="false"/>
+>>>>>>> donmanager
     <service id="Symfony\Component\Asset\Packages" alias="assets.packages" public="false"/>
     <service id="Symfony\Component\Validator\Validator\ValidatorInterface" alias="debug.validator" public="false"/>
     <service id="validator.mapping.class_metadata_factory" alias="debug.validator" public="false"/>
@@ -5639,6 +7337,9 @@
     <service id="doctrine.orm.default_query_cache" alias="doctrine_cache.providers.doctrine.orm.default_query_cache"/>
     <service id="doctrine.orm.default_entity_manager.event_manager" alias="doctrine.dbal.default_connection.event_manager" public="false"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     <service id="Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface" alias="security.authorization_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface" alias="security.token_storage" public="false"/>
     <service id="Symfony\Component\Security\Core\Security" alias="security.helper" public="false"/>
@@ -5657,8 +7358,11 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     <service id="swiftmailer.mailer.default.transport" alias="swiftmailer.mailer.default.transport.spool"/>
     <service id="swiftmailer.mailer.default.spool" alias="swiftmailer.mailer.default.spool.memory"/>
     <service id="swiftmailer.mailer.default.transport.real" alias="swiftmailer.mailer.default.transport.dynamic" public="true"/>
@@ -5672,6 +7376,9 @@
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool" public="false"/>
     <service id="mailer" alias="swiftmailer.mailer.default" public="true"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     <service id="console.command.public_alias.doctrine_cache.contains_command" alias="doctrine_cache.contains_command" public="true"/>
     <service id="console.command.public_alias.doctrine_cache.delete_command" alias="doctrine_cache.delete_command" public="true"/>
     <service id="console.command.public_alias.doctrine_cache.flush_command" alias="doctrine_cache.flush_command" public="true"/>
@@ -5683,6 +7390,7 @@
     <service id="console.command.public_alias.doctrine_migrations.migrate_command" alias="doctrine_migrations.migrate_command" public="true"/>
     <service id="console.command.public_alias.doctrine_migrations.status_command" alias="doctrine_migrations.status_command" public="true"/>
     <service id="console.command.public_alias.doctrine_migrations.version_command" alias="doctrine_migrations.version_command" public="true"/>
+<<<<<<< HEAD
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="service_locator.FaDxC1e" alias="2_ServiceLocator~7JMq9oa" public="false"/>
@@ -5706,14 +7414,22 @@
     <service id="console.command.doctrine_bundle_migrationsbundle_command_migrationsmigratedoctrinecommand" alias="doctrine_migrations.migrate_command" public="true"/>
     <service id="console.command.doctrine_bundle_migrationsbundle_command_migrationsstatusdoctrinecommand" alias="doctrine_migrations.status_command" public="true"/>
     <service id="console.command.doctrine_bundle_migrationsbundle_command_migrationsversiondoctrinecommand" alias="doctrine_migrations.version_command" public="true"/>
+=======
+>>>>>>> donmanager
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
-    <service id="Psr\Log\LoggerInterface" alias="logger" public="false"/>
+    <service id="service_locator.FaDxC1e" alias="2_ServiceLocator~hZLhXq2" public="false"/>
+    <service id="service_locator.DL1KH.a" alias="1_ServiceLocator~oeHuG.s" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
-    <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
+    <service id="translator.logging.inner" alias="translator.default" public="false"/>
+    <service id="translator.data_collector.inner" alias="translator.logging" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
     <service id="controller_resolver" alias="debug.controller_resolver" public="false"/>
     <service id="argument_resolver" alias="debug.argument_resolver" public="false"/>
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+    <service id="security.access.decision_manager" alias="debug.security.access.decision_manager" public="false"/>
+>>>>>>> donmanager
   </services>
 </container>

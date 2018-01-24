@@ -20,10 +20,14 @@
         "ext-xml": "*",
         "symfony/cache": "~3.4|~4.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "symfony/dependency-injection": "^3.4.3|^4.0.3",
 =======
         "symfony/dependency-injection": "~3.4|~4.0",
 >>>>>>> contactmanager
+=======
+        "symfony/dependency-injection": "^3.4.3|^4.0.3",
+>>>>>>> donmanager
         "symfony/config": "~3.4|~4.0",
         "symfony/event-dispatcher": "~3.4|~4.0",
         "symfony/http-foundation": "~3.4|~4.0",

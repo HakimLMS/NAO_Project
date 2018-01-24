@@ -42,9 +42,13 @@ class SizeFunction extends FunctionNode
     /**
      * @override
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @inheritdoc
 =======
 >>>>>>> contactmanager
+=======
+     * @inheritdoc
+>>>>>>> donmanager
      * @todo If the collection being counted is already joined, the SQL can be simpler (more efficient).
      */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
@@ -115,9 +119,13 @@ class SizeFunction extends FunctionNode
     /**
      * @override
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @inheritdoc
 =======
 >>>>>>> contactmanager
+=======
+     * @inheritdoc
+>>>>>>> donmanager
      */
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {

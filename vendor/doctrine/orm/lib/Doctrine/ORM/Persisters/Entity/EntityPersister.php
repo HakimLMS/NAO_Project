@@ -78,6 +78,7 @@ interface EntityPersister
      * Get the COUNT SQL to count entities (optionally based on a criteria)
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param array|\Doctrine\Common\Collections\Criteria $criteria
      *
      * @return string
@@ -89,6 +90,13 @@ interface EntityPersister
      */
     public function getCountSQL($criteria = array());
 >>>>>>> contactmanager
+=======
+     * @param array|\Doctrine\Common\Collections\Criteria $criteria
+     *
+     * @return string
+     */
+    public function getCountSQL($criteria = []);
+>>>>>>> donmanager
 
     /**
      * Expands the parameters from the given criteria and use the correct binding types if found.
@@ -173,10 +181,14 @@ interface EntityPersister
      * @return int
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function count($criteria = []);
 =======
     public function count($criteria = array());
 >>>>>>> contactmanager
+=======
+    public function count($criteria = []);
+>>>>>>> donmanager
 
     /**
      * Gets the name of the table that owns the column the given field is mapped to.
@@ -209,14 +221,19 @@ interface EntityPersister
      * @todo Check identity map? loadById method? Try to guess whether $criteria is the id?
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function load(array $criteria, $entity = null, $assoc = null, array $hints = [], $lockMode = null, $limit = null, array $orderBy = null);
 =======
     public function load(array $criteria, $entity = null, $assoc = null, array $hints = array(), $lockMode = null, $limit = null, array $orderBy = null);
 >>>>>>> contactmanager
+=======
+    public function load(array $criteria, $entity = null, $assoc = null, array $hints = [], $lockMode = null, $limit = null, array $orderBy = null);
+>>>>>>> donmanager
 
     /**
      * Loads an entity by identifier.
      *
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @param array       $identifier The entity identifier.
      * @param object|null $entity     The entity to load the data into. If not specified, a new entity is created.
@@ -224,6 +241,10 @@ interface EntityPersister
      * @param array       $identifier   The entity identifier.
      * @param object|null $entity       The entity to load the data into. If not specified, a new entity is created.
 >>>>>>> contactmanager
+=======
+     * @param array       $identifier The entity identifier.
+     * @param object|null $entity     The entity to load the data into. If not specified, a new entity is created.
+>>>>>>> donmanager
      *
      * @return object The loaded and managed entity instance or NULL if the entity can not be found.
      *
@@ -246,10 +267,14 @@ interface EntityPersister
      * @throws \Doctrine\ORM\Mapping\MappingException
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = []);
 =======
     public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = array());
 >>>>>>> contactmanager
+=======
+    public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = []);
+>>>>>>> donmanager
 
     /**
      * Refreshes a managed entity.
@@ -285,10 +310,14 @@ interface EntityPersister
      * @return array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function loadAll(array $criteria = [], array $orderBy = null, $limit = null, $offset = null);
 =======
     public function loadAll(array $criteria = array(), array $orderBy = null, $limit = null, $offset = null);
 >>>>>>> contactmanager
+=======
+    public function loadAll(array $criteria = [], array $orderBy = null, $limit = null, $offset = null);
+>>>>>>> donmanager
 
     /**
      * Gets (sliced or full) elements of the given collection.
@@ -319,10 +348,14 @@ interface EntityPersister
      * @param array                $assoc
      * @param object               $sourceEntity
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param PersistentCollection $collection   The collection to load/fill.
 =======
      * @param PersistentCollection $collection         The collection to load/fill.
 >>>>>>> contactmanager
+=======
+     * @param PersistentCollection $collection   The collection to load/fill.
+>>>>>>> donmanager
      *
      * @return array
      */

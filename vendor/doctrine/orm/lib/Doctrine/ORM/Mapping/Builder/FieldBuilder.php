@@ -56,13 +56,19 @@ class FieldBuilder
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
      * @var string|null
      */
     private $customIdGenerator;
 
     /**
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      * @param ClassMetadataBuilder $builder
      * @param array                $mapping
      */
@@ -83,9 +89,13 @@ class FieldBuilder
     {
         $this->mapping['length'] = $length;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -99,11 +109,16 @@ class FieldBuilder
     public function nullable($flag = true)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->mapping['nullable'] = (bool) $flag;
 
 =======
         $this->mapping['nullable'] = (bool)$flag;
 >>>>>>> contactmanager
+=======
+        $this->mapping['nullable'] = (bool) $flag;
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -117,11 +132,16 @@ class FieldBuilder
     public function unique($flag = true)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->mapping['unique'] = (bool) $flag;
 
 =======
         $this->mapping['unique'] = (bool)$flag;
 >>>>>>> contactmanager
+=======
+        $this->mapping['unique'] = (bool) $flag;
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -136,9 +156,13 @@ class FieldBuilder
     {
         $this->mapping['columnName'] = $name;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -153,9 +177,13 @@ class FieldBuilder
     {
         $this->mapping['precision'] = $p;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -170,9 +198,13 @@ class FieldBuilder
     {
         $this->mapping['scale'] = $s;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -196,9 +228,13 @@ class FieldBuilder
     {
         $this->mapping['id'] = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -214,9 +250,13 @@ class FieldBuilder
     {
         $this->mapping['options'][$name] = $value;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -229,9 +269,13 @@ class FieldBuilder
     {
         $this->generatedValue = $strategy;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -244,9 +288,13 @@ class FieldBuilder
     {
         $this->version = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -262,6 +310,7 @@ class FieldBuilder
     public function setSequenceGenerator($sequenceName, $allocationSize = 1, $initialValue = 1)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->sequenceDef = [
             'sequenceName' => $sequenceName,
             'allocationSize' => $allocationSize,
@@ -275,6 +324,14 @@ class FieldBuilder
             'initialValue' => $initialValue,
         );
 >>>>>>> contactmanager
+=======
+        $this->sequenceDef = [
+            'sequenceName' => $sequenceName,
+            'allocationSize' => $allocationSize,
+            'initialValue' => $initialValue,
+        ];
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -289,6 +346,9 @@ class FieldBuilder
     {
         $this->mapping['columnDefinition'] = $def;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 
         return $this;
     }
@@ -305,8 +365,11 @@ class FieldBuilder
     {
         $this->customIdGenerator = (string) $customIdGenerator;
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         return $this;
     }
 
@@ -324,6 +387,7 @@ class FieldBuilder
             $cm->setIdGeneratorType(constant('Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_' . $this->generatedValue));
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         if ($this->version) {
             $cm->setVersionMapping($this->mapping);
@@ -334,18 +398,31 @@ class FieldBuilder
             $cm->setVersionMapping($this->mapping);
         }
 >>>>>>> contactmanager
+=======
+
+        if ($this->version) {
+            $cm->setVersionMapping($this->mapping);
+        }
+
+>>>>>>> donmanager
         $cm->mapField($this->mapping);
         if ($this->sequenceDef) {
             $cm->setSequenceGeneratorDefinition($this->sequenceDef);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 
         if ($this->customIdGenerator) {
             $cm->setCustomGeneratorDefinition(['class' => $this->customIdGenerator]);
         }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         return $this->builder;
     }
 }

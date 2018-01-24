@@ -36,10 +36,14 @@ abstract class AbstractExporter
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $_metadata = [];
 =======
     protected $_metadata = array();
 >>>>>>> contactmanager
+=======
+    protected $_metadata = [];
+>>>>>>> donmanager
 
     /**
      * @var string|null
@@ -140,10 +144,14 @@ abstract class AbstractExporter
         foreach ($this->_metadata as $metadata) {
             // In case output is returned, write it to a file, skip otherwise
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ($output = $this->exportClassMetadata($metadata)) {
 =======
             if($output = $this->exportClassMetadata($metadata)){
 >>>>>>> contactmanager
+=======
+            if ($output = $this->exportClassMetadata($metadata)) {
+>>>>>>> donmanager
                 $path = $this->_generateOutputPath($metadata);
                 $dir = dirname($path);
                 if ( ! is_dir($dir)) {

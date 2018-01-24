@@ -64,12 +64,17 @@ final class NativeQuery extends AbstractQuery
     protected function _doExecute()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $parameters = [];
         $types      = [];
 =======
         $parameters = array();
         $types      = array();
 >>>>>>> contactmanager
+=======
+        $parameters = [];
+        $types      = [];
+>>>>>>> donmanager
 
         foreach ($this->getParameters() as $parameter) {
             $name  = $parameter->getName();

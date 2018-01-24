@@ -18,9 +18,13 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ManagerRegistry;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\EntityManagerInterface;
 =======
 >>>>>>> contactmanager
+=======
+use Doctrine\ORM\EntityManagerInterface;
+>>>>>>> donmanager
 use Doctrine\ORM\NoResultException;
 
 /**
@@ -114,6 +118,9 @@ class DoctrineParamConverter implements ParamConverterInterface
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $om = $this->getManager($options['entity_manager'], $class);
         if ($options['evict_cache'] && $om instanceof EntityManagerInterface) {
             $cacheProvider = $om->getCache();
@@ -122,12 +129,17 @@ class DoctrineParamConverter implements ParamConverterInterface
             }
         }
 
+<<<<<<< HEAD
         try {
             return $om->getRepository($class)->$method($id);
 =======
         try {
             return $this->getManager($options['entity_manager'], $class)->getRepository($class)->$method($id);
 >>>>>>> contactmanager
+=======
+        try {
+            return $om->getRepository($class)->$method($id);
+>>>>>>> donmanager
         } catch (NoResultException $e) {
             return;
         }
@@ -198,12 +210,18 @@ class DoctrineParamConverter implements ParamConverterInterface
 
         if ($options['strip_null']) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $criteria = array_filter($criteria, function ($value) {
                 return !is_null($value);
             });
 =======
             $criteria = array_filter($criteria, function ($value) { return !is_null($value); });
 >>>>>>> contactmanager
+=======
+            $criteria = array_filter($criteria, function ($value) {
+                return !is_null($value);
+            });
+>>>>>>> donmanager
         }
 
         if (!$criteria) {
@@ -300,9 +318,13 @@ class DoctrineParamConverter implements ParamConverterInterface
             'repository_method' => null,
             'map_method_signature' => false,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'evict_cache' => false,
 =======
 >>>>>>> contactmanager
+=======
+            'evict_cache' => false,
+>>>>>>> donmanager
         );
 
         $passedOptions = $configuration->getOptions();

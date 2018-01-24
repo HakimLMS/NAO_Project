@@ -1,9 +1,13 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "Version": "2.1.37.96",
 =======
     "Version": "2.1.37.11",
 >>>>>>> contactmanager
+=======
+    "Version": "2.1.37.96",
+>>>>>>> donmanager
     "Names": {
         "aa": "Afar",
         "ab": "Abchasisch",

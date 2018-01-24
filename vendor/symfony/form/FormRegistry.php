@@ -83,6 +83,7 @@ class FormRegistry implements FormRegistryInterface
             if (!$type) {
                 // Support fully-qualified class names
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (!class_exists($name)) {
                     throw new InvalidArgumentException(sprintf('Could not load type "%s": class does not exist.', $name));
                 }
@@ -98,6 +99,16 @@ class FormRegistry implements FormRegistryInterface
                     throw new InvalidArgumentException(sprintf('Could not load type "%s"', $name));
                 }
 >>>>>>> contactmanager
+=======
+                if (!class_exists($name)) {
+                    throw new InvalidArgumentException(sprintf('Could not load type "%s": class does not exist.', $name));
+                }
+                if (!is_subclass_of($name, 'Symfony\Component\Form\FormTypeInterface')) {
+                    throw new InvalidArgumentException(sprintf('Could not load type "%s": class does not implement "Symfony\Component\Form\FormTypeInterface".', $name));
+                }
+
+                $type = new $name();
+>>>>>>> donmanager
             }
 
             $this->types[$name] = $this->resolveType($type);

@@ -21,10 +21,14 @@ class EnvConfigurator extends AbstractConfigurator
     public function configure(Recipe $recipe, $vars)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->write('Added environment variable defaults');
 =======
         $this->write('Adding environment variable defaults');
 >>>>>>> contactmanager
+=======
+        $this->write('Added environment variable defaults');
+>>>>>>> donmanager
 
         $this->configureEnvDist($recipe, $vars);
         $this->configurePhpUnit($recipe, $vars);
@@ -49,10 +53,14 @@ class EnvConfigurator extends AbstractConfigurator
                 $value = bin2hex(random_bytes(16));
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ('#' === $key[0] && is_numeric(substr($key, 1))) {
 =======
             if ('#' === $key[0] && ctype_digit(substr($key, 1))) {
 >>>>>>> contactmanager
+=======
+            if ('#' === $key[0] && is_numeric(substr($key, 1))) {
+>>>>>>> donmanager
                 $data .= '# '.$value."\n";
 
                 continue;
@@ -91,10 +99,14 @@ class EnvConfigurator extends AbstractConfigurator
                 }
                 if ('#' === $key[0]) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if (is_numeric(substr($key, 1))) {
 =======
                     if (ctype_digit(substr($key, 1))) {
 >>>>>>> contactmanager
+=======
+                    if (is_numeric(substr($key, 1))) {
+>>>>>>> donmanager
                         $doc = new \DOMDocument();
                         $data .= '        '.$doc->saveXML($doc->createComment(' '.$value.' '))."\n";
                     } else {
@@ -151,10 +163,14 @@ class EnvConfigurator extends AbstractConfigurator
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->write(sprintf('Removed environment variables from %s', $file));
 =======
             $this->write(sprintf('Removing environment variables from %s', $file));
 >>>>>>> contactmanager
+=======
+            $this->write(sprintf('Removed environment variables from %s', $file));
+>>>>>>> donmanager
             file_put_contents($phpunit, $contents);
         }
     }

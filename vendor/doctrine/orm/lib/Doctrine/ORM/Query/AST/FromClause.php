@@ -23,10 +23,14 @@ namespace Doctrine\ORM\Query\AST;
  * FromClause ::= "FROM" IdentificationVariableDeclaration {"," IdentificationVariableDeclaration}
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
  * 
 >>>>>>> contactmanager
+=======
+ *
+>>>>>>> donmanager
  * @link    www.doctrine-project.org
  * @since   2.0
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -39,10 +43,14 @@ class FromClause extends Node
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public $identificationVariableDeclarations = [];
 =======
     public $identificationVariableDeclarations = array();
 >>>>>>> contactmanager
+=======
+    public $identificationVariableDeclarations = [];
+>>>>>>> donmanager
 
     /**
      * @param array $identificationVariableDeclarations

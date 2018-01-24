@@ -54,9 +54,13 @@ class Lock
     public static function createLockRead()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new self(uniqid(time(), true));
 =======
         return new self(uniqid(time()));
 >>>>>>> contactmanager
+=======
+        return new self(uniqid(time(), true));
+>>>>>>> donmanager
     }
 }

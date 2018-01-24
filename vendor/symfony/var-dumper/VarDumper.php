@@ -30,10 +30,14 @@ class VarDumper
         if (null === self::$handler) {
             $cloner = new VarCloner();
 <<<<<<< HEAD
+<<<<<<< HEAD
             $dumper = in_array(PHP_SAPI, array('cli', 'phpdbg')) ? new CliDumper() : new HtmlDumper();
 =======
             $dumper = 'cli' === PHP_SAPI ? new CliDumper() : new HtmlDumper();
 >>>>>>> contactmanager
+=======
+            $dumper = in_array(PHP_SAPI, array('cli', 'phpdbg')) ? new CliDumper() : new HtmlDumper();
+>>>>>>> donmanager
             self::$handler = function ($var) use ($cloner, $dumper) {
                 $dumper->dump($cloner->cloneVar($var));
             };

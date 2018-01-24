@@ -165,11 +165,16 @@ the life-time of their registered entities.
    available in the postPersist event.
 -  preUpdate - The preUpdate event occurs before the database
 <<<<<<< HEAD
+<<<<<<< HEAD
    update operations to entity data. It is not called for a DQL UPDATE statement
    nor when the computed changeset is empty.
 =======
    update operations to entity data. It is not called for a DQL UPDATE statement.
 >>>>>>> contactmanager
+=======
+   update operations to entity data. It is not called for a DQL UPDATE statement
+   nor when the computed changeset is empty.
+>>>>>>> donmanager
 -  postUpdate - The postUpdate event occurs after the database
    update operations to entity data. It is not called for a DQL UPDATE statement.
 -  postLoad - The postLoad event occurs for an entity after the
@@ -184,10 +189,14 @@ the life-time of their registered entities.
    or could be found. This event is not a lifecycle callback.
 -  preFlush - The preFlush event occurs at the very beginning of a flush
 <<<<<<< HEAD
+<<<<<<< HEAD
    operation.
 =======
    operation. This event is not a lifecycle callback.
 >>>>>>> contactmanager
+=======
+   operation.
+>>>>>>> donmanager
 -  onFlush - The onFlush event occurs after the change-sets of all
    managed entities are computed. This event is not a lifecycle
    callback.
@@ -415,12 +424,17 @@ behaviors across different entity classes.
 Note that they require much more detailed knowledge about the inner
 workings of the EntityManager and UnitOfWork. Please read the
 <<<<<<< HEAD
+<<<<<<< HEAD
 :ref:`reference-events-implementing-listeners` section carefully if you
 are trying to write your own listener.
 =======
 *Implementing Event Listeners* section carefully if you are trying
 to write your own listener.
 >>>>>>> contactmanager
+=======
+:ref:`reference-events-implementing-listeners` section carefully if you
+are trying to write your own listener.
+>>>>>>> donmanager
 
 For event subscribers, there are no surprises. They declare the
 lifecycle events in their ``getSubscribedEvents`` method and provide
@@ -448,10 +462,14 @@ A lifecycle event listener looks like the following:
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 A lifecycle event subscriber may look like this:
 =======
 A lifecycle event subscriber may looks like this:
 >>>>>>> contactmanager
+=======
+A lifecycle event subscriber may look like this:
+>>>>>>> donmanager
 
 .. code-block:: php
 
@@ -671,11 +689,16 @@ preUpdate
 PreUpdate is the most restrictive to use event, since it is called
 right before an update statement is called for an entity inside the
 <<<<<<< HEAD
+<<<<<<< HEAD
 ``EntityManager#flush()`` method. Note that this event is not
 triggered when the computed changeset is empty.
 =======
 ``EntityManager#flush()`` method.
 >>>>>>> contactmanager
+=======
+``EntityManager#flush()`` method. Note that this event is not
+triggered when the computed changeset is empty.
+>>>>>>> donmanager
 
 Changes to associations of the updated entity are never allowed in
 this event, since Doctrine cannot guarantee to correctly handle
@@ -762,10 +785,14 @@ Changes in here are not relevant to the persistence in the
 database, but you can use these events to alter non-persistable items,
 like non-mapped fields, logging or even associated classes that are
 <<<<<<< HEAD
+<<<<<<< HEAD
 not directly mapped by Doctrine.
 =======
 directly mapped by Doctrine.
 >>>>>>> contactmanager
+=======
+not directly mapped by Doctrine.
+>>>>>>> donmanager
 
 postLoad
 ~~~~~~~~
@@ -914,11 +941,17 @@ you need to map the listener method using the event type mapping:
           # ....
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .. note::
 
     The order of execution of multiple methods for the same event (e.g. multiple @PrePersist) is not guaranteed.
 =======
 >>>>>>> contactmanager
+=======
+.. note::
+
+    The order of execution of multiple methods for the same event (e.g. multiple @PrePersist) is not guaranteed.
+>>>>>>> donmanager
 
 
 Entity listeners resolver

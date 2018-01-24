@@ -49,28 +49,40 @@ abstract class Base
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $allowedClasses = [];
 =======
     protected $allowedClasses = array();
 >>>>>>> contactmanager
+=======
+    protected $allowedClasses = [];
+>>>>>>> donmanager
 
     /**
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $parts = [];
 =======
     protected $parts = array();
 >>>>>>> contactmanager
+=======
+    protected $parts = [];
+>>>>>>> donmanager
 
     /**
      * @param array $args
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function __construct($args = [])
 =======
     public function __construct($args = array())
 >>>>>>> contactmanager
+=======
+    public function __construct($args = [])
+>>>>>>> donmanager
     {
         $this->addMultiple($args);
     }
@@ -81,10 +93,14 @@ abstract class Base
      * @return Base
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function addMultiple($args = [])
 =======
     public function addMultiple($args = array())
 >>>>>>> contactmanager
+=======
+    public function addMultiple($args = [])
+>>>>>>> donmanager
     {
         foreach ((array) $args as $arg) {
             $this->add($arg);

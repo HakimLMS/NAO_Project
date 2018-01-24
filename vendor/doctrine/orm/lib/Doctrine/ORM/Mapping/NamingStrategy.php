@@ -53,14 +53,20 @@ interface NamingStrategy
      * Returns a column name for an embedded property.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
      * @param string    $propertyName
      * @param string    $embeddedColumnName
      * @param string    $className
      * @param string    $embeddedClassName
+<<<<<<< HEAD
 =======
      * @param string $propertyName
      * @param string $embeddedColumnName
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      *
      * @return string
      */
@@ -78,6 +84,7 @@ interface NamingStrategy
      *
      * @param string $propertyName A property name.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return string A join column name.
      */
@@ -90,6 +97,12 @@ interface NamingStrategy
      */
     function joinColumnName($propertyName/*, $className = null*/);
 >>>>>>> contactmanager
+=======
+     *
+     * @return string A join column name.
+     */
+    function joinColumnName($propertyName);
+>>>>>>> donmanager
 
     /**
      * Returns a join table name.

@@ -39,10 +39,14 @@ class HydrationException extends \Doctrine\ORM\ORMException
     {
         return new self("The parent object of entity result with alias '$alias' was not found."
 <<<<<<< HEAD
+<<<<<<< HEAD
             . " The parent alias is '$parentAlias'.");
 =======
                 . " The parent alias is '$parentAlias'.");
 >>>>>>> contactmanager
+=======
+            . " The parent alias is '$parentAlias'.");
+>>>>>>> donmanager
     }
 
     /**
@@ -93,10 +97,14 @@ class HydrationException extends \Doctrine\ORM\ORMException
         ));
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
     /**
      * @param string $discrValue
      * @param array  $discrMap

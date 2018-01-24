@@ -49,9 +49,13 @@ class SubstringFunction extends FunctionNode
     /**
      * @override
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @inheritdoc
 =======
 >>>>>>> contactmanager
+=======
+     * @inheritdoc
+>>>>>>> donmanager
      */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
@@ -70,9 +74,13 @@ class SubstringFunction extends FunctionNode
     /**
      * @override
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @inheritdoc
 =======
 >>>>>>> contactmanager
+=======
+     * @inheritdoc
+>>>>>>> donmanager
      */
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {

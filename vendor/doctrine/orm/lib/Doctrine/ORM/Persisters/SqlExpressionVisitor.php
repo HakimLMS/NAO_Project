@@ -71,10 +71,14 @@ class SqlExpressionVisitor extends ExpressionVisitor
             $value !== null &&
             ! is_object($value) &&
 <<<<<<< HEAD
+<<<<<<< HEAD
             ! in_array($comparison->getOperator(), [Comparison::IN, Comparison::NIN])) {
 =======
             ! in_array($comparison->getOperator(), array(Comparison::IN, Comparison::NIN))) {
 >>>>>>> contactmanager
+=======
+            ! in_array($comparison->getOperator(), [Comparison::IN, Comparison::NIN])) {
+>>>>>>> donmanager
 
             throw PersisterException::matchingAssocationFieldRequiresObject($this->classMetadata->name, $field);
         }
@@ -94,10 +98,14 @@ class SqlExpressionVisitor extends ExpressionVisitor
     public function walkCompositeExpression(CompositeExpression $expr)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $expressionList = [];
 =======
         $expressionList = array();
 >>>>>>> contactmanager
+=======
+        $expressionList = [];
+>>>>>>> donmanager
 
         foreach ($expr->getExpressionList() as $child) {
             $expressionList[] = $this->dispatch($child);

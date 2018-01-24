@@ -15,11 +15,19 @@ class __TwigTemplate_74abf049bdaae8028fd73c442d8a1c7217a8b029a55c85806938a50eb9e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_f1372fbf4d7d07e07e7091952c4ebb6aaf1fc09c90fe3ec90ffb7ebea3409f21 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
         $__internal_f1372fbf4d7d07e07e7091952c4ebb6aaf1fc09c90fe3ec90ffb7ebea3409f21->enter($__internal_f1372fbf4d7d07e07e7091952c4ebb6aaf1fc09c90fe3ec90ffb7ebea3409f21_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/Exception/logs.html.twig"));
 
         $__internal_682c4a694d9b9be4e4376387620fb827ce1ca473c0d0a87ee0b4bb02a55b1a5f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_682c4a694d9b9be4e4376387620fb827ce1ca473c0d0a87ee0b4bb02a55b1a5f->enter($__internal_682c4a694d9b9be4e4376387620fb827ce1ca473c0d0a87ee0b4bb02a55b1a5f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/Exception/logs.html.twig"));
+=======
+        $__internal_e82409886974828fc52673683f1a388cae586e0557533b6c907503a0d4df9a7d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e82409886974828fc52673683f1a388cae586e0557533b6c907503a0d4df9a7d->enter($__internal_e82409886974828fc52673683f1a388cae586e0557533b6c907503a0d4df9a7d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/Exception/logs.html.twig"));
+
+        $__internal_03e9e95483456ba68335e9b66c569df5f58339789c112e7facde06c976f7c9ca = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_03e9e95483456ba68335e9b66c569df5f58339789c112e7facde06c976f7c9ca->enter($__internal_03e9e95483456ba68335e9b66c569df5f58339789c112e7facde06c976f7c9ca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/Exception/logs.html.twig"));
+>>>>>>> donmanager
 
         // line 1
         $context["channel_is_defined"] = twig_get_attribute($this->env, $this->getSourceContext(), twig_first($this->env, (isset($context["logs"]) || array_key_exists("logs", $context) ? $context["logs"] : (function () { throw new Twig_Error_Runtime('Variable "logs" does not exist.', 1, $this->getSourceContext()); })())), "channel", array(), "any", true, true);
@@ -110,10 +118,17 @@ class __TwigTemplate_74abf049bdaae8028fd73c442d8a1c7217a8b029a55c85806938a50eb9e
 </table>
 ";
         
+<<<<<<< HEAD
         $__internal_f1372fbf4d7d07e07e7091952c4ebb6aaf1fc09c90fe3ec90ffb7ebea3409f21->leave($__internal_f1372fbf4d7d07e07e7091952c4ebb6aaf1fc09c90fe3ec90ffb7ebea3409f21_prof);
 
         
         $__internal_682c4a694d9b9be4e4376387620fb827ce1ca473c0d0a87ee0b4bb02a55b1a5f->leave($__internal_682c4a694d9b9be4e4376387620fb827ce1ca473c0d0a87ee0b4bb02a55b1a5f_prof);
+=======
+        $__internal_e82409886974828fc52673683f1a388cae586e0557533b6c907503a0d4df9a7d->leave($__internal_e82409886974828fc52673683f1a388cae586e0557533b6c907503a0d4df9a7d_prof);
+
+        
+        $__internal_03e9e95483456ba68335e9b66c569df5f58339789c112e7facde06c976f7c9ca->leave($__internal_03e9e95483456ba68335e9b66c569df5f58339789c112e7facde06c976f7c9ca_prof);
+>>>>>>> donmanager
 
     }
 
@@ -170,6 +185,10 @@ class __TwigTemplate_74abf049bdaae8028fd73c442d8a1c7217a8b029a55c85806938a50eb9e
     {% endfor %}
     </tbody>
 </table>
+<<<<<<< HEAD
 ", "@Twig/Exception/logs.html.twig", "E:\\wamp64\\www\\NAO_project\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\logs.html.twig");
+=======
+", "@Twig/Exception/logs.html.twig", "C:\\wamp64\\www\\NAO_Project\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\logs.html.twig");
+>>>>>>> donmanager
     }
 }

@@ -32,6 +32,7 @@ class AddConsoleCommandPassTest extends TestCase
         $container->setParameter('my-command.class', 'Symfony\Component\Console\Tests\DependencyInjection\MyCommand');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $id = 'my-command';
         $definition = new Definition('%my-command.class%');
         $definition->setPublic($public);
@@ -49,33 +50,42 @@ class AddConsoleCommandPassTest extends TestCase
             // in case the original service is private
             $this->assertFalse($container->hasDefinition($id));
 =======
+=======
+        $id = 'my-command';
+>>>>>>> donmanager
         $definition = new Definition('%my-command.class%');
         $definition->setPublic($public);
         $definition->addTag('console.command');
-        $container->setDefinition('my-command', $definition);
+        $container->setDefinition($id, $definition);
 
         $container->compile();
 
-        $alias = 'console.command.symfony_component_console_tests_dependencyinjection_mycommand';
+        $alias = 'console.command.public_alias.my-command';
 
         if ($public) {
             $this->assertFalse($container->hasAlias($alias));
-            $id = 'my-command';
         } else {
-            $id = $alias;
             // The alias is replaced by a Definition by the ReplaceAliasByActualDefinitionPass
             // in case the original service is private
+<<<<<<< HEAD
             $this->assertFalse($container->hasDefinition('my-command'));
 >>>>>>> contactmanager
+=======
+            $this->assertFalse($container->hasDefinition($id));
+>>>>>>> donmanager
             $this->assertTrue($container->hasDefinition($alias));
         }
 
         $this->assertTrue($container->hasParameter('console.command.ids'));
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->assertSame(array($public ? $id : $alias), $container->getParameter('console.command.ids'));
 =======
         $this->assertSame(array($alias => $id), $container->getParameter('console.command.ids'));
 >>>>>>> contactmanager
+=======
+        $this->assertSame(array($public ? $id : $alias), $container->getParameter('console.command.ids'));
+>>>>>>> donmanager
     }
 
     public function testProcessRegistersLazyCommands()
@@ -97,11 +107,15 @@ class AddConsoleCommandPassTest extends TestCase
         $this->assertSame(array('my:command' => 'my-command', 'my:alias' => 'my-command'), $commandLoader->getArgument(1));
         $this->assertEquals(array(array('my-command' => new ServiceClosureArgument(new TypedReference('my-command', MyCommand::class)))), $commandLocator->getArguments());
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->assertSame(array(), $container->getParameter('console.command.ids'));
 =======
         $this->assertSame(array('console.command.symfony_component_console_tests_dependencyinjection_mycommand' => 'my-command'), $container->getParameter('console.command.ids'));
         $this->assertSame(array('my-command' => true), $container->getParameter('console.lazy_command.ids'));
 >>>>>>> contactmanager
+=======
+        $this->assertSame(array(), $container->getParameter('console.command.ids'));
+>>>>>>> donmanager
         $this->assertSame(array(array('setName', array('my:command')), array('setAliases', array(array('my:alias')))), $command->getMethodCalls());
     }
 
@@ -124,11 +138,15 @@ class AddConsoleCommandPassTest extends TestCase
         $this->assertSame(array('default' => 'with-default-name'), $commandLoader->getArgument(1));
         $this->assertEquals(array(array('with-default-name' => new ServiceClosureArgument(new TypedReference('with-default-name', NamedCommand::class)))), $commandLocator->getArguments());
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->assertSame(array(), $container->getParameter('console.command.ids'));
 =======
         $this->assertSame(array('console.command.symfony_component_console_tests_dependencyinjection_namedcommand' => 'with-default-name'), $container->getParameter('console.command.ids'));
         $this->assertSame(array('with-default-name' => true), $container->getParameter('console.lazy_command.ids'));
 >>>>>>> contactmanager
+=======
+        $this->assertSame(array(), $container->getParameter('console.command.ids'));
+>>>>>>> donmanager
 
         $container = new ContainerBuilder();
         $container
@@ -202,6 +220,7 @@ class AddConsoleCommandPassTest extends TestCase
         (new AddConsoleCommandPass())->process($container);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $aliasPrefix = 'console.command.public_alias.';
         $this->assertTrue($container->hasAlias($aliasPrefix.'my-command1'));
         $this->assertTrue($container->hasAlias($aliasPrefix.'my-command2'));
@@ -211,6 +230,11 @@ class AddConsoleCommandPassTest extends TestCase
         $this->assertTrue($container->hasAlias($alias1));
         $this->assertTrue($container->hasAlias($alias2));
 >>>>>>> contactmanager
+=======
+        $aliasPrefix = 'console.command.public_alias.';
+        $this->assertTrue($container->hasAlias($aliasPrefix.'my-command1'));
+        $this->assertTrue($container->hasAlias($aliasPrefix.'my-command2'));
+>>>>>>> donmanager
     }
 }
 

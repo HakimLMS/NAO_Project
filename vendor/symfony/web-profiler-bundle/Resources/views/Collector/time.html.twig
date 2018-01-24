@@ -15,6 +15,7 @@
 {% endif %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 {% block toolbar %}
     {% set has_time_events = collector.events|length > 0 %}
@@ -23,11 +24,20 @@
     {% set initialization_time = collector.events|length ? '%.0f'|format(collector.inittime) : 'n/a' %}
     {% set status_color = has_time_events and collector.duration > 1000 ? 'yellow' : '' %}
 =======
+=======
+
+>>>>>>> donmanager
 {% block toolbar %}
-    {% set total_time = collector.events|length ? '%.0f'|format(collector.duration) : 'n/a' %}
+    {% set has_time_events = collector.events|length > 0 %}
+
+    {% set total_time = has_time_events ? '%.0f'|format(collector.duration) : 'n/a' %}
     {% set initialization_time = collector.events|length ? '%.0f'|format(collector.inittime) : 'n/a' %}
+<<<<<<< HEAD
     {% set status_color = collector.events|length and collector.duration > 1000 ? 'yellow' : '' %}
 >>>>>>> contactmanager
+=======
+    {% set status_color = has_time_events and collector.duration > 1000 ? 'yellow' : '' %}
+>>>>>>> donmanager
 
     {% set icon %}
         {{ include('@WebProfiler/Icon/time.svg') }}
@@ -58,9 +68,13 @@
 
 {% block panel %}
 <<<<<<< HEAD
+<<<<<<< HEAD
     {% set has_time_events = collector.events|length > 0 %}
 =======
 >>>>>>> contactmanager
+=======
+    {% set has_time_events = collector.events|length > 0 %}
+>>>>>>> donmanager
     <h2>Performance metrics</h2>
 
     <div class="metrics">
@@ -90,6 +104,9 @@
             </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             {% if has_time_events %}
                 {% set subrequests_time = 0 %}
                 {% for child in profile.children %}
@@ -98,12 +115,15 @@
             {% else %}
                 {% set subrequests_time = 'n/a' %}
             {% endif %}
+<<<<<<< HEAD
 =======
             {% set subrequests_time = 0 %}
             {% for child in profile.children %}
                 {% set subrequests_time = subrequests_time + child.getcollector('time').events.__section__.duration %}
             {% endfor %}
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
             <div class="metric">
                 <span class="value">{{ subrequests_time }} <span class="unit">ms</span></span>

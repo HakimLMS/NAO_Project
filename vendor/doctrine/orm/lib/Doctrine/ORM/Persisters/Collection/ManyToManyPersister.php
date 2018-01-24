@@ -22,9 +22,12 @@ namespace Doctrine\ORM\Persisters\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping\ClassMetadata;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Doctrine\ORM\Persisters\SqlExpressionVisitor;
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 use Doctrine\ORM\Persisters\SqlValueVisitor;
 use Doctrine\ORM\PersistentCollection;
 use Doctrine\ORM\Query;
@@ -52,6 +55,9 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $types = [];
         $class = $this->em->getClassMetadata($mapping['sourceEntity']);
 
@@ -60,9 +66,12 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
 
         $this->conn->executeUpdate($this->getDeleteSQL($collection), $this->getDeleteSQLParameters($collection), $types);
+<<<<<<< HEAD
 =======
         $this->conn->executeUpdate($this->getDeleteSQL($collection), $this->getDeleteSQLParameters($collection));
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     }
 
     /**
@@ -113,10 +122,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
             : $mapping['mappedBy'];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $persister->load([$mappedKey => $collection->getOwner(), $mapping['indexBy'] => $index], null, $mapping, [], 0, 1);
 =======
         return $persister->load(array($mappedKey => $collection->getOwner(), $mapping['indexBy'] => $index), null, $mapping, array(), 0, 1);
 >>>>>>> contactmanager
+=======
+        return $persister->load([$mappedKey => $collection->getOwner(), $mapping['indexBy'] => $index], null, $mapping, [], 0, 1);
+>>>>>>> donmanager
     }
 
     /**
@@ -124,6 +137,7 @@ class ManyToManyPersister extends AbstractCollectionPersister
      */
     public function count(PersistentCollection $collection)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         $conditions     = [];
         $params         = [];
@@ -133,6 +147,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $params         = array();
         $types          = array();
 >>>>>>> contactmanager
+=======
+        $conditions     = [];
+        $params         = [];
+        $types          = [];
+>>>>>>> donmanager
         $mapping        = $collection->getMapping();
         $id             = $this->uow->getEntityIdentifier($collection->getOwner());
         $sourceClass    = $this->em->getClassMetadata($mapping['sourceEntity']);
@@ -254,10 +273,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $owner         = $collection->getOwner();
         $ownerMetadata = $this->em->getClassMetadata(get_class($owner));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $id            = $this->uow->getEntityIdentifier($owner);
         $targetClass   = $this->em->getClassMetadata($mapping['targetEntity']);
         $onConditions  = $this->getOnConditionSQL($mapping);
         $whereClauses  = $params = [];
+<<<<<<< HEAD
 
         if ( ! $mapping['isOwningSide']) {
             $associationSourceClass = $targetClass;
@@ -275,16 +298,34 @@ class ManyToManyPersister extends AbstractCollectionPersister
                 : $id[$ownerMetadata->fieldNames[$value]];
 =======
         $whereClauses  = $params = array();
+=======
+>>>>>>> donmanager
 
-        foreach ($mapping['relationToSourceKeyColumns'] as $key => $value) {
+        if ( ! $mapping['isOwningSide']) {
+            $associationSourceClass = $targetClass;
+            $mapping = $targetClass->associationMappings[$mapping['mappedBy']];
+            $sourceRelationMode = 'relationToTargetKeyColumns';
+        } else {
+            $associationSourceClass = $ownerMetadata;
+            $sourceRelationMode = 'relationToSourceKeyColumns';
+        }
+
+        foreach ($mapping[$sourceRelationMode] as $key => $value) {
             $whereClauses[] = sprintf('t.%s = ?', $key);
+<<<<<<< HEAD
             $params[]       = $ownerMetadata->getFieldValue($owner, $value);
 >>>>>>> contactmanager
+=======
+            $params[] = $ownerMetadata->containsForeignIdentifier
+                ? $id[$ownerMetadata->getFieldForColumn($value)]
+                : $id[$ownerMetadata->fieldNames[$value]];
+>>>>>>> donmanager
         }
 
         $parameters = $this->expandCriteriaParameters($criteria);
 
         foreach ($parameters as $parameter) {
+<<<<<<< HEAD
 <<<<<<< HEAD
             [$name, $value, $operator] = $parameter;
 
@@ -300,20 +341,25 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $rsm->addRootEntityFromClassMetadata($targetClass->name, 'te');
 =======
             list($name, $value, $operator) = $parameter;
+=======
+            [$name, $value, $operator] = $parameter;
+>>>>>>> donmanager
 
-            $whereClauses[] = sprintf('te.%s %s ?', $name, $operator);
+            $field          = $this->quoteStrategy->getColumnName($name, $targetClass, $this->platform);
+            $whereClauses[] = sprintf('te.%s %s ?', $field, $operator);
             $params[]       = $value;
         }
 
-        $mapping      = $collection->getMapping();
-        $targetClass  = $this->em->getClassMetadata($mapping['targetEntity']);
         $tableName    = $this->quoteStrategy->getTableName($targetClass, $this->platform);
-        $joinTable    = $this->quoteStrategy->getJoinTableName($mapping, $ownerMetadata, $this->platform);
-        $onConditions = $this->getOnConditionSQL($mapping);
+        $joinTable    = $this->quoteStrategy->getJoinTableName($mapping, $associationSourceClass, $this->platform);
 
         $rsm = new Query\ResultSetMappingBuilder($this->em);
+<<<<<<< HEAD
         $rsm->addRootEntityFromClassMetadata($mapping['targetEntity'], 'te');
 >>>>>>> contactmanager
+=======
+        $rsm->addRootEntityFromClassMetadata($targetClass->name, 'te');
+>>>>>>> donmanager
 
         $sql = 'SELECT ' . $rsm->generateSelectClause()
             . ' FROM ' . $tableName . ' te'
@@ -322,12 +368,18 @@ class ManyToManyPersister extends AbstractCollectionPersister
             . ' WHERE ' . implode(' AND ', $whereClauses);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $sql .= $this->getOrderingSql($criteria, $targetClass);
 
         $sql .= $this->getLimitSql($criteria);
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         $stmt = $this->conn->executeQuery($sql, $params);
 
         return $this
@@ -359,10 +411,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
 
         if ('' === $filterSql) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return ['', ''];
 =======
             return array('', '');
 >>>>>>> contactmanager
+=======
+            return ['', ''];
+>>>>>>> donmanager
         }
 
         // A join is needed if there is filtering on the target entity
@@ -371,10 +427,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
             . ' ON' . implode(' AND ', $this->getOnConditionSQL($mapping));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [$joinSql, $filterSql];
 =======
         return array($joinSql, $filterSql);
 >>>>>>> contactmanager
+=======
+        return [$joinSql, $filterSql];
+>>>>>>> donmanager
     }
 
     /**
@@ -388,10 +448,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
     protected function generateFilterConditionSQL(ClassMetadata $targetEntity, $targetTableAlias)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $filterClauses = [];
 =======
         $filterClauses = array();
 >>>>>>> contactmanager
+=======
+        $filterClauses = [];
+>>>>>>> donmanager
 
         foreach ($this->em->getFilters()->getEnabledFilters() as $filter) {
             if ($filterExpr = $filter->addFilterConstraint($targetEntity, $targetTableAlias)) {
@@ -423,10 +487,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
             : $association['joinTable']['joinColumns'];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $conditions = [];
 =======
         $conditions = array();
 >>>>>>> contactmanager
+=======
+        $conditions = [];
+>>>>>>> donmanager
 
         foreach ($joinColumns as $joinColumn) {
             $joinColumnName = $this->quoteStrategy->getJoinColumnName($joinColumn, $targetClass, $this->platform);
@@ -446,10 +514,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
     protected function getDeleteSQL(PersistentCollection $collection)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $columns    = [];
 =======
         $columns    = array();
 >>>>>>> contactmanager
+=======
+        $columns    = [];
+>>>>>>> donmanager
         $mapping    = $collection->getMapping();
         $class      = $this->em->getClassMetadata(get_class($collection->getOwner()));
         $joinTable  = $this->quoteStrategy->getJoinTableName($mapping, $class, $this->platform);
@@ -476,19 +548,27 @@ class ManyToManyPersister extends AbstractCollectionPersister
         // Optimization for single column identifier
         if (count($mapping['relationToSourceKeyColumns']) === 1) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return [reset($identifier)];
 =======
             return array(reset($identifier));
 >>>>>>> contactmanager
+=======
+            return [reset($identifier)];
+>>>>>>> donmanager
         }
 
         // Composite identifier
         $sourceClass = $this->em->getClassMetadata($mapping['sourceEntity']);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $params      = [];
 =======
         $params      = array();
 >>>>>>> contactmanager
+=======
+        $params      = [];
+>>>>>>> donmanager
 
         foreach ($mapping['relationToSourceKeyColumns'] as $columnName => $refColumnName) {
             $params[] = isset($sourceClass->fieldNames[$refColumnName])
@@ -513,12 +593,17 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $class       = $this->em->getClassMetadata($mapping['sourceEntity']);
         $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $columns     = [];
         $types       = [];
 =======
         $columns     = array();
         $types       = array();
 >>>>>>> contactmanager
+=======
+        $columns     = [];
+        $types       = [];
+>>>>>>> donmanager
 
         foreach ($mapping['joinTable']['joinColumns'] as $joinColumn) {
             $columns[] = $this->quoteStrategy->getJoinColumnName($joinColumn, $class, $this->platform);
@@ -530,6 +615,7 @@ class ManyToManyPersister extends AbstractCollectionPersister
             $types[]   = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         return [
             'DELETE FROM ' . $this->quoteStrategy->getJoinTableName($mapping, $class, $this->platform)
@@ -543,6 +629,13 @@ class ManyToManyPersister extends AbstractCollectionPersister
             $types,
         );
 >>>>>>> contactmanager
+=======
+        return [
+            'DELETE FROM ' . $this->quoteStrategy->getJoinTableName($mapping, $class, $this->platform)
+            . ' WHERE ' . implode(' = ? AND ', $columns) . ' = ?',
+            $types,
+        ];
+>>>>>>> donmanager
     }
 
     /**
@@ -572,12 +665,17 @@ class ManyToManyPersister extends AbstractCollectionPersister
     protected function getInsertRowSQL(PersistentCollection $collection)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $columns     = [];
         $types       = [];
 =======
         $columns     = array();
         $types       = array();
 >>>>>>> contactmanager
+=======
+        $columns     = [];
+        $types       = [];
+>>>>>>> donmanager
         $mapping     = $collection->getMapping();
         $class       = $this->em->getClassMetadata($mapping['sourceEntity']);
         $targetClass = $this->em->getClassMetadata($mapping['targetEntity']);
@@ -593,20 +691,28 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [
 =======
         return array(
 >>>>>>> contactmanager
+=======
+        return [
+>>>>>>> donmanager
             'INSERT INTO ' . $this->quoteStrategy->getJoinTableName($mapping, $class, $this->platform)
             . ' (' . implode(', ', $columns) . ')'
             . ' VALUES'
             . ' (' . implode(', ', array_fill(0, count($columns), '?')) . ')',
             $types,
 <<<<<<< HEAD
+<<<<<<< HEAD
         ];
 =======
         );
 >>>>>>> contactmanager
+=======
+        ];
+>>>>>>> donmanager
     }
 
     /**
@@ -637,10 +743,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
     private function collectJoinTableColumnParameters(PersistentCollection $collection, $element)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $params      = [];
 =======
         $params      = array();
 >>>>>>> contactmanager
+=======
+        $params      = [];
+>>>>>>> donmanager
         $mapping     = $collection->getMapping();
         $isComposite = count($mapping['joinTableColumns']) > 2;
 
@@ -648,9 +758,13 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $identifier2 = $this->uow->getEntityIdentifier($element);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $class1 = $class2 = null;
 =======
 >>>>>>> contactmanager
+=======
+        $class1 = $class2 = null;
+>>>>>>> donmanager
         if ($isComposite) {
             $class1 = $this->em->getClassMetadata(get_class($collection->getOwner()));
             $class2 = $collection->getTypeClass();
@@ -712,6 +826,7 @@ class ManyToManyPersister extends AbstractCollectionPersister
 
         $quotedJoinTable = $this->quoteStrategy->getJoinTableName($mapping, $associationSourceClass, $this->platform). ' t';
 <<<<<<< HEAD
+<<<<<<< HEAD
         $whereClauses    = [];
         $params          = [];
         $types           = [];
@@ -720,15 +835,24 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $params          = array();
         $types           = array();
 >>>>>>> contactmanager
+=======
+        $whereClauses    = [];
+        $params          = [];
+        $types           = [];
+>>>>>>> donmanager
 
         $joinNeeded = ! in_array($indexBy, $targetClass->identifier);
 
         if ($joinNeeded) { // extra join needed if indexBy is not a @id
 <<<<<<< HEAD
+<<<<<<< HEAD
             $joinConditions = [];
 =======
             $joinConditions = array();
 >>>>>>> contactmanager
+=======
+            $joinConditions = [];
+>>>>>>> donmanager
 
             foreach ($joinColumns as $joinTableColumn) {
                 $joinConditions[] = 't.' . $joinTableColumn['name'] . ' = tr.' . $joinTableColumn['referencedColumnName'];
@@ -770,10 +894,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [$quotedJoinTable, $whereClauses, $params, $types];
 =======
         return array($quotedJoinTable, $whereClauses, $params, $types);
 >>>>>>> contactmanager
+=======
+        return [$quotedJoinTable, $whereClauses, $params, $types];
+>>>>>>> donmanager
     }
 
     /**
@@ -808,6 +936,7 @@ class ManyToManyPersister extends AbstractCollectionPersister
 
         $quotedJoinTable = $this->quoteStrategy->getJoinTableName($mapping, $sourceClass, $this->platform);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $whereClauses    = [];
         $params          = [];
         $types           = [];
@@ -816,6 +945,11 @@ class ManyToManyPersister extends AbstractCollectionPersister
         $params          = array();
         $types           = array();
 >>>>>>> contactmanager
+=======
+        $whereClauses    = [];
+        $params          = [];
+        $types           = [];
+>>>>>>> donmanager
 
         foreach ($mapping['joinTableColumns'] as $joinTableColumn) {
             $whereClauses[] = ($addFilters ? 't.' : '') . $joinTableColumn . ' = ?';
@@ -846,10 +980,14 @@ class ManyToManyPersister extends AbstractCollectionPersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [$quotedJoinTable, $whereClauses, $params, $types];
 =======
         return array($quotedJoinTable, $whereClauses, $params, $types);
 >>>>>>> contactmanager
+=======
+        return [$quotedJoinTable, $whereClauses, $params, $types];
+>>>>>>> donmanager
     }
 
     /**
@@ -866,16 +1004,21 @@ class ManyToManyPersister extends AbstractCollectionPersister
 
         if ($expression === null) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return [];
 =======
             return array();
 >>>>>>> contactmanager
+=======
+            return [];
+>>>>>>> donmanager
         }
 
         $valueVisitor = new SqlValueVisitor();
 
         $valueVisitor->dispatch($expression);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         list(, $types) = $valueVisitor->getParamsAndTypes();
 
@@ -926,4 +1069,49 @@ class ManyToManyPersister extends AbstractCollectionPersister
         return $types;
     }
 >>>>>>> contactmanager
+=======
+        list(, $types) = $valueVisitor->getParamsAndTypes();
+
+        return $types;
+    }
+
+    /**
+     * @param Criteria $criteria
+     * @param ClassMetadata $targetClass
+     * @return string
+     */
+    private function getOrderingSql(Criteria $criteria, ClassMetadata $targetClass)
+    {
+        $orderings = $criteria->getOrderings();
+        if ($orderings) {
+            $orderBy = [];
+            foreach ($orderings as $name => $direction) {
+                $field = $this->quoteStrategy->getColumnName(
+                    $name,
+                    $targetClass,
+                    $this->platform
+                );
+                $orderBy[] = $field . ' ' . $direction;
+            }
+
+            return ' ORDER BY ' . implode(', ', $orderBy);
+        }
+        return '';
+    }
+
+    /**
+     * @param Criteria $criteria
+     * @return string
+     * @throws \Doctrine\DBAL\DBALException
+     */
+    private function getLimitSql(Criteria $criteria)
+    {
+        $limit  = $criteria->getMaxResults();
+        $offset = $criteria->getFirstResult();
+        if ($limit !== null || $offset !== null) {
+            return $this->platform->modifyLimitQuery('', $limit, $offset);
+        }
+        return '';
+    }
+>>>>>>> donmanager
 }

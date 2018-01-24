@@ -35,10 +35,14 @@ class EntityListenerBuilder
      * @var array Hash-map to handle event names.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     static private $events = [
 =======
     static private $events = array(
 >>>>>>> contactmanager
+=======
+    static private $events = [
+>>>>>>> donmanager
         Events::preRemove   => true,
         Events::postRemove  => true,
         Events::prePersist  => true,
@@ -48,10 +52,14 @@ class EntityListenerBuilder
         Events::postLoad    => true,
         Events::preFlush    => true
 <<<<<<< HEAD
+<<<<<<< HEAD
     ];
 =======
     );
 >>>>>>> contactmanager
+=======
+    ];
+>>>>>>> donmanager
 
     /**
      * Lookup the entity class to find methods that match to event lifecycle names
@@ -78,7 +86,11 @@ class EntityListenerBuilder
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> contactmanager
+=======
+}
+>>>>>>> donmanager

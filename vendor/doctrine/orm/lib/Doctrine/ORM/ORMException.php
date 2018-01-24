@@ -102,10 +102,14 @@ class ORMException extends Exception
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
 =======
      /**
 >>>>>>> contactmanager
+=======
+    /**
+>>>>>>> donmanager
      *
      * @param string $class
      * @param string $association
@@ -194,6 +198,9 @@ class ORMException extends Exception
     /**
      * @param string $entityName
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
      * @param string $fieldName
      * @param string $method
      *
@@ -209,8 +216,11 @@ class ORMException extends Exception
 
     /**
      * @param string $entityName
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      * @param string $associationFieldName
      *
      * @return ORMException
@@ -319,10 +329,14 @@ class ORMException extends Exception
     /**
      * @param string $className
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param string[] $fieldNames
 =======
      * @param string $fieldName
 >>>>>>> contactmanager
+=======
+     * @param string[] $fieldNames
+>>>>>>> donmanager
      *
      * @return ORMException
      */
@@ -336,6 +350,7 @@ class ORMException extends Exception
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      * @param string $functionName
      *
@@ -348,6 +363,8 @@ class ORMException extends Exception
 
     /**
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      * @return ORMException
      */
     public static function cantUseInOperatorOnCompositeKeys()

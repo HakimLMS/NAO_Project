@@ -61,10 +61,15 @@ class EntityCacheEntry implements CacheEntry
      *
      * @param array $values array containing property values
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return EntityCacheEntry
 =======
 >>>>>>> contactmanager
+=======
+     *
+     * @return EntityCacheEntry
+>>>>>>> donmanager
      */
     public static function __set_state(array $values)
     {
@@ -75,10 +80,14 @@ class EntityCacheEntry implements CacheEntry
      * Retrieves the entity data resolving cache entries
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param \Doctrine\ORM\EntityManagerInterface $em
 =======
      * @param \Doctrine\ORM\EntityManagerInterfac $em
 >>>>>>> contactmanager
+=======
+     * @param \Doctrine\ORM\EntityManagerInterface $em
+>>>>>>> donmanager
      *
      * @return array
      */

@@ -117,10 +117,14 @@ class CodeHelper extends Helper
         if (is_readable($file)) {
             if (extension_loaded('fileinfo')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $finfo = new \finfo();
 =======
                 $finfo = new \Finfo();
 >>>>>>> contactmanager
+=======
+                $finfo = new \finfo();
+>>>>>>> donmanager
 
                 // Check if the file is an application/octet-stream (eg. Phar file) because highlight_file cannot parse these files
                 if ('application/octet-stream' === $finfo->file($file, FILEINFO_MIME_TYPE)) {

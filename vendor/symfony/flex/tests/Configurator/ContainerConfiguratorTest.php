@@ -16,9 +16,13 @@ require_once __DIR__.'/TmpDirMock.php';
 use Symfony\Flex\Configurator\ContainerConfigurator;
 use PHPUnit\Framework\TestCase;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Symfony\Flex\Options;
 =======
 >>>>>>> contactmanager
+=======
+use Symfony\Flex\Options;
+>>>>>>> donmanager
 
 class ContainerConfiguratorTest extends TestCase
 {
@@ -27,12 +31,18 @@ class ContainerConfiguratorTest extends TestCase
         $recipe = $this->getMockBuilder('Symfony\Flex\Recipe')->disableOriginalConstructor()->getMock();
         $config = sys_get_temp_dir().'/config/services.yaml';
 <<<<<<< HEAD
+<<<<<<< HEAD
         file_put_contents(
             $config,
             <<<EOF
 =======
         file_put_contents($config, <<<EOF
 >>>>>>> contactmanager
+=======
+        file_put_contents(
+            $config,
+            <<<EOF
+>>>>>>> donmanager
 # comment
 parameters:
 
@@ -44,10 +54,14 @@ EOF
             $this->getMockBuilder('Composer\Composer')->getMock(),
             $this->getMockBuilder('Composer\IO\IOInterface')->getMock(),
 <<<<<<< HEAD
+<<<<<<< HEAD
             new Options(['config-dir' => dirname($config)])
 =======
             $this->getMockBuilder('Symfony\Flex\Options')->getMock()
 >>>>>>> contactmanager
+=======
+            new Options(['config-dir' => dirname($config)])
+>>>>>>> donmanager
         );
         $configurator->configure($recipe, ['locale' => 'en']);
         $this->assertEquals(<<<EOF
@@ -76,12 +90,18 @@ EOF
         $recipe = $this->getMockBuilder('Symfony\Flex\Recipe')->disableOriginalConstructor()->getMock();
         $config = sys_get_temp_dir().'/config/services.yaml';
 <<<<<<< HEAD
+<<<<<<< HEAD
         file_put_contents(
             $config,
             <<<EOF
 =======
         file_put_contents($config, <<<EOF
 >>>>>>> contactmanager
+=======
+        file_put_contents(
+            $config,
+            <<<EOF
+>>>>>>> donmanager
 services:
 
 EOF
@@ -90,10 +110,14 @@ EOF
             $this->getMockBuilder('Composer\Composer')->getMock(),
             $this->getMockBuilder('Composer\IO\IOInterface')->getMock(),
 <<<<<<< HEAD
+<<<<<<< HEAD
             new Options(['config-dir' => dirname($config)])
 =======
             $this->getMockBuilder('Symfony\Flex\Options')->getMock()
 >>>>>>> contactmanager
+=======
+            new Options(['config-dir' => dirname($config)])
+>>>>>>> donmanager
         );
         $configurator->configure($recipe, ['locale' => 'en']);
         $this->assertEquals(<<<EOF
@@ -120,12 +144,18 @@ EOF
         $recipe = $this->getMockBuilder('Symfony\Flex\Recipe')->disableOriginalConstructor()->getMock();
         $config = sys_get_temp_dir().'/config/services.yaml';
 <<<<<<< HEAD
+<<<<<<< HEAD
         file_put_contents(
             $config,
             <<<EOF
 =======
         file_put_contents($config, <<<EOF
 >>>>>>> contactmanager
+=======
+        file_put_contents(
+            $config,
+            <<<EOF
+>>>>>>> donmanager
 parameters:
     locale: es
 
@@ -137,10 +167,14 @@ EOF
             $this->getMockBuilder('Composer\Composer')->getMock(),
             $this->getMockBuilder('Composer\IO\IOInterface')->getMock(),
 <<<<<<< HEAD
+<<<<<<< HEAD
             new Options(['config-dir' => dirname($config)])
 =======
             $this->getMockBuilder('Symfony\Flex\Options')->getMock()
 >>>>>>> contactmanager
+=======
+            new Options(['config-dir' => dirname($config)])
+>>>>>>> donmanager
         );
         $configurator->configure($recipe, ['locale' => 'en']);
         $this->assertEquals(<<<EOF
@@ -167,12 +201,18 @@ EOF
         $recipe = $this->getMockBuilder('Symfony\Flex\Recipe')->disableOriginalConstructor()->getMock();
         $config = sys_get_temp_dir().'/config/services.yaml';
 <<<<<<< HEAD
+<<<<<<< HEAD
         file_put_contents(
             $config,
             <<<EOF
 =======
         file_put_contents($config, <<<EOF
 >>>>>>> contactmanager
+=======
+        file_put_contents(
+            $config,
+            <<<EOF
+>>>>>>> donmanager
 parameters:
     # comment 1
     locale: es
@@ -188,10 +228,14 @@ EOF
             $this->getMockBuilder('Composer\Composer')->getMock(),
             $this->getMockBuilder('Composer\IO\IOInterface')->getMock(),
 <<<<<<< HEAD
+<<<<<<< HEAD
             new Options(['config-dir' => dirname($config)])
 =======
             $this->getMockBuilder('Symfony\Flex\Options')->getMock()
 >>>>>>> contactmanager
+=======
+            new Options(['config-dir' => dirname($config)])
+>>>>>>> donmanager
         );
         $configurator->configure($recipe, ['locale' => 'en', 'foobar' => 'baz']);
         $this->assertEquals(<<<EOF

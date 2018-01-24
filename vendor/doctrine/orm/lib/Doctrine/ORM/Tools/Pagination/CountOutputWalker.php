@@ -1,5 +1,8 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -12,6 +15,7 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<<<<<<< HEAD
  *
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
@@ -28,6 +32,12 @@
  * obtain it through the world-wide-web, please send an email
  * to kontakt@beberlei.de so I can send you a copy immediately.
 >>>>>>> contactmanager
+=======
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the MIT license. For more information, see
+ * <http://www.doctrine-project.org>.
+>>>>>>> donmanager
  */
 
 namespace Doctrine\ORM\Tools\Pagination;
@@ -130,10 +140,14 @@ class CountOutputWalker extends SqlWalker
 
         // For every identifier, find out the SQL alias by combing through the ResultSetMapping
 <<<<<<< HEAD
+<<<<<<< HEAD
         $sqlIdentifier = [];
 =======
         $sqlIdentifier = array();
 >>>>>>> contactmanager
+=======
+        $sqlIdentifier = [];
+>>>>>>> donmanager
         foreach ($rootIdentifier as $property) {
             if (isset($rootClass->fieldMappings[$property])) {
                 foreach (array_keys($this->rsm->fieldMappings, $property) as $alias) {

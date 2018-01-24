@@ -16,10 +16,14 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
 <<<<<<< HEAD
+<<<<<<< HEAD
  */
 =======
 */
 >>>>>>> contactmanager
+=======
+ */
+>>>>>>> donmanager
 
 namespace Doctrine\ORM\Mapping\Driver;
 

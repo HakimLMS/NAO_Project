@@ -39,6 +39,7 @@ interface CachedEntityPersister extends CachedPersister, EntityPersister
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param object                             $entity
      * @param \Doctrine\ORM\Cache\EntityCacheKey $key
      *
@@ -46,6 +47,11 @@ interface CachedEntityPersister extends CachedPersister, EntityPersister
      * @param  object                             $entity
      * @param  \Doctrine\ORM\Cache\EntityCacheKey $key
 >>>>>>> contactmanager
+=======
+     * @param object                             $entity
+     * @param \Doctrine\ORM\Cache\EntityCacheKey $key
+     *
+>>>>>>> donmanager
      * @return boolean
      */
     public function storeEntityCache($entity, EntityCacheKey $key);

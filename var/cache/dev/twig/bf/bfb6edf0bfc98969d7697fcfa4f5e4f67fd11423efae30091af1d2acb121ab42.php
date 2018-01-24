@@ -15,11 +15,19 @@ class __TwigTemplate_6a8552fb019279b412305c10ed9384d12b67aaff29ffbc5d681f85511ae
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_c4d70dd50f95c8422101856c985c8539a14f3c1b6cb84f9f4bc3e7058a61b86a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
         $__internal_c4d70dd50f95c8422101856c985c8539a14f3c1b6cb84f9f4bc3e7058a61b86a->enter($__internal_c4d70dd50f95c8422101856c985c8539a14f3c1b6cb84f9f4bc3e7058a61b86a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/Exception/trace.txt.twig"));
 
         $__internal_9eb5e8437c151648f60715193e510472eb704357f33201bb884701d9f9e2664d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_9eb5e8437c151648f60715193e510472eb704357f33201bb884701d9f9e2664d->enter($__internal_9eb5e8437c151648f60715193e510472eb704357f33201bb884701d9f9e2664d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/Exception/trace.txt.twig"));
+=======
+        $__internal_dd0d8754a4268d2383aab5796c505a74794b3c81f2d1212b34eeab8b2e664b87 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_dd0d8754a4268d2383aab5796c505a74794b3c81f2d1212b34eeab8b2e664b87->enter($__internal_dd0d8754a4268d2383aab5796c505a74794b3c81f2d1212b34eeab8b2e664b87_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/Exception/trace.txt.twig"));
+
+        $__internal_f86c55dfbed9abda10ef620b0269b067d785bf5bc0e216664730b8a50d555bff = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f86c55dfbed9abda10ef620b0269b067d785bf5bc0e216664730b8a50d555bff->enter($__internal_f86c55dfbed9abda10ef620b0269b067d785bf5bc0e216664730b8a50d555bff_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/Exception/trace.txt.twig"));
+>>>>>>> donmanager
 
         // line 1
         if (twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["trace"]) || array_key_exists("trace", $context) ? $context["trace"] : (function () { throw new Twig_Error_Runtime('Variable "trace" does not exist.', 1, $this->getSourceContext()); })()), "function", array())) {
@@ -41,10 +49,17 @@ class __TwigTemplate_6a8552fb019279b412305c10ed9384d12b67aaff29ffbc5d681f85511ae
             echo ((twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["trace"]) || array_key_exists("trace", $context) ? $context["trace"] : (function () { throw new Twig_Error_Runtime('Variable "trace" does not exist.', 5, $this->getSourceContext()); })()), "function", array())) ? (")") : (""));
         }
         
+<<<<<<< HEAD
         $__internal_c4d70dd50f95c8422101856c985c8539a14f3c1b6cb84f9f4bc3e7058a61b86a->leave($__internal_c4d70dd50f95c8422101856c985c8539a14f3c1b6cb84f9f4bc3e7058a61b86a_prof);
 
         
         $__internal_9eb5e8437c151648f60715193e510472eb704357f33201bb884701d9f9e2664d->leave($__internal_9eb5e8437c151648f60715193e510472eb704357f33201bb884701d9f9e2664d_prof);
+=======
+        $__internal_dd0d8754a4268d2383aab5796c505a74794b3c81f2d1212b34eeab8b2e664b87->leave($__internal_dd0d8754a4268d2383aab5796c505a74794b3c81f2d1212b34eeab8b2e664b87_prof);
+
+        
+        $__internal_f86c55dfbed9abda10ef620b0269b067d785bf5bc0e216664730b8a50d555bff->leave($__internal_f86c55dfbed9abda10ef620b0269b067d785bf5bc0e216664730b8a50d555bff_prof);
+>>>>>>> donmanager
 
     }
 
@@ -71,6 +86,10 @@ at {{ trace.class ~ trace.type ~ trace.function }}({{ trace.args|format_args }})
 {% if trace.file|default('') is not empty and trace.line|default('') is not empty %}
   {{- trace.function ? '\\n     (' : 'at '}}{{ trace.file|format_file(trace.line)|striptags|replace({ (' at line ' ~ trace.line): '' }) }}:{{ trace.line }}{{ trace.function ? ')' }}
 {%- endif %}
+<<<<<<< HEAD
 ", "@Twig/Exception/trace.txt.twig", "E:\\wamp64\\www\\NAO_project\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\trace.txt.twig");
+=======
+", "@Twig/Exception/trace.txt.twig", "C:\\wamp64\\www\\NAO_Project\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\trace.txt.twig");
+>>>>>>> donmanager
     }
 }

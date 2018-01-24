@@ -28,10 +28,14 @@ use Doctrine\ORM\Query\QueryException;
  * "DATE_ADD" "(" ArithmeticPrimary "," ArithmeticPrimary "," StringPrimary ")"
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
  * 
 >>>>>>> contactmanager
+=======
+ *
+>>>>>>> donmanager
  * @link    www.doctrine-project.org
  * @since   2.0
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -46,9 +50,13 @@ class DateAddFunction extends FunctionNode
     /**
      * @override
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @inheritdoc
 =======
 >>>>>>> contactmanager
+=======
+     * @inheritdoc
+>>>>>>> donmanager
      */
     public function getSql(SqlWalker $sqlWalker)
     {
@@ -59,14 +67,20 @@ class DateAddFunction extends FunctionNode
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             case 'minute':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateAddMinutesExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
+<<<<<<< HEAD
 =======
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             case 'hour':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateAddHourExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
@@ -78,25 +92,35 @@ class DateAddFunction extends FunctionNode
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             case 'week':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateAddWeeksExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
+<<<<<<< HEAD
 =======
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             case 'month':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateAddMonthExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             case 'year':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateAddYearsExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
+<<<<<<< HEAD
 
             default:
                 throw QueryException::semanticalError(
@@ -107,6 +131,12 @@ class DateAddFunction extends FunctionNode
                 throw QueryException::semanticalError(
                     'DATE_ADD() only supports units of type second, hour, day and month.'
 >>>>>>> contactmanager
+=======
+
+            default:
+                throw QueryException::semanticalError(
+                    'DATE_ADD() only supports units of type second, minute, hour, day, week, month and year.'
+>>>>>>> donmanager
                 );
         }
     }
@@ -114,9 +144,13 @@ class DateAddFunction extends FunctionNode
     /**
      * @override
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @inheritdoc
 =======
 >>>>>>> contactmanager
+=======
+     * @inheritdoc
+>>>>>>> donmanager
      */
     public function parse(Parser $parser)
     {

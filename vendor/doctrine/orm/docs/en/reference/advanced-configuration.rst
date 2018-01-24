@@ -153,9 +153,13 @@ The recommended implementations for production are:
 
 -  ``Doctrine\Common\Cache\ApcCache``
 <<<<<<< HEAD
+<<<<<<< HEAD
 -  ``Doctrine\Common\Cache\ApcuCache``
 =======
 >>>>>>> contactmanager
+=======
+-  ``Doctrine\Common\Cache\ApcuCache``
+>>>>>>> donmanager
 -  ``Doctrine\Common\Cache\MemcacheCache``
 -  ``Doctrine\Common\Cache\XcacheCache``
 -  ``Doctrine\Common\Cache\RedisCache``
@@ -188,9 +192,13 @@ The recommended implementations for production are:
 
 -  ``Doctrine\Common\Cache\ApcCache``
 <<<<<<< HEAD
+<<<<<<< HEAD
 -  ``Doctrine\Common\Cache\ApcuCache``
 =======
 >>>>>>> contactmanager
+=======
+-  ``Doctrine\Common\Cache\ApcuCache``
+>>>>>>> donmanager
 -  ``Doctrine\Common\Cache\MemcacheCache``
 -  ``Doctrine\Common\Cache\XcacheCache``
 -  ``Doctrine\Common\Cache\RedisCache``
@@ -403,10 +411,14 @@ means that you have to register a special autoloader for these classes:
 
     <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
     use Doctrine\Common\Proxy\Autoloader;
 =======
     use Doctrine\ORM\Proxy\Autoloader;
 >>>>>>> contactmanager
+=======
+    use Doctrine\Common\Proxy\Autoloader;
+>>>>>>> donmanager
 
     $proxyDir = "/path/to/proxies";
     $proxyNamespace = "MyProxies";

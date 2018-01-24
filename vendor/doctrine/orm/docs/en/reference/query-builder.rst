@@ -8,15 +8,20 @@ It provides a set of classes and methods that is able to
 programmatically build queries, and also provides a fluent API.
 This means that you can change between one methodology to the other
 <<<<<<< HEAD
+<<<<<<< HEAD
 as you want, or just pick a preferred one.
 =======
 as you want, and also pick one if you prefer.
 >>>>>>> contactmanager
+=======
+as you want, or just pick a preferred one.
+>>>>>>> donmanager
 
 Constructing a new QueryBuilder object
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The same way you build a normal Query, you build a ``QueryBuilder``
+<<<<<<< HEAD
 <<<<<<< HEAD
 object. Here is an example of how to build a ``QueryBuilder``
 object:
@@ -24,6 +29,10 @@ object:
 object, just providing the correct method name. Here is an example
 how to build a ``QueryBuilder`` object:
 >>>>>>> contactmanager
+=======
+object. Here is an example of how to build a ``QueryBuilder``
+object:
+>>>>>>> donmanager
 
 .. code-block:: php
 
@@ -34,6 +43,7 @@ how to build a ``QueryBuilder`` object:
     $qb = $em->createQueryBuilder();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 An instance of QueryBuilder has several informative methods.  One
 good example is to inspect what type of object the
 ``QueryBuilder`` is.
@@ -42,6 +52,11 @@ Once you have created an instance of QueryBuilder, it provides a
 set of useful informative functions that you can use. One good
 example is to inspect what type of object the ``QueryBuilder`` is.
 >>>>>>> contactmanager
+=======
+An instance of QueryBuilder has several informative methods.  One
+good example is to inspect what type of object the
+``QueryBuilder`` is.
+>>>>>>> donmanager
 
 .. code-block:: php
 
@@ -96,11 +111,15 @@ High level API methods
 ^^^^^^^^^^^^^^^^^^^^^^
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 To simplify even more the way you build a query in Doctrine, you can take
 advantage of Helper methods. For all base code, there is a set of
 useful methods to simplify a programmer's life. To illustrate how
 to work with them, here is the same example 6 re-written using
 ``QueryBuilder`` helper methods:
+<<<<<<< HEAD
 =======
 To simplify even more the way you build a query in Doctrine, we can take
 advantage of what we call Helper methods. For all base code, there
@@ -108,6 +127,8 @@ is a set of useful methods to simplify a programmer's life. To
 illustrate how to work with them, here is the same example 6
 re-written using ``QueryBuilder`` helper methods:
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
 .. code-block:: php
 
@@ -121,12 +142,17 @@ re-written using ``QueryBuilder`` helper methods:
 
 ``QueryBuilder`` helper methods are considered the standard way to
 <<<<<<< HEAD
+<<<<<<< HEAD
 build DQL queries. Although it is supported, using string-based
 queries should be avoided.  You are greatly encouraged to use
 =======
 build DQL queries. Although it is supported, it should be avoided
 to use string based queries and greatly encouraged to use
 >>>>>>> contactmanager
+=======
+build DQL queries. Although it is supported, using string-based
+queries should be avoided.  You are greatly encouraged to use
+>>>>>>> donmanager
 ``$qb->expr()->*`` methods. Here is a converted example 8 to
 suggested standard way to build queries:
 
@@ -142,10 +168,14 @@ suggested standard way to build queries:
            $qb->expr()->like('u.nickname', '?2')
        ))
 <<<<<<< HEAD
+<<<<<<< HEAD
        ->orderBy('u.surname', 'ASC');
 =======
        ->orderBy('u.surname', 'ASC'));
 >>>>>>> contactmanager
+=======
+       ->orderBy('u.surname', 'ASC');
+>>>>>>> donmanager
 
 Here is a complete list of helper methods available in ``QueryBuilder``:
 
@@ -159,10 +189,14 @@ Here is a complete list of helper methods available in ``QueryBuilder``:
         // Example - $qb->select($qb->expr()->select('u', 'p'))
         public function select($select = null);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         // addSelect does not override previous calls to select
         //
         // Example - $qb->select('u');
@@ -354,10 +388,14 @@ Executing a Query
 ^^^^^^^^^^^^^^^^^
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The QueryBuilder is a builder object only -  it has no means of actually
 =======
 The QueryBuilder is a builder object only, it has no means of actually
 >>>>>>> contactmanager
+=======
+The QueryBuilder is a builder object only -  it has no means of actually
+>>>>>>> donmanager
 executing the Query. Additionally a set of parameters such as query hints
 cannot be set on the QueryBuilder itself. This is why you always have to convert
 a querybuilder instance into a Query object:
@@ -540,6 +578,9 @@ complete list of supported helper methods available:
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 Adding a Criteria to a Query
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -558,23 +599,32 @@ using ``addCriteria``:
     // $qb instanceof QueryBuilder
     $qb->addCriteria($criteria);
     // then execute your query like normal
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
 Low Level API
 ^^^^^^^^^^^^^
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 Now we will describe the low level method of creating queries.
 It may be useful to work at this level for optimization purposes,
 but most of the time it is preferred to work at a higher level of
 abstraction.
+<<<<<<< HEAD
 =======
 Now we have describe the low level (thought of as the
 hardcore method) of creating queries. It may be useful to work at
 this level for optimization purposes, but most of the time it is
 preferred to work at a higher level of abstraction.
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
 All helper methods in ``QueryBuilder`` actually rely on a single
 one: ``add()``. This method is responsible of building every piece
@@ -628,9 +678,12 @@ same query of example 6 written using
       ->add('orderBy', new Expr\OrderBy('u.name', 'ASC'));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 Of course this is the hardest way to build a DQL query in Doctrine.
 To simplify some of these efforts, we introduce what we call as
 ``Expr`` helper class.
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager

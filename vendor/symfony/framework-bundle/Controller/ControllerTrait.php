@@ -154,10 +154,14 @@ trait ControllerTrait
     {
         if (!$this->container->has('session')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new \LogicException('You can not use the addFlash method if sessions are disabled. Enable them in "config/packages/framework.yaml".');
 =======
             throw new \LogicException('You can not use the addFlash method if sessions are disabled.');
 >>>>>>> contactmanager
+=======
+            throw new \LogicException('You can not use the addFlash method if sessions are disabled. Enable them in "config/packages/framework.yaml".');
+>>>>>>> donmanager
         }
 
         $this->container->get('session')->getFlashBag()->add($type, $message);
@@ -174,10 +178,14 @@ trait ControllerTrait
     {
         if (!$this->container->has('security.authorization_checker')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new \LogicException('The SecurityBundle is not registered in your application. Try running "composer require symfony/security-bundle".');
 =======
             throw new \LogicException('The SecurityBundle is not registered in your application.');
 >>>>>>> contactmanager
+=======
+            throw new \LogicException('The SecurityBundle is not registered in your application. Try running "composer require symfony/security-bundle".');
+>>>>>>> donmanager
         }
 
         return $this->container->get('security.authorization_checker')->isGranted($attributes, $subject);
@@ -215,10 +223,14 @@ trait ControllerTrait
 
         if (!$this->container->has('twig')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new \LogicException('You can not use the "renderView" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
 =======
             throw new \LogicException('You can not use the "renderView" method if the Templating Component or the Twig Bundle are not available.');
 >>>>>>> contactmanager
+=======
+            throw new \LogicException('You can not use the "renderView" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
+>>>>>>> donmanager
         }
 
         return $this->container->get('twig')->render($view, $parameters);
@@ -237,10 +249,14 @@ trait ControllerTrait
             $content = $this->container->get('twig')->render($view, $parameters);
         } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new \LogicException('You can not use the "render" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
 =======
             throw new \LogicException('You can not use the "render" method if the Templating Component or the Twig Bundle are not available.');
 >>>>>>> contactmanager
+=======
+            throw new \LogicException('You can not use the "render" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
+>>>>>>> donmanager
         }
 
         if (null === $response) {
@@ -273,10 +289,14 @@ trait ControllerTrait
             };
         } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new \LogicException('You can not use the "stream" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
 =======
             throw new \LogicException('You can not use the "stream" method if the Templating Component or the Twig Bundle are not available.');
 >>>>>>> contactmanager
+=======
+            throw new \LogicException('You can not use the "stream" method if the Templating Component or the Twig Bundle are not available. Try running "composer require symfony/twig-bundle".');
+>>>>>>> donmanager
         }
 
         if (null === $response) {
@@ -310,21 +330,32 @@ trait ControllerTrait
      *     throw $this->createAccessDeniedException('Unable to access this page!');
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @throws \LogicException If the Security component is not available
      *
 =======
 >>>>>>> contactmanager
+=======
+     * @throws \LogicException If the Security component is not available
+     *
+>>>>>>> donmanager
      * @final since version 3.4
      */
     protected function createAccessDeniedException(string $message = 'Access Denied.', \Exception $previous = null): AccessDeniedException
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         if (!class_exists(AccessDeniedException::class)) {
             throw new \LogicException('You can not use the "createAccessDeniedException" method if the Security component is not available. Try running "composer require symfony/security-bundle".');
         }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         return new AccessDeniedException($message, $previous);
     }
 
@@ -359,10 +390,14 @@ trait ControllerTrait
     {
         if (!$this->container->has('doctrine')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new \LogicException('The DoctrineBundle is not registered in your application. Try running "composer require symfony/orm-pack".');
 =======
             throw new \LogicException('The DoctrineBundle is not registered in your application.');
 >>>>>>> contactmanager
+=======
+            throw new \LogicException('The DoctrineBundle is not registered in your application. Try running "composer require symfony/orm-pack".');
+>>>>>>> donmanager
         }
 
         return $this->container->get('doctrine');
@@ -383,10 +418,14 @@ trait ControllerTrait
     {
         if (!$this->container->has('security.token_storage')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new \LogicException('The SecurityBundle is not registered in your application. Try running "composer require symfony/security-bundle".');
 =======
             throw new \LogicException('The SecurityBundle is not registered in your application.');
 >>>>>>> contactmanager
+=======
+            throw new \LogicException('The SecurityBundle is not registered in your application. Try running "composer require symfony/security-bundle".');
+>>>>>>> donmanager
         }
 
         if (null === $token = $this->container->get('security.token_storage')->getToken()) {
@@ -413,10 +452,14 @@ trait ControllerTrait
     {
         if (!$this->container->has('security.csrf.token_manager')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new \LogicException('CSRF protection is not enabled in your application. Enable it with the "csrf_protection" key in "config/packages/framework.yaml".');
 =======
             throw new \LogicException('CSRF protection is not enabled in your application.');
 >>>>>>> contactmanager
+=======
+            throw new \LogicException('CSRF protection is not enabled in your application. Enable it with the "csrf_protection" key in "config/packages/framework.yaml".');
+>>>>>>> donmanager
         }
 
         return $this->container->get('security.csrf.token_manager')->isTokenValid(new CsrfToken($id, $token));

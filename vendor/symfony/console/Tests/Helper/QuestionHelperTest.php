@@ -84,12 +84,18 @@ class QuestionHelperTest extends AbstractQuestionHelperTest
 
         $this->assertEquals(array('Superman', 'Batman'), $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream), $this->createOutputInterface(), $question));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 
         $question = new ChoiceQuestion('What is your favorite superhero?', $heroes, 0);
         // We are supposed to get the default value since we are not in interactive mode
         $this->assertEquals('Superman', $questionHelper->ask($this->createStreamableInputInterfaceMock($inputStream, true), $this->createOutputInterface(), $question));
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     }
 
     public function testAsk()

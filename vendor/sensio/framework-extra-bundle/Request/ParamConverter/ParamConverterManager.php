@@ -68,11 +68,16 @@ class ParamConverterManager
                 throw new \RuntimeException(sprintf(
                     "No converter named '%s' found for conversion of parameter '%s'.",
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $converterName,
                     $configuration->getName()
 =======
                     $converterName, $configuration->getName()
 >>>>>>> contactmanager
+=======
+                    $converterName,
+                    $configuration->getName()
+>>>>>>> donmanager
                 ));
             }
 
@@ -82,11 +87,16 @@ class ParamConverterManager
                 throw new \RuntimeException(sprintf(
                     "Converter '%s' does not support conversion of parameter '%s'.",
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $converterName,
                     $configuration->getName()
 =======
                     $converterName, $configuration->getName()
 >>>>>>> contactmanager
+=======
+                    $converterName,
+                    $configuration->getName()
+>>>>>>> donmanager
                 ));
             }
 

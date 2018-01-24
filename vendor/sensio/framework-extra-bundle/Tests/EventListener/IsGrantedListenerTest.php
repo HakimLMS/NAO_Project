@@ -157,12 +157,18 @@ class IsGrantedListenerTest extends \PHPUnit_Framework_TestCase
     private function createFilterControllerEvent(Request $request)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new FilterControllerArgumentsEvent($this->getMockBuilder(HttpKernelInterface::class)->getMock(), function () {
             return new Response();
         }, array(), $request, null);
 =======
         return new FilterControllerArgumentsEvent($this->getMockBuilder(HttpKernelInterface::class)->getMock(), function () { return new Response(); }, array(), $request, null);
 >>>>>>> contactmanager
+=======
+        return new FilterControllerArgumentsEvent($this->getMockBuilder(HttpKernelInterface::class)->getMock(), function () {
+            return new Response();
+        }, array(), $request, null);
+>>>>>>> donmanager
     }
 
     private function createArgumentNameConverter(array $arguments)

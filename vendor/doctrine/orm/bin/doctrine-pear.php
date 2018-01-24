@@ -32,10 +32,14 @@ if (file_exists($configFile)) {
     if ( ! is_readable($configFile)) {
         trigger_error(
 <<<<<<< HEAD
+<<<<<<< HEAD
             'Configuration file [' . $configFile . '] does not have read permission.', E_USER_ERROR
 =======
             'Configuration file [' . $configFile . '] does not have read permission.', E_ERROR
 >>>>>>> contactmanager
+=======
+            'Configuration file [' . $configFile . '] does not have read permission.', E_USER_ERROR
+>>>>>>> donmanager
         );
     }
 

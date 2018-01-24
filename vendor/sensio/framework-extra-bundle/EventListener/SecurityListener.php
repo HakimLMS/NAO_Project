@@ -99,12 +99,18 @@ class SecurityListener implements EventSubscriberInterface
             'subject' => $request,
             'request' => $request,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'roles' => array_map(function ($role) {
                 return $role->getRole();
             }, $roles),
 =======
             'roles' => array_map(function ($role) { return $role->getRole(); }, $roles),
 >>>>>>> contactmanager
+=======
+            'roles' => array_map(function ($role) {
+                return $role->getRole();
+            }, $roles),
+>>>>>>> donmanager
             'trust_resolver' => $this->trustResolver,
             // needed for the is_granted expression function
             'auth_checker' => $this->authChecker,

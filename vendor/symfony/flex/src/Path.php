@@ -32,8 +32,16 @@ class Path
 
     public function concatenate(array $parts): string
     {
+<<<<<<< HEAD
         return array_reduce($parts, function (string $initial, string $next): string {
             return rtrim($initial, '/').'/'.ltrim($next, '/');
         }, '');
+=======
+        $first = array_shift($parts);
+
+        return array_reduce($parts, function (string $initial, string $next): string {
+            return rtrim($initial, '/').'/'.ltrim($next, '/');
+        }, $first);
+>>>>>>> donmanager
     }
 }

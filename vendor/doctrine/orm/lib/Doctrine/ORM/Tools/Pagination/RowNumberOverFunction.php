@@ -24,9 +24,12 @@ use Doctrine\ORM\ORMException;
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 /**
  * RowNumberOverFunction
  *
@@ -45,9 +48,13 @@ class RowNumberOverFunction extends FunctionNode
     /**
      * @override
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @inheritdoc
 =======
 >>>>>>> contactmanager
+=======
+     * @inheritdoc
+>>>>>>> donmanager
      */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
@@ -59,9 +66,13 @@ class RowNumberOverFunction extends FunctionNode
     /**
      * @override
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @inheritdoc
 =======
 >>>>>>> contactmanager
+=======
+     * @inheritdoc
+>>>>>>> donmanager
      *
      * @throws ORMException
      */

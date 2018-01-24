@@ -68,6 +68,7 @@ CHANGELOG
     first argument
  * `RouterDebugCommand::__construct()` now takes an instance of
 <<<<<<< HEAD
+<<<<<<< HEAD
    `Symfony\Component\Routing\RouterInterface` as
     first argument
  * `RouterMatchCommand::__construct()` now takes an instance of
@@ -78,6 +79,12 @@ CHANGELOG
  * `RouterMatchCommand::__construct()` now takes an instance of
    `Symfony\Component\Routing\RouterInteface` as
 >>>>>>> contactmanager
+=======
+   `Symfony\Component\Routing\RouterInterface` as
+    first argument
+ * `RouterMatchCommand::__construct()` now takes an instance of
+   `Symfony\Component\Routing\RouterInterface` as
+>>>>>>> donmanager
     first argument
  * `TranslationDebugCommand::__construct()` now takes an instance of
    `Symfony\Component\Translation\TranslatorInterface` as

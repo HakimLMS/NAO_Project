@@ -296,11 +296,16 @@ annotation.
         {
             /**
 <<<<<<< HEAD
+<<<<<<< HEAD
              * @Id
              * @Column(type="integer")
 =======
              * @Id @Column(type="integer")
 >>>>>>> contactmanager
+=======
+             * @Id
+             * @Column(type="integer")
+>>>>>>> donmanager
              * @GeneratedValue
              */
             private $id;
@@ -360,10 +365,15 @@ Here is the list of possible generation strategies:
    supported by the following platforms: MySQL/SQLite/SQL Anywhere
    (AUTO\_INCREMENT), MSSQL (IDENTITY) and PostgreSQL (SERIAL).
 <<<<<<< HEAD
+<<<<<<< HEAD
 -  ``UUID``: Tells Doctrine to use the built-in Universally Unique Identifier
    generator. This strategy provides full portability.
 =======
 >>>>>>> contactmanager
+=======
+-  ``UUID``: Tells Doctrine to use the built-in Universally Unique Identifier
+   generator. This strategy provides full portability.
+>>>>>>> donmanager
 -  ``TABLE``: Tells Doctrine to use a separate table for ID
    generation. This strategy provides full portability.
    ***This strategy is not yet implemented!***
@@ -372,10 +382,15 @@ Here is the list of possible generation strategies:
    a new entity is passed to ``EntityManager#persist``. NONE is the
    same as leaving off the @GeneratedValue entirely.
 <<<<<<< HEAD
+<<<<<<< HEAD
 -  ``CUSTOM``: With this option, you can use the ``@CustomIdGenerator`` annotation.
    It will allow you to pass a :doc:`class of your own to generate the identifiers.<_annref_customidgenerator>`
 =======
 >>>>>>> contactmanager
+=======
+-  ``CUSTOM``: With this option, you can use the ``@CustomIdGenerator`` annotation.
+   It will allow you to pass a :doc:`class of your own to generate the identifiers.<_annref_customidgenerator>`
+>>>>>>> donmanager
 
 Sequence Generator
 ^^^^^^^^^^^^^^^^^^
@@ -462,10 +477,14 @@ Composite Keys
 ~~~~~~~~~~~~~~
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 With Doctrine 2 you can use composite primary keys, using ``@Id`` on more then
 =======
 with Doctrine 2 you can use composite primary keys, using ``@Id`` on more then
 >>>>>>> contactmanager
+=======
+With Doctrine 2 you can use composite primary keys, using ``@Id`` on more then
+>>>>>>> donmanager
 one column. Some restrictions exist opposed to using a single identifier in
 this case: The use of the ``@GeneratedValue`` annotation is not supported,
 which means you can only use composite keys if you generate the primary key

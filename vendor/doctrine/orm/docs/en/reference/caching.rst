@@ -14,10 +14,14 @@ Cache Drivers
 The cache drivers follow a simple interface that is defined in
 ``Doctrine\Common\Cache\Cache``. All the cache drivers extend a
 <<<<<<< HEAD
+<<<<<<< HEAD
 base class ``Doctrine\Common\Cache\CacheProvider`` which implements
 =======
 base class ``Doctrine\Common\Cache\AbstractCache`` which implements
 >>>>>>> contactmanager
+=======
+base class ``Doctrine\Common\Cache\CacheProvider`` which implements
+>>>>>>> donmanager
 this interface.
 
 The interface defines the following public methods for you to implement:
@@ -25,6 +29,7 @@ The interface defines the following public methods for you to implement:
 
 -  fetch($id) - Fetches an entry from the cache
 -  contains($id) - Test if an entry exists in the cache
+<<<<<<< HEAD
 <<<<<<< HEAD
 -  save($id, $data, $lifeTime = false) - Puts data into the cache for x seconds. 0 = infinite time
 -  delete($id) - Deletes a cache entry
@@ -36,6 +41,12 @@ Each driver extends the ``CacheProvider`` class which defines a few
 
 Each driver extends the ``AbstractCache`` class which defines a few
 >>>>>>> contactmanager
+=======
+-  save($id, $data, $lifeTime = false) - Puts data into the cache for x seconds. 0 = infinite time
+-  delete($id) - Deletes a cache entry
+
+Each driver extends the ``CacheProvider`` class which defines a few
+>>>>>>> donmanager
 abstract protected methods that each of the drivers must
 implement:
 
@@ -50,6 +61,7 @@ above protected methods which are implemented by the drivers. The
 code is organized this way so that the protected methods in the
 drivers do the raw interaction with the cache implementation and
 <<<<<<< HEAD
+<<<<<<< HEAD
 the ``CacheProvider`` can build custom functionality on top of
 these methods.
 
@@ -62,6 +74,15 @@ the ``AbstractCache`` can build custom functionality on top of
 these methods.
 
 >>>>>>> contactmanager
+=======
+the ``CacheProvider`` can build custom functionality on top of
+these methods.
+
+This documentation does not cover every single cache driver included
+with Doctrine. For an up-to-date-list, see the
+`cache directory on GitHub <https://github.com/doctrine/cache/tree/master/lib/Doctrine/Common/Cache>`.
+
+>>>>>>> donmanager
 APC
 ~~~
 
@@ -81,6 +102,9 @@ by itself.
     $cacheDriver->save('cache_id', 'my_data');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 APCu
 ~~~~
 
@@ -99,8 +123,11 @@ by itself.
     $cacheDriver = new \Doctrine\Common\Cache\ApcuCache();
     $cacheDriver->save('cache_id', 'my_data');
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 Memcache
 ~~~~~~~~
 
@@ -125,10 +152,14 @@ driver by itself.
 
 Memcached
 <<<<<<< HEAD
+<<<<<<< HEAD
 ~~~~~~~~~
 =======
 ~~~~~~~~
 >>>>>>> contactmanager
+=======
+~~~~~~~~~
+>>>>>>> donmanager
 
 Memcached is a more recent and complete alternative extension to
 Memcache.
@@ -330,10 +361,14 @@ use on your ORM configuration.
     <?php
     $config = new \Doctrine\ORM\Configuration();
 <<<<<<< HEAD
+<<<<<<< HEAD
     $config->setQueryCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
 =======
     $config->setQueryCacheImpl(new \Doctrine\Common\Cache\ApcCache());
 >>>>>>> contactmanager
+=======
+    $config->setQueryCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
+>>>>>>> donmanager
 
 Result Cache
 ~~~~~~~~~~~~
@@ -347,10 +382,14 @@ cache implementation.
 
     <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
     $config->setResultCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
 =======
     $config->setResultCacheImpl(new \Doctrine\Common\Cache\ApcCache());
 >>>>>>> contactmanager
+=======
+    $config->setResultCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
+>>>>>>> donmanager
 
 Now when you're executing DQL queries you can configure them to use
 the result cache.
@@ -368,10 +407,14 @@ result cache driver.
 
     <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
     $query->setResultCacheDriver(new \Doctrine\Common\Cache\ApcuCache());
 =======
     $query->setResultCacheDriver(new \Doctrine\Common\Cache\ApcCache());
 >>>>>>> contactmanager
+=======
+    $query->setResultCacheDriver(new \Doctrine\Common\Cache\ApcuCache());
+>>>>>>> donmanager
 
 .. note::
 
@@ -424,10 +467,14 @@ first.
 
     <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
     $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
 =======
     $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ApcCache());
 >>>>>>> contactmanager
+=======
+    $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ApcuCache());
+>>>>>>> donmanager
 
 Now the metadata information will only be parsed once and stored in
 the cache driver.
@@ -464,6 +511,9 @@ All these tasks accept a ``--flush`` option to flush the entire
 contents of the cache instead of invalidating the entries.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 Cache Chaining
 --------------
 
@@ -497,8 +547,11 @@ way to build a simple high-availability cache, ChainCache does not
 implement any exception handling so using it as a high-availability
 mechanism is not recommended.
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 Cache Slams
 -----------
 

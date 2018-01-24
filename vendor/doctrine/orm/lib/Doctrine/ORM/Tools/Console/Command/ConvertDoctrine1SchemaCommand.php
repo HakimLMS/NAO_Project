@@ -20,6 +20,7 @@
 namespace Doctrine\ORM\Tools\Console\Command;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\Tools\ConvertDoctrine1Schema;
 use Doctrine\ORM\Tools\EntityGenerator;
 use Doctrine\ORM\Tools\Export\ClassMetadataExporter;
@@ -33,12 +34,20 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console;
 use Doctrine\ORM\Tools\Export\ClassMetadataExporter;
+=======
+>>>>>>> donmanager
 use Doctrine\ORM\Tools\ConvertDoctrine1Schema;
 use Doctrine\ORM\Tools\EntityGenerator;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
+use Doctrine\ORM\Tools\Export\ClassMetadataExporter;
 use Symfony\Component\Console\Command\Command;
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+>>>>>>> donmanager
 
 /**
  * Command to convert a Doctrine 1 schema to a Doctrine 2 mapping file.
@@ -112,6 +121,9 @@ class ConvertDoctrine1SchemaCommand extends Command
     protected function configure()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $this->setName('orm:convert-d1-schema')
              ->setAliases(['orm:convert:d1-schema'])
              ->setDescription('Converts Doctrine 1.x schema into a Doctrine 2.x schema')
@@ -122,6 +134,7 @@ class ConvertDoctrine1SchemaCommand extends Command
              ->addOption('extend', null, InputOption::VALUE_OPTIONAL, 'Defines a base class to be extended by generated entity classes.')
              ->addOption('num-spaces', null, InputOption::VALUE_OPTIONAL, 'Defines the number of indentation spaces', 4)
              ->setHelp('Converts Doctrine 1.x schema into a Doctrine 2.x schema.');
+<<<<<<< HEAD
 =======
         $this
         ->setName('orm:convert-d1-schema')
@@ -157,6 +170,8 @@ Converts Doctrine 1.X schema into a Doctrine 2.X schema.
 EOT
         );
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     }
 
     /**
@@ -166,10 +181,14 @@ EOT
     {
         // Process source directories
 <<<<<<< HEAD
+<<<<<<< HEAD
         $fromPaths = array_merge([$input->getArgument('from-path')], $input->getOption('from'));
 =======
         $fromPaths = array_merge(array($input->getArgument('from-path')), $input->getOption('from'));
 >>>>>>> contactmanager
+=======
+        $fromPaths = array_merge([$input->getArgument('from-path')], $input->getOption('from'));
+>>>>>>> donmanager
 
         // Process destination directory
         $destPath = realpath($input->getArgument('dest-path'));

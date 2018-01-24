@@ -124,11 +124,16 @@ class FlexTest extends TestCase
             $flex->configurator = $configurator;
             $flex->downloader = $downloader;
 <<<<<<< HEAD
+<<<<<<< HEAD
             $flex->runningCommand = function () {
             };
 =======
             $flex->runningCommand = function() {};
 >>>>>>> contactmanager
+=======
+            $flex->runningCommand = function () {
+            };
+>>>>>>> donmanager
             $flex->options = new Options(['config-dir' => 'config', 'var-dir' => 'var']);
             $flex->lock = $lock;
 
@@ -138,6 +143,9 @@ class FlexTest extends TestCase
         $flex->install($this->getMockBuilder(Event::class)->disableOriginalConstructor()->getMock());
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $expected = [
             '',
             '<info>Some files may have been created or updated to configure your new packages.</>',
@@ -151,6 +159,7 @@ class FlexTest extends TestCase
             return $this->postInstallOutput;
         }, $flex, Flex::class)->__invoke();
         $this->assertSame($expected, $postInstallOutput);
+<<<<<<< HEAD
 
         $this->assertSame(
             <<<EOF
@@ -160,16 +169,26 @@ class FlexTest extends TestCase
 
         $this->assertSame(<<<EOF
 >>>>>>> contactmanager
+=======
+
+        $this->assertSame(
+            <<<EOF
+>>>>>>> donmanager
 Symfony operations: 1 recipe ()
   - Configuring dummy/dummy (>=1.0): From github.com/symfony/recipes:master
 
 EOF
+<<<<<<< HEAD
 <<<<<<< HEAD
             ,
             str_replace("\r\n", "\n", $io->getOutput())
 =======
             , $io->getOutput()
 >>>>>>> contactmanager
+=======
+            ,
+            str_replace("\r\n", "\n", $io->getOutput())
+>>>>>>> donmanager
         );
     }
 

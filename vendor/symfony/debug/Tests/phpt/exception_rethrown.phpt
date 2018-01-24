@@ -27,9 +27,12 @@ ini_set('display_errors', 1);
 
 throw new \Exception('foo');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 ?>
 --EXPECTF--
 Uncaught Exception: foo

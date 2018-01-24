@@ -22,6 +22,7 @@ namespace Doctrine\ORM\Query\Exec;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Types\Type;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\Query\ParameterTypeInferer;
 use Doctrine\ORM\Query\AST;
 use Doctrine\ORM\Utility\PersisterHelper;
@@ -31,6 +32,12 @@ use Throwable;
 use Doctrine\ORM\Query\ParameterTypeInferer;
 use Doctrine\ORM\Query\AST;
 >>>>>>> contactmanager
+=======
+use Doctrine\ORM\Query\ParameterTypeInferer;
+use Doctrine\ORM\Query\AST;
+use Doctrine\ORM\Utility\PersisterHelper;
+use Throwable;
+>>>>>>> donmanager
 
 /**
  * Executes the SQL statements for bulk DQL UPDATE statements on classes in
@@ -60,10 +67,14 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $_sqlParameters = [];
 =======
     private $_sqlParameters = array();
 >>>>>>> contactmanager
+=======
+    private $_sqlParameters = [];
+>>>>>>> donmanager
 
     /**
      * @var int
@@ -104,10 +115,14 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
 
         $rangeDecl = new AST\RangeVariableDeclaration($primaryClass->name, $updateClause->aliasIdentificationVariable);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $fromClause = new AST\FromClause([new AST\IdentificationVariableDeclaration($rangeDecl, null, [])]);
 =======
         $fromClause = new AST\FromClause(array(new AST\IdentificationVariableDeclaration($rangeDecl, null, array())));
 >>>>>>> contactmanager
+=======
+        $fromClause = new AST\FromClause([new AST\IdentificationVariableDeclaration($rangeDecl, null, [])]);
+>>>>>>> donmanager
 
         $this->_insertSql .= $sqlWalker->walkFromClause($fromClause);
 
@@ -116,10 +131,14 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
 
         // 3. Create and store UPDATE statements
 <<<<<<< HEAD
+<<<<<<< HEAD
         $classNames = array_merge($primaryClass->parentClasses, [$primaryClass->name], $primaryClass->subClasses);
 =======
         $classNames = array_merge($primaryClass->parentClasses, array($primaryClass->name), $primaryClass->subClasses);
 >>>>>>> contactmanager
+=======
+        $classNames = array_merge($primaryClass->parentClasses, [$primaryClass->name], $primaryClass->subClasses);
+>>>>>>> donmanager
         $i = -1;
 
         foreach (array_reverse($classNames) as $className) {
@@ -131,12 +150,17 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
                 $field = $updateItem->pathExpression->field;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if ((isset($class->fieldMappings[$field]) && ! isset($class->fieldMappings[$field]['inherited'])) ||
                     (isset($class->associationMappings[$field]) && ! isset($class->associationMappings[$field]['inherited']))) {
 =======
                 if (isset($class->fieldMappings[$field]) && ! isset($class->fieldMappings[$field]['inherited']) ||
                     isset($class->associationMappings[$field]) && ! isset($class->associationMappings[$field]['inherited'])) {
 >>>>>>> contactmanager
+=======
+                if ((isset($class->fieldMappings[$field]) && ! isset($class->fieldMappings[$field]['inherited'])) ||
+                    (isset($class->associationMappings[$field]) && ! isset($class->associationMappings[$field]['inherited']))) {
+>>>>>>> donmanager
                     $newValue = $updateItem->newValue;
 
                     if ( ! $affected) {
@@ -168,6 +192,7 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
 
         // 4. Store DDL for temporary identifier table.
 <<<<<<< HEAD
+<<<<<<< HEAD
         $columnDefinitions = [];
 
         foreach ($idColumnNames as $idColumnName) {
@@ -177,13 +202,21 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
             ];
 =======
         $columnDefinitions = array();
+=======
+        $columnDefinitions = [];
+>>>>>>> donmanager
 
         foreach ($idColumnNames as $idColumnName) {
-            $columnDefinitions[$idColumnName] = array(
+            $columnDefinitions[$idColumnName] = [
                 'notnull' => true,
+<<<<<<< HEAD
                 'type' => Type::getType($rootClass->getTypeOfColumn($idColumnName))
             );
 >>>>>>> contactmanager
+=======
+                'type'    => Type::getType(PersisterHelper::getTypeOfColumn($idColumnName, $rootClass, $em)),
+            ];
+>>>>>>> donmanager
         }
 
         $this->_createTempTableSql = $platform->getCreateTemporaryTableSnippetSQL() . ' ' . $tempTable . ' ('
@@ -198,10 +231,13 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
     public function execute(Connection $conn, array $params, array $types)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         $numUpdated = 0;
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         // Create temporary id table
         $conn->executeUpdate($this->_createTempTableSql);
 
@@ -216,31 +252,44 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
             // Execute UPDATE statements
             foreach ($this->_sqlStatements as $key => $statement) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $paramValues = [];
                 $paramTypes  = [];
 =======
                 $paramValues = array();
                 $paramTypes  = array();
 >>>>>>> contactmanager
+=======
+                $paramValues = [];
+                $paramTypes  = [];
+>>>>>>> donmanager
 
                 if (isset($this->_sqlParameters[$key])) {
                     foreach ($this->_sqlParameters[$key] as $parameterKey => $parameterName) {
                         $paramValues[] = $params[$parameterKey];
 <<<<<<< HEAD
+<<<<<<< HEAD
                         $paramTypes[]  = $types[$parameterKey] ?? ParameterTypeInferer::inferType($params[$parameterKey]);
 =======
                         $paramTypes[]  = isset($types[$parameterKey]) ? $types[$parameterKey] : ParameterTypeInferer::inferType($params[$parameterKey]);
 >>>>>>> contactmanager
+=======
+                        $paramTypes[]  = $types[$parameterKey] ?? ParameterTypeInferer::inferType($params[$parameterKey]);
+>>>>>>> donmanager
                     }
                 }
 
                 $conn->executeUpdate($statement, $paramValues, $paramTypes);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
         } catch (Throwable $exception) {
 =======
         } catch (\Exception $exception) {
 >>>>>>> contactmanager
+=======
+        } catch (Throwable $exception) {
+>>>>>>> donmanager
             // FAILURE! Drop temporary table to avoid possible collisions
             $conn->executeUpdate($this->_dropTempTableSql);
 

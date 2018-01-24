@@ -21,10 +21,14 @@ class GitignoreConfigurator extends AbstractConfigurator
     public function configure(Recipe $recipe, $vars)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->write('Added entries to .gitignore');
 =======
         $this->write('Adding entries to .gitignore');
 >>>>>>> contactmanager
+=======
+        $this->write('Added entries to .gitignore');
+>>>>>>> donmanager
 
         $gitignore = getcwd().'/.gitignore';
         if ($this->isFileMarked($recipe, $gitignore)) {
@@ -51,10 +55,14 @@ class GitignoreConfigurator extends AbstractConfigurator
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->write('Removed entries in .gitignore');
 =======
         $this->write('Removing entries in .gitignore');
 >>>>>>> contactmanager
+=======
+        $this->write('Removed entries in .gitignore');
+>>>>>>> donmanager
         file_put_contents($file, ltrim($contents, "\r\n"));
     }
 }

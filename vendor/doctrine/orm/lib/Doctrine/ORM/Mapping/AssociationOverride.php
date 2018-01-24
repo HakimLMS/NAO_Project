@@ -51,6 +51,9 @@ final class AssociationOverride implements Annotation
      */
     public $joinTable;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 
     /**
      * The name of the association-field on the inverse-side.
@@ -67,6 +70,9 @@ final class AssociationOverride implements Annotation
      * @Enum({"LAZY", "EAGER", "EXTRA_LAZY"})
      */
     public $fetch;
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 }

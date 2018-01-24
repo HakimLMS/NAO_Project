@@ -21,9 +21,13 @@ namespace Doctrine\ORM;
 
 use Doctrine\DBAL\LockMode;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\Query\Exec\AbstractSqlExecutor;
 =======
 >>>>>>> contactmanager
+=======
+use Doctrine\ORM\Query\Exec\AbstractSqlExecutor;
+>>>>>>> donmanager
 use Doctrine\ORM\Query\Parser;
 use Doctrine\ORM\Query\ParserResult;
 use Doctrine\ORM\Query\QueryException;
@@ -31,9 +35,13 @@ use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query\ParameterTypeInferer;
 use Doctrine\Common\Collections\ArrayCollection;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\Utility\HierarchyDiscriminatorResolver;
 =======
 >>>>>>> contactmanager
+=======
+use Doctrine\ORM\Utility\HierarchyDiscriminatorResolver;
+>>>>>>> donmanager
 
 /**
  * A Query object represents a DQL query.
@@ -144,10 +152,14 @@ final class Query extends AbstractQuery
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $_parsedTypes = [];
 =======
     private $_parsedTypes = array();
 >>>>>>> contactmanager
+=======
+    private $_parsedTypes = [];
+>>>>>>> donmanager
 
     /**
      * Cached DQL query.
@@ -174,10 +186,14 @@ final class Query extends AbstractQuery
      * The maximum number of results to return (the "limit").
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var integer|null
 =======
      * @var integer
 >>>>>>> contactmanager
+=======
+     * @var integer|null
+>>>>>>> donmanager
      */
     private $_maxResults = null;
 
@@ -219,10 +235,14 @@ final class Query extends AbstractQuery
     public function getSQL()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->_parse()->getSqlExecutor()->getSqlStatements();
 =======
         return $this->_parse()->getSQLExecutor()->getSQLStatements();
 >>>>>>> contactmanager
+=======
+        return $this->_parse()->getSqlExecutor()->getSqlStatements();
+>>>>>>> donmanager
     }
 
     /**
@@ -262,10 +282,14 @@ final class Query extends AbstractQuery
     private function _parse()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $types = [];
 =======
         $types = array();
 >>>>>>> contactmanager
+=======
+        $types = [];
+>>>>>>> donmanager
 
         foreach ($this->parameters as $parameter) {
             /** @var Query\Parameter $parameter */
@@ -319,10 +343,15 @@ final class Query extends AbstractQuery
         if ($this->_queryCacheProfile) {
             $executor->setQueryCacheProfile($this->_queryCacheProfile);
 <<<<<<< HEAD
+<<<<<<< HEAD
         } else {
             $executor->removeQueryCacheProfile();
 =======
 >>>>>>> contactmanager
+=======
+        } else {
+            $executor->removeQueryCacheProfile();
+>>>>>>> donmanager
         }
 
         if ($this->_resultSetMapping === null) {
@@ -337,12 +366,18 @@ final class Query extends AbstractQuery
         if ($paramCount > $mappingCount) {
             throw QueryException::tooManyParameters($mappingCount, $paramCount);
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
 
         if ($paramCount < $mappingCount) {
 =======
         } elseif ($paramCount < $mappingCount) {
 >>>>>>> contactmanager
+=======
+        }
+
+        if ($paramCount < $mappingCount) {
+>>>>>>> donmanager
             throw QueryException::tooFewParameters($mappingCount, $paramCount);
         }
 
@@ -354,6 +389,9 @@ final class Query extends AbstractQuery
         list($sqlParams, $types) = $this->processParameterMappings($paramMappings);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $this->evictResultSetCache(
             $executor,
             $sqlParams,
@@ -361,6 +399,7 @@ final class Query extends AbstractQuery
             $this->_em->getConnection()->getParams()
         );
 
+<<<<<<< HEAD
         return $executor->execute($this->_em->getConnection(), $sqlParams, $types);
     }
 
@@ -389,6 +428,31 @@ final class Query extends AbstractQuery
     }
 
 >>>>>>> contactmanager
+=======
+        return $executor->execute($this->_em->getConnection(), $sqlParams, $types);
+    }
+
+    private function evictResultSetCache(
+        AbstractSqlExecutor $executor,
+        array $sqlParams,
+        array $types,
+        array $connectionParams
+    ) {
+        if (null === $this->_queryCacheProfile || ! $this->getExpireResultCache()) {
+            return;
+        }
+
+        $cacheDriver = $this->_queryCacheProfile->getResultCacheDriver();
+        $statements  = (array) $executor->getSqlStatements(); // Type casted since it can either be a string or an array
+
+        foreach ($statements as $statement) {
+            $cacheKeys = $this->_queryCacheProfile->generateCacheKeys($statement, $sqlParams, $types, $connectionParams);
+
+            $cacheDriver->delete(reset($cacheKeys));
+        }
+    }
+
+>>>>>>> donmanager
     /**
      * Evict entity cache region
      */
@@ -419,12 +483,17 @@ final class Query extends AbstractQuery
     private function processParameterMappings($paramMappings)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $sqlParams = [];
         $types     = [];
 =======
         $sqlParams = array();
         $types     = array();
 >>>>>>> contactmanager
+=======
+        $sqlParams = [];
+        $types     = [];
+>>>>>>> donmanager
 
         foreach ($this->parameters as $parameter) {
             $key    = $parameter->getName();
@@ -440,12 +509,18 @@ final class Query extends AbstractQuery
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             if (isset($rsm->discriminatorParameters[$key]) && $value instanceof ClassMetadata) {
                 $value = array_keys(HierarchyDiscriminatorResolver::resolveDiscriminatorsForClass($value, $this->_em));
             }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             $value = $this->processParameterValue($value);
             $type  = ($parameter->getValue() === $value)
                 ? $parameter->getType()
@@ -460,10 +535,14 @@ final class Query extends AbstractQuery
             // optimized multi value sql positions away for now,
             // they are not allowed in DQL anyways.
 <<<<<<< HEAD
+<<<<<<< HEAD
             $value = [$value];
 =======
             $value = array($value);
 >>>>>>> contactmanager
+=======
+            $value = [$value];
+>>>>>>> donmanager
             $countValue = count($value);
 
             for ($i = 0, $l = count($sqlPositions); $i < $l; $i++) {
@@ -484,10 +563,14 @@ final class Query extends AbstractQuery
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [$sqlParams, $types];
 =======
         return array($sqlParams, $types);
 >>>>>>> contactmanager
+=======
+        return [$sqlParams, $types];
+>>>>>>> donmanager
     }
 
     /**
@@ -648,10 +731,14 @@ final class Query extends AbstractQuery
     public function contains($dql)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return stripos($this->getDQL(), $dql) !== false;
 =======
         return stripos($this->getDQL(), $dql) === false ? false : true;
 >>>>>>> contactmanager
+=======
+        return stripos($this->getDQL(), $dql) !== false;
+>>>>>>> donmanager
     }
 
     /**
@@ -684,10 +771,14 @@ final class Query extends AbstractQuery
      * Sets the maximum number of results to retrieve (the "limit").
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param integer|null $maxResults
 =======
      * @param integer $maxResults
 >>>>>>> contactmanager
+=======
+     * @param integer|null $maxResults
+>>>>>>> donmanager
      *
      * @return Query This query object.
      */
@@ -704,10 +795,14 @@ final class Query extends AbstractQuery
      * Returns NULL if {@link setMaxResults} was not applied to this query.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return integer|null Maximum number of results.
 =======
      * @return integer Maximum number of results.
 >>>>>>> contactmanager
+=======
+     * @return integer|null Maximum number of results.
+>>>>>>> donmanager
      */
     public function getMaxResults()
     {
@@ -756,10 +851,14 @@ final class Query extends AbstractQuery
      * @see \Doctrine\DBAL\LockMode
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param int $lockMode
 =======
      * @param  int $lockMode
 >>>>>>> contactmanager
+=======
+     * @param int $lockMode
+>>>>>>> donmanager
      *
      * @return Query
      *
@@ -768,10 +867,14 @@ final class Query extends AbstractQuery
     public function setLockMode($lockMode)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (in_array($lockMode, [LockMode::NONE, LockMode::PESSIMISTIC_READ, LockMode::PESSIMISTIC_WRITE], true)) {
 =======
         if (in_array($lockMode, array(LockMode::NONE, LockMode::PESSIMISTIC_READ, LockMode::PESSIMISTIC_WRITE), true)) {
 >>>>>>> contactmanager
+=======
+        if (in_array($lockMode, [LockMode::NONE, LockMode::PESSIMISTIC_READ, LockMode::PESSIMISTIC_WRITE], true)) {
+>>>>>>> donmanager
             if ( ! $this->_em->getConnection()->isTransactionActive()) {
                 throw TransactionRequiredException::transactionRequired();
             }
@@ -814,10 +917,14 @@ final class Query extends AbstractQuery
 
         return md5(
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->getDQL() . serialize($this->_hints) .
 =======
             $this->getDql() . serialize($this->_hints) .
 >>>>>>> contactmanager
+=======
+            $this->getDQL() . serialize($this->_hints) .
+>>>>>>> donmanager
             '&platform=' . $platform .
             ($this->_em->hasFilters() ? $this->_em->getFilters()->getHash() : '') .
             '&firstResult=' . $this->_firstResult . '&maxResult=' . $this->_maxResults .

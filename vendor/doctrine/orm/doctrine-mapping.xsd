@@ -102,10 +102,14 @@
     </xs:sequence>
     <xs:attribute name="name" type="xs:string" use="required" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="result-class" type="orm:fqcn" />
 =======
     <xs:attribute name="result-class" type="xs:string" />
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="result-class" type="orm:fqcn" />
+>>>>>>> donmanager
     <xs:attribute name="result-set-mapping" type="xs:string" />
   </xs:complexType>
 
@@ -122,10 +126,14 @@
       <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
     </xs:sequence>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="class" type="orm:fqcn"/>
 =======
     <xs:attribute name="class" type="xs:string"/>
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="class" type="orm:fqcn"/>
+>>>>>>> donmanager
   </xs:complexType>
 
   <xs:complexType name="entity-listeners">
@@ -148,10 +156,14 @@
       <xs:element name="field-result" type="orm:field-result" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="entity-class" type="orm:fqcn" use="required" />
 =======
     <xs:attribute name="entity-class" type="xs:string" use="required" />
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="entity-class" type="orm:fqcn" use="required" />
+>>>>>>> donmanager
     <xs:attribute name="discriminator-column" type="xs:string" use="optional" />
   </xs:complexType>
 
@@ -180,10 +192,14 @@
 
   <xs:complexType name="entity">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:choice minOccurs="0" maxOccurs="unbounded">
 =======
     <xs:sequence>
 >>>>>>> contactmanager
+=======
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+>>>>>>> donmanager
       <xs:element name="cache" type="orm:cache" minOccurs="0" maxOccurs="1"/>
       <xs:element name="options" type="orm:options" minOccurs="0" />
       <xs:element name="indexes" type="orm:indexes" minOccurs="0"/>
@@ -206,6 +222,7 @@
       <xs:element name="attribute-overrides" type="orm:attribute-overrides" minOccurs="0" maxOccurs="unbounded" />
       <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </xs:choice>
     <xs:attribute name="name" type="xs:string" use="required" />
     <xs:attribute name="table" type="orm:tablename" />
@@ -213,11 +230,18 @@
     <xs:attribute name="repository-class" type="orm:fqcn"/>
 =======
     </xs:sequence>
+=======
+    </xs:choice>
+>>>>>>> donmanager
     <xs:attribute name="name" type="xs:string" use="required" />
-    <xs:attribute name="table" type="xs:NMTOKEN" />
+    <xs:attribute name="table" type="orm:tablename" />
     <xs:attribute name="schema" type="xs:NMTOKEN" />
+<<<<<<< HEAD
     <xs:attribute name="repository-class" type="xs:string"/>
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="repository-class" type="orm:fqcn"/>
+>>>>>>> donmanager
     <xs:attribute name="inheritance-type" type="orm:inheritance-type"/>
     <xs:attribute name="change-tracking-policy" type="orm:change-tracking-policy" />
     <xs:attribute name="read-only" type="xs:boolean" default="false" />
@@ -225,6 +249,9 @@
   </xs:complexType>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
   <xs:simpleType name="tablename" id="tablename">
     <xs:restriction base="xs:token">
       <xs:pattern value="[a-zA-Z_u01-uff.]+" id="tablename.pattern">
@@ -232,8 +259,11 @@
     </xs:restriction>
   </xs:simpleType>
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
   <xs:complexType name="option" mixed="true">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element name="option" type="orm:option"/>
@@ -337,10 +367,14 @@
   <xs:complexType name="embedded">
     <xs:attribute name="name" type="xs:string" use="required" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="class" type="orm:fqcn" use="required" />
 =======
     <xs:attribute name="class" type="xs:string" use="required" />
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="class" type="orm:fqcn" use="required" />
+>>>>>>> donmanager
     <xs:attribute name="column-prefix" type="xs:string" use="optional" />
     <xs:attribute name="use-column-prefix" type="xs:boolean" default="true" use="optional" />
   </xs:complexType>
@@ -400,10 +434,14 @@
     </xs:sequence>
     <xs:attribute name="value" type="xs:NMTOKEN" use="required"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="class" type="orm:fqcn" use="required"/>
 =======
     <xs:attribute name="class" type="xs:string" use="required"/>
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="class" type="orm:fqcn" use="required"/>
+>>>>>>> donmanager
     <xs:anyAttribute namespace="##other"/>
   </xs:complexType>
 
@@ -455,6 +493,7 @@
       <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
     </xs:sequence>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="class" type="orm:fqcn" use="required" />
   </xs:complexType>
 
@@ -470,6 +509,18 @@
   </xs:complexType>
 
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="class" type="orm:fqcn" use="required" />
+  </xs:complexType>
+
+  <xs:simpleType name="fqcn" id="fqcn">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="[a-zA-Z_u01-uff][a-zA-Z0-9_u01-uff]+" id="fqcn.pattern">
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+>>>>>>> donmanager
   <xs:complexType name="inverse-join-columns">
     <xs:sequence>
       <xs:element name="join-column" type="orm:join-column" minOccurs="1" maxOccurs="unbounded" />
@@ -543,6 +594,7 @@
       <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
     </xs:sequence>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="field" type="xs:NMTOKEN" use="required" />
     <xs:attribute name="target-entity" type="xs:string" use="required" />
     <xs:attribute name="mapped-by" type="xs:NMTOKEN" />
@@ -550,11 +602,17 @@
     <xs:attribute name="index-by" type="xs:NMTOKEN" />
 =======
     <xs:attribute name="target-entity" type="xs:string" use="required" />
+=======
+>>>>>>> donmanager
     <xs:attribute name="field" type="xs:NMTOKEN" use="required" />
+    <xs:attribute name="target-entity" type="xs:string" use="required" />
     <xs:attribute name="mapped-by" type="xs:NMTOKEN" />
-    <xs:attribute name="index-by" type="xs:NMTOKEN" />
     <xs:attribute name="inversed-by" type="xs:NMTOKEN" />
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="index-by" type="xs:NMTOKEN" />
+>>>>>>> donmanager
     <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
     <xs:attribute name="orphan-removal" type="xs:boolean" default="false" />
     <xs:anyAttribute namespace="##other"/>
@@ -568,6 +626,7 @@
       <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
     </xs:sequence>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="field" type="xs:NMTOKEN" use="required" />
     <xs:attribute name="target-entity" type="xs:string" use="required" />
     <xs:attribute name="mapped-by" type="xs:NMTOKEN" use="required" />
@@ -575,13 +634,18 @@
     <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
     <xs:attribute name="orphan-removal" type="xs:boolean" default="false" />
 =======
+=======
+    <xs:attribute name="field" type="xs:NMTOKEN" use="required" />
+>>>>>>> donmanager
     <xs:attribute name="target-entity" type="xs:string" use="required" />
     <xs:attribute name="mapped-by" type="xs:NMTOKEN" use="required" />
-    <xs:attribute name="field" type="xs:NMTOKEN" use="required" />
     <xs:attribute name="index-by" type="xs:NMTOKEN" />
-    <xs:attribute name="orphan-removal" type="xs:boolean" default="false" />
     <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="orphan-removal" type="xs:boolean" default="false" />
+>>>>>>> donmanager
     <xs:anyAttribute namespace="##other"/>
   </xs:complexType>
 
@@ -597,17 +661,23 @@
       <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
     </xs:sequence>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="field" type="xs:NMTOKEN" use="required" />
     <xs:attribute name="target-entity" type="xs:string" use="required" />
     <xs:attribute name="inversed-by" type="xs:NMTOKEN" />
     <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
 =======
     <xs:attribute name="target-entity" type="xs:string" use="required" />
+=======
+>>>>>>> donmanager
     <xs:attribute name="field" type="xs:NMTOKEN" use="required" />
-    <xs:attribute name="orphan-removal" type="xs:boolean" default="false" />
-    <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
+    <xs:attribute name="target-entity" type="xs:string" use="required" />
     <xs:attribute name="inversed-by" type="xs:NMTOKEN" />
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
+>>>>>>> donmanager
     <xs:anyAttribute namespace="##other"/>
   </xs:complexType>
 
@@ -627,12 +697,17 @@
     <xs:attribute name="mapped-by" type="xs:NMTOKEN" />
     <xs:attribute name="inversed-by" type="xs:NMTOKEN" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
     <xs:attribute name="orphan-removal" type="xs:boolean" default="false" />
 =======
     <xs:attribute name="orphan-removal" type="xs:boolean" default="false" />
     <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
 >>>>>>> contactmanager
+=======
+    <xs:attribute name="fetch" type="orm:fetch-type" default="LAZY" />
+    <xs:attribute name="orphan-removal" type="xs:boolean" default="false" />
+>>>>>>> donmanager
     <xs:anyAttribute namespace="##other"/>
   </xs:complexType>
 
@@ -648,6 +723,7 @@
       <xs:element name="join-table" type="orm:join-table" minOccurs="0" />
       <xs:element name="join-columns" type="orm:join-columns" minOccurs="0" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <xs:element name="inversed-by" type="orm:inversed-by-override" minOccurs="0" maxOccurs="1" />
       <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
     </xs:sequence>
@@ -662,6 +738,17 @@
     </xs:sequence>
     <xs:attribute name="name" type="xs:NMTOKEN" use="required" />
 >>>>>>> contactmanager
+=======
+      <xs:element name="inversed-by" type="orm:inversed-by-override" minOccurs="0" maxOccurs="1" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+    <xs:attribute name="fetch" type="orm:fetch-type" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="inversed-by-override">
+    <xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+>>>>>>> donmanager
   </xs:complexType>
 
   <xs:complexType name="attribute-overrides">

@@ -74,10 +74,14 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->queuedCache = [];
 =======
         $this->queuedCache = array();
 >>>>>>> contactmanager
+=======
+        $this->queuedCache = [];
+>>>>>>> donmanager
     }
 
     /**
@@ -98,10 +102,14 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->queuedCache = [];
 =======
         $this->queuedCache = array();
 >>>>>>> contactmanager
+=======
+        $this->queuedCache = [];
+>>>>>>> donmanager
     }
 
     /**
@@ -122,6 +130,7 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->queuedCache['delete'][] = [
             'lock'   => $lock,
             'key'    => $key
@@ -132,6 +141,12 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
             'key'    => $key
         );
 >>>>>>> contactmanager
+=======
+        $this->queuedCache['delete'][] = [
+            'lock'   => $lock,
+            'key'    => $key
+        ];
+>>>>>>> donmanager
 
         return $deleted;
     }
@@ -151,6 +166,7 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->queuedCache['update'][] = [
             'lock'   => $lock,
             'key'    => $key
@@ -161,5 +177,11 @@ class ReadWriteCachedEntityPersister extends AbstractEntityPersister
             'key'    => $key
         );
 >>>>>>> contactmanager
+=======
+        $this->queuedCache['update'][] = [
+            'lock'   => $lock,
+            'key'    => $key
+        ];
+>>>>>>> donmanager
     }
 }

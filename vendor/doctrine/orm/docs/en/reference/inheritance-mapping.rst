@@ -126,6 +126,7 @@ Things to note:
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 -  The @InheritanceType and @DiscriminatorColumn must be specified 
    on the topmost class that is part of the mapped entity hierarchy.
 =======
@@ -133,6 +134,10 @@ Things to note:
    must be specified on the topmost class that is part of the mapped
    entity hierarchy.
 >>>>>>> contactmanager
+=======
+-  The @InheritanceType and @DiscriminatorColumn must be specified 
+   on the topmost class that is part of the mapped entity hierarchy.
+>>>>>>> donmanager
 -  The @DiscriminatorMap specifies which values of the
    discriminator column identify a row as being of a certain type. In
    the case above a value of "person" identifies a row as being of
@@ -166,10 +171,14 @@ the hierarchy or for specific types. No table joins are required,
 only a WHERE clause listing the type identifiers. In particular,
 relationships involving types that employ this mapping strategy are
 <<<<<<< HEAD
+<<<<<<< HEAD
 very performing.
 =======
 very performant.
 >>>>>>> contactmanager
+=======
+very performing.
+>>>>>>> donmanager
 
 There is a general performance consideration with Single Table
 Inheritance: If the target-entity of a many-to-one or one-to-one 
@@ -465,10 +474,15 @@ Things to note:
 -  The association type *CANNOT* be changed.
 -  The override could redefine the joinTables or joinColumns depending on the association type.
 <<<<<<< HEAD
+<<<<<<< HEAD
 -  The override could redefine inversedBy to reference more than one extended entity.
 -  The override could redefine fetch to modify the fetch strategy of the extended entity.
 =======
 >>>>>>> contactmanager
+=======
+-  The override could redefine inversedBy to reference more than one extended entity.
+-  The override could redefine fetch to modify the fetch strategy of the extended entity.
+>>>>>>> donmanager
 
 Attribute Override
 ~~~~~~~~~~~~~~~~~~~~

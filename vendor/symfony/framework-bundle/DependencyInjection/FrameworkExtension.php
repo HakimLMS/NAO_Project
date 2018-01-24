@@ -37,9 +37,13 @@ use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\Exception\LogicException;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Symfony\Component\DependencyInjection\Parameter;
 =======
 >>>>>>> contactmanager
+=======
+use Symfony\Component\DependencyInjection\Parameter;
+>>>>>>> donmanager
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ServiceSubscriberInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -658,10 +662,14 @@ class FrameworkExtension extends Extension
         // session storage
         $container->setAlias('session.storage', $config['storage_id'])->setPrivate(true);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $options = array('cache_limiter' => '0');
 =======
         $options = array();
 >>>>>>> contactmanager
+=======
+        $options = array('cache_limiter' => '0');
+>>>>>>> donmanager
         foreach (array('name', 'cookie_lifetime', 'cookie_path', 'cookie_domain', 'cookie_secure', 'cookie_httponly', 'use_cookies', 'gc_maxlifetime', 'gc_probability', 'gc_divisor') as $key) {
             if (isset($config[$key])) {
                 $options[$key] = $config[$key];
@@ -905,11 +913,14 @@ class FrameworkExtension extends Extension
                 $dirs[] = $dir;
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             if ($container->fileExists($dir = $defaultDir.'/'.$name)) {
                 $dirs[] = $dir;
             }
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             if ($container->fileExists($dir = $rootDir.sprintf('/Resources/%s/translations', $name))) {
                 $dirs[] = $dir;
             }
@@ -1152,10 +1163,14 @@ class FrameworkExtension extends Extension
 
         if (!class_exists('Symfony\Component\Security\Csrf\CsrfToken')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             throw new LogicException('CSRF support cannot be enabled as the Security CSRF component is not installed. Try running "composer require symfony/security-csrf".');
 =======
             throw new LogicException('CSRF support cannot be enabled as the Security CSRF component is not installed. Try running "composer require security-csrf".');
 >>>>>>> contactmanager
+=======
+            throw new LogicException('CSRF support cannot be enabled as the Security CSRF component is not installed. Try running "composer require symfony/security-csrf".');
+>>>>>>> donmanager
         }
 
         if (!$this->sessionConfigEnabled) {
@@ -1351,10 +1366,14 @@ class FrameworkExtension extends Extension
     private function registerCacheConfiguration(array $config, ContainerBuilder $container)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $version = new Parameter('container.build_id');
 =======
         $version = substr(str_replace('/', '-', base64_encode(hash('sha256', uniqid(mt_rand(), true), true))), 0, 22);
 >>>>>>> contactmanager
+=======
+        $version = new Parameter('container.build_id');
+>>>>>>> donmanager
         $container->getDefinition('cache.adapter.apcu')->replaceArgument(2, $version);
         $container->getDefinition('cache.adapter.system')->replaceArgument(2, $version);
         $container->getDefinition('cache.adapter.filesystem')->replaceArgument(2, $config['directory']);

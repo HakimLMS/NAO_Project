@@ -15,20 +15,35 @@ class __TwigTemplate_b66095d1f47d01e4724611aad278e5962fa6eabd96b7ce12724240e40a9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_c83406252148200fba14a994994183edf6f5c0bb8906aa34df83938542a03689 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
         $__internal_c83406252148200fba14a994994183edf6f5c0bb8906aa34df83938542a03689->enter($__internal_c83406252148200fba14a994994183edf6f5c0bb8906aa34df83938542a03689_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/images/icon-minus-square-o.svg"));
 
         $__internal_1ad394e1e0b0662fd4a411d5ddbf7da64128e28d9579a519659f79681fb3d8f0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_1ad394e1e0b0662fd4a411d5ddbf7da64128e28d9579a519659f79681fb3d8f0->enter($__internal_1ad394e1e0b0662fd4a411d5ddbf7da64128e28d9579a519659f79681fb3d8f0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/images/icon-minus-square-o.svg"));
+=======
+        $__internal_e3acad8859a147c97e77c7b9915e53941a0a8ccde5ad6aa8d8e2291657fc56e0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e3acad8859a147c97e77c7b9915e53941a0a8ccde5ad6aa8d8e2291657fc56e0->enter($__internal_e3acad8859a147c97e77c7b9915e53941a0a8ccde5ad6aa8d8e2291657fc56e0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/images/icon-minus-square-o.svg"));
+
+        $__internal_702e1af73fc68e74be67a053f28a6fb1fe626191380a8395fb05c217a3e87798 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_702e1af73fc68e74be67a053f28a6fb1fe626191380a8395fb05c217a3e87798->enter($__internal_702e1af73fc68e74be67a053f28a6fb1fe626191380a8395fb05c217a3e87798_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Twig/images/icon-minus-square-o.svg"));
+>>>>>>> donmanager
 
         // line 1
         echo "<svg width=\"1792\" height=\"1792\" viewBox=\"0 0 1792 1792\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1344 800v64q0 14-9 23t-23 9H480q-14 0-23-9t-9-23v-64q0-14 9-23t23-9h832q14 0 23 9t9 23zm128 448V416q0-66-47-113t-113-47H480q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113zm128-832v832q0 119-84.5 203.5T1312 1536H480q-119 0-203.5-84.5T192 1248V416q0-119 84.5-203.5T480 128h832q119 0 203.5 84.5T1600 416z\"/></svg>
 ";
         
+<<<<<<< HEAD
         $__internal_c83406252148200fba14a994994183edf6f5c0bb8906aa34df83938542a03689->leave($__internal_c83406252148200fba14a994994183edf6f5c0bb8906aa34df83938542a03689_prof);
 
         
         $__internal_1ad394e1e0b0662fd4a411d5ddbf7da64128e28d9579a519659f79681fb3d8f0->leave($__internal_1ad394e1e0b0662fd4a411d5ddbf7da64128e28d9579a519659f79681fb3d8f0_prof);
+=======
+        $__internal_e3acad8859a147c97e77c7b9915e53941a0a8ccde5ad6aa8d8e2291657fc56e0->leave($__internal_e3acad8859a147c97e77c7b9915e53941a0a8ccde5ad6aa8d8e2291657fc56e0_prof);
+
+        
+        $__internal_702e1af73fc68e74be67a053f28a6fb1fe626191380a8395fb05c217a3e87798->leave($__internal_702e1af73fc68e74be67a053f28a6fb1fe626191380a8395fb05c217a3e87798_prof);
+>>>>>>> donmanager
 
     }
 
@@ -45,6 +60,10 @@ class __TwigTemplate_b66095d1f47d01e4724611aad278e5962fa6eabd96b7ce12724240e40a9
     public function getSourceContext()
     {
         return new Twig_Source("<svg width=\"1792\" height=\"1792\" viewBox=\"0 0 1792 1792\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1344 800v64q0 14-9 23t-23 9H480q-14 0-23-9t-9-23v-64q0-14 9-23t23-9h832q14 0 23 9t9 23zm128 448V416q0-66-47-113t-113-47H480q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113zm128-832v832q0 119-84.5 203.5T1312 1536H480q-119 0-203.5-84.5T192 1248V416q0-119 84.5-203.5T480 128h832q119 0 203.5 84.5T1600 416z\"/></svg>
+<<<<<<< HEAD
 ", "@Twig/images/icon-minus-square-o.svg", "E:\\wamp64\\www\\NAO_project\\vendor\\symfony\\twig-bundle\\Resources\\views\\images\\icon-minus-square-o.svg");
+=======
+", "@Twig/images/icon-minus-square-o.svg", "C:\\wamp64\\www\\NAO_Project\\vendor\\symfony\\twig-bundle\\Resources\\views\\images\\icon-minus-square-o.svg");
+>>>>>>> donmanager
     }
 }

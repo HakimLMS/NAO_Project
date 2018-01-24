@@ -32,9 +32,12 @@ use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\Tests\Extension\Core\Type\BaseTypeTest;
 use Symfony\Component\Form\Tests\Extension\Core\Type\FormTypeTest;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Symfony\Component\PropertyAccess\PropertyAccess;
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleAssociationToIntIdEntity;
 use Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity;
 
@@ -1124,6 +1127,7 @@ class EntityTypeTest extends BaseTypeTest
         $repo = $this->em->getRepository(self::SINGLE_IDENT_CLASS);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $entityType = new EntityType($this->emRegistry);
 =======
         $entityType = new EntityType(
@@ -1131,6 +1135,9 @@ class EntityTypeTest extends BaseTypeTest
             PropertyAccess::createPropertyAccessor()
         );
 >>>>>>> contactmanager
+=======
+        $entityType = new EntityType($this->emRegistry);
+>>>>>>> donmanager
 
         $entityTypeGuesser = new DoctrineOrmTypeGuesser($this->emRegistry);
 
@@ -1191,6 +1198,7 @@ class EntityTypeTest extends BaseTypeTest
         $repo = $this->em->getRepository(self::SINGLE_IDENT_CLASS);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $entityType = new EntityType($this->emRegistry);
 =======
         $entityType = new EntityType(
@@ -1198,6 +1206,9 @@ class EntityTypeTest extends BaseTypeTest
             PropertyAccess::createPropertyAccessor()
         );
 >>>>>>> contactmanager
+=======
+        $entityType = new EntityType($this->emRegistry);
+>>>>>>> donmanager
 
         $entityTypeGuesser = new DoctrineOrmTypeGuesser($this->emRegistry);
 

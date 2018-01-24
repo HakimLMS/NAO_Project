@@ -47,10 +47,14 @@ class NonStrictReadWriteCachedCollectionPersister extends AbstractCollectionPers
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->queuedCache = [];
 =======
         $this->queuedCache = array();
 >>>>>>> contactmanager
+=======
+        $this->queuedCache = [];
+>>>>>>> donmanager
     }
 
     /**
@@ -59,10 +63,14 @@ class NonStrictReadWriteCachedCollectionPersister extends AbstractCollectionPers
     public function afterTransactionRolledBack()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->queuedCache = [];
 =======
         $this->queuedCache = array();
 >>>>>>> contactmanager
+=======
+        $this->queuedCache = [];
+>>>>>>> donmanager
     }
 
     /**
@@ -105,6 +113,7 @@ class NonStrictReadWriteCachedCollectionPersister extends AbstractCollectionPers
         $this->persister->update($collection);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->queuedCache['update'][spl_object_hash($collection)] = [
             'key'   => $key,
             'list'  => $collection
@@ -115,5 +124,11 @@ class NonStrictReadWriteCachedCollectionPersister extends AbstractCollectionPers
             'list'  => $collection
         );
 >>>>>>> contactmanager
+=======
+        $this->queuedCache['update'][spl_object_hash($collection)] = [
+            'key'   => $key,
+            'list'  => $collection
+        ];
+>>>>>>> donmanager
     }
 }

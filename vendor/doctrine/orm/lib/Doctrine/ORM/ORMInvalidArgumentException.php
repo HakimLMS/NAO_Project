@@ -83,6 +83,9 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
      * @param array[][]|object[][] $newEntitiesWithAssociations non-empty an array
  *                                                              of [array $associationMapping, object $entity] pairs
      *
@@ -112,13 +115,17 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
 
     /**
      * @param array  $associationMapping
+<<<<<<< HEAD
 =======
      * @param array  $assoc
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      * @param object $entry
      *
      * @return ORMInvalidArgumentException
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     static public function newEntityFoundThroughRelationship(array $associationMapping, $entry)
     {
@@ -137,6 +144,11 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
                                 " If you cannot find out which entity causes the problem"
                                ." implement '" . $assoc['targetEntity'] . "#__toString()' to get a clue."));
 >>>>>>> contactmanager
+=======
+    static public function newEntityFoundThroughRelationship(array $associationMapping, $entry)
+    {
+        return new self(self::newEntityFoundThroughRelationshipMessage($associationMapping, $entry));
+>>>>>>> donmanager
     }
 
     /**
@@ -149,12 +161,17 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     {
         return new self("A detached entity of type " . $assoc['targetEntity'] . " (" . self::objToStr($entry) . ") "
 <<<<<<< HEAD
+<<<<<<< HEAD
             . " was found through the relationship '" . $assoc['sourceEntity'] . "#" . $assoc['fieldName'] . "' "
             . "during cascading a persist operation.");
 =======
                         . " was found through the relationship '" . $assoc['sourceEntity'] . "#" . $assoc['fieldName'] . "' "
                         . "during cascading a persist operation.");
 >>>>>>> contactmanager
+=======
+            . " was found through the relationship '" . $assoc['sourceEntity'] . "#" . $assoc['fieldName'] . "' "
+            . "during cascading a persist operation.");
+>>>>>>> donmanager
     }
 
     /**
@@ -166,10 +183,14 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     {
         return new self("Entity " . self::objToStr($entity) . " is not managed. An entity is managed if its fetched " .
 <<<<<<< HEAD
+<<<<<<< HEAD
             "from the database or registered as new through EntityManager#persist");
 =======
                 "from the database or registered as new through EntityManager#persist");
 >>>>>>> contactmanager
+=======
+            "from the database or registered as new through EntityManager#persist");
+>>>>>>> donmanager
     }
 
     /**
@@ -216,10 +237,14 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     {
         return new self($context . ' expects parameter ' . $parameterIndex .
 <<<<<<< HEAD
+<<<<<<< HEAD
             ' to be an entity object, '. gettype($given) . ' given.');
 =======
                     ' to be an entity object, '. gettype($given) . ' given.');
 >>>>>>> contactmanager
+=======
+            ' to be an entity object, '. gettype($given) . ' given.');
+>>>>>>> donmanager
     }
 
     /**
@@ -249,6 +274,7 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     public static function invalidAssociation(ClassMetadata $targetClass, $assoc, $actualValue)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $expectedType = $targetClass->getName();
 =======
         $expectedType = 'Doctrine\Common\Collections\Collection|array';
@@ -257,6 +283,9 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
             $expectedType = $targetClass->getName();
         }
 >>>>>>> contactmanager
+=======
+        $expectedType = $targetClass->getName();
+>>>>>>> donmanager
 
         return new self(sprintf(
             'Expected value of type "%s" for association field "%s#$%s", got "%s" instead.',
@@ -269,6 +298,9 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
      * Used when a given entityName hasn't the good type
      *
      * @param mixed $entityName The given entity (which shouldn't be a string)
@@ -281,8 +313,11 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     }
 
     /**
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      * Helper method to show an object as string.
      *
      * @param object $obj
@@ -290,6 +325,9 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
      * @return string
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     private static function objToStr($obj) : string
     {
         return method_exists($obj, '__toString') ? (string) $obj : get_class($obj).'@'.spl_object_hash($obj);
@@ -300,6 +338,7 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
      * @param object $entity
      */
     private static function newEntityFoundThroughRelationshipMessage(array $associationMapping, $entity) : string
+<<<<<<< HEAD
     {
         return 'A new entity was found through the relationship \''
             . $associationMapping['sourceEntity'] . '#' . $associationMapping['fieldName'] . '\' that was not'
@@ -317,5 +356,19 @@ class ORMInvalidArgumentException extends \InvalidArgumentException
     {
         return method_exists($obj, '__toString') ? (string)$obj : get_class($obj).'@'.spl_object_hash($obj);
 >>>>>>> contactmanager
+=======
+    {
+        return 'A new entity was found through the relationship \''
+            . $associationMapping['sourceEntity'] . '#' . $associationMapping['fieldName'] . '\' that was not'
+            . ' configured to cascade persist operations for entity: ' . self::objToStr($entity) . '.'
+            . ' To solve this issue: Either explicitly call EntityManager#persist()'
+            . ' on this unknown entity or configure cascade persist'
+            . ' this association in the mapping for example @ManyToOne(..,cascade={"persist"}).'
+            . (method_exists($entity, '__toString')
+                ? ''
+                : ' If you cannot find out which entity causes the problem implement \''
+                . $associationMapping['targetEntity'] . '#__toString()\' to get a clue.'
+            );
+>>>>>>> donmanager
     }
 }

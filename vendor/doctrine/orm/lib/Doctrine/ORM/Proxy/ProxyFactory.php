@@ -77,10 +77,14 @@ class ProxyFactory extends AbstractProxyFactory
         $proxyGenerator = new ProxyGenerator($proxyDir, $proxyNs);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $proxyGenerator->setPlaceholder('baseProxyInterface', Proxy::class);
 =======
         $proxyGenerator->setPlaceholder('baseProxyInterface', 'Doctrine\ORM\Proxy\Proxy');
 >>>>>>> contactmanager
+=======
+        $proxyGenerator->setPlaceholder('baseProxyInterface', Proxy::class);
+>>>>>>> donmanager
         parent::__construct($proxyGenerator, $em->getMetadataFactory(), $autoGenerate);
 
         $this->em                  = $em;
@@ -130,6 +134,7 @@ class ProxyFactory extends AbstractProxyFactory
     private function createInitializer(ClassMetadata $classMetadata, EntityPersister $entityPersister)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $wakeupProxy = $classMetadata->getReflectionClass()->hasMethod('__wakeup');
 
         return function (BaseProxy $proxy) use ($entityPersister, $classMetadata, $wakeupProxy) {
@@ -174,6 +179,11 @@ class ProxyFactory extends AbstractProxyFactory
 
         return function (BaseProxy $proxy) use ($entityPersister, $classMetadata) {
 >>>>>>> contactmanager
+=======
+        $wakeupProxy = $classMetadata->getReflectionClass()->hasMethod('__wakeup');
+
+        return function (BaseProxy $proxy) use ($entityPersister, $classMetadata, $wakeupProxy) {
+>>>>>>> donmanager
             $initializer = $proxy->__getInitializer();
             $cloner      = $proxy->__getCloner();
 
@@ -188,10 +198,14 @@ class ProxyFactory extends AbstractProxyFactory
 
             foreach ($properties as $propertyName => $property) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if ( ! isset($proxy->$propertyName)) {
 =======
                 if (!isset($proxy->$propertyName)) {
 >>>>>>> contactmanager
+=======
+                if ( ! isset($proxy->$propertyName)) {
+>>>>>>> donmanager
                     $proxy->$propertyName = $properties[$propertyName];
                 }
             }
@@ -199,12 +213,18 @@ class ProxyFactory extends AbstractProxyFactory
             $proxy->__setInitialized(true);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             if ($wakeupProxy) {
                 $proxy->__wakeup();
             }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             $identifier = $classMetadata->getIdentifierValues($proxy);
 
             if (null === $entityPersister->loadById($identifier, $proxy)) {

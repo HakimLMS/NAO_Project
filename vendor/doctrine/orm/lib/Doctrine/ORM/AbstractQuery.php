@@ -28,11 +28,14 @@ use Doctrine\ORM\Cache\QueryCacheKey;
 use Doctrine\DBAL\Cache\QueryCacheProfile;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Doctrine\ORM\Cache;
 use Doctrine\ORM\Query\ResultSetMapping;
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 /**
  * Base contract for ORM queries. Base class for Query and NativeQuery.
  *
@@ -100,10 +103,14 @@ abstract class AbstractQuery
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $_hints = [];
 =======
     protected $_hints = array();
 >>>>>>> contactmanager
+=======
+    protected $_hints = [];
+>>>>>>> donmanager
 
     /**
      * The hydration mode.
@@ -114,10 +121,14 @@ abstract class AbstractQuery
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var \Doctrine\DBAL\Cache\QueryCacheProfile
 =======
      * @param \Doctrine\DBAL\Cache\QueryCacheProfile
 >>>>>>> contactmanager
+=======
+     * @var \Doctrine\DBAL\Cache\QueryCacheProfile
+>>>>>>> donmanager
      */
     protected $_queryCacheProfile;
 
@@ -130,10 +141,14 @@ abstract class AbstractQuery
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var \Doctrine\DBAL\Cache\QueryCacheProfile
 =======
      * @param \Doctrine\DBAL\Cache\QueryCacheProfile
 >>>>>>> contactmanager
+=======
+     * @var \Doctrine\DBAL\Cache\QueryCacheProfile
+>>>>>>> donmanager
      */
     protected $_hydrationCacheProfile;
 
@@ -194,9 +209,12 @@ abstract class AbstractQuery
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      * Enable/disable second level query (result) caching for this query.
      *
      * @param boolean $cacheable
@@ -234,10 +252,14 @@ abstract class AbstractQuery
     * Obtain the name of the second level query cache region in which query results will be stored
     *
 <<<<<<< HEAD
+<<<<<<< HEAD
     * @return string|null The cache region name; NULL indicates the default region.
 =======
     * @return The cache region name; NULL indicates the default region.
 >>>>>>> contactmanager
+=======
+    * @return string|null The cache region name; NULL indicates the default region.
+>>>>>>> donmanager
     */
     public function getCacheRegion()
     {
@@ -266,10 +288,14 @@ abstract class AbstractQuery
      * @param integer $lifetime
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return \Doctrine\ORM\AbstractQuery This query instance.
 =======
      * @return static This query instance.
 >>>>>>> contactmanager
+=======
+     * @return \Doctrine\ORM\AbstractQuery This query instance.
+>>>>>>> donmanager
      */
     public function setLifetime($lifetime)
     {
@@ -290,10 +316,14 @@ abstract class AbstractQuery
      * @param integer $cacheMode
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return \Doctrine\ORM\AbstractQuery This query instance.
 =======
      * @return static This query instance.
 >>>>>>> contactmanager
+=======
+     * @return \Doctrine\ORM\AbstractQuery This query instance.
+>>>>>>> donmanager
      */
     public function setCacheMode($cacheMode)
     {
@@ -356,10 +386,14 @@ abstract class AbstractQuery
     {
         $filteredParameters = $this->parameters->filter(
 <<<<<<< HEAD
+<<<<<<< HEAD
             function (Query\Parameter $parameter) use ($key) : bool {
 =======
             function (Query\Parameter $parameter) use ($key) {
 >>>>>>> contactmanager
+=======
+            function (Query\Parameter $parameter) use ($key) : bool {
+>>>>>>> donmanager
                 $parameterName = $parameter->getName();
 
                 return $key === $parameterName || (string) $key === (string) $parameterName;
@@ -426,10 +460,14 @@ abstract class AbstractQuery
      * @param mixed $value
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return array|string
 =======
      * @return array
 >>>>>>> contactmanager
+=======
+     * @return array|string
+>>>>>>> donmanager
      *
      * @throws \Doctrine\ORM\ORMInvalidArgumentException
      */
@@ -534,10 +572,14 @@ abstract class AbstractQuery
     public function setHydrationCacheProfile(QueryCacheProfile $profile = null)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if ($profile !== null && ! $profile->getResultCacheDriver()) {
 =======
         if ( ! $profile->getResultCacheDriver()) {
 >>>>>>> contactmanager
+=======
+        if ($profile !== null && ! $profile->getResultCacheDriver()) {
+>>>>>>> donmanager
             $resultCacheDriver = $this->_em->getConfiguration()->getHydrationCacheImpl();
             $profile = $profile->setResultCacheDriver($resultCacheDriver);
         }
@@ -756,10 +798,14 @@ abstract class AbstractQuery
      * @param int $hydrationMode
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return mixed
 =======
      * @return array
 >>>>>>> contactmanager
+=======
+     * @return mixed
+>>>>>>> donmanager
      */
     public function getResult($hydrationMode = self::HYDRATE_OBJECT)
     {
@@ -837,10 +883,14 @@ abstract class AbstractQuery
      *
      * @throws NonUniqueResultException If the query result is not unique.
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @throws NoResultException        If the query returned no result and hydration mode is not HYDRATE_SINGLE_SCALAR.
 =======
      * @throws NoResultException        If the query returned no result.
 >>>>>>> contactmanager
+=======
+     * @throws NoResultException        If the query returned no result and hydration mode is not HYDRATE_SINGLE_SCALAR.
+>>>>>>> donmanager
      */
     public function getSingleResult($hydrationMode = null)
     {
@@ -867,6 +917,7 @@ abstract class AbstractQuery
      * Alias for getSingleResult(HYDRATE_SINGLE_SCALAR).
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return mixed The scalar result, or NULL if the query returned no result.
      *
      * @throws NonUniqueResultException If the query result is not unique.
@@ -876,6 +927,11 @@ abstract class AbstractQuery
      * @throws NonUniqueResultException If the query result is not unique.
      * @throws NoResultException        If the query returned no result.
 >>>>>>> contactmanager
+=======
+     * @return mixed The scalar result, or NULL if the query returned no result.
+     *
+     * @throws NonUniqueResultException If the query result is not unique.
+>>>>>>> donmanager
      */
     public function getSingleScalarResult()
     {
@@ -913,10 +969,14 @@ abstract class AbstractQuery
      * Check if the query has a hint
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param string $name The name of the hint
 =======
      * @param  string $name The name of the hint
 >>>>>>> contactmanager
+=======
+     * @param string $name The name of the hint
+>>>>>>> donmanager
      *
      * @return bool False if the query does not have any hint
      */
@@ -1010,10 +1070,14 @@ abstract class AbstractQuery
 
             if ( ! $result) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $result = [];
 =======
                 $result = array();
 >>>>>>> contactmanager
+=======
+                $result = [];
+>>>>>>> donmanager
             }
 
             $setCacheEntry = function($data) use ($cache, $result, $cacheKey, $realCacheKey, $queryCacheProfile) {
@@ -1108,10 +1172,14 @@ abstract class AbstractQuery
     protected function getHydrationCacheId()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $parameters = [];
 =======
         $parameters = array();
 >>>>>>> contactmanager
+=======
+        $parameters = [];
+>>>>>>> donmanager
 
         foreach ($this->getParameters() as $parameter) {
             $parameters[$parameter->getName()] = $this->processParameterValue($parameter->getValue());
@@ -1174,10 +1242,14 @@ abstract class AbstractQuery
         $this->parameters = new ArrayCollection();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->_hints = [];
 =======
         $this->_hints = array();
 >>>>>>> contactmanager
+=======
+        $this->_hints = [];
+>>>>>>> donmanager
         $this->_hints = $this->_em->getConfiguration()->getDefaultQueryHints();
     }
 

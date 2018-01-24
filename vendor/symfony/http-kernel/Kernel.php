@@ -64,6 +64,7 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
     private $resetServices = false;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const VERSION = '4.0.3';
     const VERSION_ID = 40003;
     const MAJOR_VERSION = 4;
@@ -76,6 +77,13 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
     const MINOR_VERSION = 0;
     const RELEASE_VERSION = 2;
 >>>>>>> contactmanager
+=======
+    const VERSION = '4.0.3';
+    const VERSION_ID = 40003;
+    const MAJOR_VERSION = 4;
+    const MINOR_VERSION = 0;
+    const RELEASE_VERSION = 3;
+>>>>>>> donmanager
     const EXTRA_VERSION = '';
 
     const END_OF_MAINTENANCE = '07/2018';
@@ -541,10 +549,14 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
             foreach (glob(dirname($oldContainerDir).'/*.legacy') as $legacyContainer) {
                 if ($oldContainerDir.'.legacy' !== $legacyContainer && @unlink($legacyContainer)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     (new Filesystem())->remove(substr($legacyContainer, 0, -7));
 =======
                     (new Filesystem())->remove(substr($legacyContainer, 0, -16));
 >>>>>>> contactmanager
+=======
+                    (new Filesystem())->remove(substr($legacyContainer, 0, -7));
+>>>>>>> donmanager
                 }
             }
 

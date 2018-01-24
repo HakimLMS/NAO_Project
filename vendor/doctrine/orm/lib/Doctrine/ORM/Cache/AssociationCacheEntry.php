@@ -44,12 +44,17 @@ class AssociationCacheEntry implements CacheEntry
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param string $class      The entity class.
      * @param array  $identifier The entity identifier.
 =======
      * @param string $class       The entity class.
      * @param array  $identifier  The entity identifier.
 >>>>>>> contactmanager
+=======
+     * @param string $class      The entity class.
+     * @param array  $identifier The entity identifier.
+>>>>>>> donmanager
      */
     public function __construct($class, array $identifier)
     {
@@ -64,10 +69,15 @@ class AssociationCacheEntry implements CacheEntry
      *
      * @param array $values array containing property values
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return AssociationCacheEntry
 =======
 >>>>>>> contactmanager
+=======
+     *
+     * @return AssociationCacheEntry
+>>>>>>> donmanager
      */
     public static function __set_state(array $values)
     {

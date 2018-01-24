@@ -26,10 +26,14 @@ namespace Doctrine\ORM\Mapping;
  * @author  Fabio B. Silva <fabio.bat.silva@gmail.com>
  * @since   2.3
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
  * 
 >>>>>>> contactmanager
+=======
+ *
+>>>>>>> donmanager
  * @Annotation
  * @Target("CLASS")
  */
@@ -41,8 +45,12 @@ final class SqlResultSetMappings implements Annotation
      * @var array<\Doctrine\ORM\Mapping\SqlResultSetMapping>
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public $value = [];
 =======
     public $value = array();
 >>>>>>> contactmanager
+=======
+    public $value = [];
+>>>>>>> donmanager
 }

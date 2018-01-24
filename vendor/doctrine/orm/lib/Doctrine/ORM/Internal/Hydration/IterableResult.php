@@ -75,19 +75,27 @@ class IterableResult implements \Iterator
      * Gets the next set of results.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return array|false
 =======
      * @return array
 >>>>>>> contactmanager
+=======
+     * @return array|false
+>>>>>>> donmanager
      */
     public function next()
     {
         $this->_current = $this->_hydrator->hydrateRow();
         $this->_key++;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this->_current;
     }
 

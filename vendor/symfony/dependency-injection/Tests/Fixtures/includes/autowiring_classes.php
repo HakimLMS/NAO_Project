@@ -91,6 +91,9 @@ class J
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 class K
 {
     public function __construct(IInterface $i)
@@ -98,8 +101,11 @@ class K
     }
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 interface CollisionInterface
 {
 }

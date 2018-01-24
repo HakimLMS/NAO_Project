@@ -21,6 +21,7 @@ namespace Doctrine\ORM\Tools\Console\Command;
 
 use Doctrine\ORM\Mapping\MappingException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -30,6 +31,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Command\Command;
 >>>>>>> contactmanager
+=======
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+>>>>>>> donmanager
 
 /**
  * Show information about mapped entities.
@@ -46,6 +53,7 @@ class InfoCommand extends Command
     protected function configure()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->setName('orm:info')
              ->setDescription('Show basic information about all mapped entities')
              ->setHelp(<<<EOT
@@ -55,15 +63,24 @@ class InfoCommand extends Command
             ->setDescription('Show basic information about all mapped entities')
             ->setHelp(<<<EOT
 >>>>>>> contactmanager
+=======
+        $this->setName('orm:info')
+             ->setDescription('Show basic information about all mapped entities')
+             ->setHelp(<<<EOT
+>>>>>>> donmanager
 The <info>%command.name%</info> shows basic information about which
 entities exist and possibly if their mapping information contains errors or
 not.
 EOT
 <<<<<<< HEAD
+<<<<<<< HEAD
              );
 =======
         );
 >>>>>>> contactmanager
+=======
+             );
+>>>>>>> donmanager
     }
 
     /**
@@ -72,10 +89,15 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
 =======
 >>>>>>> contactmanager
+=======
+        $ui = new SymfonyStyle($input, $output);
+
+>>>>>>> donmanager
         /* @var $entityManager \Doctrine\ORM\EntityManager */
         $entityManager = $this->getHelper('em')->getEntityManager();
 
@@ -84,12 +106,16 @@ EOT
                                           ->getAllClassNames();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         if ( ! $entityClassNames) {
             $ui->caution(
                 [
                     'You do not have any mapped Doctrine ORM entities according to the current configuration.',
                     'If you have entities or mapping files you should check your mapping configuration for errors.'
                 ]
+<<<<<<< HEAD
             );
 
             return 1;
@@ -102,17 +128,27 @@ EOT
             throw new \Exception(
                 'You do not have any mapped Doctrine ORM entities according to the current configuration. '.
                 'If you have entities or mapping files you should check your mapping configuration for errors.'
+=======
+>>>>>>> donmanager
             );
+
+            return 1;
         }
 
+<<<<<<< HEAD
         $output->writeln(sprintf("Found <info>%d</info> mapped entities:", count($entityClassNames)));
 >>>>>>> contactmanager
+=======
+        $ui->text(sprintf("Found <info>%d</info> mapped entities:", count($entityClassNames)));
+        $ui->newLine();
+>>>>>>> donmanager
 
         $failure = false;
 
         foreach ($entityClassNames as $entityClassName) {
             try {
                 $entityManager->getClassMetadata($entityClassName);
+<<<<<<< HEAD
 <<<<<<< HEAD
                 $ui->text(sprintf("<info>[OK]</info>   %s", $entityClassName));
             } catch (MappingException $e) {
@@ -130,6 +166,17 @@ EOT
                 $output->writeln(sprintf("<comment>%s</comment>", $e->getMessage()));
                 $output->writeln('');
 >>>>>>> contactmanager
+=======
+                $ui->text(sprintf("<info>[OK]</info>   %s", $entityClassName));
+            } catch (MappingException $e) {
+                $ui->text(
+                    [
+                        sprintf("<error>[FAIL]</error> %s", $entityClassName),
+                        sprintf("<comment>%s</comment>", $e->getMessage()),
+                        ''
+                    ]
+                );
+>>>>>>> donmanager
 
                 $failure = true;
             }

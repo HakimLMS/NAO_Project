@@ -574,9 +574,13 @@ class Application
         $this->init();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $aliases = array();
 =======
 >>>>>>> contactmanager
+=======
+        $aliases = array();
+>>>>>>> donmanager
         $allCommands = $this->commandLoader ? array_merge($this->commandLoader->getNames(), array_keys($this->commands)) : array_keys($this->commands);
         $expr = preg_replace_callback('{([^:]+|)}', function ($matches) { return preg_quote($matches[1]).'[^:]*'; }, $name);
         $commands = preg_grep('{^'.$expr.'}', $allCommands);
@@ -610,6 +614,7 @@ class Application
         if (count($commands) > 1) {
             $commandList = $this->commandLoader ? array_merge(array_flip($this->commandLoader->getNames()), $this->commands) : $this->commands;
 <<<<<<< HEAD
+<<<<<<< HEAD
             $commands = array_unique(array_filter($commands, function ($nameOrAlias) use ($commandList, $commands, &$aliases) {
                 $commandName = $commandList[$nameOrAlias] instanceof Command ? $commandList[$nameOrAlias]->getName() : $nameOrAlias;
                 $aliases[$nameOrAlias] = $commandName;
@@ -617,16 +622,25 @@ class Application
             $commands = array_unique(array_filter($commands, function ($nameOrAlias) use ($commandList, $commands) {
                 $commandName = $commandList[$nameOrAlias] instanceof Command ? $commandList[$nameOrAlias]->getName() : $nameOrAlias;
 >>>>>>> contactmanager
+=======
+            $commands = array_unique(array_filter($commands, function ($nameOrAlias) use ($commandList, $commands, &$aliases) {
+                $commandName = $commandList[$nameOrAlias] instanceof Command ? $commandList[$nameOrAlias]->getName() : $nameOrAlias;
+                $aliases[$nameOrAlias] = $commandName;
+>>>>>>> donmanager
 
                 return $commandName === $nameOrAlias || !in_array($commandName, $commands);
             }));
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $exact = in_array($name, $commands, true) || isset($aliases[$name]);
 =======
         $exact = in_array($name, $commands, true);
 >>>>>>> contactmanager
+=======
+        $exact = in_array($name, $commands, true) || isset($aliases[$name]);
+>>>>>>> donmanager
         if (count($commands) > 1 && !$exact) {
             $usableWidth = $this->terminal->getWidth() - 10;
             $abbrevs = array_values($commands);

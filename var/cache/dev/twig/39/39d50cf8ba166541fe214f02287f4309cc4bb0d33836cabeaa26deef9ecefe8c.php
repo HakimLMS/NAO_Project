@@ -15,11 +15,19 @@ class __TwigTemplate_e75d80c4bf359d1abf6b9b6472720601f23320d93dcc1c605744fd1fb5b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+<<<<<<< HEAD
         $__internal_d2674179d7e109b995276ae2144f4389d6bcbb63693f4ce0c49ceed7c9adc108 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
         $__internal_d2674179d7e109b995276ae2144f4389d6bcbb63693f4ce0c49ceed7c9adc108->enter($__internal_d2674179d7e109b995276ae2144f4389d6bcbb63693f4ce0c49ceed7c9adc108_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/redirect.svg"));
 
         $__internal_3eb7545cb072a6fc2459f9eaebf1ea8cbe8125cb347a8e61789a3e46772b8c97 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_3eb7545cb072a6fc2459f9eaebf1ea8cbe8125cb347a8e61789a3e46772b8c97->enter($__internal_3eb7545cb072a6fc2459f9eaebf1ea8cbe8125cb347a8e61789a3e46772b8c97_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/redirect.svg"));
+=======
+        $__internal_73f2c74027bd686248dd523c6bc4e46fdf2b621ad3a8f25b5e5dacbab90dff89 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_73f2c74027bd686248dd523c6bc4e46fdf2b621ad3a8f25b5e5dacbab90dff89->enter($__internal_73f2c74027bd686248dd523c6bc4e46fdf2b621ad3a8f25b5e5dacbab90dff89_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/redirect.svg"));
+
+        $__internal_4692fb0a6e5ac9ce41d6955e58d1150f8670fd48f2177d3f878d22db40f53013 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4692fb0a6e5ac9ce41d6955e58d1150f8670fd48f2177d3f878d22db40f53013->enter($__internal_4692fb0a6e5ac9ce41d6955e58d1150f8670fd48f2177d3f878d22db40f53013_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/redirect.svg"));
+>>>>>>> donmanager
 
         // line 1
         echo "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" enable-background=\"new 0 0 24 24\" xml:space=\"preserve\">
@@ -34,10 +42,17 @@ class __TwigTemplate_e75d80c4bf359d1abf6b9b6472720601f23320d93dcc1c605744fd1fb5b
 </svg>
 ";
         
+<<<<<<< HEAD
         $__internal_d2674179d7e109b995276ae2144f4389d6bcbb63693f4ce0c49ceed7c9adc108->leave($__internal_d2674179d7e109b995276ae2144f4389d6bcbb63693f4ce0c49ceed7c9adc108_prof);
 
         
         $__internal_3eb7545cb072a6fc2459f9eaebf1ea8cbe8125cb347a8e61789a3e46772b8c97->leave($__internal_3eb7545cb072a6fc2459f9eaebf1ea8cbe8125cb347a8e61789a3e46772b8c97_prof);
+=======
+        $__internal_73f2c74027bd686248dd523c6bc4e46fdf2b621ad3a8f25b5e5dacbab90dff89->leave($__internal_73f2c74027bd686248dd523c6bc4e46fdf2b621ad3a8f25b5e5dacbab90dff89_prof);
+
+        
+        $__internal_4692fb0a6e5ac9ce41d6955e58d1150f8670fd48f2177d3f878d22db40f53013->leave($__internal_4692fb0a6e5ac9ce41d6955e58d1150f8670fd48f2177d3f878d22db40f53013_prof);
+>>>>>>> donmanager
 
     }
 
@@ -63,6 +78,10 @@ class __TwigTemplate_e75d80c4bf359d1abf6b9b6472720601f23320d93dcc1c605744fd1fb5b
         .79-0.25,4.48,4.48,0,0,1,.84-0.15l0.41-.06H9.22c0.3,0,.56,0,0.85,0l0.72,0.07a3.77,3.77,0,0,1,1.2.21v3.17a1.25,
         1.25,0,0,0,2,.89l9-7.45A1.46,1.46,0,0,0,23.06,7.83Z\"/>
 </svg>
+<<<<<<< HEAD
 ", "@WebProfiler/Icon/redirect.svg", "E:\\wamp64\\www\\NAO_project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\redirect.svg");
+=======
+", "@WebProfiler/Icon/redirect.svg", "C:\\wamp64\\www\\NAO_Project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\redirect.svg");
+>>>>>>> donmanager
     }
 }

@@ -33,10 +33,14 @@ You can consider the following APIs to be safe from SQL injection:
   ``Doctrine\ORM\EntityRepository``.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 You are **NOT** safe from SQL injection when using user input with:
 =======
 You are **NOT** save from SQL injection when using user input with:
 >>>>>>> contactmanager
+=======
+You are **NOT** safe from SQL injection when using user input with:
+>>>>>>> donmanager
 
 - Expression API of ``Doctrine\ORM\QueryBuilder``
 - Concatenating user input into DQL SELECT, UPDATE or DELETE statements or

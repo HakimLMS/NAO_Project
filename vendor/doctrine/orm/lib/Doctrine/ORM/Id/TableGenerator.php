@@ -93,10 +93,14 @@ class TableGenerator extends AbstractIdGenerator
                     );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if ($conn->executeUpdate($updateSql, [1 => $currentLevel, 2 => $currentLevel+1]) !== 1) {
 =======
                     if ($conn->executeUpdate($updateSql, array(1 => $currentLevel, 2 => $currentLevel+1)) !== 1) {
 >>>>>>> contactmanager
+=======
+                    if ($conn->executeUpdate($updateSql, [1 => $currentLevel, 2 => $currentLevel+1]) !== 1) {
+>>>>>>> donmanager
                         // no affected rows, concurrency issue, throw exception
                     }
                 } else {

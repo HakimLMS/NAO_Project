@@ -19,10 +19,14 @@
         "php": "^7.1.3",
         "symfony/config": "~3.4|~4.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "symfony/twig-bridge": "^3.4.3|^4.0.3",
 =======
         "symfony/twig-bridge": "~3.4|~4.0",
 >>>>>>> contactmanager
+=======
+        "symfony/twig-bridge": "^3.4.3|^4.0.3",
+>>>>>>> donmanager
         "symfony/http-foundation": "~3.4|~4.0",
         "symfony/http-kernel": "~3.4|~4.0",
         "twig/twig": "~1.34|~2.4"

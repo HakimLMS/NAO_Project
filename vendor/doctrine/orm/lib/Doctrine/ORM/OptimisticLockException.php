@@ -76,18 +76,26 @@ class OptimisticLockException extends ORMException
         $expectedLockVersion = ($expectedLockVersion instanceof \DateTime) ? $expectedLockVersion->getTimestamp() : $expectedLockVersion;
         $actualLockVersion = ($actualLockVersion instanceof \DateTime) ? $actualLockVersion->getTimestamp() : $actualLockVersion;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return new self("The optimistic lock failed, version " . $expectedLockVersion . " was expected, but is actually ".$actualLockVersion, $entity);
     }
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param string $entityName
 =======
      * @param  string $entityName
 >>>>>>> contactmanager
+=======
+     * @param string $entityName
+>>>>>>> donmanager
      *
      * @return OptimisticLockException
      */

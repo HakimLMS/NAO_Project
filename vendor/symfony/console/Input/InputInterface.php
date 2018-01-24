@@ -25,10 +25,14 @@ interface InputInterface
      * Returns the first argument from the raw parameters (not parsed).
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return string|null The value of the first argument or null otherwise
 =======
      * @return string The value of the first argument or null otherwise
 >>>>>>> contactmanager
+=======
+     * @return string|null The value of the first argument or null otherwise
+>>>>>>> donmanager
      */
     public function getFirstArgument();
 

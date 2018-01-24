@@ -44,12 +44,16 @@ class Select extends Base
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $allowedClasses = [Func::class];
 =======
     protected $allowedClasses = array(
         'Doctrine\ORM\Query\Expr\Func'
     );
 >>>>>>> contactmanager
+=======
+    protected $allowedClasses = [Func::class];
+>>>>>>> donmanager
 
     /**
      * @return array

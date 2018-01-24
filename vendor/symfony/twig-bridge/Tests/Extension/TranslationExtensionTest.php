@@ -89,6 +89,9 @@ class TranslationExtensionTest extends TestCase
 
             // transchoice
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             array(
                 '{% transchoice count from "messages" %}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples{% endtranschoice %}',
                 'There is no apples',
@@ -118,6 +121,7 @@ class TranslationExtensionTest extends TestCase
                 '{% transchoice 5 into "fr"%}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples{% endtranschoice %}',
                 'There is 5 apples',
             ),
+<<<<<<< HEAD
 =======
             array('{% transchoice count from "messages" %}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples{% endtranschoice %}',
                 'There is no apples', array('count' => 0)),
@@ -132,6 +136,8 @@ class TranslationExtensionTest extends TestCase
             array('{% transchoice 5 into "fr"%}{0} There is no apples|{1} There is one apple|]1,Inf] There is %count% apples{% endtranschoice %}',
                 'There is 5 apples'),
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
             // trans filter
             array('{{ "Hello"|trans }}', 'Hello'),

@@ -24,10 +24,14 @@ namespace Doctrine\ORM\Mapping;
  * The default NamingStrategy
  *
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
  * 
 >>>>>>> contactmanager
+=======
+ *
+>>>>>>> donmanager
  * @link    www.doctrine-project.org
  * @since   2.3
  * @author  Fabio B. Silva <fabio.bat.silva@gmail.com>
@@ -85,6 +89,7 @@ class DefaultNamingStrategy implements NamingStrategy
     {
         return strtolower($this->classToTableName($sourceEntity) . '_' .
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->classToTableName($targetEntity));
     }
 
@@ -93,6 +98,11 @@ class DefaultNamingStrategy implements NamingStrategy
     }
     
 >>>>>>> contactmanager
+=======
+            $this->classToTableName($targetEntity));
+    }
+
+>>>>>>> donmanager
     /**
      * {@inheritdoc}
      */
@@ -100,9 +110,13 @@ class DefaultNamingStrategy implements NamingStrategy
     {
         return strtolower($this->classToTableName($entityName) . '_' .
 <<<<<<< HEAD
+<<<<<<< HEAD
             ($referencedColumnName ?: $this->referenceColumnName()));
 =======
                 ($referencedColumnName ?: $this->referenceColumnName()));
 >>>>>>> contactmanager
+=======
+            ($referencedColumnName ?: $this->referenceColumnName()));
+>>>>>>> donmanager
     }
 }

@@ -38,10 +38,14 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $inverseJoinColumns = [];
 =======
     private $inverseJoinColumns = array();
 >>>>>>> contactmanager
+=======
+    private $inverseJoinColumns = [];
+>>>>>>> donmanager
 
     /**
      * @param string $name
@@ -52,9 +56,13 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
     {
         $this->joinTableName = $name;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -73,10 +81,14 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
     public function addInverseJoinColumn($columnName, $referencedColumnName, $nullable = true, $unique = false, $onDelete = null, $columnDef = null)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->inverseJoinColumns[] = [
 =======
         $this->inverseJoinColumns[] = array(
 >>>>>>> contactmanager
+=======
+        $this->inverseJoinColumns[] = [
+>>>>>>> donmanager
             'name' => $columnName,
             'referencedColumnName' => $referencedColumnName,
             'nullable' => $nullable,
@@ -84,11 +96,16 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
             'onDelete' => $onDelete,
             'columnDefinition' => $columnDef,
 <<<<<<< HEAD
+<<<<<<< HEAD
         ];
 
 =======
         );
 >>>>>>> contactmanager
+=======
+        ];
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -99,10 +116,14 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
     {
         $mapping = $this->mapping;
 <<<<<<< HEAD
+<<<<<<< HEAD
         $mapping['joinTable'] = [];
 =======
         $mapping['joinTable'] = array();
 >>>>>>> contactmanager
+=======
+        $mapping['joinTable'] = [];
+>>>>>>> donmanager
         if ($this->joinColumns) {
             $mapping['joinTable']['joinColumns'] = $this->joinColumns;
         }
@@ -115,9 +136,13 @@ class ManyToManyAssociationBuilder extends OneToManyAssociationBuilder
         $cm = $this->builder->getClassMetadata();
         $cm->mapManyToMany($mapping);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this->builder;
     }
 }

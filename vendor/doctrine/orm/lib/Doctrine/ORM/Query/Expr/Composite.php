@@ -40,10 +40,14 @@ class Composite extends Base
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $components = [];
 =======
         $components = array();
 >>>>>>> contactmanager
+=======
+        $components = [];
+>>>>>>> donmanager
 
         foreach ($this->parts as $part) {
             $components[] = $this->processQueryPart($part);

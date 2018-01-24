@@ -48,10 +48,15 @@ class Translator extends BaseTranslator implements WarmableInterface
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * Constructor.
      *
 =======
 >>>>>>> contactmanager
+=======
+     * Constructor.
+     *
+>>>>>>> donmanager
      * Available options:
      *
      *   * cache_dir: The cache directory (or null to disable caching)

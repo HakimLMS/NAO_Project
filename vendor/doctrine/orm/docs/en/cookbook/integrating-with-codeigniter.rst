@@ -112,10 +112,14 @@ autoGenerateProxyClasses.
 
 For more details, consult the
 <<<<<<< HEAD
+<<<<<<< HEAD
 `Doctrine 2 Configuration documentation <http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/configuration.html>`_.
 =======
 `Doctrine 2 Configuration documentation <http://www.doctrine-project.org/documentation/manual/2_0/en/configuration#configuration-options>`_.
 >>>>>>> contactmanager
+=======
+`Doctrine 2 Configuration documentation <http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/configuration.html>`_.
+>>>>>>> donmanager
 
 Now to use it
 -------------

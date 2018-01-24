@@ -36,10 +36,14 @@ an entity.
 
         <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
         $em->getConfiguration()->setMetadataCacheImpl(new ApcuCache());
 =======
         $em->getConfiguration()->setMetadataCacheImpl(new ApcCache());
 >>>>>>> contactmanager
+=======
+        $em->getConfiguration()->setMetadataCacheImpl(new ApcuCache());
+>>>>>>> donmanager
 
 
 If you want to use one of the included core metadata drivers you

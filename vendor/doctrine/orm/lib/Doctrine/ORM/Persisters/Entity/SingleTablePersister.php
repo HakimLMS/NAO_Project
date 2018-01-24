@@ -59,22 +59,32 @@ class SingleTablePersister extends AbstractEntityInheritancePersister
 
          // Append discriminator column
 <<<<<<< HEAD
+<<<<<<< HEAD
         $discrColumn     = $this->class->discriminatorColumn['name'];
         $discrColumnType = $this->class->discriminatorColumn['type'];
 
 =======
         $discrColumn    = $this->class->discriminatorColumn['name'];
 >>>>>>> contactmanager
+=======
+        $discrColumn     = $this->class->discriminatorColumn['name'];
+        $discrColumnType = $this->class->discriminatorColumn['type'];
+
+>>>>>>> donmanager
         $columnList[]   = $tableAlias . '.' . $discrColumn;
 
         $resultColumnName = $this->platform->getSQLResultCasing($discrColumn);
 
         $this->currentPersisterContext->rsm->setDiscriminatorColumn('r', $resultColumnName);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->currentPersisterContext->rsm->addMetaResult('r', $resultColumnName, $discrColumn, false, $discrColumnType);
 =======
         $this->currentPersisterContext->rsm->addMetaResult('r', $resultColumnName, $discrColumn);
 >>>>>>> contactmanager
+=======
+        $this->currentPersisterContext->rsm->addMetaResult('r', $resultColumnName, $discrColumn, false, $discrColumnType);
+>>>>>>> donmanager
 
         // Append subclass columns
         foreach ($this->class->subClasses as $subClassName) {
@@ -92,6 +102,7 @@ class SingleTablePersister extends AbstractEntityInheritancePersister
             // Foreign key columns
             foreach ($subClass->associationMappings as $assoc) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if ( ! $assoc['isOwningSide'] || ! ($assoc['type'] & ClassMetadata::TO_ONE) || isset($assoc['inherited'])) {
                     continue;
                 }
@@ -108,16 +119,18 @@ class SingleTablePersister extends AbstractEntityInheritancePersister
                 if ( ! $assoc['isOwningSide']
                         || ! ($assoc['type'] & ClassMetadata::TO_ONE)
                         || isset($assoc['inherited'])) {
+=======
+                if ( ! $assoc['isOwningSide'] || ! ($assoc['type'] & ClassMetadata::TO_ONE) || isset($assoc['inherited'])) {
+>>>>>>> donmanager
                     continue;
                 }
 
-                foreach ($assoc['targetToSourceKeyColumns'] as $srcColumn) {
-                    $className      = isset($assoc['inherited']) ? $assoc['inherited'] : $this->class->name;
+                $targetClass = $this->em->getClassMetadata($assoc['targetEntity']);
 
-                    $targetClass = $this->em->getClassMetadata($assoc['targetEntity']);
-
+                foreach ($assoc['joinColumns'] as $joinColumn) {
                     $columnList[] = $this->getSelectJoinColumnSQL(
                         $tableAlias,
+<<<<<<< HEAD
                         $srcColumn,
                         $className,
                         PersisterHelper::getTypeOfColumn(
@@ -126,6 +139,11 @@ class SingleTablePersister extends AbstractEntityInheritancePersister
                             $this->em
                         )
 >>>>>>> contactmanager
+=======
+                        $joinColumn['name'],
+                        $this->quoteStrategy->getJoinColumnName($joinColumn, $subClass, $this->platform),
+                        PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em)
+>>>>>>> donmanager
                     );
                 }
             }
@@ -191,10 +209,14 @@ class SingleTablePersister extends AbstractEntityInheritancePersister
     protected function getSelectConditionDiscriminatorValueSQL()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $values = [];
 =======
         $values = array();
 >>>>>>> contactmanager
+=======
+        $values = [];
+>>>>>>> donmanager
 
         if ($this->class->discriminatorValue !== null) { // discriminators can be 0
             $values[] = $this->conn->quote($this->class->discriminatorValue);

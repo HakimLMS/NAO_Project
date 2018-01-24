@@ -1,5 +1,8 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -12,6 +15,7 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<<<<<<< HEAD
  *
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
@@ -28,6 +32,12 @@
  * obtain it through the world-wide-web, please send an email
  * to kontakt@beberlei.de so I can send you a copy immediately.
 >>>>>>> contactmanager
+=======
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the MIT license. For more information, see
+ * <http://www.doctrine-project.org>.
+>>>>>>> donmanager
  */
 
 namespace Doctrine\ORM\Tools\Pagination;
@@ -73,6 +83,7 @@ class CountWalker extends TreeWalkerAdapter
         // Get the root entity and alias from the AST fromClause
         $from = $AST->fromClause->identificationVariableDeclarations;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         if (count($from) > 1) {
             throw new \RuntimeException("Cannot count query which selects two FROM components, cannot make distinction");
@@ -85,6 +96,13 @@ class CountWalker extends TreeWalkerAdapter
         }
        
 >>>>>>> contactmanager
+=======
+
+        if (count($from) > 1) {
+            throw new \RuntimeException("Cannot count query which selects two FROM components, cannot make distinction");
+        }
+
+>>>>>>> donmanager
         $fromRoot            = reset($from);
         $rootAlias           = $fromRoot->rangeVariableDeclaration->aliasIdentificationVariable;
         $rootClass           = $queryComponents[$rootAlias]['metadata'];
@@ -103,6 +121,7 @@ class CountWalker extends TreeWalkerAdapter
 
         $distinct = $this->_getQuery()->getHint(self::HINT_DISTINCT);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $AST->selectClause->selectExpressions = [
             new SelectExpression(
                 new AggregateExpression('count', $pathExpression, $distinct), null
@@ -115,6 +134,13 @@ class CountWalker extends TreeWalkerAdapter
             )
         );
 >>>>>>> contactmanager
+=======
+        $AST->selectClause->selectExpressions = [
+            new SelectExpression(
+                new AggregateExpression('count', $pathExpression, $distinct), null
+            )
+        ];
+>>>>>>> donmanager
 
         // ORDER BY is not needed, only increases query execution through unnecessary sorting.
         $AST->orderByClause = null;

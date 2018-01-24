@@ -33,10 +33,14 @@ class ResolveInstanceofConditionalsPassTest extends TestCase
         $def = $container->getDefinition('foo');
         $this->assertEmpty($def->getInstanceofConditionals());
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->assertInstanceOf(ChildDefinition::class, $def);
 =======
         $this->assertInstanceof(ChildDefinition::class, $def);
 >>>>>>> contactmanager
+=======
+        $this->assertInstanceOf(ChildDefinition::class, $def);
+>>>>>>> donmanager
         $this->assertTrue($def->isAutowired());
         $this->assertSame($parent, $def->getParent());
         $this->assertSame(array('tag' => array(array()), 'baz' => array(array('attr' => 123))), $def->getTags());

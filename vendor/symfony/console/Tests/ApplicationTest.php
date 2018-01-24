@@ -57,10 +57,15 @@ class ApplicationTest extends TestCase
         require_once self::$fixturesPath.'/FooSubnamespaced1Command.php';
         require_once self::$fixturesPath.'/FooSubnamespaced2Command.php';
 <<<<<<< HEAD
+<<<<<<< HEAD
         require_once self::$fixturesPath.'/TestTiti.php';
         require_once self::$fixturesPath.'/TestToto.php';
 =======
 >>>>>>> contactmanager
+=======
+        require_once self::$fixturesPath.'/TestTiti.php';
+        require_once self::$fixturesPath.'/TestToto.php';
+>>>>>>> donmanager
     }
 
     protected function normalizeLineBreaks($text)
@@ -288,6 +293,9 @@ class ApplicationTest extends TestCase
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     public function testFindNonAmbiguous()
     {
         $application = new Application();
@@ -296,8 +304,11 @@ class ApplicationTest extends TestCase
         $this->assertEquals('test-toto', $application->find('test')->getName());
     }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     /**
      * @expectedException        \Symfony\Component\Console\Exception\CommandNotFoundException
      * @expectedExceptionMessage There are no commands defined in the "bar" namespace.

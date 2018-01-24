@@ -219,10 +219,15 @@ EOF;
             $code["Container{$hash}/{$options['class']}.php"] = substr_replace($files[$options['class'].'.php'], "<?php\n\nnamespace Container{$hash};\n", 0, 6);
             $namespaceLine = $this->namespace ? "\nnamespace {$this->namespace};\n" : '';
 <<<<<<< HEAD
+<<<<<<< HEAD
             $time = time();
             $id = hash('crc32', $hash.$time);
 =======
 >>>>>>> contactmanager
+=======
+            $time = time();
+            $id = hash('crc32', $hash.$time);
+>>>>>>> donmanager
 
             $code[$options['class'].'.php'] = <<<EOF
 <?php
@@ -242,14 +247,20 @@ if (!\\class_exists({$options['class']}::class, false)) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 return new \\Container{$hash}\\{$options['class']}(array(
     'container.build_hash' => '$hash',
     'container.build_id' => '$id',
     'container.build_time' => $time,
 ));
+<<<<<<< HEAD
 =======
 return new \\Container{$hash}\\{$options['class']}();
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
 EOF;
         } else {
@@ -557,10 +568,14 @@ EOTXT
 
         foreach ($definition->getArguments() as $arg) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (!$arg || $arg instanceof Parameter) {
 =======
             if (!$arg) {
 >>>>>>> contactmanager
+=======
+            if (!$arg || $arg instanceof Parameter) {
+>>>>>>> donmanager
                 continue;
             }
             if (is_array($arg) && 3 >= count($arg)) {
@@ -569,10 +584,14 @@ EOTXT
                         return false;
                     }
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if (!$v || $v instanceof Parameter) {
 =======
                     if (!$v) {
 >>>>>>> contactmanager
+=======
+                    if (!$v || $v instanceof Parameter) {
+>>>>>>> donmanager
                         continue;
                     }
                     if ($v instanceof Reference && $this->container->has($id = (string) $v) && $this->container->findDefinition($id)->isSynthetic()) {
@@ -859,6 +878,7 @@ EOF;
 
                 if (0 === strpos($class, 'new ')) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     return $return.sprintf("(%s)->%s(%s);\n", $class, $callable[1], $arguments ? implode(', ', $arguments) : '');
                 }
 
@@ -869,6 +889,12 @@ EOF;
 
                 return $return.sprintf("[%s, '%s'](%s);\n", $this->dumpValue($callable[0]), $callable[1], $arguments ? implode(', ', $arguments) : '');
 >>>>>>> contactmanager
+=======
+                    return $return.sprintf("(%s)->%s(%s);\n", $class, $callable[1], $arguments ? implode(', ', $arguments) : '');
+                }
+
+                return $return.sprintf("[%s, '%s'](%s);\n", $class, $callable[1], $arguments ? implode(', ', $arguments) : '');
+>>>>>>> donmanager
             }
 
             return $return.sprintf("%s(%s);\n", $this->dumpLiteralClass($this->dumpValue($callable)), $arguments ? implode(', ', $arguments) : '');
@@ -927,13 +953,19 @@ EOF;
 EOF;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         if ($this->asFiles) {
             $code = str_replace('$parameters', "\$buildParameters;\n    private \$parameters", $code);
             $code = str_replace('__construct()', '__construct(array $buildParameters = array())', $code);
             $code .= "        \$this->buildParameters = \$buildParameters;\n";
         }
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
         if ($this->container->getParameterBag()->all()) {
             $code .= "        \$this->parameters = \$this->getDefaultParameters();\n\n";
@@ -1163,11 +1195,17 @@ EOF;
     {
         $name = (string) $name;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (isset($this->buildParameters[$name])) {
             return $this->buildParameters[$name];
         }
 =======
 >>>>>>> contactmanager
+=======
+        if (isset($this->buildParameters[$name])) {
+            return $this->buildParameters[$name];
+        }
+>>>>>>> donmanager
 
         if (!(isset($this->parameters[$name]) || isset($this->loadedDynamicParameters[$name]) || array_key_exists($name, $this->parameters))) {
             throw new InvalidArgumentException(sprintf('The parameter "%s" must be defined.', $name));
@@ -1183,11 +1221,17 @@ EOF;
     {
         $name = (string) $name;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (isset($this->buildParameters[$name])) {
             return true;
         }
 =======
 >>>>>>> contactmanager
+=======
+        if (isset($this->buildParameters[$name])) {
+            return true;
+        }
+>>>>>>> donmanager
 
         return isset($this->parameters[$name]) || isset($this->loadedDynamicParameters[$name]) || array_key_exists($name, $this->parameters);
     }
@@ -1205,11 +1249,17 @@ EOF;
                 $parameters[$name] = $loaded ? $this->dynamicParameters[$name] : $this->getDynamicParameter($name);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             foreach ($this->buildParameters as $name => $value) {
                 $parameters[$name] = $value;
             }
 =======
 >>>>>>> contactmanager
+=======
+            foreach ($this->buildParameters as $name => $value) {
+                $parameters[$name] = $value;
+            }
+>>>>>>> donmanager
             $this->parameterBag = new FrozenParameterBag($parameters);
         }
 
@@ -1218,11 +1268,17 @@ EOF;
 
 EOF;
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (!$this->asFiles) {
                 $code = preg_replace('/^.*buildParameters.*\n.*\n.*\n/m', '', $code);
             }
 =======
 >>>>>>> contactmanager
+=======
+            if (!$this->asFiles) {
+                $code = preg_replace('/^.*buildParameters.*\n.*\n.*\n/m', '', $code);
+            }
+>>>>>>> donmanager
 
         if ($dynamicPhp) {
             $loadedDynamicParameters = $this->exportParameters(array_combine(array_keys($dynamicPhp), array_fill(0, count($dynamicPhp), false)), '', 8);
@@ -1544,6 +1600,7 @@ EOF;
                     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $class = $this->dumpValue($factory[0]);
                     if (is_string($factory[0])) {
                         return sprintf('%s::%s(%s)', $this->dumpLiteralClass($class), $factory[1], implode(', ', $arguments));
@@ -1560,17 +1617,28 @@ EOF;
                     if ($factory[0] instanceof Reference) {
                         return sprintf('%s->%s(%s)', $class, $factory[1], implode(', ', $arguments));
 =======
+=======
+                    $class = $this->dumpValue($factory[0]);
+>>>>>>> donmanager
                     if (is_string($factory[0])) {
-                        return sprintf('%s::%s(%s)', $this->dumpLiteralClass($this->dumpValue($factory[0])), $factory[1], implode(', ', $arguments));
+                        return sprintf('%s::%s(%s)', $this->dumpLiteralClass($class), $factory[1], implode(', ', $arguments));
                     }
 
                     if ($factory[0] instanceof Definition) {
-                        return sprintf("[%s, '%s'](%s)", $this->dumpValue($factory[0]), $factory[1], implode(', ', $arguments));
+                        if (0 === strpos($class, 'new ')) {
+                            return sprintf('(%s)->%s(%s)', $class, $factory[1], implode(', ', $arguments));
+                        }
+
+                        return sprintf("[%s, '%s'](%s)", $class, $factory[1], implode(', ', $arguments));
                     }
 
                     if ($factory[0] instanceof Reference) {
+<<<<<<< HEAD
                         return sprintf('%s->%s(%s)', $this->dumpValue($factory[0]), $factory[1], implode(', ', $arguments));
 >>>>>>> contactmanager
+=======
+                        return sprintf('%s->%s(%s)', $class, $factory[1], implode(', ', $arguments));
+>>>>>>> donmanager
                     }
                 }
 

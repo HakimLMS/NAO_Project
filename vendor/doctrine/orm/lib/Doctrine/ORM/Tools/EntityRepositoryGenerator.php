@@ -20,10 +20,15 @@
 namespace Doctrine\ORM\Tools;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\EntityRepository;
 
 =======
 >>>>>>> contactmanager
+=======
+use Doctrine\ORM\EntityRepository;
+
+>>>>>>> donmanager
 /**
  * Class to generate entity repository classes
  *
@@ -63,6 +68,7 @@ class <className> extends <repositoryName>
     public function generateEntityRepositoryClass($fullClassName)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $variables = [
             '<namespace>'       => $this->generateEntityRepositoryNamespace($fullClassName),
             '<repositoryName>'  => $this->generateEntityRepositoryName($fullClassName),
@@ -75,6 +81,13 @@ class <className> extends <repositoryName>
             '<className>'       => $this->generateClassName($fullClassName)
         );
 >>>>>>> contactmanager
+=======
+        $variables = [
+            '<namespace>'       => $this->generateEntityRepositoryNamespace($fullClassName),
+            '<repositoryName>'  => $this->generateEntityRepositoryName($fullClassName),
+            '<className>'       => $this->generateClassName($fullClassName)
+        ];
+>>>>>>> donmanager
 
         return str_replace(array_keys($variables), array_values($variables), self::$_template);
     }
@@ -84,10 +97,14 @@ class <className> extends <repositoryName>
      *
      * @param string $fullClassName
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> contactmanager
+=======
+     *
+>>>>>>> donmanager
      * @return string $namespace
      */
     private function getClassNamespace($fullClassName)
@@ -100,6 +117,7 @@ class <className> extends <repositoryName>
     /**
      * Generates the class name
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @param string $fullClassName
      *
@@ -108,6 +126,11 @@ class <className> extends <repositoryName>
      * @param string $fullClassName
      * 
 >>>>>>> contactmanager
+=======
+     *
+     * @param string $fullClassName
+     *
+>>>>>>> donmanager
      * @return string
      */
     private function generateClassName($fullClassName)
@@ -126,10 +149,14 @@ class <className> extends <repositoryName>
     /**
      * Generates the namespace statement, if class do not have namespace, return empty string instead.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> contactmanager
+=======
+     *
+>>>>>>> donmanager
      * @param string $fullClassName The full repository class name.
      *
      * @return string $namespace
@@ -144,10 +171,14 @@ class <className> extends <repositoryName>
     /**
      * @param string $fullClassName
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> contactmanager
+=======
+     *
+>>>>>>> donmanager
      * @return string $repositoryName
      */
     private function generateEntityRepositoryName($fullClassName)
@@ -155,10 +186,14 @@ class <className> extends <repositoryName>
         $namespace = $this->getClassNamespace($fullClassName);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $repositoryName = $this->repositoryName ?: EntityRepository::class;
 =======
         $repositoryName = $this->repositoryName ?: 'Doctrine\ORM\EntityRepository';
 >>>>>>> contactmanager
+=======
+        $repositoryName = $this->repositoryName ?: EntityRepository::class;
+>>>>>>> donmanager
 
         if ($namespace && $repositoryName[0] !== '\\') {
             $repositoryName = '\\' . $repositoryName;
@@ -194,10 +229,14 @@ class <className> extends <repositoryName>
     /**
      * @param string $repositoryName
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
 =======
      * 
 >>>>>>> contactmanager
+=======
+     *
+>>>>>>> donmanager
      * @return \Doctrine\ORM\Tools\EntityRepositoryGenerator
      */
     public function setDefaultRepositoryName($repositoryName)

@@ -10,10 +10,14 @@
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace Symfony\Component\Config\Tests\Fixtures\Builder;
 =======
 namespace Symfony\Component\Config\Tests\Definition\Builder;
 >>>>>>> contactmanager
+=======
+namespace Symfony\Component\Config\Tests\Fixtures\Builder;
+>>>>>>> donmanager
 
 use Symfony\Component\Config\Definition\Builder\VariableNodeDefinition as BaseVariableNodeDefinition;
 

@@ -38,9 +38,13 @@ class OneToManyAssociationBuilder extends AssociationBuilder
     {
         $this->mapping['orderBy'] = $fieldNames;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -53,9 +57,13 @@ class OneToManyAssociationBuilder extends AssociationBuilder
     {
         $this->mapping['indexBy'] = $fieldName;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -71,9 +79,13 @@ class OneToManyAssociationBuilder extends AssociationBuilder
         $cm = $this->builder->getClassMetadata();
         $cm->mapOneToMany($mapping);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this->builder;
     }
 }

@@ -35,10 +35,15 @@ class MongoDbSessionHandler extends AbstractSessionHandler
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * Constructor.
      *
 =======
 >>>>>>> contactmanager
+=======
+     * Constructor.
+     *
+>>>>>>> donmanager
      * List of available options:
      *  * database: The name of the database [required]
      *  * collection: The name of the collection [required]

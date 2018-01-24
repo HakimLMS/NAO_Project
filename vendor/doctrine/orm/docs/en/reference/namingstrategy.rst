@@ -4,6 +4,7 @@ Implementing a NamingStrategy
 .. versionadded:: 2.3
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Using a naming strategy you can provide rules for generating database identifiers,
 column or table names when the column or table name is not given. This feature helps
 reduce the verbosity of the mapping document, eliminating repetitive noise (eg: ``TABLE_``).
@@ -15,12 +16,18 @@ This feature helps reduce the verbosity of the mapping document,
 eliminating repetitive noise (eg: ``TABLE_``).
 
 >>>>>>> contactmanager
+=======
+Using a naming strategy you can provide rules for generating database identifiers,
+column or table names when the column or table name is not given. This feature helps
+reduce the verbosity of the mapping document, eliminating repetitive noise (eg: ``TABLE_``).
+>>>>>>> donmanager
 
 Configuring a naming strategy
 -----------------------------
 The default strategy used by Doctrine is quite minimal.
 
 By default the ``Doctrine\ORM\Mapping\DefaultNamingStrategy``
+<<<<<<< HEAD
 <<<<<<< HEAD
 uses the simple class name and the attribute names to generate tables and columns.
 
@@ -30,31 +37,45 @@ uses the simple class name and the attributes names to generate tables and colum
 
 You can specify a different strategy by calling ``Doctrine\ORM\Configuration#setNamingStrategy()`` :
 >>>>>>> contactmanager
+=======
+uses the simple class name and the attribute names to generate tables and columns.
+
+You can specify a different strategy by calling ``Doctrine\ORM\Configuration#setNamingStrategy()``:
+>>>>>>> donmanager
 
 .. code-block:: php
 
     <?php
     $namingStrategy = new MyNamingStrategy();
 <<<<<<< HEAD
+<<<<<<< HEAD
     $configuration->setNamingStrategy($namingStrategy);
 =======
     $configuration()->setNamingStrategy($namingStrategy);
 >>>>>>> contactmanager
+=======
+    $configuration->setNamingStrategy($namingStrategy);
+>>>>>>> donmanager
 
 Underscore naming strategy
 ---------------------------
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ``\Doctrine\ORM\Mapping\UnderscoreNamingStrategy`` is a built-in strategy.
 =======
 ``\Doctrine\ORM\Mapping\UnderscoreNamingStrategy`` is a built-in strategy
 that might be a useful if you want to use a underlying convention.
 >>>>>>> contactmanager
+=======
+``\Doctrine\ORM\Mapping\UnderscoreNamingStrategy`` is a built-in strategy.
+>>>>>>> donmanager
 
 .. code-block:: php
 
     <?php
     $namingStrategy = new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy(CASE_UPPER);
+<<<<<<< HEAD
 <<<<<<< HEAD
     $configuration->setNamingStrategy($namingStrategy);
 
@@ -67,15 +88,25 @@ Then SomeEntityName will generate the table SOME_ENTITY_NAME when CASE_UPPER
 or some_entity_name using CASE_LOWER is given.
 
 >>>>>>> contactmanager
+=======
+    $configuration->setNamingStrategy($namingStrategy);
+
+For SomeEntityName the strategy will generate the table SOME_ENTITY_NAME with the
+``CASE_UPPER`` option, or some_entity_name with the ``CASE_LOWER`` option.
+>>>>>>> donmanager
 
 Naming strategy interface
 -------------------------
 The interface ``Doctrine\ORM\Mapping\NamingStrategy`` allows you to specify
 <<<<<<< HEAD
+<<<<<<< HEAD
 a naming strategy for database tables and columns.
 =======
 a "naming standard" for database tables and columns.
 >>>>>>> contactmanager
+=======
+a naming strategy for database tables and columns.
+>>>>>>> donmanager
 
 .. code-block:: php
 
@@ -133,17 +164,23 @@ a "naming standard" for database tables and columns.
 Implementing a naming strategy
 -------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 If you have database naming standards, like all table names should be prefixed
 by the application prefix, all column names should be lower case, you can easily
 achieve such standards by implementing a naming strategy.
 
 You need to create a class which implements ``Doctrine\ORM\Mapping\NamingStrategy``.
+<<<<<<< HEAD
 =======
 If you have database naming standards like all tables names should be prefixed
 by the application prefix, all column names should be upper case,
 you can easily achieve such standards by implementing a naming strategy.
 You need to implements NamingStrategy first. Following is an example
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
 
 .. code-block:: php
@@ -179,6 +216,7 @@ You need to implements NamingStrategy first. Following is an example
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 Configuring the namingstrategy is easy if.
@@ -190,3 +228,5 @@ Just set your naming strategy calling ``Doctrine\ORM\Configuration#setNamingStra
     $namingStrategy = new MyAppNamingStrategy();
     $configuration()->setNamingStrategy($namingStrategy);
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager

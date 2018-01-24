@@ -221,10 +221,14 @@ class Expr
     public function avg($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('AVG', [$x]);
 =======
         return new Expr\Func('AVG', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('AVG', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -237,10 +241,14 @@ class Expr
     public function max($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('MAX', [$x]);
 =======
         return new Expr\Func('MAX', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('MAX', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -253,10 +261,14 @@ class Expr
     public function min($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('MIN', [$x]);
 =======
         return new Expr\Func('MIN', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('MIN', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -269,10 +281,14 @@ class Expr
     public function count($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('COUNT', [$x]);
 =======
         return new Expr\Func('COUNT', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('COUNT', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -297,10 +313,14 @@ class Expr
     public function exists($subquery)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('EXISTS', [$subquery]);
 =======
         return new Expr\Func('EXISTS', array($subquery));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('EXISTS', [$subquery]);
+>>>>>>> donmanager
     }
 
     /**
@@ -313,10 +333,14 @@ class Expr
     public function all($subquery)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('ALL', [$subquery]);
 =======
         return new Expr\Func('ALL', array($subquery));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('ALL', [$subquery]);
+>>>>>>> donmanager
     }
 
     /**
@@ -329,10 +353,14 @@ class Expr
     public function some($subquery)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('SOME', [$subquery]);
 =======
         return new Expr\Func('SOME', array($subquery));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('SOME', [$subquery]);
+>>>>>>> donmanager
     }
 
     /**
@@ -345,10 +373,14 @@ class Expr
     public function any($subquery)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('ANY', [$subquery]);
 =======
         return new Expr\Func('ANY', array($subquery));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('ANY', [$subquery]);
+>>>>>>> donmanager
     }
 
     /**
@@ -361,10 +393,14 @@ class Expr
     public function not($restriction)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('NOT', [$restriction]);
 =======
         return new Expr\Func('NOT', array($restriction));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('NOT', [$restriction]);
+>>>>>>> donmanager
     }
 
     /**
@@ -377,10 +413,14 @@ class Expr
     public function abs($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('ABS', [$x]);
 =======
         return new Expr\Func('ABS', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('ABS', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -430,10 +470,14 @@ class Expr
      *     [php]
      *     // u.numChildren + 1
 <<<<<<< HEAD
+<<<<<<< HEAD
      *     $q->expr()->sum('u.numChildren', '1')
 =======
      *     $q->expr()->diff('u.numChildren', '1')
 >>>>>>> contactmanager
+=======
+     *     $q->expr()->sum('u.numChildren', '1')
+>>>>>>> donmanager
      *
      * @param mixed $x Left expression.
      * @param mixed $y Right expression.
@@ -474,10 +518,14 @@ class Expr
     public function sqrt($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('SQRT', [$x]);
 =======
         return new Expr\Func('SQRT', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('SQRT', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -498,9 +546,13 @@ class Expr
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return new Expr\Func($x . ' IN', (array) $y);
     }
 
@@ -509,10 +561,14 @@ class Expr
      *
      * @param string $x Field in string format to be restricted by NOT IN() function.
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param mixed  $y Argument to be used in NOT IN() function.
 =======
      * @param mixed $y Argument to be used in NOT IN() function.
 >>>>>>> contactmanager
+=======
+     * @param mixed  $y Argument to be used in NOT IN() function.
+>>>>>>> donmanager
      *
      * @return Expr\Func
      */
@@ -526,9 +582,13 @@ class Expr
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return new Expr\Func($x . ' NOT IN', (array) $y);
     }
 
@@ -587,20 +647,28 @@ class Expr
      *
      * @param mixed $x First argument to be used in CONCAT() function.
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param mixed $y,... Other arguments to be used in CONCAT() function.
 =======
      * @param mixed $y Second argument to be used in CONCAT() function.
 >>>>>>> contactmanager
+=======
+     * @param mixed $y,... Other arguments to be used in CONCAT() function.
+>>>>>>> donmanager
      *
      * @return Expr\Func
      */
     public function concat($x, $y)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('CONCAT', func_get_args());
 =======
         return new Expr\Func('CONCAT', array($x, $y));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('CONCAT', func_get_args());
+>>>>>>> donmanager
     }
 
     /**
@@ -615,6 +683,7 @@ class Expr
     public function substring($x, $from, $len = null)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $args = [$x, $from];
         if (null !== $len) {
             $args[] = $len;
@@ -626,6 +695,13 @@ class Expr
             $args[] = $len;
         }
 >>>>>>> contactmanager
+=======
+        $args = [$x, $from];
+        if (null !== $len) {
+            $args[] = $len;
+        }
+
+>>>>>>> donmanager
         return new Expr\Func('SUBSTRING', $args);
     }
 
@@ -639,10 +715,14 @@ class Expr
     public function lower($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('LOWER', [$x]);
 =======
         return new Expr\Func('LOWER', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('LOWER', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -655,10 +735,14 @@ class Expr
     public function upper($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('UPPER', [$x]);
 =======
         return new Expr\Func('UPPER', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('UPPER', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -671,10 +755,14 @@ class Expr
     public function length($x)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return new Expr\Func('LENGTH', [$x]);
 =======
         return new Expr\Func('LENGTH', array($x));
 >>>>>>> contactmanager
+=======
+        return new Expr\Func('LENGTH', [$x]);
+>>>>>>> donmanager
     }
 
     /**
@@ -703,6 +791,7 @@ class Expr
         } else if (is_bool($literal)) {
             return $literal ? "true" : "false";
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
 
         return "'" . str_replace("'", "''", $literal) . "'";
@@ -711,11 +800,17 @@ class Expr
             return "'" . str_replace("'", "''", $literal) . "'";
         }
 >>>>>>> contactmanager
+=======
+        }
+
+        return "'" . str_replace("'", "''", $literal) . "'";
+>>>>>>> donmanager
     }
 
     /**
      * Creates an instance of BETWEEN() function, with the given argument.
      *
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @param mixed          $val Valued to be inspected by range values.
      * @param integer|string $x   Starting range value to be used in BETWEEN() function.
@@ -725,6 +820,11 @@ class Expr
      * @param integer $x   Starting range value to be used in BETWEEN() function.
      * @param integer $y   End point value to be used in BETWEEN() function.
 >>>>>>> contactmanager
+=======
+     * @param mixed          $val Valued to be inspected by range values.
+     * @param integer|string $x   Starting range value to be used in BETWEEN() function.
+     * @param integer|string $y   End point value to be used in BETWEEN() function.
+>>>>>>> donmanager
      *
      * @return Expr\Func A BETWEEN expression.
      */

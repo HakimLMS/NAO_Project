@@ -187,10 +187,14 @@ class ExprBuilder
     public function thenInvalid($message)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->thenPart = function ($v) use ($message) { throw new \InvalidArgumentException(sprintf($message, json_encode($v))); };
 =======
         $this->thenPart = function ($v) use ($message) {throw new \InvalidArgumentException(sprintf($message, json_encode($v))); };
 >>>>>>> contactmanager
+=======
+        $this->thenPart = function ($v) use ($message) { throw new \InvalidArgumentException(sprintf($message, json_encode($v))); };
+>>>>>>> donmanager
 
         return $this;
     }

@@ -36,10 +36,14 @@ class ArrayHydrator extends AbstractHydrator
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $_rootAliases = [];
 =======
     private $_rootAliases = array();
 >>>>>>> contactmanager
+=======
+    private $_rootAliases = [];
+>>>>>>> donmanager
 
     /**
      * @var bool
@@ -50,28 +54,40 @@ class ArrayHydrator extends AbstractHydrator
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $_identifierMap = [];
 =======
     private $_identifierMap = array();
 >>>>>>> contactmanager
+=======
+    private $_identifierMap = [];
+>>>>>>> donmanager
 
     /**
      * @var array
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     private $_resultPointers = [];
 =======
     private $_resultPointers = array();
 >>>>>>> contactmanager
+=======
+    private $_resultPointers = [];
+>>>>>>> donmanager
 
     /**
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $_idTemplate = [];
 =======
     private $_idTemplate = array();
 >>>>>>> contactmanager
+=======
+    private $_idTemplate = [];
+>>>>>>> donmanager
 
     /**
      * @var int
@@ -87,12 +103,17 @@ class ArrayHydrator extends AbstractHydrator
 
         foreach ($this->_rsm->aliasMap as $dqlAlias => $className) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->_identifierMap[$dqlAlias]  = [];
             $this->_resultPointers[$dqlAlias] = [];
 =======
             $this->_identifierMap[$dqlAlias]  = array();
             $this->_resultPointers[$dqlAlias] = array();
 >>>>>>> contactmanager
+=======
+            $this->_identifierMap[$dqlAlias]  = [];
+            $this->_resultPointers[$dqlAlias] = [];
+>>>>>>> donmanager
             $this->_idTemplate[$dqlAlias]     = '';
         }
     }
@@ -103,10 +124,14 @@ class ArrayHydrator extends AbstractHydrator
     protected function hydrateAllData()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $result = [];
 =======
         $result = array();
 >>>>>>> contactmanager
+=======
+        $result = [];
+>>>>>>> donmanager
 
         while ($data = $this->_stmt->fetch(PDO::FETCH_ASSOC)) {
             $this->hydrateRowData($data, $result);
@@ -123,10 +148,14 @@ class ArrayHydrator extends AbstractHydrator
         // 1) Initialize
         $id = $this->_idTemplate; // initialize the id-memory
 <<<<<<< HEAD
+<<<<<<< HEAD
         $nonemptyComponents = [];
 =======
         $nonemptyComponents = array();
 >>>>>>> contactmanager
+=======
+        $nonemptyComponents = [];
+>>>>>>> donmanager
         $rowData = $this->gatherRowData($row, $id, $nonemptyComponents);
 
         // 2) Now hydrate the data found in the current row.
@@ -168,10 +197,14 @@ class ArrayHydrator extends AbstractHydrator
 
                     if ( ! isset($baseElement[$relationAlias])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                         $baseElement[$relationAlias] = [];
 =======
                         $baseElement[$relationAlias] = array();
 >>>>>>> contactmanager
+=======
+                        $baseElement[$relationAlias] = [];
+>>>>>>> donmanager
                     }
 
                     if (isset($nonemptyComponents[$dqlAlias])) {
@@ -221,10 +254,14 @@ class ArrayHydrator extends AbstractHydrator
                 if ( ! isset($nonemptyComponents[$dqlAlias]) ) {
                     $result[] = $this->_rsm->isMixed
 <<<<<<< HEAD
+<<<<<<< HEAD
                         ? [$entityKey => null]
 =======
                         ? array($entityKey => null)
 >>>>>>> contactmanager
+=======
+                        ? [$entityKey => null]
+>>>>>>> donmanager
                         : null;
 
                     $resultKey = $this->_resultCounter;
@@ -237,10 +274,14 @@ class ArrayHydrator extends AbstractHydrator
                 if ($this->_isSimpleQuery || ! isset($this->_identifierMap[$dqlAlias][$id[$dqlAlias]])) {
                     $element = $this->_rsm->isMixed
 <<<<<<< HEAD
+<<<<<<< HEAD
                         ? [$entityKey => $data]
 =======
                         ? array($entityKey => $data)
 >>>>>>> contactmanager
+=======
+                        ? [$entityKey => $data]
+>>>>>>> donmanager
                         : $data;
 
                     if (isset($this->_rsm->indexByMap[$dqlAlias])) {

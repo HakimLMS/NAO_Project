@@ -99,10 +99,15 @@ abstract class Descriptor implements DescriptorInterface
 
         $this->overriddenOptions = array_filter($this->overriddenOptions);
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->parentOptions = array_filter($this->parentOptions);
         $this->extensionOptions = array_filter($this->extensionOptions);
 =======
 >>>>>>> contactmanager
+=======
+        $this->parentOptions = array_filter($this->parentOptions);
+        $this->extensionOptions = array_filter($this->extensionOptions);
+>>>>>>> donmanager
         $this->requiredOptions = $optionsResolver->getRequiredOptions();
 
         $this->parents = array_keys($this->parents);

@@ -14,10 +14,14 @@ General Considerations
 ~~~~~~~~~~~~~~~~~~~~~~
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Every entity with a composite key cannot use an id generator other than "NONE". That means
 =======
 Every entity with a composite key cannot use an id generator other than "ASSIGNED". That means
 >>>>>>> contactmanager
+=======
+Every entity with a composite key cannot use an id generator other than "NONE". That means
+>>>>>>> donmanager
 the ID fields have to have their values set before you call ``EntityManager#persist($entity)``.
 
 Primitive Types only
@@ -43,10 +47,14 @@ and year of production as primary keys:
             private $name;
             /** @Id @Column(type="integer") */
 <<<<<<< HEAD
+<<<<<<< HEAD
             private $year;
 =======
             private $year
 >>>>>>> contactmanager
+=======
+            private $year;
+>>>>>>> donmanager
 
             public function __construct($name, $year)
             {

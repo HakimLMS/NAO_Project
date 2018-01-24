@@ -1,9 +1,13 @@
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 In ApplicationTest.php line 753:
 =======
 In ApplicationTest.php line 743:
 >>>>>>> contactmanager
+=======
+In ApplicationTest.php line 753:
+>>>>>>> donmanager
                      
   dont break here <  
   info>!</info>      

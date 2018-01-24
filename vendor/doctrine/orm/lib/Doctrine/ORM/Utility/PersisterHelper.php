@@ -21,9 +21,12 @@
 namespace Doctrine\ORM\Utility;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 use Doctrine\Common\Util\ClassUtils;
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query\QueryException;
@@ -51,6 +54,7 @@ class PersisterHelper
     {
         if (isset($class->fieldMappings[$fieldName])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return [$class->fieldMappings[$fieldName]['type']];
         }
 
@@ -63,6 +67,13 @@ class PersisterHelper
         if ( ! isset($class->associationMappings[$fieldName])) {
             return array();
 >>>>>>> contactmanager
+=======
+            return [$class->fieldMappings[$fieldName]['type']];
+        }
+
+        if ( ! isset($class->associationMappings[$fieldName])) {
+            return [];
+>>>>>>> donmanager
         }
 
         $assoc = $class->associationMappings[$fieldName];
@@ -78,10 +89,14 @@ class PersisterHelper
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $types       = [];
 =======
         $types       = array();
 >>>>>>> contactmanager
+=======
+        $types       = [];
+>>>>>>> donmanager
         $targetClass = $em->getClassMetadata($assoc['targetEntity']);
 
         foreach ($joinData['joinColumns'] as $joinColumn) {

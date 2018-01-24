@@ -5,10 +5,14 @@ Implementing Wakeup or Clone
 
 As explained in the
 <<<<<<< HEAD
+<<<<<<< HEAD
 `restrictions for entity classes in the manual <http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/architecture.html#entities>`_,
 =======
 `restrictions for entity classes in the manual <http://www.doctrine-project.org/documentation/manual/2_0/en/architecture#entities>`_,
 >>>>>>> contactmanager
+=======
+`restrictions for entity classes in the manual <http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/architecture.html#entities>`_,
+>>>>>>> donmanager
 it is usually not allowed for an entity to implement ``__wakeup``
 or ``__clone``, because Doctrine makes special use of them.
 However, it is quite easy to make use of these methods in a safe

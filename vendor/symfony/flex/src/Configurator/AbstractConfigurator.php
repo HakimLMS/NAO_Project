@@ -15,9 +15,13 @@ use Composer\Composer;
 use Composer\IO\IOInterface;
 use Symfony\Flex\Options;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Symfony\Flex\Path;
 =======
 >>>>>>> contactmanager
+=======
+use Symfony\Flex\Path;
+>>>>>>> donmanager
 use Symfony\Flex\Recipe;
 
 /**
@@ -29,9 +33,13 @@ abstract class AbstractConfigurator
     protected $io;
     protected $options;
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $path;
 =======
 >>>>>>> contactmanager
+=======
+    protected $path;
+>>>>>>> donmanager
 
     public function __construct(Composer $composer, IOInterface $io, Options $options)
     {
@@ -39,9 +47,13 @@ abstract class AbstractConfigurator
         $this->io = $io;
         $this->options = $options;
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->path = new Path(getcwd());
 =======
 >>>>>>> contactmanager
+=======
+        $this->path = new Path(getcwd());
+>>>>>>> donmanager
     }
 
     abstract public function configure(Recipe $recipe, $config);

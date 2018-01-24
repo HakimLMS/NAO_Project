@@ -20,6 +20,7 @@
 namespace Doctrine\ORM\Tools\Console\Command;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\MetadataFilter;
 use Symfony\Component\Console\Command\Command;
@@ -29,13 +30,22 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 =======
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
+=======
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\MetadataFilter;
+use Symfony\Component\Console\Command\Command;
+>>>>>>> donmanager
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+<<<<<<< HEAD
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Command\Command;
 >>>>>>> contactmanager
+=======
+use Symfony\Component\Console\Style\SymfonyStyle;
+>>>>>>> donmanager
 
 /**
  * Command to (re)generate the proxy classes used by doctrine.
@@ -55,12 +65,16 @@ class GenerateProxiesCommand extends Command
     protected function configure()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $this->setName('orm:generate-proxies')
              ->setAliases(['orm:generate:proxies'])
              ->setDescription('Generates proxy classes for entity classes')
              ->addArgument('dest-path', InputArgument::OPTIONAL, 'The path to generate your proxy classes. If none is provided, it will attempt to grab from configuration.')
              ->addOption('filter', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'A string pattern used to match entities that should be processed.')
              ->setHelp('Generates proxy classes for entity classes.');
+<<<<<<< HEAD
 =======
         $this
         ->setName('orm:generate-proxies')
@@ -81,6 +95,8 @@ Generates proxy classes for entity classes.
 EOT
         );
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     }
 
     /**
@@ -89,11 +105,17 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
         /** @var EntityManagerInterface $em */
 =======
 >>>>>>> contactmanager
+=======
+        $ui = new SymfonyStyle($input, $output);
+
+        /** @var EntityManagerInterface $em */
+>>>>>>> donmanager
         $em = $this->getHelper('em')->getEntityManager();
 
         $metadatas = $em->getMetadataFactory()->getAllMetadata();
@@ -123,10 +145,14 @@ EOT
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         if (empty($metadatas)) {
             $ui->success('No Metadata Classes to process.');
             return;
         }
+<<<<<<< HEAD
 
         foreach ($metadatas as $metadata) {
             $ui->text(sprintf('Processing entity "<info>%s</info>"', $metadata->name));
@@ -148,12 +174,22 @@ EOT
 
             // Generating Proxies
             $em->getProxyFactory()->generateProxyClasses($metadatas, $destPath);
+=======
+>>>>>>> donmanager
 
-            // Outputting information message
-            $output->writeln(PHP_EOL . sprintf('Proxy classes generated to "<info>%s</INFO>"', $destPath));
-        } else {
-            $output->writeln('No Metadata Classes to process.');
+        foreach ($metadatas as $metadata) {
+            $ui->text(sprintf('Processing entity "<info>%s</info>"', $metadata->name));
         }
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+
+        // Generating Proxies
+        $em->getProxyFactory()->generateProxyClasses($metadatas, $destPath);
+
+        // Outputting information message
+        $ui->newLine();
+        $ui->text(sprintf('Proxy classes generated to "<info>%s</info>"', $destPath));
+>>>>>>> donmanager
     }
 }

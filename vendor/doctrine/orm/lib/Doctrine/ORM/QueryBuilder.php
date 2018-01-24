@@ -58,6 +58,7 @@ class QueryBuilder
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $_dqlParts = [
         'distinct' => false,
         'select'  => [],
@@ -71,17 +72,25 @@ class QueryBuilder
     ];
 =======
     private $_dqlParts = array(
+=======
+    private $_dqlParts = [
+>>>>>>> donmanager
         'distinct' => false,
-        'select'  => array(),
-        'from'    => array(),
-        'join'    => array(),
-        'set'     => array(),
+        'select'  => [],
+        'from'    => [],
+        'join'    => [],
+        'set'     => [],
         'where'   => null,
-        'groupBy' => array(),
+        'groupBy' => [],
         'having'  => null,
+<<<<<<< HEAD
         'orderBy' => array()
     );
 >>>>>>> contactmanager
+=======
+        'orderBy' => []
+    ];
+>>>>>>> donmanager
 
     /**
      * The type of query this is. Can be select, update or delete.
@@ -122,10 +131,14 @@ class QueryBuilder
      * The maximum number of results to retrieve.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var integer|null
 =======
      * @var integer
 >>>>>>> contactmanager
+=======
+     * @var integer|null
+>>>>>>> donmanager
      */
     private $_maxResults = null;
 
@@ -135,10 +148,14 @@ class QueryBuilder
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $joinRootAliases = [];
 =======
     private $joinRootAliases = array();
 >>>>>>> contactmanager
+=======
+    private $joinRootAliases = [];
+>>>>>>> donmanager
 
      /**
      * Whether to use second level cache, if available.
@@ -206,10 +223,14 @@ class QueryBuilder
      * @param boolean $cacheable
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return \Doctrine\ORM\AbstractQuery This query instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function setCacheable($cacheable)
     {
@@ -230,10 +251,14 @@ class QueryBuilder
      * @param string $cacheRegion
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return \Doctrine\ORM\AbstractQuery This query instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function setCacheRegion($cacheRegion)
     {
@@ -246,10 +271,14 @@ class QueryBuilder
     * Obtain the name of the second level query cache region in which query results will be stored
     *
 <<<<<<< HEAD
+<<<<<<< HEAD
     * @return string|null The cache region name; NULL indicates the default region.
 =======
     * @return The cache region name; NULL indicates the default region.
 >>>>>>> contactmanager
+=======
+    * @return string|null The cache region name; NULL indicates the default region.
+>>>>>>> donmanager
     */
     public function getCacheRegion()
     {
@@ -269,11 +298,16 @@ class QueryBuilder
      *
      * @param integer $lifetime
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return self
 =======
      * @return \Doctrine\ORM\AbstractQuery This query instance.
 >>>>>>> contactmanager
+=======
+     *
+     * @return self
+>>>>>>> donmanager
      */
     public function setLifetime($lifetime)
     {
@@ -293,11 +327,16 @@ class QueryBuilder
     /**
      * @param integer $cacheMode
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return self
 =======
      * @return \Doctrine\ORM\AbstractQuery This query instance.
 >>>>>>> contactmanager
+=======
+     *
+     * @return self
+>>>>>>> donmanager
      */
     public function setCacheMode($cacheMode)
     {
@@ -456,10 +495,14 @@ class QueryBuilder
      *
      * @deprecated Please use $qb->getRootAliases() instead.
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @throws \RuntimeException
 =======
      * @throws RuntimeException
 >>>>>>> contactmanager
+=======
+     * @throws \RuntimeException
+>>>>>>> donmanager
      *
      * @return string
      */
@@ -491,10 +534,14 @@ class QueryBuilder
     public function getRootAliases()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $aliases = [];
 =======
         $aliases = array();
 >>>>>>> contactmanager
+=======
+        $aliases = [];
+>>>>>>> donmanager
 
         foreach ($this->_dqlParts['from'] as &$fromClause) {
             if (is_string($fromClause)) {
@@ -520,15 +567,20 @@ class QueryBuilder
      *         ->select('u')
      *         ->from('User', 'u')
 <<<<<<< HEAD
+<<<<<<< HEAD
      *         ->join('u.articles','a');
 =======
      *         ->join('u.articles','a';
 >>>>>>> contactmanager
+=======
+     *         ->join('u.articles','a');
+>>>>>>> donmanager
      *
      *     $qb->getAllAliases(); // array('u','a')
      * </code>
      * @return array
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public function getAllAliases()
     {
@@ -537,6 +589,11 @@ class QueryBuilder
     public function getAllAliases() {
         return array_merge($this->getRootAliases(),array_keys($this->joinRootAliases));
 >>>>>>> contactmanager
+=======
+    public function getAllAliases()
+    {
+        return array_merge($this->getRootAliases(), array_keys($this->joinRootAliases));
+>>>>>>> donmanager
     }
 
     /**
@@ -556,10 +613,14 @@ class QueryBuilder
     public function getRootEntities()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $entities = [];
 =======
         $entities = array();
 >>>>>>> contactmanager
+=======
+        $entities = [];
+>>>>>>> donmanager
 
         foreach ($this->_dqlParts['from'] as &$fromClause) {
             if (is_string($fromClause)) {
@@ -590,6 +651,7 @@ class QueryBuilder
      * @param string|integer $key   The parameter position or name.
      * @param mixed          $value The parameter value.
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param string|integer|null    $type  PDO::PARAM_* or \Doctrine\DBAL\Types\Type::* constant
      *
      * @return self
@@ -598,6 +660,11 @@ class QueryBuilder
      *
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @param string|integer|null    $type  PDO::PARAM_* or \Doctrine\DBAL\Types\Type::* constant
+     *
+     * @return self
+>>>>>>> donmanager
      */
     public function setParameter($key, $value, $type = null)
     {
@@ -631,10 +698,14 @@ class QueryBuilder
      * @param \Doctrine\Common\Collections\ArrayCollection|array $parameters The query parameters to set.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function setParameters($parameters)
     {
@@ -677,10 +748,14 @@ class QueryBuilder
     {
         $filteredParameters = $this->parameters->filter(
 <<<<<<< HEAD
+<<<<<<< HEAD
             function (Query\Parameter $parameter) use ($key) : bool {
 =======
             function (Query\Parameter $parameter) use ($key) {
 >>>>>>> contactmanager
+=======
+            function (Query\Parameter $parameter) use ($key) : bool {
+>>>>>>> donmanager
                 $parameterName = $parameter->getName();
 
                 return $key === $parameterName || (string) $key === (string) $parameterName;
@@ -696,10 +771,14 @@ class QueryBuilder
      * @param integer $firstResult The first result to return.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function setFirstResult($firstResult)
     {
@@ -723,6 +802,7 @@ class QueryBuilder
      * Sets the maximum number of results to retrieve (the "limit").
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param integer|null $maxResults The maximum number of results to retrieve.
      *
      * @return self
@@ -731,6 +811,11 @@ class QueryBuilder
      *
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @param integer|null $maxResults The maximum number of results to retrieve.
+     *
+     * @return self
+>>>>>>> donmanager
      */
     public function setMaxResults($maxResults)
     {
@@ -744,10 +829,14 @@ class QueryBuilder
      * Returns NULL if {@link setMaxResults} was not applied to this query builder.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return integer|null Maximum number of results.
 =======
      * @return integer Maximum number of results.
 >>>>>>> contactmanager
+=======
+     * @return integer|null Maximum number of results.
+>>>>>>> donmanager
      */
     public function getMaxResults()
     {
@@ -761,6 +850,7 @@ class QueryBuilder
      * 'groupBy', 'having' and 'orderBy'.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param string       $dqlPartName The DQL part name.
      * @param object|array $dqlPart     An Expr object.
      * @param bool         $append      Whether to append (true) or replace (false).
@@ -773,6 +863,13 @@ class QueryBuilder
      *
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @param string       $dqlPartName The DQL part name.
+     * @param object|array $dqlPart     An Expr object.
+     * @param bool         $append      Whether to append (true) or replace (false).
+     *
+     * @return self
+>>>>>>> donmanager
      */
     public function add($dqlPartName, $dqlPart, $append = false)
     {
@@ -795,10 +892,14 @@ class QueryBuilder
         // TODO: Remove for 3.0
         if ($dqlPartName == 'join') {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $newDqlPart = [];
 =======
             $newDqlPart = array();
 >>>>>>> contactmanager
+=======
+            $newDqlPart = [];
+>>>>>>> donmanager
 
             foreach ($dqlPart as $k => $v) {
                 $k = is_numeric($k) ? $this->getRootAlias() : $k;
@@ -819,10 +920,14 @@ class QueryBuilder
             }
         } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->_dqlParts[$dqlPartName] = ($isMultiple) ? [$dqlPart] : $dqlPart;
 =======
             $this->_dqlParts[$dqlPartName] = ($isMultiple) ? array($dqlPart) : $dqlPart;
 >>>>>>> contactmanager
+=======
+            $this->_dqlParts[$dqlPartName] = ($isMultiple) ? [$dqlPart] : $dqlPart;
+>>>>>>> donmanager
         }
 
         $this->_state = self::STATE_DIRTY;
@@ -844,10 +949,14 @@ class QueryBuilder
      * @param mixed $select The selection expressions.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function select($select = null)
     {
@@ -875,10 +984,14 @@ class QueryBuilder
      * @param bool $flag
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function distinct($flag = true)
     {
@@ -901,10 +1014,14 @@ class QueryBuilder
      * @param mixed $select The selection expression.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function addSelect($select = null)
     {
@@ -934,10 +1051,14 @@ class QueryBuilder
      * @param string $alias  The class/type alias used in the constructed query.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function delete($delete = null, $alias = null)
     {
@@ -958,22 +1079,31 @@ class QueryBuilder
      *     $qb = $em->createQueryBuilder()
      *         ->update('User', 'u')
 <<<<<<< HEAD
+<<<<<<< HEAD
      *         ->set('u.password', '?1')
      *         ->where('u.id = ?2');
 =======
      *         ->set('u.password', md5('password'))
      *         ->where('u.id = ?');
 >>>>>>> contactmanager
+=======
+     *         ->set('u.password', '?1')
+     *         ->where('u.id = ?2');
+>>>>>>> donmanager
      * </code>
      *
      * @param string $update The class/type whose instances are subject to the update.
      * @param string $alias  The class/type alias used in the constructed query.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function update($update = null, $alias = null)
     {
@@ -1001,10 +1131,14 @@ class QueryBuilder
      * @param string $indexBy The index for the from.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function from($from, $alias, $indexBy = null)
     {
@@ -1031,10 +1165,14 @@ class QueryBuilder
      * @param string $indexBy The index for the from.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      *
      * @throws Query\QueryException
      */
@@ -1050,9 +1188,13 @@ class QueryBuilder
 
         foreach ($this->_dqlParts['from'] as &$fromClause) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             /* @var Expr\From $fromClause */
 =======
 >>>>>>> contactmanager
+=======
+            /* @var Expr\From $fromClause */
+>>>>>>> donmanager
             if ($fromClause->getAlias() !== $alias) {
                 continue;
             }
@@ -1084,10 +1226,14 @@ class QueryBuilder
      * @param string|null $indexBy       The index for the join.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function join($join, $alias, $conditionType = null, $condition = null, $indexBy = null)
     {
@@ -1114,10 +1260,14 @@ class QueryBuilder
      * @param string|null $indexBy       The index for the join.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function innerJoin($join, $alias, $conditionType = null, $condition = null, $indexBy = null)
     {
@@ -1130,10 +1280,14 @@ class QueryBuilder
         );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->add('join', [$rootAlias => $join], true);
 =======
         return $this->add('join', array($rootAlias => $join), true);
 >>>>>>> contactmanager
+=======
+        return $this->add('join', [$rootAlias => $join], true);
+>>>>>>> donmanager
     }
 
     /**
@@ -1157,10 +1311,14 @@ class QueryBuilder
      * @param string|null $indexBy       The index for the join.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function leftJoin($join, $alias, $conditionType = null, $condition = null, $indexBy = null)
     {
@@ -1173,10 +1331,14 @@ class QueryBuilder
         );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->add('join', [$rootAlias => $join], true);
 =======
         return $this->add('join', array($rootAlias => $join), true);
 >>>>>>> contactmanager
+=======
+        return $this->add('join', [$rootAlias => $join], true);
+>>>>>>> donmanager
     }
 
     /**
@@ -1186,22 +1348,31 @@ class QueryBuilder
      *     $qb = $em->createQueryBuilder()
      *         ->update('User', 'u')
 <<<<<<< HEAD
+<<<<<<< HEAD
      *         ->set('u.password', '?1')
      *         ->where('u.id = ?2');
 =======
      *         ->set('u.password', md5('password'))
      *         ->where('u.id = ?');
 >>>>>>> contactmanager
+=======
+     *         ->set('u.password', '?1')
+     *         ->where('u.id = ?2');
+>>>>>>> donmanager
      * </code>
      *
      * @param string $key   The key/field to set.
      * @param string $value The value, expression, placeholder, etc.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function set($key, $value)
     {
@@ -1219,6 +1390,7 @@ class QueryBuilder
      *         ->where('u.id = ?');
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      *     // You can optionally programmatically build and/or expressions
      *     $qb = $em->createQueryBuilder();
      *
@@ -1229,25 +1401,39 @@ class QueryBuilder
      *
      *     $or = $qb->expr()->orx();
 >>>>>>> contactmanager
+=======
+     *     // You can optionally programmatically build and/or expressions
+     *     $qb = $em->createQueryBuilder();
+     *
+     *     $or = $qb->expr()->orX();
+>>>>>>> donmanager
      *     $or->add($qb->expr()->eq('u.id', 1));
      *     $or->add($qb->expr()->eq('u.id', 2));
      *
      *     $qb->update('User', 'u')
 <<<<<<< HEAD
+<<<<<<< HEAD
      *         ->set('u.password', '?')
 =======
      *         ->set('u.password', md5('password'))
 >>>>>>> contactmanager
+=======
+     *         ->set('u.password', '?')
+>>>>>>> donmanager
      *         ->where($or);
      * </code>
      *
      * @param mixed $predicates The restriction predicates.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function where($predicates)
     {
@@ -1273,10 +1459,14 @@ class QueryBuilder
      * @param mixed $where The query restrictions.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      *
      * @see where()
      */
@@ -1310,10 +1500,14 @@ class QueryBuilder
      * @param mixed $where The WHERE statement.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      *
      * @see where()
      */
@@ -1321,10 +1515,14 @@ class QueryBuilder
     {
         $args  = func_get_args();
 <<<<<<< HEAD
+<<<<<<< HEAD
         $where = $this->getDQLPart('where');
 =======
         $where = $this->getDqlPart('where');
 >>>>>>> contactmanager
+=======
+        $where = $this->getDQLPart('where');
+>>>>>>> donmanager
 
         if ($where instanceof Expr\Orx) {
             $where->addMultiple($args);
@@ -1350,10 +1548,14 @@ class QueryBuilder
      * @param string $groupBy The grouping expression.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function groupBy($groupBy)
     {
@@ -1374,10 +1576,14 @@ class QueryBuilder
      * @param string $groupBy The grouping expression.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function addGroupBy($groupBy)
     {
@@ -1391,10 +1597,14 @@ class QueryBuilder
      * @param mixed $having The restriction over the groups.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function having($having)
     {
@@ -1412,19 +1622,27 @@ class QueryBuilder
      * @param mixed $having The restriction to append.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function andHaving($having)
     {
         $args   = func_get_args();
 <<<<<<< HEAD
+<<<<<<< HEAD
         $having = $this->getDQLPart('having');
 =======
         $having = $this->getDqlPart('having');
 >>>>>>> contactmanager
+=======
+        $having = $this->getDQLPart('having');
+>>>>>>> donmanager
 
         if ($having instanceof Expr\Andx) {
             $having->addMultiple($args);
@@ -1443,19 +1661,27 @@ class QueryBuilder
      * @param mixed $having The restriction to add.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function orHaving($having)
     {
         $args   = func_get_args();
 <<<<<<< HEAD
+<<<<<<< HEAD
         $having = $this->getDQLPart('having');
 =======
         $having = $this->getDqlPart('having');
 >>>>>>> contactmanager
+=======
+        $having = $this->getDQLPart('having');
+>>>>>>> donmanager
 
         if ($having instanceof Expr\Orx) {
             $having->addMultiple($args);
@@ -1475,10 +1701,14 @@ class QueryBuilder
      * @param string              $order The ordering direction.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function orderBy($sort, $order = null)
     {
@@ -1494,10 +1724,14 @@ class QueryBuilder
      * @param string              $order The ordering direction.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
 =======
      * @return QueryBuilder This QueryBuilder instance.
 >>>>>>> contactmanager
+=======
+     * @return self
+>>>>>>> donmanager
      */
     public function addOrderBy($sort, $order = null)
     {
@@ -1515,12 +1749,18 @@ class QueryBuilder
      *
      * @param Criteria $criteria
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return self
      *
 =======
      * @return QueryBuilder
 >>>>>>> contactmanager
+=======
+     *
+     * @return self
+     *
+>>>>>>> donmanager
      * @throws Query\QueryException
      */
     public function addCriteria(Criteria $criteria)
@@ -1602,6 +1842,7 @@ class QueryBuilder
     {
          return 'DELETE'
 <<<<<<< HEAD
+<<<<<<< HEAD
               . $this->_getReducedDQLQueryPart('from', ['pre' => ' ', 'separator' => ', '])
               . $this->_getReducedDQLQueryPart('where', ['pre' => ' WHERE '])
               . $this->_getReducedDQLQueryPart('orderBy', ['pre' => ' ORDER BY ', 'separator' => ', ']);
@@ -1610,6 +1851,11 @@ class QueryBuilder
               . $this->_getReducedDQLQueryPart('where', array('pre' => ' WHERE '))
               . $this->_getReducedDQLQueryPart('orderBy', array('pre' => ' ORDER BY ', 'separator' => ', '));
 >>>>>>> contactmanager
+=======
+              . $this->_getReducedDQLQueryPart('from', ['pre' => ' ', 'separator' => ', '])
+              . $this->_getReducedDQLQueryPart('where', ['pre' => ' WHERE '])
+              . $this->_getReducedDQLQueryPart('orderBy', ['pre' => ' ORDER BY ', 'separator' => ', ']);
+>>>>>>> donmanager
     }
 
     /**
@@ -1619,16 +1865,22 @@ class QueryBuilder
     {
          return 'UPDATE'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
               . $this->_getReducedDQLQueryPart('from', ['pre' => ' ', 'separator' => ', '])
               . $this->_getReducedDQLQueryPart('set', ['pre' => ' SET ', 'separator' => ', '])
               . $this->_getReducedDQLQueryPart('where', ['pre' => ' WHERE '])
               . $this->_getReducedDQLQueryPart('orderBy', ['pre' => ' ORDER BY ', 'separator' => ', ']);
+<<<<<<< HEAD
 =======
               . $this->_getReducedDQLQueryPart('from', array('pre' => ' ', 'separator' => ', '))
               . $this->_getReducedDQLQueryPart('set', array('pre' => ' SET ', 'separator' => ', '))
               . $this->_getReducedDQLQueryPart('where', array('pre' => ' WHERE '))
               . $this->_getReducedDQLQueryPart('orderBy', array('pre' => ' ORDER BY ', 'separator' => ', '));
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     }
 
     /**
@@ -1638,6 +1890,7 @@ class QueryBuilder
     {
         $dql = 'SELECT'
              . ($this->_dqlParts['distinct']===true ? ' DISTINCT' : '')
+<<<<<<< HEAD
 <<<<<<< HEAD
              . $this->_getReducedDQLQueryPart('select', ['pre' => ' ', 'separator' => ', ']);
 
@@ -1651,6 +1904,13 @@ class QueryBuilder
         $joinParts   = $this->getDQLPart('join');
         $fromClauses = array();
 >>>>>>> contactmanager
+=======
+             . $this->_getReducedDQLQueryPart('select', ['pre' => ' ', 'separator' => ', ']);
+
+        $fromParts   = $this->getDQLPart('from');
+        $joinParts   = $this->getDQLPart('join');
+        $fromClauses = [];
+>>>>>>> donmanager
 
         // Loop through all FROM clauses
         if ( ! empty($fromParts)) {
@@ -1671,16 +1931,22 @@ class QueryBuilder
 
         $dql .= implode(', ', $fromClauses)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
               . $this->_getReducedDQLQueryPart('where', ['pre' => ' WHERE '])
               . $this->_getReducedDQLQueryPart('groupBy', ['pre' => ' GROUP BY ', 'separator' => ', '])
               . $this->_getReducedDQLQueryPart('having', ['pre' => ' HAVING '])
               . $this->_getReducedDQLQueryPart('orderBy', ['pre' => ' ORDER BY ', 'separator' => ', ']);
+<<<<<<< HEAD
 =======
               . $this->_getReducedDQLQueryPart('where', array('pre' => ' WHERE '))
               . $this->_getReducedDQLQueryPart('groupBy', array('pre' => ' GROUP BY ', 'separator' => ', '))
               . $this->_getReducedDQLQueryPart('having', array('pre' => ' HAVING '))
               . $this->_getReducedDQLQueryPart('orderBy', array('pre' => ' ORDER BY ', 'separator' => ', '));
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
         return $dql;
     }
@@ -1692,14 +1958,19 @@ class QueryBuilder
      * @return string
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private function _getReducedDQLQueryPart($queryPartName, $options = [])
 =======
     private function _getReducedDQLQueryPart($queryPartName, $options = array())
 >>>>>>> contactmanager
+=======
+    private function _getReducedDQLQueryPart($queryPartName, $options = [])
+>>>>>>> donmanager
     {
         $queryPart = $this->getDQLPart($queryPartName);
 
         if (empty($queryPart)) {
+<<<<<<< HEAD
 <<<<<<< HEAD
             return ($options['empty'] ?? '');
         }
@@ -1709,12 +1980,19 @@ class QueryBuilder
              . ($options['post'] ?? '');
 =======
             return (isset($options['empty']) ? $options['empty'] : '');
+=======
+            return ($options['empty'] ?? '');
+>>>>>>> donmanager
         }
 
-        return (isset($options['pre']) ? $options['pre'] : '')
+        return ($options['pre'] ?? '')
              . (is_array($queryPart) ? implode($options['separator'], $queryPart) : $queryPart)
+<<<<<<< HEAD
              . (isset($options['post']) ? $options['post'] : '');
 >>>>>>> contactmanager
+=======
+             . ($options['post'] ?? '');
+>>>>>>> donmanager
     }
 
     /**
@@ -1722,6 +2000,7 @@ class QueryBuilder
      *
      * @param array|null $parts
      *
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return self
      */
@@ -1735,6 +2014,13 @@ class QueryBuilder
     {
         if (is_null($parts)) {
 >>>>>>> contactmanager
+=======
+     * @return self
+     */
+    public function resetDQLParts($parts = null)
+    {
+        if (null === $parts) {
+>>>>>>> donmanager
             $parts = array_keys($this->_dqlParts);
         }
 
@@ -1751,6 +2037,7 @@ class QueryBuilder
      * @param string $part
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return self
      */
     public function resetDQLPart($part)
@@ -1763,6 +2050,13 @@ class QueryBuilder
     {
         $this->_dqlParts[$part] = is_array($this->_dqlParts[$part]) ? array() : null;
 >>>>>>> contactmanager
+=======
+     * @return self
+     */
+    public function resetDQLPart($part)
+    {
+        $this->_dqlParts[$part] = is_array($this->_dqlParts[$part]) ? [] : null;
+>>>>>>> donmanager
         $this->_state           = self::STATE_DIRTY;
 
         return $this;
@@ -1799,10 +2093,14 @@ class QueryBuilder
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $parameters = [];
 =======
         $parameters = array();
 >>>>>>> contactmanager
+=======
+        $parameters = [];
+>>>>>>> donmanager
 
         foreach ($this->parameters as $parameter) {
             $parameters[] = clone $parameter;

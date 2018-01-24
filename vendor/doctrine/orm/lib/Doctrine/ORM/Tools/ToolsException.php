@@ -21,9 +21,13 @@ namespace Doctrine\ORM\Tools;
 
 use Doctrine\ORM\ORMException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Throwable;
 =======
 >>>>>>> contactmanager
+=======
+use Throwable;
+>>>>>>> donmanager
 
 /**
  * Tools related Exceptions.
@@ -32,6 +36,7 @@ use Throwable;
  */
 class ToolsException extends ORMException
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
     public static function schemaToolFailure(string $sql, Throwable $e) : self
 =======
@@ -43,6 +48,9 @@ class ToolsException extends ORMException
      */
     public static function schemaToolFailure($sql, \Exception $e)
 >>>>>>> contactmanager
+=======
+    public static function schemaToolFailure(string $sql, Throwable $e) : self
+>>>>>>> donmanager
     {
         return new self("Schema-Tool failed with Error '" . $e->getMessage() . "' while executing DDL: " . $sql, "0", $e);
     }

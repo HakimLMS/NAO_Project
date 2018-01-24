@@ -20,6 +20,7 @@
 namespace Doctrine\ORM\Tools\Console\Command;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\ORM\Mapping\Driver\DatabaseDriver;
 use Doctrine\ORM\Tools\Console\MetadataFilter;
 use Doctrine\ORM\Tools\DisconnectedClassMetadataFactory;
@@ -34,15 +35,23 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 =======
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
-use Doctrine\ORM\Tools\Console\MetadataFilter;
-use Doctrine\ORM\Tools\Export\ClassMetadataExporter;
-use Doctrine\ORM\Tools\EntityGenerator;
-use Doctrine\ORM\Tools\DisconnectedClassMetadataFactory;
+=======
 use Doctrine\ORM\Mapping\Driver\DatabaseDriver;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
+>>>>>>> donmanager
+use Doctrine\ORM\Tools\Console\MetadataFilter;
+use Doctrine\ORM\Tools\DisconnectedClassMetadataFactory;
+use Doctrine\ORM\Tools\EntityGenerator;
+use Doctrine\ORM\Tools\Export\ClassMetadataExporter;
 use Symfony\Component\Console\Command\Command;
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+>>>>>>> donmanager
 
 /**
  * Command to convert your mapping information between the various formats.
@@ -62,6 +71,9 @@ class ConvertMappingCommand extends Command
     protected function configure()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $this->setName('orm:convert-mapping')
              ->setAliases(['orm:convert:mapping'])
              ->setDescription('Convert mapping information between supported formats')
@@ -74,6 +86,7 @@ class ConvertMappingCommand extends Command
              ->addOption('num-spaces', null, InputOption::VALUE_OPTIONAL, 'Defines the number of indentation spaces', 4)
              ->addOption('namespace', null, InputOption::VALUE_OPTIONAL, 'Defines a namespace for the generated entity classes, if converted from database.')
              ->setHelp(<<<EOT
+<<<<<<< HEAD
 =======
         $this
         ->setName('orm:convert-mapping')
@@ -113,6 +126,8 @@ class ConvertMappingCommand extends Command
         ))
         ->setHelp(<<<EOT
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 Convert mapping information between supported formats.
 
 This is an execute <info>one-time</info> command. It should not be necessary for
@@ -136,10 +151,14 @@ on a global level:
     \$config->setFilterSchemaAssetsExpression(\$regexp);
 EOT
 <<<<<<< HEAD
+<<<<<<< HEAD
              );
 =======
         );
 >>>>>>> contactmanager
+=======
+             );
+>>>>>>> donmanager
     }
 
     /**
@@ -148,10 +167,15 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
 =======
 >>>>>>> contactmanager
+=======
+        $ui = new SymfonyStyle($input, $output);
+
+>>>>>>> donmanager
         $em = $this->getHelper('em')->getEntityManager();
 
         if ($input->getOption('from-database') === true) {
@@ -208,10 +232,14 @@ EOT
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         if (empty($metadata)) {
             $ui->success('No Metadata Classes to process.');
             return;
         }
+<<<<<<< HEAD
 
         foreach ($metadata as $class) {
             $ui->text(sprintf('Processing entity "<info>%s</info>"', $class->name));
@@ -236,14 +264,28 @@ EOT
 
             $exporter->setMetadata($metadata);
             $exporter->export();
+=======
+>>>>>>> donmanager
 
-            $output->writeln(PHP_EOL . sprintf(
-                'Exporting "<info>%s</info>" mapping information to "<info>%s</info>"', $toType, $destPath
-            ));
-        } else {
-            $output->writeln('No Metadata Classes to process.');
+        foreach ($metadata as $class) {
+            $ui->text(sprintf('Processing entity "<info>%s</info>"', $class->name));
         }
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+
+        $exporter->setMetadata($metadata);
+        $exporter->export();
+
+        $ui->newLine();
+        $ui->text(
+            sprintf(
+                'Exporting "<info>%s</info>" mapping information to "<info>%s</info>"',
+                $toType,
+                $destPath
+            )
+        );
+>>>>>>> donmanager
     }
 
     /**

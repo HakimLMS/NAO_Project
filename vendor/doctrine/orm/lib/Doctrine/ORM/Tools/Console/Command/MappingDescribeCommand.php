@@ -23,6 +23,7 @@ use Doctrine\Common\Persistence\Mapping\MappingException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -33,6 +34,12 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 >>>>>>> contactmanager
+=======
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+>>>>>>> donmanager
 
 /**
  * Show information about mapped entities.
@@ -49,10 +56,14 @@ final class MappingDescribeCommand extends Command
     protected function configure()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         $this->setName('orm:mapping:describe')
              ->addArgument('entityName', InputArgument::REQUIRED, 'Full or partial name of entity')
              ->setDescription('Display information about mapped objects')
              ->setHelp(<<<EOT
+<<<<<<< HEAD
 =======
         $this
             ->setName('orm:mapping:describe')
@@ -60,6 +71,8 @@ final class MappingDescribeCommand extends Command
             ->setDescription('Display information about mapped objects')
             ->setHelp(<<<EOT
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 The %command.full_name% command describes the metadata for the given full or partial entity class name.
 
     <info>%command.full_name%</info> My\Namespace\Entity\MyEntity
@@ -69,10 +82,14 @@ Or:
     <info>%command.full_name%</info> MyEntity
 EOT
 <<<<<<< HEAD
+<<<<<<< HEAD
              );
 =======
             );
 >>>>>>> contactmanager
+=======
+             );
+>>>>>>> donmanager
     }
 
     /**
@@ -80,6 +97,7 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
@@ -93,6 +111,14 @@ EOT
 
         $this->displayEntity($input->getArgument('entityName'), $entityManager, $output);
 >>>>>>> contactmanager
+=======
+        $ui = new SymfonyStyle($input, $output);
+
+        /* @var $entityManager \Doctrine\ORM\EntityManagerInterface */
+        $entityManager = $this->getHelper('em')->getEntityManager();
+
+        $this->displayEntity($input->getArgument('entityName'), $entityManager, $ui);
+>>>>>>> donmanager
 
         return 0;
     }
@@ -102,6 +128,7 @@ EOT
      *
      * @param string                 $entityName    Full or partial entity class name
      * @param EntityManagerInterface $entityManager
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @param SymfonyStyle           $ui
      */
@@ -115,20 +142,23 @@ EOT
                 [
 =======
      * @param OutputInterface        $output
+=======
+     * @param SymfonyStyle           $ui
+>>>>>>> donmanager
      */
-    private function displayEntity($entityName, EntityManagerInterface $entityManager, OutputInterface $output)
+    private function displayEntity($entityName, EntityManagerInterface $entityManager, SymfonyStyle $ui)
     {
-        $table = new Table($output);
-
-        $table->setHeaders(array('Field', 'Value'));
-
         $metadata = $this->getClassMetadata($entityName, $entityManager);
 
-        array_map(
-            array($table, 'addRow'),
+        $ui->table(
+            ['Field', 'Value'],
             array_merge(
+<<<<<<< HEAD
                 array(
 >>>>>>> contactmanager
+=======
+                [
+>>>>>>> donmanager
                     $this->formatField('Name', $metadata->name),
                     $this->formatField('Root entity name', $metadata->rootEntityName),
                     $this->formatField('Custom generator definition', $metadata->customGeneratorDefinition),
@@ -159,6 +189,7 @@ EOT
 
                     $this->formatEntityListeners($metadata->entityListeners),
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ],
                 [$this->formatField('Association mappings:', '')],
                 $this->formatMappings($metadata->associationMappings),
@@ -169,14 +200,21 @@ EOT
 =======
                 ),
                 array($this->formatField('Association mappings:', '')),
+=======
+                ],
+                [$this->formatField('Association mappings:', '')],
+>>>>>>> donmanager
                 $this->formatMappings($metadata->associationMappings),
-                array($this->formatField('Field mappings:', '')),
+                [$this->formatField('Field mappings:', '')],
                 $this->formatMappings($metadata->fieldMappings)
             )
         );
+<<<<<<< HEAD
 
         $table->render();
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     }
 
     /**
@@ -189,6 +227,7 @@ EOT
     private function getMappedEntities(EntityManagerInterface $entityManager)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $entityClassNames = $entityManager->getConfiguration()
                                           ->getMetadataDriverImpl()
                                           ->getAllClassNames();
@@ -198,6 +237,11 @@ EOT
             ->getMetadataDriverImpl()
             ->getAllClassNames();
 >>>>>>> contactmanager
+=======
+        $entityClassNames = $entityManager->getConfiguration()
+                                          ->getMetadataDriverImpl()
+                                          ->getAllClassNames();
+>>>>>>> donmanager
 
         if ( ! $entityClassNames) {
             throw new \InvalidArgumentException(
@@ -242,10 +286,14 @@ EOT
         if (count($matches) > 1) {
             throw new \InvalidArgumentException(sprintf(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 'Entity name "%s" is ambiguous, possible matches: "%s"',
 =======
                 'Entity name "%s" is ambigous, possible matches: "%s"',
 >>>>>>> contactmanager
+=======
+                'Entity name "%s" is ambiguous, possible matches: "%s"',
+>>>>>>> donmanager
                 $entityName, implode(', ', $matches)
             ));
         }
@@ -280,6 +328,7 @@ EOT
 
         if (is_array($value)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 =======
             if (defined('JSON_UNESCAPED_UNICODE') && defined('JSON_UNESCAPED_SLASHES')) {
@@ -288,6 +337,9 @@ EOT
 
             return json_encode($value);
 >>>>>>> contactmanager
+=======
+            return json_encode($value, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+>>>>>>> donmanager
         }
 
         if (is_object($value)) {
@@ -316,30 +368,42 @@ EOT
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         return [sprintf('<info>%s</info>', $label), $this->formatValue($value)];
 =======
         return array(sprintf('<info>%s</info>', $label), $this->formatValue($value));
 >>>>>>> contactmanager
+=======
+        return [sprintf('<info>%s</info>', $label), $this->formatValue($value)];
+>>>>>>> donmanager
     }
 
     /**
      * Format the association mappings
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param array $propertyMappings
 =======
      * @param array
 >>>>>>> contactmanager
+=======
+     * @param array $propertyMappings
+>>>>>>> donmanager
      *
      * @return array
      */
     private function formatMappings(array $propertyMappings)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $output = [];
 =======
         $output = array();
 >>>>>>> contactmanager
+=======
+        $output = [];
+>>>>>>> donmanager
 
         foreach ($propertyMappings as $propertyName => $mapping) {
             $output[] = $this->formatField(sprintf('  %s', $propertyName), '');
@@ -362,6 +426,7 @@ EOT
     private function formatEntityListeners(array $entityListeners)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->formatField('Entity listeners', array_map('get_class', $entityListeners));
 =======
         return $this->formatField(
@@ -374,5 +439,8 @@ EOT
             )
         );
 >>>>>>> contactmanager
+=======
+        return $this->formatField('Entity listeners', array_map('get_class', $entityListeners));
+>>>>>>> donmanager
     }
 }

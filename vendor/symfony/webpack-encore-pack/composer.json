@@ -3,6 +3,9 @@
     "type": "symfony-pack",
     "license": "MIT",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
     "description": "A pack for Symfony Encore",
     "extra": {
         "thanks": {
@@ -10,7 +13,10 @@
             "url": "https://github.com/symfony/webpack-encore"
         }
     }
+<<<<<<< HEAD
 =======
     "description": "A pack for Symfony Encore"
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 }

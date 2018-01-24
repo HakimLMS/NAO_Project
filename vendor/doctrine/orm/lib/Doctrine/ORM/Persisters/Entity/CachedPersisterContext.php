@@ -77,10 +77,14 @@ class CachedPersisterContext
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public $sqlTableAliases = [];
 =======
     public $sqlTableAliases = array();
 >>>>>>> contactmanager
+=======
+    public $sqlTableAliases = [];
+>>>>>>> donmanager
 
     /**
      * Whether this persistent context is considering limit operations applied to the selection queries

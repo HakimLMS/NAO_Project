@@ -20,6 +20,7 @@
 namespace Doctrine\ORM\Tools\Console;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Doctrine\DBAL\Tools\Console as DBALConsole;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
@@ -30,25 +31,37 @@ use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Helper\HelperSet;
 use Doctrine\ORM\Version;
+=======
+use Doctrine\DBAL\Tools\Console as DBALConsole;
+>>>>>>> donmanager
 use Doctrine\ORM\EntityManagerInterface;
-
-use Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper;
 use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
+<<<<<<< HEAD
 >>>>>>> contactmanager
+=======
+use Doctrine\ORM\Version;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Helper\HelperSet;
+>>>>>>> donmanager
 
 /**
  * Handles running the Console Tools inside Symfony Console context.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 final class ConsoleRunner
 =======
 class ConsoleRunner
 >>>>>>> contactmanager
+=======
+final class ConsoleRunner
+>>>>>>> donmanager
 {
     /**
      * Create a Symfony Console HelperSet
      *
      * @param EntityManagerInterface $entityManager
+<<<<<<< HEAD
 <<<<<<< HEAD
      *
      * @return HelperSet
@@ -66,19 +79,28 @@ class ConsoleRunner
     /**
      * Runs console with the given helper set.
 =======
+=======
+     *
+>>>>>>> donmanager
      * @return HelperSet
      */
-    public static function createHelperSet(EntityManagerInterface $entityManager)
+    public static function createHelperSet(EntityManagerInterface $entityManager) : HelperSet
     {
-        return new HelperSet(array(
-            'db' => new ConnectionHelper($entityManager->getConnection()),
-            'em' => new EntityManagerHelper($entityManager)
-        ));
+        return new HelperSet(
+            [
+                'db' => new DBALConsole\Helper\ConnectionHelper($entityManager->getConnection()),
+                'em' => new EntityManagerHelper($entityManager),
+            ]
+        );
     }
 
     /**
+<<<<<<< HEAD
      * Runs console with the given helperset.
 >>>>>>> contactmanager
+=======
+     * Runs console with the given helper set.
+>>>>>>> donmanager
      *
      * @param \Symfony\Component\Console\Helper\HelperSet  $helperSet
      * @param \Symfony\Component\Console\Command\Command[] $commands
@@ -86,10 +108,14 @@ class ConsoleRunner
      * @return void
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static function run(HelperSet $helperSet, array $commands = []) : void
 =======
     static public function run(HelperSet $helperSet, $commands = array())
 >>>>>>> contactmanager
+=======
+    public static function run(HelperSet $helperSet, array $commands = []) : void
+>>>>>>> donmanager
     {
         $cli = self::createApplication($helperSet, $commands);
         $cli->run();
@@ -100,6 +126,7 @@ class ConsoleRunner
      * optional commands.
      *
      * @param \Symfony\Component\Console\Helper\HelperSet $helperSet
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @param array                                       $commands
      *
@@ -113,6 +140,13 @@ class ConsoleRunner
      */
     static public function createApplication(HelperSet $helperSet, $commands = array())
 >>>>>>> contactmanager
+=======
+     * @param array                                       $commands
+     *
+     * @return \Symfony\Component\Console\Application
+     */
+    public static function createApplication(HelperSet $helperSet, array $commands = []) : Application
+>>>>>>> donmanager
     {
         $cli = new Application('Doctrine Command Line Interface', Version::VERSION);
         $cli->setCatchExceptions(true);
@@ -128,6 +162,7 @@ class ConsoleRunner
      *
      * @return void
      */
+<<<<<<< HEAD
 <<<<<<< HEAD
     public static function addCommands(Application $cli) : void
     {
@@ -165,34 +200,47 @@ class ConsoleRunner
     public static function printCliConfigTemplate() : void
 =======
     static public function addCommands(Application $cli)
+=======
+    public static function addCommands(Application $cli) : void
+>>>>>>> donmanager
     {
-        $cli->addCommands(array(
-            // DBAL Commands
-            new \Doctrine\DBAL\Tools\Console\Command\RunSqlCommand(),
-            new \Doctrine\DBAL\Tools\Console\Command\ImportCommand(),
+        $cli->addCommands(
+            [
+                // DBAL Commands
+                new DBALConsole\Command\ImportCommand(),
+                new DBALConsole\Command\ReservedWordsCommand(),
+                new DBALConsole\Command\RunSqlCommand(),
 
-            // ORM Commands
-            new \Doctrine\ORM\Tools\Console\Command\ClearCache\MetadataCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\ClearCache\ResultCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\ClearCache\QueryCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\SchemaTool\CreateCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\SchemaTool\UpdateCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\SchemaTool\DropCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\EnsureProductionSettingsCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\ConvertDoctrine1SchemaCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\GenerateRepositoriesCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\GenerateEntitiesCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\GenerateProxiesCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\ConvertMappingCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\RunDqlCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\ValidateSchemaCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\InfoCommand(),
-            new \Doctrine\ORM\Tools\Console\Command\MappingDescribeCommand(),
-        ));
+                // ORM Commands
+                new Command\ClearCache\CollectionRegionCommand(),
+                new Command\ClearCache\EntityRegionCommand(),
+                new Command\ClearCache\MetadataCommand(),
+                new Command\ClearCache\QueryCommand(),
+                new Command\ClearCache\QueryRegionCommand(),
+                new Command\ClearCache\ResultCommand(),
+                new Command\SchemaTool\CreateCommand(),
+                new Command\SchemaTool\UpdateCommand(),
+                new Command\SchemaTool\DropCommand(),
+                new Command\EnsureProductionSettingsCommand(),
+                new Command\ConvertDoctrine1SchemaCommand(),
+                new Command\GenerateRepositoriesCommand(),
+                new Command\GenerateEntitiesCommand(),
+                new Command\GenerateProxiesCommand(),
+                new Command\ConvertMappingCommand(),
+                new Command\RunDqlCommand(),
+                new Command\ValidateSchemaCommand(),
+                new Command\InfoCommand(),
+                new Command\MappingDescribeCommand(),
+            ]
+        );
     }
 
+<<<<<<< HEAD
     static public function printCliConfigTemplate()
 >>>>>>> contactmanager
+=======
+    public static function printCliConfigTemplate() : void
+>>>>>>> donmanager
     {
         echo <<<'HELP'
 You are missing a "cli-config.php" or "config/cli-config.php" file in your
@@ -212,8 +260,11 @@ return ConsoleRunner::createHelperSet($entityManager);
 
 HELP;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     }
 }

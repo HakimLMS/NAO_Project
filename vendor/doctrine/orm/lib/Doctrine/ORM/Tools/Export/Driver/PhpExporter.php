@@ -41,10 +41,14 @@ class PhpExporter extends AbstractExporter
     public function exportClassMetadata(ClassMetadataInfo $metadata)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $lines = [];
 =======
         $lines = array();
 >>>>>>> contactmanager
+=======
+        $lines = [];
+>>>>>>> donmanager
         $lines[] = '<?php';
         $lines[] = null;
         $lines[] = 'use Doctrine\ORM\Mapping\ClassMetadataInfo;';
@@ -87,10 +91,15 @@ class PhpExporter extends AbstractExporter
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $lines = array_merge($lines, $this->processEntityListeners($metadata));
 
 =======
 >>>>>>> contactmanager
+=======
+        $lines = array_merge($lines, $this->processEntityListeners($metadata));
+
+>>>>>>> donmanager
         foreach ($metadata->fieldMappings as $fieldMapping) {
             $lines[] = '$metadata->mapField(' . $this->_varExport($fieldMapping) . ');';
         }
@@ -101,10 +110,14 @@ class PhpExporter extends AbstractExporter
 
         foreach ($metadata->associationMappings as $associationMapping) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $cascade = ['remove', 'persist', 'refresh', 'merge', 'detach'];
 =======
             $cascade = array('remove', 'persist', 'refresh', 'merge', 'detach');
 >>>>>>> contactmanager
+=======
+            $cascade = ['remove', 'persist', 'refresh', 'merge', 'detach'];
+>>>>>>> donmanager
             foreach ($cascade as $key => $value) {
                 if ( ! $associationMapping['isCascade'.ucfirst($value)]) {
                     unset($cascade[$key]);
@@ -112,6 +125,7 @@ class PhpExporter extends AbstractExporter
             }
 
             if (count($cascade) === 5) {
+<<<<<<< HEAD
 <<<<<<< HEAD
                 $cascade = ['all'];
             }
@@ -124,14 +138,22 @@ class PhpExporter extends AbstractExporter
             ];
 =======
                 $cascade = array('all');
+=======
+                $cascade = ['all'];
+>>>>>>> donmanager
             }
 
-            $associationMappingArray = array(
+            $method = null;
+            $associationMappingArray = [
                 'fieldName'    => $associationMapping['fieldName'],
                 'targetEntity' => $associationMapping['targetEntity'],
                 'cascade'     => $cascade,
+<<<<<<< HEAD
             );
 >>>>>>> contactmanager
+=======
+            ];
+>>>>>>> donmanager
 
             if (isset($associationMapping['fetch'])) {
                 $associationMappingArray['fetch'] = $associationMapping['fetch'];
@@ -140,23 +162,32 @@ class PhpExporter extends AbstractExporter
             if ($associationMapping['type'] & ClassMetadataInfo::TO_ONE) {
                 $method = 'mapOneToOne';
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $oneToOneMappingArray = [
 =======
                 $oneToOneMappingArray = array(
 >>>>>>> contactmanager
+=======
+                $oneToOneMappingArray = [
+>>>>>>> donmanager
                     'mappedBy'      => $associationMapping['mappedBy'],
                     'inversedBy'    => $associationMapping['inversedBy'],
                     'joinColumns'   => $associationMapping['isOwningSide'] ? $associationMapping['joinColumns'] : [],
                     'orphanRemoval' => $associationMapping['orphanRemoval'],
 <<<<<<< HEAD
+<<<<<<< HEAD
                 ];
 =======
                 );
 >>>>>>> contactmanager
+=======
+                ];
+>>>>>>> donmanager
 
                 $associationMappingArray = array_merge($associationMappingArray, $oneToOneMappingArray);
             } elseif ($associationMapping['type'] == ClassMetadataInfo::ONE_TO_MANY) {
                 $method = 'mapOneToMany';
+<<<<<<< HEAD
 <<<<<<< HEAD
                 $potentialAssociationMappingIndexes = [
                     'mappedBy',
@@ -171,6 +202,14 @@ class PhpExporter extends AbstractExporter
                     'orderBy',
                 );
 >>>>>>> contactmanager
+=======
+                $potentialAssociationMappingIndexes = [
+                    'mappedBy',
+                    'orphanRemoval',
+                    'orderBy',
+                ];
+                $oneToManyMappingArray = [];
+>>>>>>> donmanager
                 foreach ($potentialAssociationMappingIndexes as $index) {
                     if (isset($associationMapping[$index])) {
                         $oneToManyMappingArray[$index] = $associationMapping[$index];
@@ -179,6 +218,7 @@ class PhpExporter extends AbstractExporter
                 $associationMappingArray = array_merge($associationMappingArray, $oneToManyMappingArray);
             } elseif ($associationMapping['type'] == ClassMetadataInfo::MANY_TO_MANY) {
                 $method = 'mapManyToMany';
+<<<<<<< HEAD
 <<<<<<< HEAD
                 $potentialAssociationMappingIndexes = [
                     'mappedBy',
@@ -193,6 +233,14 @@ class PhpExporter extends AbstractExporter
                     'orderBy',
                 );
 >>>>>>> contactmanager
+=======
+                $potentialAssociationMappingIndexes = [
+                    'mappedBy',
+                    'joinTable',
+                    'orderBy',
+                ];
+                $manyToManyMappingArray = [];
+>>>>>>> donmanager
                 foreach ($potentialAssociationMappingIndexes as $index) {
                     if (isset($associationMapping[$index])) {
                         $manyToManyMappingArray[$index] = $associationMapping[$index];
@@ -226,6 +274,9 @@ class PhpExporter extends AbstractExporter
         return $export;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 
     private function processEntityListeners(ClassMetadataInfo $metadata) : array
     {
@@ -244,6 +295,9 @@ class PhpExporter extends AbstractExporter
 
         return $lines;
     }
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 }

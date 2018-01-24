@@ -69,10 +69,14 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $embeddablesActiveNesting = [];
 =======
     private $embeddablesActiveNesting = array();
 >>>>>>> contactmanager
+=======
+    private $embeddablesActiveNesting = [];
+>>>>>>> donmanager
 
     /**
      * {@inheritDoc}
@@ -162,6 +166,7 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
         // if it consists of mapped superclasses these don't necessarily include the id field.
         if ($parent && $rootEntityFound) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->inheritIdGeneratorMapping($class, $parent);
 =======
             if ($parent->isIdGeneratorSequence()) {
@@ -178,6 +183,9 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                 $class->setIdGenerator($parent->idGenerator);
             }
 >>>>>>> contactmanager
+=======
+            $this->inheritIdGeneratorMapping($class, $parent);
+>>>>>>> donmanager
         } else {
             $this->completeIdGeneratorMapping($class);
         }
@@ -206,14 +214,20 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
                 $identifier = $embeddableMetadata->getIdentifier();
 
                 if (! empty($identifier)) {
                     $this->inheritIdGeneratorMapping($class, $embeddableMetadata);
                 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
                 $class->inlineEmbeddable($property, $embeddableMetadata);
 
                 unset($this->embeddablesActiveNesting[$class->name]);
@@ -374,6 +388,7 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
         $allClasses = $this->driver->getAllClassNames();
         $fqcn = $class->getName();
 <<<<<<< HEAD
+<<<<<<< HEAD
         $map = [$this->getShortName($class->name) => $fqcn];
 
         $duplicates = [];
@@ -382,6 +397,11 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
 
         $duplicates = array();
 >>>>>>> contactmanager
+=======
+        $map = [$this->getShortName($class->name) => $fqcn];
+
+        $duplicates = [];
+>>>>>>> donmanager
         foreach ($allClasses as $subClassCandidate) {
             if (is_subclass_of($subClassCandidate, $fqcn)) {
                 $shortName = $this->getShortName($subClassCandidate);
@@ -416,9 +436,13 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
 
         $parts = explode("\\", $className);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return strtolower(end($parts));
     }
 
@@ -508,6 +532,9 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
             $embeddableMetadata = $this->getMetadataFor($embeddableClass['class']);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             $parentClass->mapEmbedded(
                 [
                     'fieldName' => $prefix . '.' . $property,
@@ -519,6 +546,7 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                     'originalField' => $embeddableClass['originalField'] ?: $property,
                 ]
             );
+<<<<<<< HEAD
 =======
             $parentClass->mapEmbedded(array(
                 'fieldName' => $prefix . '.' . $property,
@@ -530,6 +558,8 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                 'originalField' => $embeddableClass['originalField'] ?: $property,
             ));
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         }
     }
 
@@ -548,10 +578,14 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         foreach (['uniqueConstraints', 'indexes'] as $indexType) {
 =======
         foreach (array('uniqueConstraints', 'indexes') as $indexType) {
 >>>>>>> contactmanager
+=======
+        foreach (['uniqueConstraints', 'indexes'] as $indexType) {
+>>>>>>> donmanager
             if (isset($parentClass->table[$indexType])) {
                 foreach ($parentClass->table[$indexType] as $indexName => $index) {
                     if (isset($subClass->table[$indexType][$indexName])) {
@@ -579,18 +613,24 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
         foreach ($parentClass->namedQueries as $name => $query) {
             if ( ! isset ($subClass->namedQueries[$name])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
                 $subClass->addNamedQuery(
                     [
                         'name'  => $query['name'],
                         'query' => $query['query']
                     ]
                 );
+<<<<<<< HEAD
 =======
                 $subClass->addNamedQuery(array(
                     'name'  => $query['name'],
                     'query' => $query['query']
                 ));
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             }
         }
     }
@@ -610,6 +650,9 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
         foreach ($parentClass->namedNativeQueries as $name => $query) {
             if ( ! isset ($subClass->namedNativeQueries[$name])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
                 $subClass->addNamedNativeQuery(
                     [
                         'name'              => $query['name'],
@@ -619,6 +662,7 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                         'resultClass'       => $query['isSelfClass'] ? $subClass->name : $query['resultClass'],
                     ]
                 );
+<<<<<<< HEAD
 =======
                 $subClass->addNamedNativeQuery(array(
                     'name'              => $query['name'],
@@ -628,6 +672,8 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                     'resultClass'       => $query['isSelfClass'] ? $subClass->name : $query['resultClass'],
                 ));
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             }
         }
     }
@@ -647,6 +693,7 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
         foreach ($parentClass->sqlResultSetMappings as $name => $mapping) {
             if ( ! isset ($subClass->sqlResultSetMappings[$name])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 $entities = [];
                 foreach ($mapping['entities'] as $entity) {
                     $entities[] = [
@@ -655,10 +702,16 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                 foreach ($mapping['entities'] as $entity) {
                     $entities[] = array(
 >>>>>>> contactmanager
+=======
+                $entities = [];
+                foreach ($mapping['entities'] as $entity) {
+                    $entities[] = [
+>>>>>>> donmanager
                         'fields'                => $entity['fields'],
                         'isSelfClass'           => $entity['isSelfClass'],
                         'discriminatorColumn'   => $entity['discriminatorColumn'],
                         'entityClass'           => $entity['isSelfClass'] ? $subClass->name : $entity['entityClass'],
+<<<<<<< HEAD
 <<<<<<< HEAD
                     ];
                 }
@@ -680,6 +733,18 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                     'entities'      => $entities,
                 ));
 >>>>>>> contactmanager
+=======
+                    ];
+                }
+
+                $subClass->addSqlResultSetMapping(
+                    [
+                        'name'          => $mapping['name'],
+                        'columns'       => $mapping['columns'],
+                        'entities'      => $entities,
+                    ]
+                );
+>>>>>>> donmanager
             }
         }
     }
@@ -720,6 +785,7 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                     $sequencePrefix = $class->getSequencePrefix($this->getTargetPlatform());
                     $sequenceName   = $this->getTargetPlatform()->getIdentitySequenceName($sequencePrefix, $columnName);
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $definition     = [
                         'sequenceName' => $this->getTargetPlatform()->fixSchemaElementName($sequenceName)
                     ];
@@ -728,6 +794,11 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                         'sequenceName' => $this->getTargetPlatform()->fixSchemaElementName($sequenceName)
                     );
 >>>>>>> contactmanager
+=======
+                    $definition     = [
+                        'sequenceName' => $this->getTargetPlatform()->fixSchemaElementName($sequenceName)
+                    ];
+>>>>>>> donmanager
 
                     if ($quoted) {
                         $definition['quoted'] = true;
@@ -758,6 +829,7 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                     $quoted         = isset($class->fieldMappings[$fieldName]['quoted']) || isset($class->table['quoted']);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $definition = [
                         'sequenceName'      => $this->getTargetPlatform()->fixSchemaElementName($sequenceName),
                         'allocationSize'    => 1,
@@ -770,6 +842,13 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
                         'initialValue'      => 1,
                     );
 >>>>>>> contactmanager
+=======
+                    $definition = [
+                        'sequenceName'      => $this->getTargetPlatform()->fixSchemaElementName($sequenceName),
+                        'allocationSize'    => 1,
+                        'initialValue'      => 1,
+                    ];
+>>>>>>> donmanager
 
                     if ($quoted) {
                         $definition['quoted'] = true;
@@ -813,6 +892,9 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
      * Inherits the ID generator mapping from a parent class.
      *
      * @param ClassMetadataInfo $class
@@ -836,8 +918,11 @@ class ClassMetadataFactory extends AbstractClassMetadataFactory
     }
 
     /**
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      * {@inheritDoc}
      */
     protected function wakeupReflection(ClassMetadataInterface $class, ReflectionService $reflService)

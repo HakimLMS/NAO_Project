@@ -20,9 +20,13 @@ use Symfony\Bridge\Doctrine\Form\ChoiceList\EntityLoaderInterface;
 use Symfony\Bridge\Doctrine\Form\ChoiceList\IdReader;
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Symfony\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
 =======
 >>>>>>> contactmanager
+=======
+use Symfony\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
+>>>>>>> donmanager
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -31,13 +35,19 @@ class DoctrineChoiceLoaderTest extends TestCase
 {
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
      * @var ChoiceListFactoryInterface|\PHPUnit_Framework_MockObject_MockObject
      */
     private $factory;
 
     /**
+<<<<<<< HEAD
 =======
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
      * @var ObjectManager|\PHPUnit_Framework_MockObject_MockObject
      */
     private $om;

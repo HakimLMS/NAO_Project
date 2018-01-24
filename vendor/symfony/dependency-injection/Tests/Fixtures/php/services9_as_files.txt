@@ -308,9 +308,13 @@ use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 class ProjectServiceContainer extends Container
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     private $buildParameters;
 =======
 >>>>>>> contactmanager
+=======
+    private $buildParameters;
+>>>>>>> donmanager
     private $parameters;
     private $targetDirs = array();
 
@@ -320,19 +324,27 @@ class ProjectServiceContainer extends Container
     protected $privates = array();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function __construct(array $buildParameters = array())
 =======
     public function __construct()
 >>>>>>> contactmanager
+=======
+    public function __construct(array $buildParameters = array())
+>>>>>>> donmanager
     {
         $dir = $this->targetDirs[0] = \dirname(__DIR__);
         for ($i = 1; $i <= 5; ++$i) {
             $this->targetDirs[$i] = $dir = \dirname($dir);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->buildParameters = $buildParameters;
 =======
 >>>>>>> contactmanager
+=======
+        $this->buildParameters = $buildParameters;
+>>>>>>> donmanager
         $this->parameters = $this->getDefaultParameters();
 
         $this->services = $this->privates = array();
@@ -428,11 +440,17 @@ class ProjectServiceContainer extends Container
     {
         $name = (string) $name;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (isset($this->buildParameters[$name])) {
             return $this->buildParameters[$name];
         }
 =======
 >>>>>>> contactmanager
+=======
+        if (isset($this->buildParameters[$name])) {
+            return $this->buildParameters[$name];
+        }
+>>>>>>> donmanager
 
         if (!(isset($this->parameters[$name]) || isset($this->loadedDynamicParameters[$name]) || array_key_exists($name, $this->parameters))) {
             throw new InvalidArgumentException(sprintf('The parameter "%s" must be defined.', $name));
@@ -448,11 +466,17 @@ class ProjectServiceContainer extends Container
     {
         $name = (string) $name;
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (isset($this->buildParameters[$name])) {
             return true;
         }
 =======
 >>>>>>> contactmanager
+=======
+        if (isset($this->buildParameters[$name])) {
+            return true;
+        }
+>>>>>>> donmanager
 
         return isset($this->parameters[$name]) || isset($this->loadedDynamicParameters[$name]) || array_key_exists($name, $this->parameters);
     }
@@ -470,11 +494,17 @@ class ProjectServiceContainer extends Container
                 $parameters[$name] = $loaded ? $this->dynamicParameters[$name] : $this->getDynamicParameter($name);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             foreach ($this->buildParameters as $name => $value) {
                 $parameters[$name] = $value;
             }
 =======
 >>>>>>> contactmanager
+=======
+            foreach ($this->buildParameters as $name => $value) {
+                $parameters[$name] = $value;
+            }
+>>>>>>> donmanager
             $this->parameterBag = new FrozenParameterBag($parameters);
         }
 
@@ -530,13 +560,19 @@ if (!\class_exists(ProjectServiceContainer::class, false)) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
 return new \Container%s\ProjectServiceContainer(array(
     'container.build_hash' => '%s',
     'container.build_id' => '%s',
     'container.build_time' => %d,
 ));
+<<<<<<< HEAD
 =======
 return new \Container%s\ProjectServiceContainer();
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
 
 )

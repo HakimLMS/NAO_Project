@@ -64,9 +64,13 @@ class AssociationBuilder
     {
         $this->mapping['mappedBy'] = $fieldName;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -79,9 +83,13 @@ class AssociationBuilder
     {
         $this->mapping['inversedBy'] = $fieldName;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -91,11 +99,16 @@ class AssociationBuilder
     public function cascadeAll()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->mapping['cascade'] = ["ALL"];
 
 =======
         $this->mapping['cascade'] = array("ALL");
 >>>>>>> contactmanager
+=======
+        $this->mapping['cascade'] = ["ALL"];
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -106,9 +119,13 @@ class AssociationBuilder
     {
         $this->mapping['cascade'][] = "persist";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -119,9 +136,13 @@ class AssociationBuilder
     {
         $this->mapping['cascade'][] = "remove";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -132,9 +153,13 @@ class AssociationBuilder
     {
         $this->mapping['cascade'][] = "merge";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -145,9 +170,13 @@ class AssociationBuilder
     {
         $this->mapping['cascade'][] = "detach";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -158,9 +187,13 @@ class AssociationBuilder
     {
         $this->mapping['cascade'][] = "refresh";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -171,9 +204,13 @@ class AssociationBuilder
     {
         $this->mapping['fetch'] = ClassMetadata::FETCH_EXTRA_LAZY;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -184,9 +221,13 @@ class AssociationBuilder
     {
         $this->mapping['fetch'] = ClassMetadata::FETCH_EAGER;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -197,9 +238,13 @@ class AssociationBuilder
     {
         $this->mapping['fetch'] = ClassMetadata::FETCH_LAZY;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -218,10 +263,14 @@ class AssociationBuilder
     public function addJoinColumn($columnName, $referencedColumnName, $nullable = true, $unique = false, $onDelete = null, $columnDef = null)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->joinColumns[] = [
 =======
         $this->joinColumns[] = array(
 >>>>>>> contactmanager
+=======
+        $this->joinColumns[] = [
+>>>>>>> donmanager
             'name' => $columnName,
             'referencedColumnName' => $referencedColumnName,
             'nullable' => $nullable,
@@ -229,11 +278,16 @@ class AssociationBuilder
             'onDelete' => $onDelete,
             'columnDefinition' => $columnDef,
 <<<<<<< HEAD
+<<<<<<< HEAD
         ];
 
 =======
         );
 >>>>>>> contactmanager
+=======
+        ];
+
+>>>>>>> donmanager
         return $this;
     }
 
@@ -281,9 +335,13 @@ class AssociationBuilder
             throw new \InvalidArgumentException("Type should be a ToOne Association here");
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $this->builder;
     }
 }

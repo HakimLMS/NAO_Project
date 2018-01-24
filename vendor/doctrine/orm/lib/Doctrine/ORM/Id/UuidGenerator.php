@@ -37,9 +37,13 @@ class UuidGenerator extends AbstractIdGenerator
         $conn = $em->getConnection();
         $sql = 'SELECT ' . $conn->getDatabasePlatform()->getGuidExpression();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> contactmanager
+=======
+
+>>>>>>> donmanager
         return $conn->query($sql)->fetchColumn(0);
     }
 }

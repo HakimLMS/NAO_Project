@@ -39,10 +39,14 @@ class Inflector
      * Plural inflector rules.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var string[][]
 =======
      * @var array
 >>>>>>> contactmanager
+=======
+     * @var string[][]
+>>>>>>> donmanager
      */
     private static $plural = array(
         'rules' => array(
@@ -58,9 +62,13 @@ class Inflector
             '/sis$/i' => 'ses',
             '/([ti])um$/i' => '\1a',
 <<<<<<< HEAD
+<<<<<<< HEAD
             '/(c)riterion$/i' => '\1riteria',
 =======
 >>>>>>> contactmanager
+=======
+            '/(c)riterion$/i' => '\1riteria',
+>>>>>>> donmanager
             '/(p)erson$/i' => '\1eople',
             '/(m)an$/i' => '\1en',
             '/(c)hild$/i' => '\1hildren',
@@ -109,9 +117,13 @@ class Inflector
             'genie' => 'genies',
             'genus' => 'genera',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'goose' => 'geese',
 =======
 >>>>>>> contactmanager
+=======
+            'goose' => 'geese',
+>>>>>>> donmanager
             'graffito' => 'graffiti',
             'hippopotamus' => 'hippopotami',
             'hoof' => 'hoofs',
@@ -151,9 +163,13 @@ class Inflector
             'trilby' => 'trilbys',
             'turf' => 'turfs',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'valve' => 'valves',
 =======
 >>>>>>> contactmanager
+=======
+            'valve' => 'valves',
+>>>>>>> donmanager
             'volcano' => 'volcanoes',
         )
     );
@@ -162,10 +178,14 @@ class Inflector
      * Singular inflector rules.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var string[][]
 =======
      * @var array
 >>>>>>> contactmanager
+=======
+     * @var string[][]
+>>>>>>> donmanager
      */
     private static $singular = array(
         'rules' => array(
@@ -195,16 +215,22 @@ class Inflector
             '/(drive)s$/i' => '\1',
             '/(dive)s$/i' => '\1',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             '/(olive)s$/i' => '\1',
             '/([^fo])ves$/i' => '\1fe',
             '/(^analy)ses$/i' => '\1sis',
             '/(analy|diagno|^ba|(p)arenthe|(p)rogno|(s)ynop|(t)he)ses$/i' => '\1\2sis',
             '/(c)riteria$/i' => '\1riterion',
+<<<<<<< HEAD
 =======
             '/([^fo])ves$/i' => '\1fe',
             '/(^analy)ses$/i' => '\1sis',
             '/(analy|diagno|^ba|(p)arenthe|(p)rogno|(s)ynop|(t)he)ses$/i' => '\1\2sis',
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
             '/([ti])a$/i' => '\1um',
             '/(p)eople$/i' => '\1\2erson',
             '/(m)en$/i' => '\1an',
@@ -225,15 +251,22 @@ class Inflector
             '.*sheep',
             '.*ss',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'data',
 =======
 >>>>>>> contactmanager
+=======
+            'data',
+>>>>>>> donmanager
             'police',
             'pants',
             'clothes',
         ),
         'irregular' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
             'abuses'     => 'abuse',
             'avalanches' => 'avalanche',
             'caches'     => 'cache',
@@ -249,6 +282,7 @@ class Inflector
             'waves'      => 'wave',
             'oases'      => 'oasis',
             'valves'     => 'valve',
+<<<<<<< HEAD
 =======
             'caches'    => 'cache',
             'criteria'  => 'criterion',
@@ -261,6 +295,8 @@ class Inflector
             'waves'     => 'wave',
             'oases'     => 'oasis',
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
         )
     );
 
@@ -271,6 +307,9 @@ class Inflector
      */
     private static $uninflected = array(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
         '.*?media', 'Amoyese', 'audio', 'bison', 'Borghese', 'bream', 'breeches',
         'britches', 'buffalo', 'cantus', 'carp', 'chassis', 'clippers', 'cod', 'coitus', 'compensation', 'Congoese',
         'contretemps', 'coreopsis', 'corps', 'data', 'debris', 'deer', 'diabetes', 'djinn', 'education', 'eland',
@@ -283,6 +322,7 @@ class Inflector
         'proceedings', 'rabies', 'rain', 'rhinoceros', 'rice', 'salmon', 'Sarawakese', 'scissors', 'sea[- ]bass',
         'series', 'Shavese', 'shears', 'sheep', 'siemens', 'species', 'staff', 'swine', 'traffic',
         'trousers', 'trout', 'tuna', 'us', 'Vermontese', 'Wenchowese', 'wheat', 'whiting', 'wildebeest', 'Yengeese'
+<<<<<<< HEAD
 =======
         'Amoyese', 'bison', 'Borghese', 'bream', 'breeches', 'britches', 'buffalo', 'cantus',
         'carp', 'chassis', 'clippers', 'cod', 'coitus', 'Congoese', 'contretemps', 'corps',
@@ -297,6 +337,8 @@ class Inflector
         'testes', 'trousers', 'trout', 'tuna', 'Vermontese', 'Wenchowese', 'whiting',
         'wildebeest', 'Yengeese'
 >>>>>>> contactmanager
+=======
+>>>>>>> donmanager
     );
 
     /**
@@ -316,6 +358,7 @@ class Inflector
     /**
      * Converts a word into the format for a Doctrine table name. Converts 'ModelName' to 'model_name'.
 <<<<<<< HEAD
+<<<<<<< HEAD
      */
     public static function tableize(string $word) : string
 =======
@@ -326,12 +369,17 @@ class Inflector
      */
     public static function tableize($word)
 >>>>>>> contactmanager
+=======
+     */
+    public static function tableize(string $word) : string
+>>>>>>> donmanager
     {
         return strtolower(preg_replace('~(?<=\\w)([A-Z])~', '_$1', $word));
     }
 
     /**
      * Converts a word into the format for a Doctrine class name. Converts 'table_name' to 'TableName'.
+<<<<<<< HEAD
 <<<<<<< HEAD
      */
     public static function classify(string $word) : string
@@ -342,15 +390,22 @@ class Inflector
      * @param string $word The word to classify.
      *
      * @return string The classified word.
+=======
+>>>>>>> donmanager
      */
-    public static function classify($word)
+    public static function classify(string $word) : string
     {
+<<<<<<< HEAD
         return str_replace(' ', '', ucwords(strtr($word, '_-', '  ')));
 >>>>>>> contactmanager
+=======
+        return str_replace([' ', '_', '-'], '', ucwords($word, ' _-'));
+>>>>>>> donmanager
     }
 
     /**
      * Camelizes a word. This uses the classify() method and turns the first character to lowercase.
+<<<<<<< HEAD
 <<<<<<< HEAD
      */
     public static function camelize(string $word) : string
@@ -362,6 +417,10 @@ class Inflector
      */
     public static function camelize($word)
 >>>>>>> contactmanager
+=======
+     */
+    public static function camelize(string $word) : string
+>>>>>>> donmanager
     {
         return lcfirst(self::classify($word));
     }
@@ -371,10 +430,14 @@ class Inflector
      *
      * Takes a string and capitalizes all of the words, like PHP's built-in
 <<<<<<< HEAD
+<<<<<<< HEAD
      * ucwords function. This extends that behavior, however, by allowing the
 =======
      * ucwords function.  This extends that behavior, however, by allowing the
 >>>>>>> contactmanager
+=======
+     * ucwords function. This extends that behavior, however, by allowing the
+>>>>>>> donmanager
      * word delimeters to be configured, rather than only separating on
      * whitespace.
      *
@@ -396,6 +459,7 @@ class Inflector
      * @return string The string with all delimeter-separated words capitalized.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static function ucwords(string $string, string $delimiters = " \n\t\r\0\x0B-") : string
     {
         return ucwords($string, $delimiters);
@@ -410,11 +474,17 @@ class Inflector
             $string
         );
 >>>>>>> contactmanager
+=======
+    public static function ucwords(string $string, string $delimiters = " \n\t\r\0\x0B-") : string
+    {
+        return ucwords($string, $delimiters);
+>>>>>>> donmanager
     }
 
     /**
      * Clears Inflectors inflected value caches, and resets the inflection
      * rules to the initial values.
+<<<<<<< HEAD
 <<<<<<< HEAD
      */
     public static function reset() : void
@@ -424,6 +494,10 @@ class Inflector
      */
     public static function reset()
 >>>>>>> contactmanager
+=======
+     */
+    public static function reset() : void
+>>>>>>> donmanager
     {
         if (empty(self::$initialState)) {
             self::$initialState = get_class_vars('Inflector');
@@ -433,10 +507,14 @@ class Inflector
 
         foreach (self::$initialState as $key => $val) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ($key !== 'initialState') {
 =======
             if ($key != 'initialState') {
 >>>>>>> contactmanager
+=======
+            if ($key !== 'initialState') {
+>>>>>>> donmanager
                 self::${$key} = $val;
             }
         }
@@ -457,10 +535,14 @@ class Inflector
      * }}}
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> donmanager
      * @param string  $type         The type of inflection, either 'plural' or 'singular'
      * @param array|iterable $rules An array of rules to be added.
      * @param boolean $reset        If true, will unset default inflections for all
      *                              new rules that are being defined in $rules.
+<<<<<<< HEAD
      *
      * @return void
      */
@@ -475,6 +557,12 @@ class Inflector
      */
     public static function rules($type, $rules, $reset = false)
 >>>>>>> contactmanager
+=======
+     *
+     * @return void
+     */
+    public static function rules(string $type, iterable $rules, bool $reset = false) : void
+>>>>>>> donmanager
     {
         foreach ($rules as $rule => $pattern) {
             if ( ! is_array($pattern)) {
@@ -513,10 +601,14 @@ class Inflector
      * @return string The word in plural form.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static function pluralize(string $word) : string
 =======
     public static function pluralize($word)
 >>>>>>> contactmanager
+=======
+    public static function pluralize(string $word) : string
+>>>>>>> donmanager
     {
         if (isset(self::$cache['pluralize'][$word])) {
             return self::$cache['pluralize'][$word];
@@ -537,10 +629,14 @@ class Inflector
 
         if (preg_match('/(.*)\\b(' . self::$plural['cacheIrregular'] . ')$/i', $word, $regs)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             self::$cache['pluralize'][$word] = $regs[1] . $word[0] . substr(self::$plural['merged']['irregular'][strtolower($regs[2])], 1);
 =======
             self::$cache['pluralize'][$word] = $regs[1] . substr($word, 0, 1) . substr(self::$plural['merged']['irregular'][strtolower($regs[2])], 1);
 >>>>>>> contactmanager
+=======
+            self::$cache['pluralize'][$word] = $regs[1] . $word[0] . substr(self::$plural['merged']['irregular'][strtolower($regs[2])], 1);
+>>>>>>> donmanager
 
             return self::$cache['pluralize'][$word];
         }
@@ -568,10 +664,14 @@ class Inflector
      * @return string The word in singular form.
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static function singularize(string $word) : string
 =======
     public static function singularize($word)
 >>>>>>> contactmanager
+=======
+    public static function singularize(string $word) : string
+>>>>>>> donmanager
     {
         if (isset(self::$cache['singularize'][$word])) {
             return self::$cache['singularize'][$word];
@@ -593,6 +693,7 @@ class Inflector
 
         if (!isset(self::$singular['cacheUninflected']) || !isset(self::$singular['cacheIrregular'])) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             self::$singular['cacheUninflected'] = '(?:' . implode('|', self::$singular['merged']['uninflected']) . ')';
             self::$singular['cacheIrregular'] = '(?:' . implode('|', array_keys(self::$singular['merged']['irregular'])) . ')';
         }
@@ -607,6 +708,14 @@ class Inflector
         if (preg_match('/(.*)\\b(' . self::$singular['cacheIrregular'] . ')$/i', $word, $regs)) {
             self::$cache['singularize'][$word] = $regs[1] . substr($word, 0, 1) . substr(self::$singular['merged']['irregular'][strtolower($regs[2])], 1);
 >>>>>>> contactmanager
+=======
+            self::$singular['cacheUninflected'] = '(?:' . implode('|', self::$singular['merged']['uninflected']) . ')';
+            self::$singular['cacheIrregular'] = '(?:' . implode('|', array_keys(self::$singular['merged']['irregular'])) . ')';
+        }
+
+        if (preg_match('/(.*)\\b(' . self::$singular['cacheIrregular'] . ')$/i', $word, $regs)) {
+            self::$cache['singularize'][$word] = $regs[1] . $word[0] . substr(self::$singular['merged']['irregular'][strtolower($regs[2])], 1);
+>>>>>>> donmanager
 
             return self::$cache['singularize'][$word];
         }

@@ -33,10 +33,14 @@ class ConditionalTerm extends Node
      * @var array
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     public $conditionalFactors = [];
 =======
     public $conditionalFactors = array();
 >>>>>>> contactmanager
+=======
+    public $conditionalFactors = [];
+>>>>>>> donmanager
 
     /**
      * @param array $conditionalFactors

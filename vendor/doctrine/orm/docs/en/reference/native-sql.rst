@@ -64,10 +64,14 @@ This has several benefits:
 
 One downside is that the builder API does not yet support entities
 <<<<<<< HEAD
+<<<<<<< HEAD
 with inheritance hierarchies.
 =======
 with inheritance hierachies.
 >>>>>>> contactmanager
+=======
+with inheritance hierarchies.
+>>>>>>> donmanager
 
 .. code-block:: php
 
