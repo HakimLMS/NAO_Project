@@ -75,9 +75,14 @@
 						  {{ form_label(form.member) }}
 						</div>
 
-						<div class="form-check offset-md-2 col-md-8" id="last-checkbox">
+						<div class="form-check offset-md-2 col-md-8">
 						  {{ form_widget(form.newsletter, {'attr': {'class': 'form-check-input'}}) }}
 						  {{ form_label(form.newsletter) }}
+						</div>
+
+						<div class="form-check offset-md-2 col-md-8" id="last-checkbox">
+						  {{ form_widget(form.conditions, {'attr': {'class': 'form-check-input'}}) }}
+						  {{ form_label(form.conditions) }}
 						</div>
 
 						{{ form_row(form.Inscription, {'attr': {'class': 'btn'}}) }}

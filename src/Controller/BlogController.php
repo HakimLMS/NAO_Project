@@ -30,7 +30,7 @@ class BlogController extends Controller
     public function list(ListArticleService $articleService)
     {
         $articles = $articleService->findAllArticles();
-        return $this->render('blog/list.html.twig', array('articles' => $articles ));	
+        return $this->render('blog/list.html.twig', array('articles' => $articles));	
     }
 
     

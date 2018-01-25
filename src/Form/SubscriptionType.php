@@ -46,6 +46,10 @@ class SubscriptionType extends AbstractType {
                 'label'    => 'Je m\'abonne à la Newsletter' ,
                 'required' => false
                 ))
+            ->add('conditions', CheckboxType::class, array(
+                'label'    => 'J\'accepte les conditions générales d\'utilisation' ,
+                'required' => true
+                ))
             ->add('Inscription', SubmitType::class)
                ;
     }

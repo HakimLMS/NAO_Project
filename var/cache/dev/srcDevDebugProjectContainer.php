@@ -16,6 +16,6 @@ if (!\class_exists(srcDevDebugProjectContainer::class, false)) {
 
 return new \ContainerDmXVESx\srcDevDebugProjectContainer(array(
     'container.build_hash' => 'DmXVESx',
-    'container.build_id' => 'ca4dace7',
-    'container.build_time' => 1516703373,
+    'container.build_id' => 'd77d8685',
+    'container.build_time' => 1516899780,
 ));

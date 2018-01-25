@@ -80,6 +80,11 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
      * @ORM\Column(type="boolean", length=100)
      */
     private $newsletter;
+
+    /**
+     * @ORM\Column(type="boolean", length=100)
+     */
+    private $conditions;
     
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
@@ -165,6 +170,10 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
     function getNewsletter() {
         return $this->newsletter;
     }
+
+    function getConditions() {
+        return $this->conditions;
+    }
     
     function getProcard() {
         return $this->procard;
@@ -225,6 +234,10 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
 
     function setNewsletter($newsletter) {
         $this->newsletter = $newsletter;
+    }
+
+    function setConditions($conditions) {
+        $this->conditions = $conditions;
     }
 
     function setProcard($procard) {
