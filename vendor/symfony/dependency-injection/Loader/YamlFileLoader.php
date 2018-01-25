@@ -454,18 +454,9 @@ class YamlFileLoader extends FileLoader
                     $args = isset($call[1]) ? $this->resolveServices($call[1], $file) : array();
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (!is_array($args)) {
                     throw new InvalidArgumentException(sprintf('The second parameter for function call "%s" must be an array of its arguments for service "%s" in %s. Check your YAML syntax.', $method, $id, $file));
                 }
-=======
->>>>>>> contactmanager
-=======
-                if (!is_array($args)) {
-                    throw new InvalidArgumentException(sprintf('The second parameter for function call "%s" must be an array of its arguments for service "%s" in %s. Check your YAML syntax.', $method, $id, $file));
-                }
->>>>>>> donmanager
                 $definition->addMethodCall($method, $args);
             }
         }

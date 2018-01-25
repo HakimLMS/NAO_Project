@@ -60,10 +60,6 @@ abstract class AbstractEntityInheritancePersister extends BasicEntityPersister
      */
     protected function getSelectColumnSQL($field, ClassMetadata $class, $alias = 'r')
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $tableAlias   = $alias == 'r' ? '' : $alias;
         $fieldMapping = $class->fieldMappings[$field];
         $columnAlias  = $this->getSQLColumnAlias($fieldMapping['columnName']);
@@ -72,31 +68,11 @@ abstract class AbstractEntityInheritancePersister extends BasicEntityPersister
             $this->getSQLTableAlias($class->name, $tableAlias),
             $this->quoteStrategy->getColumnName($field, $class, $this->platform)
         );
-<<<<<<< HEAD
 
         $this->currentPersisterContext->rsm->addFieldResult($alias, $columnAlias, $field, $class->name);
 
         if (isset($fieldMapping['requireSQLConversion'])) {
             $type   = Type::getType($fieldMapping['type']);
-=======
-        $tableAlias  = $alias == 'r' ? '' : $alias;
-        $columnName  = $class->columnNames[$field];
-        $columnAlias = $this->getSQLColumnAlias($columnName);
-        $sql         = $this->getSQLTableAlias($class->name, $tableAlias) . '.'
-                            . $this->quoteStrategy->getColumnName($field, $class, $this->platform);
-
-        $this->currentPersisterContext->rsm->addFieldResult($alias, $columnAlias, $field, $class->name);
-
-        if (isset($class->fieldMappings[$field]['requireSQLConversion'])) {
-            $type   = Type::getType($class->getTypeOfField($field));
->>>>>>> contactmanager
-=======
-
-        $this->currentPersisterContext->rsm->addFieldResult($alias, $columnAlias, $field, $class->name);
-
-        if (isset($fieldMapping['requireSQLConversion'])) {
-            $type   = Type::getType($fieldMapping['type']);
->>>>>>> donmanager
             $sql    = $type->convertToPHPValueSQL($sql, $this->platform);
         }
 
@@ -106,43 +82,18 @@ abstract class AbstractEntityInheritancePersister extends BasicEntityPersister
     /**
      * @param string $tableAlias
      * @param string $joinColumnName
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @param string $quotedColumnName
      *
-=======
-     * @param string $className
->>>>>>> contactmanager
-=======
-     * @param string $quotedColumnName
-     *
->>>>>>> donmanager
      * @param string $type
      *
      * @return string
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected function getSelectJoinColumnSQL($tableAlias, $joinColumnName, $quotedColumnName, $type)
-=======
-    protected function getSelectJoinColumnSQL($tableAlias, $joinColumnName, $className, $type)
->>>>>>> contactmanager
-=======
-    protected function getSelectJoinColumnSQL($tableAlias, $joinColumnName, $quotedColumnName, $type)
->>>>>>> donmanager
     {
         $columnAlias = $this->getSQLColumnAlias($joinColumnName);
 
         $this->currentPersisterContext->rsm->addMetaResult('r', $columnAlias, $joinColumnName, false, $type);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $tableAlias . '.' . $quotedColumnName . ' AS ' . $columnAlias;
-=======
-        return $tableAlias . '.' . $joinColumnName . ' AS ' . $columnAlias;
->>>>>>> contactmanager
-=======
-        return $tableAlias . '.' . $quotedColumnName . ' AS ' . $columnAlias;
->>>>>>> donmanager
     }
 }

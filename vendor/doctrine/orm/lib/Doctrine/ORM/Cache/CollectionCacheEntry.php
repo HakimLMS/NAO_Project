@@ -50,15 +50,7 @@ class CollectionCacheEntry implements CacheEntry
      *
      * @param array $values array containing property values
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return CollectionCacheEntry
-=======
-     * @return self
->>>>>>> contactmanager
-=======
-     * @return CollectionCacheEntry
->>>>>>> donmanager
      */
     public static function __set_state(array $values)
     {

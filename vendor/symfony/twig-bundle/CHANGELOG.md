@@ -1,15 +1,7 @@
 CHANGELOG
 =========
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 4.0.0
-=======
-4.4.0
->>>>>>> contactmanager
-=======
-4.0.0
->>>>>>> donmanager
 -----
 
  * removed `ContainerAwareRuntimeLoader`

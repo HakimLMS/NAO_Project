@@ -27,15 +27,7 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 /**
  * "TRIM" "(" [["LEADING" | "TRAILING" | "BOTH"] [char] "FROM"] StringPrimary ")"
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
-=======
- * 
->>>>>>> contactmanager
-=======
- *
->>>>>>> donmanager
  * @link    www.doctrine-project.org
  * @since   2.0
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -113,14 +105,6 @@ class TrimFunction extends FunctionNode
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-     * @param \Doctrine\ORM\Query\Parser $parser
-     *
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
      * @return integer
      */
     private function getTrimMode()

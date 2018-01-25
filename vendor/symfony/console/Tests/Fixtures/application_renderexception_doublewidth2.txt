@@ -1,13 +1,5 @@
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 In ApplicationTest.php line 739:
-=======
-In ApplicationTest.php line 729:
->>>>>>> contactmanager
-=======
-In ApplicationTest.php line 739:
->>>>>>> donmanager
                               
   コマンドの実行中にエラーが  
   発生しました。              

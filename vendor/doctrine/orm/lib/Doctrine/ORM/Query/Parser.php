@@ -19,20 +19,9 @@
 
 namespace Doctrine\ORM\Query;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\Query\AST\Functions;
-=======
-use Doctrine\ORM\Query;
-use Doctrine\ORM\Mapping\ClassMetadata;
->>>>>>> contactmanager
-=======
-use Doctrine\ORM\Mapping\ClassMetadata;
-use Doctrine\ORM\Query;
-use Doctrine\ORM\Query\AST\Functions;
->>>>>>> donmanager
 
 /**
  * An LL(*) recursive-descent parser for the context-free grammar of the Doctrine Query Language.
@@ -52,10 +41,6 @@ class Parser
      *
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
     private static $_STRING_FUNCTIONS = [
         'concat'    => Functions\ConcatFunction::class,
         'substring' => Functions\SubstringFunction::class,
@@ -64,29 +49,12 @@ class Parser
         'upper'     => Functions\UpperFunction::class,
         'identity'  => Functions\IdentityFunction::class,
     ];
-<<<<<<< HEAD
-=======
-    private static $_STRING_FUNCTIONS = array(
-        'concat'    => 'Doctrine\ORM\Query\AST\Functions\ConcatFunction',
-        'substring' => 'Doctrine\ORM\Query\AST\Functions\SubstringFunction',
-        'trim'      => 'Doctrine\ORM\Query\AST\Functions\TrimFunction',
-        'lower'     => 'Doctrine\ORM\Query\AST\Functions\LowerFunction',
-        'upper'     => 'Doctrine\ORM\Query\AST\Functions\UpperFunction',
-        'identity'  => 'Doctrine\ORM\Query\AST\Functions\IdentityFunction',
-    );
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
     /**
      * READ-ONLY: Maps BUILT-IN numeric function names to AST class names.
      *
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
     private static $_NUMERIC_FUNCTIONS = [
         'length'    => Functions\LengthFunction::class,
         'locate'    => Functions\LocateFunction::class,
@@ -105,32 +73,12 @@ class Parser
         'sum'       => Functions\SumFunction::class,
         'count'     => Functions\CountFunction::class,
     ];
-<<<<<<< HEAD
-=======
-    private static $_NUMERIC_FUNCTIONS = array(
-        'length'    => 'Doctrine\ORM\Query\AST\Functions\LengthFunction',
-        'locate'    => 'Doctrine\ORM\Query\AST\Functions\LocateFunction',
-        'abs'       => 'Doctrine\ORM\Query\AST\Functions\AbsFunction',
-        'sqrt'      => 'Doctrine\ORM\Query\AST\Functions\SqrtFunction',
-        'mod'       => 'Doctrine\ORM\Query\AST\Functions\ModFunction',
-        'size'      => 'Doctrine\ORM\Query\AST\Functions\SizeFunction',
-        'date_diff' => 'Doctrine\ORM\Query\AST\Functions\DateDiffFunction',
-        'bit_and'   => 'Doctrine\ORM\Query\AST\Functions\BitAndFunction',
-        'bit_or'    => 'Doctrine\ORM\Query\AST\Functions\BitOrFunction',
-    );
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
     /**
      * READ-ONLY: Maps BUILT-IN datetime function names to AST class names.
      *
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
     private static $_DATETIME_FUNCTIONS = [
         'current_date'      => Functions\CurrentDateFunction::class,
         'current_time'      => Functions\CurrentTimeFunction::class,
@@ -138,18 +86,6 @@ class Parser
         'date_add'          => Functions\DateAddFunction::class,
         'date_sub'          => Functions\DateSubFunction::class,
     ];
-<<<<<<< HEAD
-=======
-    private static $_DATETIME_FUNCTIONS = array(
-        'current_date'      => 'Doctrine\ORM\Query\AST\Functions\CurrentDateFunction',
-        'current_time'      => 'Doctrine\ORM\Query\AST\Functions\CurrentTimeFunction',
-        'current_timestamp' => 'Doctrine\ORM\Query\AST\Functions\CurrentTimestampFunction',
-        'date_add'          => 'Doctrine\ORM\Query\AST\Functions\DateAddFunction',
-        'date_sub'          => 'Doctrine\ORM\Query\AST\Functions\DateSubFunction',
-    );
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
     /*
      * Expressions that were encountered during parsing of identifiers and expressions
@@ -159,67 +95,27 @@ class Parser
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $deferredIdentificationVariables = [];
-=======
-    private $deferredIdentificationVariables = array();
->>>>>>> contactmanager
-=======
-    private $deferredIdentificationVariables = [];
->>>>>>> donmanager
 
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $deferredPartialObjectExpressions = [];
-=======
-    private $deferredPartialObjectExpressions = array();
->>>>>>> contactmanager
-=======
-    private $deferredPartialObjectExpressions = [];
->>>>>>> donmanager
 
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $deferredPathExpressions = [];
-=======
-    private $deferredPathExpressions = array();
->>>>>>> contactmanager
-=======
-    private $deferredPathExpressions = [];
->>>>>>> donmanager
 
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $deferredResultVariables = [];
-=======
-    private $deferredResultVariables = array();
->>>>>>> contactmanager
-=======
-    private $deferredResultVariables = [];
->>>>>>> donmanager
 
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $deferredNewObjectExpressions = [];
-=======
-    private $deferredNewObjectExpressions = array();
->>>>>>> contactmanager
-=======
-    private $deferredNewObjectExpressions = [];
->>>>>>> donmanager
 
     /**
      * The lexer.
@@ -254,15 +150,7 @@ class Parser
      *
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $queryComponents = [];
-=======
-    private $queryComponents = array();
->>>>>>> contactmanager
-=======
-    private $queryComponents = [];
->>>>>>> donmanager
 
     /**
      * Keeps the nesting level of defined ResultVariables.
@@ -276,15 +164,7 @@ class Parser
      *
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $customTreeWalkers = [];
-=======
-    private $customTreeWalkers = array();
->>>>>>> contactmanager
-=======
-    private $customTreeWalkers = [];
->>>>>>> donmanager
 
     /**
      * The custom last tree walker, if any, that is responsible for producing the output.
@@ -296,32 +176,7 @@ class Parser
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $identVariableExpressions = [];
-=======
-    private $identVariableExpressions = array();
-
-    /**
-     * Checks if a function is internally defined. Used to prevent overwriting
-     * of built-in functions through user-defined functions.
-     *
-     * @param string $functionName
-     *
-     * @return bool
-     */
-    static public function isInternalFunction($functionName)
-    {
-        $functionName = strtolower($functionName);
-
-        return isset(self::$_STRING_FUNCTIONS[$functionName])
-            || isset(self::$_DATETIME_FUNCTIONS[$functionName])
-            || isset(self::$_NUMERIC_FUNCTIONS[$functionName]);
-    }
->>>>>>> contactmanager
-=======
-    private $identVariableExpressions = [];
->>>>>>> donmanager
 
     /**
      * Creates a new query parser object.
@@ -332,15 +187,7 @@ class Parser
     {
         $this->query        = $query;
         $this->em           = $query->getEntityManager();
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->lexer        = new Lexer($query->getDQL());
-=======
-        $this->lexer        = new Lexer($query->getDql());
->>>>>>> contactmanager
-=======
-        $this->lexer        = new Lexer($query->getDQL());
->>>>>>> donmanager
         $this->parserResult = new ParserResult();
     }
 
@@ -420,15 +267,7 @@ class Parser
         }
 
         if ($this->deferredPathExpressions) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $this->processDeferredPathExpressions();
-=======
-            $this->processDeferredPathExpressions($AST);
->>>>>>> contactmanager
-=======
-            $this->processDeferredPathExpressions();
->>>>>>> donmanager
         }
 
         if ($this->deferredResultVariables) {
@@ -463,10 +302,6 @@ class Parser
     {
         $lookaheadType = $this->lexer->lookahead['type'];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         // Short-circuit on first condition, usually types match
         if ($lookaheadType !== $token) {
             // If parameter is not identifier (1-99) must be exact match
@@ -483,14 +318,6 @@ class Parser
             if ($token === Lexer::T_IDENTIFIER && $lookaheadType < Lexer::T_IDENTIFIER) {
                 $this->syntaxError($this->lexer->getLiteral($token));
             }
-<<<<<<< HEAD
-=======
-        // short-circuit on first condition, usually types match
-        if ($lookaheadType !== $token && $token !== Lexer::T_IDENTIFIER && $lookaheadType <= Lexer::T_IDENTIFIER) {
-            $this->syntaxError($this->lexer->getLiteral($token));
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         }
 
         $this->lexer->moveNext();
@@ -560,15 +387,7 @@ class Parser
             $this->queryComponents = $treeWalkerChain->getQueryComponents();
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $outputWalkerClass = $this->customOutputWalker ?: SqlWalker::class;
-=======
-        $outputWalkerClass = $this->customOutputWalker ?: __NAMESPACE__ . '\SqlWalker';
->>>>>>> contactmanager
-=======
-        $outputWalkerClass = $this->customOutputWalker ?: SqlWalker::class;
->>>>>>> donmanager
         $outputWalker      = new $outputWalkerClass($this->query, $this->parserResult, $this->queryComponents);
 
         // Assign an SQL executor to the parser result
@@ -611,18 +430,8 @@ class Parser
     /**
      * Generates a new syntax error.
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @param string     $expected Expected string.
      * @param array|null $token    Got token.
-=======
-     * @param string      $expected Expected string.
-     * @param array|null  $token    Got token.
->>>>>>> contactmanager
-=======
-     * @param string     $expected Expected string.
-     * @param array|null $token    Got token.
->>>>>>> donmanager
      *
      * @return void
      *
@@ -663,15 +472,7 @@ class Parser
         $distance = 12;
 
         // Find a position of a final word to display in error string
-<<<<<<< HEAD
-<<<<<<< HEAD
         $dql    = $this->query->getDQL();
-=======
-        $dql    = $this->query->getDql();
->>>>>>> contactmanager
-=======
-        $dql    = $this->query->getDQL();
->>>>>>> donmanager
         $length = strlen($dql);
         $pos    = $token['position'] + $distance;
         $pos    = strpos($dql, ' ', ($length > $pos) ? $pos : $length);
@@ -731,15 +532,7 @@ class Parser
      */
     private function isMathOperator($token)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return in_array($token['type'], [Lexer::T_PLUS, Lexer::T_MINUS, Lexer::T_DIVIDE, Lexer::T_MULTIPLY]);
-=======
-        return in_array($token['type'], array(Lexer::T_PLUS, Lexer::T_MINUS, Lexer::T_DIVIDE, Lexer::T_MULTIPLY));
->>>>>>> contactmanager
-=======
-        return in_array($token['type'], [Lexer::T_PLUS, Lexer::T_MINUS, Lexer::T_DIVIDE, Lexer::T_MULTIPLY]);
->>>>>>> donmanager
     }
 
     /**
@@ -766,15 +559,7 @@ class Parser
      */
     private function isAggregateFunction($tokenType)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return in_array($tokenType, [Lexer::T_AVG, Lexer::T_MIN, Lexer::T_MAX, Lexer::T_SUM, Lexer::T_COUNT]);
-=======
-        return in_array($tokenType, array(Lexer::T_AVG, Lexer::T_MIN, Lexer::T_MAX, Lexer::T_SUM, Lexer::T_COUNT));
->>>>>>> contactmanager
-=======
-        return in_array($tokenType, [Lexer::T_AVG, Lexer::T_MIN, Lexer::T_MAX, Lexer::T_SUM, Lexer::T_COUNT]);
->>>>>>> donmanager
     }
 
     /**
@@ -784,15 +569,7 @@ class Parser
      */
     private function isNextAllAnySome()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return in_array($this->lexer->lookahead['type'], [Lexer::T_ALL, Lexer::T_ANY, Lexer::T_SOME]);
-=======
-        return in_array($this->lexer->lookahead['type'], array(Lexer::T_ALL, Lexer::T_ANY, Lexer::T_SOME));
->>>>>>> contactmanager
-=======
-        return in_array($this->lexer->lookahead['type'], [Lexer::T_ALL, Lexer::T_ANY, Lexer::T_SOME]);
->>>>>>> donmanager
     }
 
     /**
@@ -851,15 +628,7 @@ class Parser
 
             // If the namespace is not given then assumes the first FROM entity namespace
             if (strpos($className, '\\') === false && ! class_exists($className) && strpos($fromClassName, '\\') !== false) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $namespace  = substr($fromClassName, 0, strrpos($fromClassName, '\\'));
-=======
-                $namespace  = substr($fromClassName, 0 , strrpos($fromClassName, '\\'));
->>>>>>> contactmanager
-=======
-                $namespace  = substr($fromClassName, 0, strrpos($fromClassName, '\\'));
->>>>>>> donmanager
                 $fqcn       = $namespace . '\\' . $className;
 
                 if (class_exists($fqcn)) {
@@ -970,23 +739,9 @@ class Parser
      * SingleValuedAssociationPathExpression ::= IdentificationVariable "." SingleValuedAssociationField
      * CollectionValuedPathExpression        ::= IdentificationVariable "." CollectionValuedAssociationField
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return void
      */
     private function processDeferredPathExpressions()
-=======
-     * @param mixed $AST
-     *
-     * @return void
-     */
-    private function processDeferredPathExpressions($AST)
->>>>>>> contactmanager
-=======
-     * @return void
-     */
-    private function processDeferredPathExpressions()
->>>>>>> donmanager
     {
         foreach ($this->deferredPathExpressions as $deferredItem) {
             $pathExpression = $deferredItem['expression'];
@@ -1021,15 +776,7 @@ class Parser
 
             if ( ! ($expectedType & $fieldType)) {
                 // We need to recognize which was expected type(s)
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $expectedStringTypes = [];
-=======
-                $expectedStringTypes = array();
->>>>>>> contactmanager
-=======
-                $expectedStringTypes = [];
->>>>>>> donmanager
 
                 // Validate state field type
                 if ($expectedType & AST\PathExpression::TYPE_STATE_FIELD) {
@@ -1069,8 +816,6 @@ class Parser
             return;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         foreach ($this->identVariableExpressions as $dqlAlias => $expr) {
             if (isset($this->queryComponents[$dqlAlias]) && $this->queryComponents[$dqlAlias]['parent'] === null) {
                 return;
@@ -1078,25 +823,6 @@ class Parser
         }
 
         $this->semanticalError('Cannot select entity through identification variables without choosing at least one root entity alias.');
-=======
-        $foundRootEntity = false;
-
-=======
->>>>>>> donmanager
-        foreach ($this->identVariableExpressions as $dqlAlias => $expr) {
-            if (isset($this->queryComponents[$dqlAlias]) && $this->queryComponents[$dqlAlias]['parent'] === null) {
-                return;
-            }
-        }
-
-<<<<<<< HEAD
-        if ( ! $foundRootEntity) {
-            $this->semanticalError('Cannot select entity through identification variables without choosing at least one root entity alias.');
-        }
->>>>>>> contactmanager
-=======
-        $this->semanticalError('Cannot select entity through identification variables without choosing at least one root entity alias.');
->>>>>>> donmanager
     }
 
     /**
@@ -1108,16 +834,8 @@ class Parser
      */
     public function QueryLanguage()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $statement = null;
 
-=======
->>>>>>> contactmanager
-=======
-        $statement = null;
-
->>>>>>> donmanager
         $this->lexer->moveNext();
 
         switch ($this->lexer->lookahead['type']) {
@@ -1202,27 +920,11 @@ class Parser
 
         $identVariable = $this->lexer->token['value'];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->deferredIdentificationVariables[] = [
             'expression'   => $identVariable,
             'nestingLevel' => $this->nestingLevel,
             'token'        => $this->lexer->token,
         ];
-=======
-        $this->deferredIdentificationVariables[] = array(
-            'expression'   => $identVariable,
-            'nestingLevel' => $this->nestingLevel,
-            'token'        => $this->lexer->token,
-        );
->>>>>>> contactmanager
-=======
-        $this->deferredIdentificationVariables[] = [
-            'expression'   => $identVariable,
-            'nestingLevel' => $this->nestingLevel,
-            'token'        => $this->lexer->token,
-        ];
->>>>>>> donmanager
 
         return $identVariable;
     }
@@ -1247,59 +949,28 @@ class Parser
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
      * AbstractSchemaName ::= fully_qualified_name | aliased_name | identifier
-=======
-     * AbstractSchemaName ::= identifier
->>>>>>> contactmanager
-=======
-     * AbstractSchemaName ::= fully_qualified_name | aliased_name | identifier
->>>>>>> donmanager
      *
      * @return string
      */
     public function AbstractSchemaName()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         if ($this->lexer->isNextToken(Lexer::T_FULLY_QUALIFIED_NAME)) {
             $this->match(Lexer::T_FULLY_QUALIFIED_NAME);
 
             $schemaName = $this->lexer->token['value'];
         } else if ($this->lexer->isNextToken(Lexer::T_IDENTIFIER)) {
             $this->match(Lexer::T_IDENTIFIER);
-<<<<<<< HEAD
 
             $schemaName = $this->lexer->token['value'];
         } else {
             $this->match(Lexer::T_ALIASED_NAME);
 
             list($namespaceAlias, $simpleClassName) = explode(':', $this->lexer->token['value']);
-=======
-        $this->match(Lexer::T_IDENTIFIER);
-=======
->>>>>>> donmanager
-
-            $schemaName = $this->lexer->token['value'];
-        } else {
-            $this->match(Lexer::T_ALIASED_NAME);
-
-<<<<<<< HEAD
-        if (strrpos($schemaName, ':') !== false) {
-            list($namespaceAlias, $simpleClassName) = explode(':', $schemaName);
->>>>>>> contactmanager
-=======
-            list($namespaceAlias, $simpleClassName) = explode(':', $this->lexer->token['value']);
->>>>>>> donmanager
 
             $schemaName = $this->em->getConfiguration()->getEntityNamespace($namespaceAlias) . '\\' . $simpleClassName;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $schemaName;
     }
 
@@ -1315,31 +986,6 @@ class Parser
         if (! (class_exists($schemaName, true) || interface_exists($schemaName, true))) {
             $this->semanticalError("Class '$schemaName' is not defined.", $this->lexer->token);
         }
-=======
-        $exists = class_exists($schemaName, true) || interface_exists($schemaName, true);
-=======
-        return $schemaName;
-    }
->>>>>>> donmanager
-
-    /**
-     * Validates an AbstractSchemaName, making sure the class exists.
-     *
-     * @param string $schemaName The name to validate.
-     *
-     * @throws QueryException if the name does not exist.
-     */
-    private function validateAbstractSchemaName($schemaName)
-    {
-        if (! (class_exists($schemaName, true) || interface_exists($schemaName, true))) {
-            $this->semanticalError("Class '$schemaName' is not defined.", $this->lexer->token);
-        }
-<<<<<<< HEAD
-
-        return $schemaName;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 
     /**
@@ -1373,27 +1019,11 @@ class Parser
         $resultVariable = $this->lexer->token['value'];
 
         // Defer ResultVariable validation
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->deferredResultVariables[] = [
             'expression'   => $resultVariable,
             'nestingLevel' => $this->nestingLevel,
             'token'        => $this->lexer->token,
         ];
-=======
-        $this->deferredResultVariables[] = array(
-            'expression'   => $resultVariable,
-            'nestingLevel' => $this->nestingLevel,
-            'token'        => $this->lexer->token,
-        );
->>>>>>> contactmanager
-=======
-        $this->deferredResultVariables[] = [
-            'expression'   => $resultVariable,
-            'nestingLevel' => $this->nestingLevel,
-            'token'        => $this->lexer->token,
-        ];
->>>>>>> donmanager
 
         return $resultVariable;
     }
@@ -1461,27 +1091,11 @@ class Parser
         $pathExpr = new AST\PathExpression($expectedTypes, $identVariable, $field);
 
         // Defer PathExpression validation if requested to be deferred
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->deferredPathExpressions[] = [
             'expression'   => $pathExpr,
             'nestingLevel' => $this->nestingLevel,
             'token'        => $this->lexer->token,
         ];
-=======
-        $this->deferredPathExpressions[] = array(
-            'expression'   => $pathExpr,
-            'nestingLevel' => $this->nestingLevel,
-            'token'        => $this->lexer->token,
-        );
->>>>>>> contactmanager
-=======
-        $this->deferredPathExpressions[] = [
-            'expression'   => $pathExpr,
-            'nestingLevel' => $this->nestingLevel,
-            'token'        => $this->lexer->token,
-        ];
->>>>>>> donmanager
 
         return $pathExpr;
     }
@@ -1560,15 +1174,7 @@ class Parser
         }
 
         // Process SelectExpressions (1..N)
-<<<<<<< HEAD
-<<<<<<< HEAD
         $selectExpressions = [];
-=======
-        $selectExpressions = array();
->>>>>>> contactmanager
-=======
-        $selectExpressions = [];
->>>>>>> donmanager
         $selectExpressions[] = $this->SelectExpression();
 
         while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
@@ -1607,24 +1213,12 @@ class Parser
     public function UpdateClause()
     {
         $this->match(Lexer::T_UPDATE);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
         $token = $this->lexer->lookahead;
         $abstractSchemaName = $this->AbstractSchemaName();
 
         $this->validateAbstractSchemaName($abstractSchemaName);
 
-<<<<<<< HEAD
-=======
-        $token = $this->lexer->lookahead;
-        $abstractSchemaName = $this->AbstractSchemaName();
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         if ($this->lexer->isNextToken(Lexer::T_AS)) {
             $this->match(Lexer::T_AS);
         }
@@ -1634,44 +1228,20 @@ class Parser
         $class = $this->em->getClassMetadata($abstractSchemaName);
 
         // Building queryComponent
-<<<<<<< HEAD
-<<<<<<< HEAD
         $queryComponent = [
-=======
-        $queryComponent = array(
->>>>>>> contactmanager
-=======
-        $queryComponent = [
->>>>>>> donmanager
             'metadata'     => $class,
             'parent'       => null,
             'relation'     => null,
             'map'          => null,
             'nestingLevel' => $this->nestingLevel,
             'token'        => $token,
-<<<<<<< HEAD
-<<<<<<< HEAD
         ];
-=======
-        );
->>>>>>> contactmanager
-=======
-        ];
->>>>>>> donmanager
 
         $this->queryComponents[$aliasIdentificationVariable] = $queryComponent;
 
         $this->match(Lexer::T_SET);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $updateItems = [];
-=======
-        $updateItems = array();
->>>>>>> contactmanager
-=======
-        $updateItems = [];
->>>>>>> donmanager
         $updateItems[] = $this->UpdateItem();
 
         while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
@@ -1700,21 +1270,11 @@ class Parser
         }
 
         $token = $this->lexer->lookahead;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $abstractSchemaName = $this->AbstractSchemaName();
 
         $this->validateAbstractSchemaName($abstractSchemaName);
 
         $deleteClause = new AST\DeleteClause($abstractSchemaName);
-<<<<<<< HEAD
-=======
-        $deleteClause = new AST\DeleteClause($this->AbstractSchemaName());
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
         if ($this->lexer->isNextToken(Lexer::T_AS)) {
             $this->match(Lexer::T_AS);
@@ -1726,30 +1286,14 @@ class Parser
         $class = $this->em->getClassMetadata($deleteClause->abstractSchemaName);
 
         // Building queryComponent
-<<<<<<< HEAD
-<<<<<<< HEAD
         $queryComponent = [
-=======
-        $queryComponent = array(
->>>>>>> contactmanager
-=======
-        $queryComponent = [
->>>>>>> donmanager
             'metadata'     => $class,
             'parent'       => null,
             'relation'     => null,
             'map'          => null,
             'nestingLevel' => $this->nestingLevel,
             'token'        => $token,
-<<<<<<< HEAD
-<<<<<<< HEAD
         ];
-=======
-        );
->>>>>>> contactmanager
-=======
-        ];
->>>>>>> donmanager
 
         $this->queryComponents[$aliasIdentificationVariable] = $queryComponent;
 
@@ -1765,15 +1309,7 @@ class Parser
     {
         $this->match(Lexer::T_FROM);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $identificationVariableDeclarations = [];
-=======
-        $identificationVariableDeclarations = array();
->>>>>>> contactmanager
-=======
-        $identificationVariableDeclarations = [];
->>>>>>> donmanager
         $identificationVariableDeclarations[] = $this->IdentificationVariableDeclaration();
 
         while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
@@ -1794,15 +1330,7 @@ class Parser
     {
         $this->match(Lexer::T_FROM);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $identificationVariables = [];
-=======
-        $identificationVariables = array();
->>>>>>> contactmanager
-=======
-        $identificationVariables = [];
->>>>>>> donmanager
         $identificationVariables[] = $this->SubselectIdentificationVariableDeclaration();
 
         while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
@@ -1848,15 +1376,7 @@ class Parser
         $this->match(Lexer::T_GROUP);
         $this->match(Lexer::T_BY);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $groupByItems = [$this->GroupByItem()];
-=======
-        $groupByItems = array($this->GroupByItem());
->>>>>>> contactmanager
-=======
-        $groupByItems = [$this->GroupByItem()];
->>>>>>> donmanager
 
         while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
             $this->match(Lexer::T_COMMA);
@@ -1877,15 +1397,7 @@ class Parser
         $this->match(Lexer::T_ORDER);
         $this->match(Lexer::T_BY);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $orderByItems = [];
-=======
-        $orderByItems = array();
->>>>>>> contactmanager
-=======
-        $orderByItems = [];
->>>>>>> donmanager
         $orderByItems[] = $this->OrderByItem();
 
         while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
@@ -1982,15 +1494,7 @@ class Parser
         $glimpse = $this->lexer->glimpse();
 
         switch (true) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             case ($this->isFunction()):
-=======
-            case ($this->isFunction($peek)):
->>>>>>> contactmanager
-=======
-            case ($this->isFunction()):
->>>>>>> donmanager
                 $expr = $this->FunctionDeclaration();
                 break;
 
@@ -2070,15 +1574,7 @@ class Parser
      */
     public function IdentificationVariableDeclaration()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $joins                    = [];
-=======
-        $joins                    = array();
->>>>>>> contactmanager
-=======
-        $joins                    = [];
->>>>>>> donmanager
         $rangeVariableDeclaration = $this->RangeVariableDeclaration();
         $indexBy                  = $this->lexer->isNextToken(Lexer::T_INDEX)
             ? $this->IndexBy()
@@ -2100,13 +1596,6 @@ class Parser
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-     *
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
      * SubselectIdentificationVariableDeclaration ::= IdentificationVariableDeclaration
      *
      * {Internal note: WARNING: Solution is harder than a bare implementation.
@@ -2209,14 +1698,6 @@ class Parser
         // Describe non-root join declaration
         if ($joinDeclaration instanceof AST\RangeVariableDeclaration) {
             $joinDeclaration->isRoot = false;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-            $adhocConditions = true;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         }
 
         // Check for ad-hoc Join conditions
@@ -2233,10 +1714,6 @@ class Parser
      * RangeVariableDeclaration ::= AbstractSchemaName ["AS"] AliasIdentificationVariable
      *
      * @return \Doctrine\ORM\Query\AST\RangeVariableDeclaration
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
      *
      * @throws QueryException
      */
@@ -2250,16 +1727,6 @@ class Parser
 
         $this->validateAbstractSchemaName($abstractSchemaName);
 
-<<<<<<< HEAD
-=======
-     */
-    public function RangeVariableDeclaration()
-    {
-        $abstractSchemaName = $this->AbstractSchemaName();
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         if ($this->lexer->isNextToken(Lexer::T_AS)) {
             $this->match(Lexer::T_AS);
         }
@@ -2269,30 +1736,14 @@ class Parser
         $classMetadata = $this->em->getClassMetadata($abstractSchemaName);
 
         // Building queryComponent
-<<<<<<< HEAD
-<<<<<<< HEAD
         $queryComponent = [
-=======
-        $queryComponent = array(
->>>>>>> contactmanager
-=======
-        $queryComponent = [
->>>>>>> donmanager
             'metadata'     => $classMetadata,
             'parent'       => null,
             'relation'     => null,
             'map'          => null,
             'nestingLevel' => $this->nestingLevel,
             'token'        => $token
-<<<<<<< HEAD
-<<<<<<< HEAD
         ];
-=======
-        );
->>>>>>> contactmanager
-=======
-        ];
->>>>>>> donmanager
 
         $this->queryComponents[$aliasIdentificationVariable] = $queryComponent;
 
@@ -2322,30 +1773,14 @@ class Parser
         $targetClass = $this->em->getClassMetadata($class->associationMappings[$field]['targetEntity']);
 
         // Building queryComponent
-<<<<<<< HEAD
-<<<<<<< HEAD
         $joinQueryComponent = [
-=======
-        $joinQueryComponent = array(
->>>>>>> contactmanager
-=======
-        $joinQueryComponent = [
->>>>>>> donmanager
             'metadata'     => $targetClass,
             'parent'       => $joinAssociationPathExpression->identificationVariable,
             'relation'     => $class->getAssociationMapping($field),
             'map'          => null,
             'nestingLevel' => $this->nestingLevel,
             'token'        => $this->lexer->lookahead
-<<<<<<< HEAD
-<<<<<<< HEAD
         ];
-=======
-        );
->>>>>>> contactmanager
-=======
-        ];
->>>>>>> donmanager
 
         $this->queryComponents[$aliasIdentificationVariable] = $joinQueryComponent;
 
@@ -2356,29 +1791,13 @@ class Parser
      * PartialObjectExpression ::= "PARTIAL" IdentificationVariable "." PartialFieldSet
      * PartialFieldSet ::= "{" SimpleStateField {"," SimpleStateField}* "}"
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return \Doctrine\ORM\Query\AST\PartialObjectExpression
-=======
-     * @return array
->>>>>>> contactmanager
-=======
-     * @return \Doctrine\ORM\Query\AST\PartialObjectExpression
->>>>>>> donmanager
      */
     public function PartialObjectExpression()
     {
         $this->match(Lexer::T_PARTIAL);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $partialFieldSet = [];
-=======
-        $partialFieldSet = array();
->>>>>>> contactmanager
-=======
-        $partialFieldSet = [];
->>>>>>> donmanager
 
         $identificationVariable = $this->IdentificationVariable();
 
@@ -2386,10 +1805,6 @@ class Parser
         $this->match(Lexer::T_OPEN_CURLY_BRACE);
         $this->match(Lexer::T_IDENTIFIER);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $field = $this->lexer->token['value'];
 
         // First field in partial expression might be embeddable property
@@ -2400,45 +1815,19 @@ class Parser
         }
 
         $partialFieldSet[] = $field;
-<<<<<<< HEAD
-=======
-        $partialFieldSet[] = $this->lexer->token['value'];
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
         while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
             $this->match(Lexer::T_COMMA);
             $this->match(Lexer::T_IDENTIFIER);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
             $field = $this->lexer->token['value'];
 
-=======
-    
-            $field = $this->lexer->token['value'];
-    
->>>>>>> contactmanager
-=======
-
-            $field = $this->lexer->token['value'];
-
->>>>>>> donmanager
             while ($this->lexer->isNextToken(Lexer::T_DOT)) {
                 $this->match(Lexer::T_DOT);
                 $this->match(Lexer::T_IDENTIFIER);
                 $field .= '.'.$this->lexer->token['value'];
             }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
             $partialFieldSet[] = $field;
         }
 
@@ -2447,70 +1836,26 @@ class Parser
         $partialObjectExpression = new AST\PartialObjectExpression($identificationVariable, $partialFieldSet);
 
         // Defer PartialObjectExpression validation
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->deferredPartialObjectExpressions[] = [
             'expression'   => $partialObjectExpression,
             'nestingLevel' => $this->nestingLevel,
             'token'        => $this->lexer->token,
         ];
-=======
-        $this->deferredPartialObjectExpressions[] = array(
-            'expression'   => $partialObjectExpression,
-            'nestingLevel' => $this->nestingLevel,
-            'token'        => $this->lexer->token,
-        );
->>>>>>> contactmanager
-=======
-        $this->deferredPartialObjectExpressions[] = [
-            'expression'   => $partialObjectExpression,
-            'nestingLevel' => $this->nestingLevel,
-            'token'        => $this->lexer->token,
-        ];
->>>>>>> donmanager
 
         return $partialObjectExpression;
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
      * NewObjectExpression ::= "NEW" AbstractSchemaName "(" NewObjectArg {"," NewObjectArg}* ")"
-=======
-     * NewObjectExpression ::= "NEW" IdentificationVariable "(" NewObjectArg {"," NewObjectArg}* ")"
->>>>>>> contactmanager
-=======
-     * NewObjectExpression ::= "NEW" AbstractSchemaName "(" NewObjectArg {"," NewObjectArg}* ")"
->>>>>>> donmanager
      *
      * @return \Doctrine\ORM\Query\AST\NewObjectExpression
      */
     public function NewObjectExpression()
     {
         $this->match(Lexer::T_NEW);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         $className = $this->AbstractSchemaName(); // note that this is not yet validated
         $token = $this->lexer->token;
-=======
-        $this->match(Lexer::T_IDENTIFIER);
-
-        $token      = $this->lexer->token;
-        $className  = $token['value'];
-
-        if (strrpos($className, ':') !== false) {
-            list($namespaceAlias, $simpleClassName) = explode(':', $className);
-
-            $className = $this->em->getConfiguration()
-                ->getEntityNamespace($namespaceAlias) . '\\' . $simpleClassName;
-        }
->>>>>>> contactmanager
-=======
-
-        $className = $this->AbstractSchemaName(); // note that this is not yet validated
-        $token = $this->lexer->token;
->>>>>>> donmanager
 
         $this->match(Lexer::T_OPEN_PARENTHESIS);
 
@@ -2527,27 +1872,11 @@ class Parser
         $expression = new AST\NewObjectExpression($className, $args);
 
         // Defer NewObjectExpression validation
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->deferredNewObjectExpressions[] = [
             'token'        => $token,
             'expression'   => $expression,
             'nestingLevel' => $this->nestingLevel,
         ];
-=======
-        $this->deferredNewObjectExpressions[] = array(
-            'token'        => $token,
-            'expression'   => $expression,
-            'nestingLevel' => $this->nestingLevel,
-        );
->>>>>>> contactmanager
-=======
-        $this->deferredNewObjectExpressions[] = [
-            'token'        => $token,
-            'expression'   => $expression,
-            'nestingLevel' => $this->nestingLevel,
-        ];
->>>>>>> donmanager
 
         return $expression;
     }
@@ -2621,22 +1950,9 @@ class Parser
 
             case ($lookahead === Lexer::T_INPUT_PARAMETER):
                 switch (true) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     case $this->isMathOperator($peek):
                         // :param + u.value
                         return $this->SimpleArithmeticExpression();
-=======
-                     case $this->isMathOperator($peek):
-                        // :param + u.value
-                        return $this->SimpleArithmeticExpression();
-
->>>>>>> contactmanager
-=======
-                    case $this->isMathOperator($peek):
-                        // :param + u.value
-                        return $this->SimpleArithmeticExpression();
->>>>>>> donmanager
                     default:
                         return $this->InputParameter();
                 }
@@ -2660,15 +1976,6 @@ class Parser
                         // SUM(u.id) + COUNT(u.id)
                         return $this->SimpleArithmeticExpression();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    case ($this->isAggregateFunction($this->lexer->lookahead['type'])):
-                        return $this->AggregateExpression();
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                     default:
                         // IDENTITY(u)
                         return $this->FunctionDeclaration();
@@ -2745,15 +2052,7 @@ class Parser
         $this->match(Lexer::T_OPEN_PARENTHESIS);
 
         // Process ScalarExpressions (1..N)
-<<<<<<< HEAD
-<<<<<<< HEAD
         $scalarExpressions = [];
-=======
-        $scalarExpressions = array();
->>>>>>> contactmanager
-=======
-        $scalarExpressions = [];
->>>>>>> donmanager
         $scalarExpressions[] = $this->ScalarExpression();
 
         while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
@@ -2796,15 +2095,7 @@ class Parser
         $this->match(Lexer::T_CASE);
 
         // Process WhenClause (1..N)
-<<<<<<< HEAD
-<<<<<<< HEAD
         $whenClauses = [];
-=======
-        $whenClauses = array();
->>>>>>> contactmanager
-=======
-        $whenClauses = [];
->>>>>>> donmanager
 
         do {
             $whenClauses[] = $this->WhenClause();
@@ -2829,15 +2120,7 @@ class Parser
         $caseOperand = $this->StateFieldPathExpression();
 
         // Process SimpleWhenClause (1..N)
-<<<<<<< HEAD
-<<<<<<< HEAD
         $simpleWhenClauses = [];
-=======
-        $simpleWhenClauses = array();
->>>>>>> contactmanager
-=======
-        $simpleWhenClauses = [];
->>>>>>> donmanager
 
         do {
             $simpleWhenClauses[] = $this->SimpleWhenClause();
@@ -2921,17 +2204,6 @@ class Parser
                         $expression = $this->ScalarExpression();
                         break;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    case ($this->isAggregateFunction($lookaheadType)):
-                        // COUNT(u.id)
-                        $expression = $this->AggregateExpression();
-                        break;
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                     default:
                         // IDENTITY(u)
                         $expression = $this->FunctionDeclaration();
@@ -2977,24 +2249,12 @@ class Parser
         }
 
         // [["AS"] ["HIDDEN"] AliasResultVariable]
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $mustHaveAliasResultVariable = false;
 
         if ($this->lexer->isNextToken(Lexer::T_AS)) {
             $this->match(Lexer::T_AS);
 
             $mustHaveAliasResultVariable = true;
-<<<<<<< HEAD
-=======
-
-        if ($this->lexer->isNextToken(Lexer::T_AS)) {
-            $this->match(Lexer::T_AS);
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         }
 
         $hiddenAliasResultVariable = false;
@@ -3007,40 +2267,16 @@ class Parser
 
         $aliasResultVariable = null;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($mustHaveAliasResultVariable || $this->lexer->isNextToken(Lexer::T_IDENTIFIER)) {
-=======
-        if ($this->lexer->isNextToken(Lexer::T_IDENTIFIER)) {
->>>>>>> contactmanager
-=======
-        if ($mustHaveAliasResultVariable || $this->lexer->isNextToken(Lexer::T_IDENTIFIER)) {
->>>>>>> donmanager
             $token = $this->lexer->lookahead;
             $aliasResultVariable = $this->AliasResultVariable();
 
             // Include AliasResultVariable in query components.
-<<<<<<< HEAD
-<<<<<<< HEAD
             $this->queryComponents[$aliasResultVariable] = [
                 'resultVariable' => $expression,
                 'nestingLevel'   => $this->nestingLevel,
                 'token'          => $token,
             ];
-=======
-            $this->queryComponents[$aliasResultVariable] = array(
-                'resultVariable' => $expression,
-                'nestingLevel'   => $this->nestingLevel,
-                'token'          => $token,
-            );
->>>>>>> contactmanager
-=======
-            $this->queryComponents[$aliasResultVariable] = [
-                'resultVariable' => $expression,
-                'nestingLevel'   => $this->nestingLevel,
-                'token'          => $token,
-            ];
->>>>>>> donmanager
         }
 
         // AST
@@ -3130,27 +2366,11 @@ class Parser
             $expr->fieldIdentificationVariable = $resultVariable;
 
             // Include AliasResultVariable in query components.
-<<<<<<< HEAD
-<<<<<<< HEAD
             $this->queryComponents[$resultVariable] = [
                 'resultvariable' => $expr,
                 'nestingLevel'   => $this->nestingLevel,
                 'token'          => $token,
             ];
-=======
-            $this->queryComponents[$resultVariable] = array(
-                'resultvariable' => $expr,
-                'nestingLevel'   => $this->nestingLevel,
-                'token'          => $token,
-            );
->>>>>>> contactmanager
-=======
-            $this->queryComponents[$resultVariable] = [
-                'resultvariable' => $expr,
-                'nestingLevel'   => $this->nestingLevel,
-                'token'          => $token,
-            ];
->>>>>>> donmanager
         }
 
         return $expr;
@@ -3163,15 +2383,7 @@ class Parser
      */
     public function ConditionalExpression()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $conditionalTerms = [];
-=======
-        $conditionalTerms = array();
->>>>>>> contactmanager
-=======
-        $conditionalTerms = [];
->>>>>>> donmanager
         $conditionalTerms[] = $this->ConditionalTerm();
 
         while ($this->lexer->isNextToken(Lexer::T_OR)) {
@@ -3196,15 +2408,7 @@ class Parser
      */
     public function ConditionalTerm()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $conditionalFactors = [];
-=======
-        $conditionalFactors = array();
->>>>>>> contactmanager
-=======
-        $conditionalFactors = [];
->>>>>>> donmanager
         $conditionalFactors[] = $this->ConditionalFactor();
 
         while ($this->lexer->isNextToken(Lexer::T_AND)) {
@@ -3269,18 +2473,8 @@ class Parser
         // Peek beyond the matching closing parenthesis ')'
         $peek = $this->peekBeyondClosingParenthesis();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (in_array($peek['value'], ["=",  "<", "<=", "<>", ">", ">=", "!="]) ||
             in_array($peek['type'], [Lexer::T_NOT, Lexer::T_BETWEEN, Lexer::T_LIKE, Lexer::T_IN, Lexer::T_IS, Lexer::T_EXISTS]) ||
-=======
-        if (in_array($peek['value'], array("=",  "<", "<=", "<>", ">", ">=", "!=")) ||
-            in_array($peek['type'], array(Lexer::T_NOT, Lexer::T_BETWEEN, Lexer::T_LIKE, Lexer::T_IN, Lexer::T_IS, Lexer::T_EXISTS)) ||
->>>>>>> contactmanager
-=======
-        if (in_array($peek['value'], ["=",  "<", "<=", "<>", ">", ">=", "!="]) ||
-            in_array($peek['type'], [Lexer::T_NOT, Lexer::T_BETWEEN, Lexer::T_LIKE, Lexer::T_IN, Lexer::T_IS, Lexer::T_EXISTS]) ||
->>>>>>> donmanager
             $this->isMathOperator($peek)) {
             $condPrimary->simpleConditionalExpression = $this->SimpleConditionalExpression();
 
@@ -3456,52 +2650,22 @@ class Parser
         switch ($this->lexer->lookahead['type']) {
             case Lexer::T_STRING:
                 $this->match(Lexer::T_STRING);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
                 return new AST\Literal(AST\Literal::STRING, $this->lexer->token['value']);
-=======
-                return new AST\Literal(AST\Literal::STRING, $this->lexer->token['value']);
-
->>>>>>> contactmanager
-=======
-
-                return new AST\Literal(AST\Literal::STRING, $this->lexer->token['value']);
->>>>>>> donmanager
             case Lexer::T_INTEGER:
             case Lexer::T_FLOAT:
                 $this->match(
                     $this->lexer->isNextToken(Lexer::T_INTEGER) ? Lexer::T_INTEGER : Lexer::T_FLOAT
                 );
-<<<<<<< HEAD
-<<<<<<< HEAD
 
                 return new AST\Literal(AST\Literal::NUMERIC, $this->lexer->token['value']);
-=======
-                return new AST\Literal(AST\Literal::NUMERIC, $this->lexer->token['value']);
-
->>>>>>> contactmanager
-=======
-
-                return new AST\Literal(AST\Literal::NUMERIC, $this->lexer->token['value']);
->>>>>>> donmanager
             case Lexer::T_TRUE:
             case Lexer::T_FALSE:
                 $this->match(
                     $this->lexer->isNextToken(Lexer::T_TRUE) ? Lexer::T_TRUE : Lexer::T_FALSE
                 );
-<<<<<<< HEAD
-<<<<<<< HEAD
 
                 return new AST\Literal(AST\Literal::BOOLEAN, $this->lexer->token['value']);
-=======
-                return new AST\Literal(AST\Literal::BOOLEAN, $this->lexer->token['value']);
-
->>>>>>> contactmanager
-=======
-
-                return new AST\Literal(AST\Literal::BOOLEAN, $this->lexer->token['value']);
->>>>>>> donmanager
             default:
                 $this->syntaxError('Literal');
         }
@@ -3566,15 +2730,7 @@ class Parser
      */
     public function SimpleArithmeticExpression()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $terms = [];
-=======
-        $terms = array();
->>>>>>> contactmanager
-=======
-        $terms = [];
->>>>>>> donmanager
         $terms[] = $this->ArithmeticTerm();
 
         while (($isPlus = $this->lexer->isNextToken(Lexer::T_PLUS)) || $this->lexer->isNextToken(Lexer::T_MINUS)) {
@@ -3600,15 +2756,7 @@ class Parser
      */
     public function ArithmeticTerm()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $factors = [];
-=======
-        $factors = array();
->>>>>>> contactmanager
-=======
-        $factors = [];
->>>>>>> donmanager
         $factors[] = $this->ArithmeticFactor();
 
         while (($isMult = $this->lexer->isNextToken(Lexer::T_MULTIPLY)) || $this->lexer->isNextToken(Lexer::T_DIVIDE)) {
@@ -3700,16 +2848,6 @@ class Parser
                 $peek = $this->lexer->glimpse();
 
                 if ($peek['value'] == '(') {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    if ($this->isAggregateFunction($this->lexer->lookahead['type'])) {
-                        return $this->AggregateExpression();
-                    }
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                     return $this->FunctionDeclaration();
                 }
 
@@ -3720,16 +2858,7 @@ class Parser
     /**
      * StringExpression ::= StringPrimary | ResultVariable | "(" Subselect ")"
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return \Doctrine\ORM\Query\AST\Subselect |
-=======
-     * @return \Doctrine\ORM\Query\AST\StringPrimary |
-     *         \Doctrine\ORM\Query\AST\Subselect |
->>>>>>> contactmanager
-=======
-     * @return \Doctrine\ORM\Query\AST\Subselect |
->>>>>>> donmanager
      *         string
      */
     public function StringExpression()
@@ -3789,17 +2918,6 @@ class Parser
             case Lexer::T_COALESCE:
             case Lexer::T_NULLIF:
                 return $this->CaseExpression();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-            default:
-                if ($this->isAggregateFunction($lookaheadType)) {
-                    return $this->AggregateExpression();
-                }
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         }
 
         $this->syntaxError(
@@ -3810,15 +2928,7 @@ class Parser
     /**
      * EntityExpression ::= SingleValuedAssociationPathExpression | SimpleEntityExpression
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return \Doctrine\ORM\Query\AST\PathExpression |
-=======
-     * @return \Doctrine\ORM\Query\AST\SingleValuedAssociationPathExpression |
->>>>>>> contactmanager
-=======
-     * @return \Doctrine\ORM\Query\AST\PathExpression |
->>>>>>> donmanager
      *         \Doctrine\ORM\Query\AST\SimpleEntityExpression
      */
     public function EntityExpression()
@@ -3857,15 +2967,7 @@ class Parser
         $lookaheadType = $this->lexer->lookahead['type'];
         $isDistinct = false;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ( ! in_array($lookaheadType, [Lexer::T_COUNT, Lexer::T_AVG, Lexer::T_MAX, Lexer::T_MIN, Lexer::T_SUM])) {
-=======
-        if ( ! in_array($lookaheadType, array(Lexer::T_COUNT, Lexer::T_AVG, Lexer::T_MAX, Lexer::T_MIN, Lexer::T_SUM))) {
->>>>>>> contactmanager
-=======
-        if ( ! in_array($lookaheadType, [Lexer::T_COUNT, Lexer::T_AVG, Lexer::T_MAX, Lexer::T_MIN, Lexer::T_SUM])) {
->>>>>>> donmanager
             $this->syntaxError('One of: MAX, MIN, AVG, SUM, COUNT');
         }
 
@@ -3895,15 +2997,7 @@ class Parser
         $lookaheadType = $this->lexer->lookahead['type'];
         $value = $this->lexer->lookahead['value'];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ( ! in_array($lookaheadType, [Lexer::T_ALL, Lexer::T_ANY, Lexer::T_SOME])) {
-=======
-        if ( ! in_array($lookaheadType, array(Lexer::T_ALL, Lexer::T_ANY, Lexer::T_SOME))) {
->>>>>>> contactmanager
-=======
-        if ( ! in_array($lookaheadType, [Lexer::T_ALL, Lexer::T_ANY, Lexer::T_SOME])) {
->>>>>>> donmanager
             $this->syntaxError('ALL, ANY or SOME');
         }
 
@@ -3982,15 +3076,7 @@ class Parser
         if ($this->lexer->isNextToken(Lexer::T_SELECT)) {
             $inExpression->subselect = $this->Subselect();
         } else {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $literals = [];
-=======
-            $literals = array();
->>>>>>> contactmanager
-=======
-            $literals = [];
->>>>>>> donmanager
             $literals[] = $this->InParameter();
 
             while ($this->lexer->isNextToken(Lexer::T_COMMA)) {
@@ -4023,15 +3109,7 @@ class Parser
         $this->match(Lexer::T_INSTANCE);
         $this->match(Lexer::T_OF);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $exprValues = [];
-=======
-        $exprValues = array();
->>>>>>> contactmanager
-=======
-        $exprValues = [];
->>>>>>> donmanager
 
         if ($this->lexer->isNextToken(Lexer::T_OPEN_PARENTHESIS)) {
             $this->match(Lexer::T_OPEN_PARENTHESIS);
@@ -4071,21 +3149,11 @@ class Parser
             return new AST\InputParameter($this->lexer->token['value']);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $abstractSchemaName = $this->AbstractSchemaName();
 
         $this->validateAbstractSchemaName($abstractSchemaName);
 
         return $abstractSchemaName;
-<<<<<<< HEAD
-=======
-        return $this->AliasIdentificationVariable();
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 
     /**
@@ -4149,16 +3217,6 @@ class Parser
                 $expr = $this->CoalesceExpression();
                 break;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            case $this->isAggregateFunction($this->lexer->lookahead['type']):
-                $expr = $this->AggregateExpression();
-                break;
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
             case $this->isFunction():
                 $expr = $this->FunctionDeclaration();
                 break;
@@ -4181,21 +3239,12 @@ class Parser
                     $this->semanticalError('Cannot add having condition on undefined result variable.');
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
                 // Validate SingleValuedPathExpression (ie.: "product")
                 if (isset($this->queryComponents[$lookaheadValue]['metadata'])) {
                     $expr = $this->SingleValuedPathExpression();
                     break;
                 }
 
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                 // Validating ResultVariable
                 if ( ! isset($this->queryComponents[$lookaheadValue]['resultVariable'])) {
                     $this->semanticalError('Cannot add having condition on a non result variable.');
@@ -4304,8 +3353,6 @@ class Parser
         $token = $this->lexer->lookahead;
         $funcName = strtolower($token['value']);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $customFunctionDeclaration = $this->CustomFunctionDeclaration();
 
         // Check for custom functions functions first!
@@ -4313,19 +3360,6 @@ class Parser
             case $customFunctionDeclaration !== null:
                 return $customFunctionDeclaration;
 
-=======
-        // Check for built-in functions first!
-        switch (true) {
->>>>>>> contactmanager
-=======
-        $customFunctionDeclaration = $this->CustomFunctionDeclaration();
-
-        // Check for custom functions functions first!
-        switch (true) {
-            case $customFunctionDeclaration !== null:
-                return $customFunctionDeclaration;
-
->>>>>>> donmanager
             case (isset(self::$_STRING_FUNCTIONS[$funcName])):
                 return $this->FunctionsReturningStrings();
 
@@ -4336,15 +3370,7 @@ class Parser
                 return $this->FunctionsReturningDatetime();
 
             default:
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $this->syntaxError('known function', $token);
-=======
-                return $this->CustomFunctionDeclaration();
->>>>>>> contactmanager
-=======
-                $this->syntaxError('known function', $token);
->>>>>>> donmanager
         }
     }
 
@@ -4372,15 +3398,7 @@ class Parser
                 return $this->CustomFunctionsReturningDatetime();
 
             default:
-<<<<<<< HEAD
-<<<<<<< HEAD
                 return null;
-=======
-                $this->syntaxError('known function', $token);
->>>>>>> contactmanager
-=======
-                return null;
->>>>>>> donmanager
         }
     }
 
@@ -4468,15 +3486,7 @@ class Parser
 
     /**
      * FunctionsReturningStrings ::=
-<<<<<<< HEAD
-<<<<<<< HEAD
      *   "CONCAT" "(" StringPrimary "," StringPrimary {"," StringPrimary}* ")" |
-=======
-     *   "CONCAT" "(" StringPrimary "," StringPrimary ")" |
->>>>>>> contactmanager
-=======
-     *   "CONCAT" "(" StringPrimary "," StringPrimary {"," StringPrimary}* ")" |
->>>>>>> donmanager
      *   "SUBSTRING" "(" StringPrimary "," SimpleArithmeticExpression "," SimpleArithmeticExpression ")" |
      *   "TRIM" "(" [["LEADING" | "TRAILING" | "BOTH"] [char] "FROM"] StringPrimary ")" |
      *   "LOWER" "(" StringPrimary ")" |

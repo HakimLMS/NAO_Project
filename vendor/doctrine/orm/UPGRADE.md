@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 # Upgrade to 2.6
 
 ## Minor BC BREAK: `Doctrine\ORM\Tools\Console\ConsoleRunner` is now final
@@ -34,7 +30,6 @@ As a consequence, automatic cache setup in Doctrine\ORM\Tools\Setup::create*Conf
 - Memcached extension (ext-memcached) will be used instead of obsolete Memcache (ext-memcache).
 - XCache support was dropped as it doesn't work with PHP 7.
 
-<<<<<<< HEAD
 # Upgrade to 2.5
 
 ## Minor BC BREAK: removed `Doctrine\ORM\Query\SqlWalker#walkCaseExpression()`
@@ -46,23 +41,6 @@ of the internal API of the ORM, so it was removed. [#5600](https://github.com/do
 
 As `$className` parameter was not used in the method, it was safely removed.
 
-=======
-# Upgrade to 2.5
-
->>>>>>> contactmanager
-=======
-# Upgrade to 2.5
-
-## Minor BC BREAK: removed `Doctrine\ORM\Query\SqlWalker#walkCaseExpression()`
-
-Method `Doctrine\ORM\Query\SqlWalker#walkCaseExpression()` was unused and part
-of the internal API of the ORM, so it was removed. [#5600](https://github.com/doctrine/doctrine2/pull/5600).
-
-## Minor BC BREAK: removed $className parameter on `AbstractEntityInheritancePersister#getSelectJoinColumnSQL()`
-
-As `$className` parameter was not used in the method, it was safely removed.
-
->>>>>>> donmanager
 ## Minor BC BREAK: query cache key time is now a float
 
 As of 2.5.5, the `QueryCacheEntry#time` property will contain a float value

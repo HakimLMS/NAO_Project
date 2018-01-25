@@ -50,10 +50,6 @@ final class AssociationOverride implements Annotation
      * @var \Doctrine\ORM\Mapping\JoinTable
      */
     public $joinTable;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
     /**
      * The name of the association-field on the inverse-side.
@@ -70,9 +66,4 @@ final class AssociationOverride implements Annotation
      * @Enum({"LAZY", "EAGER", "EXTRA_LAZY"})
      */
     public $fetch;
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 }

@@ -30,23 +30,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
-        // home
-        if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'App\\Controller\\BlogController::index',  '_route' => 'home',);
-            if (substr($pathinfo, -1) !== '/') {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
-            }
-
-            return $ret;
-        }
-
         if (0 === strpos($pathinfo, '/blog')) {
             // article_single
-<<<<<<< HEAD
             if (0 === strpos($pathinfo, '/blog/single') && preg_match('#^/blog/single/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_single')), array (  '_controller' => 'App\\Controller\\BlogController::single',));
             }
@@ -69,17 +54,41 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // blog_list
             if ('/blog' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\BlogController::bloglist',  '_route' => 'blog_list',);
-=======
-            if (preg_match('#^/blog/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_single')), array (  '_controller' => 'App\\Controller\\BlogController::single',));
             }
 
-            // blog_list
-            if ('/blog' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\BlogController::list',  '_route' => 'blog_list',);
->>>>>>> donmanager
+        }
+
+        // contact
+        if ('/contact' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\ContactController::index',  '_route' => 'contact',);
+        }
+
+        // don
+        if ('/don' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\DonController::index',  '_route' => 'don',);
+        }
+
+        if (0 === strpos($pathinfo, '/don/CB')) {
+            // donCB
+            if ('/don/CB' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\DonController::CB',  '_route' => 'donCB',);
             }
 
+            // CBcheckout
+            if ('/don/CB_checkout' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\DonController::CBcheckout',  '_route' => 'CBcheckout',);
+            }
+
+        }
+
+        // home
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\HomeController::index',  '_route' => 'home',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
+            }
+
+            return $ret;
         }
 
         // subscribe
@@ -108,14 +117,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'App\\Controller\\UserController::validateUserAction',  '_route' => 'validateuser',);
             }
 
-<<<<<<< HEAD
             // modifyuser
             if ('/user/modify' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\UserController::modifyUserAction',  '_route' => 'modifyuser',);
             }
 
-=======
->>>>>>> donmanager
             // user
             if ('/user' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);
@@ -129,12 +135,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         elseif (0 === strpos($pathinfo, '/_')) {
-<<<<<<< HEAD
-=======
-        if (0 === strpos($pathinfo, '/_')) {
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));
@@ -208,51 +208,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        // home
-        if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'App\\Controller\\HomeController::index',  '_route' => 'home',);
-            if (substr($pathinfo, -1) !== '/') {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
-            }
-
-            return $ret;
-        }
-
-        // contact
-        if ('/contact' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\ContactController::index',  '_route' => 'contact',);
-        }
-
->>>>>>> contactmanager
-=======
-        // don
-        if ('/don' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\DonController::index',  '_route' => 'don',);
-        }
-
-        if (0 === strpos($pathinfo, '/don/CB')) {
-            // CB
-            if ('/don/CB' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\DonController::CB',  '_route' => 'CB',);
-            }
-
-            // CBcheckout
-            if ('/don/CB/checkout' === $pathinfo) {
-                if ('POST' !== $canonicalMethod) {
-                    $allow[] = 'POST';
-                    goto not_CBcheckout;
-                }
-
-                return array (  '_controller' => 'App\\Controller\\DonController::CBcheckout',  '_route' => 'CBcheckout',);
-            }
-            not_CBcheckout:
-
-        }
-
->>>>>>> donmanager
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

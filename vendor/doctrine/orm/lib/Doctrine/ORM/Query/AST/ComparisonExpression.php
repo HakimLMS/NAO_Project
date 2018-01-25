@@ -51,21 +51,9 @@ class ComparisonExpression extends Node
     public $operator;
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @param Node   $leftExpr
      * @param string $operator
      * @param Node   $rightExpr
-=======
-     * @param Node $leftExpr
-     * @param string $operator
-     * @param Node $rightExpr
->>>>>>> contactmanager
-=======
-     * @param Node   $leftExpr
-     * @param string $operator
-     * @param Node   $rightExpr
->>>>>>> donmanager
      */
     public function __construct($leftExpr, $operator, $rightExpr)
     {

@@ -27,19 +27,9 @@ class SecurityListenerTest extends \PHPUnit_Framework_TestCase
     public function testAccessDenied()
     {
         $request = $this->createRequest(new Security(array('expression' => 'has_role("ROLE_ADMIN") or is_granted("FOO")')));
-<<<<<<< HEAD
-<<<<<<< HEAD
         $event = new FilterControllerArgumentsEvent($this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock(), function () {
             return new Response();
         }, array(), $request, null);
-=======
-        $event = new FilterControllerArgumentsEvent($this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock(), function () { return new Response(); }, array(), $request, null);
->>>>>>> contactmanager
-=======
-        $event = new FilterControllerArgumentsEvent($this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock(), function () {
-            return new Response();
-        }, array(), $request, null);
->>>>>>> donmanager
 
         $this->getListener()->onKernelControllerArguments($event);
     }
@@ -51,19 +41,9 @@ class SecurityListenerTest extends \PHPUnit_Framework_TestCase
     public function testNotFoundHttpException()
     {
         $request = $this->createRequest(new Security(array('expression' => 'has_role("ROLE_ADMIN") or is_granted("FOO")', 'statusCode' => 404, 'message' => 'Not found')));
-<<<<<<< HEAD
-<<<<<<< HEAD
         $event = new FilterControllerArgumentsEvent($this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock(), function () {
             return new Response();
         }, array(), $request, null);
-=======
-        $event = new FilterControllerArgumentsEvent($this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock(), function () { return new Response(); }, array(), $request, null);
->>>>>>> contactmanager
-=======
-        $event = new FilterControllerArgumentsEvent($this->getMockBuilder('Symfony\Component\HttpKernel\HttpKernelInterface')->getMock(), function () {
-            return new Response();
-        }, array(), $request, null);
->>>>>>> donmanager
 
         $this->getListener()->onKernelControllerArguments($event);
     }

@@ -46,15 +46,7 @@ class DefaultCollectionHydrator implements CollectionHydrator
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private static $hints = [Query::HINT_CACHE_ENABLED => true];
-=======
-    private static $hints = array(Query::HINT_CACHE_ENABLED => true);
->>>>>>> contactmanager
-=======
-    private static $hints = [Query::HINT_CACHE_ENABLED => true];
->>>>>>> donmanager
 
     /**
      * @param \Doctrine\ORM\EntityManagerInterface $em The entity manager.
@@ -70,28 +62,12 @@ class DefaultCollectionHydrator implements CollectionHydrator
      */
     public function buildCacheEntry(ClassMetadata $metadata, CollectionCacheKey $key, $collection)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $data = [];
 
         foreach ($collection as $index => $entity) {
             $data[$index] = new EntityCacheKey($metadata->rootEntityName, $this->uow->getEntityIdentifier($entity));
         }
 
-=======
-        $data = array();
-=======
-        $data = [];
->>>>>>> donmanager
-
-        foreach ($collection as $index => $entity) {
-            $data[$index] = new EntityCacheKey($metadata->rootEntityName, $this->uow->getEntityIdentifier($entity));
-        }
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
         return new CollectionCacheEntry($data);
     }
 
@@ -104,15 +80,7 @@ class DefaultCollectionHydrator implements CollectionHydrator
         /* @var $targetPersister \Doctrine\ORM\Cache\Persister\CachedPersister */
         $targetPersister = $this->uow->getEntityPersister($assoc['targetEntity']);
         $targetRegion    = $targetPersister->getCacheRegion();
-<<<<<<< HEAD
-<<<<<<< HEAD
         $list            = [];
-=======
-        $list            = array();
->>>>>>> contactmanager
-=======
-        $list            = [];
->>>>>>> donmanager
 
         $entityEntries = $targetRegion->getMultiple($entry);
 

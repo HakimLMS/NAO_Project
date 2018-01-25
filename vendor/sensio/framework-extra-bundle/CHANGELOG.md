@@ -24,15 +24,7 @@ CHANGELOG
  * added @IsGranted() annotation
  * allowed to disable some converters
  * allowed to customize the @security message and status code
-<<<<<<< HEAD
-<<<<<<< HEAD
  * [BC BREAK] changed template name generation from camelCase to under_score for both files and directories
-=======
- * changed template name generation from camelCase to under_score
->>>>>>> contactmanager
-=======
- * [BC BREAK] changed template name generation from camelCase to under_score for both files and directories
->>>>>>> donmanager
  * removed support for bundle inheritance
  * a RuntimeException is now thrown when a reserved variable is used in a security expression
  * added cache-control max-stale support

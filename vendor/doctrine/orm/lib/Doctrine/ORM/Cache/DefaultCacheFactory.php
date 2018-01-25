@@ -30,13 +30,6 @@ use Doctrine\ORM\Cache\Persister\Collection\ReadWriteCachedCollectionPersister;
 use Doctrine\ORM\Cache\Persister\Entity\NonStrictReadWriteCachedEntityPersister;
 use Doctrine\ORM\Cache\Persister\Entity\ReadOnlyCachedEntityPersister;
 use Doctrine\ORM\Cache\Persister\Entity\ReadWriteCachedEntityPersister;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Doctrine\ORM\Cache\Region;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 use Doctrine\ORM\Cache\Region\DefaultMultiGetRegion;
 use Doctrine\ORM\Cache\Region\DefaultRegion;
 use Doctrine\ORM\Cache\Region\FileLockRegion;
@@ -70,15 +63,7 @@ class DefaultCacheFactory implements CacheFactory
     /**
      * @var \Doctrine\ORM\Cache\Region[]
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $regions = [];
-=======
-    private $regions = array();
->>>>>>> contactmanager
-=======
-    private $regions = [];
->>>>>>> donmanager
 
     /**
      * @var string|null
@@ -181,24 +166,10 @@ class DefaultCacheFactory implements CacheFactory
         return new DefaultQueryCache(
             $em,
             $this->getRegion(
-<<<<<<< HEAD
-<<<<<<< HEAD
                 [
                     'region' => $regionName ?: Cache::DEFAULT_QUERY_REGION_NAME,
                     'usage'  => ClassMetadata::CACHE_USAGE_NONSTRICT_READ_WRITE
                 ]
-=======
-                array(
-                    'region' => $regionName ?: Cache::DEFAULT_QUERY_REGION_NAME,
-                    'usage'  => ClassMetadata::CACHE_USAGE_NONSTRICT_READ_WRITE
-                )
->>>>>>> contactmanager
-=======
-                [
-                    'region' => $regionName ?: Cache::DEFAULT_QUERY_REGION_NAME,
-                    'usage'  => ClassMetadata::CACHE_USAGE_NONSTRICT_READ_WRITE
-                ]
->>>>>>> donmanager
             )
         );
     }
@@ -228,26 +199,9 @@ class DefaultCacheFactory implements CacheFactory
             return $this->regions[$cache['region']];
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $name         = $cache['region'];
         $cacheAdapter = $this->createRegionCache($name);
         $lifetime     = $this->regionsConfig->getLifetime($cache['region']);
-=======
-        $cacheAdapter = clone $this->cache;
-
-        if ($cacheAdapter instanceof CacheProvider) {
-            $cacheAdapter->setNamespace($cache['region']);
-        }
-
-        $name     = $cache['region'];
-        $lifetime = $this->regionsConfig->getLifetime($cache['region']);
->>>>>>> contactmanager
-=======
-        $name         = $cache['region'];
-        $cacheAdapter = $this->createRegionCache($name);
-        $lifetime     = $this->regionsConfig->getLifetime($cache['region']);
->>>>>>> donmanager
 
         $region = ($cacheAdapter instanceof MultiGetCache)
             ? new DefaultMultiGetRegion($name, $cacheAdapter, $lifetime)
@@ -255,29 +209,13 @@ class DefaultCacheFactory implements CacheFactory
 
         if ($cache['usage'] === ClassMetadata::CACHE_USAGE_READ_WRITE) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             if (
                 '' === $this->fileLockRegionDirectory ||
                 null === $this->fileLockRegionDirectory
             ) {
-<<<<<<< HEAD
                 throw new \LogicException(
                     'If you want to use a "READ_WRITE" cache an implementation of "Doctrine\ORM\Cache\ConcurrentRegion" is required, ' .
                     'The default implementation provided by doctrine is "Doctrine\ORM\Cache\Region\FileLockRegion" if you want to use it please provide a valid directory, DefaultCacheFactory#setFileLockRegionDirectory(). '
-=======
-            if ( ! $this->fileLockRegionDirectory) {
-                throw new \LogicException(
-                    'If you what to use a "READ_WRITE" cache an implementation of "Doctrine\ORM\Cache\ConcurrentRegion" is required, ' .
-                    'The default implementation provided by doctrine is "Doctrine\ORM\Cache\Region\FileLockRegion" if you what to use it please provide a valid directory, DefaultCacheFactory#setFileLockRegionDirectory(). '
->>>>>>> contactmanager
-=======
-                throw new \LogicException(
-                    'If you want to use a "READ_WRITE" cache an implementation of "Doctrine\ORM\Cache\ConcurrentRegion" is required, ' .
-                    'The default implementation provided by doctrine is "Doctrine\ORM\Cache\Region\FileLockRegion" if you want to use it please provide a valid directory, DefaultCacheFactory#setFileLockRegionDirectory(). '
->>>>>>> donmanager
                 );
             }
 
@@ -289,10 +227,6 @@ class DefaultCacheFactory implements CacheFactory
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
      * @param string $name
      *
      * @return CacheAdapter
@@ -317,11 +251,6 @@ class DefaultCacheFactory implements CacheFactory
     }
 
     /**
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
      * {@inheritdoc}
      */
     public function getTimestampRegion()

@@ -86,10 +86,6 @@ class BasicEntityPersister implements EntityPersister
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
     static private $comparisonMap = [
         Comparison::EQ          => '= %s',
         Comparison::IS          => '= %s',
@@ -104,23 +100,6 @@ class BasicEntityPersister implements EntityPersister
         Comparison::STARTS_WITH => 'LIKE %s',
         Comparison::ENDS_WITH   => 'LIKE %s',
     ];
-<<<<<<< HEAD
-=======
-    static private $comparisonMap = array(
-        Comparison::EQ       => '= %s',
-        Comparison::IS       => '= %s',
-        Comparison::NEQ      => '!= %s',
-        Comparison::GT       => '> %s',
-        Comparison::GTE      => '>= %s',
-        Comparison::LT       => '< %s',
-        Comparison::LTE      => '<= %s',
-        Comparison::IN       => 'IN (%s)',
-        Comparison::NIN      => 'NOT IN (%s)',
-        Comparison::CONTAINS => 'LIKE %s',
-    );
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
     /**
      * Metadata object that describes the mapping of the mapped entity class.
@@ -155,15 +134,7 @@ class BasicEntityPersister implements EntityPersister
      *
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected $queuedInserts = [];
-=======
-    protected $queuedInserts = array();
->>>>>>> contactmanager
-=======
-    protected $queuedInserts = [];
->>>>>>> donmanager
 
     /**
      * The map of column names to DBAL mapping types of all prepared columns used
@@ -174,15 +145,7 @@ class BasicEntityPersister implements EntityPersister
      * @see prepareInsertData($entity)
      * @see prepareUpdateData($entity)
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected $columnTypes = [];
-=======
-    protected $columnTypes = array();
->>>>>>> contactmanager
-=======
-    protected $columnTypes = [];
->>>>>>> donmanager
 
     /**
      * The map of quoted column names.
@@ -192,15 +155,7 @@ class BasicEntityPersister implements EntityPersister
      * @see prepareInsertData($entity)
      * @see prepareUpdateData($entity)
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected $quotedColumns = [];
-=======
-    protected $quotedColumns = array();
->>>>>>> contactmanager
-=======
-    protected $quotedColumns = [];
->>>>>>> donmanager
 
     /**
      * The INSERT SQL statement used for entities handled by this persister.
@@ -304,24 +259,10 @@ class BasicEntityPersister implements EntityPersister
     public function executeInserts()
     {
         if ( ! $this->queuedInserts) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             return [];
         }
 
         $postInsertIds  = [];
-=======
-            return array();
-        }
-
-        $postInsertIds  = array();
->>>>>>> contactmanager
-=======
-            return [];
-        }
-
-        $postInsertIds  = [];
->>>>>>> donmanager
         $idGenerator    = $this->class->idGenerator;
         $isPostInsertId = $idGenerator->isPostInsertGenerator();
 
@@ -343,8 +284,6 @@ class BasicEntityPersister implements EntityPersister
 
             if ($isPostInsertId) {
                 $generatedId = $idGenerator->generate($this->em, $entity);
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $id = [
                     $this->class->identifier[0] => $generatedId
                 ];
@@ -352,22 +291,6 @@ class BasicEntityPersister implements EntityPersister
                     'generatedId' => $generatedId,
                     'entity' => $entity,
                 ];
-=======
-                $id = array(
-=======
-                $id = [
->>>>>>> donmanager
-                    $this->class->identifier[0] => $generatedId
-                ];
-                $postInsertIds[] = [
-                    'generatedId' => $generatedId,
-                    'entity' => $entity,
-<<<<<<< HEAD
-                );
->>>>>>> contactmanager
-=======
-                ];
->>>>>>> donmanager
             } else {
                 $id = $this->class->getIdentifierValues($entity);
             }
@@ -378,15 +301,7 @@ class BasicEntityPersister implements EntityPersister
         }
 
         $stmt->closeCursor();
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->queuedInserts = [];
-=======
-        $this->queuedInserts = array();
->>>>>>> contactmanager
-=======
-        $this->queuedInserts = [];
->>>>>>> donmanager
 
         return $postInsertIds;
     }
@@ -418,32 +333,17 @@ class BasicEntityPersister implements EntityPersister
      */
     protected function fetchVersionValue($versionedClass, array $id)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $versionField = $versionedClass->versionField;
         $fieldMapping = $versionedClass->fieldMappings[$versionField];
         $tableName    = $this->quoteStrategy->getTableName($versionedClass, $this->platform);
         $identifier   = $this->quoteStrategy->getIdentifierColumnNames($versionedClass, $this->platform);
         $columnName   = $this->quoteStrategy->getColumnName($versionField, $versionedClass, $this->platform);
-<<<<<<< HEAD
-=======
-        $versionField   = $versionedClass->versionField;
-        $tableName      = $this->quoteStrategy->getTableName($versionedClass, $this->platform);
-        $identifier     = $this->quoteStrategy->getIdentifierColumnNames($versionedClass, $this->platform);
-        $columnName     = $this->quoteStrategy->getColumnName($versionField, $versionedClass, $this->platform);
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
         // FIXME: Order with composite keys might not be correct
         $sql = 'SELECT ' . $columnName
              . ' FROM '  . $tableName
              . ' WHERE ' . implode(' = ? AND ', $identifier) . ' = ?';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         $flatId = $this->identifierFlattener->flattenIdentifier($versionedClass, $id);
 
@@ -466,36 +366,6 @@ class BasicEntityPersister implements EntityPersister
         }
 
         return $types;
-=======
-=======
-
->>>>>>> donmanager
-        $flatId = $this->identifierFlattener->flattenIdentifier($versionedClass, $id);
-
-        $value = $this->conn->fetchColumn(
-            $sql,
-            array_values($flatId),
-            0,
-            $this->extractIdentifierTypes($id, $versionedClass)
-        );
-
-        return Type::getType($fieldMapping['type'])->convertToPHPValue($value, $this->platform);
-    }
-
-    private function extractIdentifierTypes(array $id, ClassMetadata $versionedClass) : array
-    {
-        $types = [];
-
-        foreach ($id as $field => $value) {
-            $types = array_merge($types, $this->getTypes($field, $value, $versionedClass));
-        }
-
-<<<<<<< HEAD
-        return Type::getType($versionedClass->fieldMappings[$versionField]['type'])->convertToPHPValue($value, $this->platform);
->>>>>>> contactmanager
-=======
-        return $types;
->>>>>>> donmanager
     }
 
     /**
@@ -538,21 +408,9 @@ class BasicEntityPersister implements EntityPersister
      */
     protected final function updateTable($entity, $quotedTableName, array $updateData, $versioned = false)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $set    = [];
         $types  = [];
         $params = [];
-=======
-        $set    = array();
-        $types  = array();
-        $params = array();
->>>>>>> contactmanager
-=======
-        $set    = [];
-        $types  = [];
-        $params = [];
->>>>>>> donmanager
 
         foreach ($updateData as $columnName => $value) {
             $placeholder = '?';
@@ -581,26 +439,11 @@ class BasicEntityPersister implements EntityPersister
             $types[]    = $this->columnTypes[$columnName];
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $where      = [];
-=======
-        $where      = array();
->>>>>>> contactmanager
-=======
-        $where      = [];
->>>>>>> donmanager
         $identifier = $this->em->getUnitOfWork()->getEntityIdentifier($entity);
 
         foreach ($this->class->identifier as $idField) {
             if ( ! isset($this->class->associationMappings[$idField])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                 $params[]   = $identifier[$idField];
                 $types[]    = $this->class->fieldMappings[$idField]['type'];
                 $where[]    = $this->quoteStrategy->getColumnName($idField, $this->class, $this->platform);
@@ -679,21 +522,9 @@ class BasicEntityPersister implements EntityPersister
             $selfReferential = ($mapping['targetEntity'] == $mapping['sourceEntity']);
             $class           = $this->class;
             $association     = $mapping;
-<<<<<<< HEAD
-<<<<<<< HEAD
             $otherColumns    = [];
             $otherKeys       = [];
             $keys            = [];
-=======
-            $otherColumns    = array();
-            $otherKeys       = array();
-            $keys            = array();
->>>>>>> contactmanager
-=======
-            $otherColumns    = [];
-            $otherKeys       = [];
-            $keys            = [];
->>>>>>> donmanager
 
             if ( ! $mapping['isOwningSide']) {
                 $class       = $this->em->getClassMetadata($mapping['targetEntity']);
@@ -738,42 +569,18 @@ class BasicEntityPersister implements EntityPersister
      */
     public function delete($entity)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $self       = $this;
-=======
->>>>>>> contactmanager
-=======
-        $self       = $this;
->>>>>>> donmanager
         $class      = $this->class;
         $identifier = $this->em->getUnitOfWork()->getEntityIdentifier($entity);
         $tableName  = $this->quoteStrategy->getTableName($class, $this->platform);
         $idColumns  = $this->quoteStrategy->getIdentifierColumnNames($class, $this->platform);
         $id         = array_combine($idColumns, $identifier);
-<<<<<<< HEAD
-<<<<<<< HEAD
         $types      = array_map(function ($identifier) use ($class, $self) {
-=======
-        $types      = array_map(function ($identifier) use ($class) {
-
->>>>>>> contactmanager
-=======
-        $types      = array_map(function ($identifier) use ($class, $self) {
->>>>>>> donmanager
             if (isset($class->fieldMappings[$identifier])) {
                 return $class->fieldMappings[$identifier]['type'];
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $targetMapping = $self->em->getClassMetadata($class->associationMappings[$identifier]['targetEntity']);
-=======
-            $targetMapping = $this->em->getClassMetadata($class->associationMappings[$identifier]['targetEntity']);
->>>>>>> contactmanager
-=======
-            $targetMapping = $self->em->getClassMetadata($class->associationMappings[$identifier]['targetEntity']);
->>>>>>> donmanager
 
             if (isset($targetMapping->fieldMappings[$targetMapping->identifier[0]])) {
                 return $targetMapping->fieldMappings[$targetMapping->identifier[0]]['type'];
@@ -784,13 +591,6 @@ class BasicEntityPersister implements EntityPersister
             }
 
             throw ORMException::unrecognizedField($targetMapping->identifier[0]);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         }, $class->identifier);
 
         $this->deleteJoinTableRecords($identifier);
@@ -822,15 +622,7 @@ class BasicEntityPersister implements EntityPersister
     protected function prepareUpdateData($entity)
     {
         $versionField = null;
-<<<<<<< HEAD
-<<<<<<< HEAD
         $result       = [];
-=======
-        $result       = array();
->>>>>>> contactmanager
-=======
-        $result       = [];
->>>>>>> donmanager
         $uow          = $this->em->getUnitOfWork();
 
         if (($versioned = $this->class->isVersioned) != false) {
@@ -849,22 +641,11 @@ class BasicEntityPersister implements EntityPersister
             $newVal = $change[1];
 
             if ( ! isset($this->class->associationMappings[$field])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
                 $fieldMapping = $this->class->fieldMappings[$field];
                 $columnName   = $fieldMapping['columnName'];
 
                 $this->columnTypes[$columnName] = $fieldMapping['type'];
 
-<<<<<<< HEAD
-=======
-                $columnName = $this->class->columnNames[$field];
-                $this->columnTypes[$columnName] = $this->class->fieldMappings[$field]['type'];
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                 $result[$this->getOwningTable($field)][$columnName] = $newVal;
 
                 continue;
@@ -884,15 +665,7 @@ class BasicEntityPersister implements EntityPersister
                     // The associated entity $newVal is not yet persisted, so we must
                     // set $newVal = null, in order to insert a null value and schedule an
                     // extra update on the UnitOfWork.
-<<<<<<< HEAD
-<<<<<<< HEAD
                     $uow->scheduleExtraUpdate($entity, [$field => [null, $newVal]]);
-=======
-                    $uow->scheduleExtraUpdate($entity, array($field => array(null, $newVal)));
->>>>>>> contactmanager
-=======
-                    $uow->scheduleExtraUpdate($entity, [$field => [null, $newVal]]);
->>>>>>> donmanager
 
                     $newVal = null;
                 }
@@ -951,15 +724,7 @@ class BasicEntityPersister implements EntityPersister
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function load(array $criteria, $entity = null, $assoc = null, array $hints = [], $lockMode = null, $limit = null, array $orderBy = null)
-=======
-    public function load(array $criteria, $entity = null, $assoc = null, array $hints = array(), $lockMode = null, $limit = null, array $orderBy = null)
->>>>>>> contactmanager
-=======
-    public function load(array $criteria, $entity = null, $assoc = null, array $hints = [], $lockMode = null, $limit = null, array $orderBy = null)
->>>>>>> donmanager
     {
         $this->switchPersisterContext(null, $limit);
 
@@ -989,15 +754,7 @@ class BasicEntityPersister implements EntityPersister
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = [])
-=======
-    public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = array())
->>>>>>> contactmanager
-=======
-    public function loadOneToOneEntity(array $assoc, $sourceEntity, array $identifier = [])
->>>>>>> donmanager
     {
         if (($foundEntity = $this->em->getUnitOfWork()->tryGetById($identifier, $assoc['targetEntity'])) != false) {
             return $foundEntity;
@@ -1010,15 +767,7 @@ class BasicEntityPersister implements EntityPersister
 
             // Mark inverse side as fetched in the hints, otherwise the UoW would
             // try to load it in a separate query (remember: to-one inverse sides can not be lazy).
-<<<<<<< HEAD
-<<<<<<< HEAD
             $hints = [];
-=======
-            $hints = array();
->>>>>>> contactmanager
-=======
-            $hints = [];
->>>>>>> donmanager
 
             if ($isInverseSingleValued) {
                 $hints['fetched']["r"][$assoc['inversedBy']] = true;
@@ -1043,16 +792,8 @@ class BasicEntityPersister implements EntityPersister
         $sourceClass = $this->em->getClassMetadata($assoc['sourceEntity']);
         $owningAssoc = $targetClass->getAssociationMapping($assoc['mappedBy']);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $computedIdentifier = [];
 
-=======
->>>>>>> contactmanager
-=======
-        $computedIdentifier = [];
-
->>>>>>> donmanager
         // TRICKY: since the association is specular source and target are flipped
         foreach ($owningAssoc['targetToSourceKeyColumns'] as $sourceKeyColumn => $targetKeyColumn) {
             if ( ! isset($sourceClass->fieldNames[$sourceKeyColumn])) {
@@ -1061,29 +802,11 @@ class BasicEntityPersister implements EntityPersister
                 );
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $computedIdentifier[$targetClass->getFieldForColumn($targetKeyColumn)] =
                 $sourceClass->reflFields[$sourceClass->fieldNames[$sourceKeyColumn]]->getValue($sourceEntity);
         }
 
         $targetEntity = $this->load($computedIdentifier, null, $assoc);
-=======
-            // unset the old value and set the new sql aliased value here. By definition
-            // unset($identifier[$targetKeyColumn] works here with how UnitOfWork::createEntity() calls this method.
-            $identifier[$this->getSQLTableAlias($targetClass->name) . "." . $targetKeyColumn] =
-=======
-            $computedIdentifier[$targetClass->getFieldForColumn($targetKeyColumn)] =
->>>>>>> donmanager
-                $sourceClass->reflFields[$sourceClass->fieldNames[$sourceKeyColumn]]->getValue($sourceEntity);
-        }
-
-<<<<<<< HEAD
-        $targetEntity = $this->load($identifier, null, $assoc);
->>>>>>> contactmanager
-=======
-        $targetEntity = $this->load($computedIdentifier, null, $assoc);
->>>>>>> donmanager
 
         if ($targetEntity !== null) {
             $targetClass->setFieldValue($targetEntity, $assoc['mappedBy'], $sourceEntity);
@@ -1102,29 +825,13 @@ class BasicEntityPersister implements EntityPersister
         $stmt = $this->conn->executeQuery($sql, $params, $types);
 
         $hydrator = $this->em->newHydrator(Query::HYDRATE_OBJECT);
-<<<<<<< HEAD
-<<<<<<< HEAD
         $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, [Query::HINT_REFRESH => true]);
-=======
-        $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, array(Query::HINT_REFRESH => true));
->>>>>>> contactmanager
-=======
-        $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, [Query::HINT_REFRESH => true]);
->>>>>>> donmanager
     }
 
     /**
      * {@inheritDoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function count($criteria = [])
-=======
-    public function count($criteria = array())
->>>>>>> contactmanager
-=======
-    public function count($criteria = [])
->>>>>>> donmanager
     {
         $sql = $this->getCountSQL($criteria);
 
@@ -1150,17 +857,8 @@ class BasicEntityPersister implements EntityPersister
         $stmt       = $this->conn->executeQuery($query, $params, $types);
         $hydrator   = $this->em->newHydrator(($this->currentPersisterContext->selectJoinSql) ? Query::HYDRATE_OBJECT : Query::HYDRATE_SIMPLEOBJECT);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, [UnitOfWork::HINT_DEFEREAGERLOAD => true]
         );
-=======
-        return $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, array(UnitOfWork::HINT_DEFEREAGERLOAD => true));
->>>>>>> contactmanager
-=======
-        return $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, [UnitOfWork::HINT_DEFEREAGERLOAD => true]
-        );
->>>>>>> donmanager
     }
 
     /**
@@ -1169,27 +867,11 @@ class BasicEntityPersister implements EntityPersister
     public function expandCriteriaParameters(Criteria $criteria)
     {
         $expression = $criteria->getWhereExpression();
-<<<<<<< HEAD
-<<<<<<< HEAD
         $sqlParams  = [];
         $sqlTypes   = [];
 
         if ($expression === null) {
             return [$sqlParams, $sqlTypes];
-=======
-        $sqlParams  = array();
-        $sqlTypes   = array();
-
-        if ($expression === null) {
-            return array($sqlParams, $sqlTypes);
->>>>>>> contactmanager
-=======
-        $sqlParams  = [];
-        $sqlTypes   = [];
-
-        if ($expression === null) {
-            return [$sqlParams, $sqlTypes];
->>>>>>> donmanager
         }
 
         $valueVisitor = new SqlValueVisitor();
@@ -1207,29 +889,13 @@ class BasicEntityPersister implements EntityPersister
             $sqlTypes = array_merge($sqlTypes, $this->getTypes($field, $value, $this->class));
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return [$sqlParams, $sqlTypes];
-=======
-        return array($sqlParams, $sqlTypes);
->>>>>>> contactmanager
-=======
-        return [$sqlParams, $sqlTypes];
->>>>>>> donmanager
     }
 
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function loadAll(array $criteria = [], array $orderBy = null, $limit = null, $offset = null)
-=======
-    public function loadAll(array $criteria = array(), array $orderBy = null, $limit = null, $offset = null)
->>>>>>> contactmanager
-=======
-    public function loadAll(array $criteria = [], array $orderBy = null, $limit = null, $offset = null)
->>>>>>> donmanager
     {
         $this->switchPersisterContext($offset, $limit);
 
@@ -1239,17 +905,8 @@ class BasicEntityPersister implements EntityPersister
 
         $hydrator = $this->em->newHydrator(($this->currentPersisterContext->selectJoinSql) ? Query::HYDRATE_OBJECT : Query::HYDRATE_SIMPLEOBJECT);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, [UnitOfWork::HINT_DEFEREAGERLOAD => true]
         );
-=======
-        return $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, array(UnitOfWork::HINT_DEFEREAGERLOAD => true));
->>>>>>> contactmanager
-=======
-        return $hydrator->hydrateAll($stmt, $this->currentPersisterContext->rsm, [UnitOfWork::HINT_DEFEREAGERLOAD => true]
-        );
->>>>>>> donmanager
     }
 
     /**
@@ -1275,15 +932,7 @@ class BasicEntityPersister implements EntityPersister
     private function loadArrayFromStatement($assoc, $stmt)
     {
         $rsm    = $this->currentPersisterContext->rsm;
-<<<<<<< HEAD
-<<<<<<< HEAD
         $hints  = [UnitOfWork::HINT_DEFEREAGERLOAD => true];
-=======
-        $hints  = array(UnitOfWork::HINT_DEFEREAGERLOAD => true);
->>>>>>> contactmanager
-=======
-        $hints  = [UnitOfWork::HINT_DEFEREAGERLOAD => true];
->>>>>>> donmanager
 
         if (isset($assoc['indexBy'])) {
             $rsm = clone ($this->currentPersisterContext->rsm); // this is necessary because the "default rsm" should be changed.
@@ -1305,24 +954,10 @@ class BasicEntityPersister implements EntityPersister
     private function loadCollectionFromStatement($assoc, $stmt, $coll)
     {
         $rsm   = $this->currentPersisterContext->rsm;
-<<<<<<< HEAD
-<<<<<<< HEAD
         $hints = [
             UnitOfWork::HINT_DEFEREAGERLOAD => true,
             'collection' => $coll
         ];
-=======
-        $hints = array(
-            UnitOfWork::HINT_DEFEREAGERLOAD => true,
-            'collection' => $coll
-        );
->>>>>>> contactmanager
-=======
-        $hints = [
-            UnitOfWork::HINT_DEFEREAGERLOAD => true,
-            'collection' => $coll
-        ];
->>>>>>> donmanager
 
         if (isset($assoc['indexBy'])) {
             $rsm = clone ($this->currentPersisterContext->rsm); // this is necessary because the "default rsm" should be changed.
@@ -1359,18 +994,8 @@ class BasicEntityPersister implements EntityPersister
         $sourceClass    = $this->em->getClassMetadata($assoc['sourceEntity']);
         $class          = $sourceClass;
         $association    = $assoc;
-<<<<<<< HEAD
-<<<<<<< HEAD
         $criteria       = [];
         $parameters     = [];
-=======
-        $criteria       = array();
-        $parameters     = array();
->>>>>>> contactmanager
-=======
-        $criteria       = [];
-        $parameters     = [];
->>>>>>> donmanager
 
         if ( ! $assoc['isOwningSide']) {
             $class       = $this->em->getClassMetadata($assoc['targetEntity']);
@@ -1384,13 +1009,6 @@ class BasicEntityPersister implements EntityPersister
         $quotedJoinTable = $this->quoteStrategy->getJoinTableName($association, $class, $this->platform);
 
         foreach ($joinColumns as $joinColumn) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
             $sourceKeyColumn    = $joinColumn['referencedColumnName'];
             $quotedKeyColumn    = $this->quoteStrategy->getJoinColumnName($joinColumn, $class, $this->platform);
 
@@ -1419,27 +1037,11 @@ class BasicEntityPersister implements EntityPersister
             }
 
             $criteria[$quotedJoinTable . '.' . $quotedKeyColumn] = $value;
-<<<<<<< HEAD
-<<<<<<< HEAD
             $parameters[] = [
                 'value' => $value,
                 'field' => $field,
                 'class' => $sourceClass,
             ];
-=======
-            $parameters[] = array(
-                'value' => $value,
-                'field' => $field,
-                'class' => $sourceClass,
-            );
->>>>>>> contactmanager
-=======
-            $parameters[] = [
-                'value' => $value,
-                'field' => $field,
-                'class' => $sourceClass,
-            ];
->>>>>>> donmanager
         }
 
         $sql = $this->getSelectSQL($criteria, $assoc, null, $limit, $offset);
@@ -1477,27 +1079,11 @@ class BasicEntityPersister implements EntityPersister
 
         switch ($lockMode) {
             case LockMode::PESSIMISTIC_READ:
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $lockSql = ' ' . $this->platform->getReadLockSQL();
                 break;
 
             case LockMode::PESSIMISTIC_WRITE:
                 $lockSql = ' ' . $this->platform->getWriteLockSQL();
-=======
-                $lockSql = ' ' . $this->platform->getReadLockSql();
-                break;
-
-            case LockMode::PESSIMISTIC_WRITE:
-                $lockSql = ' ' . $this->platform->getWriteLockSql();
->>>>>>> contactmanager
-=======
-                $lockSql = ' ' . $this->platform->getReadLockSQL();
-                break;
-
-            case LockMode::PESSIMISTIC_WRITE:
-                $lockSql = ' ' . $this->platform->getWriteLockSQL();
->>>>>>> donmanager
                 break;
         }
 
@@ -1529,15 +1115,7 @@ class BasicEntityPersister implements EntityPersister
     /**
      * {@inheritDoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function getCountSQL($criteria = [])
-=======
-    public function getCountSQL($criteria = array())
->>>>>>> contactmanager
-=======
-    public function getCountSQL($criteria = [])
->>>>>>> donmanager
     {
         $tableName  = $this->quoteStrategy->getTableName($this->class, $this->platform);
         $tableAlias = $this->getSQLTableAlias($this->class->name);
@@ -1573,15 +1151,7 @@ class BasicEntityPersister implements EntityPersister
      */
     protected final function getOrderBySQL(array $orderBy, $baseTableAlias)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $orderByList = [];
-=======
-        $orderByList = array();
->>>>>>> contactmanager
-=======
-        $orderByList = [];
->>>>>>> donmanager
 
         foreach ($orderBy as $fieldName => $orientation) {
 
@@ -1643,15 +1213,7 @@ class BasicEntityPersister implements EntityPersister
             return $this->currentPersisterContext->selectColumnListSql;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $columnList = [];
-=======
-        $columnList = array();
->>>>>>> contactmanager
-=======
-        $columnList = [];
->>>>>>> donmanager
         $this->currentPersisterContext->rsm->addEntityResult($this->class->name, 'r'); // r for root
 
         // Add regular columns to select list
@@ -1704,15 +1266,7 @@ class BasicEntityPersister implements EntityPersister
             }
 
             $association    = $assoc;
-<<<<<<< HEAD
-<<<<<<< HEAD
             $joinCondition  = [];
-=======
-            $joinCondition  = array();
->>>>>>> contactmanager
-=======
-            $joinCondition  = [];
->>>>>>> donmanager
 
             if (isset($assoc['indexBy'])) {
                 $this->currentPersisterContext->rsm->addIndexBy($assocAlias, $assoc['indexBy']);
@@ -1780,15 +1334,10 @@ class BasicEntityPersister implements EntityPersister
             return '';
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $columnList    = [];
         $targetClass   = $this->em->getClassMetadata($assoc['targetEntity']);
         $isIdentifier  = isset($assoc['id']) && $assoc['id'] === true;
         $sqlTableAlias = $this->getSQLTableAlias($class->name, ($alias == 'r' ? '' : $alias));
-<<<<<<< HEAD
 
         foreach ($assoc['joinColumns'] as $joinColumn) {
             $quotedColumn     = $this->quoteStrategy->getJoinColumnName($joinColumn, $this->class, $this->platform);
@@ -1798,25 +1347,6 @@ class BasicEntityPersister implements EntityPersister
             $this->currentPersisterContext->rsm->addMetaResult($alias, $resultColumnName, $joinColumn['name'], $isIdentifier, $type);
 
             $columnList[] = sprintf('%s.%s AS %s', $sqlTableAlias, $quotedColumn, $resultColumnName);
-=======
-        $columnList  = array();
-        $targetClass = $this->em->getClassMetadata($assoc['targetEntity']);
-=======
->>>>>>> donmanager
-
-        foreach ($assoc['joinColumns'] as $joinColumn) {
-            $quotedColumn     = $this->quoteStrategy->getJoinColumnName($joinColumn, $this->class, $this->platform);
-            $resultColumnName = $this->getSQLColumnAlias($joinColumn['name']);
-            $type             = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
-
-<<<<<<< HEAD
-            $this->currentPersisterContext->rsm->addMetaResult($alias, $resultColumnName, $quotedColumn, $isIdentifier, $type);
->>>>>>> contactmanager
-=======
-            $this->currentPersisterContext->rsm->addMetaResult($alias, $resultColumnName, $joinColumn['name'], $isIdentifier, $type);
-
-            $columnList[] = sprintf('%s.%s AS %s', $sqlTableAlias, $quotedColumn, $resultColumnName);
->>>>>>> donmanager
         }
 
         return implode(', ', $columnList);
@@ -1832,15 +1362,7 @@ class BasicEntityPersister implements EntityPersister
      */
     protected function getSelectManyToManyJoinSQL(array $manyToMany)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $conditions         = [];
-=======
-        $conditions         = array();
->>>>>>> contactmanager
-=======
-        $conditions         = [];
->>>>>>> donmanager
         $association        = $manyToMany;
         $sourceTableAlias   = $this->getSQLTableAlias($this->class->name);
 
@@ -1882,15 +1404,7 @@ class BasicEntityPersister implements EntityPersister
             return $this->insertSql;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $values  = [];
-=======
-        $values  = array();
->>>>>>> contactmanager
-=======
-        $values  = [];
->>>>>>> donmanager
         $columns = array_unique($columns);
 
         foreach ($columns as $column) {
@@ -1899,13 +1413,6 @@ class BasicEntityPersister implements EntityPersister
             if (isset($this->class->fieldNames[$column])
                 && isset($this->columnTypes[$this->class->fieldNames[$column]])
                 && isset($this->class->fieldMappings[$this->class->fieldNames[$column]]['requireSQLConversion'])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                 $type        = Type::getType($this->columnTypes[$this->class->fieldNames[$column]]);
                 $placeholder = $type->convertToDatabaseValueSQL('?', $this->platform);
             }
@@ -1931,15 +1438,7 @@ class BasicEntityPersister implements EntityPersister
      */
     protected function getInsertColumnList()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $columns = [];
-=======
-        $columns = array();
->>>>>>> contactmanager
-=======
-        $columns = [];
->>>>>>> donmanager
 
         foreach ($this->class->reflFields as $name => $field) {
             if ($this->class->isVersioned && $this->class->versionField == $name) {
@@ -1952,14 +1451,7 @@ class BasicEntityPersister implements EntityPersister
 
             if (isset($this->class->associationMappings[$name])) {
                 $assoc = $this->class->associationMappings[$name];
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                 if ($assoc['isOwningSide'] && $assoc['type'] & ClassMetadata::TO_ONE) {
                     foreach ($assoc['joinColumns'] as $joinColumn) {
                         $columns[] = $this->quoteStrategy->getJoinColumnName($joinColumn, $this->class, $this->platform);
@@ -1969,15 +1461,7 @@ class BasicEntityPersister implements EntityPersister
                 continue;
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             if (! $this->class->isIdGeneratorIdentity() || $this->class->identifier[0] != $name) {
-=======
-            if ($this->class->generatorType != ClassMetadata::GENERATOR_TYPE_IDENTITY || $this->class->identifier[0] != $name) {
->>>>>>> contactmanager
-=======
-            if (! $this->class->isIdGeneratorIdentity() || $this->class->identifier[0] != $name) {
->>>>>>> donmanager
                 $columns[]                = $this->quoteStrategy->getColumnName($name, $this->class, $this->platform);
                 $this->columnTypes[$name] = $this->class->fieldMappings[$name]['type'];
             }
@@ -1998,43 +1482,17 @@ class BasicEntityPersister implements EntityPersister
      */
     protected function getSelectColumnSQL($field, ClassMetadata $class, $alias = 'r')
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $root         = $alias == 'r' ? '' : $alias ;
         $tableAlias   = $this->getSQLTableAlias($class->name, $root);
         $fieldMapping = $class->fieldMappings[$field];
         $sql          = sprintf('%s.%s', $tableAlias, $this->quoteStrategy->getColumnName($field, $class, $this->platform));
         $columnAlias  = $this->getSQLColumnAlias($fieldMapping['columnName']);
-<<<<<<< HEAD
 
         $this->currentPersisterContext->rsm->addFieldResult($alias, $columnAlias, $field);
 
         if (isset($fieldMapping['requireSQLConversion'])) {
             $type = Type::getType($fieldMapping['type']);
             $sql  = $type->convertToPHPValueSQL($sql, $this->platform);
-=======
-        $root           = $alias == 'r' ? '' : $alias ;
-        $tableAlias     = $this->getSQLTableAlias($class->name, $root);
-        $columnName     = $this->quoteStrategy->getColumnName($field, $class, $this->platform);
-        $sql            = $tableAlias . '.' . $columnName;
-        $columnAlias    = $this->getSQLColumnAlias($class->columnNames[$field]);
-
-        $this->currentPersisterContext->rsm->addFieldResult($alias, $columnAlias, $field);
-
-        if (isset($class->fieldMappings[$field]['requireSQLConversion'])) {
-            $type   = Type::getType($class->getTypeOfField($field));
-            $sql    = $type->convertToPHPValueSQL($sql, $this->platform);
->>>>>>> contactmanager
-=======
-
-        $this->currentPersisterContext->rsm->addFieldResult($alias, $columnAlias, $field);
-
-        if (isset($fieldMapping['requireSQLConversion'])) {
-            $type = Type::getType($fieldMapping['type']);
-            $sql  = $type->convertToPHPValueSQL($sql, $this->platform);
->>>>>>> donmanager
         }
 
         return $sql . ' AS ' . $columnAlias;
@@ -2077,28 +1535,12 @@ class BasicEntityPersister implements EntityPersister
 
         switch ($lockMode) {
             case LockMode::PESSIMISTIC_READ:
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $lockSql = $this->platform->getReadLockSQL();
-=======
-                $lockSql = $this->platform->getReadLockSql();
->>>>>>> contactmanager
-=======
-                $lockSql = $this->platform->getReadLockSQL();
->>>>>>> donmanager
 
                 break;
             case LockMode::PESSIMISTIC_WRITE:
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $lockSql = $this->platform->getWriteLockSQL();
-=======
-                $lockSql = $this->platform->getWriteLockSql();
->>>>>>> contactmanager
-=======
-                $lockSql = $this->platform->getWriteLockSQL();
->>>>>>> donmanager
                 break;
         }
 
@@ -2156,15 +1598,7 @@ class BasicEntityPersister implements EntityPersister
      */
     public function getSelectConditionStatementSQL($field, $value, $assoc = null, $comparison = null)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $selectedColumns = [];
-=======
-        $selectedColumns = array();
->>>>>>> contactmanager
-=======
-        $selectedColumns = [];
->>>>>>> donmanager
         $columns         = $this->getSelectConditionStatementColumnSQL($field, $assoc);
 
         if (count($columns) > 1 && $comparison === Comparison::IN) {
@@ -2179,56 +1613,26 @@ class BasicEntityPersister implements EntityPersister
             $placeholder = '?';
 
             if (isset($this->class->fieldMappings[$field]['requireSQLConversion'])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $type        = Type::getType($this->class->fieldMappings[$field]['type']);
                 $placeholder = $type->convertToDatabaseValueSQL($placeholder, $this->platform);
-=======
-                $placeholder = Type::getType($this->class->getTypeOfField($field))->convertToDatabaseValueSQL($placeholder, $this->platform);
->>>>>>> contactmanager
-=======
-                $type        = Type::getType($this->class->fieldMappings[$field]['type']);
-                $placeholder = $type->convertToDatabaseValueSQL($placeholder, $this->platform);
->>>>>>> donmanager
             }
 
             if (null !== $comparison) {
                 // special case null value handling
                 if (($comparison === Comparison::EQ || $comparison === Comparison::IS) && null ===$value) {
                     $selectedColumns[] = $column . ' IS NULL';
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                     continue;
                 }
 
                 if ($comparison === Comparison::NEQ && null === $value) {
                     $selectedColumns[] = $column . ' IS NOT NULL';
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                     continue;
                 }
 
                 $selectedColumns[] = $column . ' ' . sprintf(self::$comparisonMap[$comparison], $placeholder);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                 continue;
             }
 
@@ -2237,39 +1641,18 @@ class BasicEntityPersister implements EntityPersister
 
                 if (false !== array_search(null, $value, true)) {
                     $selectedColumns[] = sprintf('(%s OR %s IS NULL)', $in, $column);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                     continue;
                 }
 
                 $selectedColumns[] = $in;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                 continue;
             }
 
             if (null === $value) {
                 $selectedColumns[] = sprintf('%s IS NULL', $column);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                 continue;
             }
 
@@ -2291,42 +1674,18 @@ class BasicEntityPersister implements EntityPersister
      */
     private function getSelectConditionStatementColumnSQL($field, $assoc = null)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (isset($this->class->fieldMappings[$field])) {
-=======
-        if (isset($this->class->columnNames[$field])) {
->>>>>>> contactmanager
-=======
-        if (isset($this->class->fieldMappings[$field])) {
->>>>>>> donmanager
             $className = (isset($this->class->fieldMappings[$field]['inherited']))
                 ? $this->class->fieldMappings[$field]['inherited']
                 : $this->class->name;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             return [$this->getSQLTableAlias($className) . '.' . $this->quoteStrategy->getColumnName($field, $this->class, $this->platform)];
-=======
-            return array($this->getSQLTableAlias($className) . '.' . $this->quoteStrategy->getColumnName($field, $this->class, $this->platform));
->>>>>>> contactmanager
-=======
-            return [$this->getSQLTableAlias($className) . '.' . $this->quoteStrategy->getColumnName($field, $this->class, $this->platform)];
->>>>>>> donmanager
         }
 
         if (isset($this->class->associationMappings[$field])) {
             $association = $this->class->associationMappings[$field];
             // Many-To-Many requires join table check for joinColumn
-<<<<<<< HEAD
-<<<<<<< HEAD
             $columns = [];
-=======
-            $columns = array();
->>>>>>> contactmanager
-=======
-            $columns = [];
->>>>>>> donmanager
             $class   = $this->class;
 
             if ($association['type'] === ClassMetadata::MANY_TO_MANY) {
@@ -2345,13 +1704,6 @@ class BasicEntityPersister implements EntityPersister
                 }
 
             } else {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                 if ( ! $association['isOwningSide']) {
                     throw ORMException::invalidFindByInverseAssociation($this->class->name, $field);
                 }
@@ -2372,15 +1724,7 @@ class BasicEntityPersister implements EntityPersister
             // therefore checking for spaces and function calls which are not allowed.
 
             // found a join column condition, not really a "field"
-<<<<<<< HEAD
-<<<<<<< HEAD
             return [$field];
-=======
-            return array($field);
->>>>>>> contactmanager
-=======
-            return [$field];
->>>>>>> donmanager
         }
 
         throw ORMException::unrecognizedField($field);
@@ -2400,15 +1744,7 @@ class BasicEntityPersister implements EntityPersister
      */
     protected function getSelectConditionSQL(array $criteria, $assoc = null)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $conditions = [];
-=======
-        $conditions = array();
->>>>>>> contactmanager
-=======
-        $conditions = [];
->>>>>>> donmanager
 
         foreach ($criteria as $field => $value) {
             $conditions[] = $this->getSelectConditionStatementSQL($field, $value, $assoc);
@@ -2453,28 +1789,11 @@ class BasicEntityPersister implements EntityPersister
     {
         $this->switchPersisterContext($offset, $limit);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $criteria    = [];
         $parameters  = [];
         $owningAssoc = $this->class->associationMappings[$assoc['mappedBy']];
         $sourceClass = $this->em->getClassMetadata($assoc['sourceEntity']);
         $tableAlias  = $this->getSQLTableAlias($owningAssoc['inherited'] ?? $this->class->name);
-=======
-        $criteria    = array();
-        $parameters  = array();
-        $owningAssoc = $this->class->associationMappings[$assoc['mappedBy']];
-        $sourceClass = $this->em->getClassMetadata($assoc['sourceEntity']);
-
-        $tableAlias = $this->getSQLTableAlias(isset($owningAssoc['inherited']) ? $owningAssoc['inherited'] : $this->class->name);
->>>>>>> contactmanager
-=======
-        $criteria    = [];
-        $parameters  = [];
-        $owningAssoc = $this->class->associationMappings[$assoc['mappedBy']];
-        $sourceClass = $this->em->getClassMetadata($assoc['sourceEntity']);
-        $tableAlias  = $this->getSQLTableAlias($owningAssoc['inherited'] ?? $this->class->name);
->>>>>>> donmanager
 
         foreach ($owningAssoc['targetToSourceKeyColumns'] as $sourceKeyColumn => $targetKeyColumn) {
             if ($sourceClass->containsForeignIdentifier) {
@@ -2487,27 +1806,11 @@ class BasicEntityPersister implements EntityPersister
                 }
 
                 $criteria[$tableAlias . "." . $targetKeyColumn] = $value;
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $parameters[]                                   = [
                     'value' => $value,
                     'field' => $field,
                     'class' => $sourceClass,
                 ];
-=======
-                $parameters[]                                   = array(
-                    'value' => $value,
-                    'field' => $field,
-                    'class' => $sourceClass,
-                );
->>>>>>> contactmanager
-=======
-                $parameters[]                                   = [
-                    'value' => $value,
-                    'field' => $field,
-                    'class' => $sourceClass,
-                ];
->>>>>>> donmanager
 
                 continue;
             }
@@ -2516,27 +1819,11 @@ class BasicEntityPersister implements EntityPersister
             $value = $sourceClass->reflFields[$field]->getValue($sourceEntity);
 
             $criteria[$tableAlias . "." . $targetKeyColumn] = $value;
-<<<<<<< HEAD
-<<<<<<< HEAD
             $parameters[] = [
                 'value' => $value,
                 'field' => $field,
                 'class' => $sourceClass,
             ];
-=======
-            $parameters[] = array(
-                'value' => $value,
-                'field' => $field,
-                'class' => $sourceClass,
-            );
->>>>>>> contactmanager
-=======
-            $parameters[] = [
-                'value' => $value,
-                'field' => $field,
-                'class' => $sourceClass,
-            ];
->>>>>>> donmanager
 
         }
 
@@ -2551,18 +1838,8 @@ class BasicEntityPersister implements EntityPersister
      */
     public function expandParameters($criteria)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $params = [];
         $types  = [];
-=======
-        $params = array();
-        $types  = array();
->>>>>>> contactmanager
-=======
-        $params = [];
-        $types  = [];
->>>>>>> donmanager
 
         foreach ($criteria as $field => $value) {
             if ($value === null) {
@@ -2573,15 +1850,7 @@ class BasicEntityPersister implements EntityPersister
             $params = array_merge($params, $this->getValues($value));
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return [$params, $types];
-=======
-        return array($params, $types);
->>>>>>> contactmanager
-=======
-        return [$params, $types];
->>>>>>> donmanager
     }
 
     /**
@@ -2598,18 +1867,8 @@ class BasicEntityPersister implements EntityPersister
      */
     private function expandToManyParameters($criteria)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $params = [];
         $types  = [];
-=======
-        $params = array();
-        $types  = array();
->>>>>>> contactmanager
-=======
-        $params = [];
-        $types  = [];
->>>>>>> donmanager
 
         foreach ($criteria as $criterion) {
             if ($criterion['value'] === null) {
@@ -2620,34 +1879,15 @@ class BasicEntityPersister implements EntityPersister
             $params = array_merge($params, $this->getValues($criterion['value']));
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return [$params, $types];
-=======
-        return array($params, $types);
->>>>>>> contactmanager
-=======
-        return [$params, $types];
->>>>>>> donmanager
     }
 
     /**
      * Infers field types to be used by parameter type casting.
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @param string        $field
      * @param mixed         $value
      * @param ClassMetadata $class
-=======
-     * @param string $field
-     * @param mixed  $value
->>>>>>> contactmanager
-=======
-     * @param string        $field
-     * @param mixed         $value
-     * @param ClassMetadata $class
->>>>>>> donmanager
      *
      * @return array
      *
@@ -2655,27 +1895,11 @@ class BasicEntityPersister implements EntityPersister
      */
     private function getTypes($field, $value, ClassMetadata $class)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $types = [];
 
         switch (true) {
             case (isset($class->fieldMappings[$field])):
                 $types = array_merge($types, [$class->fieldMappings[$field]['type']]);
-=======
-        $types = array();
-
-        switch (true) {
-            case (isset($class->fieldMappings[$field])):
-                $types = array_merge($types, PersisterHelper::getTypeOfField($field, $class, $this->em));
->>>>>>> contactmanager
-=======
-        $types = [];
-
-        switch (true) {
-            case (isset($class->fieldMappings[$field])):
-                $types = array_merge($types, [$class->fieldMappings[$field]['type']]);
->>>>>>> donmanager
                 break;
 
             case (isset($class->associationMappings[$field])):
@@ -2702,26 +1926,11 @@ class BasicEntityPersister implements EntityPersister
         }
 
         if (is_array($value)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             return array_map(function ($type) {
                 $type = Type::getType($type);
 
                 return $type->getBindingType() + Connection::ARRAY_PARAM_OFFSET;
             }, $types);
-<<<<<<< HEAD
-=======
-            return array_map(
-                function ($type) {
-                    return Type::getType($type)->getBindingType() + Connection::ARRAY_PARAM_OFFSET;
-                },
-                $types
-            );
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         }
 
         return $types;
@@ -2737,43 +1946,19 @@ class BasicEntityPersister implements EntityPersister
     private function getValues($value)
     {
         if (is_array($value)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $newValue = [];
-=======
-            $newValue = array();
->>>>>>> contactmanager
-=======
-            $newValue = [];
->>>>>>> donmanager
 
             foreach ($value as $itemValue) {
                 $newValue = array_merge($newValue, $this->getValues($itemValue));
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             return [$newValue];
-=======
-            return array($newValue);
->>>>>>> contactmanager
-=======
-            return [$newValue];
->>>>>>> donmanager
         }
 
         if (is_object($value) && $this->em->getMetadataFactory()->hasMetadataFor(ClassUtils::getClass($value))) {
             $class = $this->em->getClassMetadata(get_class($value));
             if ($class->isIdentifierComposite) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $newValue = [];
-=======
-                $newValue = array();
->>>>>>> contactmanager
-=======
-                $newValue = [];
->>>>>>> donmanager
 
                 foreach ($class->getIdentifierValues($value) as $innerValue) {
                     $newValue = array_merge($newValue, $this->getValues($innerValue));
@@ -2783,15 +1968,7 @@ class BasicEntityPersister implements EntityPersister
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         return [$this->getIndividualValue($value)];
-=======
-        return array($this->getIndividualValue($value));
->>>>>>> contactmanager
-=======
-        return [$this->getIndividualValue($value)];
->>>>>>> donmanager
     }
 
     /**
@@ -2881,15 +2058,7 @@ class BasicEntityPersister implements EntityPersister
      */
     protected function generateFilterConditionSQL(ClassMetadata $targetEntity, $targetTableAlias)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $filterClauses = [];
-=======
-        $filterClauses = array();
->>>>>>> contactmanager
-=======
-        $filterClauses = [];
->>>>>>> donmanager
 
         foreach ($this->em->getFilters()->getEnabledFilters() as $filter) {
             if ('' !== $filterExpr = $filter->addFilterConstraint($targetEntity, $targetTableAlias)) {
@@ -2898,14 +2067,7 @@ class BasicEntityPersister implements EntityPersister
         }
 
         $sql = implode(' AND ', $filterClauses);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
         return $sql ? "(" . $sql . ")" : ""; // Wrap again to avoid "X or Y and FilterConditionSQL"
     }
 

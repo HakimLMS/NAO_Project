@@ -87,10 +87,6 @@ $catalogue = new MessageCatalogue('en', array (
     'The uploaded file was too large. Please try to upload a smaller file.' => 'The uploaded file was too large. Please try to upload a smaller file.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'The CSRF token is invalid. Please try to resubmit the form.',
   ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
   'security' => 
   array (
     'An authentication exception occurred.' => 'An authentication exception occurred.',
@@ -110,11 +106,6 @@ $catalogue = new MessageCatalogue('en', array (
     'Account is disabled.' => 'Account is disabled.',
     'Account is locked.' => 'Account is locked.',
   ),
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 ));
 
 

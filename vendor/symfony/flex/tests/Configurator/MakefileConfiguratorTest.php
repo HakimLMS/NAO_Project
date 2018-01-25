@@ -37,19 +37,7 @@ class MarkefileConfiguratorTest extends TestCase
         @unlink($makefile);
         touch($makefile);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $makefile1 = explode(
-            "\n",
-            <<<EOF
-=======
         $makefile1 = explode("\n", <<<EOF
->>>>>>> contactmanager
-=======
-        $makefile1 = explode(
-            "\n",
-            <<<EOF
->>>>>>> donmanager
 CONSOLE := $(shell which bin/console)
 sf_console:
 ifndef CONSOLE
@@ -57,19 +45,7 @@ ifndef CONSOLE
 endif
 EOF
         );
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $makefile2 = explode(
-            "\n",
-            <<<EOF
-=======
         $makefile2 = explode("\n", <<<EOF
->>>>>>> contactmanager
-=======
-        $makefile2 = explode(
-            "\n",
-            <<<EOF
->>>>>>> donmanager
 cache-clear:
 ifdef CONSOLE
 	@$(CONSOLE) cache:clear --no-warmup
@@ -84,39 +60,17 @@ EOF
         $makefileContents2 = "###> BarBundle ###\n".implode("\n", $makefile2)."\n###< BarBundle ###";
 
         $configurator->configure($recipe1, $makefile1);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n");
-
-        $configurator->configure($recipe2, $makefile2);
-        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n\n".$makefileContents2."\n");
-
-        $configurator->configure($recipe1, $makefile1);
-        $configurator->configure($recipe2, $makefile2);
-        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n\n".$makefileContents2."\n");
-
-        $configurator->unconfigure($recipe1, $makefile1);
-        $this->assertStringEqualsFile($makefile, $makefileContents2."\n");
-=======
         $this->assertEquals("\n".$makefileContents1."\n", file_get_contents($makefile));
-=======
-        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n");
->>>>>>> donmanager
 
         $configurator->configure($recipe2, $makefile2);
-        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n\n".$makefileContents2."\n");
+        $this->assertEquals("\n".$makefileContents1."\n\n".$makefileContents2."\n", file_get_contents($makefile));
 
         $configurator->configure($recipe1, $makefile1);
         $configurator->configure($recipe2, $makefile2);
-        $this->assertStringEqualsFile($makefile, "\n".$makefileContents1."\n\n".$makefileContents2."\n");
+        $this->assertEquals("\n".$makefileContents1."\n\n".$makefileContents2."\n", file_get_contents($makefile));
 
         $configurator->unconfigure($recipe1, $makefile1);
-<<<<<<< HEAD
         $this->assertEquals($makefileContents2."\n", file_get_contents($makefile));
->>>>>>> contactmanager
-=======
-        $this->assertStringEqualsFile($makefile, $makefileContents2."\n");
->>>>>>> donmanager
 
         $configurator->unconfigure($recipe2, $makefile2);
         $this->assertFalse(is_file($makefile));

@@ -21,29 +21,29 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0c25b55b11bfc769ae3e523634001c716f93230585b762a216a563af3a5e82ad = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0c25b55b11bfc769ae3e523634001c716f93230585b762a216a563af3a5e82ad->enter($__internal_0c25b55b11bfc769ae3e523634001c716f93230585b762a216a563af3a5e82ad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Administration/AdminDashboard.html.twig"));
+        $__internal_7ee5782732a77039cd1c5797e7a234d1c9a1b3e770e5bcee4afde64cb32f8efa = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_7ee5782732a77039cd1c5797e7a234d1c9a1b3e770e5bcee4afde64cb32f8efa->enter($__internal_7ee5782732a77039cd1c5797e7a234d1c9a1b3e770e5bcee4afde64cb32f8efa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Administration/AdminDashboard.html.twig"));
 
-        $__internal_41ca4644885dc839998f1f3b7060bd430960ce496ac96ad885ecd3f19efcdbb8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_41ca4644885dc839998f1f3b7060bd430960ce496ac96ad885ecd3f19efcdbb8->enter($__internal_41ca4644885dc839998f1f3b7060bd430960ce496ac96ad885ecd3f19efcdbb8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Administration/AdminDashboard.html.twig"));
+        $__internal_61dcc965d211778acf66ee8a6b49666a849926c24a1c281fb67a052aa0fbb716 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_61dcc965d211778acf66ee8a6b49666a849926c24a1c281fb67a052aa0fbb716->enter($__internal_61dcc965d211778acf66ee8a6b49666a849926c24a1c281fb67a052aa0fbb716_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Administration/AdminDashboard.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_0c25b55b11bfc769ae3e523634001c716f93230585b762a216a563af3a5e82ad->leave($__internal_0c25b55b11bfc769ae3e523634001c716f93230585b762a216a563af3a5e82ad_prof);
+        $__internal_7ee5782732a77039cd1c5797e7a234d1c9a1b3e770e5bcee4afde64cb32f8efa->leave($__internal_7ee5782732a77039cd1c5797e7a234d1c9a1b3e770e5bcee4afde64cb32f8efa_prof);
 
         
-        $__internal_41ca4644885dc839998f1f3b7060bd430960ce496ac96ad885ecd3f19efcdbb8->leave($__internal_41ca4644885dc839998f1f3b7060bd430960ce496ac96ad885ecd3f19efcdbb8_prof);
+        $__internal_61dcc965d211778acf66ee8a6b49666a849926c24a1c281fb67a052aa0fbb716->leave($__internal_61dcc965d211778acf66ee8a6b49666a849926c24a1c281fb67a052aa0fbb716_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_661067bf3909a7bb0e56aff9318584fbe36841cee55414efe7444867854dda18 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_661067bf3909a7bb0e56aff9318584fbe36841cee55414efe7444867854dda18->enter($__internal_661067bf3909a7bb0e56aff9318584fbe36841cee55414efe7444867854dda18_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_25815fa5526d5817c7a2cf95e2072df90232591eca05abb8c1a355fb15097844 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_25815fa5526d5817c7a2cf95e2072df90232591eca05abb8c1a355fb15097844->enter($__internal_25815fa5526d5817c7a2cf95e2072df90232591eca05abb8c1a355fb15097844_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_8b633b6cb5a28f97930e54c52b6a843c1c724cd21b9fa21fa4af5e6bd43e0043 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8b633b6cb5a28f97930e54c52b6a843c1c724cd21b9fa21fa4af5e6bd43e0043->enter($__internal_8b633b6cb5a28f97930e54c52b6a843c1c724cd21b9fa21fa4af5e6bd43e0043_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_77b604a0b6e72768163df5eec603b7d71428fc708c9408650a6a084096576844 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_77b604a0b6e72768163df5eec603b7d71428fc708c9408650a6a084096576844->enter($__internal_77b604a0b6e72768163df5eec603b7d71428fc708c9408650a6a084096576844_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"usercard\">
@@ -51,16 +51,8 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
             
             <div class=\"card-body\">
                ";
-        // line 8
-        echo "              <h5 class=\"card-title\">";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new Twig_Error_Runtime('Variable "user" does not exist.', 8, $this->getSourceContext()); })()), "firstname", array()), "html", null, true);
-        echo "</h5>
-              <p class=\"card-text\">";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new Twig_Error_Runtime('Variable "user" does not exist.', 9, $this->getSourceContext()); })()), "type", array()), "html", null, true);
-        echo "</p>
-            </div>
-        </div>
+        // line 11
+        echo "        </div>
         
     </div>
     <div>
@@ -256,10 +248,7 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
             echo "\">Supprimer</button>
                </td>
             </tr>
-            <tr><button type=\"submit\" formaction=\"";
-            // line 104
-            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("new_article");
-            echo "\">Ecrire un article</button></tr>
+            
             </form>   
             
                 ";
@@ -268,16 +257,17 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 108
-        echo "                ";
-        // line 109
-        echo "        </table>
+        echo "                <tr><button type=\"submit\"><a href=\"";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("new_article");
+        echo "\">Ecrire un article</a></button></tr>    
+        </table>
     </div>
 ";
         
-        $__internal_8b633b6cb5a28f97930e54c52b6a843c1c724cd21b9fa21fa4af5e6bd43e0043->leave($__internal_8b633b6cb5a28f97930e54c52b6a843c1c724cd21b9fa21fa4af5e6bd43e0043_prof);
+        $__internal_77b604a0b6e72768163df5eec603b7d71428fc708c9408650a6a084096576844->leave($__internal_77b604a0b6e72768163df5eec603b7d71428fc708c9408650a6a084096576844_prof);
 
         
-        $__internal_661067bf3909a7bb0e56aff9318584fbe36841cee55414efe7444867854dda18->leave($__internal_661067bf3909a7bb0e56aff9318584fbe36841cee55414efe7444867854dda18_prof);
+        $__internal_25815fa5526d5817c7a2cf95e2072df90232591eca05abb8c1a355fb15097844->leave($__internal_25815fa5526d5817c7a2cf95e2072df90232591eca05abb8c1a355fb15097844_prof);
 
     }
 
@@ -293,7 +283,7 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
 
     public function getDebugInfo()
     {
-        return array (  273 => 109,  271 => 108,  261 => 104,  255 => 101,  251 => 100,  246 => 98,  242 => 97,  238 => 96,  232 => 95,  228 => 93,  224 => 92,  211 => 81,  209 => 80,  199 => 76,  195 => 75,  191 => 74,  187 => 73,  184 => 72,  180 => 71,  167 => 60,  165 => 59,  155 => 55,  151 => 54,  147 => 53,  143 => 52,  140 => 51,  136 => 50,  122 => 38,  111 => 34,  107 => 33,  102 => 31,  98 => 30,  94 => 29,  90 => 28,  86 => 27,  82 => 25,  78 => 24,  60 => 9,  55 => 8,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  260 => 108,  247 => 101,  243 => 100,  238 => 98,  234 => 97,  230 => 96,  224 => 95,  220 => 93,  216 => 92,  203 => 81,  201 => 80,  191 => 76,  187 => 75,  183 => 74,  179 => 73,  176 => 72,  172 => 71,  159 => 60,  157 => 59,  147 => 55,  143 => 54,  139 => 53,  135 => 52,  132 => 51,  128 => 50,  114 => 38,  103 => 34,  99 => 33,  94 => 31,  90 => 30,  86 => 29,  82 => 28,  78 => 27,  74 => 25,  70 => 24,  55 => 11,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -304,10 +294,10 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
         <div class=\"card\" style=\"width: 18rem;\">
             
             <div class=\"card-body\">
-               {#<a href=\"{{path('modifyuser')}}\"><img class=\"card-img-top\" src=\"{{asset('build/img/'~user.image)}}\" alt=\"{{user.firstname}}\" style=\"height: 170px;\"></a>#}
+               {#<a href=\"{{path('modifyuser')}}\"><img class=\"card-img-top\" src=\"{{asset('build/img/'~user.image)}}\" alt=\"{{user.firstname}}\" style=\"height: 170px;\"></a>
               <h5 class=\"card-title\">{{user.firstname}}</h5>
               <p class=\"card-text\">{{user.type}}</p>
-            </div>
+            </div>#}
         </div>
         
     </div>
@@ -401,11 +391,11 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
                    <button type=\"submit\" formaction=\"{{path('delete_article', {'id' : article.id})}}\">Supprimer</button>
                </td>
             </tr>
-            <tr><button type=\"submit\" formaction=\"{{path('new_article')}}\">Ecrire un article</button></tr>
+            
             </form>   
             
                 {% endfor %}
-                {# wire buttons to actions to validate or not the accounts #}
+                <tr><button type=\"submit\"><a href=\"{{path('new_article')}}\">Ecrire un article</a></button></tr>    
         </table>
     </div>
 {% endblock %}

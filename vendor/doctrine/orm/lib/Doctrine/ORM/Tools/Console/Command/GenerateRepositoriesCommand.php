@@ -19,8 +19,6 @@
 
 namespace Doctrine\ORM\Tools\Console\Command;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\ORM\Tools\Console\MetadataFilter;
 use Doctrine\ORM\Tools\EntityRepositoryGenerator;
 use Symfony\Component\Console\Command\Command;
@@ -29,23 +27,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-=======
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-=======
->>>>>>> donmanager
-use Doctrine\ORM\Tools\Console\MetadataFilter;
-use Doctrine\ORM\Tools\EntityRepositoryGenerator;
-use Symfony\Component\Console\Command\Command;
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
->>>>>>> donmanager
 
 /**
  * Command to generate repository classes for mapping information.
@@ -64,38 +45,12 @@ class GenerateRepositoriesCommand extends Command
      */
     protected function configure()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $this->setName('orm:generate-repositories')
              ->setAliases(['orm:generate:repositories'])
              ->setDescription('Generate repository classes from your mapping information')
              ->addArgument('dest-path', InputArgument::REQUIRED, 'The path to generate your repository classes.')
              ->addOption('filter', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'A string pattern used to match entities that should be processed.')
              ->setHelp('Generate repository classes from your mapping information.');
-<<<<<<< HEAD
-=======
-        $this
-        ->setName('orm:generate-repositories')
-        ->setAliases(array('orm:generate:repositories'))
-        ->setDescription('Generate repository classes from your mapping information.')
-        ->setDefinition(array(
-            new InputOption(
-                'filter', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
-                'A string pattern used to match entities that should be processed.'
-            ),
-            new InputArgument(
-                'dest-path', InputArgument::REQUIRED, 'The path to generate your repository classes.'
-            )
-        ))
-        ->setHelp(<<<EOT
-Generate repository classes from your mapping information.
-EOT
-        );
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 
     /**
@@ -103,16 +58,8 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
-=======
->>>>>>> contactmanager
-=======
-        $ui = new SymfonyStyle($input, $output);
-
->>>>>>> donmanager
         $em = $this->getHelper('em')->getEntityManager();
 
         $metadatas = $em->getMetadataFactory()->getAllMetadata();
@@ -135,15 +82,10 @@ EOT
             );
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         if (empty($metadatas)) {
             $ui->success('No Metadata Classes to process.');
             return;
         }
-<<<<<<< HEAD
 
         $numRepositories = 0;
         $generator       = new EntityRepositoryGenerator();
@@ -168,39 +110,5 @@ EOT
         // Outputting information message
         $ui->newLine();
         $ui->text(sprintf('Repository classes generated to "<info>%s</info>"', $destPath));
-=======
-        if (count($metadatas)) {
-            $numRepositories = 0;
-            $generator = new EntityRepositoryGenerator();
-=======
->>>>>>> donmanager
-
-        $numRepositories = 0;
-        $generator       = new EntityRepositoryGenerator();
-
-        $generator->setDefaultRepositoryName($repositoryName);
-
-        foreach ($metadatas as $metadata) {
-            if ($metadata->customRepositoryClassName) {
-                $ui->text(sprintf('Processing repository "<info>%s</info>"', $metadata->customRepositoryClassName));
-
-                $generator->writeEntityRepositoryClass($metadata->customRepositoryClassName, $destPath);
-
-                ++$numRepositories;
-            }
-        }
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-
-        if ($numRepositories === 0) {
-            $ui->text('No Repository classes were found to be processed.');
-            return;
-        }
-
-        // Outputting information message
-        $ui->newLine();
-        $ui->text(sprintf('Repository classes generated to "<info>%s</info>"', $destPath));
->>>>>>> donmanager
     }
 }

@@ -1,16 +1,8 @@
 Transactions and Concurrency
 ============================
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. _transactions-and-concurrency_transaction-demarcation:
 
-=======
->>>>>>> contactmanager
-=======
-.. _transactions-and-concurrency_transaction-demarcation:
-
->>>>>>> donmanager
 Transaction Demarcation
 -----------------------
 
@@ -36,16 +28,8 @@ and control transaction demarcation yourself.
 These are two ways to deal with transactions when using the
 Doctrine ORM and are now described in more detail.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. _transactions-and-concurrency_approach-implicitly:
 
-=======
->>>>>>> contactmanager
-=======
-.. _transactions-and-concurrency_approach-implicitly:
-
->>>>>>> donmanager
 Approach 1: Implicitly
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -69,16 +53,8 @@ the DML operations by the Doctrine ORM and is sufficient if all the
 data manipulation that is part of a unit of work happens through
 the domain model and thus the ORM.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. _transactions-and-concurrency_approach-explicitly:
 
-=======
->>>>>>> contactmanager
-=======
-.. _transactions-and-concurrency_approach-explicitly:
-
->>>>>>> donmanager
 Approach 2: Explicitly
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -99,15 +75,7 @@ looks like this:
         $em->flush();
         $em->getConnection()->commit();
     } catch (Exception $e) {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $em->getConnection()->rollBack();
-=======
-        $em->getConnection()->rollback();
->>>>>>> contactmanager
-=======
-        $em->getConnection()->rollBack();
->>>>>>> donmanager
         throw $e;
     }
 
@@ -136,10 +104,6 @@ functionally equivalent to the previously shown code looks as follows:
         $em->persist($user);
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 .. warning::
 
     For historical reasons, ``EntityManager#transactional($func)`` will return
@@ -147,27 +111,14 @@ functionally equivalent to the previously shown code looks as follows:
     Some examples of this include ``array()``, ``"0"``, ``""``, ``0``, and
     ``null``.
 
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 The difference between ``Connection#transactional($func)`` and
 ``EntityManager#transactional($func)`` is that the latter
 abstraction flushes the ``EntityManager`` prior to transaction
 commit and rolls back the transaction when an
 exception occurs.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. _transactions-and-concurrency_exception-handling:
 
-=======
->>>>>>> contactmanager
-=======
-.. _transactions-and-concurrency_exception-handling:
-
->>>>>>> donmanager
 Exception Handling
 ~~~~~~~~~~~~~~~~~~
 
@@ -198,16 +149,8 @@ knowing that their state is potentially no longer accurate.
 If you intend to start another unit of work after an exception has
 occurred you should do that with a new ``EntityManager``.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. _transactions-and-concurrency_locking-support:
 
-=======
->>>>>>> contactmanager
-=======
-.. _transactions-and-concurrency_locking-support:
-
->>>>>>> donmanager
 Locking Support
 ---------------
 
@@ -216,16 +159,8 @@ strategies natively. This allows to take very fine-grained control
 over what kind of locking is required for your Entities in your
 application.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. _transactions-and-concurrency_optimistic-locking:
 
-=======
->>>>>>> contactmanager
-=======
-.. _transactions-and-concurrency_optimistic-locking:
-
->>>>>>> donmanager
 Optimistic Locking
 ~~~~~~~~~~~~~~~~~~
 
@@ -252,8 +187,6 @@ has been modified by someone else already.
 You designate a version field in an entity as follows. In this
 example we'll use an integer.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. configuration-block::
 
     .. code-block:: php
@@ -283,55 +216,10 @@ example we'll use an integer.
             version:
               type: integer
               version: true
-=======
-.. code-block:: php
-
-    <?php
-    class User
-    {
-        // ...
-        /** @Version @Column(type="integer") */
-        private $version;
-        // ...
-    }
->>>>>>> contactmanager
-=======
-.. configuration-block::
-
-    .. code-block:: php
-
-        <?php
-        class User
-        {
-            // ...
-            /** @Version @Column(type="integer") */
-            private $version;
-            // ...
-        }
-
-    .. code-block:: xml
-
-        <doctrine-mapping>
-          <entity name="User">
-            <field name="version" type="integer" version="true" />
-          </entity>
-        </doctrine-mapping>
-
-    .. code-block:: yaml
-
-        User:
-          type: entity
-          fields:
-            version:
-              type: integer
-              version: true
->>>>>>> donmanager
 
 Alternatively a datetime type can be used (which maps to a SQL
 timestamp or datetime):
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. configuration-block::
 
     .. code-block:: php
@@ -361,49 +249,6 @@ timestamp or datetime):
             version:
               type: datetime
               version: true
-=======
-.. code-block:: php
-
-    <?php
-    class User
-    {
-        // ...
-        /** @Version @Column(type="datetime") */
-        private $version;
-        // ...
-    }
->>>>>>> contactmanager
-=======
-.. configuration-block::
-
-    .. code-block:: php
-
-        <?php
-        class User
-        {
-            // ...
-            /** @Version @Column(type="datetime") */
-            private $version;
-            // ...
-        }
-
-    .. code-block:: xml
-
-        <doctrine-mapping>
-          <entity name="User">
-            <field name="version" type="datetime" version="true" />
-          </entity>
-        </doctrine-mapping>
-
-    .. code-block:: yaml
-
-        User:
-          type: entity
-          fields:
-            version:
-              type: datetime
-              version: true
->>>>>>> donmanager
 
 Version numbers (not timestamps) should however be preferred as
 they can not potentially conflict in a highly concurrent
@@ -517,16 +362,8 @@ And the change headline action (POST Request):
     
     $post = $em->find('BlogPost', $postId, \Doctrine\DBAL\LockMode::OPTIMISTIC, $postVersion);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .. _transactions-and-concurrency_pessimistic-locking:
 
-=======
->>>>>>> contactmanager
-=======
-.. _transactions-and-concurrency_pessimistic-locking:
-
->>>>>>> donmanager
 Pessimistic Locking
 ~~~~~~~~~~~~~~~~~~~
 

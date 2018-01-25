@@ -20,30 +20,14 @@
 namespace Doctrine\ORM\Query;
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
-=======
- * 
->>>>>>> contactmanager
-=======
- *
->>>>>>> donmanager
  */
 class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
 {
     /**
      * @var TreeWalker[]
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $walkers = [];
-=======
-    private $walkers = array();
->>>>>>> contactmanager
-=======
-    private $walkers = [];
->>>>>>> donmanager
     /**
      * @var TreeWalkerChain
      */
@@ -67,15 +51,7 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function rewind()
-=======
-    function rewind()
->>>>>>> contactmanager
-=======
-    public function rewind()
->>>>>>> donmanager
     {
         return reset($this->walkers);
     }
@@ -83,15 +59,7 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function current()
-=======
-    function current()
->>>>>>> contactmanager
-=======
-    public function current()
->>>>>>> donmanager
     {
         return $this->offsetGet(key($this->walkers));
     }
@@ -99,15 +67,7 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function key()
-=======
-    function key()
->>>>>>> contactmanager
-=======
-    public function key()
->>>>>>> donmanager
     {
         return key($this->walkers);
     }
@@ -115,15 +75,7 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function next()
-=======
-    function next()
->>>>>>> contactmanager
-=======
-    public function next()
->>>>>>> donmanager
     {
         next($this->walkers);
 
@@ -133,26 +85,11 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function valid()
-=======
-    function valid()
->>>>>>> contactmanager
-=======
-    public function valid()
->>>>>>> donmanager
     {
         return key($this->walkers) !== null;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     /**
      * {@inheritdoc}
      */
@@ -182,15 +119,7 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
      */
     public function offsetSet($offset, $value)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (null === $offset) {
-=======
-        if (is_null($offset)) {
->>>>>>> contactmanager
-=======
-        if (null === $offset) {
->>>>>>> donmanager
             $this->walkers[] = $value;
         } else {
             $this->walkers[$offset] = $value;
@@ -206,12 +135,4 @@ class TreeWalkerChainIterator implements \Iterator, \ArrayAccess
             unset($this->walkers[$offset]);
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> contactmanager
-=======
-}
->>>>>>> donmanager

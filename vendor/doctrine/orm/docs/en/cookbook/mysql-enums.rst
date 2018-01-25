@@ -98,15 +98,7 @@ For example for the previous enum type:
 
         public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             return "ENUM('visible', 'invisible')";
-=======
-            return "ENUM('visible', 'invisible') COMMENT '(DC2Type:enumvisibility)'";
->>>>>>> contactmanager
-=======
-            return "ENUM('visible', 'invisible')";
->>>>>>> donmanager
         }
 
         public function convertToPHPValue($value, AbstractPlatform $platform)
@@ -126,20 +118,11 @@ For example for the previous enum type:
         {
             return self::ENUM_VISIBILITY;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
         public function requiresSQLCommentHint(AbstractPlatform $platform)
         {
             return true;
         }
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 
 You can register this type with ``Type::addType('enumvisibility', 'MyProject\DBAL\EnumVisibilityType');``.
@@ -174,15 +157,7 @@ You can generalize this approach easily to create a base class for enums:
         {
             $values = array_map(function($val) { return "'".$val."'"; }, $this->values);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             return "ENUM(".implode(", ", $values).")";
-=======
-            return "ENUM(".implode(", ", $values).") COMMENT '(DC2Type:".$this->name.")'";
->>>>>>> contactmanager
-=======
-            return "ENUM(".implode(", ", $values).")";
->>>>>>> donmanager
         }
 
         public function convertToPHPValue($value, AbstractPlatform $platform)
@@ -202,20 +177,11 @@ You can generalize this approach easily to create a base class for enums:
         {
             return $this->name;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
         public function requiresSQLCommentHint(AbstractPlatform $platform)
         {
             return true;
         }
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 
 With this base class you can define an enum as easily as:

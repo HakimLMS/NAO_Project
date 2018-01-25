@@ -13,19 +13,9 @@ namespace Symfony\Component\HttpKernel\EventListener;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Debug\Exception\FlattenException;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-=======
-use Symfony\Component\HttpFoundation\Request;
->>>>>>> contactmanager
-=======
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
->>>>>>> donmanager
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -53,14 +43,7 @@ class ExceptionListener implements EventSubscriberInterface
     {
         $exception = $event->getException();
         $request = $event->getRequest();
-<<<<<<< HEAD
-<<<<<<< HEAD
         $eventDispatcher = func_num_args() > 2 ? func_get_arg(2) : null;
-=======
->>>>>>> contactmanager
-=======
-        $eventDispatcher = func_num_args() > 2 ? func_get_arg(2) : null;
->>>>>>> donmanager
 
         $this->logException($exception, sprintf('Uncaught PHP Exception %s: "%s" at %s line %s', get_class($exception), $exception->getMessage(), $exception->getFile(), $exception->getLine()));
 
@@ -87,10 +70,6 @@ class ExceptionListener implements EventSubscriberInterface
         }
 
         $event->setResponse($response);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
         if ($eventDispatcher instanceof EventDispatcherInterface) {
             $cspRemovalListener = function (FilterResponseEvent $event) use (&$cspRemovalListener, $eventDispatcher) {
@@ -99,11 +78,6 @@ class ExceptionListener implements EventSubscriberInterface
             };
             $eventDispatcher->addListener(KernelEvents::RESPONSE, $cspRemovalListener, -128);
         }
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 
     public static function getSubscribedEvents()

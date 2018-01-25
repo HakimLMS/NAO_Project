@@ -51,6 +51,10 @@ class BlogController extends Controller
     public function newArticleAction(Request $request, NewArticleHandler $newHandler)
     {
         $form = $newHandler->generateData($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            return $this->redirectToRoute('dashboard');
+        }
         return $this->render('blog/new.html.twig', array('form' => $form->createView()));
     }
     

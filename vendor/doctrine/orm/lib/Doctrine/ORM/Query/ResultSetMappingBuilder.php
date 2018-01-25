@@ -21,16 +21,8 @@ namespace Doctrine\ORM\Query;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\ORM\Mapping\MappingException;
 use Doctrine\ORM\Utility\PersisterHelper;
-=======
->>>>>>> contactmanager
-=======
-use Doctrine\ORM\Mapping\MappingException;
-use Doctrine\ORM\Utility\PersisterHelper;
->>>>>>> donmanager
 
 /**
  * A ResultSetMappingBuilder uses the EntityManager to automatically populate entity fields.
@@ -105,15 +97,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
      *
      * @return void
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function addRootEntityFromClassMetadata($class, $alias, $renamedColumns = [], $renameMode = null)
-=======
-    public function addRootEntityFromClassMetadata($class, $alias, $renamedColumns = array(), $renameMode = null)
->>>>>>> contactmanager
-=======
-    public function addRootEntityFromClassMetadata($class, $alias, $renamedColumns = [], $renameMode = null)
->>>>>>> donmanager
     {
         $renameMode     = $renameMode ?: $this->defaultRenameMode;
         $columnAliasMap = $this->getColumnAliasMap($class, $renameMode, $renamedColumns);
@@ -135,15 +119,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
      *
      * @return void
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function addJoinedEntityFromClassMetadata($class, $alias, $parentAlias, $relation, $renamedColumns = [], $renameMode = null)
-=======
-    public function addJoinedEntityFromClassMetadata($class, $alias, $parentAlias, $relation, $renamedColumns = array(), $renameMode = null)
->>>>>>> contactmanager
-=======
-    public function addJoinedEntityFromClassMetadata($class, $alias, $parentAlias, $relation, $renamedColumns = [], $renameMode = null)
->>>>>>> donmanager
     {
         $renameMode     = $renameMode ?: $this->defaultRenameMode;
         $columnAliasMap = $this->getColumnAliasMap($class, $renameMode, $renamedColumns);
@@ -163,15 +139,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
      *
      * @throws \InvalidArgumentException
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected function addAllClassFields($class, $alias, $columnAliasMap = [])
-=======
-    protected function addAllClassFields($class, $alias, $columnAliasMap = array())
->>>>>>> contactmanager
-=======
-    protected function addAllClassFields($class, $alias, $columnAliasMap = [])
->>>>>>> donmanager
     {
         $classMetadata = $this->em->getClassMetadata($class);
         $platform      = $this->em->getConnection()->getDatabasePlatform();
@@ -194,8 +162,6 @@ class ResultSetMappingBuilder extends ResultSetMapping
 
         foreach ($classMetadata->associationMappings as $associationMapping) {
             if ($associationMapping['isOwningSide'] && $associationMapping['type'] & ClassMetadataInfo::TO_ONE) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $targetClass  = $this->em->getClassMetadata($associationMapping['targetEntity']);
                 $isIdentifier = isset($associationMapping['id']) && $associationMapping['id'] === true;
 
@@ -203,39 +169,12 @@ class ResultSetMappingBuilder extends ResultSetMapping
                     $columnName  = $joinColumn['name'];
                     $columnAlias = $platform->getSQLResultCasing($columnAliasMap[$columnName]);
                     $columnType = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
-=======
-                foreach ($associationMapping['joinColumns'] as $joinColumn) {
-                    $columnName  = $joinColumn['name'];
-                    $columnAlias = $platform->getSQLResultCasing($columnAliasMap[$columnName]);
->>>>>>> contactmanager
-=======
-                $targetClass  = $this->em->getClassMetadata($associationMapping['targetEntity']);
-                $isIdentifier = isset($associationMapping['id']) && $associationMapping['id'] === true;
-
-                foreach ($associationMapping['joinColumns'] as $joinColumn) {
-                    $columnName  = $joinColumn['name'];
-                    $columnAlias = $platform->getSQLResultCasing($columnAliasMap[$columnName]);
-                    $columnType = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
->>>>>>> donmanager
 
                     if (isset($this->metaMappings[$columnAlias])) {
                         throw new \InvalidArgumentException("The column '$columnAlias' conflicts with another column in the mapper.");
                     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                     $this->addMetaResult($alias, $columnAlias, $columnName, $isIdentifier, $columnType);
-=======
-                    $this->addMetaResult(
-                        $alias,
-                        $columnAlias,
-                        $columnName,
-                        (isset($associationMapping['id']) && $associationMapping['id'] === true)
-                    );
->>>>>>> contactmanager
-=======
-                    $this->addMetaResult($alias, $columnAlias, $columnName, $isIdentifier, $columnType);
->>>>>>> donmanager
                 }
             }
         }
@@ -267,16 +206,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
                 return $columnName . $this->sqlCounter++;
 
             case self::COLUMN_RENAMING_CUSTOM:
-<<<<<<< HEAD
-<<<<<<< HEAD
                 return $customRenameColumns[$columnName] ?? $columnName;
-=======
-                return isset($customRenameColumns[$columnName])
-                    ? $customRenameColumns[$columnName] : $columnName;
->>>>>>> contactmanager
-=======
-                return $customRenameColumns[$columnName] ?? $columnName;
->>>>>>> donmanager
 
             case self::COLUMN_RENAMING_NONE:
                 return $columnName;
@@ -301,15 +231,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
             $mode = self::COLUMN_RENAMING_CUSTOM;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $columnAlias = [];
-=======
-        $columnAlias = array();
->>>>>>> contactmanager
-=======
-        $columnAlias = [];
->>>>>>> donmanager
         $class       = $this->em->getClassMetadata($className);
 
         foreach ($class->getColumnNames() as $columnName) {
@@ -362,43 +284,20 @@ class ResultSetMappingBuilder extends ResultSetMapping
         $this->addEntityResult($class->name, $alias);
 
         if ($classMetadata->discriminatorColumn) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             $discrColumn = $classMetadata->discriminatorColumn;
 
             $this->setDiscriminatorColumn($alias, $discrColumn['name']);
             $this->addMetaResult($alias, $discrColumn['name'], $discrColumn['fieldName'], false, $discrColumn['type']);
-<<<<<<< HEAD
         }
 
         foreach ($classMetadata->getColumnNames() as $key => $columnName) {
             $propertyName = $classMetadata->getFieldName($columnName);
 
-=======
-            $discriminatorColumn = $classMetadata->discriminatorColumn;
-            $this->setDiscriminatorColumn($alias, $discriminatorColumn['name']);
-            $this->addMetaResult($alias, $discriminatorColumn['name'], $discriminatorColumn['fieldName']);
-        }
-
-        foreach ($classMetadata->getColumnNames() as $key => $columnName) {
-            $propertyName   = $classMetadata->getFieldName($columnName);
->>>>>>> contactmanager
-=======
-        }
-
-        foreach ($classMetadata->getColumnNames() as $key => $columnName) {
-            $propertyName = $classMetadata->getFieldName($columnName);
-
->>>>>>> donmanager
             $this->addFieldResult($alias, $columnName, $propertyName);
         }
 
         foreach ($classMetadata->associationMappings as $associationMapping) {
             if ($associationMapping['isOwningSide'] && $associationMapping['type'] & ClassMetadataInfo::TO_ONE) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $targetClass = $this->em->getClassMetadata($associationMapping['targetEntity']);
 
                 foreach ($associationMapping['joinColumns'] as $joinColumn) {
@@ -406,20 +305,6 @@ class ResultSetMappingBuilder extends ResultSetMapping
                     $columnType  = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
 
                     $this->addMetaResult($alias, $columnName, $columnName, $classMetadata->isIdentifier($columnName), $columnType);
-=======
-                foreach ($associationMapping['joinColumns'] as $joinColumn) {
-                    $columnName = $joinColumn['name'];
-                    $this->addMetaResult($alias, $columnName, $columnName, $classMetadata->isIdentifier($columnName));
->>>>>>> contactmanager
-=======
-                $targetClass = $this->em->getClassMetadata($associationMapping['targetEntity']);
-
-                foreach ($associationMapping['joinColumns'] as $joinColumn) {
-                    $columnName  = $joinColumn['name'];
-                    $columnType  = PersisterHelper::getTypeOfColumn($joinColumn['referencedColumnName'], $targetClass, $this->em);
-
-                    $this->addMetaResult($alias, $columnName, $columnName, $classMetadata->isIdentifier($columnName), $columnType);
->>>>>>> donmanager
                 }
             }
         }
@@ -439,18 +324,8 @@ class ResultSetMappingBuilder extends ResultSetMapping
     {
         $counter        = 0;
         $resultMapping  = $class->getSqlResultSetMapping($resultSetMappingName);
-<<<<<<< HEAD
-<<<<<<< HEAD
         $rootShortName  = $class->reflClass->getShortName();
         $rootAlias      = strtolower($rootShortName[0]) . $counter;
-=======
-        $rooShortName   = $class->reflClass->getShortName();
-        $rootAlias      = strtolower($rooShortName[0]) . $counter;
->>>>>>> contactmanager
-=======
-        $rootShortName  = $class->reflClass->getShortName();
-        $rootAlias      = strtolower($rootShortName[0]) . $counter;
->>>>>>> donmanager
 
 
         if (isset($resultMapping['entities'])) {
@@ -465,23 +340,10 @@ class ResultSetMappingBuilder extends ResultSetMapping
                     $joinAlias      = strtolower($shortName[0]) . ++ $counter;
                     $associations   = $class->getAssociationsByTargetClass($classMetadata->name);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                     $this->addNamedNativeQueryEntityResultMapping($classMetadata, $entityMapping, $joinAlias);
 
                     foreach ($associations as $relation => $mapping) {
                         $this->addJoinedEntityResult($mapping['targetEntity'], $joinAlias, $rootAlias, $relation);
-=======
-                    foreach ($associations as $relation => $mapping) {
-                        $this->addJoinedEntityResult($mapping['targetEntity'], $joinAlias, $rootAlias, $relation);
-                        $this->addNamedNativeQueryEntityResultMapping($classMetadata, $entityMapping, $joinAlias);
->>>>>>> contactmanager
-=======
-                    $this->addNamedNativeQueryEntityResultMapping($classMetadata, $entityMapping, $joinAlias);
-
-                    foreach ($associations as $relation => $mapping) {
-                        $this->addJoinedEntityResult($mapping['targetEntity'], $joinAlias, $rootAlias, $relation);
->>>>>>> donmanager
                     }
                 }
 
@@ -490,21 +352,11 @@ class ResultSetMappingBuilder extends ResultSetMapping
 
         if (isset($resultMapping['columns'])) {
             foreach ($resultMapping['columns'] as $entityMapping) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
                 $type = isset($class->fieldNames[$entityMapping['name']])
                     ? PersisterHelper::getTypeOfColumn($entityMapping['name'], $class, $this->em)
                     : 'string';
 
                 $this->addScalarResult($entityMapping['name'], $entityMapping['name'], $type);
-<<<<<<< HEAD
-=======
-                $this->addScalarResult($entityMapping['name'], $entityMapping['name']);
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
             }
         }
 
@@ -513,51 +365,24 @@ class ResultSetMappingBuilder extends ResultSetMapping
 
     /**
      * Adds the entity result mapping of the results of native SQL queries to the result set.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> contactmanager
-=======
-     *
->>>>>>> donmanager
      * @param ClassMetadataInfo $classMetadata
      * @param array             $entityMapping
      * @param string            $alias
      *
      * @return ResultSetMappingBuilder
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @throws MappingException
-=======
->>>>>>> contactmanager
-=======
-     * @throws MappingException
->>>>>>> donmanager
      * @throws \InvalidArgumentException
      */
     public function addNamedNativeQueryEntityResultMapping(ClassMetadataInfo $classMetadata, array $entityMapping, $alias)
     {
         if (isset($entityMapping['discriminatorColumn']) && $entityMapping['discriminatorColumn']) {
             $discriminatorColumn = $entityMapping['discriminatorColumn'];
-<<<<<<< HEAD
-<<<<<<< HEAD
             $discriminatorType   = $classMetadata->discriminatorColumn['type'];
 
             $this->setDiscriminatorColumn($alias, $discriminatorColumn);
             $this->addMetaResult($alias, $discriminatorColumn, $discriminatorColumn, false, $discriminatorType);
-=======
-            $this->setDiscriminatorColumn($alias, $discriminatorColumn);
-            $this->addMetaResult($alias, $discriminatorColumn, $discriminatorColumn);
->>>>>>> contactmanager
-=======
-            $discriminatorType   = $classMetadata->discriminatorColumn['type'];
-
-            $this->setDiscriminatorColumn($alias, $discriminatorColumn);
-            $this->addMetaResult($alias, $discriminatorColumn, $discriminatorColumn, false, $discriminatorType);
->>>>>>> donmanager
         }
 
         if (isset($entityMapping['fields']) && !empty($entityMapping['fields'])) {
@@ -565,36 +390,18 @@ class ResultSetMappingBuilder extends ResultSetMapping
                 $fieldName = $field['name'];
                 $relation  = null;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (strpos($fieldName, '.') !== false) {
-=======
-                if(strpos($fieldName, '.')){
->>>>>>> contactmanager
-=======
-                if (strpos($fieldName, '.') !== false) {
->>>>>>> donmanager
                     list($relation, $fieldName) = explode('.', $fieldName);
                 }
 
                 if (isset($classMetadata->associationMappings[$relation])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     if ($relation) {
-=======
-                    if($relation) {
->>>>>>> contactmanager
-=======
-                    if ($relation) {
->>>>>>> donmanager
                         $associationMapping = $classMetadata->associationMappings[$relation];
                         $joinAlias          = $alias.$relation;
                         $parentAlias        = $alias;
 
                         $this->addJoinedEntityResult($associationMapping['targetEntity'], $joinAlias, $parentAlias, $relation);
                         $this->addFieldResult($joinAlias, $field['column'], $fieldName);
-<<<<<<< HEAD
-<<<<<<< HEAD
                     } else {
                         $this->addFieldResult($alias, $field['column'], $fieldName, $classMetadata->name);
                     }
@@ -603,39 +410,14 @@ class ResultSetMappingBuilder extends ResultSetMapping
                         throw new \InvalidArgumentException("Entity '".$classMetadata->name."' has no field '".$fieldName."'. ");
                     }
 
-=======
-                    }else {
-=======
-                    } else {
->>>>>>> donmanager
-                        $this->addFieldResult($alias, $field['column'], $fieldName, $classMetadata->name);
-                    }
-                } else {
-                    if ( ! isset($classMetadata->fieldMappings[$fieldName])) {
-                        throw new \InvalidArgumentException("Entity '".$classMetadata->name."' has no field '".$fieldName."'. ");
-                    }
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                     $this->addFieldResult($alias, $field['column'], $fieldName, $classMetadata->name);
                 }
             }
 
         } else {
             foreach ($classMetadata->getColumnNames() as $columnName) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $propertyName = $classMetadata->getFieldName($columnName);
 
-=======
-                $propertyName   = $classMetadata->getFieldName($columnName);
->>>>>>> contactmanager
-=======
-                $propertyName = $classMetadata->getFieldName($columnName);
-
->>>>>>> donmanager
                 $this->addFieldResult($alias, $columnName, $propertyName);
             }
         }
@@ -653,29 +435,12 @@ class ResultSetMappingBuilder extends ResultSetMapping
      *
      * @return string
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function generateSelectClause($tableAliases = [])
-=======
-    public function generateSelectClause($tableAliases = array())
->>>>>>> contactmanager
-=======
-    public function generateSelectClause($tableAliases = [])
->>>>>>> donmanager
     {
         $sql = "";
 
         foreach ($this->columnOwnerMap as $columnName => $dqlAlias) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $tableAlias = $tableAliases[$dqlAlias] ?? $dqlAlias;
-=======
-            $tableAlias = isset($tableAliases[$dqlAlias])
-                ? $tableAliases[$dqlAlias] : $dqlAlias;
->>>>>>> contactmanager
-=======
-            $tableAlias = $tableAliases[$dqlAlias] ?? $dqlAlias;
->>>>>>> donmanager
 
             if ($sql) {
                 $sql .= ", ";
@@ -703,14 +468,6 @@ class ResultSetMappingBuilder extends ResultSetMapping
      */
     public function __toString()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return $this->generateSelectClause([]);
-=======
-        return $this->generateSelectClause(array());
->>>>>>> contactmanager
-=======
-        return $this->generateSelectClause([]);
->>>>>>> donmanager
     }
 }

@@ -24,15 +24,7 @@ use Doctrine\ORM\Query\Lexer;
 /**
  * "LENGTH" "(" StringPrimary ")"
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
-=======
- * 
->>>>>>> contactmanager
-=======
- *
->>>>>>> donmanager
  * @link    www.doctrine-project.org
  * @since   2.0
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -46,40 +38,18 @@ class LengthFunction extends FunctionNode
 
     /**
      * @override
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @inheritdoc
-=======
->>>>>>> contactmanager
-=======
-     * @inheritdoc
->>>>>>> donmanager
      */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
         return $sqlWalker->getConnection()->getDatabasePlatform()->getLengthExpression(
-<<<<<<< HEAD
-<<<<<<< HEAD
             $sqlWalker->walkSimpleArithmeticExpression($this->stringPrimary)
-=======
-               $sqlWalker->walkSimpleArithmeticExpression($this->stringPrimary)
->>>>>>> contactmanager
-=======
-            $sqlWalker->walkSimpleArithmeticExpression($this->stringPrimary)
->>>>>>> donmanager
         );
     }
 
     /**
      * @override
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @inheritdoc
-=======
->>>>>>> contactmanager
-=======
-     * @inheritdoc
->>>>>>> donmanager
      */
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {

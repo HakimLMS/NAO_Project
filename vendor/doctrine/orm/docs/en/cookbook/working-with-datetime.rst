@@ -49,32 +49,15 @@ By default Doctrine assumes that you are working with a default timezone. Each D
 is created by Doctrine will be assigned the timezone that is currently the default, either through
 the ``date.timezone`` ini setting or by calling ``date_default_timezone_set()``.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 This is very important to handle correctly if your application runs on different servers or is moved from one to another server
-=======
-This is very important to handle correctly if your application runs on different serves or is moved from one to another server
->>>>>>> contactmanager
-=======
-This is very important to handle correctly if your application runs on different servers or is moved from one to another server
->>>>>>> donmanager
 (with different timezone settings). You have to make sure that the timezone is the correct one
 on all this systems.
 
 Handling different Timezones with the DateTime Type
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 If you first come across the requirement to save different timezones you may be still optimistic about how
 to manage this mess,
-=======
-If you first come across the requirement to save different you are still optimistic to manage this mess,
->>>>>>> contactmanager
-=======
-If you first come across the requirement to save different timezones you may be still optimistic about how
-to manage this mess,
->>>>>>> donmanager
 however let me crush your expectations fast. There is not a single database out there (supported by Doctrine 2)
 that supports timezones correctly. Correctly here means that you can cover all the use-cases that
 can come up with timezones. If you don't believe me you should read up on `Storing DateTime
@@ -103,8 +86,6 @@ the UTC time at the time of the booking and the timezone the event happened in.
 
     use Doctrine\DBAL\Platforms\AbstractPlatform;
     use Doctrine\DBAL\Types\ConversionException;
-<<<<<<< HEAD
-<<<<<<< HEAD
     use Doctrine\DBAL\Types\DateTimeType;
 
     class UTCDateTimeType extends DateTimeType
@@ -118,36 +99,10 @@ the UTC time at the time of the booking and the timezone the event happened in.
             }
 
             return parent::convertToDatabaseValue($value, $platform);
-=======
-=======
-    use Doctrine\DBAL\Types\DateTimeType;
->>>>>>> donmanager
-
-    class UTCDateTimeType extends DateTimeType
-    {
-        static private $utc;
-
-        public function convertToDatabaseValue($value, AbstractPlatform $platform)
-        {
-            if ($value instanceof \DateTime) {
-                $value->setTimezone(self::getUtc());
-            }
-
-<<<<<<< HEAD
-
-            return $value->format($platform->getDateTimeFormatString(),
-                (self::$utc) ? self::$utc : (self::$utc = new \DateTimeZone('UTC'))
-            );
->>>>>>> contactmanager
-=======
-            return parent::convertToDatabaseValue($value, $platform);
->>>>>>> donmanager
         }
 
         public function convertToPHPValue($value, AbstractPlatform $platform)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             if (null === $value || $value instanceof \DateTime) {
                 return $value;
             }
@@ -167,43 +122,10 @@ the UTC time at the time of the booking and the timezone the event happened in.
             }
 
             return $converted;
-=======
-            if ($value === null) {
-                return null;
-=======
-            if (null === $value || $value instanceof \DateTime) {
-                return $value;
->>>>>>> donmanager
-            }
-
-            $converted = \DateTime::createFromFormat(
-                $platform->getDateTimeFormatString(),
-                $value,
-                self::$utc ? self::$utc : self::$utc = new \DateTimeZone('UTC')
-            );
-
-            if (! $converted) {
-                throw ConversionException::conversionFailedFormat(
-                    $value,
-                    $this->getName(),
-                    $platform->getDateTimeFormatString()
-                );
-            }
-<<<<<<< HEAD
-            return $val;
->>>>>>> contactmanager
-=======
-
-            return $converted;
->>>>>>> donmanager
         }
     }
 
 This database type makes sure that every DateTime instance is always saved in UTC, relative
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 to the current timezone that the passed DateTime instance has.
 
 To actually use this new type instead of the default ``datetime`` type, you need to run following
@@ -221,12 +143,6 @@ code before bootstrapping the ORM:
 
 
 To be able to transform these values
-<<<<<<< HEAD
-=======
-to the current timezone that the passed DateTime instance has. To be able to transform these values
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 back into their real timezone you have to save the timezone in a separate field of the entity
 requiring timezoned datetimes:
 

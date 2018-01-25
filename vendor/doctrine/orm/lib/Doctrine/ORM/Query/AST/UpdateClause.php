@@ -43,15 +43,7 @@ class UpdateClause extends Node
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public $updateItems = [];
-=======
-    public $updateItems = array();
->>>>>>> contactmanager
-=======
-    public $updateItems = [];
->>>>>>> donmanager
 
     /**
      * @param string $abstractSchemaName

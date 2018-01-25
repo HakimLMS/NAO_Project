@@ -33,52 +33,22 @@ final class SqlResultSetMapping implements Annotation
 {
     /**
      * The name given to the result set mapping, and used to refer to it in the methods of the Query API.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
-=======
-     * 
->>>>>>> contactmanager
-=======
-     *
->>>>>>> donmanager
      * @var string
      */
     public $name;
 
     /**
      * Specifies the result set mapping to entities.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * @var array<\Doctrine\ORM\Mapping\EntityResult>
      */
     public $entities = [];
-=======
-     * 
-     * @var array<\Doctrine\ORM\Mapping\EntityResult>
-     */
-    public $entities = array();
->>>>>>> contactmanager
-=======
-     *
-     * @var array<\Doctrine\ORM\Mapping\EntityResult>
-     */
-    public $entities = [];
->>>>>>> donmanager
 
     /**
      * Specifies the result set mapping to scalar values.
      *
      * @var array<\Doctrine\ORM\Mapping\ColumnResult>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public $columns = [];
-=======
-    public $columns = array();
->>>>>>> contactmanager
-=======
-    public $columns = [];
->>>>>>> donmanager
 }

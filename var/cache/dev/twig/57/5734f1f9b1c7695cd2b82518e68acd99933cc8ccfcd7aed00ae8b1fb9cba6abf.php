@@ -15,19 +15,11 @@ class __TwigTemplate_bf91a6ada6545d4e7793f372dcb73eea1890a469704bc34280ed460ced1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-<<<<<<< HEAD
-        $__internal_5da05b4de640eb3e39c9fad8b1f63ecfdd61de8d80209cda9fede4f63c6b3cf1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_5da05b4de640eb3e39c9fad8b1f63ecfdd61de8d80209cda9fede4f63c6b3cf1->enter($__internal_5da05b4de640eb3e39c9fad8b1f63ecfdd61de8d80209cda9fede4f63c6b3cf1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/form.svg"));
+        $__internal_d30f294213c5ce18ec890ffadfe06c3e33e6a7e2905f0ed900ceeac7cdb3713c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d30f294213c5ce18ec890ffadfe06c3e33e6a7e2905f0ed900ceeac7cdb3713c->enter($__internal_d30f294213c5ce18ec890ffadfe06c3e33e6a7e2905f0ed900ceeac7cdb3713c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/form.svg"));
 
-        $__internal_238504ef9a408714dd4dbffa3795726061f9c3f999ad7691f4b3f46ac5c09077 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_238504ef9a408714dd4dbffa3795726061f9c3f999ad7691f4b3f46ac5c09077->enter($__internal_238504ef9a408714dd4dbffa3795726061f9c3f999ad7691f4b3f46ac5c09077_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/form.svg"));
-=======
-        $__internal_92032b20c7ea8daed836f0659fb6510f3e9ab0b63b35eb54d3075a4c4398210d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_92032b20c7ea8daed836f0659fb6510f3e9ab0b63b35eb54d3075a4c4398210d->enter($__internal_92032b20c7ea8daed836f0659fb6510f3e9ab0b63b35eb54d3075a4c4398210d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/form.svg"));
-
-        $__internal_3b6d01df29e81368f4c1a1334712bfcf46d76adc9a77d43dae12df58b66c318f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3b6d01df29e81368f4c1a1334712bfcf46d76adc9a77d43dae12df58b66c318f->enter($__internal_3b6d01df29e81368f4c1a1334712bfcf46d76adc9a77d43dae12df58b66c318f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/form.svg"));
->>>>>>> donmanager
+        $__internal_242245d1941eb677b6a327b9d5bc26db47a1d9ebca54d66a3d0adf7602578ac3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_242245d1941eb677b6a327b9d5bc26db47a1d9ebca54d66a3d0adf7602578ac3->enter($__internal_242245d1941eb677b6a327b9d5bc26db47a1d9ebca54d66a3d0adf7602578ac3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Icon/form.svg"));
 
         // line 1
         echo "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" enable-background=\"new 0 0 24 24\" xml:space=\"preserve\">
@@ -38,17 +30,10 @@ class __TwigTemplate_bf91a6ada6545d4e7793f372dcb73eea1890a469704bc34280ed460ced1
 </svg>
 ";
         
-<<<<<<< HEAD
-        $__internal_5da05b4de640eb3e39c9fad8b1f63ecfdd61de8d80209cda9fede4f63c6b3cf1->leave($__internal_5da05b4de640eb3e39c9fad8b1f63ecfdd61de8d80209cda9fede4f63c6b3cf1_prof);
+        $__internal_d30f294213c5ce18ec890ffadfe06c3e33e6a7e2905f0ed900ceeac7cdb3713c->leave($__internal_d30f294213c5ce18ec890ffadfe06c3e33e6a7e2905f0ed900ceeac7cdb3713c_prof);
 
         
-        $__internal_238504ef9a408714dd4dbffa3795726061f9c3f999ad7691f4b3f46ac5c09077->leave($__internal_238504ef9a408714dd4dbffa3795726061f9c3f999ad7691f4b3f46ac5c09077_prof);
-=======
-        $__internal_92032b20c7ea8daed836f0659fb6510f3e9ab0b63b35eb54d3075a4c4398210d->leave($__internal_92032b20c7ea8daed836f0659fb6510f3e9ab0b63b35eb54d3075a4c4398210d_prof);
-
-        
-        $__internal_3b6d01df29e81368f4c1a1334712bfcf46d76adc9a77d43dae12df58b66c318f->leave($__internal_3b6d01df29e81368f4c1a1334712bfcf46d76adc9a77d43dae12df58b66c318f_prof);
->>>>>>> donmanager
+        $__internal_242245d1941eb677b6a327b9d5bc26db47a1d9ebca54d66a3d0adf7602578ac3->leave($__internal_242245d1941eb677b6a327b9d5bc26db47a1d9ebca54d66a3d0adf7602578ac3_prof);
 
     }
 
@@ -70,10 +55,6 @@ class __TwigTemplate_bf91a6ada6545d4e7793f372dcb73eea1890a469704bc34280ed460ced1
     V20z M17,11c0,0.6-0.4,1-1,1H8c-0.6,0-1-0.4-1-1s0.4-1,1-1h8C16.6,10,17,10.4,17,11z M17,14c0,0.6-0.4,1-1,1H8c-0.6,0-1-0.4-1-1
     s0.4-1,1-1h8C16.6,13,17,13.4,17,14z M13,17c0,0.6-0.4,1-1,1H8c-0.6,0-1-0.4-1-1s0.4-1,1-1h4C12.6,16,13,16.4,13,17z\"/>
 </svg>
-<<<<<<< HEAD
 ", "@WebProfiler/Icon/form.svg", "E:\\wamp64\\www\\NAO_project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\form.svg");
-=======
-", "@WebProfiler/Icon/form.svg", "C:\\wamp64\\www\\NAO_Project\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\form.svg");
->>>>>>> donmanager
     }
 }

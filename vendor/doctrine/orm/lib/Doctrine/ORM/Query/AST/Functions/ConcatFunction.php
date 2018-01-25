@@ -35,8 +35,6 @@ use Doctrine\ORM\Query\Lexer;
 class ConcatFunction extends FunctionNode
 {
     public $firstStringPrimary;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     public $secondStringPrimary;
 
@@ -45,28 +43,10 @@ class ConcatFunction extends FunctionNode
     /**
      * @override
      * @inheritdoc
-=======
-    
-=======
-
->>>>>>> donmanager
-    public $secondStringPrimary;
-
-    public $concatExpressions = [];
-
-    /**
-     * @override
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-     * @inheritdoc
->>>>>>> donmanager
      */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
         $platform = $sqlWalker->getConnection()->getDatabasePlatform();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         $args = [];
 
@@ -75,45 +55,16 @@ class ConcatFunction extends FunctionNode
         }
 
         return call_user_func_array([$platform,'getConcatExpression'], $args);
-=======
-        
-        $args = array();
-        
-        foreach ($this->concatExpressions as $expression) {
-            $args[] = $sqlWalker->walkStringPrimary($expression);
-        }
-        
-        return call_user_func_array(array($platform,'getConcatExpression'), $args);
->>>>>>> contactmanager
-=======
-
-        $args = [];
-
-        foreach ($this->concatExpressions as $expression) {
-            $args[] = $sqlWalker->walkStringPrimary($expression);
-        }
-
-        return call_user_func_array([$platform,'getConcatExpression'], $args);
->>>>>>> donmanager
     }
 
     /**
      * @override
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @inheritdoc
-=======
->>>>>>> contactmanager
-=======
-     * @inheritdoc
->>>>>>> donmanager
      */
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {
         $parser->match(Lexer::T_IDENTIFIER);
         $parser->match(Lexer::T_OPEN_PARENTHESIS);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         $this->firstStringPrimary = $parser->StringPrimary();
         $this->concatExpressions[] = $this->firstStringPrimary;
@@ -126,28 +77,6 @@ class ConcatFunction extends FunctionNode
         while ($parser->getLexer()->isNextToken(Lexer::T_COMMA)) {
             $parser->match(Lexer::T_COMMA);
             $this->concatExpressions[] = $parser->StringPrimary();
-=======
-        
-=======
-
->>>>>>> donmanager
-        $this->firstStringPrimary = $parser->StringPrimary();
-        $this->concatExpressions[] = $this->firstStringPrimary;
-
-        $parser->match(Lexer::T_COMMA);
-
-        $this->secondStringPrimary = $parser->StringPrimary();
-        $this->concatExpressions[] = $this->secondStringPrimary;
-
-        while ($parser->getLexer()->isNextToken(Lexer::T_COMMA)) {
-<<<<<<< HEAD
- 		    $parser->match(Lexer::T_COMMA);
-	        $this->concatExpressions[] = $parser->StringPrimary();
->>>>>>> contactmanager
-=======
-            $parser->match(Lexer::T_COMMA);
-            $this->concatExpressions[] = $parser->StringPrimary();
->>>>>>> donmanager
         }
 
         $parser->match(Lexer::T_CLOSE_PARENTHESIS);

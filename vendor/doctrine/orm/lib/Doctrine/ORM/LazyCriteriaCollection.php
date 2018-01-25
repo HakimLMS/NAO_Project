@@ -83,10 +83,6 @@ class LazyCriteriaCollection extends AbstractLazyCollection implements Selectabl
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
      * check if collection is empty without loading it
      *
      * @return boolean TRUE if the collection is empty, FALSE otherwise.
@@ -101,22 +97,10 @@ class LazyCriteriaCollection extends AbstractLazyCollection implements Selectabl
     }
 
     /**
-<<<<<<< HEAD
      * Do an optimized search of an element
      *
      * @param object $element
      *
-=======
-     * Do an optimized search of an element
-     *
-     * @param  object $element
->>>>>>> contactmanager
-=======
-     * Do an optimized search of an element
-     *
-     * @param object $element
-     *
->>>>>>> donmanager
      * @return bool
      */
     public function contains($element)

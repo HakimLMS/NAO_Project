@@ -78,23 +78,10 @@ class DebugUnitOfWorkListener
         $uow = $em->getUnitOfWork();
         $identityMap = $uow->getIdentityMap();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $fh = fopen($this->file, 'xb+');
         if (count($identityMap) == 0) {
             fwrite($fh, "Flush Operation [".$this->context."] - Empty identity map.\n");
 
-=======
-        $fh = fopen($this->file, "x+");
-        if (count($identityMap) == 0) {
-            fwrite($fh, "Flush Operation [".$this->context."] - Empty identity map.\n");
->>>>>>> contactmanager
-=======
-        $fh = fopen($this->file, 'xb+');
-        if (count($identityMap) == 0) {
-            fwrite($fh, "Flush Operation [".$this->context."] - Empty identity map.\n");
-
->>>>>>> donmanager
             return;
         }
 
@@ -156,15 +143,7 @@ class DebugUnitOfWorkListener
         if (is_object($var)) {
             $refl = new \ReflectionObject($var);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             return $refl->getShortName();
-=======
-            return $refl->getShortname();
->>>>>>> contactmanager
-=======
-            return $refl->getShortName();
->>>>>>> donmanager
         }
 
         return gettype($var);
@@ -197,15 +176,7 @@ class DebugUnitOfWorkListener
             $idstring .= " [REMOVED]";
         } elseif ($state == UnitOfWork::STATE_MANAGED) {
             $idstring .= " [MANAGED]";
-<<<<<<< HEAD
-<<<<<<< HEAD
         } elseif ($state == UnitOfWork::STATE_DETACHED) {
-=======
-        } elseif ($state == UnitOfwork::STATE_DETACHED) {
->>>>>>> contactmanager
-=======
-        } elseif ($state == UnitOfWork::STATE_DETACHED) {
->>>>>>> donmanager
             $idstring .= " [DETACHED]";
         }
 

@@ -19,30 +19,13 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\ClearCache;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\Common\Cache\ApcCache;
 use Doctrine\Common\Cache\XcacheCache;
-=======
->>>>>>> contactmanager
-=======
-use Doctrine\Common\Cache\ApcCache;
-use Doctrine\Common\Cache\XcacheCache;
->>>>>>> donmanager
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Symfony\Component\Console\Style\SymfonyStyle;
-=======
-use Doctrine\Common\Cache\ApcCache;
-use Doctrine\Common\Cache\XcacheCache;
->>>>>>> contactmanager
-=======
-use Symfony\Component\Console\Style\SymfonyStyle;
->>>>>>> donmanager
 
 /**
  * Command to clear the result cache of the various cache drivers.
@@ -61,30 +44,10 @@ class ResultCommand extends Command
      */
     protected function configure()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $this->setName('orm:clear-cache:result')
              ->setDescription('Clear all result cache of the various cache drivers')
              ->addOption('flush', null, InputOption::VALUE_NONE, 'If defined, cache entries will be flushed instead of deleted/invalidated.')
              ->setHelp(<<<EOT
-<<<<<<< HEAD
-=======
-        $this
-        ->setName('orm:clear-cache:result')
-        ->setDescription('Clear all result cache of the various cache drivers.')
-        ->setDefinition(array(
-            new InputOption(
-                'flush', null, InputOption::VALUE_NONE,
-                'If defined, cache entries will be flushed instead of deleted/invalidated.'
-            )
-        ));
-
-        $this->setHelp(<<<EOT
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 The <info>%command.name%</info> command is meant to clear the result cache of associated Entity Manager.
 It is possible to invalidate all cache entries at once - called delete -, or flushes the cache provider
 instance completely.
@@ -101,15 +64,7 @@ Alternatively, if you want to flush the cache provider using this command:
 Finally, be aware that if <info>--flush</info> option is passed, not all cache providers are able to flush entries,
 because of a limitation of its execution nature.
 EOT
-<<<<<<< HEAD
-<<<<<<< HEAD
              );
-=======
-        );
->>>>>>> contactmanager
-=======
-             );
->>>>>>> donmanager
     }
 
     /**
@@ -117,16 +72,8 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
-=======
->>>>>>> contactmanager
-=======
-        $ui = new SymfonyStyle($input, $output);
-
->>>>>>> donmanager
         $em = $this->getHelper('em')->getEntityManager();
         $cacheDriver = $em->getConfiguration()->getResultCacheImpl();
 
@@ -141,18 +88,8 @@ EOT
         if ($cacheDriver instanceof XcacheCache) {
             throw new \LogicException("Cannot clear XCache Cache from Console, its shared in the Webserver memory and not accessible from the CLI.");
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         $ui->comment('Clearing <info>all</info> Result cache entries');
-=======
-        
-        $output->writeln('Clearing ALL Result cache entries');
->>>>>>> contactmanager
-=======
-
-        $ui->comment('Clearing <info>all</info> Result cache entries');
->>>>>>> donmanager
 
         $result  = $cacheDriver->deleteAll();
         $message = ($result) ? 'Successfully deleted cache entries.' : 'No cache entries were deleted.';
@@ -162,10 +99,6 @@ EOT
             $message = ($result) ? 'Successfully flushed cache entries.' : $message;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         if ( ! $result) {
             $ui->error($message);
 
@@ -175,11 +108,5 @@ EOT
         $ui->success($message);
 
         return 0;
-<<<<<<< HEAD
-=======
-        $output->writeln($message);
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 }

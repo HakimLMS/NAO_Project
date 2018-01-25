@@ -478,10 +478,6 @@ class UrlGeneratorTest extends TestCase
         $this->assertSame('//EN.FooBar.com/app.php/', $generator->generate('test', array('locale' => 'EN'), UrlGeneratorInterface::NETWORK_PATH));
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
     public function testDefaultHostIsUsedWhenContextHostIsEmpty()
     {
         $routes = $this->getRoutes('test', new Route('/route', array('domain' => 'my.fallback.host'), array('domain' => '.+'), array(), '{domain}', array('http')));
@@ -514,11 +510,6 @@ class UrlGeneratorTest extends TestCase
         $this->assertSame('/app.php/route', $generator->generate('test', array(), UrlGeneratorInterface::ABSOLUTE_URL));
     }
 
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     public function testGenerateNetworkPath()
     {
         $routes = $this->getRoutes('test', new Route('/{name}', array(), array(), array(), '{locale}.example.com', array('http')));

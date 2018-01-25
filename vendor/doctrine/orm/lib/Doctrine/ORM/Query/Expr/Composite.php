@@ -39,15 +39,7 @@ class Composite extends Base
             return (string) $this->parts[0];
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $components = [];
-=======
-        $components = array();
->>>>>>> contactmanager
-=======
-        $components = [];
->>>>>>> donmanager
 
         foreach ($this->parts as $part) {
             $components[] = $this->processQueryPart($part);

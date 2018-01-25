@@ -1519,15 +1519,7 @@ class FilesystemTest extends FilesystemTestCase
 
         // skip mode check on Windows
         if ('\\' !== DIRECTORY_SEPARATOR) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $this->assertFilePermissions(664, $filename);
-=======
-            $this->assertFilePermissions(664, $filename, 'The written file should keep the same permissions as before.');
->>>>>>> contactmanager
-=======
-            $this->assertFilePermissions(664, $filename);
->>>>>>> donmanager
             umask($oldMask);
         }
     }

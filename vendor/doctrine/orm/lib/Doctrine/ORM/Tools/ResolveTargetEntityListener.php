@@ -39,39 +39,17 @@ class ResolveTargetEntityListener implements EventSubscriber
     /**
      * @var array[] indexed by original entity name
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $resolveTargetEntities = [];
-=======
-    private $resolveTargetEntities = array();
->>>>>>> contactmanager
-=======
-    private $resolveTargetEntities = [];
->>>>>>> donmanager
 
     /**
      * {@inheritDoc}
      */
     public function getSubscribedEvents()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return [
             Events::loadClassMetadata,
             Events::onClassMetadataNotFound
         ];
-=======
-        return array(
-            Events::loadClassMetadata,
-            Events::onClassMetadataNotFound
-        );
->>>>>>> contactmanager
-=======
-        return [
-            Events::loadClassMetadata,
-            Events::onClassMetadataNotFound
-        ];
->>>>>>> donmanager
     }
 
     /**
@@ -102,15 +80,7 @@ class ResolveTargetEntityListener implements EventSubscriber
             $args->setFoundMetadata(
                 $args
                     ->getObjectManager()
-<<<<<<< HEAD
-<<<<<<< HEAD
                     ->getClassMetadata($this->resolveTargetEntities[$args->getClassName()]['targetEntity'])
-=======
-                    ->getClassMetadata($this->resolveTargetEntities[$args->getClassname()]['targetEntity'])
->>>>>>> contactmanager
-=======
-                    ->getClassMetadata($this->resolveTargetEntities[$args->getClassName()]['targetEntity'])
->>>>>>> donmanager
             );
         }
     }

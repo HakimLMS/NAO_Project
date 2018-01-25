@@ -19,27 +19,11 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\SchemaTool;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-=======
-use Symfony\Component\Console\Input\InputOption;
-=======
-use Doctrine\ORM\Tools\SchemaTool;
->>>>>>> donmanager
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-<<<<<<< HEAD
-use Doctrine\ORM\Tools\SchemaTool;
->>>>>>> contactmanager
-=======
-use Symfony\Component\Console\Style\SymfonyStyle;
->>>>>>> donmanager
 
 /**
  * Command to generate the SQL needed to update the database schema to match
@@ -65,43 +49,12 @@ class UpdateCommand extends AbstractCommand
      */
     protected function configure()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $this->setName($this->name)
              ->setDescription('Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata')
              ->addOption('complete', null, InputOption::VALUE_NONE, 'If defined, all assets of the database which are not relevant to the current metadata will be dropped.')
              ->addOption('dump-sql', null, InputOption::VALUE_NONE, 'Dumps the generated SQL statements to the screen (does not execute them).')
              ->addOption('force', 'f', InputOption::VALUE_NONE, 'Causes the generated SQL statements to be physically executed against your database.')
              ->setHelp(<<<EOT
-<<<<<<< HEAD
-=======
-        $this
-        ->setName($this->name)
-        ->setDescription(
-            'Executes (or dumps) the SQL needed to update the database schema to match the current mapping metadata.'
-        )
-        ->setDefinition(array(
-            new InputOption(
-                'complete', null, InputOption::VALUE_NONE,
-                'If defined, all assets of the database which are not relevant to the current metadata will be dropped.'
-            ),
-
-            new InputOption(
-                'dump-sql', null, InputOption::VALUE_NONE,
-                'Dumps the generated SQL statements to the screen (does not execute them).'
-            ),
-            new InputOption(
-                'force', 'f', InputOption::VALUE_NONE,
-                'Causes the generated SQL statements to be physically executed against your database.'
-            ),
-        ));
-
-        $this->setHelp(<<<EOT
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 The <info>%command.name%</info> command generates the SQL needed to
 synchronize the database schema with the current mapping metadata of the
 default entity manager.
@@ -131,47 +84,21 @@ on a global level:
 
     \$config->setFilterSchemaAssetsExpression(\$regexp);
 EOT
-<<<<<<< HEAD
-<<<<<<< HEAD
              );
-=======
-        );
->>>>>>> contactmanager
-=======
-             );
->>>>>>> donmanager
     }
 
     /**
      * {@inheritdoc}
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas, SymfonyStyle $ui)
-=======
-    protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas)
->>>>>>> contactmanager
-=======
-    protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas, SymfonyStyle $ui)
->>>>>>> donmanager
     {
         // Defining if update is complete or not (--complete not defined means $saveMode = true)
         $saveMode = ! $input->getOption('complete');
 
         $sqls = $schemaTool->getUpdateSchemaSql($metadatas, $saveMode);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (empty($sqls)) {
             $ui->success('Nothing to update - your database is already in sync with the current entity metadata.');
-=======
-        if (0 === count($sqls)) {
-            $output->writeln('Nothing to update - your database is already in sync with the current entity metadata.');
->>>>>>> contactmanager
-=======
-        if (empty($sqls)) {
-            $ui->success('Nothing to update - your database is already in sync with the current entity metadata.');
->>>>>>> donmanager
 
             return 0;
         }
@@ -180,17 +107,12 @@ EOT
         $force   = true === $input->getOption('force');
 
         if ($dumpSql) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             $ui->text('The following SQL statements will be executed:');
             $ui->newLine();
 
             foreach ($sqls as $sql) {
                 $ui->text(sprintf('    %s;', $sql));
             }
-<<<<<<< HEAD
         }
 
         if ($force) {
@@ -200,52 +122,18 @@ EOT
             $ui->text('Updating database schema...');
             $ui->newLine();
 
-=======
-            $output->writeln(implode(';' . PHP_EOL, $sqls) . ';');
-        }
-
-        if ($force) {
-        	if ($dumpSql) {
-                $output->writeln('');
-        	}
-            $output->writeln('Updating database schema...');
->>>>>>> contactmanager
-=======
-        }
-
-        if ($force) {
-            if ($dumpSql) {
-                $ui->newLine();
-            }
-            $ui->text('Updating database schema...');
-            $ui->newLine();
-
->>>>>>> donmanager
             $schemaTool->updateSchema($metadatas, $saveMode);
 
             $pluralization = (1 === count($sqls)) ? 'query was' : 'queries were';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $ui->text(sprintf('    <info>%s</info> %s executed', count($sqls), $pluralization));
             $ui->success('Database schema updated successfully!');
-=======
-            $output->writeln(sprintf('Database schema updated successfully! "<info>%s</info>" %s executed', count($sqls), $pluralization));
->>>>>>> contactmanager
-=======
-            $ui->text(sprintf('    <info>%s</info> %s executed', count($sqls), $pluralization));
-            $ui->success('Database schema updated successfully!');
->>>>>>> donmanager
         }
 
         if ($dumpSql || $force) {
             return 0;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $ui->caution(
             [
                 'This operation should not be executed in a production environment!',
@@ -254,7 +142,6 @@ EOT
                 'the SQL DDL provided to manually update your database in production.',
             ]
         );
-<<<<<<< HEAD
 
         $ui->text(
             [
@@ -266,31 +153,6 @@ EOT
                 sprintf('    <info>%s --dump-sql</info> to dump the SQL statements to the screen', $this->getName()),
             ]
         );
-=======
-        $output->writeln('<comment>ATTENTION</comment>: This operation should not be executed in a production environment.');
-        $output->writeln('           Use the incremental update to detect changes during development and use');
-        $output->writeln('           the SQL DDL provided to manually update your database in production.');
-        $output->writeln('');
-
-        $output->writeln(sprintf('The Schema-Tool would execute <info>"%s"</info> queries to update the database.', count($sqls)));
-        $output->writeln('Please run the operation by passing one - or both - of the following options:');
-
-        $output->writeln(sprintf('    <info>%s --force</info> to execute the command', $this->getName()));
-        $output->writeln(sprintf('    <info>%s --dump-sql</info> to dump the SQL statements to the screen', $this->getName()));
->>>>>>> contactmanager
-=======
-
-        $ui->text(
-            [
-                sprintf('The Schema-Tool would execute <info>"%s"</info> queries to update the database.', count($sqls)),
-                '',
-                'Please run the operation by passing one - or both - of the following options:',
-                '',
-                sprintf('    <info>%s --force</info> to execute the command', $this->getName()),
-                sprintf('    <info>%s --dump-sql</info> to dump the SQL statements to the screen', $this->getName()),
-            ]
-        );
->>>>>>> donmanager
 
         return 1;
     }

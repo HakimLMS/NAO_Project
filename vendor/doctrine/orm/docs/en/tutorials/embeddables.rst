@@ -1,8 +1,6 @@
 Separating Concerns using Embeddables
 -------------------------------------
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Embeddables are classes which are not entities themselves, but are embedded
 in entities and can also be queried in DQL. You'll mostly want to use them
 to reduce duplication or separating concerns. Value objects such as date range
@@ -11,23 +9,6 @@ or address are the primary use case for this feature.
 .. note::
 
     Embeddables can only contain properties with basic ``@Column`` mapping.
-=======
-Embeddables are classes which are not entities themself, but are embedded
-in entities and can also be queried in DQL. You'll mostly want to use them
-to reduce duplication or separating concerns. Value objects such as date range
-or address are the primary use case for this feature. Embeddables can only
-contain properties with basic ``@Column`` mapping.
->>>>>>> contactmanager
-=======
-Embeddables are classes which are not entities themselves, but are embedded
-in entities and can also be queried in DQL. You'll mostly want to use them
-to reduce duplication or separating concerns. Value objects such as date range
-or address are the primary use case for this feature. 
-
-.. note::
-
-    Embeddables can only contain properties with basic ``@Column`` mapping.
->>>>>>> donmanager
 
 For the purposes of this tutorial, we will assume that you have a ``User``
 class in your application and you would like to store an address in
@@ -98,10 +79,6 @@ In terms of your database schema, Doctrine will automatically inline all
 columns from the ``Address`` class into the table of the ``User`` class,
 just as if you had declared them directly there.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 Initializing embeddables
 ------------------------
 
@@ -116,11 +93,6 @@ the embedded object.
         $this->address = new Address();
     }
 
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 Column Prefixing
 ----------------
 

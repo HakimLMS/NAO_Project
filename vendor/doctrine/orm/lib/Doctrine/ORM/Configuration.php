@@ -25,25 +25,11 @@ use Doctrine\Common\Annotations\CachedReader;
 use Doctrine\Common\Annotations\SimpleAnnotationReader;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache\Cache as CacheDriver;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\Common\Persistence\Mapping\Driver\MappingDriver;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\Common\Proxy\AbstractProxyFactory;
 use Doctrine\ORM\Cache\CacheConfiguration;
 use Doctrine\ORM\Mapping\ClassMetadataFactory;
-=======
-use Doctrine\Common\Proxy\AbstractProxyFactory;
-use Doctrine\ORM\Cache\CacheConfiguration;
-use Doctrine\Common\Persistence\Mapping\Driver\MappingDriver;
->>>>>>> contactmanager
-=======
-use Doctrine\Common\Persistence\Mapping\Driver\MappingDriver;
-use Doctrine\Common\Persistence\ObjectRepository;
-use Doctrine\Common\Proxy\AbstractProxyFactory;
-use Doctrine\ORM\Cache\CacheConfiguration;
-use Doctrine\ORM\Mapping\ClassMetadataFactory;
->>>>>>> donmanager
 use Doctrine\ORM\Mapping\DefaultEntityListenerResolver;
 use Doctrine\ORM\Mapping\DefaultNamingStrategy;
 use Doctrine\ORM\Mapping\DefaultQuoteStrategy;
@@ -114,15 +100,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      */
     public function setAutoGenerateProxyClasses($autoGenerate)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->_attributes['autoGenerateProxyClasses'] = (int) $autoGenerate;
-=======
-        $this->_attributes['autoGenerateProxyClasses'] = (int)$autoGenerate;
->>>>>>> contactmanager
-=======
-        $this->_attributes['autoGenerateProxyClasses'] = (int) $autoGenerate;
->>>>>>> donmanager
     }
 
     /**
@@ -173,15 +151,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      *
      * @return AnnotationDriver
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function newDefaultAnnotationDriver($paths = [], $useSimpleAnnotationReader = true)
-=======
-    public function newDefaultAnnotationDriver($paths = array(), $useSimpleAnnotationReader = true)
->>>>>>> contactmanager
-=======
-    public function newDefaultAnnotationDriver($paths = [], $useSimpleAnnotationReader = true)
->>>>>>> donmanager
     {
         AnnotationRegistry::registerFile(__DIR__ . '/Mapping/Driver/DoctrineAnnotations.php');
 
@@ -381,15 +351,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      */
     public function addNamedNativeQuery($name, $sql, Query\ResultSetMapping $rsm)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->_attributes['namedNativeQueries'][$name] = [$sql, $rsm];
-=======
-        $this->_attributes['namedNativeQueries'][$name] = array($sql, $rsm);
->>>>>>> contactmanager
-=======
-        $this->_attributes['namedNativeQueries'][$name] = [$sql, $rsm];
->>>>>>> donmanager
     }
 
     /**
@@ -458,27 +420,9 @@ class Configuration extends \Doctrine\DBAL\Configuration
      * @param string|callable $className Class name or a callable that returns the function.
      *
      * @return void
-<<<<<<< HEAD
-<<<<<<< HEAD
      */
     public function addCustomStringFunction($name, $className)
     {
-=======
-     *
-     * @throws ORMException
-     */
-    public function addCustomStringFunction($name, $className)
-    {
-        if (Query\Parser::isInternalFunction($name)) {
-            throw ORMException::overwriteInternalDQLFunctionNotAllowed($name);
-        }
-
->>>>>>> contactmanager
-=======
-     */
-    public function addCustomStringFunction($name, $className)
-    {
->>>>>>> donmanager
         $this->_attributes['customStringFunctions'][strtolower($name)] = $className;
     }
 
@@ -528,27 +472,9 @@ class Configuration extends \Doctrine\DBAL\Configuration
      * @param string|callable $className Class name or a callable that returns the function.
      *
      * @return void
-<<<<<<< HEAD
-<<<<<<< HEAD
      */
     public function addCustomNumericFunction($name, $className)
     {
-=======
-     *
-     * @throws ORMException
-     */
-    public function addCustomNumericFunction($name, $className)
-    {
-        if (Query\Parser::isInternalFunction($name)) {
-            throw ORMException::overwriteInternalDQLFunctionNotAllowed($name);
-        }
-
->>>>>>> contactmanager
-=======
-     */
-    public function addCustomNumericFunction($name, $className)
-    {
->>>>>>> donmanager
         $this->_attributes['customNumericFunctions'][strtolower($name)] = $className;
     }
 
@@ -598,27 +524,9 @@ class Configuration extends \Doctrine\DBAL\Configuration
      * @param string|callable $className Class name or a callable that returns the function.
      *
      * @return void
-<<<<<<< HEAD
-<<<<<<< HEAD
      */
     public function addCustomDatetimeFunction($name, $className)
     {
-=======
-     *
-     * @throws ORMException
-     */
-    public function addCustomDatetimeFunction($name, $className)
-    {
-        if (Query\Parser::isInternalFunction($name)) {
-            throw ORMException::overwriteInternalDQLFunctionNotAllowed($name);
-        }
-
->>>>>>> contactmanager
-=======
-     */
-    public function addCustomDatetimeFunction($name, $className)
-    {
->>>>>>> donmanager
         $this->_attributes['customDatetimeFunctions'][strtolower($name)] = $className;
     }
 
@@ -666,15 +574,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      */
     public function setCustomHydrationModes($modes)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->_attributes['customHydrationModes'] = [];
-=======
-        $this->_attributes['customHydrationModes'] = array();
->>>>>>> contactmanager
-=======
-        $this->_attributes['customHydrationModes'] = [];
->>>>>>> donmanager
 
         foreach ($modes as $modeName => $hydrator) {
             $this->addCustomHydrationMode($modeName, $hydrator);
@@ -726,15 +626,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
     public function getClassMetadataFactoryName()
     {
         if ( ! isset($this->_attributes['classMetadataFactoryName'])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $this->_attributes['classMetadataFactoryName'] = ClassMetadataFactory::class;
-=======
-            $this->_attributes['classMetadataFactoryName'] = 'Doctrine\ORM\Mapping\ClassMetadataFactory';
->>>>>>> contactmanager
-=======
-            $this->_attributes['classMetadataFactoryName'] = ClassMetadataFactory::class;
->>>>>>> donmanager
         }
 
         return $this->_attributes['classMetadataFactoryName'];
@@ -756,15 +648,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      *
      * @param string $name The name of the filter.
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return string The class name of the filter, or null if it is not
-=======
-     * @return string The class name of the filter, or null of it is not
->>>>>>> contactmanager
-=======
-     * @return string The class name of the filter, or null if it is not
->>>>>>> donmanager
      *  defined.
      */
     public function getFilterClassName($name)
@@ -789,15 +673,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
     {
         $reflectionClass = new \ReflectionClass($className);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ( ! $reflectionClass->implementsInterface(ObjectRepository::class)) {
-=======
-        if ( ! $reflectionClass->implementsInterface('Doctrine\Common\Persistence\ObjectRepository')) {
->>>>>>> contactmanager
-=======
-        if ( ! $reflectionClass->implementsInterface(ObjectRepository::class)) {
->>>>>>> donmanager
             throw ORMException::invalidEntityRepository($className);
         }
 
@@ -815,15 +691,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
     {
         return isset($this->_attributes['defaultRepositoryClassName'])
             ? $this->_attributes['defaultRepositoryClassName']
-<<<<<<< HEAD
-<<<<<<< HEAD
             : EntityRepository::class;
-=======
-            : 'Doctrine\ORM\EntityRepository';
->>>>>>> contactmanager
-=======
-            : EntityRepository::class;
->>>>>>> donmanager
     }
 
     /**
@@ -997,15 +865,7 @@ class Configuration extends \Doctrine\DBAL\Configuration
      */
     public function getDefaultQueryHints()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         return isset($this->_attributes['defaultQueryHints']) ? $this->_attributes['defaultQueryHints'] : [];
-=======
-        return isset($this->_attributes['defaultQueryHints']) ? $this->_attributes['defaultQueryHints'] : array();
->>>>>>> contactmanager
-=======
-        return isset($this->_attributes['defaultQueryHints']) ? $this->_attributes['defaultQueryHints'] : [];
->>>>>>> donmanager
     }
 
     /**

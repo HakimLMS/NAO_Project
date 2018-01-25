@@ -79,10 +79,6 @@ Or if you prefer YAML:
     $config = Setup::createYAMLMetadataConfiguration($paths, $isDevMode);
     $entityManager = EntityManager::create($dbParams, $config);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 .. note::
     If you want to use yml mapping you should add yaml dependency to your `composer.json`:
     
@@ -90,11 +86,6 @@ Or if you prefer YAML:
     
         "symfony/yaml": "*"
 
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 Inside the ``Setup`` methods several assumptions are made:
 
 -  If `$isDevMode` is true caching is done in memory with the ``ArrayCache``. Proxy objects are recreated on every request.

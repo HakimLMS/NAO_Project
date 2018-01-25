@@ -37,15 +37,5 @@ final class EntityListeners implements Annotation
      *
      * @var array<string>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public $value = [];
 }
-=======
-    public $value = array();
-}
->>>>>>> contactmanager
-=======
-    public $value = [];
-}
->>>>>>> donmanager

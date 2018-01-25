@@ -13,15 +13,7 @@
         {"name": "Johannes Schmitt", "email": "schmittjoh@gmail.com"}
     ],
     "require": {
-<<<<<<< HEAD
-<<<<<<< HEAD
         "php": "^7.1"
-=======
-        "php": "^7.0"
->>>>>>> contactmanager
-=======
-        "php": "^7.1"
->>>>>>> donmanager
     },
     "require-dev": {
         "phpunit/phpunit": "^6.2"
@@ -30,27 +22,11 @@
         "psr-4": { "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector" }
     },
     "autoload-dev": {
-<<<<<<< HEAD
-<<<<<<< HEAD
         "psr-4": { "Doctrine\\Tests\\Common\\Inflector\\": "tests/Doctrine/Tests/Common/Inflector" }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.3.x-dev"
-=======
-        "psr-4": { "Doctrine\\Tests\\Common\\Inflector\\": "tests/Doctrine/Common/Inflector" }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.2.x-dev"
->>>>>>> contactmanager
-=======
-        "psr-4": { "Doctrine\\Tests\\Common\\Inflector\\": "tests/Doctrine/Tests/Common/Inflector" }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.3.x-dev"
->>>>>>> donmanager
         }
     }
 }

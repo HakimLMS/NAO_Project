@@ -51,15 +51,7 @@ class ParserResult
      *
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $_parameterMappings = [];
-=======
-    private $_parameterMappings = array();
->>>>>>> contactmanager
-=======
-    private $_parameterMappings = [];
->>>>>>> donmanager
 
     /**
      * Initializes a new instance of the <tt>ParserResult</tt> class.

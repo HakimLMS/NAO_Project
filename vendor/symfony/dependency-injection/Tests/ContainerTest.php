@@ -412,14 +412,7 @@ class ProjectServiceContainer extends Container
     public $__foo_bar;
     public $__foo_baz;
     public $__internal;
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected $privates;
-=======
->>>>>>> contactmanager
-=======
-    protected $privates;
->>>>>>> donmanager
     protected $methodMap = array(
         'bar' => 'getBarService',
         'foo_bar' => 'getFooBarService',

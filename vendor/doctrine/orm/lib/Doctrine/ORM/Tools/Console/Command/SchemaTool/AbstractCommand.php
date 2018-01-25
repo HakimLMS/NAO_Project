@@ -19,26 +19,11 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\SchemaTool;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-=======
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Command\Command;
-use Doctrine\ORM\Tools\SchemaTool;
->>>>>>> contactmanager
-=======
-use Doctrine\ORM\Tools\SchemaTool;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
->>>>>>> donmanager
 
 /**
  * Base class for CreateCommand, DropCommand and UpdateCommand.
@@ -60,31 +45,15 @@ abstract class AbstractCommand extends Command
      *
      * @return null|int Null or 0 if everything went fine, or an error code.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     abstract protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas, SymfonyStyle $ui);
-=======
-    abstract protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas);
->>>>>>> contactmanager
-=======
-    abstract protected function executeSchemaCommand(InputInterface $input, OutputInterface $output, SchemaTool $schemaTool, array $metadatas, SymfonyStyle $ui);
->>>>>>> donmanager
 
     /**
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
-=======
->>>>>>> contactmanager
-=======
-        $ui = new SymfonyStyle($input, $output);
-
->>>>>>> donmanager
         $emHelper = $this->getHelper('em');
 
         /* @var $em \Doctrine\ORM\EntityManager */
@@ -92,8 +61,6 @@ abstract class AbstractCommand extends Command
 
         $metadatas = $em->getMetadataFactory()->getAllMetadata();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (empty($metadatas)) {
             $ui->success('No Metadata Classes to process.');
 
@@ -101,22 +68,5 @@ abstract class AbstractCommand extends Command
         }
 
         return $this->executeSchemaCommand($input, $output, new SchemaTool($em), $metadatas, $ui);
-=======
-        if ( ! empty($metadatas)) {
-            // Create SchemaTool
-            $tool = new SchemaTool($em);
-=======
-        if (empty($metadatas)) {
-            $ui->success('No Metadata Classes to process.');
->>>>>>> donmanager
-
-            return 0;
-        }
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-
-        return $this->executeSchemaCommand($input, $output, new SchemaTool($em), $metadatas, $ui);
->>>>>>> donmanager
     }
 }

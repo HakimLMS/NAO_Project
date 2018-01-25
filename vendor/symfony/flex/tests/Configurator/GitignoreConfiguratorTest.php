@@ -60,45 +60,20 @@ EOF;
 EOF;
 
         $configurator->configure($recipe1, $vars1);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->assertStringEqualsFile($gitignore, "\n".$gitignoreContents1."\n");
-
-        $configurator->configure($recipe2, $vars2);
-        $this->assertStringEqualsFile($gitignore, "\n".$gitignoreContents1."\n\n".$gitignoreContents2."\n");
-
-        $configurator->configure($recipe1, $vars1);
-        $configurator->configure($recipe2, $vars2);
-        $this->assertStringEqualsFile($gitignore, "\n".$gitignoreContents1."\n\n".$gitignoreContents2."\n");
-
-        $configurator->unconfigure($recipe1, $vars1);
-        $this->assertStringEqualsFile($gitignore, $gitignoreContents2."\n");
-
-        $configurator->unconfigure($recipe2, $vars2);
-        $this->assertStringEqualsFile($gitignore, '');
-=======
         $this->assertEquals("\n".$gitignoreContents1."\n", file_get_contents($gitignore));
-=======
-        $this->assertStringEqualsFile($gitignore, "\n".$gitignoreContents1."\n");
->>>>>>> donmanager
 
         $configurator->configure($recipe2, $vars2);
-        $this->assertStringEqualsFile($gitignore, "\n".$gitignoreContents1."\n\n".$gitignoreContents2."\n");
+        $this->assertEquals("\n".$gitignoreContents1."\n\n".$gitignoreContents2."\n", file_get_contents($gitignore));
 
         $configurator->configure($recipe1, $vars1);
         $configurator->configure($recipe2, $vars2);
-        $this->assertStringEqualsFile($gitignore, "\n".$gitignoreContents1."\n\n".$gitignoreContents2."\n");
+        $this->assertEquals("\n".$gitignoreContents1."\n\n".$gitignoreContents2."\n", file_get_contents($gitignore));
 
         $configurator->unconfigure($recipe1, $vars1);
-        $this->assertStringEqualsFile($gitignore, $gitignoreContents2."\n");
+        $this->assertEquals($gitignoreContents2."\n", file_get_contents($gitignore));
 
         $configurator->unconfigure($recipe2, $vars2);
-<<<<<<< HEAD
         $this->assertEquals('', file_get_contents($gitignore));
->>>>>>> contactmanager
-=======
-        $this->assertStringEqualsFile($gitignore, '');
->>>>>>> donmanager
 
         @unlink($gitignore);
     }

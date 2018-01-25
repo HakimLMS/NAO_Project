@@ -12,13 +12,6 @@
 namespace Symfony\Bridge\Doctrine;
 
 use ProxyManager\Proxy\LazyLoadingInterface;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Psr\Container\ContainerInterface;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 use Symfony\Component\DependencyInjection\Container;
 use Doctrine\Common\Persistence\AbstractManagerRegistry;
 
@@ -30,15 +23,7 @@ use Doctrine\Common\Persistence\AbstractManagerRegistry;
 abstract class ManagerRegistry extends AbstractManagerRegistry
 {
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @var Container
-=======
-     * @var ContainerInterface
->>>>>>> contactmanager
-=======
-     * @var Container
->>>>>>> donmanager
      */
     protected $container;
 
@@ -72,15 +57,7 @@ abstract class ManagerRegistry extends AbstractManagerRegistry
                     $name = $this->aliases[$name];
                 }
                 if (isset($this->fileMap[$name])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     $wrappedInstance = $this->load($this->fileMap[$name]);
-=======
-                    $wrappedInstance = $this->load($this->fileMap[$name], false);
->>>>>>> contactmanager
-=======
-                    $wrappedInstance = $this->load($this->fileMap[$name]);
->>>>>>> donmanager
                 } else {
                     $method = $this->methodMap[$name] ?? 'get'.strtr($name, $this->underscoreMap).'Service'; // BC with DI v3.4
                     $wrappedInstance = $this->{$method}(false);

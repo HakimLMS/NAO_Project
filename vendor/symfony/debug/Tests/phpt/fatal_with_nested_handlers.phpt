@@ -24,19 +24,9 @@ var_dump(array(
 $eHandler[0]->setExceptionHandler('print_r');
 
 if (true) {
-<<<<<<< HEAD
-<<<<<<< HEAD
     class Broken implements \Serializable
     {
     }
-=======
-    class Broken implements \Serializable {};
->>>>>>> contactmanager
-=======
-    class Broken implements \Serializable
-    {
-    }
->>>>>>> donmanager
 }
 
 ?>

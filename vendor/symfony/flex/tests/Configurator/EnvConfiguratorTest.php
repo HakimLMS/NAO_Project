@@ -105,21 +105,9 @@ EOF;
 
 EOF;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->assertStringEqualsFile($env, $envContents);
-        $this->assertStringEqualsFile($phpunitDist, $xmlContents);
-        $this->assertStringEqualsFile($phpunit, $xmlContents);
-=======
         $this->assertEquals($envContents, file_get_contents($env));
         $this->assertEquals($xmlContents, file_get_contents($phpunitDist));
         $this->assertEquals($xmlContents, file_get_contents($phpunit));
->>>>>>> contactmanager
-=======
-        $this->assertStringEqualsFile($env, $envContents);
-        $this->assertStringEqualsFile($phpunitDist, $xmlContents);
-        $this->assertStringEqualsFile($phpunit, $xmlContents);
->>>>>>> donmanager
 
         $configurator->configure($recipe, [
             'APP_ENV' => 'test',
@@ -130,21 +118,9 @@ EOF;
             'APP_SECRET' => 's3cretf0rt3st',
         ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->assertStringEqualsFile($env, $envContents);
-        $this->assertStringEqualsFile($phpunitDist, $xmlContents);
-        $this->assertStringEqualsFile($phpunit, $xmlContents);
-=======
         $this->assertEquals($envContents, file_get_contents($env));
         $this->assertEquals($xmlContents, file_get_contents($phpunitDist));
         $this->assertEquals($xmlContents, file_get_contents($phpunit));
->>>>>>> contactmanager
-=======
-        $this->assertStringEqualsFile($env, $envContents);
-        $this->assertStringEqualsFile($phpunitDist, $xmlContents);
-        $this->assertStringEqualsFile($phpunit, $xmlContents);
->>>>>>> donmanager
 
         $configurator->unconfigure($recipe, [
             'APP_ENV' => 'test',
@@ -155,38 +131,14 @@ EOF;
             'APP_SECRET' => 's3cretf0rt3st',
         ]);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->assertStringEqualsFile(
-            $env,
-            <<<EOF
-
-
-EOF
-        );
-
-        $this->assertFileEquals(__DIR__.'/../Fixtures/phpunit.xml.dist', $phpunitDist);
-        $this->assertFileEquals(__DIR__.'/../Fixtures/phpunit.xml.dist', $phpunit);
-=======
         $this->assertEquals(<<<EOF
-=======
-        $this->assertStringEqualsFile(
-            $env,
-            <<<EOF
->>>>>>> donmanager
 
 
 EOF
-        );
+        , file_get_contents($env));
 
-<<<<<<< HEAD
         $this->assertEquals(file_get_contents(__DIR__.'/../Fixtures/phpunit.xml.dist'), file_get_contents($phpunitDist));
         $this->assertEquals(file_get_contents(__DIR__.'/../Fixtures/phpunit.xml.dist'), file_get_contents($phpunit));
->>>>>>> contactmanager
-=======
-        $this->assertFileEquals(__DIR__.'/../Fixtures/phpunit.xml.dist', $phpunitDist);
-        $this->assertFileEquals(__DIR__.'/../Fixtures/phpunit.xml.dist', $phpunit);
->>>>>>> donmanager
 
         @unlink($phpunit, $env);
     }

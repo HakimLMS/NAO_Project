@@ -54,54 +54,22 @@ class DatabaseDriver implements MappingDriver
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $classToTableNames = [];
-=======
-    private $classToTableNames = array();
->>>>>>> contactmanager
-=======
-    private $classToTableNames = [];
->>>>>>> donmanager
 
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $manyToManyTables = [];
-=======
-    private $manyToManyTables = array();
->>>>>>> contactmanager
-=======
-    private $manyToManyTables = [];
->>>>>>> donmanager
 
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $classNamesForTables = [];
-=======
-    private $classNamesForTables = array();
->>>>>>> contactmanager
-=======
-    private $classNamesForTables = [];
->>>>>>> donmanager
 
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $fieldNamesForColumns = [];
-=======
-    private $fieldNamesForColumns = array();
->>>>>>> contactmanager
-=======
-    private $fieldNamesForColumns = [];
->>>>>>> donmanager
 
     /**
      * The namespace for the generated entities.
@@ -185,15 +153,7 @@ class DatabaseDriver implements MappingDriver
      */
     public function setTables($entityTables, $manyToManyTables)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->tables = $this->manyToManyTables = $this->classToTableNames = [];
-=======
-        $this->tables = $this->manyToManyTables = $this->classToTableNames = array();
->>>>>>> contactmanager
-=======
-        $this->tables = $this->manyToManyTables = $this->classToTableNames = [];
->>>>>>> donmanager
 
         foreach ($entityTables as $table) {
             $className = $this->getClassNameForTable($table->getName());
@@ -252,107 +212,43 @@ class DatabaseDriver implements MappingDriver
 
                 $localColumn = current($myFk->getColumns());
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $associationMapping = [];
-=======
-                $associationMapping = array();
->>>>>>> contactmanager
-=======
-                $associationMapping = [];
->>>>>>> donmanager
                 $associationMapping['fieldName'] = $this->getFieldNameForColumn($manyTable->getName(), current($otherFk->getColumns()), true);
                 $associationMapping['targetEntity'] = $this->getClassNameForTable($otherFk->getForeignTableName());
 
                 if (current($manyTable->getColumns())->getName() == $localColumn) {
                     $associationMapping['inversedBy'] = $this->getFieldNameForColumn($manyTable->getName(), current($myFk->getColumns()), true);
-<<<<<<< HEAD
-<<<<<<< HEAD
                     $associationMapping['joinTable'] = [
                         'name' => strtolower($manyTable->getName()),
                         'joinColumns' => [],
                         'inverseJoinColumns' => [],
                     ];
-=======
-                    $associationMapping['joinTable'] = array(
-                        'name' => strtolower($manyTable->getName()),
-                        'joinColumns' => array(),
-                        'inverseJoinColumns' => array(),
-                    );
->>>>>>> contactmanager
-=======
-                    $associationMapping['joinTable'] = [
-                        'name' => strtolower($manyTable->getName()),
-                        'joinColumns' => [],
-                        'inverseJoinColumns' => [],
-                    ];
->>>>>>> donmanager
 
                     $fkCols = $myFk->getForeignColumns();
                     $cols = $myFk->getColumns();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                     for ($i = 0, $colsCount = count($cols); $i < $colsCount; $i++) {
                         $associationMapping['joinTable']['joinColumns'][] = [
                             'name' => $cols[$i],
                             'referencedColumnName' => $fkCols[$i],
                         ];
-=======
-                    for ($i = 0; $i < count($cols); $i++) {
-                        $associationMapping['joinTable']['joinColumns'][] = array(
-                            'name' => $cols[$i],
-                            'referencedColumnName' => $fkCols[$i],
-                        );
->>>>>>> contactmanager
-=======
-                    for ($i = 0, $colsCount = count($cols); $i < $colsCount; $i++) {
-                        $associationMapping['joinTable']['joinColumns'][] = [
-                            'name' => $cols[$i],
-                            'referencedColumnName' => $fkCols[$i],
-                        ];
->>>>>>> donmanager
                     }
 
                     $fkCols = $otherFk->getForeignColumns();
                     $cols = $otherFk->getColumns();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                     for ($i = 0, $colsCount = count($cols); $i < $colsCount; $i++) {
                         $associationMapping['joinTable']['inverseJoinColumns'][] = [
                             'name' => $cols[$i],
                             'referencedColumnName' => $fkCols[$i],
                         ];
-=======
-                    for ($i = 0; $i < count($cols); $i++) {
-                        $associationMapping['joinTable']['inverseJoinColumns'][] = array(
-                            'name' => $cols[$i],
-                            'referencedColumnName' => $fkCols[$i],
-                        );
->>>>>>> contactmanager
-=======
-                    for ($i = 0, $colsCount = count($cols); $i < $colsCount; $i++) {
-                        $associationMapping['joinTable']['inverseJoinColumns'][] = [
-                            'name' => $cols[$i],
-                            'referencedColumnName' => $fkCols[$i],
-                        ];
->>>>>>> donmanager
                     }
                 } else {
                     $associationMapping['mappedBy'] = $this->getFieldNameForColumn($manyTable->getName(), current($myFk->getColumns()), true);
                 }
 
                 $metadata->mapManyToMany($associationMapping);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                 break;
             }
         }
@@ -369,48 +265,20 @@ class DatabaseDriver implements MappingDriver
             return;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $tables = [];
-=======
-        $tables = array();
->>>>>>> contactmanager
-=======
-        $tables = [];
->>>>>>> donmanager
 
         foreach ($this->_sm->listTableNames() as $tableName) {
             $tables[$tableName] = $this->_sm->listTableDetails($tableName);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->tables = $this->manyToManyTables = $this->classToTableNames = [];
-=======
-        $this->tables = $this->manyToManyTables = $this->classToTableNames = array();
->>>>>>> contactmanager
-=======
-        $this->tables = $this->manyToManyTables = $this->classToTableNames = [];
->>>>>>> donmanager
 
         foreach ($tables as $tableName => $table) {
             $foreignKeys = ($this->_sm->getDatabasePlatform()->supportsForeignKeyConstraints())
                 ? $table->getForeignKeys()
-<<<<<<< HEAD
-<<<<<<< HEAD
                 : [];
 
             $allForeignKeyColumns = [];
-=======
-                : array();
-
-            $allForeignKeyColumns = array();
->>>>>>> contactmanager
-=======
-                : [];
-
-            $allForeignKeyColumns = [];
->>>>>>> donmanager
 
             foreach ($foreignKeys as $foreignKey) {
                 $allForeignKeyColumns = array_merge($allForeignKeyColumns, $foreignKey->getLocalColumns());
@@ -451,15 +319,7 @@ class DatabaseDriver implements MappingDriver
         $tableName = $metadata->table['name'];
         $indexes   = $this->tables[$tableName]->getIndexes();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         foreach ($indexes as $index) {
-=======
-        foreach($indexes as $index){
->>>>>>> contactmanager
-=======
-        foreach ($indexes as $index) {
->>>>>>> donmanager
             if ($index->isPrimary()) {
                 continue;
             }
@@ -485,32 +345,14 @@ class DatabaseDriver implements MappingDriver
         $columns        = $this->tables[$tableName]->getColumns();
         $primaryKeys    = $this->getTablePrimaryKeys($this->tables[$tableName]);
         $foreignKeys    = $this->getTableForeignKeys($this->tables[$tableName]);
-<<<<<<< HEAD
-<<<<<<< HEAD
         $allForeignKeys = [];
-=======
-        $allForeignKeys = array();
->>>>>>> contactmanager
-=======
-        $allForeignKeys = [];
->>>>>>> donmanager
 
         foreach ($foreignKeys as $foreignKey) {
             $allForeignKeys = array_merge($allForeignKeys, $foreignKey->getLocalColumns());
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $ids           = [];
         $fieldMappings = [];
-=======
-        $ids           = array();
-        $fieldMappings = array();
->>>>>>> contactmanager
-=======
-        $ids           = [];
-        $fieldMappings = [];
->>>>>>> donmanager
 
         foreach ($columns as $column) {
             if (in_array($column->getName(), $allForeignKeys)) {
@@ -547,30 +389,12 @@ class DatabaseDriver implements MappingDriver
      */
     private function buildFieldMapping($tableName, Column $column)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $fieldMapping = [
             'fieldName'  => $this->getFieldNameForColumn($tableName, $column->getName(), false),
             'columnName' => $column->getName(),
             'type'       => $column->getType()->getName(),
             'nullable'   => ( ! $column->getNotnull()),
         ];
-=======
-        $fieldMapping = array(
-            'fieldName'  => $this->getFieldNameForColumn($tableName, $column->getName(), false),
-            'columnName' => $column->getName(),
-            'type'       => $column->getType()->getName(),
-            'nullable'   => ( ! $column->getNotNull()),
-        );
->>>>>>> contactmanager
-=======
-        $fieldMapping = [
-            'fieldName'  => $this->getFieldNameForColumn($tableName, $column->getName(), false),
-            'columnName' => $column->getName(),
-            'type'       => $column->getType()->getName(),
-            'nullable'   => ( ! $column->getNotnull()),
-        ];
->>>>>>> donmanager
 
         // Type specific elements
         switch ($fieldMapping['type']) {
@@ -628,24 +452,10 @@ class DatabaseDriver implements MappingDriver
             $fkColumns          = $foreignKey->getColumns();
             $fkForeignColumns   = $foreignKey->getForeignColumns();
             $localColumn        = current($fkColumns);
-<<<<<<< HEAD
-<<<<<<< HEAD
             $associationMapping = [
                 'fieldName'    => $this->getFieldNameForColumn($tableName, $localColumn, true),
                 'targetEntity' => $this->getClassNameForTable($foreignTableName),
             ];
-=======
-            $associationMapping = array(
-                'fieldName'    => $this->getFieldNameForColumn($tableName, $localColumn, true),
-                'targetEntity' => $this->getClassNameForTable($foreignTableName),
-            );
->>>>>>> contactmanager
-=======
-            $associationMapping = [
-                'fieldName'    => $this->getFieldNameForColumn($tableName, $localColumn, true),
-                'targetEntity' => $this->getClassNameForTable($foreignTableName),
-            ];
->>>>>>> donmanager
 
             if (isset($metadata->fieldMappings[$associationMapping['fieldName']])) {
                 $associationMapping['fieldName'] .= '2'; // "foo" => "foo2"
@@ -655,27 +465,11 @@ class DatabaseDriver implements MappingDriver
                 $associationMapping['id'] = true;
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             for ($i = 0, $fkColumnsCount = count($fkColumns); $i < $fkColumnsCount; $i++) {
                 $associationMapping['joinColumns'][] = [
                     'name'                 => $fkColumns[$i],
                     'referencedColumnName' => $fkForeignColumns[$i],
                 ];
-=======
-            for ($i = 0; $i < count($fkColumns); $i++) {
-                $associationMapping['joinColumns'][] = array(
-                    'name'                 => $fkColumns[$i],
-                    'referencedColumnName' => $fkForeignColumns[$i],
-                );
->>>>>>> contactmanager
-=======
-            for ($i = 0, $fkColumnsCount = count($fkColumns); $i < $fkColumnsCount; $i++) {
-                $associationMapping['joinColumns'][] = [
-                    'name'                 => $fkColumns[$i],
-                    'referencedColumnName' => $fkForeignColumns[$i],
-                ];
->>>>>>> donmanager
             }
 
             // Here we need to check if $fkColumns are the same as $primaryKeys
@@ -688,15 +482,7 @@ class DatabaseDriver implements MappingDriver
     }
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
      * Retrieve schema table definition foreign keys.
-=======
-     * Retreive schema table definition foreign keys.
->>>>>>> contactmanager
-=======
-     * Retrieve schema table definition foreign keys.
->>>>>>> donmanager
      *
      * @param \Doctrine\DBAL\Schema\Table $table
      *
@@ -706,27 +492,11 @@ class DatabaseDriver implements MappingDriver
     {
         return ($this->_sm->getDatabasePlatform()->supportsForeignKeyConstraints())
             ? $table->getForeignKeys()
-<<<<<<< HEAD
-<<<<<<< HEAD
             : [];
     }
 
     /**
      * Retrieve schema table definition primary keys.
-=======
-            : array();
-    }
-
-    /**
-     * Retreive schema table definition primary keys.
->>>>>>> contactmanager
-=======
-            : [];
-    }
-
-    /**
-     * Retrieve schema table definition primary keys.
->>>>>>> donmanager
      *
      * @param \Doctrine\DBAL\Schema\Table $table
      *
@@ -736,27 +506,11 @@ class DatabaseDriver implements MappingDriver
     {
         try {
             return $table->getPrimaryKey()->getColumns();
-<<<<<<< HEAD
-<<<<<<< HEAD
         } catch (SchemaException $e) {
             // Do nothing
         }
 
         return [];
-=======
-        } catch(SchemaException $e) {
-            // Do nothing
-        }
-
-        return array();
->>>>>>> contactmanager
-=======
-        } catch (SchemaException $e) {
-            // Do nothing
-        }
-
-        return [];
->>>>>>> donmanager
     }
 
     /**
@@ -796,14 +550,7 @@ class DatabaseDriver implements MappingDriver
         if ($fk) {
             $columnName = str_replace('_id', '', $columnName);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
         return Inflector::camelize($columnName);
     }
 }

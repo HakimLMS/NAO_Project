@@ -15,15 +15,7 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
-<<<<<<< HEAD
-<<<<<<< HEAD
  */
-=======
-*/
->>>>>>> contactmanager
-=======
- */
->>>>>>> donmanager
 
 namespace Doctrine\ORM\Tools;
 
@@ -71,15 +63,7 @@ class SchemaValidator
      */
     public function validateMapping()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $errors = [];
-=======
-        $errors = array();
->>>>>>> contactmanager
-=======
-        $errors = [];
->>>>>>> donmanager
         $cmf = $this->em->getMetadataFactory();
         $classes = $cmf->getAllMetadata();
 
@@ -101,42 +85,19 @@ class SchemaValidator
      */
     public function validateClass(ClassMetadataInfo $class)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $ce = [];
-=======
-        $ce = array();
->>>>>>> contactmanager
-=======
-        $ce = [];
->>>>>>> donmanager
         $cmf = $this->em->getMetadataFactory();
 
         foreach ($class->fieldMappings as $fieldName => $mapping) {
             if (!Type::hasType($mapping['type'])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $ce[] = "The field '" . $class->name . "#" . $fieldName."' uses a non-existent type '" . $mapping['type'] . "'.";
-=======
-                $ce[] = "The field '" . $class->name . "#" . $fieldName."' uses a non-existant type '" . $mapping['type'] . "'.";
->>>>>>> contactmanager
-=======
-                $ce[] = "The field '" . $class->name . "#" . $fieldName."' uses a non-existent type '" . $mapping['type'] . "'.";
->>>>>>> donmanager
             }
         }
 
         foreach ($class->associationMappings as $fieldName => $assoc) {
             if (!class_exists($assoc['targetEntity']) || $cmf->isTransient($assoc['targetEntity'])) {
                 $ce[] = "The target entity '" . $assoc['targetEntity'] . "' specified on " . $class->name . '#' . $fieldName . ' is unknown or not an entity.';
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                 return $ce;
             }
 
@@ -194,8 +155,6 @@ class SchemaValidator
                 // Verify inverse side/owning side match each other
                 if (array_key_exists($assoc['inversedBy'], $targetMetadata->associationMappings)) {
                     $targetAssoc = $targetMetadata->associationMappings[$assoc['inversedBy']];
-<<<<<<< HEAD
-<<<<<<< HEAD
                     if ($assoc['type'] == ClassMetadataInfo::ONE_TO_ONE && $targetAssoc['type'] !== ClassMetadataInfo::ONE_TO_ONE) {
                         $ce[] = "If association " . $class->name . "#" . $fieldName . " is one-to-one, then the inversed " .
                                 "side " . $targetMetadata->name . "#" . $assoc['inversedBy'] . " has to be one-to-one as well.";
@@ -203,22 +162,6 @@ class SchemaValidator
                         $ce[] = "If association " . $class->name . "#" . $fieldName . " is many-to-one, then the inversed " .
                                 "side " . $targetMetadata->name . "#" . $assoc['inversedBy'] . " has to be one-to-many.";
                     } elseif ($assoc['type'] == ClassMetadataInfo::MANY_TO_MANY && $targetAssoc['type'] !== ClassMetadataInfo::MANY_TO_MANY) {
-=======
-                    if ($assoc['type'] == ClassMetadataInfo::ONE_TO_ONE && $targetAssoc['type'] !== ClassMetadataInfo::ONE_TO_ONE){
-=======
-                    if ($assoc['type'] == ClassMetadataInfo::ONE_TO_ONE && $targetAssoc['type'] !== ClassMetadataInfo::ONE_TO_ONE) {
->>>>>>> donmanager
-                        $ce[] = "If association " . $class->name . "#" . $fieldName . " is one-to-one, then the inversed " .
-                                "side " . $targetMetadata->name . "#" . $assoc['inversedBy'] . " has to be one-to-one as well.";
-                    } elseif ($assoc['type'] == ClassMetadataInfo::MANY_TO_ONE && $targetAssoc['type'] !== ClassMetadataInfo::ONE_TO_MANY) {
-                        $ce[] = "If association " . $class->name . "#" . $fieldName . " is many-to-one, then the inversed " .
-                                "side " . $targetMetadata->name . "#" . $assoc['inversedBy'] . " has to be one-to-many.";
-<<<<<<< HEAD
-                    } elseif ($assoc['type'] == ClassMetadataInfo::MANY_TO_MANY && $targetAssoc['type'] !== ClassMetadataInfo::MANY_TO_MANY){
->>>>>>> contactmanager
-=======
-                    } elseif ($assoc['type'] == ClassMetadataInfo::MANY_TO_MANY && $targetAssoc['type'] !== ClassMetadataInfo::MANY_TO_MANY) {
->>>>>>> donmanager
                         $ce[] = "If association " . $class->name . "#" . $fieldName . " is many-to-many, then the inversed " .
                                 "side " . $targetMetadata->name . "#" . $assoc['inversedBy'] . " has to be many-to-many as well.";
                     }
@@ -269,15 +212,7 @@ class SchemaValidator
                     }
 
                     if (count($identifierColumns) != count($assoc['joinColumns'])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                         $ids = [];
-=======
-                        $ids = array();
->>>>>>> contactmanager
-=======
-                        $ids = [];
->>>>>>> donmanager
 
                         foreach ($assoc['joinColumns'] as $joinColumn) {
                             $ids[] = $joinColumn['name'];

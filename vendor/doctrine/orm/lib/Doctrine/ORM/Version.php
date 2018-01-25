@@ -22,13 +22,6 @@ namespace Doctrine\ORM;
 /**
  * Class to store and retrieve the version of Doctrine
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
- *
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
  * @link    www.doctrine-project.org
  * @since   2.0
  * @version $Revision$
@@ -42,15 +35,7 @@ class Version
     /**
      * Current Doctrine Version
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     const VERSION = '2.6.0';
-=======
-    const VERSION = '2.5.14';
->>>>>>> contactmanager
-=======
-    const VERSION = '2.6.0';
->>>>>>> donmanager
 
     /**
      * Compares a Doctrine version with the current one.

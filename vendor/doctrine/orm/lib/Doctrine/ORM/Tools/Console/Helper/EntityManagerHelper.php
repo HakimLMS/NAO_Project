@@ -22,13 +22,6 @@ namespace Doctrine\ORM\Tools\Console\Helper;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Helper\Helper;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 /**
  * Doctrine CLI Connection Helper.
  *

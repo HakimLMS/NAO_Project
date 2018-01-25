@@ -23,15 +23,7 @@ namespace Doctrine\ORM\Query\AST;
  * SimpleCaseExpression ::= "CASE" CaseOperand SimpleWhenClause {SimpleWhenClause}* "ELSE" ScalarExpression "END"
  *
  * @since   2.2
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
-=======
- * 
->>>>>>> contactmanager
-=======
- *
->>>>>>> donmanager
  * @link    www.doctrine-project.org
  * @author  Benjamin Eberlei <kontakt@beberlei.de>
  * @author  Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -48,15 +40,7 @@ class SimpleCaseExpression extends Node
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public $simpleWhenClauses = [];
-=======
-    public $simpleWhenClauses = array();
->>>>>>> contactmanager
-=======
-    public $simpleWhenClauses = [];
->>>>>>> donmanager
 
     /**
      * @var mixed

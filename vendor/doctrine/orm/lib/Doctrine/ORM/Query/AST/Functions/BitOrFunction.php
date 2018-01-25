@@ -24,15 +24,7 @@ use Doctrine\ORM\Query\Lexer;
 /**
  * "BIT_OR" "(" ArithmeticPrimary "," ArithmeticPrimary ")"
  *
-<<<<<<< HEAD
-<<<<<<< HEAD
  *
-=======
- * 
->>>>>>> contactmanager
-=======
- *
->>>>>>> donmanager
  * @link    www.doctrine-project.org
  * @since   2.2
  * @author  Fabio B. Silva <fabio.bat.silva@gmail.com>
@@ -44,26 +36,12 @@ class BitOrFunction extends FunctionNode
 
     /**
      * @override
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @inheritdoc
-=======
->>>>>>> contactmanager
-=======
-     * @inheritdoc
->>>>>>> donmanager
      */
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
         $platform = $sqlWalker->getConnection()->getDatabasePlatform();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
         return $platform->getBitOrComparisonExpression(
             $this->firstArithmetic->dispatch($sqlWalker),
             $this->secondArithmetic->dispatch($sqlWalker)
@@ -72,14 +50,7 @@ class BitOrFunction extends FunctionNode
 
     /**
      * @override
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @inheritdoc
-=======
->>>>>>> contactmanager
-=======
-     * @inheritdoc
->>>>>>> donmanager
      */
     public function parse(\Doctrine\ORM\Query\Parser $parser)
     {

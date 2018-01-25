@@ -35,22 +35,11 @@ class DateSubFunction extends DateAddFunction
 {
     /**
      * @override
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @inheritdoc
-=======
->>>>>>> contactmanager
-=======
-     * @inheritdoc
->>>>>>> donmanager
      */
     public function getSql(SqlWalker $sqlWalker)
     {
         switch (strtolower($this->unit->value)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             case 'second':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubSecondsExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
@@ -61,11 +50,6 @@ class DateSubFunction extends DateAddFunction
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
             case 'hour':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubHourExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
@@ -76,52 +60,25 @@ class DateSubFunction extends DateAddFunction
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             case 'week':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubWeeksExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
             case 'month':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubMonthExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             case 'year':
                 return $sqlWalker->getConnection()->getDatabasePlatform()->getDateSubYearsExpression(
                     $this->firstDateExpression->dispatch($sqlWalker),
                     $this->intervalExpression->dispatch($sqlWalker)
                 );
-<<<<<<< HEAD
 
             default:
                 throw QueryException::semanticalError(
                     'DATE_SUB() only supports units of type second, minute, hour, day, week, month and year.'
-=======
-
-            default:
-                throw QueryException::semanticalError(
-                    'DATE_SUB() only supports units of type hour, day and month.'
->>>>>>> contactmanager
-=======
-
-            default:
-                throw QueryException::semanticalError(
-                    'DATE_SUB() only supports units of type second, minute, hour, day, week, month and year.'
->>>>>>> donmanager
                 );
         }
     }

@@ -83,20 +83,8 @@ Currently there is no way to overwrite the persister implementation
 for a given entity, however there are several use-cases that can
 benefit from custom persister implementations:
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 -  `Add Upsert Support <http://www.doctrine-project.org/jira/browse/DDC-668>`_
 -  `Evaluate possible ways in which stored-procedures can be used <http://www.doctrine-project.org/jira/browse/DDC-445>`_
-=======
-
--  `Add Upsert Support <http://www.doctrine-project.org/jira/browse/DDC-668>`_
--  `Evaluate possible ways in which stored-procedures can be used <http://www.doctrine-project.org/jira/browse/DDC-445>`_
--  The previous Filter Rules Feature Request
->>>>>>> contactmanager
-=======
--  `Add Upsert Support <http://www.doctrine-project.org/jira/browse/DDC-668>`_
--  `Evaluate possible ways in which stored-procedures can be used <http://www.doctrine-project.org/jira/browse/DDC-445>`_
->>>>>>> donmanager
 
 Persist Keys of Collections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,23 +112,10 @@ in the core library. We don't think behaviors add more value than
 they cost pain and debugging hell. Please see the many different
 blog posts we have written on this topics:
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 -  `Doctrine2 "Behaviors" in a Nutshell <http://www.doctrine-project.org/2010/02/17/doctrine2-behaviours-nutshell.html>`_
 -  `A re-usable Versionable behavior for Doctrine2 <http://www.doctrine-project.org/2010/02/24/doctrine2-versionable.html>`_
 -  `Write your own ORM on top of Doctrine2 <http://www.doctrine-project.org/2010/07/19/your-own-orm-doctrine2.html>`_
 -  `Doctrine 2 Behavioral Extensions <http://www.doctrine-project.org/2010/11/18/doctrine2-behavioral-extensions.html>`_
-<<<<<<< HEAD
-=======
--  `Doctrine2 "Behaviors" in a Nutshell <http://www.doctrine-project.org/blog/doctrine2-behaviours-nutshell>`_
--  `A re-usable Versionable behavior for Doctrine2 <http://www.doctrine-project.org/blog/doctrine2-versionable>`_
--  `Write your own ORM on top of Doctrine2 <http://www.doctrine-project.org/blog/your-own-orm-doctrine2>`_
--  `Doctrine 2 Behavioral Extensions <http://www.doctrine-project.org/blog/doctrine2-behavioral-extensions>`_
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 -  `Doctrator <https://github.com/pablodip/doctrator`>_
 
 Doctrine 2 has enough hooks and extension points so that **you** can
@@ -205,10 +180,6 @@ MySQL with MyISAM tables
 Doctrine cannot provide atomic operations when calling ``EntityManager#flush()`` if one
 of the tables involved uses the storage engine MyISAM. You must use InnoDB or
 other storage engines that support transactions if you need integrity.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
 Entities, Proxies and Reflection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -233,8 +204,3 @@ methods, which resolve the proxy problem beforehand.
 
     $reflection = ClassUtils::newReflectionClass($bookProxy);
     $class = ClassUtils::getClass($bookProxy)¸
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager

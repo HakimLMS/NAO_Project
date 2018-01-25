@@ -62,18 +62,8 @@ class ListenersInvoker
     /**
      * Get the subscribed event systems
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata  The entity metadata.
      * @param string                              $eventName The entity lifecycle event.
-=======
-     * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata The entity metadata.
-     * @param string $eventName                             The entity lifecycle event.
->>>>>>> contactmanager
-=======
-     * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata  The entity metadata.
-     * @param string                              $eventName The entity lifecycle event.
->>>>>>> donmanager
      *
      * @return integer Bitmask of subscribed event systems.
      */
@@ -99,51 +89,21 @@ class ListenersInvoker
     /**
      * Dispatches the lifecycle event of the given entity.
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
      * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata  The entity metadata.
      * @param string                              $eventName The entity lifecycle event.
      * @param object                              $entity    The Entity on which the event occurred.
      * @param \Doctrine\Common\EventArgs          $event     The Event args.
      * @param integer                             $invoke    Bitmask to invoke listeners.
-<<<<<<< HEAD
      */
     public function invoke(ClassMetadata $metadata, $eventName, $entity, EventArgs $event, $invoke)
     {
         if ($invoke & self::INVOKE_CALLBACKS) {
-=======
-     * @param \Doctrine\ORM\Mapping\ClassMetadata $metadata The entity metadata.
-     * @param string $eventName                             The entity lifecycle event.
-     * @param object $entity                                The Entity on which the event occurred.
-     * @param \Doctrine\Common\EventArgs $event             The Event args.
-     * @param integer $invoke                               Bitmask to invoke listeners.
-     */
-    public function invoke(ClassMetadata $metadata, $eventName, $entity, EventArgs $event, $invoke)
-    {
-        if($invoke & self::INVOKE_CALLBACKS) {
->>>>>>> contactmanager
-=======
-     */
-    public function invoke(ClassMetadata $metadata, $eventName, $entity, EventArgs $event, $invoke)
-    {
-        if ($invoke & self::INVOKE_CALLBACKS) {
->>>>>>> donmanager
             foreach ($metadata->lifecycleCallbacks[$eventName] as $callback) {
                 $entity->$callback($event);
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($invoke & self::INVOKE_LISTENERS) {
-=======
-        if($invoke & self::INVOKE_LISTENERS) {
->>>>>>> contactmanager
-=======
-        if ($invoke & self::INVOKE_LISTENERS) {
->>>>>>> donmanager
             foreach ($metadata->entityListeners[$eventName] as $listener) {
                 $class      = $listener['class'];
                 $method     = $listener['method'];
@@ -153,23 +113,8 @@ class ListenersInvoker
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($invoke & self::INVOKE_MANAGER) {
             $this->eventManager->dispatchEvent($eventName, $event);
         }
     }
 }
-=======
-        if($invoke & self::INVOKE_MANAGER) {
-=======
-        if ($invoke & self::INVOKE_MANAGER) {
->>>>>>> donmanager
-            $this->eventManager->dispatchEvent($eventName, $event);
-        }
-    }
-}
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
->>>>>>> donmanager

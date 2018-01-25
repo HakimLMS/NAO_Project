@@ -48,13 +48,5 @@ final class Table implements Annotation
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public $options = [];
-=======
-    public $options = array();
->>>>>>> contactmanager
-=======
-    public $options = [];
->>>>>>> donmanager
 }

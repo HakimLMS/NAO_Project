@@ -54,9 +54,11 @@ class UserController extends Controller
     public function dashboardAction(Request $request, DashboardHandler $dashboardHandler)
     {
         $dashboardData = $dashboardHandler->generateData();
-        $tempData = $dashboardData['data'];
-        $user = $dashboardData['user'];
-        $template = $tempData['templatedir']; 
+        $tempData = $dashboardData['data']; $user = $dashboardData['user']; $template = $tempData['templatedir'];
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $this->redirectToRoute('home');
+        }
         return $this->render($template, array('data' => $tempData, 'user' => $user));
     }
     

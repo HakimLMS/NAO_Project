@@ -122,17 +122,8 @@ class Setup
     public static function createConfiguration($isDevMode = false, $proxyDir = null, Cache $cache = null)
     {
         $proxyDir = $proxyDir ?: sys_get_temp_dir();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         $cache = self::createCacheConfiguration($isDevMode, $proxyDir, $cache);
-=======
-        $cache    = self::createCacheConfiguration($isDevMode, $proxyDir, $cache);
->>>>>>> contactmanager
-=======
-
-        $cache = self::createCacheConfiguration($isDevMode, $proxyDir, $cache);
->>>>>>> donmanager
 
         $config = new Configuration();
         $config->setMetadataCacheImpl($cache);
@@ -145,22 +136,7 @@ class Setup
         return $config;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     private static function createCacheConfiguration(bool $isDevMode, string $proxyDir, ?Cache $cache) :  Cache
-=======
-    /**
-     * @param bool       $isDevMode
-     * @param string     $proxyDir
-     * @param Cache|null $cache
-     *
-     * @return Cache
-     */
-    private static function createCacheConfiguration($isDevMode, $proxyDir, Cache $cache = null)
->>>>>>> contactmanager
-=======
-    private static function createCacheConfiguration(bool $isDevMode, string $proxyDir, ?Cache $cache) :  Cache
->>>>>>> donmanager
     {
         $cache = self::createCacheInstance($isDevMode, $cache);
 
@@ -179,21 +155,7 @@ class Setup
         return $cache;
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     private static function createCacheInstance(bool $isDevMode, ?Cache $cache) : Cache
-=======
-    /**
-     * @param bool       $isDevMode
-     * @param Cache|null $cache
-     *
-     * @return Cache
-     */
-    private static function createCacheInstance($isDevMode, Cache $cache = null)
->>>>>>> contactmanager
-=======
-    private static function createCacheInstance(bool $isDevMode, ?Cache $cache) : Cache
->>>>>>> donmanager
     {
         if ($cache !== null) {
             return $cache;
@@ -203,8 +165,6 @@ class Setup
             return new ArrayCache();
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (extension_loaded('apcu')) {
             return new \Doctrine\Common\Cache\ApcuCache();
         }
@@ -215,26 +175,6 @@ class Setup
             $memcache->addServer('127.0.0.1', 11211);
 
             $cache = new \Doctrine\Common\Cache\MemcachedCache();
-=======
-        if (extension_loaded('apc')) {
-            return new \Doctrine\Common\Cache\ApcCache();
-=======
-        if (extension_loaded('apcu')) {
-            return new \Doctrine\Common\Cache\ApcuCache();
->>>>>>> donmanager
-        }
-
-
-        if (extension_loaded('memcached')) {
-            $memcache = new \Memcached();
-            $memcache->addServer('127.0.0.1', 11211);
-
-<<<<<<< HEAD
-            $cache = new \Doctrine\Common\Cache\MemcacheCache();
->>>>>>> contactmanager
-=======
-            $cache = new \Doctrine\Common\Cache\MemcachedCache();
->>>>>>> donmanager
             $cache->setMemcache($memcache);
 
             return $cache;

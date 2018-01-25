@@ -58,14 +58,7 @@ which has mapping metadata that is overridden by the annotation above:
 
 .. code-block:: php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     <?php
-=======
->>>>>>> contactmanager
-=======
-    <?php
->>>>>>> donmanager
     /**
      * Trait class
      */
@@ -90,14 +83,7 @@ The case for just extending a class would be just the same but:
 
 .. code-block:: php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     <?php
-=======
->>>>>>> contactmanager
-=======
-    <?php
->>>>>>> donmanager
     class ExampleEntityWithOverride extends BaseEntityWithSomeMapping
     {
         // ...

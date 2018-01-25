@@ -35,15 +35,7 @@ class ReadOnlyCachedCollectionPersister extends NonStrictReadWriteCachedCollecti
      */
     public function update(PersistentCollection $collection)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($collection->isDirty() && $collection->getSnapshot()) {
-=======
-        if ($collection->isDirty() && count($collection->getSnapshot()) > 0) {
->>>>>>> contactmanager
-=======
-        if ($collection->isDirty() && $collection->getSnapshot()) {
->>>>>>> donmanager
             throw CacheException::updateReadOnlyCollection(ClassUtils::getClass($collection->getOwner()), $this->association['fieldName']);
         }
 

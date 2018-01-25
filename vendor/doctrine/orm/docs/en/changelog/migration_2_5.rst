@@ -1,21 +1,9 @@
 What is new in Doctrine ORM 2.5?
 ================================
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 This document describes changes between Doctrine ORM 2.4 and 2.5.
 It contains a description of all the new features and sections about
 behavioral changes and potential backwards compatibility breaks.
-=======
-This document describes changes between Doctrine ORM 2.4 and 2.5 (currently in
-Beta). It contains a description of all the new features and sections
-about behavioral changes and potential backwards compatibility breaks.
->>>>>>> contactmanager
-=======
-This document describes changes between Doctrine ORM 2.4 and 2.5.
-It contains a description of all the new features and sections about
-behavioral changes and potential backwards compatibility breaks.
->>>>>>> donmanager
 Please review this document carefully when updating to Doctrine 2.5.
 
 First note, that with the ORM 2.5 release we are dropping support
@@ -33,15 +21,7 @@ defined then Doctrine would trigger listeners after the fields were
 loaded, but before assocations are available.
 
 - `DDC-54 <http://doctrine-project.org/jira/browse/DDC-54>`_
-<<<<<<< HEAD
-<<<<<<< HEAD
 - `Commit #a90629 <https://github.com/doctrine/doctrine2/commit/a906295c65f1516737458fbee2f6fa96254f27a5>`_
-=======
-- `Commit <https://github.com/doctrine/doctrine2/commit/a906295c65f1516737458fbee2f6fa96254f27a5>`_
->>>>>>> contactmanager
-=======
-- `Commit #a90629 <https://github.com/doctrine/doctrine2/commit/a906295c65f1516737458fbee2f6fa96254f27a5>`_
->>>>>>> donmanager
 
 Events: Add API to programatically add event listeners to Entity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,27 +58,11 @@ metadata generation:
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Embeddable Objects
 ~~~~~~~~~~~~~~~~~~
 
 Doctrine now supports creating multiple PHP objects from one database table
 implementing a feature called "Embeddable Objects". Next to an ``@Entity``
-=======
-Embeddedable Objects
-~~~~~~~~~~~~~~~~~~~~
-
-Doctrine now supports creating multiple PHP objects from one database table
-implementing a feature called "Embeddedable Objects". Next to an ``@Entity``
->>>>>>> contactmanager
-=======
-Embeddable Objects
-~~~~~~~~~~~~~~~~~~
-
-Doctrine now supports creating multiple PHP objects from one database table
-implementing a feature called "Embeddable Objects". Next to an ``@Entity``
->>>>>>> donmanager
 class you can now define a class that is embeddable into a database table of an
 entity using the ``@Embeddable`` annotation. Embeddable objects can never be
 saved, updated or deleted on their own, only as part of an entity (called
@@ -138,15 +102,7 @@ This feature was developed by external contributor `Johannes Schmitt
 <https://twitter.com/schmittjoh>`_
 
 - `DDC-93 <http://doctrine-project.org/jira/browse/DDC-93>`_
-<<<<<<< HEAD
-<<<<<<< HEAD
 - `Pull Request #835 <https://github.com/doctrine/doctrine2/pull/835>`_
-=======
-- `Pull Request <https://github.com/doctrine/doctrine2/pull/835>`_
->>>>>>> contactmanager
-=======
-- `Pull Request #835 <https://github.com/doctrine/doctrine2/pull/835>`_
->>>>>>> donmanager
 
 Second-Level-Cache
 ~~~~~~~~~~~~~~~~~~
@@ -204,15 +160,7 @@ instead of the database.
 
 - `Documentation
   <http://docs.doctrine-project.org/en/latest/reference/second-level-cache.html>`_
-<<<<<<< HEAD
-<<<<<<< HEAD
 - `Pull Request #808 <https://github.com/doctrine/doctrine2/pull/808>`_
-=======
-- `Pull Request <https://github.com/doctrine/doctrine2/pull/808>`_
->>>>>>> contactmanager
-=======
-- `Pull Request #808 <https://github.com/doctrine/doctrine2/pull/808>`_
->>>>>>> donmanager
 
 Criteria API: Support for ManyToMany assocations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -269,18 +217,8 @@ trigger a full load of the collection.
 
 This feature was contributed by `Michaël Gallego <https://github.com/bakura10>`_.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 - `Pull Request #882 <https://github.com/doctrine/doctrine2/pull/882>`_
 - `Pull Request #1032 <https://github.com/doctrine/doctrine2/pull/1032>`_
-=======
-- `Pull Request #1 <https://github.com/doctrine/doctrine2/pull/882>`_
-- `Pull Request #2 <https://github.com/doctrine/doctrine2/pull/1032>`_
->>>>>>> contactmanager
-=======
-- `Pull Request #882 <https://github.com/doctrine/doctrine2/pull/882>`_
-- `Pull Request #1032 <https://github.com/doctrine/doctrine2/pull/1032>`_
->>>>>>> donmanager
 
 Mapping: Allow configuring Index flags
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -303,15 +241,7 @@ only with a schema event listener before.
 
 This feature was contributed by `Adrian Olek <https://github.com/adrianolek>`_.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 - `Pull Request #973 <https://github.com/doctrine/doctrine2/pull/973>`_
-=======
-- `Pull Request <https://github.com/doctrine/doctrine2/pull/973>`_
->>>>>>> contactmanager
-=======
-- `Pull Request #973 <https://github.com/doctrine/doctrine2/pull/973>`_
->>>>>>> donmanager
 
 SQLFilter API: Check if a parameter is set
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -342,15 +272,7 @@ Extending on the locale example of the documentation:
 
 This feature was contributed by `Miroslav Demovic <https://github.com/mdemo>`_
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 - `Pull Request #963 <https://github.com/doctrine/doctrine2/pull/963>`_
-=======
-- `Pull Request <https://github.com/doctrine/doctrine2/pull/963>`_
->>>>>>> contactmanager
-=======
-- `Pull Request #963 <https://github.com/doctrine/doctrine2/pull/963>`_
->>>>>>> donmanager
 
 
 EXTRA_LAZY Improvements
@@ -379,15 +301,7 @@ EXTRA_LAZY Improvements
 
     This feature was contributed by `Asmir Mustafic <https://github.com/goetas>`_
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     - `Pull Request #937 <https://github.com/doctrine/doctrine2/pull/937>`_
-=======
-    - `Pull Request <https://github.com/doctrine/doctrine2/pull/937>`_
->>>>>>> contactmanager
-=======
-    - `Pull Request #937 <https://github.com/doctrine/doctrine2/pull/937>`_
->>>>>>> donmanager
 
 2. Add EXTRA_LAZY Support for get() for owning and inverse many-to-many 
 
@@ -501,27 +415,11 @@ object:
 This feature was contributed by `Michael Perrin
 <https://github.com/michaelperrin>`_.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 - `Pull Request #590 <https://github.com/doctrine/doctrine2/pull/590>`_
 - `DDC-2319 <http://doctrine-project.org/jira/browse/DDC-2319>`_
 
 Query API: Add support for default Query Hints
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-=======
-- `Pull Request <https://github.com/doctrine/doctrine2/pull/590>`_
-- `DDC-2319 <http://doctrine-project.org/jira/browse/DDC-2319>`_
-
-Query API: Add suport for default Query Hints
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>>>>>> contactmanager
-=======
-- `Pull Request #590 <https://github.com/doctrine/doctrine2/pull/590>`_
-- `DDC-2319 <http://doctrine-project.org/jira/browse/DDC-2319>`_
-
-Query API: Add support for default Query Hints
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>>>>>> donmanager
 
 To configure multiple different features such as custom AST Walker, fetch modes,
 locking and other features affecting DQL generation we have had a feature
@@ -541,15 +439,7 @@ It is now possible to add query hints that are always enabled for every Query:
 This feature was contributed by `Artur Eshenbrener
 <https://github.com/Strate>`_.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 - `Pull Request #863 <https://github.com/doctrine/doctrine2/pull/863>`_
-=======
-- `Pull Request <https://github.com/doctrine/doctrine2/pull/863>`_
->>>>>>> contactmanager
-=======
-- `Pull Request #863 <https://github.com/doctrine/doctrine2/pull/863>`_
->>>>>>> donmanager
 
 ResultSetMappingBuilder: Add support for Single-Table Inheritance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -596,18 +486,8 @@ EntityGenerator Command: Avoid backups
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When calling the EntityGenerator for an existing entity, Doctrine would
-<<<<<<< HEAD
-<<<<<<< HEAD
 create a backup file every time to avoid losing changes to the code. You
 can now skip generating the backup file by passing the ``--no-backup``
-=======
-create a backup file every time to avoid loosing changes to the code.
-You can now skip generating the backup file by passing the ``--no-backup``
->>>>>>> contactmanager
-=======
-create a backup file every time to avoid losing changes to the code. You
-can now skip generating the backup file by passing the ``--no-backup``
->>>>>>> donmanager
 flag:
 
 ::
@@ -828,11 +708,4 @@ From now on, the resultset will look like this:
         ),
         ...
     )
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager

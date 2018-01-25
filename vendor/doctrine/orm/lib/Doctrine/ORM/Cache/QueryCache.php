@@ -44,15 +44,7 @@ interface QueryCache
      *
      * @return boolean
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function put(QueryCacheKey $key, ResultSetMapping $rsm, $result, array $hints = []);
-=======
-    public function put(QueryCacheKey $key, ResultSetMapping $rsm, $result, array $hints = array());
->>>>>>> contactmanager
-=======
-    public function put(QueryCacheKey $key, ResultSetMapping $rsm, $result, array $hints = []);
->>>>>>> donmanager
 
     /**
      * @param \Doctrine\ORM\Cache\QueryCacheKey     $key
@@ -61,15 +53,7 @@ interface QueryCache
      *
      * @return array|null
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public function get(QueryCacheKey $key, ResultSetMapping $rsm, array $hints = []);
-=======
-    public function get(QueryCacheKey $key, ResultSetMapping $rsm, array $hints = array());
->>>>>>> contactmanager
-=======
-    public function get(QueryCacheKey $key, ResultSetMapping $rsm, array $hints = []);
->>>>>>> donmanager
 
     /**
      * @return \Doctrine\ORM\Cache\Region

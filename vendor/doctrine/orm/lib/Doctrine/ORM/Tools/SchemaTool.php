@@ -92,15 +92,7 @@ class SchemaTool
         foreach ($createSchemaSql as $sql) {
             try {
                 $conn->executeQuery($sql);
-<<<<<<< HEAD
-<<<<<<< HEAD
             } catch (\Throwable $e) {
-=======
-            } catch (\Exception $e) {
->>>>>>> contactmanager
-=======
-            } catch (\Throwable $e) {
->>>>>>> donmanager
                 throw ToolsException::schemaToolFailure($sql, $e);
             }
         }
@@ -117,14 +109,7 @@ class SchemaTool
     public function getCreateSchemaSql(array $classes)
     {
         $schema = $this->getSchemaFromMetadata($classes);
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
         return $schema->toSql($this->platform);
     }
 
@@ -158,38 +143,16 @@ class SchemaTool
     public function getSchemaFromMetadata(array $classes)
     {
         // Reminder for processed classes, used for hierarchies
-<<<<<<< HEAD
-<<<<<<< HEAD
         $processedClasses       = [];
-=======
-        $processedClasses       = array();
->>>>>>> contactmanager
-=======
-        $processedClasses       = [];
->>>>>>> donmanager
         $eventManager           = $this->em->getEventManager();
         $schemaManager          = $this->em->getConnection()->getSchemaManager();
         $metadataSchemaConfig   = $schemaManager->createSchemaConfig();
 
         $metadataSchemaConfig->setExplicitForeignKeyIndexes(false);
-<<<<<<< HEAD
-<<<<<<< HEAD
         $schema = new Schema([], [], $metadataSchemaConfig);
 
         $addedFks = [];
         $blacklistedFks = [];
-=======
-        $schema = new Schema(array(), array(), $metadataSchemaConfig);
-
-        $addedFks = array();
-        $blacklistedFks = array();
->>>>>>> contactmanager
-=======
-        $schema = new Schema([], [], $metadataSchemaConfig);
-
-        $addedFks = [];
-        $blacklistedFks = [];
->>>>>>> donmanager
 
         foreach ($classes as $class) {
             /** @var \Doctrine\ORM\Mapping\ClassMetadata $class */
@@ -220,26 +183,9 @@ class SchemaTool
                 }
             } elseif ($class->isInheritanceTypeJoined()) {
                 // Add all non-inherited fields as columns
-<<<<<<< HEAD
-<<<<<<< HEAD
                 foreach ($class->fieldMappings as $fieldName => $mapping) {
                     if ( ! isset($mapping['inherited'])) {
                         $this->gatherColumn($class, $mapping, $table);
-=======
-                $pkColumns = array();
-=======
->>>>>>> donmanager
-                foreach ($class->fieldMappings as $fieldName => $mapping) {
-                    if ( ! isset($mapping['inherited'])) {
-                        $this->gatherColumn($class, $mapping, $table);
-<<<<<<< HEAD
-
-                        if ($class->isIdentifier($fieldName)) {
-                            $pkColumns[] = $columnName;
-                        }
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                     }
                 }
 
@@ -250,28 +196,12 @@ class SchemaTool
                     $this->addDiscriminatorColumnDefinition($class, $table);
                 } else {
                     // Add an ID FK column to child tables
-<<<<<<< HEAD
-<<<<<<< HEAD
                     $pkColumns           = [];
                     $inheritedKeyColumns = [];
 
                     foreach ($class->identifier as $identifierField) {
                         if (isset($class->fieldMappings[$identifierField]['inherited'])) {
                             $idMapping = $class->fieldMappings[$identifierField];
-=======
-                    $inheritedKeyColumns = array();
-                    foreach ($class->identifier as $identifierField) {
-                        $idMapping = $class->fieldMappings[$identifierField];
-                        if (isset($idMapping['inherited'])) {
->>>>>>> contactmanager
-=======
-                    $pkColumns           = [];
-                    $inheritedKeyColumns = [];
-
-                    foreach ($class->identifier as $identifierField) {
-                        if (isset($class->fieldMappings[$identifierField]['inherited'])) {
-                            $idMapping = $class->fieldMappings[$identifierField];
->>>>>>> donmanager
                             $this->gatherColumn($class, $idMapping, $table);
                             $columnName = $this->quoteStrategy->getColumnName(
                                 $identifierField,
@@ -283,10 +213,6 @@ class SchemaTool
 
                             $pkColumns[] = $columnName;
                             $inheritedKeyColumns[] = $columnName;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
                             continue;
                         }
@@ -315,22 +241,10 @@ class SchemaTool
                                     $inheritedKeyColumns[] = $columnName;
                                 }
                             }
-<<<<<<< HEAD
                         }
                     }
 
                     if ( ! empty($inheritedKeyColumns)) {
-=======
-                        }
-                    }
-                    if (!empty($inheritedKeyColumns)) {
->>>>>>> contactmanager
-=======
-                        }
-                    }
-
-                    if ( ! empty($inheritedKeyColumns)) {
->>>>>>> donmanager
                         // Add a FK constraint on the ID column
                         $table->addForeignKeyConstraint(
                             $this->quoteStrategy->getTableName(
@@ -339,8 +253,6 @@ class SchemaTool
                             ),
                             $inheritedKeyColumns,
                             $inheritedKeyColumns,
-<<<<<<< HEAD
-<<<<<<< HEAD
                             ['onDelete' => 'CASCADE']
                         );
                     }
@@ -349,25 +261,6 @@ class SchemaTool
                         $table->setPrimaryKey($pkColumns);
                     }
                 }
-=======
-                            array('onDelete' => 'CASCADE')
-=======
-                            ['onDelete' => 'CASCADE']
->>>>>>> donmanager
-                        );
-                    }
-
-                    if ( ! empty($pkColumns)) {
-                        $table->setPrimaryKey($pkColumns);
-                    }
-                }
-<<<<<<< HEAD
-
-                $table->setPrimaryKey($pkColumns);
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
             } elseif ($class->isInheritanceTypeTablePerClass()) {
                 throw ORMException::notSupported();
             } else {
@@ -375,31 +268,15 @@ class SchemaTool
                 $this->gatherRelationsSql($class, $table, $schema, $addedFks, $blacklistedFks);
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $pkColumns = [];
 
-=======
-            $pkColumns = array();
->>>>>>> contactmanager
-=======
-            $pkColumns = [];
-
->>>>>>> donmanager
             foreach ($class->identifier as $identifierField) {
                 if (isset($class->fieldMappings[$identifierField])) {
                     $pkColumns[] = $this->quoteStrategy->getColumnName($identifierField, $class, $this->platform);
                 } elseif (isset($class->associationMappings[$identifierField])) {
                     /* @var $assoc \Doctrine\ORM\Mapping\OneToOne */
                     $assoc = $class->associationMappings[$identifierField];
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                     foreach ($assoc['joinColumns'] as $joinColumn) {
                         $pkColumns[] = $this->quoteStrategy->getJoinColumnName($joinColumn, $class, $this->platform);
                     }
@@ -410,10 +287,6 @@ class SchemaTool
                 $table->setPrimaryKey($pkColumns);
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             // there can be unique indexes automatically created for join column
             // if join column is also primary key we should keep only primary key on this column
             // so, remove indexes overruled by primary key
@@ -425,7 +298,6 @@ class SchemaTool
                 }
             }
 
-<<<<<<< HEAD
             if (isset($class->table['indexes'])) {
                 foreach ($class->table['indexes'] as $indexName => $indexData) {
                     if ( ! isset($indexData['flags'])) {
@@ -433,35 +305,12 @@ class SchemaTool
                     }
 
                     $table->addIndex($indexData['columns'], is_numeric($indexName) ? null : $indexName, (array) $indexData['flags'], $indexData['options'] ?? []);
-=======
-=======
->>>>>>> donmanager
-            if (isset($class->table['indexes'])) {
-                foreach ($class->table['indexes'] as $indexName => $indexData) {
-                    if ( ! isset($indexData['flags'])) {
-                        $indexData['flags'] = [];
-                    }
-
-<<<<<<< HEAD
-                    $table->addIndex($indexData['columns'], is_numeric($indexName) ? null : $indexName, (array)$indexData['flags'], isset($indexData['options']) ? $indexData['options'] : array());
->>>>>>> contactmanager
-=======
-                    $table->addIndex($indexData['columns'], is_numeric($indexName) ? null : $indexName, (array) $indexData['flags'], $indexData['options'] ?? []);
->>>>>>> donmanager
                 }
             }
 
             if (isset($class->table['uniqueConstraints'])) {
                 foreach ($class->table['uniqueConstraints'] as $indexName => $indexData) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     $uniqIndex = new Index($indexName, $indexData['columns'], true, false, [], $indexData['options'] ?? []);
-=======
-                    $uniqIndex = new Index($indexName, $indexData['columns'], true, false, [], isset($indexData['options']) ? $indexData['options'] : []);
->>>>>>> contactmanager
-=======
-                    $uniqIndex = new Index($indexName, $indexData['columns'], true, false, [], $indexData['options'] ?? []);
->>>>>>> donmanager
 
                     foreach ($table->getIndexes() as $tableIndexName => $tableIndex) {
                         if ($tableIndex->isFullfilledBy($uniqIndex)) {
@@ -470,15 +319,7 @@ class SchemaTool
                         }
                     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                     $table->addUniqueIndex($indexData['columns'], is_numeric($indexName) ? null : $indexName, $indexData['options'] ?? []);
-=======
-                    $table->addUniqueIndex($indexData['columns'], is_numeric($indexName) ? null : $indexName, isset($indexData['options']) ? $indexData['options'] : array());
->>>>>>> contactmanager
-=======
-                    $table->addUniqueIndex($indexData['columns'], is_numeric($indexName) ? null : $indexName, $indexData['options'] ?? []);
->>>>>>> donmanager
                 }
             }
 
@@ -510,15 +351,7 @@ class SchemaTool
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ( ! $this->platform->supportsSchemas() && ! $this->platform->canEmulateSchemas()) {
-=======
-        if ( ! $this->platform->supportsSchemas() && ! $this->platform->canEmulateSchemas() ) {
->>>>>>> contactmanager
-=======
-        if ( ! $this->platform->supportsSchemas() && ! $this->platform->canEmulateSchemas()) {
->>>>>>> donmanager
             $schema->visit(new RemoveNamespacedAssets());
         }
 
@@ -539,16 +372,7 @@ class SchemaTool
      * @param ClassMetadata $class
      * @param Table         $table
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return void
-=======
-     * @return array The portable column definition of the discriminator column as required by
-     *               the DBAL.
->>>>>>> contactmanager
-=======
-     * @return void
->>>>>>> donmanager
      */
     private function addDiscriminatorColumnDefinition($class, Table $table)
     {
@@ -561,24 +385,10 @@ class SchemaTool
             $discrColumn['length'] = 255;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $options = [
             'length'    => $discrColumn['length'] ?? null,
             'notnull'   => true
         ];
-=======
-        $options = array(
-            'length'    => isset($discrColumn['length']) ? $discrColumn['length'] : null,
-            'notnull'   => true
-        );
->>>>>>> contactmanager
-=======
-        $options = [
-            'length'    => $discrColumn['length'] ?? null,
-            'notnull'   => true
-        ];
->>>>>>> donmanager
 
         if (isset($discrColumn['columnDefinition'])) {
             $options['columnDefinition'] = $discrColumn['columnDefinition'];
@@ -594,27 +404,11 @@ class SchemaTool
      * @param ClassMetadata $class
      * @param Table         $table
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return void
      */
     private function gatherColumns($class, Table $table)
     {
         $pkColumns = [];
-=======
-     * @return array The list of portable column definitions as required by the DBAL.
-     */
-    private function gatherColumns($class, Table $table)
-    {
-        $pkColumns = array();
->>>>>>> contactmanager
-=======
-     * @return void
-     */
-    private function gatherColumns($class, Table $table)
-    {
-        $pkColumns = [];
->>>>>>> donmanager
 
         foreach ($class->fieldMappings as $mapping) {
             if ($class->isInheritanceTypeSingleTable() && isset($mapping['inherited'])) {
@@ -627,18 +421,6 @@ class SchemaTool
                 $pkColumns[] = $this->quoteStrategy->getColumnName($mapping['fieldName'], $class, $this->platform);
             }
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-        // For now, this is a hack required for single table inheritence, since this method is called
-        // twice by single table inheritence relations
-        if (!$table->hasIndex('primary')) {
-            //$table->setPrimaryKey($pkColumns);
-        }
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 
     /**
@@ -648,23 +430,13 @@ class SchemaTool
      * @param array         $mapping The field mapping.
      * @param Table         $table
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @return void
-=======
-     * @return array The portable column definition as required by the DBAL.
->>>>>>> contactmanager
-=======
-     * @return void
->>>>>>> donmanager
      */
     private function gatherColumn($class, array $mapping, Table $table)
     {
         $columnName = $this->quoteStrategy->getColumnName($mapping['fieldName'], $class, $this->platform);
         $columnType = $mapping['type'];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $options = [];
         $options['length'] = $mapping['length'] ?? null;
         $options['notnull'] = isset($mapping['nullable']) ? ! $mapping['nullable'] : true;
@@ -676,27 +448,6 @@ class SchemaTool
         $options['platformOptions']['version'] = $class->isVersioned && $class->versionField === $mapping['fieldName'];
 
         if (strtolower($columnType) === 'string' && null === $options['length']) {
-=======
-        $options = array();
-        $options['length'] = isset($mapping['length']) ? $mapping['length'] : null;
-=======
-        $options = [];
-        $options['length'] = $mapping['length'] ?? null;
->>>>>>> donmanager
-        $options['notnull'] = isset($mapping['nullable']) ? ! $mapping['nullable'] : true;
-        if ($class->isInheritanceTypeSingleTable() && $class->parentClasses) {
-            $options['notnull'] = false;
-        }
-
-        $options['platformOptions'] = [];
-        $options['platformOptions']['version'] = $class->isVersioned && $class->versionField === $mapping['fieldName'];
-
-<<<<<<< HEAD
-        if (strtolower($columnType) == 'string' && $options['length'] === null) {
->>>>>>> contactmanager
-=======
-        if (strtolower($columnType) === 'string' && null === $options['length']) {
->>>>>>> donmanager
             $options['length'] = 255;
         }
 
@@ -717,15 +468,7 @@ class SchemaTool
         }
 
         if (isset($mapping['options'])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $knownOptions = ['comment', 'unsigned', 'fixed', 'default'];
-=======
-            $knownOptions = array('comment', 'unsigned', 'fixed', 'default');
->>>>>>> contactmanager
-=======
-            $knownOptions = ['comment', 'unsigned', 'fixed', 'default'];
->>>>>>> donmanager
 
             foreach ($knownOptions as $knownOption) {
                 if (array_key_exists($knownOption, $mapping['options'])) {
@@ -738,24 +481,10 @@ class SchemaTool
             $options['customSchemaOptions'] = $mapping['options'];
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if ($class->isIdGeneratorIdentity() && $class->getIdentifierFieldNames() == [$mapping['fieldName']]) {
             $options['autoincrement'] = true;
         }
         if ($class->isInheritanceTypeJoined() && $class->name !== $class->rootEntityName) {
-=======
-        if ($class->isIdGeneratorIdentity() && $class->getIdentifierFieldNames() == array($mapping['fieldName'])) {
-            $options['autoincrement'] = true;
-        }
-        if ($class->isInheritanceTypeJoined() && $class->name != $class->rootEntityName) {
->>>>>>> contactmanager
-=======
-        if ($class->isIdGeneratorIdentity() && $class->getIdentifierFieldNames() == [$mapping['fieldName']]) {
-            $options['autoincrement'] = true;
-        }
-        if ($class->isInheritanceTypeJoined() && $class->name !== $class->rootEntityName) {
->>>>>>> donmanager
             $options['autoincrement'] = false;
         }
 
@@ -766,21 +495,9 @@ class SchemaTool
             $table->addColumn($columnName, $columnType, $options);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $isUnique = $mapping['unique'] ?? false;
         if ($isUnique) {
             $table->addUniqueIndex([$columnName]);
-=======
-        $isUnique = isset($mapping['unique']) ? $mapping['unique'] : false;
-        if ($isUnique) {
-            $table->addUniqueIndex(array($columnName));
->>>>>>> contactmanager
-=======
-        $isUnique = $mapping['unique'] ?? false;
-        if ($isUnique) {
-            $table->addUniqueIndex([$columnName]);
->>>>>>> donmanager
         }
     }
 
@@ -800,33 +517,15 @@ class SchemaTool
      */
     private function gatherRelationsSql($class, $table, $schema, &$addedFks, &$blacklistedFks)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         foreach ($class->associationMappings as $id => $mapping) {
             if (isset($mapping['inherited']) && ! \in_array($id, $class->identifier, true)) {
-=======
-        foreach ($class->associationMappings as $mapping) {
-            if (isset($mapping['inherited'])) {
->>>>>>> contactmanager
-=======
-        foreach ($class->associationMappings as $id => $mapping) {
-            if (isset($mapping['inherited']) && ! \in_array($id, $class->identifier, true)) {
->>>>>>> donmanager
                 continue;
             }
 
             $foreignClass = $this->em->getClassMetadata($mapping['targetEntity']);
 
             if ($mapping['type'] & ClassMetadata::TO_ONE && $mapping['isOwningSide']) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $primaryKeyColumns = []; // PK is unnecessary for this relation-type
-=======
-                $primaryKeyColumns = array(); // PK is unnecessary for this relation-type
->>>>>>> contactmanager
-=======
-                $primaryKeyColumns = []; // PK is unnecessary for this relation-type
->>>>>>> donmanager
 
                 $this->gatherRelationJoinColumns(
                     $mapping['joinColumns'],
@@ -848,15 +547,7 @@ class SchemaTool
                     $this->quoteStrategy->getJoinTableName($mapping, $foreignClass, $this->platform)
                 );
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $primaryKeyColumns = [];
-=======
-                $primaryKeyColumns = array();
->>>>>>> contactmanager
-=======
-                $primaryKeyColumns = [];
->>>>>>> donmanager
 
                 // Build first FK constraint (relation table => source table)
                 $this->gatherRelationJoinColumns(
@@ -904,15 +595,7 @@ class SchemaTool
         $referencedFieldName = $class->getFieldName($referencedColumnName);
 
         if ($class->hasField($referencedFieldName)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             return [$class, $referencedFieldName];
-=======
-            return array($class, $referencedFieldName);
->>>>>>> contactmanager
-=======
-            return [$class, $referencedFieldName];
->>>>>>> donmanager
         }
 
         if (in_array($referencedColumnName, $class->getIdentifierColumnNames())) {
@@ -954,30 +637,13 @@ class SchemaTool
         &$primaryKeyColumns,
         &$addedFks,
         &$blacklistedFks
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
     )
     {
         $localColumns       = [];
         $foreignColumns     = [];
         $fkOptions          = [];
-<<<<<<< HEAD
         $foreignTableName   = $this->quoteStrategy->getTableName($class, $this->platform);
         $uniqueConstraints  = [];
-=======
-    ) {
-        $localColumns       = array();
-        $foreignColumns     = array();
-        $fkOptions          = array();
-        $foreignTableName   = $this->quoteStrategy->getTableName($class, $this->platform);
-        $uniqueConstraints  = array();
->>>>>>> contactmanager
-=======
-        $foreignTableName   = $this->quoteStrategy->getTableName($class, $this->platform);
-        $uniqueConstraints  = [];
->>>>>>> donmanager
 
         foreach ($joinColumns as $joinColumn) {
 
@@ -988,8 +654,6 @@ class SchemaTool
 
             if ( ! $definingClass) {
                 throw new \Doctrine\ORM\ORMException(
-<<<<<<< HEAD
-<<<<<<< HEAD
                     'Column name `' . $joinColumn['referencedColumnName'] . '` referenced for relation from '
                     . $mapping['sourceEntity'] . ' towards ' . $mapping['targetEntity'] . ' does not exist.'
                 );
@@ -997,44 +661,14 @@ class SchemaTool
 
             $quotedColumnName    = $this->quoteStrategy->getJoinColumnName($joinColumn, $class, $this->platform);
             $quotedRefColumnName = $this->quoteStrategy->getReferencedJoinColumnName(
-=======
-                    "Column name `".$joinColumn['referencedColumnName']."` referenced for relation from ".
-                    $mapping['sourceEntity'] . " towards ". $mapping['targetEntity'] . " does not exist."
-                );
-            }
-
-            $quotedColumnName       = $this->quoteStrategy->getJoinColumnName($joinColumn, $class, $this->platform);
-            $quotedRefColumnName    = $this->quoteStrategy->getReferencedJoinColumnName(
->>>>>>> contactmanager
-=======
-                    'Column name `' . $joinColumn['referencedColumnName'] . '` referenced for relation from '
-                    . $mapping['sourceEntity'] . ' towards ' . $mapping['targetEntity'] . ' does not exist.'
-                );
-            }
-
-            $quotedColumnName    = $this->quoteStrategy->getJoinColumnName($joinColumn, $class, $this->platform);
-            $quotedRefColumnName = $this->quoteStrategy->getReferencedJoinColumnName(
->>>>>>> donmanager
                 $joinColumn,
                 $class,
                 $this->platform
             );
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $primaryKeyColumns[] = $quotedColumnName;
             $localColumns[]      = $quotedColumnName;
             $foreignColumns[]    = $quotedRefColumnName;
-=======
-            $primaryKeyColumns[]    = $quotedColumnName;
-            $localColumns[]         = $quotedColumnName;
-            $foreignColumns[]       = $quotedRefColumnName;
->>>>>>> contactmanager
-=======
-            $primaryKeyColumns[] = $quotedColumnName;
-            $localColumns[]      = $quotedColumnName;
-            $foreignColumns[]    = $quotedRefColumnName;
->>>>>>> donmanager
 
             if ( ! $theJoinTable->hasColumn($quotedColumnName)) {
                 // Only add the column to the table if it does not exist already.
@@ -1050,24 +684,10 @@ class SchemaTool
                     $columnDef = $fieldMapping['columnDefinition'];
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $columnOptions = ['notnull' => false, 'columnDefinition' => $columnDef];
 
                 if (isset($joinColumn['nullable'])) {
                     $columnOptions['notnull'] = ! $joinColumn['nullable'];
-=======
-                $columnOptions = array('notnull' => false, 'columnDefinition' => $columnDef);
-
-                if (isset($joinColumn['nullable'])) {
-                    $columnOptions['notnull'] = !$joinColumn['nullable'];
->>>>>>> contactmanager
-=======
-                $columnOptions = ['notnull' => false, 'columnDefinition' => $columnDef];
-
-                if (isset($joinColumn['nullable'])) {
-                    $columnOptions['notnull'] = ! $joinColumn['nullable'];
->>>>>>> donmanager
                 }
 
                 if (isset($fieldMapping['options'])) {
@@ -1085,15 +705,7 @@ class SchemaTool
             }
 
             if (isset($joinColumn['unique']) && $joinColumn['unique'] == true) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $uniqueConstraints[] = ['columns' => [$quotedColumnName]];
-=======
-                $uniqueConstraints[] = array('columns' => array($quotedColumnName));
->>>>>>> contactmanager
-=======
-                $uniqueConstraints[] = ['columns' => [$quotedColumnName]];
->>>>>>> donmanager
             }
 
             if (isset($joinColumn['onDelete'])) {
@@ -1122,18 +734,8 @@ class SchemaTool
                 }
             }
             $blacklistedFks[$compositeName] = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
         } elseif ( ! isset($blacklistedFks[$compositeName])) {
             $addedFks[$compositeName] = ['foreignTableName' => $foreignTableName, 'foreignColumns' => $foreignColumns];
-=======
-        } elseif (!isset($blacklistedFks[$compositeName])) {
-            $addedFks[$compositeName] = array('foreignTableName' => $foreignTableName, 'foreignColumns' => $foreignColumns);
->>>>>>> contactmanager
-=======
-        } elseif ( ! isset($blacklistedFks[$compositeName])) {
-            $addedFks[$compositeName] = ['foreignTableName' => $foreignTableName, 'foreignColumns' => $foreignColumns];
->>>>>>> donmanager
             $theJoinTable->addUnnamedForeignKeyConstraint(
                 $foreignTableName,
                 $localColumns,
@@ -1161,18 +763,8 @@ class SchemaTool
         foreach ($dropSchemaSql as $sql) {
             try {
                 $conn->executeQuery($sql);
-<<<<<<< HEAD
-<<<<<<< HEAD
             } catch (\Throwable $e) {
                 // ignored
-=======
-            } catch (\Exception $e) {
-
->>>>>>> contactmanager
-=======
-            } catch (\Throwable $e) {
-                // ignored
->>>>>>> donmanager
             }
         }
     }
@@ -1249,15 +841,7 @@ class SchemaTool
                 if ($table->hasPrimaryKey()) {
                     $columns = $table->getPrimaryKey()->getColumns();
                     if (count($columns) == 1) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                         $checkSequence = $table->getName() . '_' . $columns[0] . '_seq';
-=======
-                        $checkSequence = $table->getName() . "_" . $columns[0] . "_seq";
->>>>>>> contactmanager
-=======
-                        $checkSequence = $table->getName() . '_' . $columns[0] . '_seq';
->>>>>>> donmanager
                         if ($fullSchema->hasSequence($checkSequence)) {
                             $visitor->acceptSequence($fullSchema->getSequence($checkSequence));
                         }
@@ -1271,27 +855,11 @@ class SchemaTool
 
     /**
      * Updates the database schema of the given classes by comparing the ClassMetadata
-<<<<<<< HEAD
-<<<<<<< HEAD
      * instances to the current database schema that is inspected.
      *
      * @param array   $classes
      * @param boolean $saveMode If TRUE, only performs a partial update
      *                          without dropping assets which are scheduled for deletion.
-=======
-     * instances to the current database schema that is inspected. If $saveMode is set
-     * to true the command is executed in the Database, else SQL is returned.
-     *
-     * @param array   $classes
-     * @param boolean $saveMode
->>>>>>> contactmanager
-=======
-     * instances to the current database schema that is inspected.
-     *
-     * @param array   $classes
-     * @param boolean $saveMode If TRUE, only performs a partial update
-     *                          without dropping assets which are scheduled for deletion.
->>>>>>> donmanager
      *
      * @return void
      */
@@ -1308,25 +876,10 @@ class SchemaTool
     /**
      * Gets the sequence of SQL statements that need to be performed in order
      * to bring the given class mappings in-synch with the relational schema.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * @param array   $classes  The classes to consider.
      * @param boolean $saveMode If TRUE, only generates SQL for a partial update
      *                          that does not include SQL for dropping assets which are scheduled for deletion.
-=======
-     * If $saveMode is set to true the command is executed in the Database,
-     * else SQL is returned.
-     *
-     * @param array   $classes  The classes to consider.
-     * @param boolean $saveMode True for writing to DB, false for SQL string.
->>>>>>> contactmanager
-=======
-     *
-     * @param array   $classes  The classes to consider.
-     * @param boolean $saveMode If TRUE, only generates SQL for a partial update
-     *                          that does not include SQL for dropping assets which are scheduled for deletion.
->>>>>>> donmanager
      *
      * @return array The sequence of SQL statements.
      */

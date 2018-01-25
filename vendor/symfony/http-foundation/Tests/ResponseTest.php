@@ -989,15 +989,7 @@ class ResponseTest extends ResponseTestCase
 
         $ianaCodesReasonPhrases = array();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $xpath = new \DOMXPath($ianaHttpStatusCodes);
-=======
-        $xpath = new \DomXPath($ianaHttpStatusCodes);
->>>>>>> contactmanager
-=======
-        $xpath = new \DOMXPath($ianaHttpStatusCodes);
->>>>>>> donmanager
         $xpath->registerNamespace('ns', 'http://www.iana.org/assignments');
 
         $records = $xpath->query('//ns:record');

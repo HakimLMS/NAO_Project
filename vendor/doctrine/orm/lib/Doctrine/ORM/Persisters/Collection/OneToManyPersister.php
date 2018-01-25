@@ -20,20 +20,9 @@
 namespace Doctrine\ORM\Persisters\Collection;
 
 use Doctrine\Common\Collections\Criteria;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\PersistentCollection;
 use Doctrine\ORM\Utility\PersisterHelper;
-=======
-use Doctrine\Common\Proxy\Proxy;
-use Doctrine\ORM\PersistentCollection;
->>>>>>> contactmanager
-=======
-use Doctrine\DBAL\Types\Type;
-use Doctrine\ORM\PersistentCollection;
-use Doctrine\ORM\Utility\PersisterHelper;
->>>>>>> donmanager
 
 /**
  * Persister for one-to-many collections.
@@ -50,10 +39,6 @@ class OneToManyPersister extends AbstractCollectionPersister
      */
     public function delete(PersistentCollection $collection)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         // The only valid case here is when you have weak entities. In this
         // scenario, you have @OneToMany with orphanRemoval=true, and replacing
         // the entire collection with a new would trigger this operation.
@@ -71,15 +56,6 @@ class OneToManyPersister extends AbstractCollectionPersister
         return $targetClass->isInheritanceTypeJoined()
             ? $this->deleteJoinedEntityCollection($collection)
             : $this->deleteEntityCollection($collection);
-<<<<<<< HEAD
-=======
-        // This can never happen. One to many can only be inverse side.
-        // For owning side one to many, it is required to have a join table,
-        // then classifying it as a ManyToManyPersister.
-        return;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
     }
 
     /**
@@ -107,8 +83,6 @@ class OneToManyPersister extends AbstractCollectionPersister
         $persister = $this->uow->getEntityPersister($mapping['targetEntity']);
 
         return $persister->load(
-<<<<<<< HEAD
-<<<<<<< HEAD
             [
                 $mapping['mappedBy'] => $collection->getOwner(),
                 $mapping['indexBy']  => $index
@@ -116,22 +90,6 @@ class OneToManyPersister extends AbstractCollectionPersister
             null,
             $mapping,
             [],
-=======
-            array(
-=======
-            [
->>>>>>> donmanager
-                $mapping['mappedBy'] => $collection->getOwner(),
-                $mapping['indexBy']  => $index
-            ],
-            null,
-            $mapping,
-<<<<<<< HEAD
-            array(),
->>>>>>> contactmanager
-=======
-            [],
->>>>>>> donmanager
             null,
             1
         );
@@ -237,10 +195,6 @@ class OneToManyPersister extends AbstractCollectionPersister
     {
         throw new \BadMethodCallException("Filtering a collection by Criteria is not supported by this CollectionPersister.");
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
     /**
      * @param PersistentCollection $collection
@@ -334,9 +288,4 @@ class OneToManyPersister extends AbstractCollectionPersister
 
         return $numDeleted;
     }
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 }

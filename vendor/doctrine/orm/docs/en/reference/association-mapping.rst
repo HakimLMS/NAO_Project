@@ -16,10 +16,6 @@ This chapter is split into three different sections.
 - :ref:`association_mapping_defaults` are explained that simplify the use-case examples.
 - :ref:`collections` are introduced that contain entities in associations.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 One tip for working with relations is to read the relation from left to right, where the left word refers to the current Entity. For example:
 
 - OneToMany - One instance of the current Entity has Many instances (references) to the refered Entity.
@@ -31,41 +27,20 @@ See below for all the possible relations.
 An association is considered to be unidirectional if only one side of the association has 
 a property referring to the other side.
 
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 To gain a full understanding of associations you should also read about :doc:`owning and
 inverse sides of associations <unitofwork-associations>`
 
 Many-To-One, Unidirectional
 ---------------------------
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 A many-to-one association is the most common association between objects. Example: Many Users have One Address:
-=======
-A many-to-one association is the most common association between objects.
->>>>>>> contactmanager
-=======
-A many-to-one association is the most common association between objects. Example: Many Users have One Address:
->>>>>>> donmanager
 
 .. configuration-block::
 
     .. code-block:: php
 
         <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class User
         {
             // ...
@@ -73,27 +48,11 @@ A many-to-one association is the most common association between objects. Exampl
             /**
              * @ManyToOne(targetEntity="Address")
              * @JoinColumn(name="address_id", referencedColumnName="id")
-<<<<<<< HEAD
-<<<<<<< HEAD
              */
             private $address;
         }
 
         /** @Entity */
-=======
-             **/
-            private $address;
-        }
-
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-             */
-            private $address;
-        }
-
-        /** @Entity */
->>>>>>> donmanager
         class Address
         {
             // ...
@@ -148,71 +107,30 @@ One-To-One, Unidirectional
 --------------------------
 
 Here is an example of a one-to-one association with a ``Product`` entity that
-<<<<<<< HEAD
-<<<<<<< HEAD
 references one ``Shipment`` entity.
-=======
-references one ``Shipping`` entity. The ``Shipping`` does not reference back to
-the ``Product`` so that the reference is said to be unidirectional, in one
-direction only.
->>>>>>> contactmanager
-=======
-references one ``Shipment`` entity.
->>>>>>> donmanager
 
 .. configuration-block::
 
     .. code-block:: php
 
         <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Product
         {
             // ...
 
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
              * One Product has One Shipment.
              * @OneToOne(targetEntity="Shipment")
              * @JoinColumn(name="shipment_id", referencedColumnName="id")
              */
             private $shipment;
-<<<<<<< HEAD
-=======
-             * @OneToOne(targetEntity="Shipping")
-             * @JoinColumn(name="shipping_id", referencedColumnName="id")
-             **/
-            private $shipping;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
             // ...
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
         class Shipment
-=======
-        /** @Entity **/
-        class Shipping
->>>>>>> contactmanager
-=======
-        /** @Entity */
-        class Shipment
->>>>>>> donmanager
         {
             // ...
         }
@@ -221,18 +139,8 @@ references one ``Shipment`` entity.
 
         <doctrine-mapping>
             <entity class="Product">
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <one-to-one field="shipment" target-entity="Shipment">
                     <join-column name="shipment_id" referenced-column-name="id" />
-=======
-                <one-to-one field="shipping" target-entity="Shipping">
-                    <join-column name="shipping_id" referenced-column-name="id" />
->>>>>>> contactmanager
-=======
-                <one-to-one field="shipment" target-entity="Shipment">
-                    <join-column name="shipment_id" referenced-column-name="id" />
->>>>>>> donmanager
                 </one-to-one>
             </entity>
         </doctrine-mapping>
@@ -242,24 +150,10 @@ references one ``Shipment`` entity.
         Product:
           type: entity
           oneToOne:
-<<<<<<< HEAD
-<<<<<<< HEAD
             shipment:
               targetEntity: Shipment
               joinColumn:
                 name: shipment_id
-=======
-            shipping:
-              targetEntity: Shipping
-              joinColumn:
-                name: shipping_id
->>>>>>> contactmanager
-=======
-            shipment:
-              targetEntity: Shipment
-              joinColumn:
-                name: shipment_id
->>>>>>> donmanager
                 referencedColumnName: id
 
 Note that the @JoinColumn is not really necessary in this example,
@@ -271,8 +165,6 @@ Generated MySQL Schema:
 
     CREATE TABLE Product (
         id INT AUTO_INCREMENT NOT NULL,
-<<<<<<< HEAD
-<<<<<<< HEAD
         shipment_id INT DEFAULT NULL,
         UNIQUE INDEX UNIQ_6FBC94267FE4B2B (shipment_id),
         PRIMARY KEY(id)
@@ -282,25 +174,6 @@ Generated MySQL Schema:
         PRIMARY KEY(id)
     ) ENGINE = InnoDB;
     ALTER TABLE Product ADD FOREIGN KEY (shipment_id) REFERENCES Shipment(id);
-=======
-        shipping_id INT DEFAULT NULL,
-        UNIQUE INDEX UNIQ_6FBC94267FE4B2B (shipping_id),
-=======
-        shipment_id INT DEFAULT NULL,
-        UNIQUE INDEX UNIQ_6FBC94267FE4B2B (shipment_id),
->>>>>>> donmanager
-        PRIMARY KEY(id)
-    ) ENGINE = InnoDB;
-    CREATE TABLE Shipment (
-        id INT AUTO_INCREMENT NOT NULL,
-        PRIMARY KEY(id)
-    ) ENGINE = InnoDB;
-<<<<<<< HEAD
-    ALTER TABLE Product ADD FOREIGN KEY (shipping_id) REFERENCES Shipping(id);
->>>>>>> contactmanager
-=======
-    ALTER TABLE Product ADD FOREIGN KEY (shipment_id) REFERENCES Shipment(id);
->>>>>>> donmanager
 
 One-To-One, Bidirectional
 -------------------------
@@ -309,88 +182,39 @@ Here is a one-to-one relationship between a ``Customer`` and a
 ``Cart``. The ``Cart`` has a reference back to the ``Customer`` so
 it is bidirectional.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 Here we see the ``mappedBy`` and ``inversedBy`` annotations for the first time.
 They are used to tell Doctrine which property on the other side refers to the
 object.
 
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 .. configuration-block::
 
     .. code-block:: php
 
         <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Customer
         {
             // ...
 
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * One Customer has One Cart.
              * @OneToOne(targetEntity="Cart", mappedBy="customer")
              */
-=======
-             * @OneToOne(targetEntity="Cart", mappedBy="customer")
-             **/
->>>>>>> contactmanager
-=======
-             * One Customer has One Cart.
-             * @OneToOne(targetEntity="Cart", mappedBy="customer")
-             */
->>>>>>> donmanager
             private $cart;
 
             // ...
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Cart
         {
             // ...
 
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * One Cart has One Customer.
              * @OneToOne(targetEntity="Customer", inversedBy="cart")
              * @JoinColumn(name="customer_id", referencedColumnName="id")
              */
-=======
-             * @OneToOne(targetEntity="Customer", inversedBy="cart")
-             * @JoinColumn(name="customer_id", referencedColumnName="id")
-             **/
->>>>>>> contactmanager
-=======
-             * One Cart has One Customer.
-             * @OneToOne(targetEntity="Customer", inversedBy="cart")
-             * @JoinColumn(name="customer_id", referencedColumnName="id")
-             */
->>>>>>> donmanager
             private $customer;
 
             // ...
@@ -443,20 +267,9 @@ Generated MySQL Schema:
     ) ENGINE = InnoDB;
     ALTER TABLE Cart ADD FOREIGN KEY (customer_id) REFERENCES Customer(id);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 We had a choice of sides on which to place the ``inversedBy`` attribute. Because it
 is on the ``Cart``, that is the owning side of the relation, and thus holds the
 foreign key.
-=======
-See how the foreign key is defined on the owning side of the
-relation, the table ``Cart``.
->>>>>>> contactmanager
-=======
-We had a choice of sides on which to place the ``inversedBy`` attribute. Because it
-is on the ``Cart``, that is the owning side of the relation, and thus holds the
-foreign key.
->>>>>>> donmanager
 
 One-To-One, Self-referencing
 ----------------------------
@@ -467,37 +280,16 @@ below.
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     /** @Entity */
-=======
-    /** @Entity **/
->>>>>>> contactmanager
-=======
-    /** @Entity */
->>>>>>> donmanager
     class Student
     {
         // ...
 
         /**
-<<<<<<< HEAD
-<<<<<<< HEAD
          * One Student has One Student.
          * @OneToOne(targetEntity="Student")
          * @JoinColumn(name="mentor_id", referencedColumnName="id")
          */
-=======
-         * @OneToOne(targetEntity="Student")
-         * @JoinColumn(name="mentor_id", referencedColumnName="id")
-         **/
->>>>>>> contactmanager
-=======
-         * One Student has One Student.
-         * @OneToOne(targetEntity="Student")
-         * @JoinColumn(name="mentor_id", referencedColumnName="id")
-         */
->>>>>>> donmanager
         private $mentor;
 
         // ...
@@ -520,40 +312,16 @@ With the generated MySQL Schema:
 One-To-Many, Bidirectional
 --------------------------
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 A one-to-many association has to be bidirectional, unless you are using a
 join table. This is because the many side in a one-to-many association holds
 the foreign key, making it the owning side. Doctrine needs the many side
 defined in order to understand the association.
-<<<<<<< HEAD
 
 This bidirectional mapping requires the ``mappedBy`` attribute on the
 "one" side and the ``inversedBy`` attribute on the "many" side.
 
 This means there is no difference between a bidirectional one-to-many and a
 bidirectional many-to-one.
-=======
-A one-to-many association has to be bidirectional, unless you are using an
-additional join-table. This is necessary, because of the foreign key
-in a one-to-many association being defined on the "many" side. Doctrine
-needs a many-to-one association that defines the mapping of this
-foreign key.
-
-This bidirectional mapping requires the ``mappedBy`` attribute on the
-``OneToMany`` association and the ``inversedBy`` attribute on the ``ManyToOne``
-association.
->>>>>>> contactmanager
-=======
-
-This bidirectional mapping requires the ``mappedBy`` attribute on the
-"one" side and the ``inversedBy`` attribute on the "many" side.
-
-This means there is no difference between a bidirectional one-to-many and a
-bidirectional many-to-one.
->>>>>>> donmanager
 
 .. configuration-block::
 
@@ -562,33 +330,14 @@ bidirectional many-to-one.
         <?php
         use Doctrine\Common\Collections\ArrayCollection;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Product
         {
             // ...
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * One Product has Many Features.
              * @OneToMany(targetEntity="Feature", mappedBy="product")
              */
-=======
-             * @OneToMany(targetEntity="Feature", mappedBy="product")
-             **/
->>>>>>> contactmanager
-=======
-             * One Product has Many Features.
-             * @OneToMany(targetEntity="Feature", mappedBy="product")
-             */
->>>>>>> donmanager
             private $features;
             // ...
 
@@ -597,36 +346,15 @@ bidirectional many-to-one.
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Feature
         {
             // ...
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * Many Features have One Product.
              * @ManyToOne(targetEntity="Product", inversedBy="features")
              * @JoinColumn(name="product_id", referencedColumnName="id")
              */
-=======
-             * @ManyToOne(targetEntity="Product", inversedBy="features")
-             * @JoinColumn(name="product_id", referencedColumnName="id")
-             **/
->>>>>>> contactmanager
-=======
-             * Many Features have One Product.
-             * @ManyToOne(targetEntity="Product", inversedBy="features")
-             * @JoinColumn(name="product_id", referencedColumnName="id")
-             */
->>>>>>> donmanager
             private $product;
             // ...
         }
@@ -695,42 +423,19 @@ The following example sets up such a unidirectional one-to-many association:
     .. code-block:: php
 
         <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class User
         {
             // ...
 
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * Many User have Many Phonenumbers.
-=======
->>>>>>> contactmanager
-=======
-             * Many User have Many Phonenumbers.
->>>>>>> donmanager
              * @ManyToMany(targetEntity="Phonenumber")
              * @JoinTable(name="users_phonenumbers",
              *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
              *      inverseJoinColumns={@JoinColumn(name="phonenumber_id", referencedColumnName="id", unique=true)}
              *      )
-<<<<<<< HEAD
-<<<<<<< HEAD
              */
-=======
-             **/
->>>>>>> contactmanager
-=======
-             */
->>>>>>> donmanager
             private $phonenumbers;
 
             public function __construct()
@@ -741,15 +446,7 @@ The following example sets up such a unidirectional one-to-many association:
             // ...
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Phonenumber
         {
             // ...
@@ -828,21 +525,11 @@ database perspective is known as an adjacency list approach.
     .. code-block:: php
 
         <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Category
         {
             // ...
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * One Category has Many Categories.
              * @OneToMany(targetEntity="Category", mappedBy="parent")
              */
@@ -853,24 +540,6 @@ database perspective is known as an adjacency list approach.
              * @ManyToOne(targetEntity="Category", inversedBy="children")
              * @JoinColumn(name="parent_id", referencedColumnName="id")
              */
-=======
-=======
-             * One Category has Many Categories.
->>>>>>> donmanager
-             * @OneToMany(targetEntity="Category", mappedBy="parent")
-             */
-            private $children;
-
-            /**
-             * Many Categories have One Category.
-             * @ManyToOne(targetEntity="Category", inversedBy="children")
-             * @JoinColumn(name="parent_id", referencedColumnName="id")
-<<<<<<< HEAD
-             **/
->>>>>>> contactmanager
-=======
-             */
->>>>>>> donmanager
             private $parent;
             // ...
 
@@ -927,42 +596,19 @@ entities:
     .. code-block:: php
 
         <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class User
         {
             // ...
 
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * Many Users have Many Groups.
-=======
->>>>>>> contactmanager
-=======
-             * Many Users have Many Groups.
->>>>>>> donmanager
              * @ManyToMany(targetEntity="Group")
              * @JoinTable(name="users_groups",
              *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
              *      inverseJoinColumns={@JoinColumn(name="group_id", referencedColumnName="id")}
              *      )
-<<<<<<< HEAD
-<<<<<<< HEAD
              */
-=======
-             **/
->>>>>>> contactmanager
-=======
-             */
->>>>>>> donmanager
             private $groups;
 
             // ...
@@ -972,15 +618,7 @@ entities:
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Group
         {
             // ...
@@ -1059,37 +697,16 @@ one is bidirectional.
     .. code-block:: php
 
         <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class User
         {
             // ...
 
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * Many Users have Many Groups.
              * @ManyToMany(targetEntity="Group", inversedBy="users")
              * @JoinTable(name="users_groups")
              */
-=======
-             * @ManyToMany(targetEntity="Group", inversedBy="users")
-             * @JoinTable(name="users_groups")
-             **/
->>>>>>> contactmanager
-=======
-             * Many Users have Many Groups.
-             * @ManyToMany(targetEntity="Group", inversedBy="users")
-             * @JoinTable(name="users_groups")
-             */
->>>>>>> donmanager
             private $groups;
 
             public function __construct() {
@@ -1099,33 +716,14 @@ one is bidirectional.
             // ...
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @Entity */
-=======
-        /** @Entity **/
->>>>>>> contactmanager
-=======
-        /** @Entity */
->>>>>>> donmanager
         class Group
         {
             // ...
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * Many Groups have Many Users.
              * @ManyToMany(targetEntity="User", mappedBy="groups")
              */
-=======
-             * @ManyToMany(targetEntity="User", mappedBy="groups")
-             **/
->>>>>>> contactmanager
-=======
-             * Many Groups have Many Users.
-             * @ManyToMany(targetEntity="User", mappedBy="groups")
-             */
->>>>>>> donmanager
             private $users;
 
             public function __construct() {
@@ -1183,50 +781,22 @@ one is bidirectional.
 The MySQL schema is exactly the same as for the Many-To-Many
 uni-directional case above.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Owning and Inverse Side on a ManyToMany Association
-=======
-Owning and Inverse Side on a ManyToMany association
->>>>>>> contactmanager
-=======
-Owning and Inverse Side on a ManyToMany Association
->>>>>>> donmanager
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For Many-To-Many associations you can chose which entity is the
 owning and which the inverse side. There is a very simple semantic
 rule to decide which side is more suitable to be the owning side
-<<<<<<< HEAD
-<<<<<<< HEAD
 from a developers perspective. You only have to ask yourself which
 entity is responsible for the connection management, and pick that
-=======
-from a developers perspective. You only have to ask yourself, which
-entity is responsible for the connection management and pick that
->>>>>>> contactmanager
-=======
-from a developers perspective. You only have to ask yourself which
-entity is responsible for the connection management, and pick that
->>>>>>> donmanager
 as the owning side.
 
 Take an example of two entities ``Article`` and ``Tag``. Whenever
 you want to connect an Article to a Tag and vice-versa, it is
 mostly the Article that is responsible for this relation. Whenever
 you add a new article, you want to connect it with existing or new
-<<<<<<< HEAD
-<<<<<<< HEAD
 tags. Your "Create Article" form will probably support this notion
 and allow specifying the tags directly. This is why you should pick
-=======
-tags. Your create Article form will probably support this notion
-and allow to specify the tags directly. This is why you should pick
->>>>>>> contactmanager
-=======
-tags. Your "Create Article" form will probably support this notion
-and allow specifying the tags directly. This is why you should pick
->>>>>>> donmanager
 the Article as owning side, as it makes the code more
 understandable:
 
@@ -1276,22 +846,12 @@ field named ``$friendsWithMe`` and ``$myFriends``.
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     /** @Entity */
-=======
-    /** @Entity **/
->>>>>>> contactmanager
-=======
-    /** @Entity */
->>>>>>> donmanager
     class User
     {
         // ...
 
         /**
-<<<<<<< HEAD
-<<<<<<< HEAD
          * Many Users have Many Users.
          * @ManyToMany(targetEntity="User", mappedBy="myFriends")
          */
@@ -1299,34 +859,12 @@ field named ``$friendsWithMe`` and ``$myFriends``.
 
         /**
          * Many Users have many Users.
-=======
-=======
-         * Many Users have Many Users.
->>>>>>> donmanager
-         * @ManyToMany(targetEntity="User", mappedBy="myFriends")
-         */
-        private $friendsWithMe;
-
-        /**
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-         * Many Users have many Users.
->>>>>>> donmanager
          * @ManyToMany(targetEntity="User", inversedBy="friendsWithMe")
          * @JoinTable(name="friends",
          *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
          *      inverseJoinColumns={@JoinColumn(name="friend_user_id", referencedColumnName="id")}
          *      )
-<<<<<<< HEAD
-<<<<<<< HEAD
          */
-=======
-         **/
->>>>>>> contactmanager
-=======
-         */
->>>>>>> donmanager
         private $myFriends;
 
         public function __construct() {
@@ -1374,32 +912,14 @@ As an example, consider this mapping:
     .. code-block:: php
 
         <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
         /** @OneToOne(targetEntity="Shipment") */
         private $shipment;
-=======
-        /** @OneToOne(targetEntity="Shipping") **/
-        private $shipping;
->>>>>>> contactmanager
-=======
-        /** @OneToOne(targetEntity="Shipment") */
-        private $shipment;
->>>>>>> donmanager
 
     .. code-block:: xml
 
         <doctrine-mapping>
             <entity class="Product">
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <one-to-one field="shipment" target-entity="Shipment" />
-=======
-                <one-to-one field="shipping" target-entity="Shipping" />
->>>>>>> contactmanager
-=======
-                <one-to-one field="shipment" target-entity="Shipment" />
->>>>>>> donmanager
             </entity>
         </doctrine-mapping>
 
@@ -1408,18 +928,8 @@ As an example, consider this mapping:
         Product:
           type: entity
           oneToOne:
-<<<<<<< HEAD
-<<<<<<< HEAD
             shipment:
               targetEntity: Shipment
-=======
-            shipping:
-              targetEntity: Shipping
->>>>>>> contactmanager
-=======
-            shipment:
-              targetEntity: Shipment
->>>>>>> donmanager
 
 This is essentially the same as the following, more verbose,
 mapping:
@@ -1430,41 +940,18 @@ mapping:
 
         <?php
         /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
          * One Product has One Shipment.
          * @OneToOne(targetEntity="Shipment")
          * @JoinColumn(name="shipment_id", referencedColumnName="id")
          */
         private $shipment;
-<<<<<<< HEAD
-=======
-         * @OneToOne(targetEntity="Shipping")
-         * @JoinColumn(name="shipping_id", referencedColumnName="id")
-         **/
-        private $shipping;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
     .. code-block:: xml
 
         <doctrine-mapping>
             <entity class="Product">
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <one-to-one field="shipment" target-entity="Shipment">
                     <join-column name="shipment_id" referenced-column-name="id" />
-=======
-                <one-to-one field="shipping" target-entity="Shipping">
-                    <join-column name="shipping_id" referenced-column-name="id" />
->>>>>>> contactmanager
-=======
-                <one-to-one field="shipment" target-entity="Shipment">
-                    <join-column name="shipment_id" referenced-column-name="id" />
->>>>>>> donmanager
                 </one-to-one>
             </entity>
         </doctrine-mapping>
@@ -1474,24 +961,10 @@ mapping:
         Product:
           type: entity
           oneToOne:
-<<<<<<< HEAD
-<<<<<<< HEAD
             shipment:
               targetEntity: Shipment
               joinColumn:
                 name: shipment_id
-=======
-            shipping:
-              targetEntity: Shipping
-              joinColumn:
-                name: shipping_id
->>>>>>> contactmanager
-=======
-            shipment:
-              targetEntity: Shipment
-              joinColumn:
-                name: shipment_id
->>>>>>> donmanager
                 referencedColumnName: id
 
 The @JoinTable definition used for many-to-many mappings has
@@ -1505,15 +978,7 @@ similar defaults. As an example, consider this mapping:
         class User
         {
             //...
-<<<<<<< HEAD
-<<<<<<< HEAD
             /** @ManyToMany(targetEntity="Group") */
-=======
-            /** @ManyToMany(targetEntity="Group") **/
->>>>>>> contactmanager
-=======
-            /** @ManyToMany(targetEntity="Group") */
->>>>>>> donmanager
             private $groups;
             //...
         }
@@ -1545,28 +1010,13 @@ This is essentially the same as the following, more verbose, mapping:
         {
             //...
             /**
-<<<<<<< HEAD
-<<<<<<< HEAD
              * Many Users have Many Groups.
-=======
->>>>>>> contactmanager
-=======
-             * Many Users have Many Groups.
->>>>>>> donmanager
              * @ManyToMany(targetEntity="Group")
              * @JoinTable(name="User_Group",
              *      joinColumns={@JoinColumn(name="User_id", referencedColumnName="id")},
              *      inverseJoinColumns={@JoinColumn(name="Group_id", referencedColumnName="id")}
              *      )
-<<<<<<< HEAD
-<<<<<<< HEAD
              */
-=======
-             **/
->>>>>>> contactmanager
-=======
-             */
->>>>>>> donmanager
             private $groups;
             //...
         }
@@ -1645,8 +1095,6 @@ and ``@ManyToMany`` associations in the constructor of your entities:
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     use Doctrine\Common\Collections\Collection;
     use Doctrine\Common\Collections\ArrayCollection;
 
@@ -1658,25 +1106,6 @@ and ``@ManyToMany`` associations in the constructor of your entities:
          * @var Collection
          * @ManyToMany(targetEntity="Group")
          */
-=======
-=======
-    use Doctrine\Common\Collections\Collection;
->>>>>>> donmanager
-    use Doctrine\Common\Collections\ArrayCollection;
-
-    /** @Entity */
-    class User
-    {
-<<<<<<< HEAD
-        /** @ManyToMany(targetEntity="Group") **/
->>>>>>> contactmanager
-=======
-        /**
-         * Many Users have Many Groups.
-         * @var Collection
-         * @ManyToMany(targetEntity="Group")
-         */
->>>>>>> donmanager
         private $groups;
 
         public function __construct()

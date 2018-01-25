@@ -11,15 +11,7 @@ The Second Level Cache is designed to reduce the amount of necessary database ac
 It sits between your application and the database to avoid the number of database hits as much as possible.
 
 When turned on, entities will be first searched in cache and if they are not found,
-<<<<<<< HEAD
-<<<<<<< HEAD
 a database query will be fired and then the entity result will be stored in a cache provider.
-=======
-a database query will be fired an then the entity result will be stored in a cache provider.
->>>>>>> contactmanager
-=======
-a database query will be fired and then the entity result will be stored in a cache provider.
->>>>>>> donmanager
 
 There are some flavors of caching available, but is better to cache read-only data.
 
@@ -105,15 +97,7 @@ Defines a contract for accessing a particular region.
 
 Defines a contract for accessing a particular cache region.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 `See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.Region.html>`_.
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.Region.html/>`_.
->>>>>>> contactmanager
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.Region.html>`_.
->>>>>>> donmanager
 
 Concurrent cache region
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -127,15 +111,7 @@ If you want to use an ``READ_WRITE`` cache, you should consider providing your o
 
 Defines contract for concurrently managed data region.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 `See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.ConcurrentRegion.html>`_.
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.ConcurrentRegion.html/>`_.
->>>>>>> contactmanager
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.ConcurrentRegion.html>`_.
->>>>>>> donmanager
 
 Timestamp region
 ~~~~~~~~~~~~~~~~
@@ -144,15 +120,7 @@ Timestamp region
 
 Tracks the timestamps of the most recent updates to particular entity.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 `See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.TimestampRegion.html>`_.
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.TimestampRegion.html/>`_.
->>>>>>> contactmanager
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.TimestampRegion.html>`_.
->>>>>>> donmanager
 
 .. _reference-second-level-cache-mode:
 
@@ -181,8 +149,6 @@ Caching mode
 
 
 Built-in cached persisters
-<<<<<<< HEAD
-<<<<<<< HEAD
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Cached persisters are responsible to access cache regions.
@@ -202,48 +168,6 @@ Cached persisters are responsible to access cache regions.
     +-----------------------+-------------------------------------------------------------------------------------------+
     | NONSTRICT_READ_WRITE  | Doctrine\\ORM\\Cache\\Persister\\Collection\\NonStrictReadWriteCachedCollectionPersister  |
     +-----------------------+-------------------------------------------------------------------------------------------+
-=======
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Cached persisters are responsible to access cache regions.
-
-    +-----------------------+-------------------------------------------------------------------------------+
-    | Cache Usage           | Persister                                                                     |
-    +=======================+===============================================================================+
-    | READ_ONLY             | Doctrine\\ORM\\Cache\\Persister\\ReadOnlyCachedEntityPersister                |
-    +-----------------------+-------------------------------------------------------------------------------+
-    | READ_WRITE            | Doctrine\\ORM\\Cache\\Persister\\ReadWriteCachedEntityPersister               |
-    +-----------------------+-------------------------------------------------------------------------------+
-    | NONSTRICT_READ_WRITE  | Doctrine\\ORM\\Cache\\Persister\\NonStrictReadWriteCachedEntityPersister      |
-    +-----------------------+-------------------------------------------------------------------------------+
-    | READ_ONLY             | Doctrine\\ORM\\Cache\\Persister\\ReadOnlyCachedCollectionPersister            |
-    +-----------------------+-------------------------------------------------------------------------------+
-    | READ_WRITE            | Doctrine\\ORM\\Cache\\Persister\\ReadWriteCachedCollectionPersister           |
-    +-----------------------+-------------------------------------------------------------------------------+
-    | NONSTRICT_READ_WRITE  | Doctrine\\ORM\\Cache\\Persister\\NonStrictReadWriteCacheCollectionPersister   |
-    +-----------------------+-------------------------------------------------------------------------------+
->>>>>>> contactmanager
-=======
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Cached persisters are responsible to access cache regions.
-
-    +-----------------------+-------------------------------------------------------------------------------------------+
-    | Cache Usage           | Persister                                                                                 |
-    +=======================+===========================================================================================+
-    | READ_ONLY             | Doctrine\\ORM\\Cache\\Persister\\Entity\\ReadOnlyCachedEntityPersister                    |
-    +-----------------------+-------------------------------------------------------------------------------------------+
-    | READ_WRITE            | Doctrine\\ORM\\Cache\\Persister\\Entity\\ReadWriteCachedEntityPersister                   |
-    +-----------------------+-------------------------------------------------------------------------------------------+
-    | NONSTRICT_READ_WRITE  | Doctrine\\ORM\\Cache\\Persister\\Entity\\NonStrictReadWriteCachedEntityPersister          |
-    +-----------------------+-------------------------------------------------------------------------------------------+
-    | READ_ONLY             | Doctrine\\ORM\\Cache\\Persister\\Collection\\ReadOnlyCachedCollectionPersister            |
-    +-----------------------+-------------------------------------------------------------------------------------------+
-    | READ_WRITE            | Doctrine\\ORM\\Cache\\Persister\\Collection\\ReadWriteCachedCollectionPersister           |
-    +-----------------------+-------------------------------------------------------------------------------------------+
-    | NONSTRICT_READ_WRITE  | Doctrine\\ORM\\Cache\\Persister\\Collection\\NonStrictReadWriteCachedCollectionPersister  |
-    +-----------------------+-------------------------------------------------------------------------------------------+
->>>>>>> donmanager
 
 Configuration
 -------------
@@ -285,15 +209,7 @@ It allows you to provide a specific implementation of the following components :
 * ``EntityHydrator``  Transform an entity into a cache entry and cache entry into entities
 * ``CollectionHydrator`` Transform a collection into a cache entry and cache entry into collection
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 `See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.DefaultCacheFactory.html>`_.
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.DefaultCacheFactory.html/>`_.
->>>>>>> contactmanager
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.DefaultCacheFactory.html>`_.
->>>>>>> donmanager
 
 Region Lifetime
 ~~~~~~~~~~~~~~~
@@ -304,15 +220,7 @@ To specify a default lifetime for all regions or specify a different lifetime fo
 
     <?php
     /* @var $config \Doctrine\ORM\Configuration */
-<<<<<<< HEAD
-<<<<<<< HEAD
     /* @var $cacheConfig \Doctrine\ORM\Cache\CacheConfiguration */
-=======
-    /* @var $cacheConfig \Doctrine\ORM\Configuration */
->>>>>>> contactmanager
-=======
-    /* @var $cacheConfig \Doctrine\ORM\Cache\CacheConfiguration */
->>>>>>> donmanager
     $cacheConfig  =  $config->getSecondLevelCacheConfiguration();
     $regionConfig =  $cacheConfig->getRegionsConfiguration();
 
@@ -331,15 +239,7 @@ By providing a cache logger you should be able to get information about all cach
 
     <?php
     /* @var $config \Doctrine\ORM\Configuration */
-<<<<<<< HEAD
-<<<<<<< HEAD
     $logger = new \Doctrine\ORM\Cache\Logging\StatisticsCacheLogger();
-=======
-    $logger = \Doctrine\ORM\Cache\Logging\StatisticsCacheLogger();
->>>>>>> contactmanager
-=======
-    $logger = new \Doctrine\ORM\Cache\Logging\StatisticsCacheLogger();
->>>>>>> donmanager
 
     // Cache logger
     $config->setSecondLevelCacheEnabled(true);
@@ -370,15 +270,7 @@ By providing a cache logger you should be able to get information about all cach
 If you want to get more information you should implement ``\Doctrine\ORM\Cache\Logging\CacheLogger``.
 and collect all information you want.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 `See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.CacheLogger.html>`_.
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.CacheLogger.html/>`_.
->>>>>>> contactmanager
-=======
-`See API Doc <http://www.doctrine-project.org/api/orm/2.5/class-Doctrine.ORM.Cache.CacheLogger.html>`_.
->>>>>>> donmanager
 
 
 Entity cache definition
@@ -727,15 +619,7 @@ Execute the ``UPDATE`` and invalidate ``a specific cache entry`` using the cache
     $em->getCache()->evictEntity('Entity\Country', 1);
 
 Using the repository query cache
-<<<<<<< HEAD
-<<<<<<< HEAD
 --------------------------------
-=======
----------------------
->>>>>>> contactmanager
-=======
---------------------------------
->>>>>>> donmanager
 
 As well as ``Query Cache`` all persister queries store only identifier values for an individual query.
 All persister use a single timestamps cache region keeps track of the last update for each persister,

@@ -20,16 +20,6 @@ use Composer\Downloader\TransportException;
 use Composer\Factory;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Composer\Plugin\PluginEvents;
-use Composer\Plugin\PreFileDownloadEvent;
-=======
->>>>>>> contactmanager
-=======
-use Composer\Plugin\PluginEvents;
-use Composer\Plugin\PreFileDownloadEvent;
->>>>>>> donmanager
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -47,20 +37,8 @@ class Downloader
     private $endpoint;
     private $caFile;
     private $flexId;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private $eventDispatcher;
-
-    public function __construct(Composer $composer, IoInterface $io, ParallelDownloader $rfs)
-=======
 
     public function __construct(Composer $composer, IoInterface $io)
->>>>>>> contactmanager
-=======
-    private $eventDispatcher;
-
-    public function __construct(Composer $composer, IoInterface $io, ParallelDownloader $rfs)
->>>>>>> donmanager
     {
         if (getenv('SYMFONY_CAFILE')) {
             $this->caFile = getenv('SYMFONY_CAFILE');
@@ -73,17 +51,7 @@ class Downloader
         $this->endpoint = rtrim($endpoint, '/');
         $this->io = $io;
         $config = $composer->getConfig();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->eventDispatcher = $composer->getEventDispatcher();
-        $this->rfs = $rfs;
-=======
         $this->rfs = Factory::createRemoteFilesystem($io, $config);
->>>>>>> contactmanager
-=======
-        $this->eventDispatcher = $composer->getEventDispatcher();
-        $this->rfs = $rfs;
->>>>>>> donmanager
         $this->cache = new Cache($io, $config->get('cache-repo-dir').'/'.preg_replace('{[^a-z0-9.]}i', '-', $this->endpoint));
         $this->sess = bin2hex(random_bytes(16));
 
@@ -141,15 +109,7 @@ class Downloader
                 $path .= ','.$date->format('U');
             }
             if (strlen($chunk) + strlen($path) > self::$MAX_LENGTH) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                $paths[] = ['/p/'.$chunk];
-=======
                 $paths[] = '/p/'.$chunk;
->>>>>>> contactmanager
-=======
-                $paths[] = ['/p/'.$chunk];
->>>>>>> donmanager
                 $chunk = $path;
             } elseif ($chunk) {
                 $chunk .= ';'.$path;
@@ -158,40 +118,14 @@ class Downloader
             }
         }
         if ($chunk) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            $paths[] = ['/p/'.$chunk];
-        }
-
-        $bodies = [];
-        $this->rfs->download($paths, function ($path) use (&$bodies) {
-            if ($body = $this->get($path, [], false)->getBody()) {
-                $bodies[] = $body;
-            }
-        });
-
-        $data = [];
-        foreach ($bodies as $body) {
-=======
             $paths[] = '/p/'.$chunk;
-=======
-            $paths[] = ['/p/'.$chunk];
->>>>>>> donmanager
         }
 
-        $bodies = [];
-        $this->rfs->download($paths, function ($path) use (&$bodies) {
-            if ($body = $this->get($path, [], false)->getBody()) {
-                $bodies[] = $body;
-            }
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-        });
-
         $data = [];
-        foreach ($bodies as $body) {
->>>>>>> donmanager
+        foreach ($paths as $path) {
+            if (!$body = $this->get($path, [], false)->getBody()) {
+                continue;
+            }
             foreach ($body['manifests'] as $name => $manifest) {
                 $data['manifests'][$name] = $manifest;
             }
@@ -202,14 +136,6 @@ class Downloader
                 $data['locks'][$name] = $lock;
             }
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
         return $data;
     }
 
@@ -248,15 +174,7 @@ class Downloader
             try {
                 $json = $this->rfs->getContents($this->endpoint, $url, false, $options);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                return $this->parseJson($json, $url, $cacheKey, $this->rfs->getLastHeaders());
-=======
                 return $this->parseJson($json, $url, $cacheKey);
->>>>>>> contactmanager
-=======
-                return $this->parseJson($json, $url, $cacheKey, $this->rfs->getLastHeaders());
->>>>>>> donmanager
             } catch (\Exception $e) {
                 if ($e instanceof TransportException && 404 === $e->getStatusCode()) {
                     throw $e;
@@ -290,15 +208,7 @@ class Downloader
                     return new Response('', $this->rfs->getLastHeaders(), 304);
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                return $this->parseJson($json, $url, $cacheKey, $this->rfs->getLastHeaders());
-=======
                 return $this->parseJson($json, $url, $cacheKey);
->>>>>>> contactmanager
-=======
-                return $this->parseJson($json, $url, $cacheKey, $this->rfs->getLastHeaders());
->>>>>>> donmanager
             } catch (\Exception $e) {
                 if ($e instanceof TransportException && 404 === $e->getStatusCode()) {
                     throw $e;
@@ -316,15 +226,7 @@ class Downloader
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private function parseJson(string $json, string $url, string $cacheKey, array $lastHeaders): Response
-=======
     private function parseJson(string $json, string $url, string $cacheKey): Response
->>>>>>> contactmanager
-=======
-    private function parseJson(string $json, string $url, string $cacheKey, array $lastHeaders): Response
->>>>>>> donmanager
     {
         $data = JsonFile::parseJson($json, $url);
         if (!empty($data['warning'])) {
@@ -334,15 +236,7 @@ class Downloader
             $this->io->writeError('<info>Info from '.$url.': '.$data['info'].'</info>');
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $response = new Response($data, $lastHeaders);
-=======
         $response = new Response($data, $this->rfs->getLastHeaders());
->>>>>>> contactmanager
-=======
-        $response = new Response($data, $lastHeaders);
->>>>>>> donmanager
         if ($response->getHeader('last-modified')) {
             $this->cache->write($cacheKey, json_encode($response));
         }

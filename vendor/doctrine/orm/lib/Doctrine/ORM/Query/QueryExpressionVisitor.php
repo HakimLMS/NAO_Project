@@ -37,28 +37,12 @@ class QueryExpressionVisitor extends ExpressionVisitor
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private static $operatorMap = [
-=======
-    private static $operatorMap = array(
->>>>>>> contactmanager
-=======
-    private static $operatorMap = [
->>>>>>> donmanager
         Comparison::GT => Expr\Comparison::GT,
         Comparison::GTE => Expr\Comparison::GTE,
         Comparison::LT  => Expr\Comparison::LT,
         Comparison::LTE => Expr\Comparison::LTE
-<<<<<<< HEAD
-<<<<<<< HEAD
     ];
-=======
-    );
->>>>>>> contactmanager
-=======
-    ];
->>>>>>> donmanager
 
     /**
      * @var array
@@ -73,15 +57,7 @@ class QueryExpressionVisitor extends ExpressionVisitor
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $parameters = [];
-=======
-    private $parameters = array();
->>>>>>> contactmanager
-=======
-    private $parameters = [];
->>>>>>> donmanager
 
     /**
      * Constructor
@@ -112,15 +88,7 @@ class QueryExpressionVisitor extends ExpressionVisitor
      */
     public function clearParameters()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->parameters = [];
-=======
-        $this->parameters = array();
->>>>>>> contactmanager
-=======
-        $this->parameters = [];
->>>>>>> donmanager
     }
 
     /**
@@ -140,15 +108,7 @@ class QueryExpressionVisitor extends ExpressionVisitor
      */
     public function walkCompositeExpression(CompositeExpression $expr)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $expressionList = [];
-=======
-        $expressionList = array();
->>>>>>> contactmanager
-=======
-        $expressionList = [];
->>>>>>> donmanager
 
         foreach ($expr->getExpressionList() as $child) {
             $expressionList[] = $this->dispatch($child);
@@ -187,18 +147,8 @@ class QueryExpressionVisitor extends ExpressionVisitor
 
         $parameterName = str_replace('.', '_', $comparison->getField());
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         foreach ($this->parameters as $parameter) {
             if ($parameter->getName() === $parameterName) {
-=======
-        foreach($this->parameters as $parameter) {
-            if($parameter->getName() === $parameterName) {
->>>>>>> contactmanager
-=======
-        foreach ($this->parameters as $parameter) {
-            if ($parameter->getName() === $parameterName) {
->>>>>>> donmanager
                 $parameterName .= '_' . count($this->parameters);
                 break;
             }
@@ -210,53 +160,25 @@ class QueryExpressionVisitor extends ExpressionVisitor
         switch ($comparison->getOperator()) {
             case Comparison::IN:
                 $this->parameters[] = $parameter;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
                 return $this->expr->in($field, $placeholder);
             case Comparison::NIN:
                 $this->parameters[] = $parameter;
 
                 return $this->expr->notIn($field, $placeholder);
-=======
-                return $this->expr->in($field, $placeholder);
-=======
->>>>>>> donmanager
-
-                return $this->expr->in($field, $placeholder);
-            case Comparison::NIN:
-                $this->parameters[] = $parameter;
-
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-                return $this->expr->notIn($field, $placeholder);
->>>>>>> donmanager
             case Comparison::EQ:
             case Comparison::IS:
                 if ($this->walkValue($comparison->getValue()) === null) {
                     return $this->expr->isNull($field);
                 }
                 $this->parameters[] = $parameter;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
                 return $this->expr->eq($field, $placeholder);
-=======
-                return $this->expr->eq($field, $placeholder);
-
->>>>>>> contactmanager
-=======
-
-                return $this->expr->eq($field, $placeholder);
->>>>>>> donmanager
             case Comparison::NEQ:
                 if ($this->walkValue($comparison->getValue()) === null) {
                     return $this->expr->isNotNull($field);
                 }
                 $this->parameters[] = $parameter;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
                 return $this->expr->neq($field, $placeholder);
             case Comparison::CONTAINS:
@@ -274,43 +196,11 @@ class QueryExpressionVisitor extends ExpressionVisitor
                 $this->parameters[] = $parameter;
 
                 return $this->expr->like($field, $placeholder);
-=======
-                return $this->expr->neq($field, $placeholder);
-=======
->>>>>>> donmanager
-
-                return $this->expr->neq($field, $placeholder);
-            case Comparison::CONTAINS:
-                $parameter->setValue('%' . $parameter->getValue() . '%', $parameter->getType());
-                $this->parameters[] = $parameter;
-
-                return $this->expr->like($field, $placeholder);
-            case Comparison::STARTS_WITH:
-                $parameter->setValue($parameter->getValue() . '%', $parameter->getType());
-                $this->parameters[] = $parameter;
-
-<<<<<<< HEAD
->>>>>>> contactmanager
-=======
-                return $this->expr->like($field, $placeholder);
-            case Comparison::ENDS_WITH:
-                $parameter->setValue('%' . $parameter->getValue(), $parameter->getType());
-                $this->parameters[] = $parameter;
-
-                return $this->expr->like($field, $placeholder);
->>>>>>> donmanager
             default:
                 $operator = self::convertComparisonOperator($comparison->getOperator());
                 if ($operator) {
                     $this->parameters[] = $parameter;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
                     return new Expr\Comparison(
                         $field,
                         $operator,

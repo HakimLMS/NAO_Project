@@ -19,8 +19,6 @@
 
 namespace Doctrine\ORM\Tools\Console\Command\ClearCache;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Doctrine\ORM\Cache;
 use Doctrine\ORM\Cache\Region\DefaultRegion;
 use Symfony\Component\Console\Command\Command;
@@ -29,23 +27,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-=======
-=======
-use Doctrine\ORM\Cache;
-use Doctrine\ORM\Cache\Region\DefaultRegion;
->>>>>>> donmanager
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\OutputInterface;
-<<<<<<< HEAD
-use Doctrine\ORM\Cache\Region\DefaultRegion;
-use Doctrine\ORM\Cache;
->>>>>>> contactmanager
-=======
-use Symfony\Component\Console\Style\SymfonyStyle;
->>>>>>> donmanager
 
 /**
  * Command to clear a query cache region.
@@ -60,30 +41,12 @@ class QueryRegionCommand extends Command
      */
     protected function configure()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         $this->setName('orm:clear-cache:region:query')
              ->setDescription('Clear a second-level cache query region')
              ->addArgument('region-name', InputArgument::OPTIONAL, 'The query region to clear.')
              ->addOption('all', null, InputOption::VALUE_NONE, 'If defined, all query regions will be deleted/invalidated.')
              ->addOption('flush', null, InputOption::VALUE_NONE, 'If defined, all cache entries will be flushed.')
              ->setHelp(<<<EOT
-<<<<<<< HEAD
-=======
-        $this
-        ->setName('orm:clear-cache:region:query')
-        ->setDescription('Clear a second-level cache query region.')
-        ->addArgument('region-name', InputArgument::OPTIONAL, 'The query region to clear.')
-        ->addOption('all', null, InputOption::VALUE_NONE, 'If defined, all query regions will be deleted/invalidated.')
-        ->addOption('flush', null, InputOption::VALUE_NONE,'If defined, all cache entries will be flushed.');
-
-
-        $this->setHelp(<<<EOT
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 The <info>%command.name%</info> command is meant to clear a second-level cache query region for an associated Entity Manager.
 It is possible to delete/invalidate all query region, a specific query region or flushes the cache provider.
 
@@ -107,15 +70,7 @@ Alternatively, if you want to flush the configured cache provider use this comma
 Finally, be aware that if <info>--flush</info> option is passed,
 not all cache providers are able to flush entries, because of a limitation of its execution nature.
 EOT
-<<<<<<< HEAD
-<<<<<<< HEAD
              );
-=======
-        );
->>>>>>> contactmanager
-=======
-             );
->>>>>>> donmanager
     }
 
     /**
@@ -123,16 +78,8 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $ui = new SymfonyStyle($input, $output);
 
-=======
->>>>>>> contactmanager
-=======
-        $ui = new SymfonyStyle($input, $output);
-
->>>>>>> donmanager
         $em    = $this->getHelper('em')->getEntityManager();
         $name  = $input->getArgument('region-name');
         $cache = $em->getCache();
@@ -158,57 +105,25 @@ EOT
 
             $queryRegion->getCache()->flushAll();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             $ui->comment(
                 sprintf(
                     'Flushing cache provider configured for second-level cache query region named <info>"%s"</info>',
                     $name
                 )
             );
-<<<<<<< HEAD
-=======
-            $output->writeln(sprintf('Flushing cache provider configured for second-level cache query region named <info>"%s"</info>', $name));
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
             return;
         }
 
         if ($input->getOption('all')) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $ui->comment('Clearing <info>all</info> second-level cache query regions');
-=======
-            $output->writeln('Clearing <info>all</info> second-level cache query regions');
->>>>>>> contactmanager
-=======
-            $ui->comment('Clearing <info>all</info> second-level cache query regions');
->>>>>>> donmanager
 
             $cache->evictQueryRegions();
 
             return;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $ui->comment(sprintf('Clearing second-level cache query region named <info>"%s"</info>', $name));
         $cache->evictQueryRegion($name);
     }
 }
-=======
-        $output->writeln(sprintf('Clearing second-level cache query region named <info>"%s"</info>', $name));
-        $cache->evictQueryRegion($name);
-    }
-}
->>>>>>> contactmanager
-=======
-        $ui->comment(sprintf('Clearing second-level cache query region named <info>"%s"</info>', $name));
-        $cache->evictQueryRegion($name);
-    }
-}
->>>>>>> donmanager

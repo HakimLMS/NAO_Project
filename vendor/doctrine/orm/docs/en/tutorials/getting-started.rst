@@ -14,24 +14,10 @@ Guide Assumptions
 -----------------
 
 This guide is designed for beginners that haven't worked with Doctrine ORM
-<<<<<<< HEAD
-<<<<<<< HEAD
 before. There are some prerequisites for the tutorial that have to be
 installed:
 
 - PHP (latest stable version)
-=======
-before. There are some prerequesites for the tutorial that have to be
-installed:
-
-- PHP 5.4 or above
->>>>>>> contactmanager
-=======
-before. There are some prerequisites for the tutorial that have to be
-installed:
-
-- PHP (latest stable version)
->>>>>>> donmanager
 - Composer Package Manager (`Install Composer
   <http://getcomposer.org/doc/00-intro.md>`_)
 
@@ -65,15 +51,7 @@ Entities are PHP Objects that can be identified over many requests
 by a unique identifier or primary key. These classes don't need to extend any
 abstract base class or interface. An entity class must not be final
 or contain final methods. Additionally it must not implement
-<<<<<<< HEAD
-<<<<<<< HEAD
 **clone** nor **wakeup**, unless it :doc:`does so safely <../cookbook/implementing-wakeup-or-clone>`.
-=======
-**clone** nor **wakeup** or :doc:`do so safely <../cookbook/implementing-wakeup-or-clone>`.
->>>>>>> contactmanager
-=======
-**clone** nor **wakeup**, unless it :doc:`does so safely <../cookbook/implementing-wakeup-or-clone>`.
->>>>>>> donmanager
 
 An entity contains persistable properties. A persistable property
 is an instance variable of the entity that is saved into and retrieved from the database
@@ -84,15 +62,7 @@ An Example Model: Bug Tracker
 
 For this Getting Started Guide for Doctrine we will implement the
 Bug Tracker domain model from the
-<<<<<<< HEAD
-<<<<<<< HEAD
 `Zend\_Db\_Table <http://framework.zend.com/manual/1.12/en/zend.db.adapter.html>`_
-=======
-`Zend\_Db\_Table <http://framework.zend.com/manual/en/zend.db.table.html>`_
->>>>>>> contactmanager
-=======
-`Zend\_Db\_Table <http://framework.zend.com/manual/1.12/en/zend.db.adapter.html>`_
->>>>>>> donmanager
 documentation. Reading their documentation we can extract the
 requirements:
 
@@ -148,18 +118,8 @@ Add the following directories:
 Obtaining the EntityManager
 ---------------------------
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Doctrine's public interface is through the ``EntityManager``. This class
 provides access points to the complete lifecycle management for your entities,
-=======
-Doctrine's public interface is the EntityManager, it provides the
-access point to the complete lifecycle management of your entities
->>>>>>> contactmanager
-=======
-Doctrine's public interface is through the ``EntityManager``. This class
-provides access points to the complete lifecycle management for your entities,
->>>>>>> donmanager
 and transforms entities from and back to persistence. You have to
 configure and create it to use your entities with Doctrine 2. I
 will show the configuration steps and then discuss them step by
@@ -190,18 +150,8 @@ step:
     // obtaining the entity manager
     $entityManager = EntityManager::create($conn, $config);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 The require_once statement sets up the class autoloading for Doctrine and
 its dependencies using Composer's autoloader.
-=======
-The first require statement sets up the autoloading capabilities of Doctrine
-using the Composer autoload.
->>>>>>> contactmanager
-=======
-The require_once statement sets up the class autoloading for Doctrine and
-its dependencies using Composer's autoloader.
->>>>>>> donmanager
 
 The second block consists of the instantiation of the ORM
 ``Configuration`` object using the Setup helper. It assumes a bunch
@@ -209,24 +159,10 @@ of defaults that you don't have to bother about for now. You can
 read up on the configuration details in the
 :doc:`reference chapter on configuration <../reference/configuration>`.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 The third block shows the configuration options required to connect to
 a database. In this case, we'll use a file-based SQLite database. All the
 configuration options for all the shipped drivers are given in the
 `DBAL Configuration section of the manual <http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/>`_.
-=======
-The third block shows the configuration options required to connect
-to a database, in my case a file-based sqlite database. All the
-configuration options for all the shipped drivers are given in the
-`DBAL Configuration section of the manual <http://www.doctrine-project.org/documentation/manual/2_0/en/dbal>`_.
->>>>>>> contactmanager
-=======
-The third block shows the configuration options required to connect to
-a database. In this case, we'll use a file-based SQLite database. All the
-configuration options for all the shipped drivers are given in the
-`DBAL Configuration section of the manual <http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/>`_.
->>>>>>> donmanager
 
 The last block shows how the ``EntityManager`` is obtained from a
 factory method.
@@ -234,28 +170,10 @@ factory method.
 Generating the Database Schema
 ------------------------------
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 Doctrine has a command-line interface that allows you to access the SchemaTool,
 a component that can generate a relational database schema based entirely on the
 defined entity classes and their metadata. For this tool to work, a
 cli-config.php file must exist in the project root directory:
-<<<<<<< HEAD
-=======
-Now that we have defined the Metadata mappings and bootstrapped the
-EntityManager we want to generate the relational database schema
-from it. Doctrine has a Command-Line Interface that allows you to
-access the SchemaTool, a component that generates the required
-tables to work with the metadata.
-
-For the command-line tool to work a cli-config.php file has to be
-present in the project root directory, where you will execute the
-doctrine command. Its a fairly simple file:
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
 .. code-block:: php
 
@@ -265,24 +183,13 @@ doctrine command. Its a fairly simple file:
     
     return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Change into your project directory and call the Doctrine command-line tool:
-=======
-You can then change into your project directory and call the
-Doctrine command-line tool:
->>>>>>> contactmanager
-=======
-Change into your project directory and call the Doctrine command-line tool:
->>>>>>> donmanager
 
 ::
 
     $ cd project/
     $ vendor/bin/doctrine orm:schema-tool:create
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Since we haven't added any entity metadata in `src` yet, you'll see a message
 stating "No Metadata Classes to process." In the next section, we'll create a
 Product entity along with the corresponding metadata, and run this command again.
@@ -290,67 +197,24 @@ Product entity along with the corresponding metadata, and run this command again
 Note that as you modify your entities' metadata during the development process,
 you'll need to update your database schema to stay in sync with the metadata.
 You can rasily recreate the database using the following commands:
-=======
-At this point no entity metadata exists in `src` so you will see a message like 
-"No Metadata Classes to process." Don't worry, we'll create a Product entity and 
-corresponding metadata in the next section.
-
-You should be aware that during the development process you'll periodically need 
-to update your database schema to be in sync with your Entities metadata.
-
-You can easily recreate the database:
->>>>>>> contactmanager
-=======
-Since we haven't added any entity metadata in `src` yet, you'll see a message
-stating "No Metadata Classes to process." In the next section, we'll create a
-Product entity along with the corresponding metadata, and run this command again.
-
-Note that as you modify your entities' metadata during the development process,
-you'll need to update your database schema to stay in sync with the metadata.
-You can rasily recreate the database using the following commands:
->>>>>>> donmanager
 
 ::
 
     $ vendor/bin/doctrine orm:schema-tool:drop --force
     $ vendor/bin/doctrine orm:schema-tool:create
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Or you can use the update functionality:
-=======
-Or use the update functionality:
->>>>>>> contactmanager
-=======
-Or you can use the update functionality:
->>>>>>> donmanager
 
 ::
 
     $ vendor/bin/doctrine orm:schema-tool:update --force
 
 The updating of databases uses a Diff Algorithm for a given
-<<<<<<< HEAD
-<<<<<<< HEAD
 Database Schema. This is a cornerstone of the ``Doctrine\DBAL`` package,
 which can even be used without the Doctrine ORM package.
 
 Starting with the Product Entity
 --------------------------------
-=======
-Database Schema, a cornerstone of the ``Doctrine\DBAL`` package,
-which can even be used without the Doctrine ORM package.
-
-Starting with the Product
--------------------------
->>>>>>> contactmanager
-=======
-Database Schema. This is a cornerstone of the ``Doctrine\DBAL`` package,
-which can even be used without the Doctrine ORM package.
-
-Starting with the Product Entity
---------------------------------
->>>>>>> donmanager
 
 We start with the simplest entity, the Product. Create a ``src/Product.php`` file to contain the ``Product``
 entity definition:
@@ -386,21 +250,9 @@ entity definition:
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 When creating entity classes, all of the fields should be protected or private
 (not public), with getter and setter methods for each one (except $id).
 The use of mutators allows Doctrine to hook into calls which
-=======
-Note that all fields are set to protected (not public) with a 
-mutator (getter and setter) defined for every field except $id. 
-The use of mutators allows Doctrine to hook into calls which 
->>>>>>> contactmanager
-=======
-When creating entity classes, all of the fields should be protected or private
-(not public), with getter and setter methods for each one (except $id).
-The use of mutators allows Doctrine to hook into calls which
->>>>>>> donmanager
 manipulate the entities in ways that it could not if you just 
 directly set the values with ``entity#field = foo;``
 
@@ -415,22 +267,10 @@ language. The metadata language describes how entities, their
 properties and references should be persisted and what constraints
 should be applied to them.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 Metadata for an Entity can be configured using DocBlock annotations directly
 in the Entity class itself, or in an external XML or YAML file. This Getting
 Started guide will demonstrate metadata mappings using all three methods,
 but you only need to choose one.
-<<<<<<< HEAD
-=======
-Metadata for entities are configured using a XML, YAML or Docblock Annotations.
-This Getting Started Guide will show the mappings for all Mapping Drivers.
-References in the text will be made to the XML mapping.
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
 .. configuration-block::
 
@@ -486,70 +326,28 @@ References in the text will be made to the XML mapping.
 The top-level ``entity`` definition tag specifies information about
 the class and table-name. The primitive type ``Product#name`` is
 defined as a ``field`` attribute. The ``id`` property is defined with
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 the ``id`` tag.  It has a ``generator`` tag nested inside, which
 specifies that the primary key generation mechanism should automatically
 use the database platform's native id generation strategy (for
 example, AUTO INCREMENT in the case of MySql, or Sequences in the
-<<<<<<< HEAD
 case of PostgreSql and Oracle).
 
 Now that we have defined our first entity and its metadata,
 let's update the database schema:
-=======
-the ``id`` tag, this has a ``generator`` tag nested inside which
-defines that the primary key generation mechanism automatically
-uses the database platforms native id generation strategy (for
-example AUTO INCREMENT in the case of MySql or Sequences in the
-case of PostgreSql and Oracle).
-
-Now that we have defined our first entity, let's update the database:
->>>>>>> contactmanager
-=======
-case of PostgreSql and Oracle).
-
-Now that we have defined our first entity and its metadata,
-let's update the database schema:
->>>>>>> donmanager
 
 ::
 
     $ vendor/bin/doctrine orm:schema-tool:update --force --dump-sql
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Specifying both flags ``--force`` and ``--dump-sql`` will cause the DDL
 statements to be executed and then printed to the screen.
 
 Now, we'll create a new script to insert products into the database:
-=======
-Specifying both flags ``--force`` and ``-dump-sql`` prints and executes the DDL
-statements.
-
-Now create a new script that will insert products into the database:
->>>>>>> contactmanager
-=======
-Specifying both flags ``--force`` and ``--dump-sql`` will cause the DDL
-statements to be executed and then printed to the screen.
-
-Now, we'll create a new script to insert products into the database:
->>>>>>> donmanager
 
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     // create_product.php <name>
-=======
-    // create_product.php
->>>>>>> contactmanager
-=======
-    // create_product.php <name>
->>>>>>> donmanager
     require_once "bootstrap.php";
 
     $newProductName = $argv[1];
@@ -569,8 +367,6 @@ Call this script from the command-line to see how new products are created:
     $ php create_product.php ORM
     $ php create_product.php DBAL
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 What is happening here? Using the ``Product`` class is pretty standard OOP.
 The interesting bits are the use of the ``EntityManager`` service. To
 notify the EntityManager that a new entity should be inserted into the database,
@@ -584,28 +380,6 @@ is significantly better than in a scenario in which writes are performed on
 each entity in isolation.
 
 Next, we'll fetch a list of all the Products in the database. Let's create a
-=======
-What is happening here? Using the ``Product`` is pretty standard OOP.
-=======
-What is happening here? Using the ``Product`` class is pretty standard OOP.
->>>>>>> donmanager
-The interesting bits are the use of the ``EntityManager`` service. To
-notify the EntityManager that a new entity should be inserted into the database,
-you have to call ``persist()``. To initiate a transaction to actually *perform*
-the insertion, you have to explicitly call ``flush()`` on the ``EntityManager``.
-
-This distinction between persist and flush is what allows the aggregation of
-all database writes (INSERT, UPDATE, DELETE) into one single transaction, which
-is executed when ``flush()`` is called. Using this approach, the write-performance
-is significantly better than in a scenario in which writes are performed on
-each entity in isolation.
-
-<<<<<<< HEAD
-As a next step we want to fetch a list of all the Products. Let's create a
->>>>>>> contactmanager
-=======
-Next, we'll fetch a list of all the Products in the database. Let's create a
->>>>>>> donmanager
 new script for this:
 
 .. code-block:: php
@@ -622,24 +396,10 @@ new script for this:
     }
 
 The ``EntityManager#getRepository()`` method can create a finder object (called
-<<<<<<< HEAD
-<<<<<<< HEAD
 a repository) for every type of entity. It is provided by Doctrine and contains
 some finder methods like ``findAll()``.
 
 Let's continue by creating a script to display the name of a product based on its ID:
-=======
-a repository) for every entity. It is provided by Doctrine and contains some
-finder methods such as ``findAll()``.
-
-Let's continue with displaying the name of a product based on its ID:
->>>>>>> contactmanager
-=======
-a repository) for every type of entity. It is provided by Doctrine and contains
-some finder methods like ``findAll()``.
-
-Let's continue by creating a script to display the name of a product based on its ID:
->>>>>>> donmanager
 
 .. code-block:: php
 
@@ -657,10 +417,6 @@ Let's continue by creating a script to display the name of a product based on it
 
     echo sprintf("-%s\n", $product->getName());
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 Next we'll update a product's name, given its id. This simple example will
 help demonstrate Doctrine's implementation of the UnitOfWork pattern. Doctrine
 keeps track of all the entities that were retrieved from the Entity Manager,
@@ -668,14 +424,6 @@ and can detect when any of those entities' properties have been modified.
 As a result, rather than needing to call ``persist($entity)`` for each individual
 entity whose properties were changed, a single call to ``flush()`` at the end of a
 request is sufficient to update the database for all of the modified entities.
-<<<<<<< HEAD
-=======
-Updating a product name demonstrates the functionality UnitOfWork of pattern
-discussed before. We only need to find a product entity and all changes to its
-properties are written to the database:
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
 .. code-block:: php
 
@@ -703,19 +451,8 @@ product name changed by calling the ``show_product.php`` script.
 Adding Bug and User Entities
 ----------------------------
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 We continue with the bug tracker example by creating the ``Bug`` and ``User``
 classes. We'll store them in ``src/Bug.php`` and ``src/User.php``, respectively.
-=======
-We continue with the bug tracker domain, by creating the missing classes
-``Bug``  and ``User`` and putting them into ``src/Bug.php`` and
-``src/User.php`` respectively.
->>>>>>> contactmanager
-=======
-We continue with the bug tracker example by creating the ``Bug`` and ``User``
-classes. We'll store them in ``src/Bug.php`` and ``src/User.php``, respectively.
->>>>>>> donmanager
 
 .. code-block:: php
 
@@ -819,37 +556,15 @@ classes. We'll store them in ``src/Bug.php`` and ``src/User.php``, respectively.
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 All of the properties we've seen so far are of simple types (integer, string,
 and datetime). But now, we'll add properties that will store objects of
 specific *entity types* in order to model the relationships between different
 entities.
-<<<<<<< HEAD
 
 At the database level, relationships between entities are represented by foreign
 keys. But with Doctrine, you'll never have to (and never should) work with
 the foreign keys directly. You should only work with objects that represent
 foreign keys through their own identities.
-=======
-All of the properties discussed so far are simple string and integer values,
-for example the id fields of the entities, their names, description, status and
-change dates. Next we will model the dynamic relationships between the entities
-by defining the references between entities.
-
-References between objects are foreign keys in the database. You never have to
-(and never should) work with the foreign keys directly, only with the objects 
-that represent the foreign key through their own identity.
->>>>>>> contactmanager
-=======
-
-At the database level, relationships between entities are represented by foreign
-keys. But with Doctrine, you'll never have to (and never should) work with
-the foreign keys directly. You should only work with objects that represent
-foreign keys through their own identities.
->>>>>>> donmanager
 
 For every foreign key you either have a Doctrine ManyToOne or OneToOne
 association. On the inverse sides of these foreign keys you can have
@@ -883,14 +598,7 @@ domain model to match the requirements:
     <?php
     // src/User.php
     use Doctrine\Common\Collections\ArrayCollection;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
     class User
     {
         // ... (previous code)
@@ -905,10 +613,6 @@ domain model to match the requirements:
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 .. note::
 
     Whenever an entity is created from the database, a ``Collection``
@@ -916,17 +620,6 @@ domain model to match the requirements:
     your entity instead of an ``ArrayCollection``. This helps Doctrine ORM
     understand the changes that have happened to the collection that are
     noteworthy for persistence.
-<<<<<<< HEAD
-=======
-Whenever an entity is recreated from the database, an Collection
-implementation of the type Doctrine is injected into your entity
-instead of an array. Compared to the ArrayCollection this
-implementation helps the Doctrine ORM understand the changes that
-have happened to the collection which are noteworthy for
-persistence.
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
 .. warning::
 
@@ -949,10 +642,6 @@ able to work with Doctrine 2. These assumptions are not unique to
 Doctrine 2 but are best practices in handling database relations
 and Object-Relational Mapping.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 -  In a one-to-one relation, the entity holding the foreign key of
    the related entity on its own database table is *always* the owning
    side of the relation.
@@ -965,35 +654,10 @@ and Object-Relational Mapping.
 -  In a many-to-many relation, both sides can be the owning side of
    the relation. However, in a bi-directional many-to-many relation,
    only one side is allowed to be the owning side.
-<<<<<<< HEAD
-=======
-
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 -  Changes to Collections are saved or updated, when the entity on
    the *owning* side of the collection is saved or updated.
 -  Saving an Entity at the inverse side of a relation never
    triggers a persist operation to changes to the collection.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
--  In a one-to-one relation the entity holding the foreign key of
-   the related entity on its own database table is *always* the owning
-   side of the relation.
--  In a many-to-many relation, both sides can be the owning side of
-   the relation. However in a bi-directional many-to-many relation
-   only one is allowed to be.
--  In a many-to-one relation the Many-side is the owning side by
-   default, because it holds the foreign key.
--  The OneToMany side of a relation is inverse by default, since
-   the foreign key is saved on the Many side. A OneToMany relation can
-   only be the owning side, if its implemented using a ManyToMany
-   relation with join table and restricting the one side to allow only
-   UNIQUE values per database constraint.
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
 .. note::
 
@@ -1018,29 +682,13 @@ the bi-directional reference:
         protected $engineer;
         protected $reporter;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         public function setEngineer(User $engineer)
-=======
-        public function setEngineer($engineer)
->>>>>>> contactmanager
-=======
-        public function setEngineer(User $engineer)
->>>>>>> donmanager
         {
             $engineer->assignedToBug($this);
             $this->engineer = $engineer;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         public function setReporter(User $reporter)
-=======
-        public function setReporter($reporter)
->>>>>>> contactmanager
-=======
-        public function setReporter(User $reporter)
->>>>>>> donmanager
         {
             $reporter->addReportedBug($this);
             $this->reporter = $reporter;
@@ -1065,37 +713,15 @@ the bi-directional reference:
     {
         // ... (previous code)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         protected $reportedBugs;
         protected $assignedBugs;
 
         public function addReportedBug(Bug $bug)
-=======
-        private $reportedBugs = null;
-        private $assignedBugs = null;
-
-        public function addReportedBug($bug)
->>>>>>> contactmanager
-=======
-        protected $reportedBugs;
-        protected $assignedBugs;
-
-        public function addReportedBug(Bug $bug)
->>>>>>> donmanager
         {
             $this->reportedBugs[] = $bug;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         public function assignedToBug(Bug $bug)
-=======
-        public function assignedToBug($bug)
->>>>>>> contactmanager
-=======
-        public function assignedToBug(Bug $bug)
->>>>>>> donmanager
         {
             $this->assignedBugs[] = $bug;
         }
@@ -1111,15 +737,7 @@ You can see from ``User#addReportedBug()`` and
 ``User#assignedToBug()`` that using this method in userland alone
 would not add the Bug to the collection of the owning side in
 ``Bug#reporter`` or ``Bug#engineer``. Using these methods and
-<<<<<<< HEAD
-<<<<<<< HEAD
 calling Doctrine for persistence would not update the Collections'
-=======
-calling Doctrine for persistence would not update the collections
->>>>>>> contactmanager
-=======
-calling Doctrine for persistence would not update the Collections'
->>>>>>> donmanager
 representation in the database.
 
 Only using ``Bug#setEngineer()`` or ``Bug#setReporter()``
@@ -1127,15 +745,7 @@ correctly saves the relation information.
 
 The ``Bug#reporter`` and ``Bug#engineer`` properties are
 Many-To-One relations, which point to a User. In a normalized
-<<<<<<< HEAD
-<<<<<<< HEAD
 relational model, the foreign key is saved on the Bug's table, hence
-=======
-relational model the foreign key is saved on the Bug's table, hence
->>>>>>> contactmanager
-=======
-relational model, the foreign key is saved on the Bug's table, hence
->>>>>>> donmanager
 in our object-relation model the Bug is at the owning side of the
 relation. You should always make sure that the use-cases of your
 domain model should drive which side is an inverse or owning one in
@@ -1144,15 +754,7 @@ or an engineer is assigned to the bug, we don't want to update the
 User to persist the reference, but the Bug. This is the case with
 the Bug being at the owning side of the relation.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Bugs reference Products by a uni-directional ManyToMany relation in
-=======
-Bugs reference Products by an uni-directional ManyToMany relation in
->>>>>>> contactmanager
-=======
-Bugs reference Products by a uni-directional ManyToMany relation in
->>>>>>> donmanager
 the database that points from Bugs to Products.
 
 .. code-block:: php
@@ -1165,15 +767,7 @@ the database that points from Bugs to Products.
 
         protected $products = null;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         public function assignToProduct(Product $product)
-=======
-        public function assignToProduct($product)
->>>>>>> contactmanager
-=======
-        public function assignToProduct(Product $product)
->>>>>>> donmanager
         {
             $this->products[] = $product;
         }
@@ -1185,15 +779,7 @@ the database that points from Bugs to Products.
     }
 
 We are now finished with the domain model given the requirements.
-<<<<<<< HEAD
-<<<<<<< HEAD
 Lets add metadata mappings for the ``Bug`` entity, as we did for
-=======
-Lets add metadata mappings for the ``User`` and ``Bug`` as we did for 
->>>>>>> contactmanager
-=======
-Lets add metadata mappings for the ``Bug`` entity, as we did for
->>>>>>> donmanager
 the ``Product`` before:
 
 .. configuration-block::
@@ -1300,29 +886,13 @@ For the "created" field we have used the ``datetime`` type,
 which translates the YYYY-mm-dd HH:mm:ss database format 
 into a PHP DateTime instance and back.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 After the field definitions, the two qualified references to the
-=======
-After the field definitions the two qualified references to the
->>>>>>> contactmanager
-=======
-After the field definitions, the two qualified references to the
->>>>>>> donmanager
 user entity are defined. They are created by the ``many-to-one``
 tag. The class name of the related entity has to be specified with
 the ``target-entity`` attribute, which is enough information for
 the database mapper to access the foreign-table. Since
 ``reporter`` and ``engineer`` are on the owning side of a
-<<<<<<< HEAD
-<<<<<<< HEAD
 bi-directional relation, we also have to specify the ``inversed-by``
-=======
-bi-directional relation we also have to specify the ``inversed-by``
->>>>>>> contactmanager
-=======
-bi-directional relation, we also have to specify the ``inversed-by``
->>>>>>> donmanager
 attribute. They have to point to the field names on the inverse
 side of the relationship. We will see in the next example that the ``inversed-by``
 attribute has a counterpart ``mapped-by`` which makes that
@@ -1333,15 +903,7 @@ holds all products where the specific bug occurs. Again
 you have to define the ``target-entity`` and ``field`` attributes
 on the ``many-to-many`` tag.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Finally, we'll add metadata mappings for the ``User`` entity.
-=======
-The last missing definition is that of the User entity:
->>>>>>> contactmanager
-=======
-Finally, we'll add metadata mappings for the ``User`` entity.
->>>>>>> donmanager
 
 .. configuration-block::
 
@@ -1368,29 +930,13 @@ Finally, we'll add metadata mappings for the ``User`` entity.
 
             /**
              * @OneToMany(targetEntity="Bug", mappedBy="reporter")
-<<<<<<< HEAD
-<<<<<<< HEAD
              * @var Bug[] An ArrayCollection of Bug objects.
-=======
-             * @var Bug[]
->>>>>>> contactmanager
-=======
-             * @var Bug[] An ArrayCollection of Bug objects.
->>>>>>> donmanager
              **/
             protected $reportedBugs = null;
 
             /**
              * @OneToMany(targetEntity="Bug", mappedBy="engineer")
-<<<<<<< HEAD
-<<<<<<< HEAD
              * @var Bug[] An ArrayCollection of Bug objects.
-=======
-             * @var Bug[]
->>>>>>> contactmanager
-=======
-             * @var Bug[] An ArrayCollection of Bug objects.
->>>>>>> donmanager
              **/
             protected $assignedBugs = null;
 
@@ -1419,15 +965,7 @@ Finally, we'll add metadata mappings for the ``User`` entity.
 
     .. code-block:: yaml
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         # config/yaml/User.dcm.yml
-=======
-        # config/xml/User.dcm.yml
->>>>>>> contactmanager
-=======
-        # config/yaml/User.dcm.yml
->>>>>>> donmanager
         User:
           type: entity
           table: users
@@ -1454,18 +992,7 @@ means the join details have already been defined on the owning
 side. Therefore we only have to specify the property on the Bug
 class that holds the owning sides.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Update your database schema by running:
-=======
-This example has a fair overview of the most basic features of the
-metadata definition language.
-
-Update your database running:
->>>>>>> contactmanager
-=======
-Update your database schema by running:
->>>>>>> donmanager
 ::
 
     $ vendor/bin/doctrine orm:schema-tool:update --force
@@ -1474,17 +1001,8 @@ Update your database schema by running:
 Implementing more Requirements
 ------------------------------
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 So far, we've seen the most basic features of the metadata definition language.
 To explore additional functionality, let's first create new ``User`` entities:
-=======
-For starters we need a create user entities:
->>>>>>> contactmanager
-=======
-So far, we've seen the most basic features of the metadata definition language.
-To explore additional functionality, let's first create new ``User`` entities:
->>>>>>> donmanager
 
 .. code-block:: php
 
@@ -1508,22 +1026,11 @@ Now call:
 
     $ php create_user.php beberlei
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 We now have the necessary data to create a new Bug entity:
-=======
-We now have the data to create a bug and the code for this scenario may look
-like this:
->>>>>>> contactmanager
-=======
-We now have the necessary data to create a new Bug entity:
->>>>>>> donmanager
 
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     // create_bug.php <reporter-id> <engineer-id> <product-ids>
     require_once "bootstrap.php";
 
@@ -1535,26 +1042,6 @@ We now have the necessary data to create a new Bug entity:
     $engineer = $entityManager->find("User", $engineerId);
     if (!$reporter || !$engineer) {
         echo "No reporter and/or engineer found for the given id(s).\n";
-=======
-    // create_bug.php
-=======
-    // create_bug.php <reporter-id> <engineer-id> <product-ids>
->>>>>>> donmanager
-    require_once "bootstrap.php";
-
-    $reporterId = $argv[1];
-    $engineerId = $argv[2];
-    $productIds = explode(",", $argv[3]);
-
-    $reporter = $entityManager->find("User", $reporterId);
-    $engineer = $entityManager->find("User", $engineerId);
-    if (!$reporter || !$engineer) {
-<<<<<<< HEAD
-        echo "No reporter and/or engineer found for the input.\n";
->>>>>>> contactmanager
-=======
-        echo "No reporter and/or engineer found for the given id(s).\n";
->>>>>>> donmanager
         exit(1);
     }
 
@@ -1576,45 +1063,17 @@ We now have the necessary data to create a new Bug entity:
 
     echo "Your new Bug Id: ".$bug->getId()."\n";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Since we only have one user and product, probably with the ID of 1, we can
 call this script as follows:
-=======
-Since we only have one user and product, probably with the ID of 1, we can call this script with:
->>>>>>> contactmanager
-=======
-Since we only have one user and product, probably with the ID of 1, we can
-call this script as follows:
->>>>>>> donmanager
 
 ::
 
     php create_bug.php 1 1 1
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 See how simple it is to relate a Bug, Reporter, Engineer and Products?
 Also recall that thanks to the UnitOfWork pattern, Doctrine will detect
 these relations and update all of the modified entities in the database
 automatically when ``flush()`` is called.
-<<<<<<< HEAD
-=======
-This is the first contact with the read API of the EntityManager,
-showing that a call to ``EntityManager#find($name, $id)`` returns a
-single instance of an entity queried by primary key. Besides this
-we see the persist + flush pattern again to save the Bug into the
-database.
-
-See how simple relating Bug, Reporter, Engineer and Products is
-done by using the discussed methods in the "A first prototype"
-section. The UnitOfWork will detect this relations when flush is
-called and relate them in the database appropriately.
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 
 Queries for Application Use-Cases
 ---------------------------------
@@ -1623,15 +1082,7 @@ List of Bugs
 ~~~~~~~~~~~~
 
 Using the previous examples we can fill up the database quite a
-<<<<<<< HEAD
-<<<<<<< HEAD
 bit. However, we now need to discuss how to query the underlying
-=======
-bit, however we now need to discuss how to query the underlying
->>>>>>> contactmanager
-=======
-bit. However, we now need to discuss how to query the underlying
->>>>>>> donmanager
 mapper for the required view representations. When opening the
 application, bugs can be paginated through a list-view, which is
 the first read-only use-case:
@@ -1687,15 +1138,7 @@ The console output of this script is then:
 
     An important reason why DQL is favourable to the Query API of most
     ORMs is its similarity to SQL. The DQL language allows query
-<<<<<<< HEAD
-<<<<<<< HEAD
     constructs that most ORMs don't: GROUP BY even with HAVING,
-=======
-    constructs that most ORMs don't, GROUP BY even with HAVING,
->>>>>>> contactmanager
-=======
-    constructs that most ORMs don't: GROUP BY even with HAVING,
->>>>>>> donmanager
     Sub-selects, Fetch-Joins of nested classes, mixed results with
     entities and scalar data such as COUNT() results and much more.
     Using DQL you should seldom come to the point where you want to
@@ -1770,15 +1213,7 @@ write scenarios:
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     // show_bug.php <id>
-=======
-    // show_bug.php
->>>>>>> contactmanager
-=======
-    // show_bug.php <id>
->>>>>>> donmanager
     require_once "bootstrap.php";
 
     $theBugId = $argv[1];
@@ -1853,15 +1288,7 @@ and usage of bound parameters:
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     // dashboard.php <user-id>
-=======
-    // dashboard.php
->>>>>>> contactmanager
-=======
-    // dashboard.php <user-id>
->>>>>>> donmanager
     require_once "bootstrap.php";
 
     $theUserId = $argv[1];
@@ -1927,15 +1354,7 @@ should be able to close a bug. This looks like:
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     // close_bug.php <bug-id>
-=======
-    // close_bug.php
->>>>>>> contactmanager
-=======
-    // close_bug.php <bug-id>
->>>>>>> donmanager
     require_once "bootstrap.php";
 
     $theBugId = $argv[1];
@@ -2104,10 +1523,6 @@ As an example here is the code of the first use case "List of Bugs":
 Using EntityRepositories you can avoid coupling your model with specific query logic.
 You can also re-use query logic easily throughout your application.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 The method ``count()`` takes an array of fields or association keys and the values to match against.
 This provides you with a convenient and lightweight way to count a resultset when you don't need to
 deal with it:
@@ -2118,11 +1533,6 @@ deal with it:
     $productCount = $entityManager->getRepository(Product::class)
                              ->count(['name' => $productName]);
 
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 Conclusion
 ----------
 

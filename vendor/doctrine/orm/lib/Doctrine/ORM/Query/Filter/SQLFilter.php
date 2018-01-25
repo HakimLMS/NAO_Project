@@ -75,15 +75,7 @@ abstract class SQLFilter
             $type = ParameterTypeInferer::inferType($value);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->parameters[$name] = ['value' => $value, 'type' => $type];
-=======
-        $this->parameters[$name] = array('value' => $value, 'type' => $type);
->>>>>>> contactmanager
-=======
-        $this->parameters[$name] = ['value' => $value, 'type' => $type];
->>>>>>> donmanager
 
         // Keep the parameters sorted for the hash
         ksort($this->parameters);
@@ -130,15 +122,7 @@ abstract class SQLFilter
 
         return true;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
     /**
      * Returns as string representation of the SQLFilter parameters (the state).
      *

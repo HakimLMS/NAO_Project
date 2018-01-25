@@ -1,13 +1,5 @@
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 In ApplicationTest.php line 770:
-=======
-In ApplicationTest.php line 760:
->>>>>>> contactmanager
-=======
-In ApplicationTest.php line 770:
->>>>>>> donmanager
                                     
   line 1 with extra spaces          
   line 2                            

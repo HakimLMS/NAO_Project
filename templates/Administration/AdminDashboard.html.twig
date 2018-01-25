@@ -4,10 +4,10 @@
         <div class="card" style="width: 18rem;">
             
             <div class="card-body">
-               {#<a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>#}
+               {#<a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
               <h5 class="card-title">{{user.firstname}}</h5>
               <p class="card-text">{{user.type}}</p>
-            </div>
+            </div>#}
         </div>
         
     </div>
@@ -101,11 +101,11 @@
                    <button type="submit" formaction="{{path('delete_article', {'id' : article.id})}}">Supprimer</button>
                </td>
             </tr>
-            <tr><button type="submit" formaction="{{path('new_article')}}">Ecrire un article</button></tr>
+            
             </form>   
             
                 {% endfor %}
-                {# wire buttons to actions to validate or not the accounts #}
+                <tr><button type="submit"><a href="{{path('new_article')}}">Ecrire un article</a></button></tr>    
         </table>
     </div>
 {% endblock %}

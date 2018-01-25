@@ -45,15 +45,7 @@ class ParameterTypeInferer
      */
     public static function inferType($value)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (is_int($value)) {
-=======
-        if (is_integer($value)) {
->>>>>>> contactmanager
-=======
-        if (is_int($value)) {
->>>>>>> donmanager
             return Type::INTEGER;
         }
 
@@ -65,25 +57,12 @@ class ParameterTypeInferer
             return Type::DATETIME;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
         if ($value instanceof \DateInterval) {
             return Type::DATEINTERVAL;
         }
 
-<<<<<<< HEAD
         if (is_array($value)) {
             return is_int(current($value))
-=======
-        if (is_array($value)) {
-            return is_integer(current($value))
->>>>>>> contactmanager
-=======
-        if (is_array($value)) {
-            return is_int(current($value))
->>>>>>> donmanager
                 ? Connection::PARAM_INT_ARRAY
                 : Connection::PARAM_STR_ARRAY;
         }

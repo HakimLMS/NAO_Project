@@ -54,16 +54,8 @@ class QueryCacheEntry implements CacheEntry
 
     /**
      * @param array $values
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * @return QueryCacheEntry
-=======
->>>>>>> contactmanager
-=======
-     *
-     * @return QueryCacheEntry
->>>>>>> donmanager
      */
     public static function __set_state(array $values)
     {

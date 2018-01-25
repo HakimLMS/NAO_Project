@@ -60,15 +60,7 @@ class ReadWriteCachedCollectionPersister extends AbstractCollectionPersister
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->queuedCache = [];
-=======
-        $this->queuedCache = array();
->>>>>>> contactmanager
-=======
-        $this->queuedCache = [];
->>>>>>> donmanager
     }
 
     /**
@@ -88,15 +80,7 @@ class ReadWriteCachedCollectionPersister extends AbstractCollectionPersister
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->queuedCache = [];
-=======
-        $this->queuedCache = array();
->>>>>>> contactmanager
-=======
-        $this->queuedCache = [];
->>>>>>> donmanager
     }
 
     /**
@@ -114,24 +98,10 @@ class ReadWriteCachedCollectionPersister extends AbstractCollectionPersister
             return;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->queuedCache['delete'][spl_object_hash($collection)] = [
             'key'   => $key,
             'lock'  => $lock
         ];
-=======
-        $this->queuedCache['delete'][spl_object_hash($collection)] = array(
-            'key'   => $key,
-            'lock'  => $lock
-        );
->>>>>>> contactmanager
-=======
-        $this->queuedCache['delete'][spl_object_hash($collection)] = [
-            'key'   => $key,
-            'lock'  => $lock
-        ];
->>>>>>> donmanager
     }
 
     /**
@@ -156,23 +126,9 @@ class ReadWriteCachedCollectionPersister extends AbstractCollectionPersister
             return;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->queuedCache['update'][spl_object_hash($collection)] = [
             'key'   => $key,
             'lock'  => $lock
         ];
-=======
-        $this->queuedCache['update'][spl_object_hash($collection)] = array(
-            'key'   => $key,
-            'lock'  => $lock
-        );
->>>>>>> contactmanager
-=======
-        $this->queuedCache['update'][spl_object_hash($collection)] = [
-            'key'   => $key,
-            'lock'  => $lock
-        ];
->>>>>>> donmanager
     }
 }

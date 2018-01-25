@@ -51,6 +51,8 @@ class NewArticleHandler
             
             $this->flusher->flushEntity($article);
         }
+        
+        return $form;
     }
     
     
@@ -61,7 +63,7 @@ class NewArticleHandler
            $arrayData = $this->generateArticleandForm();        
            $form = $arrayData['form'];
            $article = $arrayData['article'];
-           $this->generateResponse($form, $request ,$article);
+           $form = $this->generateResponse($form, $request, $article);
            return $form; 
         }
         else{

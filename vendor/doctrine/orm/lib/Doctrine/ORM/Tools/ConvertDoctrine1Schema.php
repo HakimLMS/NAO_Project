@@ -44,28 +44,12 @@ class ConvertDoctrine1Schema
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $legacyTypeMap = [
-=======
-    private $legacyTypeMap = array(
->>>>>>> contactmanager
-=======
-    private $legacyTypeMap = [
->>>>>>> donmanager
         // TODO: This list may need to be updated
         'clob' => 'text',
         'timestamp' => 'datetime',
         'enum' => 'string'
-<<<<<<< HEAD
-<<<<<<< HEAD
     ];
-=======
-    );
->>>>>>> contactmanager
-=======
-    ];
->>>>>>> donmanager
 
     /**
      * Constructor passes the directory or array of directories
@@ -88,15 +72,7 @@ class ConvertDoctrine1Schema
      */
     public function getMetadata()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $schema = [];
-=======
-        $schema = array();
->>>>>>> contactmanager
-=======
-        $schema = [];
->>>>>>> donmanager
         foreach ($this->from as $path) {
             if (is_dir($path)) {
                 $files = glob($path . '/*.yml');
@@ -108,15 +84,7 @@ class ConvertDoctrine1Schema
             }
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $metadatas = [];
-=======
-        $metadatas = array();
->>>>>>> contactmanager
-=======
-        $metadatas = [];
->>>>>>> donmanager
         foreach ($schema as $className => $mappingInformation) {
             $metadatas[] = $this->convertToClassMetadataInfo($className, $mappingInformation);
         }
@@ -185,28 +153,12 @@ class ConvertDoctrine1Schema
         }
 
         if ( ! $id) {
-<<<<<<< HEAD
-<<<<<<< HEAD
             $fieldMapping = [
-=======
-            $fieldMapping = array(
->>>>>>> contactmanager
-=======
-            $fieldMapping = [
->>>>>>> donmanager
                 'fieldName' => 'id',
                 'columnName' => 'id',
                 'type' => 'integer',
                 'id' => true
-<<<<<<< HEAD
-<<<<<<< HEAD
             ];
-=======
-            );
->>>>>>> contactmanager
-=======
-            ];
->>>>>>> donmanager
             $metadata->mapField($fieldMapping);
             $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_AUTO);
         }
@@ -226,15 +178,7 @@ class ConvertDoctrine1Schema
     {
         if (is_string($column)) {
             $string = $column;
-<<<<<<< HEAD
-<<<<<<< HEAD
             $column = [];
-=======
-            $column = array();
->>>>>>> contactmanager
-=======
-            $column = [];
->>>>>>> donmanager
             $column['type'] = $string;
         }
 
@@ -264,29 +208,13 @@ class ConvertDoctrine1Schema
             throw ToolsException::couldNotMapDoctrine1Type($column['type']);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $fieldMapping = [];
-=======
-        $fieldMapping = array();
->>>>>>> contactmanager
-=======
-        $fieldMapping = [];
->>>>>>> donmanager
 
         if (isset($column['primary'])) {
             $fieldMapping['id'] = true;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $fieldMapping['fieldName'] = $column['alias'] ?? $name;
-=======
-        $fieldMapping['fieldName'] = isset($column['alias']) ? $column['alias'] : $name;
->>>>>>> contactmanager
-=======
-        $fieldMapping['fieldName'] = $column['alias'] ?? $name;
->>>>>>> donmanager
         $fieldMapping['columnName'] = $column['name'];
         $fieldMapping['type'] = $column['type'];
 
@@ -294,15 +222,7 @@ class ConvertDoctrine1Schema
             $fieldMapping['length'] = $column['length'];
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $allowed = ['precision', 'scale', 'unique', 'options', 'notnull', 'version'];
-=======
-        $allowed = array('precision', 'scale', 'unique', 'options', 'notnull', 'version');
->>>>>>> contactmanager
-=======
-        $allowed = ['precision', 'scale', 'unique', 'options', 'notnull', 'version'];
->>>>>>> donmanager
 
         foreach ($column as $key => $value) {
             if (in_array($key, $allowed)) {
@@ -317,21 +237,9 @@ class ConvertDoctrine1Schema
         } elseif (isset($column['sequence'])) {
             $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_SEQUENCE);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $definition = [
                 'sequenceName' => is_array($column['sequence']) ? $column['sequence']['name']:$column['sequence']
             ];
-=======
-            $definition = array(
-                'sequenceName' => is_array($column['sequence']) ? $column['sequence']['name']:$column['sequence']
-            );
->>>>>>> contactmanager
-=======
-            $definition = [
-                'sequenceName' => is_array($column['sequence']) ? $column['sequence']['name']:$column['sequence']
-            ];
->>>>>>> donmanager
 
             if (isset($column['sequence']['size'])) {
                 $definition['allocationSize'] = $column['sequence']['size'];
@@ -364,21 +272,9 @@ class ConvertDoctrine1Schema
             $type = (isset($index['type']) && $index['type'] == 'unique')
                 ? 'uniqueConstraints' : 'indexes';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $metadata->table[$type][$name] = [
                 'columns' => $index['fields']
             ];
-=======
-            $metadata->table[$type][$name] = array(
-                'columns' => $index['fields']
-            );
->>>>>>> contactmanager
-=======
-            $metadata->table[$type][$name] = [
-                'columns' => $index['fields']
-            ];
->>>>>>> donmanager
         }
     }
 
@@ -415,8 +311,6 @@ class ConvertDoctrine1Schema
             if (isset($relation['refClass'])) {
                 $type = 'many';
                 $foreignType = 'many';
-<<<<<<< HEAD
-<<<<<<< HEAD
                 $joinColumns = [];
             } else {
                 $type = $relation['type'] ?? 'one';
@@ -428,28 +322,6 @@ class ConvertDoctrine1Schema
                         'onDelete' => $relation['onDelete'] ?? null,
                     ]
                 ];
-=======
-                $joinColumns = array();
-=======
-                $joinColumns = [];
->>>>>>> donmanager
-            } else {
-                $type = $relation['type'] ?? 'one';
-                $foreignType = $relation['foreignType'] ?? 'many';
-                $joinColumns = [
-                    [
-                        'name' => $relation['local'],
-                        'referencedColumnName' => $relation['foreign'],
-<<<<<<< HEAD
-                        'onDelete' => isset($relation['onDelete']) ? $relation['onDelete'] : null,
-                    )
-                );
->>>>>>> contactmanager
-=======
-                        'onDelete' => $relation['onDelete'] ?? null,
-                    ]
-                ];
->>>>>>> donmanager
             }
 
             if ($type == 'one' && $foreignType == 'one') {
@@ -460,15 +332,7 @@ class ConvertDoctrine1Schema
                 $method = 'mapOneToMany';
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $associationMapping = [];
-=======
-            $associationMapping = array();
->>>>>>> contactmanager
-=======
-            $associationMapping = [];
->>>>>>> donmanager
             $associationMapping['fieldName'] = $relation['alias'];
             $associationMapping['targetEntity'] = $relation['class'];
             $associationMapping['mappedBy'] = $relation['foreignAlias'];

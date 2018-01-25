@@ -38,20 +38,9 @@ interface CachedEntityPersister extends CachedPersister, EntityPersister
     public function getEntityHydrator();
 
     /**
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @param object                             $entity
      * @param \Doctrine\ORM\Cache\EntityCacheKey $key
      *
-=======
-     * @param  object                             $entity
-     * @param  \Doctrine\ORM\Cache\EntityCacheKey $key
->>>>>>> contactmanager
-=======
-     * @param object                             $entity
-     * @param \Doctrine\ORM\Cache\EntityCacheKey $key
-     *
->>>>>>> donmanager
      * @return boolean
      */
     public function storeEntityCache($entity, EntityCacheKey $key);

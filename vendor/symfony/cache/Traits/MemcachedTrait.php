@@ -71,15 +71,7 @@ trait MemcachedTrait
      *
      * @return \Memcached
      *
-<<<<<<< HEAD
-<<<<<<< HEAD
      * @throws \ErrorException When invalid options or servers are provided
-=======
-     * @throws \ErrorEception When invalid options or servers are provided
->>>>>>> contactmanager
-=======
-     * @throws \ErrorException When invalid options or servers are provided
->>>>>>> donmanager
      */
     public static function createConnection($servers, array $options = array())
     {

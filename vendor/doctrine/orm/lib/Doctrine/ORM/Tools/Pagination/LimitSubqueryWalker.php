@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -15,47 +11,16 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-<<<<<<< HEAD
  *
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
-=======
-
-/**
- * Doctrine ORM
- *
- * LICENSE
- *
- * This source file is subject to the new BSD license that is bundled
- * with this package in the file LICENSE. This license can also be viewed
- * at http://hobodave.com/license.txt
- *
- * @category    DoctrineExtensions
- * @package     DoctrineExtensions\Paginate
- * @author      David Abdemoulaie <dave@hobodave.com>
- * @copyright   Copyright (c) 2010 David Abdemoulaie (http://hobodave.com/)
- * @license     http://hobodave.com/license.txt New BSD License
->>>>>>> contactmanager
-=======
- *
- * This software consists of voluntary contributions made by many individuals
- * and is licensed under the MIT license. For more information, see
- * <http://www.doctrine-project.org>.
->>>>>>> donmanager
  */
 
 namespace Doctrine\ORM\Tools\Pagination;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Doctrine\ORM\ORMException;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 use Doctrine\ORM\Query;
 use Doctrine\ORM\Query\TreeWalkerAdapter;
 use Doctrine\ORM\Query\AST\Functions\IdentityFunction;
@@ -104,40 +69,17 @@ class LimitSubqueryWalker extends TreeWalkerAdapter
         $fromRoot  = reset($from);
         $rootAlias = $fromRoot->rangeVariableDeclaration->aliasIdentificationVariable;
         $rootClass = $queryComponents[$rootAlias]['metadata'];
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         $this->validate($AST);
         $identifier = $rootClass->getSingleIdentifierFieldName();
 
-=======
-        $selectExpressions = array();
-=======
->>>>>>> donmanager
-
-        $this->validate($AST);
-        $identifier = $rootClass->getSingleIdentifierFieldName();
-<<<<<<< HEAD
-        
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
         if (isset($rootClass->associationMappings[$identifier])) {
             throw new \RuntimeException("Paginating an entity with foreign key as identifier only works when using the Output Walkers. Call Paginator#setUseOutputWalkers(true) before iterating the paginator.");
         }
 
         $this->_getQuery()->setHint(
             self::IDENTIFIER_TYPE,
-<<<<<<< HEAD
-<<<<<<< HEAD
             Type::getType($rootClass->fieldMappings[$identifier]['type'])
-=======
-            Type::getType($rootClass->getTypeOfField($identifier))
->>>>>>> contactmanager
-=======
-            Type::getType($rootClass->fieldMappings[$identifier]['type'])
->>>>>>> donmanager
         );
 
         $pathExpression = new PathExpression(
@@ -145,8 +87,6 @@ class LimitSubqueryWalker extends TreeWalkerAdapter
             $rootAlias,
             $identifier
         );
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         $pathExpression->type = PathExpression::TYPE_STATE_FIELD;
 
@@ -177,44 +117,6 @@ class LimitSubqueryWalker extends TreeWalkerAdapter
                 }
             }
         }
-=======
-=======
-
->>>>>>> donmanager
-        $pathExpression->type = PathExpression::TYPE_STATE_FIELD;
-
-        $AST->selectClause->selectExpressions = [new SelectExpression($pathExpression, '_dctrn_id')];
-        $AST->selectClause->isDistinct        = true;
-
-        if ( ! isset($AST->orderByClause)) {
-            return;
-        }
-
-        foreach ($AST->orderByClause->orderByItems as $item) {
-            if ($item->expression instanceof PathExpression) {
-                $AST->selectClause->selectExpressions[] = new SelectExpression(
-                    $this->createSelectExpressionItem($item->expression), '_dctrn_ord' . $this->_aliasCounter++
-                );
-
-                continue;
-            }
-
-<<<<<<< HEAD
-        $AST->selectClause->isDistinct = true;
->>>>>>> contactmanager
-=======
-            if (is_string($item->expression) && isset($queryComponents[$item->expression])) {
-                $qComp = $queryComponents[$item->expression];
-
-                if (isset($qComp['resultVariable'])) {
-                    $AST->selectClause->selectExpressions[] = new SelectExpression(
-                        $qComp['resultVariable'],
-                        $item->expression
-                    );
-                }
-            }
-        }
->>>>>>> donmanager
     }
 
     /**
@@ -233,15 +135,7 @@ class LimitSubqueryWalker extends TreeWalkerAdapter
         $fromRoot        = reset($from);
 
         if ($query instanceof Query
-<<<<<<< HEAD
-<<<<<<< HEAD
             && null !== $query->getMaxResults()
-=======
-            && $query->getMaxResults()
->>>>>>> contactmanager
-=======
-            && null !== $query->getMaxResults()
->>>>>>> donmanager
             && $AST->orderByClause
             && count($fromRoot->joins)) {
             // Check each orderby item.
@@ -259,58 +153,24 @@ class LimitSubqueryWalker extends TreeWalkerAdapter
             }
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     /**
      * Retrieve either an IdentityFunction (IDENTITY(u.assoc)) or a state field (u.name).
      *
      * @param \Doctrine\ORM\Query\AST\PathExpression $pathExpression
      *
-=======
-    
-=======
-
->>>>>>> donmanager
-    /**
-     * Retrieve either an IdentityFunction (IDENTITY(u.assoc)) or a state field (u.name).
-     *
-     * @param \Doctrine\ORM\Query\AST\PathExpression $pathExpression
-<<<<<<< HEAD
-     * 
->>>>>>> contactmanager
-=======
-     *
->>>>>>> donmanager
      * @return \Doctrine\ORM\Query\AST\Functions\IdentityFunction
      */
     private function createSelectExpressionItem(PathExpression $pathExpression)
     {
         if ($pathExpression->type === PathExpression::TYPE_SINGLE_VALUED_ASSOCIATION) {
             $identity = new IdentityFunction('identity');
-<<<<<<< HEAD
-<<<<<<< HEAD
 
             $identity->pathExpression = clone $pathExpression;
 
             return $identity;
         }
 
-=======
-            
-=======
-
->>>>>>> donmanager
-            $identity->pathExpression = clone $pathExpression;
-
-            return $identity;
-        }
-<<<<<<< HEAD
-        
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
         return clone $pathExpression;
     }
 }

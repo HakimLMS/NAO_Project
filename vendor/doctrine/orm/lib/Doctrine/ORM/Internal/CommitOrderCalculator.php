@@ -1,12 +1,5 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> contactmanager
-=======
-
->>>>>>> donmanager
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -28,16 +21,11 @@
 namespace Doctrine\ORM\Internal;
 
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
  * CommitOrderCalculator implements topological sorting, which is an ordering
  * algorithm for directed graphs (DG) and/or directed acyclic graphs (DAG) by
  * using a depth-first searching (DFS) to traverse the graph built in memory.
  * This algorithm have a linear running time based on nodes (V) and dependency
  * between the nodes (E), resulting in a computational complexity of O(V + E).
-<<<<<<< HEAD
  *
  * @since  2.0
  * @author Guilherme Blanco <guilhermeblanco@hotmail.com>
@@ -192,169 +180,5 @@ class CommitOrderCalculator
 
             $this->sortedNodeList[] = $vertex->value;
         }
-=======
- * The CommitOrderCalculator is used by the UnitOfWork to sort out the
- * correct order in which changes to entities need to be persisted.
-=======
->>>>>>> donmanager
- *
- * @since  2.0
- * @author Guilherme Blanco <guilhermeblanco@hotmail.com>
- * @author Roman Borschel <roman@code-factory.org>
- */
-class CommitOrderCalculator
-{
-    const NOT_VISITED = 0;
-    const IN_PROGRESS = 1;
-    const VISITED     = 2;
-
-    /**
-     * Matrix of nodes (aka. vertex).
-     * Keys are provided hashes and values are the node definition objects.
-     *
-     * The node state definition contains the following properties:
-     *
-     * - <b>state</b> (integer)
-     * Whether the node is NOT_VISITED or IN_PROGRESS
-     *
-     * - <b>value</b> (object)
-     * Actual node value
-     *
-     * - <b>dependencyList</b> (array<string>)
-     * Map of node dependencies defined as hashes.
-     *
-     * @var array<\stdClass>
-     */
-    private $nodeList = [];
-
-    /**
-     * Volatile variable holding calculated nodes during sorting process.
-     *
-     * @var array
-     */
-    private $sortedNodeList = [];
-
-    /**
-     * Checks for node (vertex) existence in graph.
-     *
-     * @param string $hash
-     *
-     * @return boolean
-     */
-    public function hasNode($hash)
-    {
-        return isset($this->nodeList[$hash]);
-    }
-
-    /**
-     * Adds a new node (vertex) to the graph, assigning its hash and value.
-     *
-     * @param string $hash
-     * @param object $node
-     *
-     * @return void
-     */
-    public function addNode($hash, $node)
-    {
-        $vertex = new \stdClass();
-
-        $vertex->hash           = $hash;
-        $vertex->state          = self::NOT_VISITED;
-        $vertex->value          = $node;
-        $vertex->dependencyList = [];
-
-        $this->nodeList[$hash] = $vertex;
-    }
-
-    /**
-     * Adds a new dependency (edge) to the graph using their hashes.
-     *
-     * @param string  $fromHash
-     * @param string  $toHash
-     * @param integer $weight
-     *
-     * @return void
-     */
-    public function addDependency($fromHash, $toHash, $weight)
-    {
-        $vertex = $this->nodeList[$fromHash];
-        $edge   = new \stdClass();
-
-        $edge->from   = $fromHash;
-        $edge->to     = $toHash;
-        $edge->weight = $weight;
-
-        $vertex->dependencyList[$toHash] = $edge;
-    }
-
-    /**
-     * Return a valid order list of all current nodes.
-     * The desired topological sorting is the reverse post order of these searches.
-     *
-     * {@internal Highly performance-sensitive method.}
-     *
-     * @return array
-     */
-    public function sort()
-    {
-        foreach ($this->nodeList as $vertex) {
-            if ($vertex->state !== self::NOT_VISITED) {
-                continue;
-            }
-
-            $this->visit($vertex);
-        }
-
-        $sortedList = $this->sortedNodeList;
-
-        $this->nodeList       = [];
-        $this->sortedNodeList = [];
-
-        return array_reverse($sortedList);
-    }
-
-    /**
-     * Visit a given node definition for reordering.
-     *
-     * {@internal Highly performance-sensitive method.}
-     *
-     * @param \stdClass $vertex
-     */
-    private function visit($vertex)
-    {
-<<<<<<< HEAD
-        $this->_classes[$class->name] = $class;
->>>>>>> contactmanager
-=======
-        $vertex->state = self::IN_PROGRESS;
-
-        foreach ($vertex->dependencyList as $edge) {
-            $adjacentVertex = $this->nodeList[$edge->to];
-
-            switch ($adjacentVertex->state) {
-                case self::VISITED:
-                    // Do nothing, since node was already visited
-                    break;
-
-                case self::IN_PROGRESS:
-                    if (isset($adjacentVertex->dependencyList[$vertex->hash]) &&
-                        $adjacentVertex->dependencyList[$vertex->hash]->weight < $edge->weight) {
-                        $adjacentVertex->state = self::VISITED;
-
-                        $this->sortedNodeList[] = $adjacentVertex->value;
-                    }
-                    break;
-
-                case self::NOT_VISITED:
-                    $this->visit($adjacentVertex);
-            }
-        }
-
-        if ($vertex->state !== self::VISITED) {
-            $vertex->state = self::VISITED;
-
-            $this->sortedNodeList[] = $vertex->value;
-        }
->>>>>>> donmanager
     }
 }

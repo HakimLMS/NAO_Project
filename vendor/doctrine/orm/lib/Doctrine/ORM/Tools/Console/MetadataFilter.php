@@ -35,15 +35,7 @@ class MetadataFilter extends \FilterIterator implements \Countable
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     private $filter = [];
-=======
-    private $filter = array();
->>>>>>> contactmanager
-=======
-    private $filter = [];
->>>>>>> donmanager
 
     /**
      * Filter Metadatas by one or more filter options.

@@ -43,15 +43,7 @@ class IdentificationVariableDeclaration extends Node
     /**
      * @var array
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public $joins = [];
-=======
-    public $joins = array();
->>>>>>> contactmanager
-=======
-    public $joins = [];
->>>>>>> donmanager
 
     /**
      * @param RangeVariableDeclaration|null $rangeVariableDecl

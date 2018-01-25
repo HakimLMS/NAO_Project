@@ -40,15 +40,7 @@ class TimestampCacheEntry implements CacheEntry
      */
     public function __construct($time = null)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->time = $time ? (float) $time : microtime(true);
-=======
-        $this->time = $time ? (float)$time : microtime(true);
->>>>>>> contactmanager
-=======
-        $this->time = $time ? (float) $time : microtime(true);
->>>>>>> donmanager
     }
 
     /**
@@ -57,16 +49,8 @@ class TimestampCacheEntry implements CacheEntry
      * This method allow Doctrine\Common\Cache\PhpFileCache compatibility
      *
      * @param array $values array containing property values
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * @return TimestampCacheEntry
-=======
->>>>>>> contactmanager
-=======
-     *
-     * @return TimestampCacheEntry
->>>>>>> donmanager
      */
     public static function __set_state(array $values)
     {

@@ -28,14 +28,7 @@ class DebugClassLoader
     private $isFinder;
     private $loaded = array();
     private static $caseCheck;
-<<<<<<< HEAD
-<<<<<<< HEAD
     private static $checkedClasses = array();
-=======
->>>>>>> contactmanager
-=======
-    private static $checkedClasses = array();
->>>>>>> donmanager
     private static $final = array();
     private static $finalMethods = array();
     private static $deprecated = array();
@@ -146,8 +139,6 @@ class DebugClassLoader
         try {
             if ($this->isFinder && !isset($this->loaded[$class])) {
                 $this->loaded[$class] = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if ($file = $this->classLoader[0]->findFile($class) ?: false) {
                     $wasCached = \function_exists('opcache_is_script_cached') && opcache_is_script_cached($file);
 
@@ -156,20 +147,6 @@ class DebugClassLoader
                     if ($wasCached) {
                         return;
                     }
-=======
-                if ($file = $this->classLoader[0]->findFile($class)) {
-                    require $file;
->>>>>>> contactmanager
-=======
-                if ($file = $this->classLoader[0]->findFile($class) ?: false) {
-                    $wasCached = \function_exists('opcache_is_script_cached') && opcache_is_script_cached($file);
-
-                    require $file;
-
-                    if ($wasCached) {
-                        return;
-                    }
->>>>>>> donmanager
                 }
             } else {
                 call_user_func($this->classLoader, $class);
@@ -179,8 +156,6 @@ class DebugClassLoader
             error_reporting($e);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->checkClass($class, $file);
     }
 
@@ -189,35 +164,15 @@ class DebugClassLoader
         $exists = null === $file || \class_exists($class, false) || \interface_exists($class, false) || \trait_exists($class, false);
 
         if (null !== $file && $class && '\\' === $class[0]) {
-=======
-        $exists = class_exists($class, false) || interface_exists($class, false) || trait_exists($class, false);
-
-        if ($class && '\\' === $class[0]) {
->>>>>>> contactmanager
-=======
-        $this->checkClass($class, $file);
-    }
-
-    private function checkClass($class, $file = null)
-    {
-        $exists = null === $file || \class_exists($class, false) || \interface_exists($class, false) || \trait_exists($class, false);
-
-        if (null !== $file && $class && '\\' === $class[0]) {
->>>>>>> donmanager
             $class = substr($class, 1);
         }
 
         if ($exists) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
             if (isset(self::$checkedClasses[$class])) {
                 return;
             }
             self::$checkedClasses[$class] = true;
 
-<<<<<<< HEAD
             $refl = new \ReflectionClass($class);
             if (null === $file && $refl->isInternal()) {
                 return;
@@ -225,67 +180,26 @@ class DebugClassLoader
             $name = $refl->getName();
 
             if ($name !== $class && 0 === \strcasecmp($name, $class)) {
-=======
-=======
->>>>>>> donmanager
-            $refl = new \ReflectionClass($class);
-            if (null === $file && $refl->isInternal()) {
-                return;
-            }
-            $name = $refl->getName();
-
-<<<<<<< HEAD
-            if ($name !== $class && 0 === strcasecmp($name, $class)) {
->>>>>>> contactmanager
-=======
-            if ($name !== $class && 0 === \strcasecmp($name, $class)) {
->>>>>>> donmanager
                 throw new \RuntimeException(sprintf('Case mismatch between loaded and declared class names: "%s" vs "%s".', $class, $name));
             }
 
             // Don't trigger deprecations for classes in the same vendor
-<<<<<<< HEAD
-<<<<<<< HEAD
             if (2 > $len = 1 + (\strpos($name, '\\') ?: \strpos($name, '_'))) {
                 $len = 0;
                 $ns = '';
             } else {
                 $ns = \substr($name, 0, $len);
-=======
-            if (2 > $len = 1 + (strpos($name, '\\') ?: strpos($name, '_'))) {
-                $len = 0;
-                $ns = '';
-            } else {
-                $ns = substr($name, 0, $len);
->>>>>>> contactmanager
-=======
-            if (2 > $len = 1 + (\strpos($name, '\\') ?: \strpos($name, '_'))) {
-                $len = 0;
-                $ns = '';
-            } else {
-                $ns = \substr($name, 0, $len);
->>>>>>> donmanager
             }
 
             // Detect annotations on the class
             if (false !== $doc = $refl->getDocComment()) {
                 foreach (array('final', 'deprecated', 'internal') as $annotation) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     if (false !== \strpos($doc, $annotation) && preg_match('#\n \* @'.$annotation.'(?:( .+?)\.?)?\r?\n \*(?: @|/$)#s', $doc, $notice)) {
-=======
-                    if (false !== strpos($doc, '@'.$annotation) && preg_match('#\n \* @'.$annotation.'(?:( .+?)\.?)?\r?\n \*(?: @|/$)#s', $doc, $notice)) {
->>>>>>> contactmanager
-=======
-                    if (false !== \strpos($doc, $annotation) && preg_match('#\n \* @'.$annotation.'(?:( .+?)\.?)?\r?\n \*(?: @|/$)#s', $doc, $notice)) {
->>>>>>> donmanager
                         self::${$annotation}[$name] = isset($notice[1]) ? preg_replace('#\s*\r?\n \* +#', ' ', $notice[1]) : '';
                     }
                 }
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $parentAndTraits = \class_uses($name, false);
             if ($parent = \get_parent_class($class)) {
                 $parentAndTraits[] = $parent;
@@ -294,22 +208,6 @@ class DebugClassLoader
                     $this->checkClass($parent);
                 }
 
-=======
-            $parentAndTraits = class_uses($name, false);
-            if ($parent = get_parent_class($class)) {
-                $parentAndTraits[] = $parent;
-
->>>>>>> contactmanager
-=======
-            $parentAndTraits = \class_uses($name, false);
-            if ($parent = \get_parent_class($class)) {
-                $parentAndTraits[] = $parent;
-
-                if (!isset(self::$checkedClasses[$parent])) {
-                    $this->checkClass($parent);
-                }
-
->>>>>>> donmanager
                 if (isset(self::$final[$parent])) {
                     @trigger_error(sprintf('The "%s" class is considered final%s. It may change without further notice as of its next major version. You should not extend it from "%s".', $parent, self::$final[$parent], $name), E_USER_DEPRECATED);
                 }
@@ -317,34 +215,16 @@ class DebugClassLoader
 
             // Detect if the parent is annotated
             foreach ($parentAndTraits + $this->getOwnInterfaces($name, $parent) as $use) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
                 if (!isset(self::$checkedClasses[$use])) {
                     $this->checkClass($use);
                 }
                 if (isset(self::$deprecated[$use]) && \strncmp($ns, $use, $len)) {
-<<<<<<< HEAD
-=======
-                if (isset(self::$deprecated[$use]) && strncmp($ns, $use, $len)) {
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
                     $type = class_exists($name, false) ? 'class' : (interface_exists($name, false) ? 'interface' : 'trait');
                     $verb = class_exists($use, false) || interface_exists($name, false) ? 'extends' : (interface_exists($use, false) ? 'implements' : 'uses');
 
                     @trigger_error(sprintf('The "%s" %s %s "%s" that is deprecated%s.', $name, $type, $verb, $use, self::$deprecated[$use]), E_USER_DEPRECATED);
                 }
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (isset(self::$internal[$use]) && \strncmp($ns, $use, $len)) {
-=======
-                if (isset(self::$internal[$use]) && strncmp($ns, $use, $len)) {
->>>>>>> contactmanager
-=======
-                if (isset(self::$internal[$use]) && \strncmp($ns, $use, $len)) {
->>>>>>> donmanager
                     @trigger_error(sprintf('The "%s" %s is considered internal%s. It may change without further notice. You should not use it from "%s".', $use, class_exists($use, false) ? 'class' : (interface_exists($use, false) ? 'interface' : 'trait'), self::$internal[$use], $name), E_USER_DEPRECATED);
                 }
             }
@@ -355,28 +235,12 @@ class DebugClassLoader
             foreach ($parentAndTraits as $use) {
                 foreach (array('finalMethods', 'internalMethods') as $property) {
                     if (isset(self::${$property}[$use])) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                         self::${$property}[$name] = self::${$property}[$name] ? self::${$property}[$use] + self::${$property}[$name] : self::${$property}[$use];
-=======
-                        self::${$property}[$name] = array_merge(self::${$property}[$name], self::${$property}[$use]);
->>>>>>> contactmanager
-=======
-                        self::${$property}[$name] = self::${$property}[$name] ? self::${$property}[$use] + self::${$property}[$name] : self::${$property}[$use];
->>>>>>> donmanager
                     }
                 }
             }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             $isClass = \class_exists($name, false);
-=======
-            $isClass = class_exists($name, false);
->>>>>>> contactmanager
-=======
-            $isClass = \class_exists($name, false);
->>>>>>> donmanager
             foreach ($refl->getMethods(\ReflectionMethod::IS_PUBLIC | \ReflectionMethod::IS_PROTECTED) as $method) {
                 if ($method->class !== $name) {
                     continue;
@@ -395,15 +259,7 @@ class DebugClassLoader
                 foreach ($parentAndTraits as $use) {
                     if (isset(self::$internalMethods[$use][$method->name])) {
                         list($declaringClass, $message) = self::$internalMethods[$use][$method->name];
-<<<<<<< HEAD
-<<<<<<< HEAD
                         if (\strncmp($ns, $declaringClass, $len)) {
-=======
-                        if (strncmp($ns, $declaringClass, $len)) {
->>>>>>> contactmanager
-=======
-                        if (\strncmp($ns, $declaringClass, $len)) {
->>>>>>> donmanager
                             @trigger_error(sprintf('The "%s::%s()" method is considered internal%s. It may change without further notice. You should not extend it from "%s".', $declaringClass, $method->name, $message, $name), E_USER_DEPRECATED);
                         }
                     }
@@ -415,15 +271,7 @@ class DebugClassLoader
                 }
 
                 foreach (array('final', 'internal') as $annotation) {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     if (false !== \strpos($doc, $annotation) && preg_match('#\n\s+\* @'.$annotation.'(?:( .+?)\.?)?\r?\n\s+\*(?: @|/$)#s', $doc, $notice)) {
-=======
-                    if (false !== strpos($doc, '@'.$annotation) && preg_match('#\n\s+\* @'.$annotation.'(?:( .+?)\.?)?\r?\n\s+\*(?: @|/$)#s', $doc, $notice)) {
->>>>>>> contactmanager
-=======
-                    if (false !== \strpos($doc, $annotation) && preg_match('#\n\s+\* @'.$annotation.'(?:( .+?)\.?)?\r?\n\s+\*(?: @|/$)#s', $doc, $notice)) {
->>>>>>> donmanager
                         $message = isset($notice[1]) ? preg_replace('#\s*\r?\n \* +#', ' ', $notice[1]) : '';
                         self::${$annotation.'Methods'}[$name][$method->name] = array($name, $message);
                     }
@@ -524,14 +372,6 @@ class DebugClassLoader
                     throw new \RuntimeException(sprintf('Case mismatch between class and real file names: "%s" vs "%s" in "%s".', substr($tail, -$tailLen + 1), substr($real, -$tailLen + 1), substr($real, 0, -$tailLen + 1)));
                 }
             }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-            return true;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
         }
     }
 

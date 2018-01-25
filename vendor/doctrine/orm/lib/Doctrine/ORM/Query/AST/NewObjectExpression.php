@@ -13,15 +13,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * This software consists of voluntary contributions made by many individuals
-<<<<<<< HEAD
-<<<<<<< HEAD
  * and is licensed under the MIT license. For more information, see
-=======
- * and is licensed under the MIT. For more information, see
->>>>>>> contactmanager
-=======
- * and is licensed under the MIT license. For more information, see
->>>>>>> donmanager
  * <http://www.doctrine-project.org>.
  */
 

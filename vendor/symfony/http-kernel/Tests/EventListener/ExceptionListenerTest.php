@@ -12,22 +12,11 @@
 namespace Symfony\Component\HttpKernel\Tests\EventListener;
 
 use PHPUnit\Framework\TestCase;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\EventListener\ExceptionListener;
 use Symfony\Component\HttpKernel\KernelEvents;
-<<<<<<< HEAD
-=======
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\EventListener\ExceptionListener;
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 use Symfony\Component\HttpKernel\Log\DebugLoggerInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpFoundation\Request;
@@ -136,10 +125,6 @@ class ExceptionListenerTest extends TestCase
         $response = $event->getResponse();
         $this->assertEquals('xml', $response->getContent());
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> donmanager
 
     public function testCSPHeaderIsRemoved()
     {
@@ -166,11 +151,6 @@ class ExceptionListenerTest extends TestCase
         $this->assertFalse($response->headers->has('content-security-policy'), 'CSP header has been removed');
         $this->assertFalse($dispatcher->hasListeners(KernelEvents::RESPONSE), 'CSP removal listener has been removed');
     }
-<<<<<<< HEAD
-=======
->>>>>>> contactmanager
-=======
->>>>>>> donmanager
 }
 
 class TestLogger extends Logger implements DebugLoggerInterface

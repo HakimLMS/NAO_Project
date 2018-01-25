@@ -126,8 +126,6 @@ class TextDescriptor extends Descriptor
 
     private function normalizeAndSortOptionsColumns(array $options)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         foreach ($options as $group => $opts) {
             $sorted = false;
             foreach ($opts as $class => $opt) {
@@ -135,26 +133,10 @@ class TextDescriptor extends Descriptor
                     unset($options[$group][$class]);
                 }
 
-=======
-        foreach ($options as $group => &$opts) {
-            $sorted = false;
-            foreach ($opts as $class => $opt) {
->>>>>>> contactmanager
-=======
-        foreach ($options as $group => $opts) {
-            $sorted = false;
-            foreach ($opts as $class => $opt) {
-                if (is_string($class)) {
-                    unset($options[$group][$class]);
-                }
-
->>>>>>> donmanager
                 if (!is_array($opt) || 0 === count($opt)) {
                     continue;
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (!$sorted) {
                     $options[$group] = array();
                 } else {
@@ -170,31 +152,6 @@ class TextDescriptor extends Descriptor
 
             if (!$sorted) {
                 sort($options[$group]);
-=======
-                unset($opts[$class]);
-
-=======
->>>>>>> donmanager
-                if (!$sorted) {
-                    $options[$group] = array();
-                } else {
-                    $options[$group][] = null;
-                }
-                $options[$group][] = sprintf('<info>%s</info>', (new \ReflectionClass($class))->getShortName());
-                $options[$group][] = new TableSeparator();
-
-                sort($opt);
-                $sorted = true;
-                $options[$group] = array_merge($options[$group], $opt);
-            }
-
-            if (!$sorted) {
-<<<<<<< HEAD
-                sort($opts);
->>>>>>> contactmanager
-=======
-                sort($options[$group]);
->>>>>>> donmanager
             }
         }
 

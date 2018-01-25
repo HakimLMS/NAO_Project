@@ -205,15 +205,7 @@ tables of the current model to clean up with orphaned tables.
 You can also use database introspection to update your schema
 easily with the ``updateSchema()`` method. It will compare your
 existing database schema to the passed array of
-<<<<<<< HEAD
-<<<<<<< HEAD
 ``ClassMetadataInfo`` instances.
-=======
-``ClassMetdataInfo`` instances.
->>>>>>> contactmanager
-=======
-``ClassMetadataInfo`` instances.
->>>>>>> donmanager
 
 .. code-block:: php
 
@@ -393,15 +385,7 @@ First you need to retrieve the metadata instances with the
         )
     );
     
-<<<<<<< HEAD
-<<<<<<< HEAD
     $cmf = new \Doctrine\ORM\Tools\DisconnectedClassMetadataFactory();
-=======
-    $cmf = new DisconnectedClassMetadataFactory();
->>>>>>> contactmanager
-=======
-    $cmf = new \Doctrine\ORM\Tools\DisconnectedClassMetadataFactory();
->>>>>>> donmanager
     $cmf->setEntityManager($em);
     $metadata = $cmf->getAllMetadata();
 
@@ -411,14 +395,7 @@ to yml:
 .. code-block:: php
 
     <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
     $cme = new \Doctrine\ORM\Tools\Export\ClassMetadataExporter();
-=======
->>>>>>> contactmanager
-=======
-    $cme = new \Doctrine\ORM\Tools\Export\ClassMetadataExporter();
->>>>>>> donmanager
     $exporter = $cme->getExporter('yml', '/path/to/export/yml');
     $exporter->setMetadata($metadata);
     $exporter->export();
@@ -500,15 +477,7 @@ To include a new command on Doctrine Console, you need to do modify the
 
     <?php
     // doctrine.php
-<<<<<<< HEAD
-<<<<<<< HEAD
     use Symfony\Component\Console\Application;
-=======
-    use Symfony\Component\Console\Helper\Application;
->>>>>>> contactmanager
-=======
-    use Symfony\Component\Console\Application;
->>>>>>> donmanager
 
     // as before ...
 
