@@ -5,45 +5,73 @@
 
 
 {% block body %}
-    <img src="{{asset('build/img/'~data.article.image)}}">
-	<h2>Titre : {{ data.article.title }}</h2>
+	
+	<div class="container-fluid" id="blog-single">
+		<!--<img src='/{{article.image }}'>-->
+		<div class="article-img"><img src="{{ asset('build/img/oies.jpg') }}"></div>
 
-	<div>
-		{{ data.article.content }}
-	</div>
+		<div class="container" id="block-article">
+			<h2>{{ article.title }}</h2>
 
-	<hr>
+			<br>
 
-	<br>
+			<div class="article-content">
+				{{ article.content }}
+			</div>
 
-	{% for comment in data.article.comments %}
-		<div style="border: 1px solid black;">
-			<p>Par <em>{{ comment.author.firstname }} {{ comment.author.lastname|upper|first }}. </em>{{ comment.author.type }}</p>
-			<p>{{ comment.content }}</p>
-			<p>Posté le {{ comment.dateComment|date('d/m/Y') }} à {{ comment.dateComment|date('H:i') }}</p>
+			<br>
+
+			<div id="block-date">
+				Ecrit le {{ article.dateArticle|date("m/d/Y") }}
+			</div>
+		</div>	
+
+		<div id="purple-bar"></div>
+
+		<br>
+
+		<div class="container" id="block-comments">
+			<div class="row">
+				<div class="col-12 offset-md-2 col-md-8">
+					<img src="{{ asset('build/img/bubbles-comment.svg') }}" width="35px" height="26px">
+					{% for comment in article.comments %}
+						<div class="block-comment">
+							<p class="comment-author">Par {{ comment.author.firstname }} {{ comment.author.lastname|upper|first }}. <span class="author-type">{{ comment.author.type|upper|first }}</span></p>
+							<p>{{ comment.content }}</p>
+							<p class="comment-date">Posté le {{ comment.dateComment|date('d/m/Y') }} à {{ comment.dateComment|date('H:i') }}</p>
+						</div>
+					{% else %}
+						<p>Aucun commentaire.</p>	
+					{% endfor %}
+
+					<br>
+
+					<div id="block-form-comment">
+						<h3>Ecrire un commentaire</h3>
+						<p><!-- Nom personne connecté + rang--></p>
+
+						{{ form_start(form) }}
+
+						{{ form_errors(form) }}
+
+						<div class="form-group">
+							{{ form_widget(form.content, {'attr': {
+							'class': 'form-control',
+							'rows': 5}}) }}
+						</div>
+
+						{{ form_row(form.Poster, {'attr': {'class': 'btn'}}) }}
+
+						{{ form_rest(form) }}
+
+						{{ form_end(form) }}
+							
+					</div>
+				</div>
+			</div>
 		</div>
-	{% else %}
-		<p>Aucun commentaire.</p>	
-	{% endfor %}
 
-	<br>
-
-	<div style="background-color: grey; display: inline-block;">
-		<h2>Ecrire un commentaire</h2>
-
-		{{ form_start(data.form) }}
-
-		{{ form_errors(data.form) }}
-
-		{{ form_row(data.form.content) }}
-
-		{{ form_row(data.form.Publier) }}
-
-		{{ form_rest(data.form) }}
-
-		{{ form_end(data.form) }}
 	</div>
-
 
 {% endblock %}	
 {% block javascripts %}

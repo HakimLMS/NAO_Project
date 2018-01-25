@@ -1,10 +1,97 @@
-
 {% extends 'base.html.twig' %}
 
+
+{% block title %}Inscription{% endblock %}
+
 {% block body %}
-    {% for error in errors %}
-        <li>{{ error.message }}</li>
-    {% endfor %}
-{{ form_start(form) }}
-{{ form_end(form) }}
+	<div class="container-fluid" id="subscribe">
+		<div class="white-filter">
+			
+		    {% for error in errors %}
+		        <li>{{ error.message }}</li>
+		    {% endfor %}
+			<div class="container">
+				<div class="row">
+					<div class="offset-1 col-10 offset-md-6 col-md-6 well" id="subscribe-form">
+						<h3>Devenir membre</h3>
+						
+						{{ form_start(form) }}
+
+						{{ form_errors(form) }}
+							
+						<div class="form-group">
+							{{ form_label(form.type) }}
+							{{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-12 col-md-6">
+								{{ form_label(form.lastname) }}
+								{{ form_widget(form.lastname, {'attr': {
+								'class': 'form-control',
+								'placeholder': 'Nom'}}) }}
+							</div>
+							
+							<div class="form-group col-12 col-md-6">
+								{{ form_label(form.firstname) }}
+								{{ form_widget(form.firstname, {'attr': {
+								'class': 'form-control',
+								'placeholder': 'Prénom'}}) }}
+							</div>
+						</div>
+						
+						<div class="form-group">
+							{{ form_label(form.password.first) }}
+							{{ form_widget(form.password.first, {'attr': {
+							'class': 'form-control',
+							'placeholder': '******'}}) }}
+						</div>
+
+						<div class="form-group">
+							{{ form_label(form.password.second) }}
+							{{ form_widget(form.password.second, {'attr': {
+							'class': 'form-control',
+							'placeholder': '******'}}) }}
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-12 col-md-6">
+								{{ form_label(form.birth) }}
+								{{ form_widget(form.birth, {'attr': {'class': 'form-control'}}) }}
+							</div>
+							
+							<div class="form-group col-12 col-md-6">
+								{{ form_label(form.email) }}
+								{{ form_widget(form.email, {'attr': {
+								'class': 'form-control',
+								'placeholder': 'exemple@gmail.com'}}) }}
+							</div>
+						</div>
+
+						<!-- ** CHECKBOXES ** -->
+
+						<div class="form-check offset-md-2 col-md-8">
+						  {{ form_widget(form.member, {'attr': {'class': 'form-check-input'}}) }}
+						  {{ form_label(form.member) }}
+						</div>
+
+						<div class="form-check offset-md-2 col-md-8">
+						  {{ form_widget(form.newsletter, {'attr': {'class': 'form-check-input'}}) }}
+						  {{ form_label(form.newsletter) }}
+						</div>
+
+						<div class="form-check offset-md-2 col-md-8" id="last-checkbox">
+						  {{ form_widget(form.conditions, {'attr': {'class': 'form-check-input'}}) }}
+						  {{ form_label(form.conditions) }}
+						</div>
+
+						{{ form_row(form.Inscription, {'attr': {'class': 'btn'}}) }}
+							
+						{{ form_end(form) }}
+					</div>
+				</div>
+
+			</div>
+		</div>	
+	</div>
 {% endblock %}

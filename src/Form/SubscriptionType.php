@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -24,27 +24,33 @@ class SubscriptionType extends AbstractType {
                     'Observateur' => 'Observateur',
                     'Naturaliste' => 'Naturaliste')
                 ))
-            ->add('lastname', TextType::class, array('label' => 'Nom'))
-            ->add('firstname', TextType::class, array('label' => 'Prénom'))
-            ->add('birth', DateType::class, array('label' => 'Date de naissance'))   
+            ->add('lastname', TextType::class, array('label' => 'Votre nom'))
+            ->add('firstname', TextType::class, array('label' => 'Votre prénom'))
+            ->add('birth', BirthdayType::class, array(
+                'label' => 'Votre date de naissance',
+                'widget' =>'single_text'))   
             ->add('password', RepeatedType::class, array(
                     'type' => PasswordType::class,
                     'invalid_message' => 'Les mots de passe ne correspondent pas',
                     'options' => array('attr' => array('class' => 'password-field')),
                     'required' => true,
-                    'first_options'  => array('label' => 'Mot de passe'),
-                    'second_options' => array('label' => 'Confirmation du mot de passe'),
+                    'first_options'  => array('label' => 'Votre mot de passe'),
+                    'second_options' => array('label' => 'Confirmation de votre mot de passe'),
                     ))
-            ->add('email', EmailType::class, array('label' => 'Adresse Email'))
+            ->add('email', EmailType::class, array('label' => 'Votre adresse email'))
             ->add('member', CheckboxType::class, array(
                 'label'    => 'Je suis adhérent à l\'association',
                 'required' => false
                 ))
             ->add('newsletter', CheckboxType::class, array(
-                'label'    => 'Je souhaite m\'inscrire à la Newsletter' ,
+                'label'    => 'Je m\'abonne à la Newsletter' ,
                 'required' => false
                 ))
-            ->add('S\'inscrire', SubmitType::class)
+            ->add('conditions', CheckboxType::class, array(
+                'label'    => 'J\'accepte les conditions générales d\'utilisation' ,
+                'required' => true
+                ))
+            ->add('Inscription', SubmitType::class)
                ;
     }
     

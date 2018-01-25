@@ -1,21 +1,29 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Liste{% endblock %}
+{% block title %}Blog{% endblock %}
 
 {% block body %}
 
-	<h2>Blog</h2>
+	<div class="container-fluid" id="blog-list">
 
-	
+		<div class="row">	
 
-	{% for article in articles %}
+			{% for article in articles %}
 
-		<div style="width: 200px; height: 200px; background: #f0f0f0; margin: 20px;">
-			<h3>{{ article.title }}</h3>
-			<p>{{ article.content }}</p>
-			<a href="{{ path('article_single', {'id': article.id}) }}"><button>Lire la suite</button></a>
+					<div class="col-12 col-md-4 container-article">
+						<div class="block-article">
+							<!--<img src="{{ asset('build/img/oies.jpg') }}" id="article-image">-->
+
+							<div class="block-short-article">
+								<h3>{{ article.title }}</h3>
+								<p>{{ article.content|slice(0, 100) }}</p>
+								<a href="{{ path('article_single', {'id': article.id}) }}"><button class="btn">Lire la suite</button></a>
+							</div>
+						</div>
+					</div>
+
+			{% endfor %}
 		</div>
-
-	{% endfor %}	
+	</div>	
 
 {% endblock %}	

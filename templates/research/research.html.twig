@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Recherche{% endblock %} 
+
+{% block body %}
+
+	{{ form_start(form) }}
+
+	{{ form_errors(form) }}
+
+	{{ form_row(form.vern_name) }}
+
+	{{ form_row(form.Rechercher) }}
+
+	{{ form_rest(form) }}
+
+	{{ form_end(form) }}
+
+	<div id="resultats-recherche">
+		
+	</div>
+
+{% endblock %}

@@ -17,7 +17,7 @@ class CommentType extends AbstractType
 				'label'    => 'Votre commentaire',
 				'required' => true
 				))
-			->add('Publier', SubmitType::class)
+			->add('Poster', SubmitType::class)
 		;	
 	}
 }
