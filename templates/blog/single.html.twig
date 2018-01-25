@@ -7,22 +7,22 @@
 {% block body %}
 	
 	<div class="container-fluid" id="blog-single">
-		<!--<img src='/{{article.image }}'>-->
-		<div class="article-img"><img src="{{ asset('build/img/oies.jpg') }}"></div>
+		
+		<div class="article-img"><img src="{{ asset('build/img/'~data.article.image) }}"></div>
 
 		<div class="container" id="block-article">
-			<h2>{{ article.title }}</h2>
+			<h2>{{ data.article.title }}</h2>
 
 			<br>
 
 			<div class="article-content">
-				{{ article.content }}
+				{{ data.article.content }}
 			</div>
 
 			<br>
 
 			<div id="block-date">
-				Ecrit le {{ article.dateArticle|date("m/d/Y") }}
+				Ecrit le {{ data.article.dateArticle|date("m/d/Y") }}
 			</div>
 		</div>	
 
@@ -34,7 +34,7 @@
 			<div class="row">
 				<div class="col-12 offset-md-2 col-md-8">
 					<img src="{{ asset('build/img/bubbles-comment.svg') }}" width="35px" height="26px">
-					{% for comment in article.comments %}
+					{% for comment in data.article.comments %}
 						<div class="block-comment">
 							<p class="comment-author">Par {{ comment.author.firstname }} {{ comment.author.lastname|upper|first }}. <span class="author-type">{{ comment.author.type|upper|first }}</span></p>
 							<p>{{ comment.content }}</p>
@@ -50,21 +50,21 @@
 						<h3>Ecrire un commentaire</h3>
 						<p><!-- Nom personne connecté + rang--></p>
 
-						{{ form_start(form) }}
+						{{ form_start(data.form) }}
 
-						{{ form_errors(form) }}
+						{{ form_errors(data.form) }}
 
 						<div class="form-group">
-							{{ form_widget(form.content, {'attr': {
+							{{ form_widget(data.form.content, {'attr': {
 							'class': 'form-control',
 							'rows': 5}}) }}
 						</div>
 
-						{{ form_row(form.Poster, {'attr': {'class': 'btn'}}) }}
+						{{ form_row(data.form.Poster, {'attr': {'class': 'btn'}}) }}
 
-						{{ form_rest(form) }}
+						{{ form_rest(data.form) }}
 
-						{{ form_end(form) }}
+						{{ form_end(data.form) }}
 							
 					</div>
 				</div>

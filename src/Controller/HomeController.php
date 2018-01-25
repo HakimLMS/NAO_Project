@@ -25,4 +25,20 @@ class HomeController extends Controller
     {
         return $this->render('home.html.twig');
     }
+    
+    /**
+     * @Route("/mentions-legales", name="mentions_legales")
+     */
+    public function mentions()
+    {
+            return $this->render('mentions_legales.html.twig');
+    }
+
+    /**
+     * @Route("/association", name="association")
+     */
+    public function association()
+    {
+            return $this->render('association.html.twig');
+    }
 }

@@ -47,8 +47,7 @@ class SubscribeHandler
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid())
-        {
-                 
+        {      
             $this->namer->FixUser($user);
             $this->checktype->checkRole($user);
             $this->flusher->flushEntity($user);
