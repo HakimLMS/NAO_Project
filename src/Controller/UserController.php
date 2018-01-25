@@ -30,8 +30,13 @@ class UserController extends Controller
     public function subscribeAction(Request $request, SubscribeHandler $subscribeHandler)
     {
        
-        $data = $subscribeHandler->generateData($request);
-        return $this->render('Administration/subscription.html.twig', array('form' => $data['form']->createView(), 'errors' => $data['errors'] ));
+        $data = $subscribeHandler->generateData($request); 
+        $form = $data['form'];      
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $this->redirectToRoute('home');
+        }
+        return $this->render('Administration/subscription.html.twig', array('form' => $form->createView(), 'errors' => $data['errors'] ));
     }
     
     /**
@@ -55,10 +60,7 @@ class UserController extends Controller
     {
         $dashboardData = $dashboardHandler->generateData();
         $tempData = $dashboardData['data']; $user = $dashboardData['user']; $template = $tempData['templatedir'];
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $this->redirectToRoute('home');
-        }
+
         return $this->render($template, array('data' => $tempData, 'user' => $user));
     }
     
