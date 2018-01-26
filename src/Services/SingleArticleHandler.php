@@ -4,8 +4,9 @@ namespace App\Services;
 use App\Services\SubscribeDataGenerator\FlusherService;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Form\CommentType;
 use App\Entity\Comment;
 use App\Entity\Article;
@@ -27,7 +28,9 @@ class SingleArticleHandler
     
     private $tokenStorage;
     
-    public function __construct(FlusherService $flusher, EntityManagerInterface $em, FormFactoryInterface $formFactory, TokenStorageInterface $tokenstorage)
+     private $chekcer;
+    
+    public function __construct(FlusherService $flusher, EntityManagerInterface $em, FormFactoryInterface $formFactory, TokenStorageInterface $tokenstorage, AuthorizationCheckerInterface $checker)
     {
         $this->formFactory = $formFactory;
         $this->flusher = $flusher;
@@ -36,14 +39,15 @@ class SingleArticleHandler
         $this->articleRepo = $this->em->getRepository(Article::class);
         $this->commentRepo = $this->em->getRepository(Comment::class);
         $this->userRepo = $this->em->getRepository(User::class);
-        
+        $this->checker = $checker;        
     }
     
     private function generateCommentAndForm()
     {        
         $comment = new Comment();
         $form = $this->formFactory->create(CommentType::class, $comment);
-            return array("form" => $form, "comment" => $comment);
+        $template = 'blog/single.html.twig';
+            return array("form" => $form, "comment" => $comment, 'template' => $template);
     }
     
     private function generateArticle($id)
@@ -73,6 +77,8 @@ class SingleArticleHandler
         return $user;
     }
     
+    
+    
     public function generateData(Request $request, $id)
     {
         
@@ -87,6 +93,7 @@ class SingleArticleHandler
         $array = $this->generateCommentAndForm();
         $form = $array['form'];
         $comment = $array['comment'];
+        $template = $array['template'];
         
         $form->handleRequest($request);
         
@@ -98,7 +105,17 @@ class SingleArticleHandler
             $this->flusher->flushEntity($article);
         }
         
-        return array('article' => $article, 'form' => $form);
+        if($this->checker->isGranted('ROLE_USER'))
+        {
+          return array('data'=> array('article' => $article, 'form' => $form->createView()),
+                'template' => $template);  
+        }
+        else
+        {
+            $template = 'blog/singleanonymous.html.twig';
+            return array('data'=> $article, 
+                'template' => $template);
+        }
     }
     
 }

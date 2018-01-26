@@ -21,23 +21,17 @@ use Composer\DependencyResolver\Operation\UninstallOperation;
 use Composer\Factory;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\Installer;
-use Composer\Installer\InstallerEvent;
-use Composer\Installer\InstallerEvents;
 use Composer\Installer\PackageEvent;
 use Composer\Installer\PackageEvents;
 use Composer\Installer\SuggestedPackagesReporter;
 use Composer\IO\IOInterface;
+use Composer\IO\ConsoleIO;
 use Composer\IO\NullIO;
 use Composer\Json\JsonFile;
 use Composer\Json\JsonManipulator;
-use Composer\Plugin\CommandEvent;
-use Composer\Plugin\PluginEvents;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
-use Hirak\Prestissimo\Plugin as Prestissimo;
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Thanks\Thanks;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -52,8 +46,6 @@ class Flex implements PluginInterface, EventSubscriberInterface
     private $postInstallOutput = [''];
     private $operations = [];
     private $lock;
-    private $cacheDirPopulated = false;
-    private $displayThanksReminder = false;
     private static $activated = true;
 
     public function activate(Composer $composer, IOInterface $io)
@@ -81,32 +73,34 @@ class Flex implements PluginInterface, EventSubscriberInterface
         $this->downloader->setFlexId($this->getFlexId());
         $this->lock = new Lock(str_replace(Factory::getComposerFile(), 'composer.json', 'symfony.lock'));
 
-        $backtrace = debug_backtrace();
-        foreach ($backtrace as $trace) {
-            if (isset($trace['object']) && $trace['object'] instanceof Installer) {
+        $search = 3;
+        foreach (debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT) as $trace) {
+            if (!isset($trace['object'])) {
+                continue;
+            }
+
+            if ($trace['object'] instanceof Application) {
+                --$search;
+                $app = $trace['object'];
+                $resolver = new PackageResolver($this->downloader);
+                $app->add(new Command\RequireCommand($resolver));
+                $app->add(new Command\UpdateCommand($resolver));
+                $app->add(new Command\RemoveCommand($resolver));
+            } elseif ($trace['object'] instanceof Installer) {
+                --$search;
                 $trace['object']->setSuggestedPackagesReporter(new SuggestedPackagesReporter(new NullIO()));
+            } elseif ($trace['object'] instanceof CreateProjectCommand) {
+                --$search;
+                if ($io instanceof ConsoleIO) {
+                    $p = new \ReflectionProperty($io, 'input');
+                    $p->setAccessible(true);
+                    $p->getValue($io)->setInteractive(false);
+                }
+            }
+
+            if (0 === $search) {
                 break;
             }
-        }
-
-        foreach ($backtrace as $trace) {
-            if (!isset($trace['object']) || !isset($trace['args'][0])) {
-                continue;
-            }
-
-            if (!$trace['object'] instanceof Application || !$trace['args'][0] instanceof ArgvInput) {
-                continue;
-            }
-
-            $app = $trace['object'];
-            $resolver = new PackageResolver($this->downloader);
-            $app->add(new Command\RequireCommand($resolver));
-            $app->add(new Command\UpdateCommand($resolver));
-            $app->add(new Command\RemoveCommand($resolver));
-            $app->add(new Command\UnpackCommand($resolver));
-
-            $trace['args'][0]->setInteractive(false);
-            break;
         }
     }
 
@@ -114,8 +108,6 @@ class Flex implements PluginInterface, EventSubscriberInterface
     {
         $json = new JsonFile(Factory::getComposerFile());
         $manipulator = new JsonManipulator(file_get_contents($json->getPath()));
-        // new projects are most of the time proprietary
-        $manipulator->addProperty('license', 'proprietary');
         // 'name' and 'description' are only required for public packages
         $manipulator->removeProperty('name');
         $manipulator->removeProperty('description');
@@ -167,13 +159,6 @@ class Flex implements PluginInterface, EventSubscriberInterface
             }
         }
 
-        if ($this->displayThanksReminder) {
-            $this->io->writeError('');
-            $this->io->writeError('What about running <comment>composer global require symfony/thanks && composer thanks</> now?');
-            $this->io->writeError('This will spread some love by sending a star to the GitHub repositories of your fellow package maintainers.');
-            $this->io->writeError('');
-        }
-
         if (!$recipes) {
             $this->lock->write();
 
@@ -182,7 +167,6 @@ class Flex implements PluginInterface, EventSubscriberInterface
 
         $this->io->writeError(sprintf('<info>Symfony operations: %d recipe%s (%s)</>', count($recipes), count($recipes) > 1 ? 's' : '', $this->downloader->getSessionId()));
         $installContribs = $this->composer->getPackage()->getExtra()['symfony']['allow-contrib'] ?? false;
-        $manifest = null;
         foreach ($recipes as $recipe) {
             if ('install' === $recipe->getJob() && !$installContribs && $recipe->isContrib()) {
                 $warning = $this->io->isInteractive() ? 'WARNING' : 'IGNORING';
@@ -194,8 +178,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
     [<comment>a</>] Yes for all packages, only for the current installation session
     [<comment>p</>] Yes permanently, never ask again for this project
     (defaults to <comment>n</>): ';
-                $answer = $this->io->askAndValidate(
-                    $question,
+                $answer = $this->io->askAndValidate($question,
                     function ($value) {
                         if (null === $value) {
                             return 'n';
@@ -245,23 +228,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
             }
         }
 
-        if (null !== $manifest) {
-            array_unshift(
-                $this->postInstallOutput,
-                '',
-                '<info>Some files may have been created or updated to configure your new packages.</>',
-                'Don\'t hesitate to <comment>review</>, <comment>edit</> and <comment>commit</> them: these files are <comment>yours</>.'
-            );
-        }
-
         $this->lock->write();
-    }
-
-    public function inspectCommand(CommandEvent $event)
-    {
-        if ('update' === $event->getCommandName() && !class_exists(Thanks::class, false)) {
-            $this->displayThanksReminder = true;
-        }
     }
 
     public function executeAutoScripts(Event $event)
@@ -278,21 +245,6 @@ class Flex implements PluginInterface, EventSubscriberInterface
         }
 
         $this->io->write($this->postInstallOutput);
-    }
-
-    public function populateCacheDir(InstallerEvent $event)
-    {
-        if (extension_loaded('curl') && class_exists(Prestissimo::class, false)) {
-            // let hirak/prestissimo handle downloads when the curl extension is installed
-            return;
-        }
-        if ($this->cacheDirPopulated) {
-            return;
-        }
-        $this->cacheDirPopulated = true;
-
-        $downloader = new ParallelDownloader($this->io, $this->composer->getConfig());
-        $downloader->populateCacheDir($event->getOperations());
     }
 
     private function fetchRecipes(): array
@@ -328,7 +280,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
                 $manifest = [];
                 $bundle = new SymfonyBundle($this->composer, $package, $job);
                 if (null === $devPackages) {
-                    $devPackages = array_column($this->composer->getLocker()->getLockData()['packages-dev'], 'name');
+                    $devPackages = array_map(function ($package) { return $package['name']; }, $this->composer->getLocker()->getLockData()['packages-dev']);
                 }
                 $envs = in_array($name, $devPackages) ? ['dev', 'test'] : ['all'];
                 foreach ($bundle->getClassNames() as $class) {
@@ -423,16 +375,12 @@ class Flex implements PluginInterface, EventSubscriberInterface
         }
 
         return [
-            InstallerEvents::POST_DEPENDENCIES_SOLVING => [['populateCacheDir', PHP_INT_MAX]],
-            PackageEvents::PRE_PACKAGE_INSTALL => [['populateCacheDir', ~PHP_INT_MAX]],
-            PackageEvents::PRE_PACKAGE_UPDATE => [['populateCacheDir', ~PHP_INT_MAX]],
             PackageEvents::POST_PACKAGE_INSTALL => 'record',
             PackageEvents::POST_PACKAGE_UPDATE => 'record',
             PackageEvents::POST_PACKAGE_UNINSTALL => 'record',
             ScriptEvents::POST_CREATE_PROJECT_CMD => 'configureProject',
             ScriptEvents::POST_INSTALL_CMD => 'install',
             ScriptEvents::POST_UPDATE_CMD => 'update',
-            PluginEvents::COMMAND => 'inspectCommand',
             'auto-scripts' => 'executeAutoScripts',
         ];
     }

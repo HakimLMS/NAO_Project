@@ -51,6 +51,7 @@
 }
 
 #menu {
+	padding-left: 40px;
 	margin-top: 34px;
 }
 
@@ -141,6 +142,7 @@
 	margin-right: 12px;
 }
 
+
 @media screen and (max-width: 768px) {
 
 	#menu {
@@ -163,6 +165,17 @@
 
 	.hamburger-activated #hamburger-sidebar-menu {
 		transform: translateY(0);
+	}
+}
+
+@media screen and (max-width: 1110px) and (min-width: 768px) {
+	#menu {
+		font-size: 12px;
+	}
+
+	#menu img {
+		width: 20px;
+		height: 20px;
 	}
 }
 
@@ -220,6 +233,7 @@
 	padding-bottom: 75px;
 	text-align: center;
 	font-size: 18px;
+	overflow: hidden;
 }
 
 #block-icons img {
@@ -468,6 +482,7 @@
 
 	#block-description {
 		font-size: 18px;
+		text-align: center;
 	}
 
 	#homepage-first-section h3 {
@@ -755,17 +770,23 @@
 		background-color: #d9dced; 
 	}
 
-	#login-form {
-		padding: 100px 30px 30px;
+	#login-form, #subscribe-form {
+		padding: 30px;
 	}
 
 	#login-form h3, #subscribe-form h3 {
 		font-size: 20px;
 	}
 
+	#notsubyet {
+		font-size: 16px;
+		font-weight: 500;
+	}
+
 	#login-form input, #login-form label, #login-form #notsubyet, #subscribe-form input, #subscribe-form select, #subscribe-form label {
 		font-size: 14px;
 	}
+
 
 	#login-form button, #subscribe-form button {
 		font-size: 16px;
@@ -789,20 +810,13 @@
 .block-article {
 	max-width: 420px;
 	height: 420px;
-	background-image: url('../img/oies.jpg');
+	/*background-image: url('../img/oies.jpg');*/
 	background-size: cover;
 	border: 3px solid #e20580;
 	margin: auto;
 }
-/*
-.container-article:first-child {
-	padding-left: 80px;
-}
 
-.container-article:last-child {
-	padding-right: 80px;
-}
-*/
+
 .block-article img {
 	width: 100%;
 	height: auto;

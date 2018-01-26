@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use App\Services\ModifyUserHandler;
 use App\Services\DashboardHandler;
 use App\Services\SubscribeHandler;
 use App\Services\ValidateUserHandler;
@@ -29,8 +30,13 @@ class UserController extends Controller
     public function subscribeAction(Request $request, SubscribeHandler $subscribeHandler)
     {
        
-        $data = $subscribeHandler->generateData($request);
-        return $this->render('Administration/subscription.html.twig', array('form' => $data['form']->createView(), 'errors' => $data['errors'] ));
+        $data = $subscribeHandler->generateData($request); 
+        $form = $data['form'];      
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $this->redirectToRoute('home');
+        }
+        return $this->render('Administration/subscription.html.twig', array('form' => $form->createView(), 'errors' => $data['errors'] ));
     }
     
     /**
@@ -52,8 +58,10 @@ class UserController extends Controller
      */
     public function dashboardAction(Request $request, DashboardHandler $dashboardHandler)
     {
-        $tempData = $dashboardHandler->generateData();
-        return $this->render($tempData['templatedir'], array('data'=> $tempData['content']));
+        $dashboardData = $dashboardHandler->generateData();
+        $tempData = $dashboardData['data']; $user = $dashboardData['user']; $template = $tempData['templatedir'];
+
+        return $this->render($template, array('data' => $tempData, 'user' => $user));
     }
     
     /**
@@ -74,5 +82,19 @@ class UserController extends Controller
       $userid = filter_input(INPUT_POST, '_userid');
       $downgradeUHandler->downgradeUser($userid); 
       return $this->redirectToRoute('dashboard');
+    }
+    
+    /**
+     * @Route("/user/modify", name="modifyuser")
+     */
+    public function modifyUserAction(ModifyUserHandler $modifyHandler, Request $request)
+    {
+       $form = $modifyHandler->generateData($request);
+       
+       if($form->isSubmitted() && $form->isValid())
+       {
+           return $this->redirectToRoute('dashboard');
+       }
+       return $this->render('Administration/modifyUser.html.twig', array('form' => $form->createView()));
     }
 }

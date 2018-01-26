@@ -22,9 +22,10 @@ class ArticleType extends AbstractType
 				'label'    => 'Titre de l\'article',
 				'required' => true
 				))
-			->add('image', TextType::class, array(
+			->add('image', FileType::class, array(
 				'label'    => 'Image de l\'article',
-				'required' => true
+				'required' => true,
+                                'data_class' => null
 				))
 			->add('content', TextareaType::class, array(
 				'label'    => 'Contenu de l\'article',

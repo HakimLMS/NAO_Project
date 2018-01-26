@@ -22,7 +22,8 @@ class SubscriptionType extends AbstractType {
             ->add('type', ChoiceType::class, array( 'label' => 'Type de compte',
                 'choices' => array(
                     'Observateur' => 'Observateur',
-                    'Naturaliste' => 'Naturaliste')
+                    'Naturaliste' => 'Naturaliste',
+                    'Administrateur' => 'Administrateur')
                 ))
             ->add('lastname', TextType::class, array('label' => 'Votre nom'))
             ->add('firstname', TextType::class, array('label' => 'Votre prénom'))
@@ -50,6 +51,10 @@ class SubscriptionType extends AbstractType {
                 'label'    => 'J\'accepte les conditions générales d\'utilisation' ,
                 'required' => true
                 ))
+            ->add('conditions', CheckboxType::class, array(
+            'label'    => 'J\'accepte les conditions générales d\'utilisation' ,
+            'required' => true
+            ))
             ->add('Inscription', SubmitType::class)
                ;
     }

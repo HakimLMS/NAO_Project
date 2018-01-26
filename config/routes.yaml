@@ -5,7 +5,7 @@
 
 blog_list:
     path: /blog
-    controller: 'App\Controller\BlogController::list'
+    controller: 'App\Controller\BlogController::bloglist'
 
 user:
     path: /user

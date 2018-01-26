@@ -11,9 +11,7 @@
 			{% for article in articles %}
 
 					<div class="col-12 col-md-4 container-article">
-						<div class="block-article">
-							<!--<img src="{{ asset('build/img/oies.jpg') }}" id="article-image">-->
-
+						<div class="block-article" style="background-image: url({{ asset('build/img/'~article.image|raw) }});">
 							<div class="block-short-article">
 								<h3>{{ article.title }}</h3>
 								<p>{{ article.content|slice(0, 100) }}</p>

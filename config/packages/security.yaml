@@ -44,6 +44,9 @@ security:
                 target: homepage
     access_control:
     - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/blog/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/don/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/contact, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     - { path: ^/user/, roles: ROLE_USER }
     - { path: ^/user/, roles: ROLE_ORGANISER }
     - { path: ^/user/, roles: ROLE_ADMIN }

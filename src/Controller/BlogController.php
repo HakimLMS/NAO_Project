@@ -27,10 +27,10 @@ class BlogController extends Controller
     /**
      * @Route("/blog", name="blog_list")
      */
-    public function list(ListArticleService $articleService)
+    public function bloglist(ListArticleService $articleService)
     {
         $articles = $articleService->findAllArticles();
-        return $this->render('blog/list.html.twig', array('articles' => $articles));	
+        return $this->render('blog/list.html.twig', array('articles' => $articles ));	
     }
 
     
@@ -39,30 +39,27 @@ class BlogController extends Controller
     */
     public function single(Request $request, SingleArticleHandler $singleHandler, $id)
     {
-       /*
-        if(!$article) {
-            throw $this->createNotFoundException('Pas d\'article correspondant');
-        }
-        * 
-        */ 
         $arrayData = $singleHandler->generateData($request, $id);
-        return $this->render('blog/single.html.twig', array(
-            'article' => $arrayData['article'],
-            'form'    => $arrayData['form']->createView()
+        return $this->render($arrayData['template'], array(
+            'data' => $arrayData['data']
             ));   
     }
    
     /**
-    * @Route("user/blog/new_article", name="new_article")
+    * @Route("/blog/new_article", name="new_article")
     */
     public function newArticleAction(Request $request, NewArticleHandler $newHandler)
     {
         $form = $newHandler->generateData($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            return $this->redirectToRoute('dashboard');
+        }
         return $this->render('blog/new.html.twig', array('form' => $form->createView()));
     }
     
     /**
-     * @Route("user/blog/delete/{id})", name="delete_article") 
+     * @Route("/blog/delete/{id}", name="delete_article") 
      */
     public function deleteArticleAction(Request $request, DeleteArticleHandler $deleteArticle, $id)
     {
@@ -71,7 +68,7 @@ class BlogController extends Controller
     }
     
     /**
-     * @Route("user/blog/modify/{id})", name="modify_article")
+     * @Route("/blog/modify/{id}", name="modify_article")
      */
     public function modifyArticleAction(Request $request, ModifyArticleHandler $modifyArticle, $id)
     {

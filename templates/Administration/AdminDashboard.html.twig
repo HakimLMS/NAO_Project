@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="usercard">
+        <div class="card" style="width: 18rem;">
+            
+            <div class="card-body">
+               {#<a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
+              <h5 class="card-title">{{user.firstname}}</h5>
+              <p class="card-text">{{user.type}}</p>
+            </div>#}
+        </div>
+        
+    </div>
+    <div>
+        <table id="userstable">
+            <h2 class="h2tabdashboard">Comptes naturalistes à valider</h2> 
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Mail</th>
+              <th>Carte Professionnelle</th>
+              <th>Action à faire</th>
+            </tr>
+                {% for user in data.content.userqueued %}
+            <form method="post">
+                <tr>
+                   <td>{{user.lastname}}</td>
+                   <td>{{user.firstname}}</td>
+                   <td>{{user.email}}</td>
+                   <td>{{user.procard}}</td>
+                   <input type="hidden" value="{{user.id}}" name="_userid"></input>
+                   <td>
+                       <button type="submit" value="validate" formaction="{{path('validateuser')}}">Valider</button>
+                       <button type="submit" value="downgrade" formaction="{{path('downgradeuser')}}">Rétrograder</button>
+                   </td>
+                </tr>
+            </form>
+                {% endfor %}    
+        </table>
+
+        <table id="observationtable">
+            <h2 class="h2tabdashboard">Observations</h2> 
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Mail</th>
+              <th>Carte Professionnelle</th>
+              <th>Action à faire</th>
+            </tr>
+                {% for user in data.content.userqueued %}
+            <tr>
+               <td>{{user.lastname}}</td>
+               <td>{{user.firstname}}</td>
+               <td>{{user.email}}</td>
+               <td>{{user.procard}}</td>
+               <td> <button>Valider</button> <button>Rétrograder</button></td>
+            </tr>
+                {% endfor %}
+                {# wire buttons to actions to validate or not the accounts #}
+        </table>
+
+        <table id="obsqueudtable">
+            <h2 class="h2tabdashboard">Observations à valider</h2> 
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Mail</th>
+              <th>Carte Professionnelle</th>
+              <th>Action à faire</th>
+            </tr>
+                {% for user in data.content.userqueued %}
+            <tr>
+               <td>{{user.lastname}}</td>
+               <td>{{user.firstname}}</td>
+               <td>{{user.email}}</td>
+               <td>{{user.procard}}</td>
+               <td> <button>Valider</button> <button>Rétrograder</button></td>
+            </tr>
+                {% endfor %}
+                {# wire buttons to actions to validate or not the accounts #}
+        </table>
+
+        <table id="articletable">
+            <h2 class="h2tabdashboard">Articles du blog</h2> 
+            <tr>
+              <th>Titre</th>
+              <th>Date</th>
+              <th>Texte</th>
+              <th>Action à faire</th>
+
+            </tr>
+                {% for article in data.content.articles %}
+            <tr>
+            <form method="post">
+                <td><a href="{{path('article_single', {'id': article.id})}}">{{article.title}}</a></td>
+               <td>{{article.dateArticle|date("d/m/Y")}}</td>
+               <td>{{article.content|striptags|slice(0, 55)|raw}}</td>
+               <input type="hidden" value="{{article.id}}" name="_articleid"></input>
+               <td>
+                   <button type="submit" formaction="{{path('modify_article', {'id' : article.id})}}">Modifier</button>
+                   <button type="submit" formaction="{{path('delete_article', {'id' : article.id})}}">Supprimer</button>
+               </td>
+            </tr>
+            
+            </form>   
+            
+                {% endfor %}
+                <tr><button type="submit"><a href="{{path('new_article')}}">Ecrire un article</a></button></tr>    
+        </table>
+    </div>
+{% endblock %}
