@@ -378,6 +378,9 @@
     <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
+    <service id="App\Controller\MapController" class="App\Controller\MapController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
     <service id="App\Controller\ResearchController" class="App\Controller\ResearchController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
@@ -397,6 +400,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ImageType" class="App\Form\ImageType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" autoconfigure="true">
@@ -441,6 +447,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -473,6 +483,11 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.authorization_checker"/>
     </service>
+    <service id="App\Services\DenyObsHandler" class="App\Services\DenyObsHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+      <argument type="service" id="security.authorization_checker"/>
+    </service>
     <service id="App\Services\DonHandler" class="App\Services\DonHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
       <argument type="service" id="form.factory"/>
@@ -484,6 +499,13 @@
     <service id="App\Services\Mailer" class="App\Services\Mailer" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="swiftmailer.mailer.default"/>
       <argument type="service" id="twig"/>
+    </service>
+    <service id="App\Services\MapHandler" class="App\Services\MapHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+      <argument type="service" id="form.factory"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="service_container"/>
     </service>
     <service id="App\Services\ModifyArticleHandler" class="App\Services\ModifyArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -530,6 +552,11 @@
       <argument type="service" id="App\Services\SubscribeDataGenerator\UserFixerService"/>
       <argument type="service" id="debug.validator"/>
     </service>
+    <service id="App\Services\ValidateObsHandler" class="App\Services\ValidateObsHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+      <argument type="service" id="security.authorization_checker"/>
+    </service>
     <service id="App\Services\ValidateUserHandler" class="App\Services\ValidateUserHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
@@ -550,7 +577,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.QhXGlik"/>
+      <argument type="service" id="service_locator.rOgmBNj"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -790,6 +817,7 @@
         <argument>App\Form\ContactType</argument>
         <argument>App\Form\DonType</argument>
         <argument>App\Form\ImageType</argument>
+        <argument>App\Form\ObservationType</argument>
         <argument>App\Form\ResearchBirdType</argument>
         <argument>App\Form\SubscriptionType</argument>
         <argument>App\Form\UserModifyType</argument>
@@ -988,7 +1016,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.KpY_NpC"/>
+      <argument type="service" id="service_locator.v623meD"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -2005,14 +2033,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2961,7 +2981,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id="service_locator.A7V1i4w"/>
+      <argument type="service" id="service_locator.tEZMm3A"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3420,6 +3440,13 @@
       </call>
       <call method="add">
         <argument type="service" id="security.request_matcher.6cXmF2J"/>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id="security.request_matcher.N0ZMRRf"/>
         <argument type="collection">
           <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
         </argument>
@@ -3951,6 +3978,9 @@
     <service id="security.request_matcher.6cXmF2J" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/contact</argument>
     </service>
+    <service id="security.request_matcher.N0ZMRRf" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/map</argument>
+    </service>
     <service id="security.request_matcher.LGxF6tL" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/user/</argument>
     </service>
@@ -4118,6 +4148,8 @@
     <service id="abstract.instanceof.App\Controller\DonController" class="App\Controller\DonController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\MapController" class="App\Controller\MapController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\MapController" class="App\Controller\MapController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\ResearchController" class="App\Controller\ResearchController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\ResearchController" class="App\Controller\ResearchController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\UserController" class="App\Controller\UserController" public="false" autowire="true" abstract="true"/>
@@ -4132,6 +4164,8 @@
     <service id="abstract.instanceof.App\Form\DonType" class="App\Form\DonType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ImageType" class="App\Form\ImageType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ImageType" class="App\Form\ImageType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" abstract="true"/>
@@ -4154,6 +4188,8 @@
     <service id="abstract.instanceof.App\Repository\DonRepository" class="App\Repository\DonRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
@@ -4300,6 +4336,24 @@
         <argument key="checkout" type="service" id="App\Services\CheckOutHandler" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id="service_locator.BTVloeW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mapHandler" type="service" id="App\Services\MapHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.cumVKIr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="validatehand" type="service" id="App\Services\ValidateObsHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.VXkrEKb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="denyhand" type="service" id="App\Services\DenyObsHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
     <service id="service_locator.d9aQ9np" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4342,7 +4396,7 @@
         <argument key="modifyHandler" type="service" id="App\Services\ModifyUserHandler" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.QhXGlik" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.rOgmBNj" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BlogController:bloglist" type="service" id="service_locator.udmBeas"/>
@@ -4353,6 +4407,9 @@
         <argument key="App\Controller\ContactController:index" type="service" id="service_locator.srmxvxF"/>
         <argument key="App\Controller\DonController:CBcheckout" type="service" id="service_locator.KhTx4ja"/>
         <argument key="App\Controller\DonController:index" type="service" id="service_locator.MAB7qRx"/>
+        <argument key="App\Controller\MapController:Deny" type="service" id="service_locator.VXkrEKb"/>
+        <argument key="App\Controller\MapController:MapAction" type="service" id="service_locator.BTVloeW"/>
+        <argument key="App\Controller\MapController:Validate" type="service" id="service_locator.cumVKIr"/>
         <argument key="App\Controller\ResearchController:index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController:dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController:downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
@@ -4368,6 +4425,9 @@
         <argument key="App\Controller\ContactController::index" type="service" id="service_locator.srmxvxF"/>
         <argument key="App\Controller\DonController::CBcheckout" type="service" id="service_locator.KhTx4ja"/>
         <argument key="App\Controller\DonController::index" type="service" id="service_locator.MAB7qRx"/>
+        <argument key="App\Controller\MapController::Deny" type="service" id="service_locator.VXkrEKb"/>
+        <argument key="App\Controller\MapController::MapAction" type="service" id="service_locator.BTVloeW"/>
+        <argument key="App\Controller\MapController::Validate" type="service" id="service_locator.cumVKIr"/>
         <argument key="App\Controller\ResearchController::index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController::dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController::downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
@@ -4521,7 +4581,7 @@
         <argument key="inline" type="service" id="fragment.renderer.inline"/>
       </argument>
     </service>
-    <service id="service_locator.KpY_NpC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.v623meD" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleType" type="service" id="App\Form\ArticleType"/>
@@ -4529,6 +4589,7 @@
         <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
         <argument key="App\Form\DonType" type="service" id="App\Form\DonType"/>
         <argument key="App\Form\ImageType" type="service" id="App\Form\ImageType"/>
+        <argument key="App\Form\ObservationType" type="service" id="App\Form\ObservationType"/>
         <argument key="App\Form\ResearchBirdType" type="service" id="App\Form\ResearchBirdType"/>
         <argument key="App\Form\SubscriptionType" type="service" id="App\Form\SubscriptionType"/>
         <argument key="App\Form\UserModifyType" type="service" id="App\Form\UserModifyType"/>
@@ -4537,7 +4598,7 @@
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
-    <service id="service_locator.A7V1i4w" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.tEZMm3A" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ArticleImageRepository" type="service" id="App\Repository\ArticleImageRepository"/>
@@ -4548,6 +4609,7 @@
         <argument key="App\Repository\ContactRepository" type="service" id="App\Repository\ContactRepository"/>
         <argument key="App\Repository\DonRepository" type="service" id="App\Repository\DonRepository"/>
         <argument key="App\Repository\ImageRepository" type="service" id="App\Repository\ImageRepository"/>
+        <argument key="App\Repository\ObservationsRepository" type="service" id="App\Repository\ObservationsRepository"/>
         <argument key="App\Repository\UserImageRepository" type="service" id="App\Repository\UserImageRepository"/>
       </argument>
     </service>

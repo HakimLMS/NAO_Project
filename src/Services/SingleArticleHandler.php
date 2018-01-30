@@ -28,7 +28,9 @@ class SingleArticleHandler
     
     private $tokenStorage;
     
-     private $chekcer;
+     private $checker;
+     
+    
     
     public function __construct(FlusherService $flusher, EntityManagerInterface $em, FormFactoryInterface $formFactory, TokenStorageInterface $tokenstorage, AuthorizationCheckerInterface $checker)
     {
@@ -39,7 +41,8 @@ class SingleArticleHandler
         $this->articleRepo = $this->em->getRepository(Article::class);
         $this->commentRepo = $this->em->getRepository(Comment::class);
         $this->userRepo = $this->em->getRepository(User::class);
-        $this->checker = $checker;        
+        $this->checker = $checker;
+       
     }
     
     private function generateCommentAndForm()
@@ -66,7 +69,7 @@ class SingleArticleHandler
     {
         $userNametoken = $this->tokenStorage->getToken()->getUser()->getUsername();
         
-        if($userNametoken = 'Admin')
+        if($userNametoken == 'admin')
         {
            $user = $this->userRepo->LoadUserByUsername('Admin@loiseau-rare.fr');
         }

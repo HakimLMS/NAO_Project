@@ -63,20 +63,28 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\ContactController::index',  '_route' => 'contact',);
         }
 
-        // don
-        if ('/don' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\DonController::index',  '_route' => 'don',);
-        }
-
-        if (0 === strpos($pathinfo, '/don/CB')) {
-            // donCB
-            if ('/don/CB' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\DonController::CB',  '_route' => 'donCB',);
+        if (0 === strpos($pathinfo, '/d')) {
+            // don
+            if ('/don' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\DonController::index',  '_route' => 'don',);
             }
 
-            // CBcheckout
-            if ('/don/CB_checkout' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\DonController::CBcheckout',  '_route' => 'CBcheckout',);
+            if (0 === strpos($pathinfo, '/don/CB')) {
+                // donCB
+                if ('/don/CB' === $pathinfo) {
+                    return array (  '_controller' => 'App\\Controller\\DonController::CB',  '_route' => 'donCB',);
+                }
+
+                // CBcheckout
+                if ('/don/CB_checkout' === $pathinfo) {
+                    return array (  '_controller' => 'App\\Controller\\DonController::CBcheckout',  '_route' => 'CBcheckout',);
+                }
+
+            }
+
+            // deny_obs
+            if (0 === strpos($pathinfo, '/deny') && preg_match('#^/deny/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'deny_obs')), array (  '_controller' => 'App\\Controller\\MapController::Deny',));
             }
 
         }
@@ -96,9 +104,19 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\HomeController::mentions',  '_route' => 'mentions_legales',);
         }
 
+        // map
+        if ('/map' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\MapController::MapAction',  '_route' => 'map',);
+        }
+
         // association
         if ('/association' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\HomeController::association',  '_route' => 'association',);
+        }
+
+        // validate_obs
+        if (0 === strpos($pathinfo, '/validate') && preg_match('#^/validate/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'validate_obs')), array (  '_controller' => 'App\\Controller\\MapController::Validate',));
         }
 
         // research
