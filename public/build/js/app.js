@@ -1,5 +1,11 @@
 $(function() {
 
+	var stripeBut = $('.stripe-button-el');
+	console.log(stripeBut);
+	stripeBut.css({"text-align": "center", "padding": "8px"});
+	$('.stripe-button-el span').css({"background": "#A41275", "box-shadow": "none"});
+
+
 	var hamburger = $('#menu-hamb');
 	var filter = $('#black-filter')
 	var activatedClass = 'hamburger-activated';

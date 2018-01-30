@@ -851,6 +851,23 @@
 	text-decoration: none;
 }
 
+@media screen and (min-width: 768px) {
+	.block-article {
+		position: relative;
+	}
+
+	.block-short-article {
+		position: absolute;
+		bottom: 0;
+	}
+
+	.block-short-article button {
+		display: inline-block;
+		float: right;
+		margin-left: 0;
+	}
+}
+
 @media screen and (max-width: 768px) {
 	#blog-list {
 		padding-top: 70px;
@@ -931,18 +948,19 @@
 	border-top: 3px solid #7c348a;
 }
 
-#block-comments {
 
-}
-
-#block-form-comment {
+#block-form-comment, #block-comment-anonymous {
 	padding: 10px 30px 55px 30px;
 	background: #5c69ad;
 	border-radius: 3px;
 	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.55); 
 }
 
-#block-form-comment h3 {
+#block-comment-anonymous .container {
+		margin-top: 30px;
+	}
+
+#block-form-comment h3, #block-comment-anonymous h3 {
 	color: white;
 	font-size: 18px;
 }
@@ -952,10 +970,8 @@
 	font-size: 15px;
 }
 
-#block-form-comment button {
-	display: block;
-	float: right;
-	padding: 7px 70px;
+
+#block-form-comment button, #block-comment-anonymous button {
 	background: #A41275;
 	color: white;
 	font-size: 18px;
@@ -963,12 +979,35 @@
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.55)
 }
 
-#block-form-comment button:hover {
+#block-form-comment button {
+	display: block;
+	float: right;
+	padding: 7px 70px;
+}
+
+#block-comment-anonymous button {
+	padding: 7px 20%;
+}
+
+
+#block-comment-anonymous a {
+	text-align: center;
+	text-decoration: none;
+}
+
+#block-form-comment button:hover, #block-comment-anonymous button:hover {
 	box-shadow: none;
 }
 
 textarea {
 	resize: none;
+}
+
+@media screen and (min-width: 768px) {
+
+	#block-comment-anonymous button {
+		font-weight: 300;
+	}
 }
 
 
@@ -979,6 +1018,10 @@ textarea {
 
 	.article-img img {
 		top: 0;
+	}
+
+	#block-article {
+		padding-top: 10px;
 	}
 
 	#block-article h2 {
@@ -997,17 +1040,202 @@ textarea {
 		width: 50%;
 	}
 
-	#block-form-comment h3 {
+	#block-comment-anonymous {
+		padding: 10px 30px 20px 30px;
+	}
+
+	#block-form-comment h3, #block-comment-anonymous h3 {
 		font-size: 16px;
 	}
 
-	#block-form-comment button {
-		font-size: 16px;
+	#block-form-comment button, #block-comment-anonymous button {
+		font-size: 15px;
 		padding: 7px 30px;
 	}
 
+	#block-comment-anonymous button:first-child {
+		margin-bottom: 15px;
+	}
+
+
 
 }
+
+
+
+
+
+
+
+/* DON */
+#don {
+	background-image: url('../img/Colibri1.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 0;
+}
+
+#don-form {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: #4152A0;
+	border-radius: 4px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+	padding: 30px 20px 20px 20px;
+}
+
+#don-form h3 {
+	color: white;
+	font-size: 24px;
+	text-align: center;
+}
+
+#don-form img {
+	display: block;
+	margin: 35px auto 45px auto; 
+}
+
+#don-form input {
+	color: #4152A0;
+	border: none;
+	border-radius: 0px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5); 
+}
+
+#don_amount {
+	font-size: 30px;
+	text-align: center;
+}
+
+#don-form p {
+	color: white;
+	font-size: 14px;
+	margin-bottom: 35px;
+}
+
+#don-form button {
+	width: 100%;
+	height: auto;
+	text-align: left;
+	margin-bottom: 15px;
+	background: #A41275;
+	font-size: 15px;
+	color: white;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.55);
+}
+
+#don-form button:hover {
+	box-shadow: none;
+}
+
+#don-form #don_CB {
+	margin-top: 30px;
+}
+
+#don-form-buttons button:before {
+	content: ' ';
+	display: inline-block;
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+	margin-right: 12px;
+}
+
+#don-form-buttons button[id=don_CB]:before {
+	background-image: url(../img/cb-blanc.svg);
+	background-size: cover;
+}
+
+#don-form-buttons button[id=don_CHQ]:before {
+	background-image: url(../img/chq-blanc.svg);
+	background-size: cover;
+}
+
+#don-form-buttons button[id=don_VIR]:before {
+	background-image: url(../img/vir-blanc.svg);
+	background-size: cover;
+}
+
+#p-chq {
+	text-align: center;
+	padding: 0 15px;
+}
+
+
+#block-info-asso {
+	text-align: center;
+	background: white;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.55);
+}
+
+#block-info-asso p {
+	padding: 20px;
+	color: #4152A0;
+}
+
+#btn-chq button {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+}
+
+#table-vir {
+	color: #4152A0;
+	background: white;
+	margin-bottom: 30px;
+}
+
+#table-vir th {
+	text-align: center;
+	border-right: #4152A0 1px solid;
+}
+
+.stripe-button-el {
+	text-align: center;
+}
+
+
+#block-stripe, #block-chq, #block-vir {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+
+@media screen and (min-width: 768px) {
+	#don-form {
+		margin-left: 0px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#don-form h3 {
+		font-size: 20px;
+	}
+
+	#don-form img {
+		width: 40px;
+		height: 40px;
+	}
+
+	#don-form #don_amount {
+		font-size: 22px;
+	}
+
+	#don-form p {
+		font-size: 12px;
+	}
+
+	#don-form input {
+		font-size: 14px;
+	}
+
+	#don-form button {
+		font-size: 14px;
+	}
+}
+
+
 
 
 

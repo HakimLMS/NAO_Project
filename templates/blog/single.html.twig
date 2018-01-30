@@ -1,8 +1,6 @@
 {% extends "base.html.twig" %}
 
-    
-
-
+{% block title %}{{ data.article.title }}{% endblock %}    
 
 {% block body %}
 	
@@ -22,7 +20,7 @@
 			<br>
 
 			<div id="block-date">
-				Ecrit le {{ data.article.dateArticle|date("m/d/Y") }}
+				Ecrit le {{ data.article.dateArticle|date("d/m/Y") }}
 			</div>
 		</div>	
 
