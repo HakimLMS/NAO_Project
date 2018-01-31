@@ -18,7 +18,11 @@ class MapController extends Controller
     public function MapAction(Request $request, MapHandler $mapHandler)
     {
         $data = $mapHandler->generateData($request);
-        return $this->render('Map/map.html.twig', array('form' => $data['form']->createView()));
+        if($data['form']->isSubmitted() && $data['form']->isValid())
+        {
+            return $this->redirectToRoute('map');
+        }
+        return $this->render($data['template'], array('form' => $data['form']->createView()));
     }
     
     /**

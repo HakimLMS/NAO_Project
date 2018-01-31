@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+        <link rel="stylesheet" href="{{asset('build/css/map.css')}}">
+        <div class="mapwraper">
+            <div id="map"></div>
+        </div>
+    {% endblock %}
+    {% block javascripts %}
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtz5G85w1sjtP8Y0sPnY45ZAQq5d2Y_LE&callback=initMap"></script>
+        <script src="{{asset('build/js/mapAnonymous.js')}}"></script>
+    {% endblock %}
+

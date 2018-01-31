@@ -17,6 +17,7 @@ function initMap() {
             map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
+            setPosition();
           });
         } else {
           // Browser doesn't support Geolocation
@@ -34,7 +35,12 @@ function initMap() {
               var point = new google.maps.LatLng(
                   parseFloat(markerElem.getAttribute('lat')),
                   parseFloat(markerElem.getAttribute('lng')));
-
+               
+                var latElts = document.getElementById('observation_lat'); 
+                latElts.value = parseFloat(markerElem.getAttribute('lat'));
+                var lngElts = document.getElementById('observation_lng');
+                lngElts.value = parseFloat(markerElem.getAttribute('lng'));
+                  
               var infowincontent = document.createElement('div');
               var strong = document.createElement('strong');
               strong.textContent = name
@@ -82,6 +88,8 @@ function initMap() {
         request.open('GET', url, true);
         request.send(null);
       }
+      
+
 
       function doNothing() {}
 

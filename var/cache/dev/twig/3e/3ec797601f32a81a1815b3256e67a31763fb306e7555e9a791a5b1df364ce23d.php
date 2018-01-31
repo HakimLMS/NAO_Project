@@ -21,29 +21,29 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6b9e5350727c14fc7b24def8b6b6d66c85eb39aaf8fd739aa7b2e82de04cc85e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_6b9e5350727c14fc7b24def8b6b6d66c85eb39aaf8fd739aa7b2e82de04cc85e->enter($__internal_6b9e5350727c14fc7b24def8b6b6d66c85eb39aaf8fd739aa7b2e82de04cc85e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Administration/AdminDashboard.html.twig"));
+        $__internal_b038957e661eebd48d48246135a2ef11d06d68f021b7d1ca5a3e6ce2b85dfd53 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b038957e661eebd48d48246135a2ef11d06d68f021b7d1ca5a3e6ce2b85dfd53->enter($__internal_b038957e661eebd48d48246135a2ef11d06d68f021b7d1ca5a3e6ce2b85dfd53_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Administration/AdminDashboard.html.twig"));
 
-        $__internal_50788336fa718f79fcd9cb6f24ff827c1d89f95fd6636100e25c7b3486d058eb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_50788336fa718f79fcd9cb6f24ff827c1d89f95fd6636100e25c7b3486d058eb->enter($__internal_50788336fa718f79fcd9cb6f24ff827c1d89f95fd6636100e25c7b3486d058eb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Administration/AdminDashboard.html.twig"));
+        $__internal_f3700effadccdc06eeccc755ba5ff62addbb92fa1da9d65cb0c2b346525c0af0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f3700effadccdc06eeccc755ba5ff62addbb92fa1da9d65cb0c2b346525c0af0->enter($__internal_f3700effadccdc06eeccc755ba5ff62addbb92fa1da9d65cb0c2b346525c0af0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Administration/AdminDashboard.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_6b9e5350727c14fc7b24def8b6b6d66c85eb39aaf8fd739aa7b2e82de04cc85e->leave($__internal_6b9e5350727c14fc7b24def8b6b6d66c85eb39aaf8fd739aa7b2e82de04cc85e_prof);
+        $__internal_b038957e661eebd48d48246135a2ef11d06d68f021b7d1ca5a3e6ce2b85dfd53->leave($__internal_b038957e661eebd48d48246135a2ef11d06d68f021b7d1ca5a3e6ce2b85dfd53_prof);
 
         
-        $__internal_50788336fa718f79fcd9cb6f24ff827c1d89f95fd6636100e25c7b3486d058eb->leave($__internal_50788336fa718f79fcd9cb6f24ff827c1d89f95fd6636100e25c7b3486d058eb_prof);
+        $__internal_f3700effadccdc06eeccc755ba5ff62addbb92fa1da9d65cb0c2b346525c0af0->leave($__internal_f3700effadccdc06eeccc755ba5ff62addbb92fa1da9d65cb0c2b346525c0af0_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_4251d13f77871323d6fadfd89ea0f7600757740244539f403291d815a46755aa = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_4251d13f77871323d6fadfd89ea0f7600757740244539f403291d815a46755aa->enter($__internal_4251d13f77871323d6fadfd89ea0f7600757740244539f403291d815a46755aa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_a6952ba70cdf92544badd79eb6eb07e626031bf307cbfc5c9beabb4f5da16c83 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a6952ba70cdf92544badd79eb6eb07e626031bf307cbfc5c9beabb4f5da16c83->enter($__internal_a6952ba70cdf92544badd79eb6eb07e626031bf307cbfc5c9beabb4f5da16c83_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_b92746e6e3db4012d86a66a1e701efdeebcae2b76c8e941b99006f8897b66262 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b92746e6e3db4012d86a66a1e701efdeebcae2b76c8e941b99006f8897b66262->enter($__internal_b92746e6e3db4012d86a66a1e701efdeebcae2b76c8e941b99006f8897b66262_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_b87ca28e25c0d690a296d9aaf082e6992411c9c5e3c9659ca812b5848c23332f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b87ca28e25c0d690a296d9aaf082e6992411c9c5e3c9659ca812b5848c23332f->enter($__internal_b87ca28e25c0d690a296d9aaf082e6992411c9c5e3c9659ca812b5848c23332f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <div class=\"usercard\">
@@ -133,44 +133,48 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
             <h2 class=\"h2tabdashboard\">Observations</h2> 
             <tr>
               <th>Nom</th>
-              <th>Prénom</th>
-              <th>Mail</th>
-              <th>Carte Professionnelle</th>
-              <th>Action à faire</th>
+              <th>Photo</th>
+              <th>Lat</th>
+              <th>Long</th>
+              <th>Type</th>
             </tr>
                 ";
         // line 50
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 50, $this->getSourceContext()); })()), "content", array()), "userqueued", array()));
-        foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 51
-            echo "            <tr>
-               <td>";
-            // line 52
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "lastname", array()), "html", null, true);
-            echo "</td>
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 50, $this->getSourceContext()); })()), "content", array()), "observations", array()), "obsmade", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["obs"]) {
+            echo "      
+                 
+            <tr>                
                <td>";
             // line 53
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "firstname", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "name", array()), "html", null, true);
             echo "</td>
-               <td>";
+               <td><img src=\"";
             // line 54
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "email", array()), "html", null, true);
-            echo "</td>
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("build/img/" . twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "image", array()))), "html", null, true);
+            echo "\" alt=\"photo observée\"></td>
                <td>";
             // line 55
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["user"], "procard", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "lat", array()), "html", null, true);
             echo "</td>
-               <td> <button>Valider</button> <button>Rétrograder</button></td>
-            </tr>
+               <td>";
+            // line 56
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "lng", array()), "html", null, true);
+            echo "</td>
+               <td>";
+            // line 57
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "type", array()), "html", null, true);
+            echo "</td>
+            <tr>
                 ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['user'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obs'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 59
-        echo "                ";
         // line 60
+        echo "                ";
+        // line 61
         echo "        </table>
 
         <table id=\"obsqueudtable\">
@@ -184,41 +188,41 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
               <th>Action à faire</th>
             </tr>
                 ";
-        // line 72
+        // line 73
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 72, $this->getSourceContext()); })()), "content", array()), "observations", array()), "obsToValidate", array()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 73, $this->getSourceContext()); })()), "content", array()), "observations", array()), "obsToValidate", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["obs"]) {
-            // line 73
+            // line 74
             echo "            
             <form method=\"post\">        
             <tr>                
                <td>";
-            // line 76
+            // line 77
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "name", array()), "html", null, true);
             echo "</td>
                <td><img src=\"";
-            // line 77
+            // line 78
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("build/img/" . twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "image", array()))), "html", null, true);
             echo "\" alt=\"photo observée\"></td>
                <td>";
-            // line 78
+            // line 79
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "lat", array()), "html", null, true);
             echo "</td>
                <td>";
-            // line 79
+            // line 80
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "lng", array()), "html", null, true);
             echo "</td>
                <td>";
-            // line 80
+            // line 81
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "type", array()), "html", null, true);
             echo "</td>
                <td> 
                    <button type=\"submit\" formaction=\"";
-            // line 82
+            // line 83
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("validate_obs", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "id", array()))), "html", null, true);
             echo "\">Valider</button>
                    <button type=\"submit\" formaction=\"";
-            // line 83
+            // line 84
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("deny_obs", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), $context["obs"], "id", array()))), "html", null, true);
             echo "\">Supprimer</button>
                </td>
@@ -229,9 +233,9 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['obs'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 88
-        echo "                ";
         // line 89
+        echo "                ";
+        // line 90
         echo "        </table>
 
         <table id=\"articletable\">
@@ -244,38 +248,38 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
 
             </tr>
                 ";
-        // line 100
+        // line 101
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 100, $this->getSourceContext()); })()), "content", array()), "articles", array()));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new Twig_Error_Runtime('Variable "data" does not exist.', 101, $this->getSourceContext()); })()), "content", array()), "articles", array()));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 101
+            // line 102
             echo "            <tr>
             <form method=\"post\">
                 <td><a href=\"";
-            // line 103
+            // line 104
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("article_single", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), $context["article"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["article"], "title", array()), "html", null, true);
             echo "</a></td>
                <td>";
-            // line 104
+            // line 105
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["article"], "dateArticle", array()), "d/m/Y"), "html", null, true);
             echo "</td>
                <td>";
-            // line 105
+            // line 106
             echo twig_slice($this->env, strip_tags(twig_get_attribute($this->env, $this->getSourceContext(), $context["article"], "content", array())), 0, 55);
             echo "</td>
                <input type=\"hidden\" value=\"";
-            // line 106
+            // line 107
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["article"], "id", array()), "html", null, true);
             echo "\" name=\"_articleid\"></input>
                <td>
                    <button type=\"submit\" formaction=\"";
-            // line 108
+            // line 109
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("modify_article", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), $context["article"], "id", array()))), "html", null, true);
             echo "\">Modifier</button>
                    <button type=\"submit\" formaction=\"";
-            // line 109
+            // line 110
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("delete_article", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), $context["article"], "id", array()))), "html", null, true);
             echo "\">Supprimer</button>
                </td>
@@ -288,7 +292,7 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 116
+        // line 117
         echo "                <tr><button type=\"submit\"><a href=\"";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("new_article");
         echo "\">Ecrire un article</a></button></tr>    
@@ -296,10 +300,10 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
     </div>
 ";
         
-        $__internal_b92746e6e3db4012d86a66a1e701efdeebcae2b76c8e941b99006f8897b66262->leave($__internal_b92746e6e3db4012d86a66a1e701efdeebcae2b76c8e941b99006f8897b66262_prof);
+        $__internal_b87ca28e25c0d690a296d9aaf082e6992411c9c5e3c9659ca812b5848c23332f->leave($__internal_b87ca28e25c0d690a296d9aaf082e6992411c9c5e3c9659ca812b5848c23332f_prof);
 
         
-        $__internal_4251d13f77871323d6fadfd89ea0f7600757740244539f403291d815a46755aa->leave($__internal_4251d13f77871323d6fadfd89ea0f7600757740244539f403291d815a46755aa_prof);
+        $__internal_a6952ba70cdf92544badd79eb6eb07e626031bf307cbfc5c9beabb4f5da16c83->leave($__internal_a6952ba70cdf92544badd79eb6eb07e626031bf307cbfc5c9beabb4f5da16c83_prof);
 
     }
 
@@ -315,7 +319,7 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
 
     public function getDebugInfo()
     {
-        return array (  292 => 116,  279 => 109,  275 => 108,  270 => 106,  266 => 105,  262 => 104,  256 => 103,  252 => 101,  248 => 100,  235 => 89,  233 => 88,  222 => 83,  218 => 82,  213 => 80,  209 => 79,  205 => 78,  201 => 77,  197 => 76,  192 => 73,  188 => 72,  174 => 60,  172 => 59,  162 => 55,  158 => 54,  154 => 53,  150 => 52,  147 => 51,  143 => 50,  129 => 38,  118 => 34,  114 => 33,  109 => 31,  105 => 30,  101 => 29,  97 => 28,  93 => 27,  89 => 25,  85 => 24,  67 => 9,  63 => 8,  55 => 7,  49 => 3,  40 => 2,  11 => 1,);
+        return array (  296 => 117,  283 => 110,  279 => 109,  274 => 107,  270 => 106,  266 => 105,  260 => 104,  256 => 102,  252 => 101,  239 => 90,  237 => 89,  226 => 84,  222 => 83,  217 => 81,  213 => 80,  209 => 79,  205 => 78,  201 => 77,  196 => 74,  192 => 73,  178 => 61,  176 => 60,  167 => 57,  163 => 56,  159 => 55,  155 => 54,  151 => 53,  143 => 50,  129 => 38,  118 => 34,  114 => 33,  109 => 31,  105 => 30,  101 => 29,  97 => 28,  93 => 27,  89 => 25,  85 => 24,  67 => 9,  63 => 8,  55 => 7,  49 => 3,  40 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -364,19 +368,20 @@ class __TwigTemplate_e3f99d6a6498d2bf19a31f62aaca8216cdfc2bd9114e3c4fcd019005dd5
             <h2 class=\"h2tabdashboard\">Observations</h2> 
             <tr>
               <th>Nom</th>
-              <th>Prénom</th>
-              <th>Mail</th>
-              <th>Carte Professionnelle</th>
-              <th>Action à faire</th>
+              <th>Photo</th>
+              <th>Lat</th>
+              <th>Long</th>
+              <th>Type</th>
             </tr>
-                {% for user in data.content.userqueued %}
+                {% for obs in data.content.observations.obsmade %}      
+                 
+            <tr>                
+               <td>{{obs.name}}</td>
+               <td><img src=\"{{asset('build/img/'~obs.image)}}\" alt=\"photo observée\"></td>
+               <td>{{obs.lat}}</td>
+               <td>{{obs.lng}}</td>
+               <td>{{obs.type}}</td>
             <tr>
-               <td>{{user.lastname}}</td>
-               <td>{{user.firstname}}</td>
-               <td>{{user.email}}</td>
-               <td>{{user.procard}}</td>
-               <td> <button>Valider</button> <button>Rétrograder</button></td>
-            </tr>
                 {% endfor %}
                 {# wire buttons to actions to validate or not the accounts #}
         </table>

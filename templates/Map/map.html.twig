@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <body>
+
+{% extends 'base.html.twig' %}
     {% block body %}
 
         <link rel="stylesheet" href="{{asset('build/css/map.css')}}">
@@ -8,13 +7,41 @@
             <div id="map"></div>
         </div>
         <div class="form-group">
-            {{ form_start(form) }}
-            {{ form_end(form) }}
+        {{ form_start(form) }}
+            {{ form_widget(form._token) }}
+            <div>
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name) }}
+            </div>
+            <div>
+            {{ form_label(form.lat) }}
+            {{ form_errors(form.lat) }}
+            {{ form_widget(form.lat) }}
+            </div>
+            <div>
+            {{ form_label(form.lng) }}
+            {{ form_errors(form.lng) }}
+            {{ form_widget(form.lng) }}
+            </div>
+            <a title="Comment trouver ses coordonnées GPS"href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=fr" target="_blank">Comment connaître sa position</a>
+            <div>
+            {{ form_label(form.image) }}
+            {{ form_errors(form.image) }}
+            {{ form_widget(form.image) }}
+            </div>
+            <div>
+            {{ form_label(form.type) }}
+            {{ form_errors(form.type) }}
+            {{ form_widget(form.type) }}
+            </div>
+            <div>
+            {{ form_widget(form.Enregistrer) }}
+            </div>
+        
         </div>
     {% endblock %}
     {% block javascripts %}
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtz5G85w1sjtP8Y0sPnY45ZAQq5d2Y_LE&callback=initMap"></script>
         <script src="{{asset('build/js/map.js')}}"></script>
     {% endblock %}
-  </body>
-</html>

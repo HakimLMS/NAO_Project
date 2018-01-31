@@ -59,7 +59,16 @@ class MapHandler
     {
         $obs = new Observations();
         $form = $this->formFactory->create(ObservationType::class, $obs);
-        return array('form' => $form, 'obs' => $obs);
+        if($this->tokenStorage->getToken()->getUser() != 'anon.')
+        {
+         $template = 'Map/map.html.twig';   
+        }
+        else
+        {
+            $template = 'Map/mapAnonymous.html.twig';
+        }
+        
+        return array('form' => $form, 'obs' => $obs, 'template' => $template);
     }
     
     private function generateResponse(Request $request,Form $form, Observations $obs, User $user)
@@ -75,7 +84,13 @@ class MapHandler
             $obs->setImage($fileName);
             $obs->setUser($user);
             $this->flusher->flushEntity($obs);
+           
         }
+    }
+    
+    private function generateResponseNoUser()
+    {
+        
     }
     
     private function generateUser()
@@ -96,7 +111,8 @@ class MapHandler
     public function generateData(Request $request)
     { 
         header("Content-type: text/xml");
-        $user = $this->generateUser();
+        
+        
         $domAndParnode = $this->generateXML();
         $result = $this->generateMarkersInDb();
         foreach( $result as $row)
@@ -110,7 +126,13 @@ class MapHandler
                 }       
         echo $domAndParnode['dom']->saveXML();
         $formAndObs = $this->generateFormAndObs();
-        $this->generateResponse($request, $formAndObs['form'], $formAndObs['obs'], $user);
-        return $formAndObs;
+        
+        if($this->tokenStorage->getToken()->getUser() != 'anon.')
+        {
+            $user = $this->generateUser();
+            $this->generateResponse($request, $formAndObs['form'], $formAndObs['obs'], $user);
+            
+        }
+        return $formAndObs;        
     }
 }

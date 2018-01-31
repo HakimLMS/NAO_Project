@@ -38,7 +38,10 @@ class ObservationsRepository extends ServiceEntityRepository
     {
         
         return $this->createQueryBuilder('o')
-            ->where('o.user = :user  && o.validated = :value')->setParameter('value', false)->setParameter('user',$userid)
+            ->where( 'o.validated = :value')
+            ->andwhere('o.user = :user' )
+            ->setParameter('value', true)
+            ->setParameter('user',$id)
             ->orderBy('o.id', 'ASC')
             ->getQuery()
             ->getResult()
@@ -47,9 +50,12 @@ class ObservationsRepository extends ServiceEntityRepository
     
     public function findAllValidatedByUser($id)
     {
-        $userid = $user->getId();
+        
         return $this->createQueryBuilder('o')
-            ->where('o.user = :user  && o.validated = :value')->setParameter('value', true)->setParameter('user',$userid)
+            ->where( 'o.validated = :value')
+            ->andwhere('o.user = :user' )
+            ->setParameter('value', true)
+            ->setParameter('user',$id)
             ->orderBy('o.id', 'ASC')
             ->getQuery()
             ->getResult()
@@ -60,7 +66,8 @@ class ObservationsRepository extends ServiceEntityRepository
     {
         
         return $this->createQueryBuilder('o')
-            ->where('o.id = :id')->setParameter('id', $id)
+            ->where('o.id = :id')
+            ->setParameter('id', $id)
             ->orderBy('o.id', 'ASC')
             ->getQuery()
             ->getOneOrNullResult()
