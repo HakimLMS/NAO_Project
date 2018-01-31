@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<ul>
+	{% for bird in birds %}
+
+	<li>Espèce : {{ bird.vernName }}</li>
+
+	{% endfor %}
+	</ul>
+
+{% endblock %}

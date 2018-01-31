@@ -550,7 +550,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.QhXGlik"/>
+      <argument type="service" id="service_locator.sdy19Nl"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -4300,11 +4300,9 @@
         <argument key="checkout" type="service" id="App\Services\CheckOutHandler" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.d9aQ9np" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.J3dl6R9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="researchHandler" type="service" id="App\Services\ResearchHandler" on-invalid="ignore"/>
-      </argument>
+      <argument type="collection"/>
     </service>
     <service id="service_locator.R6oaVOY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -4342,7 +4340,7 @@
         <argument key="modifyHandler" type="service" id="App\Services\ModifyUserHandler" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.QhXGlik" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.sdy19Nl" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BlogController:bloglist" type="service" id="service_locator.udmBeas"/>
@@ -4353,7 +4351,6 @@
         <argument key="App\Controller\ContactController:index" type="service" id="service_locator.srmxvxF"/>
         <argument key="App\Controller\DonController:CBcheckout" type="service" id="service_locator.KhTx4ja"/>
         <argument key="App\Controller\DonController:index" type="service" id="service_locator.MAB7qRx"/>
-        <argument key="App\Controller\ResearchController:index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController:dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController:downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController:login" type="service" id="service_locator.NkUBxsb"/>
@@ -4368,7 +4365,6 @@
         <argument key="App\Controller\ContactController::index" type="service" id="service_locator.srmxvxF"/>
         <argument key="App\Controller\DonController::CBcheckout" type="service" id="service_locator.KhTx4ja"/>
         <argument key="App\Controller\DonController::index" type="service" id="service_locator.MAB7qRx"/>
-        <argument key="App\Controller\ResearchController::index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController::dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController::downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController::login" type="service" id="service_locator.NkUBxsb"/>

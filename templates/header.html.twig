@@ -10,7 +10,13 @@
 					<ul class="nav">
 							<li class="nav-item link"><a href="#"><img src="{{ asset('build/img/map_rose.svg') }}" alt="carte" width="28px" height="28px">Carte</a></li>
 			    			<li class="nav-item link"><a href="{{ path('blog_list') }}"><img src="{{ asset('build/img/blog_rose.svg') }}" alt="blog" width="28px" height="28px">Blog</a></li>
-			    			<li class="nav-item link"><a href="{{ path('login') }}"><img src="{{ asset('build/img/user-male_rose.svg') }}" alt="login" width="30px" height="30px">Se connecter</a></li>
+			    			<li class="nav-item link">
+			    				{% if app.user == null %}
+			    				    <a href="{{ path('login') }}"><img src="{{ asset('build/img/user-male_rose.svg') }}" alt="login" width="30px" height="30px">Se connecter</a>
+			    				{% else %}
+			    					<a href="{{ path('dashboard') }}"><img src="{{ asset('build/img/user-male_rose.svg') }}" alt="login" width="30px" height="30px">Mon espace</a>
+			    				{% endif %}	
+			    			</li>
 			    			<li class="nav-item link"><a href="{{ path('research') }}"><img src="{{ asset('build/img/loupe_rose.svg') }}" alt="recherche" width="25px" height="25px">Recherche</a></li>
 			    			<li class="nav-item link"><a href="{{ path('don') }}"><img src="{{ asset('build/img/donation_rose.svg') }}" alt="don" width="28px" height="28px">Faire un don</a></li>
 			    			<li class="nav-item link"><a href="{{ path('association') }}"><img src="{{ asset('build/img/world_rose.svg') }}" alt="association" width="28px" height="28px">Notre mission</a></li>
@@ -30,7 +36,11 @@
 				    <a class="nav-link" href="{{ path('blog_list') }}"><img src="{{ asset('build/img/blog_rose.svg') }}" alt="blog" width="14px" height="14px">Blog</a>
 				  </li>
 				  <li class="nav-item">
-				    <a class="nav-link" href="{{ path('login') }}"><img src="{{ asset('build/img/user-male_rose.svg') }}" alt="login" width="14px" height="14px">Se connecter</a>
+				  	{% if app.user == null %}
+				    	<a class="nav-link" href="{{ path('login') }}"><img src="{{ asset('build/img/user-male_rose.svg') }}" alt="login" width="14px" height="14px">Se connecter</a>
+				    {% else %}
+				    	<a class="nav-link" href="{{ path('dashboard') }}"><img src="{{ asset('build/img/user-male_rose.svg') }}" alt="login" width="14px" height="14px">Mon espace</a>	
+				    {% endif %}	
 				  </li>
 				  <li class="nav-item">
 				    <a class="nav-link" href="{{ path('research') }}"><img src="{{ asset('build/img/loupe_rose.svg') }}" alt="recherche" width="14px" height="14px">Recherche</a>
