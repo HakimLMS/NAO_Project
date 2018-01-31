@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Aves;
 use App\Form\ResearchBirdType;
 
+
 class ResearchHandler
 {
 	private $formFactory;
@@ -28,8 +29,13 @@ class ResearchHandler
 	{
 		$form->handleRequest($request);
 		if ($form->isSubmitted() && $form->isValid()) {
-			//query code
+			$vernName = $form->getData();
+			$aves = $this->getDoctrine()
+				->getRepository(Aves::class)
+				->findByVername($vernName);	
 		}
+
+		return $form;
 	}
 
 	public function generateData(Request $request)

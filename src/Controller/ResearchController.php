@@ -20,7 +20,11 @@ class ResearchController extends Controller
     public function index(Request $request, ResearchHandler $researchHandler)
     {
        $data = $researchHandler->generateData($request);
+       $form = $data['form'];
+       if($form->isSubmitted() && $form->isValid()) {
+       		return $this->redirectToRoute('login');
+       }
 
-       return $this->render('research/research.html.twig', array('form' => $data['form']->createview()));
+       return $this->render('research/research.html.twig', array('form' => $form->createview()));
     }
 }

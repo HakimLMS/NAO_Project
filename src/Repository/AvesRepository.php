@@ -13,16 +13,16 @@ class AvesRepository extends ServiceEntityRepository
         parent::__construct($registry, Aves::class);
     }
 
-    /*
-    public function findBySomething($value)
+    
+    public function findByVernName($vernName)
     {
         return $this->createQueryBuilder('a')
-            ->where('a.something = :value')->setParameter('value', $value)
+            ->where('a.vern_name = :vern_name')->setParameter('vern_name', $vernName)
             ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+            //->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 }

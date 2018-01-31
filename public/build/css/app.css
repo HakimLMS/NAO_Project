@@ -320,7 +320,7 @@
 
 #homepage-second-section {
 	background: #d9dced;
-	padding-bottom: 100px;
+	/*padding-bottom: 100px;*/
 }
 
 #homepage-second-section h2 {
@@ -460,11 +460,21 @@
 	box-shadow: none;
 }
 
+#block-mj {
+	text-align: center;
+}
+
 
 @media screen and (min-width: 1500px) {
 	.testimony img {
 		max-width: 105px;
 		height: 105px;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+	#block-community button {
+		font-size: 16px;
 	}
 }
 
@@ -498,6 +508,9 @@
 		display: none;
 	}
 
+	#homepage-second-section {
+		padding-bottom: 100px;
+	}
 
 	#homepage-second-section h2 {
 		font-size: 23px;
@@ -505,7 +518,7 @@
 	}
 
 	#block-community button {
-		font-size: 18px;
+		font-size: 16px;
 	}
 
 
@@ -1157,9 +1170,14 @@ textarea {
 	background-size: cover;
 }
 
-#p-chq {
+#p-chq, #don-form #p-merci {
 	text-align: center;
 	padding: 0 15px;
+}
+
+
+#don-form #btn-merci button {
+	text-align: center;
 }
 
 
@@ -1174,7 +1192,7 @@ textarea {
 	color: #4152A0;
 }
 
-#btn-chq button {
+#btn-chq button, #btn-merci button {
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: center;
