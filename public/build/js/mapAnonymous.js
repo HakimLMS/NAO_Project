@@ -57,8 +57,20 @@ function initMap() {
                             strokeColor: 'white',
                             strokeWeight: .5
                           },
-                label: icon.label
-              });
+                label: icon.label,
+                  type: type
+                });
+                
+                var type = document.getElementById('selectType');console.log(marker.type);
+                if(marker.type ==  type.value || type.value == 'All')
+                {
+                    marker.setVisible(true);
+                }
+                else
+                {
+                    
+                    marker.setVisible(false);
+                }
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker);

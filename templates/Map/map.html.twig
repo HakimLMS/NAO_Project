@@ -6,7 +6,9 @@
         <div class="mapwraper">
             <div id="map"></div>
         </div>
-        <div class="form-group">
+        <div class="modal" id="form">
+            <div class="modal-content">
+                <span class="close">&times;</span>
         {{ form_start(form) }}
             {{ form_widget(form._token) }}
             <div>
@@ -38,10 +40,41 @@
             <div>
             {{ form_widget(form.Enregistrer) }}
             </div>
-        
+            
+            </div>
+        </div>
+        <div class="buttons">
+            <select id="selectType" onclick="initMap();">
+               <option value='All'>Choisissez un filtre</option>
+               <option value='Accipitriformes'>Accipitriforme</option>
+               <option value='Anseriformes'>Anseriforme</option>
+               <option value='Bucerotiformes'>Bucerotiforme</option>
+               <option value='Caprimulgiformes'> Caprimulgiformes</option>
+               <option value='Charadriiformes'> Charadriiformes</option>
+               <option value='Columbiformes'> Columbiformes</option>
+               <option value='Coraciiformes'> Coraciiformes</option>
+               <option value='Cuculiformes'> Cuculiformes</option>
+               <option value='Eurypygiformes'> Eurypygiformes</option>
+               <option value='Falconiformes'> Falconiformes</option>
+               <option value='Galliformes'> Galliformes</option>
+               <option value='Gruiformes'> Gruiformes</option>
+               <option value='Leptosomatiformes'> Leptosomatiformes</option>
+               <option value='Opisthocomiformes'> Opisthocomiformes</option>
+               <option value='Passeriformes'> Passeriformes</option>
+               <option value='Phoenicopteriformes'> Phoenicopteriformes</option>
+               <option value='Piciformes'> Piciformes</option>
+               <option value='Procellariiformes'> Procellariiformes</option>
+               <option value='Psittaciformes'> Psittaciformes</option>
+               <option value='Sphenisciformes'> Sphenisciformes</option>
+               <option value='Strigiformes'> Strigiformes</option>
+               <option value='Tinamiformes'> Tinamiformes</option>
+               <option value=Trogoniformes> Trogoniformes</option>
+            </select>
+            <input type="button" id="obsButton" value="J'ai vu un oiseau">
         </div>
     {% endblock %}
     {% block javascripts %}
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtz5G85w1sjtP8Y0sPnY45ZAQq5d2Y_LE&callback=initMap"></script>
         <script src="{{asset('build/js/map.js')}}"></script>
+        <script src="{{asset('build/js/mapModal.js')}}"></script>
     {% endblock %}

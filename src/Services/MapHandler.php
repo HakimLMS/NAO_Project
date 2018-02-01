@@ -41,14 +41,7 @@ class MapHandler
         
         
     }
-    
-    private function generateXML()
-    {
-        $dom = new \DOMDocument("1.0");
-        $node = $dom->createElement("markers");
-        $parnode = $dom->appendChild($node);       
-        return array('dom' => $dom,'parnode' => $parnode);
-    }
+
     
     public function generateMarkersInDb()
     {
@@ -83,7 +76,7 @@ class MapHandler
                 $fileName);
             $obs->setImage($fileName);
             $obs->setUser($user);
-            $this->flusher->flushEntity($obs);
+            $this->flusher->flushEntity($obs);           
            
         }
     }
@@ -113,18 +106,20 @@ class MapHandler
         header("Content-type: text/xml");
         
         
-        $domAndParnode = $this->generateXML();
+        $dom = new \DOMDocument("1.0");
+        $node = $dom->createElement("markers");
+        $parnode = $dom->appendChild($node);        
         $result = $this->generateMarkersInDb();
         foreach( $result as $row)
                 {
-                    $node = $domAndParnode['dom']->createElement("marker");
-                    $newnode = $domAndParnode['parnode']->appendChild($node);
+                    $newnode = $dom->createElement("marker");
+                    $parnode->appendChild($newnode);
                     $newnode->setAttribute("name",$row->getName());
                     $newnode->setAttribute("lat", $row->getLat());
                     $newnode->setAttribute("lng", $row->getLng());
                     $newnode->setAttribute("type", $row->getType());
                 }       
-        echo $domAndParnode['dom']->saveXML();
+        echo $dom->saveXML();
         $formAndObs = $this->generateFormAndObs();
         
         if($this->tokenStorage->getToken()->getUser() != 'anon.')

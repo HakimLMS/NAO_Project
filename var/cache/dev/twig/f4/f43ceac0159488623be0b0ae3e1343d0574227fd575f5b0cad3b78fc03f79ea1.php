@@ -22,29 +22,29 @@ class __TwigTemplate_444cf3d00033b903ed030521d9b1271e01611eab8e092232c990853648c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6265bc950fda1ab03c30449dc69dac1e20cd7bc09bca225993cebad5daa7d260 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_6265bc950fda1ab03c30449dc69dac1e20cd7bc09bca225993cebad5daa7d260->enter($__internal_6265bc950fda1ab03c30449dc69dac1e20cd7bc09bca225993cebad5daa7d260_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Map/mapAnonymous.html.twig"));
+        $__internal_97fb0c332b23143feaf27e06f7eb23d08abf2132835523a3b18d63c4beacf739 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_97fb0c332b23143feaf27e06f7eb23d08abf2132835523a3b18d63c4beacf739->enter($__internal_97fb0c332b23143feaf27e06f7eb23d08abf2132835523a3b18d63c4beacf739_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Map/mapAnonymous.html.twig"));
 
-        $__internal_f1c2bc6e7c1b68520ad5ae7558893e058009de1b49f40a04ea913f337e693f6f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f1c2bc6e7c1b68520ad5ae7558893e058009de1b49f40a04ea913f337e693f6f->enter($__internal_f1c2bc6e7c1b68520ad5ae7558893e058009de1b49f40a04ea913f337e693f6f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Map/mapAnonymous.html.twig"));
+        $__internal_57cc047ba926fb3126ef7650d7624aaf53df2d0d45cb655431d9a52714972009 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_57cc047ba926fb3126ef7650d7624aaf53df2d0d45cb655431d9a52714972009->enter($__internal_57cc047ba926fb3126ef7650d7624aaf53df2d0d45cb655431d9a52714972009_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "Map/mapAnonymous.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_6265bc950fda1ab03c30449dc69dac1e20cd7bc09bca225993cebad5daa7d260->leave($__internal_6265bc950fda1ab03c30449dc69dac1e20cd7bc09bca225993cebad5daa7d260_prof);
+        $__internal_97fb0c332b23143feaf27e06f7eb23d08abf2132835523a3b18d63c4beacf739->leave($__internal_97fb0c332b23143feaf27e06f7eb23d08abf2132835523a3b18d63c4beacf739_prof);
 
         
-        $__internal_f1c2bc6e7c1b68520ad5ae7558893e058009de1b49f40a04ea913f337e693f6f->leave($__internal_f1c2bc6e7c1b68520ad5ae7558893e058009de1b49f40a04ea913f337e693f6f_prof);
+        $__internal_57cc047ba926fb3126ef7650d7624aaf53df2d0d45cb655431d9a52714972009->leave($__internal_57cc047ba926fb3126ef7650d7624aaf53df2d0d45cb655431d9a52714972009_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_e4ef8c6ccd4e773546a907164312e37b797501e9bc56bb260b44562f8241ce0b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e4ef8c6ccd4e773546a907164312e37b797501e9bc56bb260b44562f8241ce0b->enter($__internal_e4ef8c6ccd4e773546a907164312e37b797501e9bc56bb260b44562f8241ce0b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_b7dda9ea06dc0bf1722634d385b574aa14e1a5e0bc411fcf9663843737018dcb = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b7dda9ea06dc0bf1722634d385b574aa14e1a5e0bc411fcf9663843737018dcb->enter($__internal_b7dda9ea06dc0bf1722634d385b574aa14e1a5e0bc411fcf9663843737018dcb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_41f6755271c3e5acd78e0800fd714d829e30e8e38c16b2f4d32570c272a68d27 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_41f6755271c3e5acd78e0800fd714d829e30e8e38c16b2f4d32570c272a68d27->enter($__internal_41f6755271c3e5acd78e0800fd714d829e30e8e38c16b2f4d32570c272a68d27_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_5bcdfe8b03928b96463d97787c920a72898141cb8f44efdef6800ed8679c8939 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5bcdfe8b03928b96463d97787c920a72898141cb8f44efdef6800ed8679c8939->enter($__internal_5bcdfe8b03928b96463d97787c920a72898141cb8f44efdef6800ed8679c8939_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "
@@ -55,36 +55,64 @@ class __TwigTemplate_444cf3d00033b903ed030521d9b1271e01611eab8e092232c990853648c
         <div class=\"mapwraper\">
             <div id=\"map\"></div>
         </div>
+        <div class=\"buttons\">
+            <select id=\"selectType\" onclick=\"initMap();\">
+               <option value='All'>Choisissez un filtre</option>
+               <option value='Accipitriformes'>Accipitriforme</option>
+               <option value='Anseriformes'>Anseriforme</option>
+               <option value='Bucerotiformes'>Bucerotiforme</option>
+               <option value='Caprimulgiformes'> Caprimulgiformes</option>
+               <option value='Charadriiformes'> Charadriiformes</option>
+               <option value='Columbiformes'> Columbiformes</option>
+               <option value='Coraciiformes'> Coraciiformes</option>
+               <option value='Cuculiformes'> Cuculiformes</option>
+               <option value='Eurypygiformes'> Eurypygiformes</option>
+               <option value='Falconiformes'> Falconiformes</option>
+               <option value='Galliformes'> Galliformes</option>
+               <option value='Gruiformes'> Gruiformes</option>
+               <option value='Leptosomatiformes'> Leptosomatiformes</option>
+               <option value='Opisthocomiformes'> Opisthocomiformes</option>
+               <option value='Passeriformes'> Passeriformes</option>
+               <option value='Phoenicopteriformes'> Phoenicopteriformes</option>
+               <option value='Piciformes'> Piciformes</option>
+               <option value='Procellariiformes'> Procellariiformes</option>
+               <option value='Psittaciformes'> Psittaciformes</option>
+               <option value='Sphenisciformes'> Sphenisciformes</option>
+               <option value='Strigiformes'> Strigiformes</option>
+               <option value='Tinamiformes'> Tinamiformes</option>
+               <option value=Trogoniformes> Trogoniformes</option>
+            </select>
+        </div>
     ";
         
-        $__internal_41f6755271c3e5acd78e0800fd714d829e30e8e38c16b2f4d32570c272a68d27->leave($__internal_41f6755271c3e5acd78e0800fd714d829e30e8e38c16b2f4d32570c272a68d27_prof);
+        $__internal_5bcdfe8b03928b96463d97787c920a72898141cb8f44efdef6800ed8679c8939->leave($__internal_5bcdfe8b03928b96463d97787c920a72898141cb8f44efdef6800ed8679c8939_prof);
 
         
-        $__internal_e4ef8c6ccd4e773546a907164312e37b797501e9bc56bb260b44562f8241ce0b->leave($__internal_e4ef8c6ccd4e773546a907164312e37b797501e9bc56bb260b44562f8241ce0b_prof);
+        $__internal_b7dda9ea06dc0bf1722634d385b574aa14e1a5e0bc411fcf9663843737018dcb->leave($__internal_b7dda9ea06dc0bf1722634d385b574aa14e1a5e0bc411fcf9663843737018dcb_prof);
 
     }
 
-    // line 10
+    // line 38
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_483d78eab250cd1195de0a04b92706d43bf58746012aeac41008de15edfd8d60 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_483d78eab250cd1195de0a04b92706d43bf58746012aeac41008de15edfd8d60->enter($__internal_483d78eab250cd1195de0a04b92706d43bf58746012aeac41008de15edfd8d60_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_fb685f3d0e35c5816d775514a734fa47113b236621325448797a977466a6d93b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_fb685f3d0e35c5816d775514a734fa47113b236621325448797a977466a6d93b->enter($__internal_fb685f3d0e35c5816d775514a734fa47113b236621325448797a977466a6d93b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        $__internal_8591b65f8d4e46ad4df0b5205fba9a3703dd387ac5d8ff2e0805be98b52c49d5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8591b65f8d4e46ad4df0b5205fba9a3703dd387ac5d8ff2e0805be98b52c49d5->enter($__internal_8591b65f8d4e46ad4df0b5205fba9a3703dd387ac5d8ff2e0805be98b52c49d5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_5c47369567f73372813d2b5ec374e9a9e9bfc065915a308c81c9f9f335601cc5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5c47369567f73372813d2b5ec374e9a9e9bfc065915a308c81c9f9f335601cc5->enter($__internal_5c47369567f73372813d2b5ec374e9a9e9bfc065915a308c81c9f9f335601cc5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 11
+        // line 39
         echo "        <script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBtz5G85w1sjtP8Y0sPnY45ZAQq5d2Y_LE&callback=initMap\"></script>
         <script src=\"";
-        // line 12
+        // line 40
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/js/mapAnonymous.js"), "html", null, true);
         echo "\"></script>
     ";
         
-        $__internal_8591b65f8d4e46ad4df0b5205fba9a3703dd387ac5d8ff2e0805be98b52c49d5->leave($__internal_8591b65f8d4e46ad4df0b5205fba9a3703dd387ac5d8ff2e0805be98b52c49d5_prof);
+        $__internal_5c47369567f73372813d2b5ec374e9a9e9bfc065915a308c81c9f9f335601cc5->leave($__internal_5c47369567f73372813d2b5ec374e9a9e9bfc065915a308c81c9f9f335601cc5_prof);
 
         
-        $__internal_483d78eab250cd1195de0a04b92706d43bf58746012aeac41008de15edfd8d60->leave($__internal_483d78eab250cd1195de0a04b92706d43bf58746012aeac41008de15edfd8d60_prof);
+        $__internal_fb685f3d0e35c5816d775514a734fa47113b236621325448797a977466a6d93b->leave($__internal_fb685f3d0e35c5816d775514a734fa47113b236621325448797a977466a6d93b_prof);
 
     }
 
@@ -100,7 +128,7 @@ class __TwigTemplate_444cf3d00033b903ed030521d9b1271e01611eab8e092232c990853648c
 
     public function getDebugInfo()
     {
-        return array (  80 => 12,  77 => 11,  68 => 10,  53 => 5,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  108 => 40,  105 => 39,  96 => 38,  53 => 5,  50 => 4,  41 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -112,6 +140,34 @@ class __TwigTemplate_444cf3d00033b903ed030521d9b1271e01611eab8e092232c990853648c
         <link rel=\"stylesheet\" href=\"{{asset('build/css/map.css')}}\">
         <div class=\"mapwraper\">
             <div id=\"map\"></div>
+        </div>
+        <div class=\"buttons\">
+            <select id=\"selectType\" onclick=\"initMap();\">
+               <option value='All'>Choisissez un filtre</option>
+               <option value='Accipitriformes'>Accipitriforme</option>
+               <option value='Anseriformes'>Anseriforme</option>
+               <option value='Bucerotiformes'>Bucerotiforme</option>
+               <option value='Caprimulgiformes'> Caprimulgiformes</option>
+               <option value='Charadriiformes'> Charadriiformes</option>
+               <option value='Columbiformes'> Columbiformes</option>
+               <option value='Coraciiformes'> Coraciiformes</option>
+               <option value='Cuculiformes'> Cuculiformes</option>
+               <option value='Eurypygiformes'> Eurypygiformes</option>
+               <option value='Falconiformes'> Falconiformes</option>
+               <option value='Galliformes'> Galliformes</option>
+               <option value='Gruiformes'> Gruiformes</option>
+               <option value='Leptosomatiformes'> Leptosomatiformes</option>
+               <option value='Opisthocomiformes'> Opisthocomiformes</option>
+               <option value='Passeriformes'> Passeriformes</option>
+               <option value='Phoenicopteriformes'> Phoenicopteriformes</option>
+               <option value='Piciformes'> Piciformes</option>
+               <option value='Procellariiformes'> Procellariiformes</option>
+               <option value='Psittaciformes'> Psittaciformes</option>
+               <option value='Sphenisciformes'> Sphenisciformes</option>
+               <option value='Strigiformes'> Strigiformes</option>
+               <option value='Tinamiformes'> Tinamiformes</option>
+               <option value=Trogoniformes> Trogoniformes</option>
+            </select>
         </div>
     {% endblock %}
     {% block javascripts %}
