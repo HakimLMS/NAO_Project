@@ -2,12 +2,13 @@
 
 {% block body %}
 
+	{{ dump(birds) }}
 	<ul>
-	{% for bird in birds %}
-
-	<li>Espèce : {{ bird.vernName }}</li>
-
-	{% endfor %}
+		{% for bird in birds %}
+			<li> {{ bird.vernName }} - {{ bird.cdName }} </li>
+		{% else %}
+		<p>Pas d'oiseau correspondant à votre recherche.</p>	
+		{% endfor %}
 	</ul>
 
 {% endblock %}

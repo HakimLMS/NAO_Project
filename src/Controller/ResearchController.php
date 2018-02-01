@@ -29,12 +29,12 @@ class ResearchController extends Controller
        $form->handleRequest($request);
 
        if($form->isSubmitted() && $form->isValid()) {
-       		//return $this->redirectToRoute('login');
 
-       		$vernName = $form->getData();
+          $vernName = $form->getData()->getVernName('aves');
        		$birds = $this->getDoctrine()
        			->getRepository(Aves::class)
-       			->findByVernName($vernName);
+            //->findBy($vernName);
+       			->findByVernName($vernName);  
 
        		return $this->render('research/results.html.twig', array('birds' => $birds));	
        }

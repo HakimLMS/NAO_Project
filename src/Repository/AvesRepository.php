@@ -18,7 +18,7 @@ class AvesRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
            ->where('a.vern_name = :vern_name')->setParameter('vern_name', $vernName)
-            ->orderBy('a.id', 'ASC')
+            ->orderBy('a.vern_name', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()

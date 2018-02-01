@@ -675,12 +675,20 @@
 
 
 
-/* LOGIN  &&& SUBSCRIBE*/
+/* LOGIN  & SUBSCRIBE & CONTACT */
 
 #login, #subscribe {
 	background-image: url('../img/colibri-login.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
+	padding: 0;
+}
+
+#contact {
+	background-image: url('../img/colibri-contact.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 	padding: 0;
 }
 
@@ -700,7 +708,19 @@
 	padding: 80px 50px 30px;
 }
 
-#login-form h3, #subscribe-form h3 {
+#contact-form {
+	background: #4152a0;
+	padding: 80px 50px 30px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .70);
+}
+
+#contact-form .form-group {
+	text-align: left;
+}
+
+#login-form h3, #subscribe-form h3, #contact-form {
 	text-align: center;
 	font-size: 28px;
 }
@@ -709,25 +729,25 @@
 	margin-bottom: 15px;
 }
 
-#subscribe-form h3 {
+#subscribe-form h3, #contact-form h3 {
 	margin-bottom: 40px;
 }
 
-#login-form h3, #login-form label, #login-form a, #login-form button, #subscribe-form h3, #subscribe-form label, #subscribe-form button {
+#login-form h3, #login-form label, #login-form a, #login-form button, #subscribe-form h3, #subscribe-form label, #subscribe-form button, #contact-form h3, #contact-form label, #contact-form a, #contact-form button {
 	color: white;
 }
 
-#login-form label, #login-form input, #subscribe-form label, #subscribe-form input, #subscribe-form select {
+#login-form label, #login-form input, #subscribe-form label, #subscribe-form input, #subscribe-form select, #contact-form label, #contact-form input, #contact-form select {
 	font-size: 18px;
 }
 
-#login-form input, #subscribe-form input, #subscribe-form select {
+#login-form input, #subscribe-form input, #subscribe-form select, #contact-form input, #contact-form select, #contact-form textarea {
 	border-radius: 0;
 	border: none;
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, .70);
 }
 
-#subscribe-form input[type=checkbox] {
+#subscribe-form input[type=checkbox], #contact-form input[type=checkbox] {
 	box-shadow: none;
 	margin-top: 15px;
 	-ms-transform: scale(1.5);
@@ -752,8 +772,11 @@
 	margin-bottom: 25px;
 }
 
-#login-form button, #subscribe-form button {
-	background: #A41275;
+#contact-form input[type=checkbox] {
+	margin-bottom: 30px;
+}
+
+#login-form button, #subscribe-form button, #contact-form button {
 	font-size: 22px;
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, .70);
 	display: block;
@@ -763,7 +786,16 @@
 	padding-right: 40px;
 }
 
-#login-form button:hover, #subscribe-form button:hover {
+#login-form button, #subscribe-form button {
+	background: #A41275;
+}
+
+
+#contact-form button {
+	background: #E4007D;
+}
+
+#login-form button:hover, #subscribe-form button:hover, #contact-form button:hover {
 	box-shadow: none;
 }
 
@@ -783,11 +815,11 @@
 		background-color: #d9dced; 
 	}
 
-	#login-form, #subscribe-form {
+	#login-form, #subscribe-form, #contact-form {
 		padding: 30px;
 	}
 
-	#login-form h3, #subscribe-form h3 {
+	#login-form h3, #subscribe-form h3, #contact-form h3 {
 		font-size: 20px;
 	}
 
@@ -796,12 +828,12 @@
 		font-weight: 500;
 	}
 
-	#login-form input, #login-form label, #login-form #notsubyet, #subscribe-form input, #subscribe-form select, #subscribe-form label {
+	#login-form input, #login-form label, #login-form #notsubyet, #subscribe-form input, #subscribe-form select, #subscribe-form label, #contact-form input, #contact-form label, #contact-form select {
 		font-size: 14px;
 	}
 
 
-	#login-form button, #subscribe-form button {
+	#login-form button, #subscribe-form button, #contact-form button {
 		font-size: 16px;
 	}
 }
