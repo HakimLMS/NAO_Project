@@ -59,7 +59,7 @@ class Observations
     
     public function __construct()
     {
-        $this->validated = false;
+        $this->validated = true;
     }
     
     function getAddress() {

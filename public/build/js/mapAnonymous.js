@@ -43,7 +43,7 @@ function initMap() {
               infowincontent.appendChild(document.createElement('br'));
 
               var text = document.createElement('text');
-              text.textContent = address
+              text.textContent = address;
               infowincontent.appendChild(text);
               var icon = 'O';
               var marker = new google.maps.Marker({

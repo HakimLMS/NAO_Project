@@ -11,6 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use App\Entity\User;
 
 class MapHandler
@@ -28,8 +29,10 @@ class MapHandler
     private $tokenStorage;
     
      private $container;
+     
+     private $checker;
     
-    public function __construct(EntityManagerInterface $em, FlusherService $flusher, FormFactoryInterface $formFactory, TokenStorageInterface $tokenStorage, ContainerInterface $container)
+    public function __construct(EntityManagerInterface $em, FlusherService $flusher, FormFactoryInterface $formFactory, TokenStorageInterface $tokenStorage, ContainerInterface $container,  AuthorizationCheckerInterface $checker)
     {
         $this->em = $em;
         $this->observationRepo = $this->em->getRepository(Observations::class);
@@ -37,7 +40,8 @@ class MapHandler
         $this->flusher = $flusher;
         $this->tokenStorage = $tokenStorage;
         $this->userRepo = $this->em->getRepository(User::class);
-         $this->container = $container;
+        $this->container = $container;
+        $this->checker = $checker;
         
         
     }
@@ -76,15 +80,17 @@ class MapHandler
                 $fileName);
             $obs->setImage($fileName);
             $obs->setUser($user);
+            
+            if($this->checker->isGranted('ROLE_USER'))
+            {
+                $obs->setValidate(false);    
+            }
             $this->flusher->flushEntity($obs);           
            
         }
     }
     
-    private function generateResponseNoUser()
-    {
-        
-    }
+
     
     private function generateUser()
     {
@@ -125,8 +131,7 @@ class MapHandler
         if($this->tokenStorage->getToken()->getUser() != 'anon.')
         {
             $user = $this->generateUser();
-            $this->generateResponse($request, $formAndObs['form'], $formAndObs['obs'], $user);
-            
+            $this->generateResponse($request, $formAndObs['form'], $formAndObs['obs'], $user);            
         }
         return $formAndObs;        
     }

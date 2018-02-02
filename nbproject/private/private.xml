@@ -3,21 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/wamp64/www/NAO_project/src/Controller/UserController.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/.env</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Services/SubscribeHandler.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/templates/home.html.twig</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Entity/User.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Services/SubscribeDataGenerator/CheckUserRoleService.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/templates/blog/single.html.twig</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Controller/HomeController.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Services/DashboardDataGenerator/AdminDashboard.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Services/DashboardHandler.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Form/SubscriptionType.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Form/ArticleType.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/src/Controller/BlogController.php</file>
-            <file>file:/E:/wamp64/www/NAO_project/templates/blog/list.html.twig</file>
-            <file>file:/E:/wamp64/www/NAO_project/templates/blog/new.html.twig</file>
+            <file>file:/E:/wamp64/www/NAO_project/public/build/js/map.js</file>
+            <file>file:/E:/wamp64/www/NAO_project/src/Form/ObservationType.php</file>
+            <file>file:/E:/wamp64/www/NAO_project/src/Services/MapHandler.php</file>
+            <file>file:/E:/wamp64/www/NAO_project/public/build/js/mapAnonymous.js</file>
+            <file>file:/E:/wamp64/www/NAO_project/templates/Map/mapAnonymous.html.twig</file>
+            <file>file:/E:/wamp64/www/NAO_project/templates/Map/map.html.twig</file>
         </group>
     </open-files>
 </project-private>
