@@ -59,3 +59,12 @@ c3484c,::1,GET,http://localhost/NAO_project/public/index.php/user/login,15175685
 f83a04,::1,GET,http://localhost/NAO_project/public/index.php/user/dashboard,1517568580,,200
 aa2a67,::1,GET,http://localhost/NAO_project/public/build/img/,1517568580,903560,200
 903560,::1,GET,http://localhost/NAO_project/public/build/img/,1517568580,,404
+57665f,::1,GET,http://localhost/NAO_project/public/index.php/user/dashboard,1517573581,,200
+65dd65,::1,GET,http://localhost/NAO_project/public/build/img/,1517573582,e8cac7,200
+e8cac7,::1,GET,http://localhost/NAO_project/public/build/img/,1517573582,,404
+9aefee,::1,GET,http://localhost/NAO_project/public/index.php/blog,1517573586,,200
+0ac24e,::1,GET,http://localhost/NAO_project/public/index.php/blog,1517573594,,200
+a01c2a,::1,GET,http://localhost/NAO_project/public/index.php/blog,1517573647,,200
+1bf627,::1,GET,http://localhost/NAO_project/public/index.php/map,1517573651,,200
+4d5467,::1,GET,http://localhost/NAO_project/public/index.php/research,1517573656,,200
+d79192,::1,GET,http://localhost/NAO_project/public/index.php/don,1517573661,,200
