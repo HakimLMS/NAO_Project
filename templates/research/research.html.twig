@@ -4,20 +4,31 @@
 
 {% block body %}
 
-	{{ form_start(form) }}
+<div class="container-fluid" id="research">
+	<div class="white-filter">
+		<div class="container" id="research-form">
+			
+			{{ form_start(form) }}
 
-	{{ form_errors(form) }}
+			{{ form_errors(form) }}
 
-	{{ form_row(form.vern_name) }}
+			<div class="form-row">
+				<div class="form-group col-12 col-md-10">
+					{{ form_widget(form.vern_name, {'attr': {
+					'class': 'form-control',
+					'placeholder': 'Votre recherche...'}}) }}
+				</div>
+				
+				<div class="form-group col-12 col-md-2">
+					{{ form_widget(form.Rechercher, {'attr': {
+					'class': 'btn'}}) }}
+				</div>
+			</div>
 
-	{{ form_row(form.Rechercher) }}
+			{{ form_end(form) }}
 
-	{{ form_rest(form) }}
-
-	{{ form_end(form) }}
-
-	<div id="resultats-recherche">
-		
+		</div>
 	</div>
+</div>	
 
 {% endblock %}

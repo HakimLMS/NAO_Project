@@ -4,10 +4,10 @@
         <div class="card" style="width: 18rem;">
             
             <div class="card-body">
-               {#<a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
+               <a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
               <h5 class="card-title">{{user.firstname}}</h5>
               <p class="card-text">{{user.type}}</p>
-            </div>#}
+            </div>
         </div>
         
     </div>
@@ -42,19 +42,20 @@
             <h2 class="h2tabdashboard">Observations</h2> 
             <tr>
               <th>Nom</th>
-              <th>Prénom</th>
-              <th>Mail</th>
-              <th>Carte Professionnelle</th>
-              <th>Action à faire</th>
+              <th>Photo</th>
+              <th>Lat</th>
+              <th>Long</th>
+              <th>Type</th>
             </tr>
-                {% for user in data.content.userqueued %}
+                {% for obs in data.content.observations.obsmade %}      
+                 
+            <tr>                
+               <td>{{obs.name}}</td>
+               <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
+               <td>{{obs.lat}}</td>
+               <td>{{obs.lng}}</td>
+               <td>{{obs.type}}</td>
             <tr>
-               <td>{{user.lastname}}</td>
-               <td>{{user.firstname}}</td>
-               <td>{{user.email}}</td>
-               <td>{{user.procard}}</td>
-               <td> <button>Valider</button> <button>Rétrograder</button></td>
-            </tr>
                 {% endfor %}
                 {# wire buttons to actions to validate or not the accounts #}
         </table>
@@ -63,19 +64,27 @@
             <h2 class="h2tabdashboard">Observations à valider</h2> 
             <tr>
               <th>Nom</th>
-              <th>Prénom</th>
-              <th>Mail</th>
-              <th>Carte Professionnelle</th>
+              <th>Photo</th>
+              <th>Lat</th>
+              <th>Long</th>
+              <th>Type</th>
               <th>Action à faire</th>
             </tr>
-                {% for user in data.content.userqueued %}
-            <tr>
-               <td>{{user.lastname}}</td>
-               <td>{{user.firstname}}</td>
-               <td>{{user.email}}</td>
-               <td>{{user.procard}}</td>
-               <td> <button>Valider</button> <button>Rétrograder</button></td>
+                {% for obs in data.content.observations.obsToValidate %}
+            
+            <form method="post">        
+            <tr>                
+               <td>{{obs.name}}</td>
+               <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
+               <td>{{obs.lat}}</td>
+               <td>{{obs.lng}}</td>
+               <td>{{obs.type}}</td>
+               <td> 
+                   <button type="submit" formaction="{{path('validate_obs', {'id' : obs.id})}}">Valider</button>
+                   <button type="submit" formaction="{{path('deny_obs', {'id' : obs.id})}}">Supprimer</button>
+               </td>
             </tr>
+            </form>
                 {% endfor %}
                 {# wire buttons to actions to validate or not the accounts #}
         </table>

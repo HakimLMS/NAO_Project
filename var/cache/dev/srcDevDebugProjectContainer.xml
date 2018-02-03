@@ -111,6 +111,8 @@
     <parameter key="router.cache_class_prefix">srcDevDebugProjectContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
+    <parameter key="serializer.mapping.cache.file">C:/wamp64/www/NAO_Project/var/cache/dev/serialization.php</parameter>
+    <parameter key="serializer.mapping.cache.prefix"></parameter>
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
@@ -378,6 +380,9 @@
     <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
+    <service id="App\Controller\MapController" class="App\Controller\MapController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
     <service id="App\Controller\ResearchController" class="App\Controller\ResearchController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
@@ -397,6 +402,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ImageType" class="App\Form\ImageType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" autoconfigure="true">
@@ -441,6 +449,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -458,9 +470,16 @@
     <service id="App\Services\DashboardDataGenerator\AdminDashboard" class="App\Services\DashboardDataGenerator\AdminDashboard" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Services\ArticleListDataGenerator\ListArticleService"/>
+      <argument type="service" id="security.token_storage"/>
     </service>
-    <service id="App\Services\DashboardDataGenerator\OrganizerDashboard" class="App\Services\DashboardDataGenerator\OrganizerDashboard" public="false" autowire="true" autoconfigure="true"/>
-    <service id="App\Services\DashboardDataGenerator\UserDashboard" class="App\Services\DashboardDataGenerator\UserDashboard" public="false" autowire="true" autoconfigure="true"/>
+    <service id="App\Services\DashboardDataGenerator\OrganizerDashboard" class="App\Services\DashboardDataGenerator\OrganizerDashboard" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.token_storage"/>
+    </service>
+    <service id="App\Services\DashboardDataGenerator\UserDashboard" class="App\Services\DashboardDataGenerator\UserDashboard" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.token_storage"/>
+    </service>
     <service id="App\Services\DashboardHandler" class="App\Services\DashboardHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="security.authorization_checker"/>
       <argument type="service" id="App\Services\DashboardDataGenerator\AdminDashboard"/>
@@ -471,6 +490,11 @@
     </service>
     <service id="App\Services\DeleteArticleHandler" class="App\Services\DeleteArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.authorization_checker"/>
+    </service>
+    <service id="App\Services\DenyObsHandler" class="App\Services\DenyObsHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
       <argument type="service" id="security.authorization_checker"/>
     </service>
     <service id="App\Services\DonHandler" class="App\Services\DonHandler" public="false" autowire="true" autoconfigure="true">
@@ -484,6 +508,13 @@
     <service id="App\Services\Mailer" class="App\Services\Mailer" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="swiftmailer.mailer.default"/>
       <argument type="service" id="twig"/>
+    </service>
+    <service id="App\Services\MapHandler" class="App\Services\MapHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+      <argument type="service" id="form.factory"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="service_container"/>
     </service>
     <service id="App\Services\ModifyArticleHandler" class="App\Services\ModifyArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -508,6 +539,7 @@
     </service>
     <service id="App\Services\ResearchHandler" class="App\Services\ResearchHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="form.factory"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="App\Services\SingleArticleHandler" class="App\Services\SingleArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
@@ -530,6 +562,11 @@
       <argument type="service" id="App\Services\SubscribeDataGenerator\UserFixerService"/>
       <argument type="service" id="debug.validator"/>
     </service>
+    <service id="App\Services\ValidateObsHandler" class="App\Services\ValidateObsHandler" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
+      <argument type="service" id="security.authorization_checker"/>
+    </service>
     <service id="App\Services\ValidateUserHandler" class="App\Services\ValidateUserHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
@@ -550,7 +587,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.sdy19Nl"/>
+      <argument type="service" id="service_locator.3CH271z"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -790,6 +827,7 @@
         <argument>App\Form\ContactType</argument>
         <argument>App\Form\DonType</argument>
         <argument>App\Form\ImageType</argument>
+        <argument>App\Form\ObservationType</argument>
         <argument>App\Form\ResearchBirdType</argument>
         <argument>App\Form\SubscriptionType</argument>
         <argument>App\Form\UserModifyType</argument>
@@ -988,7 +1026,7 @@
       <argument type="service" id="form.resolved_type_factory"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id="service_locator.KpY_NpC"/>
+      <argument type="service" id="service_locator.v623meD"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -2379,6 +2417,91 @@
       <argument>false</argument>
       <argument type="service" id="cache.property_access" on-invalid="ignore"/>
     </service>
+    <service id="serializer" class="Symfony\Component\Serializer\Serializer" public="true">
+      <argument type="collection">
+        <argument type="service" id="serializer.normalizer.json_serializable"/>
+        <argument type="service" id="serializer.normalizer.datetime"/>
+        <argument type="service" id="serializer.normalizer.dateinterval"/>
+        <argument type="service" id="serializer.normalizer.data_uri"/>
+        <argument type="service" id="serializer.denormalizer.array"/>
+        <argument type="service" id="serializer.normalizer.object"/>
+      </argument>
+      <argument type="collection">
+        <argument type="service" id="serializer.encoder.xml"/>
+        <argument type="service" id="serializer.encoder.json"/>
+        <argument type="service" id="serializer.encoder.yaml"/>
+        <argument type="service" id="serializer.encoder.csv"/>
+      </argument>
+    </service>
+    <service id="serializer.normalizer.dateinterval" class="Symfony\Component\Serializer\Normalizer\DateIntervalNormalizer" public="false">
+      <tag name="serializer.normalizer" priority="-915"/>
+    </service>
+    <service id="serializer.normalizer.data_uri" class="Symfony\Component\Serializer\Normalizer\DataUriNormalizer" public="false">
+      <tag name="serializer.normalizer" priority="-920"/>
+    </service>
+    <service id="serializer.normalizer.datetime" class="Symfony\Component\Serializer\Normalizer\DateTimeNormalizer" public="false">
+      <tag name="serializer.normalizer" priority="-910"/>
+    </service>
+    <service id="serializer.normalizer.json_serializable" class="Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer" public="false">
+      <tag name="serializer.normalizer" priority="-900"/>
+    </service>
+    <service id="serializer.normalizer.object" class="Symfony\Component\Serializer\Normalizer\ObjectNormalizer" public="false">
+      <tag name="serializer.normalizer" priority="-1000"/>
+      <argument type="service" id="serializer.mapping.class_metadata_factory"/>
+      <argument>null</argument>
+      <argument type="service" id="property_accessor"/>
+      <argument>null</argument>
+    </service>
+    <service id="serializer.denormalizer.array" class="Symfony\Component\Serializer\Normalizer\ArrayDenormalizer" public="false">
+      <tag name="serializer.normalizer" priority="-990"/>
+    </service>
+    <service id="serializer.mapping.chain_loader" class="Symfony\Component\Serializer\Mapping\Loader\LoaderChain" public="false">
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader" public="false">
+            <argument type="service" id="annotations.cached_reader"/>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="serializer.mapping.class_metadata_factory" class="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory" public="false">
+      <argument type="service" id="serializer.mapping.chain_loader"/>
+      <argument>null</argument>
+    </service>
+    <service id="serializer.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\SerializerCacheWarmer" public="false">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader" public="false">
+            <argument type="service" id="annotations.cached_reader"/>
+          </service>
+        </argument>
+      </argument>
+      <argument>C:/wamp64/www/NAO_Project/var/cache/dev/serialization.php</argument>
+      <argument type="service" id="cache.serializer"/>
+    </service>
+    <service id="serializer.mapping.cache.symfony" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>C:/wamp64/www/NAO_Project/var/cache/dev/serialization.php</argument>
+      <argument type="service" id="cache.serializer"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="serializer.encoder.xml" class="Symfony\Component\Serializer\Encoder\XmlEncoder" public="false">
+      <tag name="serializer.encoder"/>
+    </service>
+    <service id="serializer.encoder.json" class="Symfony\Component\Serializer\Encoder\JsonEncoder" public="false">
+      <tag name="serializer.encoder"/>
+    </service>
+    <service id="serializer.encoder.yaml" class="Symfony\Component\Serializer\Encoder\YamlEncoder" public="false">
+      <tag name="serializer.encoder"/>
+    </service>
+    <service id="serializer.encoder.csv" class="Symfony\Component\Serializer\Encoder\CsvEncoder" public="false">
+      <tag name="serializer.encoder"/>
+    </service>
+    <service id="serializer.name_converter.camel_case_to_snake_case" class="Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter" public="false"/>
+    <service id="property_info.serializer_extractor" class="Symfony\Component\PropertyInfo\Extractor\SerializerExtractor" public="false">
+      <tag name="property_info.list_extractor" priority="-999"/>
+      <argument type="service" id="serializer.mapping.class_metadata_factory"/>
+    </service>
     <service id="twig" class="Twig\Environment" public="true">
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
@@ -2961,7 +3084,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id="service_locator.A7V1i4w"/>
+      <argument type="service" id="service_locator.tEZMm3A"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3167,6 +3290,14 @@
       <argument type="service" id="doctrine.orm.default_configuration"/>
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
       <configurator service="doctrine.orm.default_manager_configurator" method="configure"/>
+    </service>
+    <service id="doctrine.orm.default_entity_manager.metadata_factory" class="Doctrine\Common\Persistence\Mapping\ClassMetadataFactory" public="false">
+      <factory service="doctrine.orm.default_entity_manager" method="getMetadataFactory"/>
+    </service>
+    <service id="doctrine.orm.default_entity_manager.property_info_extractor" class="Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor">
+      <tag name="property_info.list_extractor" priority="-1001"/>
+      <tag name="property_info.type_extractor" priority="-999"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager.metadata_factory"/>
     </service>
     <service id="doctrine_migrations.diff_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsDiffDoctrineCommand">
       <tag name="console.command"/>
@@ -4118,6 +4249,8 @@
     <service id="abstract.instanceof.App\Controller\DonController" class="App\Controller\DonController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\MapController" class="App\Controller\MapController" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Controller\MapController" class="App\Controller\MapController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\ResearchController" class="App\Controller\ResearchController" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Controller\ResearchController" class="App\Controller\ResearchController" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.App\Controller\UserController" class="App\Controller\UserController" public="false" autowire="true" abstract="true"/>
@@ -4132,6 +4265,8 @@
     <service id="abstract.instanceof.App\Form\DonType" class="App\Form\DonType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ImageType" class="App\Form\ImageType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ImageType" class="App\Form\ImageType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" abstract="true"/>
@@ -4154,6 +4289,8 @@
     <service id="abstract.instanceof.App\Repository\DonRepository" class="App\Repository\DonRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
@@ -4300,6 +4437,30 @@
         <argument key="checkout" type="service" id="App\Services\CheckOutHandler" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id="service_locator.BTVloeW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mapHandler" type="service" id="App\Services\MapHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.cumVKIr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="validatehand" type="service" id="App\Services\ValidateObsHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.VXkrEKb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="denyhand" type="service" id="App\Services\DenyObsHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id="service_locator.d9aQ9np" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="researchHandler" type="service" id="App\Services\ResearchHandler" on-invalid="ignore"/>
+      </argument>
+    </service>
     <service id="service_locator.J3dl6R9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
@@ -4340,7 +4501,7 @@
         <argument key="modifyHandler" type="service" id="App\Services\ModifyUserHandler" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id="service_locator.sdy19Nl" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.3CH271z" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BlogController:bloglist" type="service" id="service_locator.udmBeas"/>
@@ -4351,6 +4512,11 @@
         <argument key="App\Controller\ContactController:index" type="service" id="service_locator.srmxvxF"/>
         <argument key="App\Controller\DonController:CBcheckout" type="service" id="service_locator.KhTx4ja"/>
         <argument key="App\Controller\DonController:index" type="service" id="service_locator.MAB7qRx"/>
+        <argument key="App\Controller\MapController:Deny" type="service" id="service_locator.VXkrEKb"/>
+        <argument key="App\Controller\MapController:MapAction" type="service" id="service_locator.BTVloeW"/>
+        <argument key="App\Controller\MapController:Validate" type="service" id="service_locator.cumVKIr"/>
+        <argument key="App\Controller\ResearchController:fiche" type="service" id="service_locator.d9aQ9np"/>
+        <argument key="App\Controller\ResearchController:index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController:dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController:downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController:login" type="service" id="service_locator.NkUBxsb"/>
@@ -4365,6 +4531,11 @@
         <argument key="App\Controller\ContactController::index" type="service" id="service_locator.srmxvxF"/>
         <argument key="App\Controller\DonController::CBcheckout" type="service" id="service_locator.KhTx4ja"/>
         <argument key="App\Controller\DonController::index" type="service" id="service_locator.MAB7qRx"/>
+        <argument key="App\Controller\MapController::Deny" type="service" id="service_locator.VXkrEKb"/>
+        <argument key="App\Controller\MapController::MapAction" type="service" id="service_locator.BTVloeW"/>
+        <argument key="App\Controller\MapController::Validate" type="service" id="service_locator.cumVKIr"/>
+        <argument key="App\Controller\ResearchController::fiche" type="service" id="service_locator.d9aQ9np"/>
+        <argument key="App\Controller\ResearchController::index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController::dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController::downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
         <argument key="App\Controller\UserController::login" type="service" id="service_locator.NkUBxsb"/>
@@ -4517,7 +4688,7 @@
         <argument key="inline" type="service" id="fragment.renderer.inline"/>
       </argument>
     </service>
-    <service id="service_locator.KpY_NpC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.v623meD" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleType" type="service" id="App\Form\ArticleType"/>
@@ -4525,6 +4696,7 @@
         <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
         <argument key="App\Form\DonType" type="service" id="App\Form\DonType"/>
         <argument key="App\Form\ImageType" type="service" id="App\Form\ImageType"/>
+        <argument key="App\Form\ObservationType" type="service" id="App\Form\ObservationType"/>
         <argument key="App\Form\ResearchBirdType" type="service" id="App\Form\ResearchBirdType"/>
         <argument key="App\Form\SubscriptionType" type="service" id="App\Form\SubscriptionType"/>
         <argument key="App\Form\UserModifyType" type="service" id="App\Form\UserModifyType"/>
@@ -4533,7 +4705,7 @@
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
-    <service id="service_locator.A7V1i4w" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.tEZMm3A" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ArticleImageRepository" type="service" id="App\Repository\ArticleImageRepository"/>
@@ -4544,6 +4716,7 @@
         <argument key="App\Repository\ContactRepository" type="service" id="App\Repository\ContactRepository"/>
         <argument key="App\Repository\DonRepository" type="service" id="App\Repository\DonRepository"/>
         <argument key="App\Repository\ImageRepository" type="service" id="App\Repository\ImageRepository"/>
+        <argument key="App\Repository\ObservationsRepository" type="service" id="App\Repository\ObservationsRepository"/>
         <argument key="App\Repository\UserImageRepository" type="service" id="App\Repository\UserImageRepository"/>
       </argument>
     </service>
@@ -4831,6 +5004,14 @@
     <service id="annotation_reader" alias="annotations.cached_reader"/>
     <service id="Doctrine\Common\Annotations\Reader" alias="annotations.cached_reader" public="false"/>
     <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor" public="false"/>
+    <service id="Symfony\Component\Serializer\SerializerInterface" alias="serializer" public="false"/>
+    <service id="Symfony\Component\Serializer\Normalizer\NormalizerInterface" alias="serializer" public="false"/>
+    <service id="Symfony\Component\Serializer\Normalizer\DenormalizerInterface" alias="serializer" public="false"/>
+    <service id="Symfony\Component\Serializer\Encoder\EncoderInterface" alias="serializer" public="false"/>
+    <service id="Symfony\Component\Serializer\Encoder\DecoderInterface" alias="serializer" public="false"/>
+    <service id="serializer.property_accessor" alias="property_accessor" public="false"/>
+    <service id="Symfony\Component\Serializer\Normalizer\ObjectNormalizer" alias="serializer.normalizer.object" public="false"/>
+    <service id="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface" alias="serializer.mapping.class_metadata_factory" public="false"/>
     <service id="Twig_Environment" alias="twig" public="false"/>
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="Doctrine\DBAL\Driver\Connection" alias="doctrine.dbal.default_connection" public="false"/>

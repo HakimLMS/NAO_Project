@@ -5,12 +5,12 @@ namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Aves;
-use App\Form\ResearchBirdType;
 use App\Services\ResearchHandler;
-use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 
 class ResearchController extends Controller
@@ -19,35 +19,48 @@ class ResearchController extends Controller
     /**
      * @Route("/research", name="research")
      */
-    public function index(Request $request/*, ResearchHandler $researchHandler*/)
+    public function index(Request $request, ResearchHandler $researchHandler)
     {
        
-       /*$data = $researchHandler->generateData($request);
-       $form = $data['form'];*/
-       $aves = new Aves();
-       $form = $this->get('form.factory')->create(ResearchBirdType::class, $aves);
-       $form->handleRequest($request);
+        $form = $researchHandler->generateData($request);
 
-       if($form->isSubmitted() && $form->isValid()) {
+        if($form->isSubmitted() && $form->isValid()) {
 
-          $vernName = $form->getData()->getVernName('aves');
-       		$birds = $this->getDoctrine()
-       			->getRepository(Aves::class)
-            //->findBy($vernName);
-       			->findByVernName($vernName);  
+            $vernName = $form['vern_name']->getData();
+            $birds = $researchHandler->generateBirds($vernName);
+            $request->getSession()->set('birds', $birds);
 
-       		return $this->render('research/results.html.twig', array('birds' => $birds));	
-       }
+            /*$jsonEncode = array(new JsonEncoder());
+            $normalizer = array(new ObjectNormalizer());
+            $serializer = new Serializer($normalizer, $jsonEncode);
+            $birds = $serializer->serialize($birds, 'json');*/
 
-       return $this->render('research/research.html.twig', array('form' => $form->createview()));
+       	    //return $this->render('research/results.html.twig', array('birds' => $birds));
+            return $this->redirectToRoute('results');	
+        }
+
+        return $this->render('research/research.html.twig', array('form' => $form->createview()));
     }
+
 
     /**
      * @Route("/research/results", name="results")
      */
-   /* public function results(Request $request) {
-    	$birds = $request->getSession()->get('birds');
+    public function results(Request $request)
+    {
+        $birds = $request->getSession()->get('birds');
 
-    	return $this->render('research/results.html.twig', array('birds' => $birds));
-    }*/
+        return $this->render('research/results.html.twig', array('birds' => $birds));
+    }
+
+    /**
+     * @Route("/research/fiche-oiseau/{cd_name}", name="fiche_oiseau")
+     */
+    public function fiche(Request $request, ResearchHandler $researchHandler, $cd_name)
+    {
+        $bird = $researchHandler->generateBird($cd_name);
+
+        return $this->render('research/fiche-oiseau.html.twig', array('bird' => $bird));
+    }
+
 }

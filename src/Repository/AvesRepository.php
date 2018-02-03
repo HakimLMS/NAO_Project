@@ -17,12 +17,21 @@ class AvesRepository extends ServiceEntityRepository
     public function findByVernName($vernName)
     {
         return $this->createQueryBuilder('a')
-           ->where('a.vern_name = :vern_name')->setParameter('vern_name', $vernName)
+           ->where('a.vern_name like :vern_name')->setParameter('vern_name', '%'.$vernName.'%')
             ->orderBy('a.vern_name', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
+    }
+
+    public function findOneByCdName($cd_name)
+    {
+        return $this->createQueryBuilder('a')
+            ->where('a.cd_name = :cd_name')->setParameter('cd_name', $cd_name)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;    
     }
     
 }

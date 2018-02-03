@@ -8,7 +8,57 @@
               <h5 class="card-title">{{user.firstname}}</h5>
               <p class="card-text">{{user.type}}</p>
             </div>
-        </div>
-        
+        </div>        
     </div>
+      <table id="observationtable">
+      <h2 class="h2tabdashboard">Observations</h2> 
+      <tr>
+        <th>Nom</th>
+        <th>Photo</th>
+        <th>Lat</th>
+        <th>Long</th>
+        <th>Type</th>
+        <th>Action à faire</th>
+      </tr>
+          {% for obs in data.content.observations.validated %}
+      <form method="post"> 
+        <tr>                
+         <td>{{obs.name}}</td>
+         <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
+         <td>{{obs.lat}}</td>
+         <td>{{obs.lng}}</td>
+         <td>{{obs.type}}</td>
+      </tr>
+      </form>
+          {% endfor %}
+          {# wire buttons to actions to validate or not the accounts #}
+  </table>
+
+  <table id="obsqueudtable">
+      <h2 class="h2tabdashboard">Observations à valider</h2> 
+      <tr>
+        <th>Nom</th>
+        <th>Photo</th>
+        <th>Lat</th>
+        <th>Long</th>
+        <th>Type</th>
+        <th>Action à faire</th>
+      </tr>
+          {% for obs in data.content.observations.toValidate %}
+
+      <form method="post">        
+      <tr>                
+         <td>{{obs.name}}</td>
+         <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
+         <td>{{obs.lat}}</td>
+         <td>{{obs.lng}}</td>
+         <td>{{obs.type}}</td>
+         <td> 
+             <button type="submit" formaction="{{path('validate_obs', {'id' : obs.id})}}">Valider</button>
+             <button type="submit" formaction="{{path('deny_obs', {'id' : obs.id})}}">Supprimer</button>
+         </td>
+      </tr>
+      </form>
+          {% endfor %}
+  </table>
 {%endblock%}

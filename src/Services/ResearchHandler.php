@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Symfony\Component\Form\FormFactoryInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Aves;
 use App\Form\ResearchBirdType;
@@ -11,11 +12,15 @@ use App\Form\ResearchBirdType;
 class ResearchHandler
 {
 	private $formFactory;
+	private $em;
+	private $avesRepo;
 
 
-	public function __construct(FormFactoryInterface $formFactory)
+	public function __construct(FormFactoryInterface $formFactory, EntityManagerInterface $em)
 	{
 		$this->formFactory = $formFactory;
+		$this->em = $em;
+		$this->avesRepo = $this->em->getRepository(Aves::class);
 	}
 
 
@@ -25,14 +30,24 @@ class ResearchHandler
 		return $form;
 	}
 
+	public function generateBird($cd_name)
+	{
+		$bird = $this->avesRepo->findOneByCdName($cd_name);
+		return $bird;
+	}
+
+	public function generateBirds($vernName) 
+	{
+		$birds = $this->avesRepo->findByVernName($vernName);
+		return $birds;
+	}
+
 	private function generateResponse($form, Request $request)
 	{
 		$form->handleRequest($request);
 		if ($form->isSubmitted() && $form->isValid()) {
-			$vernName = $form->getData();
-			$aves = $this->getDoctrine()
-				->getRepository(Aves::class)
-				->findByVername($vernName);	
+			$vernName = $form['vern_name']->getData();
+			$birds = $this->generateBirds($vernName);	
 		}
 
 		return $form;
@@ -44,6 +59,6 @@ class ResearchHandler
 		$form = $this->generateForm($aves);
 		$this->generateResponse($form, $request);
 
-		return array('form' => $form);
+		return $form;
 	}
 }

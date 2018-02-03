@@ -1,13 +1,60 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Mon espace{% endblock %}
+
 {% block body %}
     <div class="usercard">
         <div class="card" style="width: 18rem;">
             
             <div class="card-body">
-                <a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
+               <a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
               <h5 class="card-title">{{user.firstname}}</h5>
               <p class="card-text">{{user.type}}</p>
             </div>
-        </div>
+        </div>        
     </div>
+      <table id="observationtable">
+      <h2 class="h2tabdashboard">Observations</h2> 
+      <tr>
+        <th>Nom</th>
+        <th>Photo</th>
+        <th>Lat</th>
+        <th>Long</th>
+        <th>Type</th>
+        <th>Action à faire</th>
+      </tr>
+          {% for obs in data.content.observations.validated %}
+      <form method="post"> 
+        <tr>                
+         <td>{{obs.name}}</td>
+         <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
+         <td>{{obs.lat}}</td>
+         <td>{{obs.lng}}</td>
+         <td>{{obs.type}}</td>
+      </tr>
+      </form>
+          {% endfor %}
+          {# wire buttons to actions to validate or not the accounts #}
+  </table>
+
+  <table id="obsqueudtable">
+      <h2 class="h2tabdashboard">Observations en attente de validation</h2> 
+      <tr>
+        <th>Nom</th>
+        <th>Photo</th>
+        <th>Lat</th>
+        <th>Long</th>
+        <th>Type</th>
+      </tr>
+          {% for obs in data.content.observations.queued %}   
+      <tr>                
+         <td>{{obs.name}}</td>
+         <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
+         <td>{{obs.lat}}</td>
+         <td>{{obs.lng}}</td>
+         <td>{{obs.type}}</td>
+
+      </form>
+          {% endfor %}
+  </table>
 {%endblock%}

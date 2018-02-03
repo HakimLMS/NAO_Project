@@ -189,6 +189,7 @@
 	background-image: url('../img/martin-pecheur.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: cover;
 	position: relative;
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, .75);
 	padding-left: 0;
@@ -484,6 +485,7 @@
 		background-image: url('../img/pinson-home-responsive3.jpg');
 		background-repeat: no-repeat;
 		background-position: center;
+		background-size: cover;
 	}
 
 	#homepage-first-section h1 {
@@ -681,6 +683,7 @@
 	background-image: url('../img/colibri-login.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: cover;
 	padding: 0;
 }
 
@@ -1286,6 +1289,162 @@ textarea {
 }
 
 
+
+
+
+
+
+
+/* RESEARCH & RESULTS & BIRDPAPER */
+#research, #results, #fiche {
+	background-image: url('../img/bird-research.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 0; 
+}
+
+#research-form {
+	padding: 350px 100px;
+}
+
+#research-form input {
+	border-radius: 0px;
+	border: none;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
+}
+
+#research-form button {
+	color: white;
+	background: #172972;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
+	border-radius: 4px
+}
+
+#research-form button:hover {
+	box-shadow: none;
+}
+
+#block-results {
+	padding: 200px 100px;
+}
+
+#block-results a {
+	text-decoration: none;
+}
+
+.bird-result {
+	white-space: nowrap;
+	margin: 10px auto;
+	padding: 20px 10px 0;
+	text-align: center;
+	height: 65px;
+	width: 200px;
+	color: white;
+	background: #172972;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
+	border-radius: 2px;
+}
+
+.bird-result:hover {
+	box-shadow: none;
+}
+
+#container-fiche-oiseau {
+	padding-top: 200px;
+	padding-bottom: 200px;
+}
+
+#fiche-oiseau {
+	color: white;
+	padding: 90px 50px 60px;
+	background: #172972;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
+	border-radius: 2px;
+}
+
+#fiche-oiseau #fiche-titre {
+	margin-bottom: 50px;
+}
+
+#fiche-titre img {
+	width: 37px;
+	height: 37px;
+}
+
+#fiche-titre h3, #fiche-footer h3 {
+	font-size: 21px;
+	text-align: center;
+}
+
+#fiche-body {
+	margin-bottom: 40px
+}
+
+.bird-data {
+	font-weight: 500;
+}
+
+#white-bar {
+	width: 40%;
+	margin: 0 auto 40px;
+	border-top: 1px solid white;
+}
+
+#fiche-footer a {
+	display: inherit;
+	margin-top: 30px;
+	margin-bottom: 0;
+	text-align: center;
+	color: white;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+	#research, #results, #fiche {
+		background-image: url('../img/bird-research-responsive.jpg');
+	}
+
+	#research .white-filter, #results .white-filter, #fiche .white-filter {
+		background-color: rgba(255, 255, 255, 0.6);
+		width: 100%;
+	}
+
+	#research-form {
+		padding: 300px 30px;
+	}
+
+	#research-form button {
+		display: block;
+		margin: auto;
+	}
+
+	#block-results {
+		padding: 200px 50px;	
+	}
+
+	.bird-result {
+		padding-top: 23px;
+		font-size: 12px;
+		width: 120px;
+	}
+
+	#fiche-titre img {
+		width: 25px;
+		height: 25px;
+	}
+
+	#fiche-titre h3, #fiche-footer h3 {
+		font-size: 18px;
+	} 
+
+	#fiche-body, #fiche-footer a {
+		font-size: 13px;
+	}
+
+}
 
 
 

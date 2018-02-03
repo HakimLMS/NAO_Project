@@ -1,14 +1,29 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Résultats recherche{% endblock %}
+
 {% block body %}
 
-	{{ dump(birds) }}
-	<ul>
-		{% for bird in birds %}
-			<li> {{ bird.vernName }} - {{ bird.cdName }} </li>
-		{% else %}
-		<p>Pas d'oiseau correspondant à votre recherche.</p>	
-		{% endfor %}
-	</ul>
+	<div class="container-fluid" id="results">
+		<div class="white-filter">
+			<div class="container" id="block-results">
+				<div class="row">
+					{% for bird in birds %}
+							<div class="col-6">
+								<a href="{{ path('fiche_oiseau', {'cd_name': bird.cdName}) }}"><div class="bird-result">
+									{% if bird.vernName|length >= 15 %}
+										{{ bird.vernName|slice(0, 15) }}...
+									{% else %}
+										{{ bird.vernName }}
+									{% endif %}
+								</div></a>	
+							</div>
+					{% else %}
+						<p>Aucun résultat</p>
+					{% endfor %}	
+				</div>	
+			</div>
+		</div>
+	</div>
 
 {% endblock %}

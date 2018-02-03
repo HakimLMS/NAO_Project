@@ -55,10 +55,8 @@ class DashboardHandler
     
     public function generateData()
     {
-          
         
-        
-          if($this->checker->isGranted('ROLE_ADMIN'))
+         if($this->checker->isGranted('ROLE_ADMIN'))
           {
              $activeUser = $this->generateActiveUser();      
              $dashboardData = array('data' => $this->adminDashboard->genData(), 'user' => $activeUser);        
@@ -67,7 +65,7 @@ class DashboardHandler
           elseif($this->checker->isGranted('ROLE_ORGANIZER'))
           {
              $activeUser = $this->generateActiveUser();  
-             $dashboardData = array('data' => $this->orgaDashboard->genData(), 'user' => $activeUser);  
+             $dashboardData = array('data' => $this->orgaDashboard->genData(), 'user' => $activeUser);
              return $dashboardData;
           }
           elseif($this->checker->isGranted('ROLE_USER'))

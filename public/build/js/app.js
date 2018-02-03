@@ -1,7 +1,20 @@
 $(function() {
 
+	/*var httpRequest = new XMLHttpRequest();
+
+	httpRequest.onreadystatechange = function () {
+		if(httpRequest.readyState === 4) {
+			$('#resultat-recherche').html(httpRequest.responseText);
+		}
+	}
+
+	httpRequest.open('POST', 'http://localhost/NAO_Project/public/index.php/research', true);
+	httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	httpRequest.send();*/
+
+
+
 	var stripeBut = $('.stripe-button-el');
-	console.log(stripeBut);
 	stripeBut.css({"text-align": "center", "padding": "8px"});
 	$('.stripe-button-el span').css({"background": "#A41275", "box-shadow": "none"});
 

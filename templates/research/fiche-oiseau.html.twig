@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Fiche oiseau : {{ bird.cdName }}{% endblock %}
+
+{% block body %}
+
+	<div class="container-fluid" id="fiche">
+		<div class="white-filter">
+			<div class="container" id="container-fiche-oiseau">
+				<div class="row">
+					<div class="offset-1 col-10 offset-md-6 col-md-5" id="fiche-oiseau">
+						<div id="fiche-titre">
+							<div class="row justify-content-center">
+								<img class="col-4" src="{{ asset('build/img/loupe-blanc.svg') }}" width="37px" height="37px">
+								<h3 class="col-8">Carte d'identité</h3>
+							</div>
+						</div>
+
+						<div id="fiche-body">
+							<div class="row">
+								<div class="col-4">Ordre</div>
+								<div class="offset-1 col-7 bird-data">{{ bird.orderAves }}</div>
+							</div>
+							<div class="row">
+								<div class="col-4">Famille</div>
+								<div class="offset-1 col-7 bird-data">{{ bird.family }}</div>
+							</div> 
+							<div class="row">
+								<div class="col-4">Nom latin</div>
+								<div class="offset-1 col-7 bird-data">{{ bird.lbName }}</div>
+							</div> 
+							<div class="row">
+								<div class="col-4">Espèce</div>
+								<div class="offset-1 col-7 bird-data">{{ bird.vernName }}</div>
+							</div>  
+						</div>
+
+						<div id="white-bar"></div>
+
+						<div id="fiche-footer">
+							<h3>Plus d'infos</h3>
+							<a target="_blank" href="https://inpn.mnhn.fr/espece/cd_nom/{{ bird.cdName }}">INPN.fr</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
