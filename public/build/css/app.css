@@ -1451,6 +1451,135 @@ textarea {
 
 
 
+/* MAP */
+#carte {
+	background-image: url('../img/cardinal.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 0; 
+}
+
+#carte .white-filter {
+	padding: 60px 30px;
+}
+
+#map {
+	border: 1px solid rgba(0, 0, 0, .55);
+	border-radius: 4px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
+}
+
+#carte .buttons input, #carte .buttons select {
+	display: block;
+	margin: 0 auto 30px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
+}
+
+#obsbutton {
+	background: #E4007D;
+	padding: 10px 30px;
+	font-size: 22px;
+	color: white;
+	border-radius: 4px;
+}
+
+#carte .buttons input:hover {
+	box-shadow: none;
+}
+
+#carte .buttons select {
+	width: 80%;
+}
+
+#carte #form {
+	color: white;
+	margin: auto;
+	width: 60%
+}
+
+#carte #form .close {
+	color: white;
+	float: right;
+}
+
+.modal-content {
+	transform: translateY(15%);
+	padding: 30px;
+	background:  #4152A0;
+	border-radius: 4px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
+}
+
+.modal-content h3 {
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+#obs-pos {
+	margin-top: 25px;
+}
+
+.modal-content a {
+	color: white;
+	margin-bottom: 25px;
+	font-size: 14px;
+}
+
+#observation_image {
+	margin-bottom: 40px;
+}
+
+#observation_Enregistrer {
+	display: block;
+	color: white;
+	margin: auto;
+	padding: 10px 40px;
+	background: #A41275;
+	font-size: 22px;
+	border-radius: 4px;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
+}
+
+#observation_Enregistrer:hover {
+	box-shadow: none;
+}
+
+
+@media screen and (max-width: 768px) {
+
+	#obsbutton {
+		font-size: 18px;
+	}
+
+	#observation_Enregistrer {
+		font-size: 16px;
+		padding: 5px 15px;
+	}
+
+	.modal-content {
+		font-size: 13px;
+		transform: translateY(0);
+	}
+
+	.modal-content h3 {
+		font-size: 18px;
+	}
+
+	.modal-content a {
+		font-size: 11px;
+	}
+
+	.modal-content input, .modal-content select {
+		font-size: 13px;
+	}
+}
+
+
+
+
+
 /* FOOTER */
 #footer {
 	background: #4152a0;

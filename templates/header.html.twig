@@ -8,7 +8,7 @@
 
 				<div class="col col-md-10" id="menu">
 					<ul class="nav">
-							<li class="nav-item link"><a href="#"><img src="{{ asset('build/img/map_rose.svg') }}" alt="carte" width="28px" height="28px">Carte</a></li>
+							<li class="nav-item link"><a href="{{ path('map') }}"><img src="{{ asset('build/img/map_rose.svg') }}" alt="carte" width="28px" height="28px">Carte</a></li>
 			    			<li class="nav-item link"><a href="{{ path('blog_list') }}"><img src="{{ asset('build/img/blog_rose.svg') }}" alt="blog" width="28px" height="28px">Blog</a></li>
 			    			<li class="nav-item link">
 			    				{% if app.user == null %}
@@ -30,7 +30,7 @@
 				<h4>Menu</h4>
 				<ul class="nav flex-column">
 				  <li class="nav-item">
-				    <a class="nav-link active" href="#"><img src="{{ asset('build/img/map_rose.svg') }}" alt="carte" width="14px" height="14px">Carte</a>
+				    <a class="nav-link active" href="{{ path('map') }}"><img src="{{ asset('build/img/map_rose.svg') }}" alt="carte" width="14px" height="14px">Carte</a>
 				  </li>
 				  <li class="nav-item">
 				    <a class="nav-link" href="{{ path('blog_list') }}"><img src="{{ asset('build/img/blog_rose.svg') }}" alt="blog" width="14px" height="14px">Blog</a>
