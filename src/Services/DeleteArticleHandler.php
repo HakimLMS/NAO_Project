@@ -6,6 +6,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use App\Entity\Article;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
+
 class DeleteArticleHandler
 {
     private $em;

@@ -244,7 +244,6 @@
     <parameter key="security.role_hierarchy.roles" type="collection">
       <parameter key="ROLE_ADMIN" type="collection">
         <parameter>ROLE_ORGANIZER</parameter>
-        <parameter>ROLE_USER</parameter>
       </parameter>
       <parameter key="ROLE_SUPERADMIN" type="collection">
         <parameter>ROLE_ADMIN</parameter>
@@ -409,11 +408,17 @@
       <tag name="form.type"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <service id="App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
 >>>>>>> research
+=======
+    <service id="App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+>>>>>>> mapbranch
     <service id="App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -457,12 +462,18 @@
       <argument type="service" id="doctrine"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> mapbranch
     <service id="App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+<<<<<<< HEAD
 >>>>>>> research
+=======
+>>>>>>> mapbranch
     <service id="App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -490,8 +501,6 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.token_storage"/>
     </service>
-    <service id="App\Services\DashboardDataGenerator\OrganizerDashboard" class="App\Services\DashboardDataGenerator\OrganizerDashboard" public="false" autowire="true" autoconfigure="true"/>
-    <service id="App\Services\DashboardDataGenerator\UserDashboard" class="App\Services\DashboardDataGenerator\UserDashboard" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Services\DashboardHandler" class="App\Services\DashboardHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="security.authorization_checker"/>
       <argument type="service" id="App\Services\DashboardDataGenerator\AdminDashboard"/>
@@ -505,13 +514,19 @@
       <argument type="service" id="security.authorization_checker"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> mapbranch
     <service id="App\Services\DenyObsHandler" class="App\Services\DenyObsHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
       <argument type="service" id="security.authorization_checker"/>
     </service>
+<<<<<<< HEAD
 >>>>>>> research
+=======
+>>>>>>> mapbranch
     <service id="App\Services\DonHandler" class="App\Services\DonHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
       <argument type="service" id="form.factory"/>
@@ -525,15 +540,23 @@
       <argument type="service" id="twig"/>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> mapbranch
     <service id="App\Services\MapHandler" class="App\Services\MapHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Services\SubscribeDataGenerator\FlusherService"/>
       <argument type="service" id="form.factory"/>
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="service_container"/>
+<<<<<<< HEAD
     </service>
 >>>>>>> research
+=======
+      <argument type="service" id="security.authorization_checker"/>
+    </service>
+>>>>>>> mapbranch
     <service id="App\Services\ModifyArticleHandler" class="App\Services\ModifyArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="security.authorization_checker"/>
@@ -606,10 +629,14 @@
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="service_locator.QhXGlik"/>
 =======
       <argument type="service" id="service_locator.3CH271z"/>
 >>>>>>> research
+=======
+      <argument type="service" id="service_locator.rOgmBNj"/>
+>>>>>>> mapbranch
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -850,9 +877,13 @@
         <argument>App\Form\DonType</argument>
         <argument>App\Form\ImageType</argument>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <argument>App\Form\ObservationType</argument>
 >>>>>>> research
+=======
+        <argument>App\Form\ObservationType</argument>
+>>>>>>> mapbranch
         <argument>App\Form\ResearchBirdType</argument>
         <argument>App\Form\SubscriptionType</argument>
         <argument>App\Form\UserModifyType</argument>
@@ -1052,10 +1083,14 @@
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="service_locator.KpY_NpC"/>
 =======
       <argument type="service" id="service_locator.v623meD"/>
 >>>>>>> research
+=======
+      <argument type="service" id="service_locator.v623meD"/>
+>>>>>>> mapbranch
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.http_foundation"/>
@@ -2065,14 +2100,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -3114,10 +3141,14 @@
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <argument type="service" id="service_locator.A7V1i4w"/>
 =======
       <argument type="service" id="service_locator.tEZMm3A"/>
 >>>>>>> research
+=======
+      <argument type="service" id="service_locator.tEZMm3A"/>
+>>>>>>> mapbranch
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3510,7 +3541,7 @@
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <call method="registerListener">
         <argument>main</argument>
-        <argument>security_logout</argument>
+        <argument>/logout</argument>
         <argument>logout</argument>
         <argument>_csrf_token</argument>
         <argument>null</argument>
@@ -3590,23 +3621,9 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id="security.request_matcher.LGxF6tL"/>
+        <argument type="service" id="security.request_matcher.N0ZMRRf"/>
         <argument type="collection">
-          <argument>ROLE_USER</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
-        <argument type="service" id="security.request_matcher.LGxF6tL"/>
-        <argument type="collection">
-          <argument>ROLE_ORGANISER</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
-        <argument type="service" id="security.request_matcher.LGxF6tL"/>
-        <argument type="collection">
-          <argument>ROLE_ADMIN</argument>
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
         </argument>
         <argument>null</argument>
       </call>
@@ -3988,7 +4005,7 @@
       <argument type="collection">
         <argument key="csrf_parameter">_csrf_token</argument>
         <argument key="csrf_token_id">logout</argument>
-        <argument key="logout_path">security_logout</argument>
+        <argument key="logout_path">/logout</argument>
       </argument>
       <call method="addHandler">
         <argument type="service" id="security.logout.handler.session"/>
@@ -3996,7 +4013,7 @@
     </service>
     <service id="security.logout.success_handler.main" class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
       <argument type="service" id="security.http_utils"/>
-      <argument>homepage</argument>
+      <argument>/</argument>
     </service>
     <service id="security.authentication.provider.dao.main" class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
       <argument type="service" id="security.user.provider.concrete.chain_provider"/>
@@ -4115,8 +4132,8 @@
     <service id="security.request_matcher.6cXmF2J" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/contact</argument>
     </service>
-    <service id="security.request_matcher.LGxF6tL" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/user/</argument>
+    <service id="security.request_matcher.N0ZMRRf" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/map</argument>
     </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand" public="false">
       <tag name="console.command" command="security:encode-password"/>
@@ -4299,10 +4316,15 @@
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ImageType" class="App\Form\ImageType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ImageType" class="App\Form\ImageType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
 >>>>>>> research
+=======
+    <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Form\ObservationType" class="App\Form\ObservationType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+>>>>>>> mapbranch
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Form\ResearchBirdType" class="App\Form\ResearchBirdType" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SubscriptionType" class="App\Form\SubscriptionType" public="false" autowire="true" abstract="true"/>
@@ -4326,10 +4348,15 @@
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\ImageRepository" class="App\Repository\ImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
 >>>>>>> research
+=======
+    <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.App\Repository\ObservationsRepository" class="App\Repository\ObservationsRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+>>>>>>> mapbranch
     <service id="instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.App\Repository\UserImageRepository" class="App\Repository\UserImageRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_auth" class="Symfony\Bundle\MakerBundle\Command\MakerCommand">
@@ -4477,7 +4504,10 @@
       </argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> mapbranch
     <service id="service_locator.BTVloeW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4496,7 +4526,10 @@
         <argument key="denyhand" type="service" id="App\Services\DenyObsHandler" on-invalid="ignore"/>
       </argument>
     </service>
+<<<<<<< HEAD
 >>>>>>> research
+=======
+>>>>>>> mapbranch
     <service id="service_locator.d9aQ9np" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4544,10 +4577,14 @@
       </argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="service_locator.QhXGlik" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
 =======
     <service id="service_locator.3CH271z" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
 >>>>>>> research
+=======
+    <service id="service_locator.rOgmBNj" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> mapbranch
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BlogController:bloglist" type="service" id="service_locator.udmBeas"/>
@@ -4559,12 +4596,18 @@
         <argument key="App\Controller\DonController:CBcheckout" type="service" id="service_locator.KhTx4ja"/>
         <argument key="App\Controller\DonController:index" type="service" id="service_locator.MAB7qRx"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <argument key="App\Controller\MapController:Deny" type="service" id="service_locator.VXkrEKb"/>
         <argument key="App\Controller\MapController:MapAction" type="service" id="service_locator.BTVloeW"/>
         <argument key="App\Controller\MapController:Validate" type="service" id="service_locator.cumVKIr"/>
         <argument key="App\Controller\ResearchController:fiche" type="service" id="service_locator.d9aQ9np"/>
 >>>>>>> research
+=======
+        <argument key="App\Controller\MapController:Deny" type="service" id="service_locator.VXkrEKb"/>
+        <argument key="App\Controller\MapController:MapAction" type="service" id="service_locator.BTVloeW"/>
+        <argument key="App\Controller\MapController:Validate" type="service" id="service_locator.cumVKIr"/>
+>>>>>>> mapbranch
         <argument key="App\Controller\ResearchController:index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController:dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController:downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
@@ -4581,12 +4624,18 @@
         <argument key="App\Controller\DonController::CBcheckout" type="service" id="service_locator.KhTx4ja"/>
         <argument key="App\Controller\DonController::index" type="service" id="service_locator.MAB7qRx"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <argument key="App\Controller\MapController::Deny" type="service" id="service_locator.VXkrEKb"/>
         <argument key="App\Controller\MapController::MapAction" type="service" id="service_locator.BTVloeW"/>
         <argument key="App\Controller\MapController::Validate" type="service" id="service_locator.cumVKIr"/>
         <argument key="App\Controller\ResearchController::fiche" type="service" id="service_locator.d9aQ9np"/>
 >>>>>>> research
+=======
+        <argument key="App\Controller\MapController::Deny" type="service" id="service_locator.VXkrEKb"/>
+        <argument key="App\Controller\MapController::MapAction" type="service" id="service_locator.BTVloeW"/>
+        <argument key="App\Controller\MapController::Validate" type="service" id="service_locator.cumVKIr"/>
+>>>>>>> mapbranch
         <argument key="App\Controller\ResearchController::index" type="service" id="service_locator.d9aQ9np"/>
         <argument key="App\Controller\UserController::dashboardAction" type="service" id="service_locator.saQ8x6M"/>
         <argument key="App\Controller\UserController::downgradeUserAction" type="service" id="service_locator.rWoBfLf"/>
@@ -4741,10 +4790,14 @@
       </argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="service_locator.KpY_NpC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
 =======
     <service id="service_locator.v623meD" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
 >>>>>>> research
+=======
+    <service id="service_locator.v623meD" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> mapbranch
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleType" type="service" id="App\Form\ArticleType"/>
@@ -4753,9 +4806,13 @@
         <argument key="App\Form\DonType" type="service" id="App\Form\DonType"/>
         <argument key="App\Form\ImageType" type="service" id="App\Form\ImageType"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <argument key="App\Form\ObservationType" type="service" id="App\Form\ObservationType"/>
 >>>>>>> research
+=======
+        <argument key="App\Form\ObservationType" type="service" id="App\Form\ObservationType"/>
+>>>>>>> mapbranch
         <argument key="App\Form\ResearchBirdType" type="service" id="App\Form\ResearchBirdType"/>
         <argument key="App\Form\SubscriptionType" type="service" id="App\Form\SubscriptionType"/>
         <argument key="App\Form\UserModifyType" type="service" id="App\Form\UserModifyType"/>
@@ -4765,10 +4822,14 @@
       </argument>
     </service>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <service id="service_locator.A7V1i4w" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
 =======
     <service id="service_locator.tEZMm3A" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
 >>>>>>> research
+=======
+    <service id="service_locator.tEZMm3A" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+>>>>>>> mapbranch
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ArticleImageRepository" type="service" id="App\Repository\ArticleImageRepository"/>
@@ -4780,9 +4841,13 @@
         <argument key="App\Repository\DonRepository" type="service" id="App\Repository\DonRepository"/>
         <argument key="App\Repository\ImageRepository" type="service" id="App\Repository\ImageRepository"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <argument key="App\Repository\ObservationsRepository" type="service" id="App\Repository\ObservationsRepository"/>
 >>>>>>> research
+=======
+        <argument key="App\Repository\ObservationsRepository" type="service" id="App\Repository\ObservationsRepository"/>
+>>>>>>> mapbranch
         <argument key="App\Repository\UserImageRepository" type="service" id="App\Repository\UserImageRepository"/>
       </argument>
     </service>

@@ -29,6 +29,8 @@ class ModifyUserHandler
     private $formFactory;
     
     private $tokenStorage;
+    
+    private $container;
 
     public function __construct(EntityManagerInterface $em, AuthorizationCheckerInterface $checker, FlusherService $flusher, FormFactoryInterface $formFactory, TokenStorageInterface $tokenstorage, ContainerInterface $container, UserPasswordEncoderInterface $encoder){
         $this->em = $em;
