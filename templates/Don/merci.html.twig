@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>L'oiseau rare • Don • Merci{% block title %}{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}
-            <h1>L'association Nos Amis les Oiseaux vous remercie pour votre don !</h1>
-            <p>Bouton "Retour à l'accueil"</p>
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends "base.html.twig" %}
+
+{% block title %}Don - Remerciements{% endblock %}
+
+{% block body %}
+
+ <div class="container-fluid" id="don">
+    <div class="white-filter">
+        <div class="container" id="block-stripe">
+            <div class="row">
+                <div class="offset-1 col-10 col-md-5" id="don-form">
+                    <h3>Merci !</h3>
+                    <img src="{{ asset('build/img/don-blanc.svg') }}" width="80px" height="80px">
+
+                    <p id="p-merci">
+                       L'association <strong>Nos Amis les Oiseaux</strong> vous remercie pour votre don !
+                    </p>
+                    <a id="btn-merci" href="{{ path('home') }}"><button class="btn">Retour à l'accueil</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

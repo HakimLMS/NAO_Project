@@ -65,8 +65,8 @@ class SingleArticleHandler
     private function generateUser()
     {
         $userNametoken = $this->tokenStorage->getToken()->getUser()->getUsername();
-        
-        if($userNametoken = 'Admin')
+    
+        if($userNametoken == 'admin')
         {
            $user = $this->userRepo->LoadUserByUsername('Admin@loiseau-rare.fr');
         }

@@ -1,16 +1,76 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}L'oiseau rare • Contact{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
-        {% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends "base.html.twig" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" id="contact">
+        <div class="white-filter">
+    
+            <div class="container">
+                <div class="row">
+                    <div class="offset-1 col-10 offset-md-6 col-md-6 well" id="contact-form">
+                    <h3>Contactez-nous</h3>
+
+                        {{ form_start(form) }}
+
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-6">
+                                {{ form_label(form.lastname) }}
+                                {{ form_widget(form.lastname, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'Nom'}}) }}
+                            </div>
+                            
+                            <div class="form-group col-12 col-md-6">
+                                {{ form_label(form.firstname) }}
+                                {{ form_widget(form.firstname, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'Prénom'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.mail.first) }}
+                            {{ form_widget(form.mail.first, {'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'exemple@gmail.com'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.mail.second) }}
+                            {{ form_widget(form.mail.second, {'attr': {
+                            'class': 'form-control',
+                            'placeholder': 'exemple@gmail.com'}}) }}
+                        </div> 
+
+                        <div class="form-group">
+                            {{ form_label(form.object) }}
+                            {{ form_widget(form.object, {'attr': {'class': 'form-control'}}) }}
+                        </div>    
+
+                        <div class="form-group">
+                            {{ form_label(form.content) }}
+                            {{ form_widget(form.content, {'attr': {
+                            'class': 'form-control',
+                            'rows': '6'
+                            }}) }}
+                        </div>
+
+                        <div class="form-check offset-md-2 col-md-8">
+                          {{ form_widget(form.notRobot) }}
+                          {{ form_label(form.notRobot) }}
+                        </div>                   
+
+                        {{ form_row(form.Envoyer, {'attr': {'class': 'btn'}}) }}
+
+
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

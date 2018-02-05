@@ -14,7 +14,6 @@
 					<p>NAO est une association de protection des oiseaux et de leurs habitats naturels. Nous mettons en place un programme de recherche permettant de collecter des données afin d'étudier les effets du climat, de l'urbanisation et de l'agriculture sur la biodiversité et l'environnement naturel.</p>
 				</div>
 			</div>
-			
 		</div>
 
 		<h3>Comment agir ensemble ?</h3>
@@ -22,11 +21,11 @@
 		<div class="container" id="block-icons">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1" id="block-icons-2">
-					<a href="#" class="block-icon" id="block-observez" title="Effectuez une observation d'oiseaux de manière géolocalisée"><div>
+					<a href="{{ path('map') }}" class="block-icon" id="block-observez" title="Effectuez une observation d'oiseaux de manière géolocalisée"><div>
 						<img src="{{ asset('build/img/jumelles-blanc.svg') }}" height="44.5px" width="63px" alt="observez">
 						<p>Observez</p>
 					</div></a>
-					<a href="#" class="block-icon" id="block-retrouvez" title="Découvrez en temps réel les différentes observations d'oiseaux faites par la communauté"><div>
+					<a href="{{ path('map') }}" class="block-icon" id="block-retrouvez" title="Découvrez en temps réel les différentes observations d'oiseaux faites par la communauté"><div>
 						<img src="{{ asset('build/img/map-blanc.svg') }}" height="44px" width="48px" alt="retrouvez">
 						<p>Retrouvez</p>
 					</div></a>
@@ -95,7 +94,7 @@
 				<div class="col-md-3 testimony">
 				 	<div class="row">
 					 	<img src="{{ asset('build/img/user3.jpg') }}" class="col" alt="user3">
-					 	<p class="col">"C'est grâce à vous qu'on peut sauver et protéger des espèces #sauvonslesoiseaux"
+					 	<p class="col">"C'est grâce à vous qu'on peut sauver et protéger des espèces #nature"
 					 	<br>
 					 	<span>Georges - 30/01/18</span>
 					 	</p>
@@ -108,18 +107,21 @@
 		<div id="block-social-networks">
 			<ul class="nav justify-content-center">
 			  <li class="nav-item">
-			    <a class="nav-link" target="_blank" href="https://facebook.com"><img src="{{ asset('build/img/facebook_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
+			    <a class="nav-link" target="_blank" href="https://openclassrooms.facebook.com/naoloiseaurare/"><img src="{{ asset('build/img/facebook_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" target="_blank" href="https://twitter.com"><img src="{{ asset('build/img/twitter_rose.svg') }}" alt="logo Twitter" height="35px" width="35px"></a>
+			    <a class="nav-link" target="_blank" href="https://twitter.com/nao_oiseau_rare"><img src="{{ asset('build/img/twitter_rose.svg') }}" alt="logo Twitter" height="35px" width="35px"></a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" target="_blank" href="https://instagram.com"><img src="{{ asset('build/img/instagram_rose.svg') }}" alt="logo Instagram" height="35px" width="35px"></a>
+			    <a class="nav-link" target="_blank" href="https://www.instagram.com/nao_loiseau_rare/"><img src="{{ asset('build/img/instagram_rose.svg') }}" alt="logo Instagram" height="35px" width="35px"></a>
 			  </li>
 			</ul>
 		</div>
 		
-		<iframe class="offset-md-3 col-md-6" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/2pqp/5dM" width="100%" height="255"></iframe>
+		<div class="container" id="block-mj">
+			<iframe class="col-12 col-md-10" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/2pqp/5dM" width="80%" height="425"></iframe>
+		</div>
+		
 			
 		
 	</div>
@@ -127,4 +129,10 @@
 	
 
 
-{% endblock %}	
+{% endblock %}
+
+{% block javascripts %}
+	<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+	<script type="text/javascript" src="{{ asset('build/js/animate-icons.js') }}"></script>
+{% endblock %}
+

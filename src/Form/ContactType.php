@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ContactType extends AbstractType
@@ -36,7 +37,7 @@ class ContactType extends AbstractType
                 'Devenir adhérent' => 'Devenir adhérent',
                 'Autre' => 'Autre',
             )))
-            ->add('content', TextType::class, array('label' => 'Message', 'required' => true))
+            ->add('content', TextareaType::class, array('label' => 'Message', 'required' => true))
             ->add('notRobot', CheckboxType::class, array('label' => 'Je ne suis pas un robot', 'required' => true))
             ->add('Envoyer', SubmitType::class)
         ;

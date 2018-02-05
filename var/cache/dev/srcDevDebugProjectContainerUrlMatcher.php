@@ -39,6 +39,18 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // new_article
             if ('/blog/new_article' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\BlogController::newArticleAction',  '_route' => 'new_article',);
+<<<<<<< HEAD
+            }
+
+            // delete_article
+            if (0 === strpos($pathinfo, '/blog/delete') && preg_match('#^/blog/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete_article')), array (  '_controller' => 'App\\Controller\\BlogController::deleteArticleAction',));
+            }
+
+            // modify_article
+            if (0 === strpos($pathinfo, '/blog/modify') && preg_match('#^/blog/modify/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'modify_article')), array (  '_controller' => 'App\\Controller\\BlogController::modifyArticleAction',));
+=======
             }
 
             // delete_article
@@ -63,6 +75,105 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'App\\Controller\\ContactController::index',  '_route' => 'contact',);
         }
 
+        if (0 === strpos($pathinfo, '/d')) {
+            // don
+            if ('/don' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\DonController::index',  '_route' => 'don',);
+            }
+
+            if (0 === strpos($pathinfo, '/don/CB')) {
+                // donCB
+                if ('/don/CB' === $pathinfo) {
+                    return array (  '_controller' => 'App\\Controller\\DonController::CB',  '_route' => 'donCB',);
+                }
+
+                // CBcheckout
+                if ('/don/CB_checkout' === $pathinfo) {
+                    return array (  '_controller' => 'App\\Controller\\DonController::CBcheckout',  '_route' => 'CBcheckout',);
+                }
+
+            }
+
+            // deny_obs
+            if (0 === strpos($pathinfo, '/deny') && preg_match('#^/deny/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'deny_obs')), array (  '_controller' => 'App\\Controller\\MapController::Deny',));
+            }
+
+        }
+
+        // home
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'App\\Controller\\HomeController::index',  '_route' => 'home',);
+            if (substr($pathinfo, -1) !== '/') {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'home'));
+            }
+
+            return $ret;
+        }
+
+        // mentions_legales
+        if ('/mentions-legales' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\HomeController::mentions',  '_route' => 'mentions_legales',);
+        }
+
+        // map
+        if ('/map' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\MapController::MapAction',  '_route' => 'map',);
+        }
+
+        // association
+        if ('/association' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\HomeController::association',  '_route' => 'association',);
+        }
+
+        // validate_obs
+        if (0 === strpos($pathinfo, '/validate') && preg_match('#^/validate/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'validate_obs')), array (  '_controller' => 'App\\Controller\\MapController::Validate',));
+        }
+
+        if (0 === strpos($pathinfo, '/research')) {
+            // research
+            if ('/research' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\ResearchController::index',  '_route' => 'research',);
+            }
+
+            // results
+            if ('/research/results' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\ResearchController::results',  '_route' => 'results',);
+            }
+
+            // fiche_oiseau
+            if (0 === strpos($pathinfo, '/research/fiche-oiseau') && preg_match('#^/research/fiche\\-oiseau/(?P<cd_name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'fiche_oiseau')), array (  '_controller' => 'App\\Controller\\ResearchController::fiche',));
+            }
+
+        }
+
+        // subscribe
+        if ('/subscribe' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\UserController::subscribeAction',  '_route' => 'subscribe',);
+        }
+
+        if (0 === strpos($pathinfo, '/user')) {
+            // login
+            if ('/user/login' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::login',  '_route' => 'login',);
+>>>>>>> research
+            }
+
+            // blog_list
+            if ('/blog' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\BlogController::bloglist',  '_route' => 'blog_list',);
+            }
+
+        }
+
+        // contact
+        if ('/contact' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\ContactController::index',  '_route' => 'contact',);
+        }
+
+<<<<<<< HEAD
         // don
         if ('/don' === $pathinfo) {
             return array (  '_controller' => 'App\\Controller\\DonController::index',  '_route' => 'don',);
@@ -72,6 +183,16 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // donCB
             if ('/don/CB' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\DonController::CB',  '_route' => 'donCB',);
+=======
+            // modifyuser
+            if ('/user/modify' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::modifyUserAction',  '_route' => 'modifyuser',);
+            }
+
+            // user
+            if ('/user' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);
+>>>>>>> research
             }
 
             // CBcheckout
@@ -81,6 +202,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+<<<<<<< HEAD
         // home
         if ('' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'App\\Controller\\HomeController::index',  '_route' => 'home',);
@@ -149,6 +271,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+=======
+>>>>>>> research
         elseif (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
