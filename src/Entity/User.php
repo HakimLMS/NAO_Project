@@ -159,7 +159,7 @@ class User implements  AdvancedUserInterface, \Serializable, EquatableInterface
     
     function getProcard() {
         return $this->procard;
-    }
+    }    
     
     function getState() {
         return $this->state;

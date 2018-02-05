@@ -3,7 +3,10 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-
+    {% block stylesheets %} 
+        <link rel="stylesheet" type="text/css" href="{{asset('build/slick/slick/slick.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('build/slick/slick/slick-theme.css')}}"/>
+    {%endblock%}        
 	<div class="container-fluid" id="homepage-first-section">
 	<div id="filtre">
 		<h1>Faisons un geste pour les oiseaux,<br>respectons la nature ensemble.</h1>
@@ -20,33 +23,32 @@
 		<h3>Comment agir ensemble ?</h3>
 
 		<div class="container" id="block-icons">
-			<div class="row">
+			
 				<div class="col-lg-10 offset-lg-1" id="block-icons-2">
-					<a href="#" class="block-icon" id="block-observez" title="Effectuez une observation d'oiseaux de manière géolocalisée"><div>
-						<img src="{{ asset('build/img/jumelles-blanc.svg') }}" height="44.5px" width="63px" alt="observez">
-						<p>Observez</p>
-					</div></a>
-					<a href="#" class="block-icon" id="block-retrouvez" title="Découvrez en temps réel les différentes observations d'oiseaux faites par la communauté"><div>
-						<img src="{{ asset('build/img/map-blanc.svg') }}" height="44px" width="48px" alt="retrouvez">
-						<p>Retrouvez</p>
-					</div></a>
-					<a href="{{ path('research') }}" class="block-icon" id="block-recherchez" title="Recherchez des informations sur les différentes espèces d'oiseaux"><div>
-						<img src="{{ asset('build/img/loupe-blanc.svg') }}" width="40px" height="44px" alt="recherchez">
-						<p>Recherchez</p>
-					</div></a>
-					<a href="{{ path('dashboard') }}" class="block-icon" id="block-dashboard" title="Inscrivez-vous gratuitement pour intégrer notre communauté de passionnés"><div>
-						<img src="{{ asset('build/img/user-blanc.svg') }}" height="44x" width="44px" alt="mon espace">
-						<p>Mon espace</p>
-					</div></a>
-					<a href="{{ path('association') }}" class="block-icon" id="block-association" title="Prenez connaissance de l'association et ses missions, nos collectes de fond et autres évènements caritatifs"><div>
-						<img src="{{ asset('build/img/world_rose.svg') }}" width="44px" height="44px" alt="association">
-						<p>Notre mission</p>
-					</div></a>
-				</div>
-			</div>
+                                    <div>
+                                        <button type="button" id="see" onclick="location.href='{{ path('map')}}';"><img src="{{ asset('build/img/jumelles-blanc.svg') }}" height="44.5px" width="63px" alt="observez">
+						<p class="txtbutton">Observez</p></button>
+                                    </div>
+                                    <div>
+                                        <button type="button" id="find" onclick="location.href='{{ path('map')}}';"><img src="{{ asset('build/img/map-blanc.svg') }}" height="44px" width="48px" alt="retrouvez">
+                                            <p class="txtbutton">Retrouvez</p></button>
+                                    </div>
+                                    <div>
+                                        <button type="button" id="search" onclick="location.href='{{ path('research')}}';"><img src="{{ asset('build/img/loupe-blanc.svg') }}" width="40px" height="44px" alt="recherchez">
+						<p class="txtbutton"> Recherchez</p></button>
+                                    </div>
+                                    <div>
+                                        <button type="button" id="myspace" onclick="location.href='{{ path('dashboard')}}';"><img src="{{ asset('build/img/user-blanc.svg') }}" height="44x" width="44px" alt="mon espace">
+						<p class="txtbutton">Mon espace</p></button>
+                                    </div>
+                                    <div>
+                                        <button type="button" id="mission" onclick="location.href='{{ path('association')}}';"><img src="{{ asset('build/img/world_rose.svg') }}" width="44px" height="44px" alt="association">
+						<p class="txtbutton">Notre mission</p></button>
+                                    </div>                                 
+                                </div>			
 		</div>
-	</div>	
 	</div>
+        </div>
 
 
 	<div class="container-fluid" id="homepage-second-section">
@@ -126,5 +128,8 @@
 
 	
 
-
+                           {% block javascripts %}
+                           <script type="text/javascript" src="{{asset('build/slick/slick/slick.js')}}"></script>
+                           <script type="text/javascript" src="{{asset('build/slick/initslick.js')}}"></script>
+                           {% endblock %}
 {% endblock %}	

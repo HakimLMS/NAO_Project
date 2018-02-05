@@ -43,7 +43,6 @@ class MapHandler
         $this->container = $container;
         $this->checker = $checker;
         
-        
     }
 
     
@@ -81,9 +80,9 @@ class MapHandler
             $obs->setImage($fileName);
             $obs->setUser($user);
             
-            if($this->checker->isGranted('ROLE_USER'))
+            if($user->getRoles() == 'ROLE_USER')
             {
-                $obs->setValidate(false);    
+                $obs->setValidated(false);    
             }
             $this->flusher->flushEntity($obs);           
            
@@ -109,9 +108,6 @@ class MapHandler
     
     public function generateData(Request $request)
     { 
-        header("Content-type: text/xml");
-        
-        
         $dom = new \DOMDocument("1.0");
         $node = $dom->createElement("markers");
         $parnode = $dom->appendChild($node);        
@@ -126,8 +122,7 @@ class MapHandler
                     $newnode->setAttribute("type", $row->getType());
                 }       
         echo $dom->saveXML();
-        $formAndObs = $this->generateFormAndObs();
-        
+        $formAndObs = $this->generateFormAndObs();        
         if($this->tokenStorage->getToken()->getUser() != 'anon.')
         {
             $user = $this->generateUser();

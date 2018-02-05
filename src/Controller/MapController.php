@@ -38,7 +38,7 @@ class MapController extends Controller
      */
      public function Deny(Request $request, DenyObsHandler $denyhand, $id)
     {
-        $denyhand->validateObs($id);
+        $denyhand->denyObs($id);
         return $this->redirectToRoute('dashboard');
     }
 }

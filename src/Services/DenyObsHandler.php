@@ -34,8 +34,8 @@ class DenyObsHandler
         if($this->checker->isGranted('ROLE_ORGANIZER'))
         {
             $obs = $this->getObs($id);
-            $obs->setValidated(null);
-            $this->flusher->flushEntity($obs);
+            $this->em->remove($obs);
+            $this->em->flush();
         }
         else
         {

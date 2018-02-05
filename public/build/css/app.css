@@ -220,39 +220,47 @@
 	padding-bottom: 75px;
 	text-align: center;
 	font-size: 18px;
+        width: 80%;
 }
 
 #block-icons img {
-	display: block;
-	margin: auto;
+	display: block ;
+	margin: auto ;
 }
 
+
+
 #block-icons-2 {
-	display: flex;
+	display: block ;
 }
 
 #block-icons a {
-	color: #FFFFFF;
-	padding-top: 40px;
+	color: #FFFFFF ;
+	padding-top: 40px ;
 }
 
 #block-icons a:hover {
-	text-decoration: none;
+	text-decoration: none ;
+}
+
+.txtbutton{
+    color: white;
+    font-size: 20px !important;
+    padding-top: 10px;
 }
 
 #block-icons a p {
-	padding-top: 8px;
+	padding-top: 8px ;
 }
 
-.block-icon {
+.slick-slide {
 	vertical-align: middle;
 	min-width: 126px;
 	min-height: 126px;
 	border-radius: 6px;
 	padding-top: 20px;
-	margin-right: 60px;
-	box-shadow: 0px 3px 6px rgba(0, 0, 0, .75);
 }
+
 
 .block-icon:hover {
 	box-shadow: none;
@@ -267,8 +275,9 @@
 }
 
 .block-icon .tooltip-inner {
-	background: red !important;
+	background: red !important
 }
+
 
 
 .infobulle {
@@ -282,25 +291,44 @@
 	color: white;
 }
 
-
-#block-observez {
+#see {
 	background:  #7C348A;
+        width: 168px;
+        height: 168px;
+        border-radius: 6px;
+        border: none;
 }
 
-#block-retrouvez {
-	background: #4152A0;
+#find {
+    background: #4152A0;
+        width: 168px;
+    height: 168px;
+    border-radius: 6px;
+    border: none;
+    }
+
+#search {
+    background: #E4007D;
+        width: 168px;
+    height: 168px;
+    border-radius: 6px;
+    border: none;
 }
 
-#block-recherchez {
-	background: #E4007D;
+#myspace {
+    background: #54C0EF;
+        width: 168px;
+    height: 168px;
+    border-radius: 6px;
+    border: none;
 }
 
-#block-dashboard {
-	background: #54C0EF;
-}
-
-#block-association {
-	background:  #9E2064;
+#mission {
+    background:  #9E2064;
+        width: 168px;
+    height: 168px;
+    border-radius: 6px;
+    border: none;
 }
 
 
