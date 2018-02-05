@@ -1470,13 +1470,13 @@ textarea {
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
 }
 
-#carte .buttons input, #carte .buttons select {
+#carte .buttons input, #carte .buttons select, #obs-login {
 	display: block;
 	margin: 0 auto 30px;
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, .7);
 }
 
-#obsbutton {
+#obsbutton, #obs-login {
 	background: #E4007D;
 	padding: 10px 30px;
 	font-size: 22px;
@@ -1484,7 +1484,8 @@ textarea {
 	border-radius: 4px;
 }
 
-#carte .buttons input:hover {
+
+#carte .buttons input:hover, #obs-login:hover {
 	box-shadow: none;
 }
 
@@ -1546,10 +1547,14 @@ textarea {
 	box-shadow: none;
 }
 
+#map-login {
+	text-decoration: none;
+}
+
 
 @media screen and (max-width: 768px) {
 
-	#obsbutton {
+	#obsbutton, #obs-login {
 		font-size: 18px;
 	}
 

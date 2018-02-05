@@ -7,10 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use App\Services\ResearchHandler;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 
 class ResearchController extends Controller
@@ -30,12 +26,6 @@ class ResearchController extends Controller
             $birds = $researchHandler->generateBirds($vernName);
             $request->getSession()->set('birds', $birds);
 
-            /*$jsonEncode = array(new JsonEncoder());
-            $normalizer = array(new ObjectNormalizer());
-            $serializer = new Serializer($normalizer, $jsonEncode);
-            $birds = $serializer->serialize($birds, 'json');*/
-
-       	    //return $this->render('research/results.html.twig', array('birds' => $birds));
             return $this->redirectToRoute('results');	
         }
 

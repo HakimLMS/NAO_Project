@@ -16,6 +16,6 @@ if (!\class_exists(srcDevDebugProjectContainer::class, false)) {
 
 return new \ContainerOX1BZPA\srcDevDebugProjectContainer(array(
     'container.build_hash' => 'OX1BZPA',
-    'container.build_id' => 'e215ae0b',
-    'container.build_time' => 1517706984,
+    'container.build_id' => '778744dd',
+    'container.build_time' => 1517826940,
 ));

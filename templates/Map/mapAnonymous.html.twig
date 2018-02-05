@@ -6,37 +6,44 @@
 
     {% block body %}
 
-        <link rel="stylesheet" href="{{asset('build/css/map.css')}}">
-        <div class="mapwraper">
-            <div id="map"></div>
-        </div>
-        <div class="buttons">
-            <select id="selectType" onclick="initMap();">
-               <option value='All'>Choisissez un filtre</option>
-               <option value='Accipitriformes'>Accipitriforme</option>
-               <option value='Anseriformes'>Anseriforme</option>
-               <option value='Bucerotiformes'>Bucerotiforme</option>
-               <option value='Caprimulgiformes'> Caprimulgiformes</option>
-               <option value='Charadriiformes'> Charadriiformes</option>
-               <option value='Columbiformes'> Columbiformes</option>
-               <option value='Coraciiformes'> Coraciiformes</option>
-               <option value='Cuculiformes'> Cuculiformes</option>
-               <option value='Eurypygiformes'> Eurypygiformes</option>
-               <option value='Falconiformes'> Falconiformes</option>
-               <option value='Galliformes'> Galliformes</option>
-               <option value='Gruiformes'> Gruiformes</option>
-               <option value='Leptosomatiformes'> Leptosomatiformes</option>
-               <option value='Opisthocomiformes'> Opisthocomiformes</option>
-               <option value='Passeriformes'> Passeriformes</option>
-               <option value='Phoenicopteriformes'> Phoenicopteriformes</option>
-               <option value='Piciformes'> Piciformes</option>
-               <option value='Procellariiformes'> Procellariiformes</option>
-               <option value='Psittaciformes'> Psittaciformes</option>
-               <option value='Sphenisciformes'> Sphenisciformes</option>
-               <option value='Strigiformes'> Strigiformes</option>
-               <option value='Tinamiformes'> Tinamiformes</option>
-               <option value=Trogoniformes> Trogoniformes</option>
-            </select>
+        <div class="container-fluid" id="carte">
+            <div class="white-filter">
+                <div class="row">
+                    <div class="col-md-8 mapwraper">
+                        <div id="map"></div>
+                    </div>
+
+                    <div class="col-md-4 buttons">
+                        <a id="map-login" href="{{ path('login') }}"><button id="obs-login" class="btn">Se connecter</button></a>
+                        <select class="form-control" id="selectType" onclick="initMap();">
+                           <option value='All'>Choisissez un filtre</option>
+                           <option value='Accipitriformes'>Accipitriforme</option>
+                           <option value='Anseriformes'>Anseriforme</option>
+                           <option value='Bucerotiformes'>Bucerotiforme</option>
+                           <option value='Caprimulgiformes'> Caprimulgiformes</option>
+                           <option value='Charadriiformes'> Charadriiformes</option>
+                           <option value='Columbiformes'> Columbiformes</option>
+                           <option value='Coraciiformes'> Coraciiformes</option>
+                           <option value='Cuculiformes'> Cuculiformes</option>
+                           <option value='Eurypygiformes'> Eurypygiformes</option>
+                           <option value='Falconiformes'> Falconiformes</option>
+                           <option value='Galliformes'> Galliformes</option>
+                           <option value='Gruiformes'> Gruiformes</option>
+                           <option value='Leptosomatiformes'> Leptosomatiformes</option>
+                           <option value='Opisthocomiformes'> Opisthocomiformes</option>
+                           <option value='Passeriformes'> Passeriformes</option>
+                           <option value='Phoenicopteriformes'> Phoenicopteriformes</option>
+                           <option value='Piciformes'> Piciformes</option>
+                           <option value='Procellariiformes'> Procellariiformes</option>
+                           <option value='Psittaciformes'> Psittaciformes</option>
+                           <option value='Sphenisciformes'> Sphenisciformes</option>
+                           <option value='Strigiformes'> Strigiformes</option>
+                           <option value='Tinamiformes'> Tinamiformes</option>
+                           <option value=Trogoniformes> Trogoniformes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
     {% endblock %}
     {% block javascripts %}

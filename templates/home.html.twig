@@ -107,13 +107,13 @@
 		<div id="block-social-networks">
 			<ul class="nav justify-content-center">
 			  <li class="nav-item">
-			    <a class="nav-link" target="_blank" href="https://facebook.com"><img src="{{ asset('build/img/facebook_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
+			    <a class="nav-link" target="_blank" href="https://openclassrooms.facebook.com/naoloiseaurare/"><img src="{{ asset('build/img/facebook_rose.svg') }}" alt="logo Facebook" height="35px" width="35px"></a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" target="_blank" href="https://twitter.com"><img src="{{ asset('build/img/twitter_rose.svg') }}" alt="logo Twitter" height="35px" width="35px"></a>
+			    <a class="nav-link" target="_blank" href="https://twitter.com/nao_oiseau_rare"><img src="{{ asset('build/img/twitter_rose.svg') }}" alt="logo Twitter" height="35px" width="35px"></a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" target="_blank" href="https://instagram.com"><img src="{{ asset('build/img/instagram_rose.svg') }}" alt="logo Instagram" height="35px" width="35px"></a>
+			    <a class="nav-link" target="_blank" href="https://www.instagram.com/nao_loiseau_rare/"><img src="{{ asset('build/img/instagram_rose.svg') }}" alt="logo Instagram" height="35px" width="35px"></a>
 			  </li>
 			</ul>
 		</div>
@@ -129,4 +129,10 @@
 	
 
 
-{% endblock %}	
+{% endblock %}
+
+{% block javascripts %}
+	<script src="https://hammerjs.github.io/dist/hammer.js"></script>
+	<script type="text/javascript" src="{{ asset('build/js/animate-icons.js') }}"></script>
+{% endblock %}
+
