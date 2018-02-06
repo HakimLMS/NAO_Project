@@ -51,10 +51,20 @@ class OrganizerDashboard
        return array('validated' => $validated, 'toValidate' => $toValidate);
     }
     
+    private function genObsQeued($id)
+    {
+        
+    }
+    
     public function genData()
     {
         $user = $this->genUser();
         $observations = $this->genObservation($user);
+        
+        if($user->getState != 'validated')
+        {
+            
+        }
         $orgaData = array(
             'templatedir' => 'Administration/OrganizerDashboard.html.twig',
             'content' => array('observations' => $observations),

@@ -24,47 +24,47 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b8464fec5d4e7d01fee0a3e627f4ad77f9ad0f5c51225eb5d0eadc422244711a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b8464fec5d4e7d01fee0a3e627f4ad77f9ad0f5c51225eb5d0eadc422244711a->enter($__internal_b8464fec5d4e7d01fee0a3e627f4ad77f9ad0f5c51225eb5d0eadc422244711a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home.html.twig"));
+        $__internal_2bd355ea51608011207f5c8bc8f871c52d245ceccfba2854ee7320450da1d91a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_2bd355ea51608011207f5c8bc8f871c52d245ceccfba2854ee7320450da1d91a->enter($__internal_2bd355ea51608011207f5c8bc8f871c52d245ceccfba2854ee7320450da1d91a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home.html.twig"));
 
-        $__internal_8826bd425eb85fdc4d5a2a6b0c836169d242a912dbddef882535ada9f8d70cae = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8826bd425eb85fdc4d5a2a6b0c836169d242a912dbddef882535ada9f8d70cae->enter($__internal_8826bd425eb85fdc4d5a2a6b0c836169d242a912dbddef882535ada9f8d70cae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home.html.twig"));
+        $__internal_f8501b59f4f64d0c0f1d702c139293a4d4ebad82a6a1efc3bd70e618c4fc2618 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f8501b59f4f64d0c0f1d702c139293a4d4ebad82a6a1efc3bd70e618c4fc2618->enter($__internal_f8501b59f4f64d0c0f1d702c139293a4d4ebad82a6a1efc3bd70e618c4fc2618_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "home.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b8464fec5d4e7d01fee0a3e627f4ad77f9ad0f5c51225eb5d0eadc422244711a->leave($__internal_b8464fec5d4e7d01fee0a3e627f4ad77f9ad0f5c51225eb5d0eadc422244711a_prof);
+        $__internal_2bd355ea51608011207f5c8bc8f871c52d245ceccfba2854ee7320450da1d91a->leave($__internal_2bd355ea51608011207f5c8bc8f871c52d245ceccfba2854ee7320450da1d91a_prof);
 
         
-        $__internal_8826bd425eb85fdc4d5a2a6b0c836169d242a912dbddef882535ada9f8d70cae->leave($__internal_8826bd425eb85fdc4d5a2a6b0c836169d242a912dbddef882535ada9f8d70cae_prof);
+        $__internal_f8501b59f4f64d0c0f1d702c139293a4d4ebad82a6a1efc3bd70e618c4fc2618->leave($__internal_f8501b59f4f64d0c0f1d702c139293a4d4ebad82a6a1efc3bd70e618c4fc2618_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_1a8f97854146e4762595950b8dc4913885a8ed0d583464b4cab6b5ae655ffed9 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1a8f97854146e4762595950b8dc4913885a8ed0d583464b4cab6b5ae655ffed9->enter($__internal_1a8f97854146e4762595950b8dc4913885a8ed0d583464b4cab6b5ae655ffed9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_37d01907b0a950cb652275dc659fde3cd3661c0fe67a5dd7f6b8289dbd4076f4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_37d01907b0a950cb652275dc659fde3cd3661c0fe67a5dd7f6b8289dbd4076f4->enter($__internal_37d01907b0a950cb652275dc659fde3cd3661c0fe67a5dd7f6b8289dbd4076f4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_bbe1c4937405cea418ebee350d3054d28053aa0bbc10d53f620af5116965502f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_bbe1c4937405cea418ebee350d3054d28053aa0bbc10d53f620af5116965502f->enter($__internal_bbe1c4937405cea418ebee350d3054d28053aa0bbc10d53f620af5116965502f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_6eb75a29c5702f1ea8a49919542b60f17658ab5ab84d4a8b279491349f7bb66a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6eb75a29c5702f1ea8a49919542b60f17658ab5ab84d4a8b279491349f7bb66a->enter($__internal_6eb75a29c5702f1ea8a49919542b60f17658ab5ab84d4a8b279491349f7bb66a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Accueil";
         
-        $__internal_bbe1c4937405cea418ebee350d3054d28053aa0bbc10d53f620af5116965502f->leave($__internal_bbe1c4937405cea418ebee350d3054d28053aa0bbc10d53f620af5116965502f_prof);
+        $__internal_6eb75a29c5702f1ea8a49919542b60f17658ab5ab84d4a8b279491349f7bb66a->leave($__internal_6eb75a29c5702f1ea8a49919542b60f17658ab5ab84d4a8b279491349f7bb66a_prof);
 
         
-        $__internal_1a8f97854146e4762595950b8dc4913885a8ed0d583464b4cab6b5ae655ffed9->leave($__internal_1a8f97854146e4762595950b8dc4913885a8ed0d583464b4cab6b5ae655ffed9_prof);
+        $__internal_37d01907b0a950cb652275dc659fde3cd3661c0fe67a5dd7f6b8289dbd4076f4->leave($__internal_37d01907b0a950cb652275dc659fde3cd3661c0fe67a5dd7f6b8289dbd4076f4_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_42381f8e6a9468aac54ca9a96465e09b8a35a459161e0335308e69d34dc7b3e0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_42381f8e6a9468aac54ca9a96465e09b8a35a459161e0335308e69d34dc7b3e0->enter($__internal_42381f8e6a9468aac54ca9a96465e09b8a35a459161e0335308e69d34dc7b3e0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_568a8ac26db06e18bb072d86ac370d014f71a95a38130586d01e1bce005e21c5 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_568a8ac26db06e18bb072d86ac370d014f71a95a38130586d01e1bce005e21c5->enter($__internal_568a8ac26db06e18bb072d86ac370d014f71a95a38130586d01e1bce005e21c5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_75b272cbe099349917a7478c891a2cc58117bd79b442f865888d6a45fd311e7d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_75b272cbe099349917a7478c891a2cc58117bd79b442f865888d6a45fd311e7d->enter($__internal_75b272cbe099349917a7478c891a2cc58117bd79b442f865888d6a45fd311e7d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_50e1e82dff2707cc7ce3f1b4844808b5c9f4a9a995da80d7306a1dc7682dff35 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_50e1e82dff2707cc7ce3f1b4844808b5c9f4a9a995da80d7306a1dc7682dff35->enter($__internal_50e1e82dff2707cc7ce3f1b4844808b5c9f4a9a995da80d7306a1dc7682dff35_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "    ";
@@ -81,17 +81,15 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t\t<p>NAO est une association de protection des oiseaux et de leurs habitats naturels. Nous mettons en place un programme de recherche permettant de collecter des données afin d'étudier les effets du climat, de l'urbanisation et de l'agriculture sur la biodiversité et l'environnement naturel.</p>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t
 \t\t</div>
 
 \t\t<h3>Comment agir ensemble ?</h3>
 
-\t\t<div class=\"container\" id=\"block-icons\">
-\t\t\t
+\t\t<div class=\"container\" id=\"block-icons\">\t\t\t
 \t\t\t\t<div class=\"col-lg-10 offset-lg-1\" id=\"block-icons-2\">
                                     <div>
                                         <button type=\"button\" id=\"see\" onclick=\"location.href='";
-        // line 29
+        // line 27
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("map");
         echo "';\"><img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/jumelles-blanc.svg"), "html", null, true);
@@ -100,7 +98,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
                                     </div>
                                     <div>
                                         <button type=\"button\" id=\"find\" onclick=\"location.href='";
-        // line 33
+        // line 31
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("map");
         echo "';\"><img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/map-blanc.svg"), "html", null, true);
@@ -109,7 +107,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
                                     </div>
                                     <div>
                                         <button type=\"button\" id=\"search\" onclick=\"location.href='";
-        // line 37
+        // line 35
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("research");
         echo "';\"><img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/loupe-blanc.svg"), "html", null, true);
@@ -118,7 +116,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
                                     </div>
                                     <div>
                                         <button type=\"button\" id=\"myspace\" onclick=\"location.href='";
-        // line 41
+        // line 39
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("dashboard");
         echo "';\"><img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user-blanc.svg"), "html", null, true);
@@ -127,7 +125,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
                                     </div>
                                     <div>
                                         <button type=\"button\" id=\"mission\" onclick=\"location.href='";
-        // line 45
+        // line 43
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("association");
         echo "';\"><img src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/world_rose.svg"), "html", null, true);
@@ -149,7 +147,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t
 \t\t\t\t<div class=\"offset-md-1 col-md-4\">
 \t\t\t\t\t<a href=\"";
-        // line 62
+        // line 60
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("subscribe");
         echo "\"><button class=\"btn\">Rejoignez la communauté !</button></a>
 \t\t\t\t</div>
@@ -169,7 +167,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t \t<img src=\"";
-        // line 79
+        // line 77
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user1.jpg"), "html", null, true);
         echo "\" class=\"col\" alt=\"user1\">
 \t\t\t\t\t \t<p class=\"col\">\"Je peux en apprendre plus sur les oiseaux grâce à NAO #nao #cultureG\"
@@ -182,7 +180,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t \t<img src=\"";
-        // line 89
+        // line 87
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user2.jpg"), "html", null, true);
         echo "\" class=\"col\" alt=\"user2\">
 \t\t\t\t\t \t<p class=\"col\">\"Je peux faire mes observations pendant mes balades, c'est génial ! #nao\"
@@ -195,10 +193,10 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t \t<div class=\"row\">
 \t\t\t\t\t \t<img src=\"";
-        // line 99
+        // line 97
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/user3.jpg"), "html", null, true);
         echo "\" class=\"col\" alt=\"user3\">
-\t\t\t\t\t \t<p class=\"col\">\"C'est grâce à vous qu'on peut sauver et protéger des espèces #sauvonslesoiseaux\"
+\t\t\t\t\t \t<p class=\"col\">\"C'est grâce à vous qu'on peut sauver et protéger des espèces #nature\"
 \t\t\t\t\t \t<br>
 \t\t\t\t\t \t<span>Georges - 30/01/18</span>
 \t\t\t\t\t \t</p>
@@ -211,27 +209,30 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t<div id=\"block-social-networks\">
 \t\t\t<ul class=\"nav justify-content-center\">
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://facebook.com\"><img src=\"";
-        // line 113
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://openclassrooms.facebook.com/naoloiseaurare/\"><img src=\"";
+        // line 111
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/facebook_rose.svg"), "html", null, true);
         echo "\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"";
-        // line 116
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com/nao_oiseau_rare\"><img src=\"";
+        // line 114
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/twitter_rose.svg"), "html", null, true);
         echo "\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"";
-        // line 119
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://www.instagram.com/nao_loiseau_rare/\"><img src=\"";
+        // line 117
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/instagram_rose.svg"), "html", null, true);
         echo "\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t</ul>
 \t\t</div>
 \t\t
-\t\t<iframe class=\"offset-md-3 col-md-6\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://app.mailjet.com/widget/iframe/2pqp/5dM\" width=\"100%\" height=\"255\"></iframe>
+\t\t<div class=\"container\" id=\"block-mj\">
+\t\t\t<iframe class=\"col-12 col-md-10\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://app.mailjet.com/widget/iframe/2pqp/5dM\" width=\"80%\" height=\"425\"></iframe>
+\t\t</div>
+\t\t
 \t\t\t
 \t\t
 \t</div>
@@ -239,24 +240,24 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t
 
                            ";
-        // line 131
+        // line 132
         $this->displayBlock('javascripts', $context, $blocks);
         
-        $__internal_75b272cbe099349917a7478c891a2cc58117bd79b442f865888d6a45fd311e7d->leave($__internal_75b272cbe099349917a7478c891a2cc58117bd79b442f865888d6a45fd311e7d_prof);
+        $__internal_50e1e82dff2707cc7ce3f1b4844808b5c9f4a9a995da80d7306a1dc7682dff35->leave($__internal_50e1e82dff2707cc7ce3f1b4844808b5c9f4a9a995da80d7306a1dc7682dff35_prof);
 
         
-        $__internal_42381f8e6a9468aac54ca9a96465e09b8a35a459161e0335308e69d34dc7b3e0->leave($__internal_42381f8e6a9468aac54ca9a96465e09b8a35a459161e0335308e69d34dc7b3e0_prof);
+        $__internal_568a8ac26db06e18bb072d86ac370d014f71a95a38130586d01e1bce005e21c5->leave($__internal_568a8ac26db06e18bb072d86ac370d014f71a95a38130586d01e1bce005e21c5_prof);
 
     }
 
     // line 6
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_a243d9391e3da8328d85d3ac7537c9825956ef9bfc1f35d4fee56204563fdeb1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a243d9391e3da8328d85d3ac7537c9825956ef9bfc1f35d4fee56204563fdeb1->enter($__internal_a243d9391e3da8328d85d3ac7537c9825956ef9bfc1f35d4fee56204563fdeb1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_5baa472b57579500380cd9a4428b64485f364d6b3497769508a17c73adc4dc91 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5baa472b57579500380cd9a4428b64485f364d6b3497769508a17c73adc4dc91->enter($__internal_5baa472b57579500380cd9a4428b64485f364d6b3497769508a17c73adc4dc91_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        $__internal_d2fd15a6e74a54915e3c57f81267edd4688987993b725b90ad6a14fe58f9bbfc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d2fd15a6e74a54915e3c57f81267edd4688987993b725b90ad6a14fe58f9bbfc->enter($__internal_d2fd15a6e74a54915e3c57f81267edd4688987993b725b90ad6a14fe58f9bbfc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_b47221bf0f38c2a0b60eca39224ab77fc7929cd881f5734fd605f8cbfce6bf09 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b47221bf0f38c2a0b60eca39224ab77fc7929cd881f5734fd605f8cbfce6bf09->enter($__internal_b47221bf0f38c2a0b60eca39224ab77fc7929cd881f5734fd605f8cbfce6bf09_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         echo " 
         <link rel=\"stylesheet\" type=\"text/css\" href=\"";
@@ -269,36 +270,36 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
         echo "\"/>
     ";
         
-        $__internal_d2fd15a6e74a54915e3c57f81267edd4688987993b725b90ad6a14fe58f9bbfc->leave($__internal_d2fd15a6e74a54915e3c57f81267edd4688987993b725b90ad6a14fe58f9bbfc_prof);
+        $__internal_b47221bf0f38c2a0b60eca39224ab77fc7929cd881f5734fd605f8cbfce6bf09->leave($__internal_b47221bf0f38c2a0b60eca39224ab77fc7929cd881f5734fd605f8cbfce6bf09_prof);
 
         
-        $__internal_a243d9391e3da8328d85d3ac7537c9825956ef9bfc1f35d4fee56204563fdeb1->leave($__internal_a243d9391e3da8328d85d3ac7537c9825956ef9bfc1f35d4fee56204563fdeb1_prof);
+        $__internal_5baa472b57579500380cd9a4428b64485f364d6b3497769508a17c73adc4dc91->leave($__internal_5baa472b57579500380cd9a4428b64485f364d6b3497769508a17c73adc4dc91_prof);
 
     }
 
-    // line 131
+    // line 132
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_a26ebd72cf9cdec8eaf79d12a69d97793aa51c5f13b8f8620025aa5c37d4f682 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a26ebd72cf9cdec8eaf79d12a69d97793aa51c5f13b8f8620025aa5c37d4f682->enter($__internal_a26ebd72cf9cdec8eaf79d12a69d97793aa51c5f13b8f8620025aa5c37d4f682_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_1ce97f599c0942451b034a95177309facfc20ef4db4220a1536cc31ca0dc8ca7 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_1ce97f599c0942451b034a95177309facfc20ef4db4220a1536cc31ca0dc8ca7->enter($__internal_1ce97f599c0942451b034a95177309facfc20ef4db4220a1536cc31ca0dc8ca7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        $__internal_d3f2cf0c6e0ba2e0d0800f8e4b9c08473b38db53841da66672a53a1bd481f5c4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d3f2cf0c6e0ba2e0d0800f8e4b9c08473b38db53841da66672a53a1bd481f5c4->enter($__internal_d3f2cf0c6e0ba2e0d0800f8e4b9c08473b38db53841da66672a53a1bd481f5c4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_c3cc2594443a905e1f9b99d084396134ba3b44bf33bb21b482735b05f87157e1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c3cc2594443a905e1f9b99d084396134ba3b44bf33bb21b482735b05f87157e1->enter($__internal_c3cc2594443a905e1f9b99d084396134ba3b44bf33bb21b482735b05f87157e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 132
+        // line 133
         echo "                           <script type=\"text/javascript\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/slick/slick/slick.js"), "html", null, true);
         echo "\"></script>
                            <script type=\"text/javascript\" src=\"";
-        // line 133
+        // line 134
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/slick/initslick.js"), "html", null, true);
         echo "\"></script>
                            ";
         
-        $__internal_d3f2cf0c6e0ba2e0d0800f8e4b9c08473b38db53841da66672a53a1bd481f5c4->leave($__internal_d3f2cf0c6e0ba2e0d0800f8e4b9c08473b38db53841da66672a53a1bd481f5c4_prof);
+        $__internal_c3cc2594443a905e1f9b99d084396134ba3b44bf33bb21b482735b05f87157e1->leave($__internal_c3cc2594443a905e1f9b99d084396134ba3b44bf33bb21b482735b05f87157e1_prof);
 
         
-        $__internal_a26ebd72cf9cdec8eaf79d12a69d97793aa51c5f13b8f8620025aa5c37d4f682->leave($__internal_a26ebd72cf9cdec8eaf79d12a69d97793aa51c5f13b8f8620025aa5c37d4f682_prof);
+        $__internal_1ce97f599c0942451b034a95177309facfc20ef4db4220a1536cc31ca0dc8ca7->leave($__internal_1ce97f599c0942451b034a95177309facfc20ef4db4220a1536cc31ca0dc8ca7_prof);
 
     }
 
@@ -314,7 +315,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 
     public function getDebugInfo()
     {
-        return array (  294 => 133,  289 => 132,  280 => 131,  268 => 8,  264 => 7,  253 => 6,  243 => 131,  228 => 119,  222 => 116,  216 => 113,  199 => 99,  186 => 89,  173 => 79,  153 => 62,  131 => 45,  122 => 41,  113 => 37,  104 => 33,  95 => 29,  73 => 9,  70 => 6,  61 => 5,  43 => 3,  11 => 1,);
+        return array (  295 => 134,  290 => 133,  281 => 132,  269 => 8,  265 => 7,  254 => 6,  244 => 132,  226 => 117,  220 => 114,  214 => 111,  197 => 97,  184 => 87,  171 => 77,  151 => 60,  129 => 43,  120 => 39,  111 => 35,  102 => 31,  93 => 27,  73 => 9,  70 => 6,  61 => 5,  43 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -338,13 +339,11 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t\t<p>NAO est une association de protection des oiseaux et de leurs habitats naturels. Nous mettons en place un programme de recherche permettant de collecter des données afin d'étudier les effets du climat, de l'urbanisation et de l'agriculture sur la biodiversité et l'environnement naturel.</p>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t
 \t\t</div>
 
 \t\t<h3>Comment agir ensemble ?</h3>
 
-\t\t<div class=\"container\" id=\"block-icons\">
-\t\t\t
+\t\t<div class=\"container\" id=\"block-icons\">\t\t\t
 \t\t\t\t<div class=\"col-lg-10 offset-lg-1\" id=\"block-icons-2\">
                                     <div>
                                         <button type=\"button\" id=\"see\" onclick=\"location.href='{{ path('map')}}';\"><img src=\"{{ asset('build/img/jumelles-blanc.svg') }}\" height=\"44.5px\" width=\"63px\" alt=\"observez\">
@@ -418,7 +417,7 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t\t\t<div class=\"col-md-3 testimony\">
 \t\t\t\t \t<div class=\"row\">
 \t\t\t\t\t \t<img src=\"{{ asset('build/img/user3.jpg') }}\" class=\"col\" alt=\"user3\">
-\t\t\t\t\t \t<p class=\"col\">\"C'est grâce à vous qu'on peut sauver et protéger des espèces #sauvonslesoiseaux\"
+\t\t\t\t\t \t<p class=\"col\">\"C'est grâce à vous qu'on peut sauver et protéger des espèces #nature\"
 \t\t\t\t\t \t<br>
 \t\t\t\t\t \t<span>Georges - 30/01/18</span>
 \t\t\t\t\t \t</p>
@@ -431,18 +430,21 @@ class __TwigTemplate_706a8b485676355b2fcb3463317c1fbb93c92203120eef4cf4ceed781be
 \t\t<div id=\"block-social-networks\">
 \t\t\t<ul class=\"nav justify-content-center\">
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://facebook.com\"><img src=\"{{ asset('build/img/facebook_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://openclassrooms.facebook.com/naoloiseaurare/\"><img src=\"{{ asset('build/img/facebook_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"{{ asset('build/img/twitter_rose.svg') }}\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com/nao_oiseau_rare\"><img src=\"{{ asset('build/img/twitter_rose.svg') }}\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"{{ asset('build/img/instagram_rose.svg') }}\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://www.instagram.com/nao_loiseau_rare/\"><img src=\"{{ asset('build/img/instagram_rose.svg') }}\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t</ul>
 \t\t</div>
 \t\t
-\t\t<iframe class=\"offset-md-3 col-md-6\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://app.mailjet.com/widget/iframe/2pqp/5dM\" width=\"100%\" height=\"255\"></iframe>
+\t\t<div class=\"container\" id=\"block-mj\">
+\t\t\t<iframe class=\"col-12 col-md-10\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://app.mailjet.com/widget/iframe/2pqp/5dM\" width=\"80%\" height=\"425\"></iframe>
+\t\t</div>
+\t\t
 \t\t\t
 \t\t
 \t</div>

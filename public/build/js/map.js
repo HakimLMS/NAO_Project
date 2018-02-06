@@ -25,7 +25,7 @@ function initMap() {
         }
         
                  // Change this depending on the name of your PHP or XML file
-          downloadUrl('http://loiseau-rare.e-naumad.fr/build/js/MapHandler.php' ,function(data) {
+          downloadUrl('https://loiseau-rare.e-naumad.fr/build/js/MapHandler.php' ,function(data) {
             var xml = data.responseXML;
             var markers = document.getElementsByTagName('marker');
             var gmarkers =[];

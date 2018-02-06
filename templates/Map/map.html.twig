@@ -1,77 +1,102 @@
-
 {% extends 'base.html.twig' %}
+
+{% block title %}Carte{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('build/css/map.css')}}">{% endblock %}
+
     {% block body %}
 
-        <link rel="stylesheet" href="{{asset('build/css/map.css')}}">
-        <div class="mapwraper">
-            <div id="map"></div>
+        <div class="container-fluid" id="carte">
+            <div class="white-filter">
+                    <div class="row">
+                        <div class="col-md-8 mapwraper">
+                            <div id="map"></div>
+                        </div>
+                        <div class="modal" id="form">
+                            <div class="modal-content">
+                                <div id="close-modal"><span class="close">&times;</span></div>
+                                <h3>J'ai vu un oiseau !</h3>
+                                {{ form_start(form) }}
+                                {{ form_widget(form._token) }}
+
+                                <div class="form-row">
+                                    <div class="form-group col-12 col-md-6">
+                                        {{ form_label(form.name) }}
+                                        {{ form_widget(form.name, {'attr': {
+                                        'class': 'form-control',
+                                        'placeholder': 'Mésange bleue'}}) }}
+                                    </div>
+                                    
+                                    <div class="form-group col-12 col-md-6">
+                                        {{ form_label(form.type) }}
+                                        {{ form_widget(form.type, {'attr': {
+                                        'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row" id="obs-pos">
+                                    <div class="form-group col-12 col-md-6">
+                                        {{ form_label(form.lat, 'Latitude') }}
+                                        {{ form_widget(form.lat, {'attr': {
+                                        'class': 'form-control',
+                                        'placeholder': '48.5839200'}}) }}
+                                    </div>
+                                    
+                                    <div class="form-group col-12 col-md-6">
+                                        {{ form_label(form.lng) }}
+                                        {{ form_widget(form.lng, {'attr': {
+                                        'class': 'form-control',
+                                        'placeholder': '7.7455300'}}) }}
+                                    </div>
+                                    <a title="Comment trouver ses coordonnées GPS" href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=fr" target="_blank">Comment connaître sa position</a>
+                                </div>    
+
+                                <div class="form-group">
+                                    {{ form_label(form.image, 'Avez-vous pris une photo ?') }}
+                                    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+                        
+                            
+                        
+                            <div>
+                                {{ form_widget(form.Enregistrer, {'attr': {'class': 'btn'}}) }}
+                            </div>
+                            
+                            </div>
+                        </div>
+                        <div class="col-md-4 buttons">
+                            <input type="button" class="btn" id="obsButton" value="J'ai vu un oiseau">
+                            <select class="form-control" id="selectType" onclick="initMap();">
+                               <option value='All'>Choisissez un filtre</option>
+                               <option value='Accipitriformes'>Accipitriforme</option>
+                               <option value='Anseriformes'>Anseriforme</option>
+                               <option value='Bucerotiformes'>Bucerotiforme</option>
+                               <option value='Caprimulgiformes'> Caprimulgiformes</option>
+                               <option value='Charadriiformes'> Charadriiformes</option>
+                               <option value='Columbiformes'> Columbiformes</option>
+                               <option value='Coraciiformes'> Coraciiformes</option>
+                               <option value='Cuculiformes'> Cuculiformes</option>
+                               <option value='Eurypygiformes'> Eurypygiformes</option>
+                               <option value='Falconiformes'> Falconiformes</option>
+                               <option value='Galliformes'> Galliformes</option>
+                               <option value='Gruiformes'> Gruiformes</option>
+                               <option value='Leptosomatiformes'> Leptosomatiformes</option>
+                               <option value='Opisthocomiformes'> Opisthocomiformes</option>
+                               <option value='Passeriformes'> Passeriformes</option>
+                               <option value='Phoenicopteriformes'> Phoenicopteriformes</option>
+                               <option value='Piciformes'> Piciformes</option>
+                               <option value='Procellariiformes'> Procellariiformes</option>
+                               <option value='Psittaciformes'> Psittaciformes</option>
+                               <option value='Sphenisciformes'> Sphenisciformes</option>
+                               <option value='Strigiformes'> Strigiformes</option>
+                               <option value='Tinamiformes'> Tinamiformes</option>
+                               <option value=Trogoniformes> Trogoniformes</option>
+                            </select>
+                        </div>   
+                    </div> 
+            </div>
         </div>
-        <div class="modal" id="form">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-        {{ form_start(form) }}
-            {{ form_widget(form._token) }}
-            <div>
-            {{ form_label(form.name) }}
-            {{ form_errors(form.name) }}
-            {{ form_widget(form.name) }}
-            </div>
-            <div>
-            {{ form_label(form.lat) }}
-            {{ form_errors(form.lat) }}
-            {{ form_widget(form.lat) }}
-            </div>
-            <div>
-            {{ form_label(form.lng) }}
-            {{ form_errors(form.lng) }}
-            {{ form_widget(form.lng) }}
-            </div>
-            <a title="Comment trouver ses coordonnées GPS"href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=fr" target="_blank">Comment connaître sa position</a>
-            <div>
-            {{ form_label(form.image) }}
-            {{ form_errors(form.image) }}
-            {{ form_widget(form.image) }}
-            </div>
-            <div>
-            {{ form_label(form.type) }}
-            {{ form_errors(form.type) }}
-            {{ form_widget(form.type) }}
-            </div>
-            <div>
-            {{ form_widget(form.Enregistrer) }}
-            </div>
-            
-            </div>
-        </div>
-        <div class="buttons">
-            <select id="selectType" onclick="initMap();">
-               <option value='All'>Choisissez un filtre</option>
-               <option value='Accipitriformes'>Accipitriforme</option>
-               <option value='Anseriformes'>Anseriforme</option>
-               <option value='Bucerotiformes'>Bucerotiforme</option>
-               <option value='Caprimulgiformes'> Caprimulgiformes</option>
-               <option value='Charadriiformes'> Charadriiformes</option>
-               <option value='Columbiformes'> Columbiformes</option>
-               <option value='Coraciiformes'> Coraciiformes</option>
-               <option value='Cuculiformes'> Cuculiformes</option>
-               <option value='Eurypygiformes'> Eurypygiformes</option>
-               <option value='Falconiformes'> Falconiformes</option>
-               <option value='Galliformes'> Galliformes</option>
-               <option value='Gruiformes'> Gruiformes</option>
-               <option value='Leptosomatiformes'> Leptosomatiformes</option>
-               <option value='Opisthocomiformes'> Opisthocomiformes</option>
-               <option value='Passeriformes'> Passeriformes</option>
-               <option value='Phoenicopteriformes'> Phoenicopteriformes</option>
-               <option value='Piciformes'> Piciformes</option>
-               <option value='Procellariiformes'> Procellariiformes</option>
-               <option value='Psittaciformes'> Psittaciformes</option>
-               <option value='Sphenisciformes'> Sphenisciformes</option>
-               <option value='Strigiformes'> Strigiformes</option>
-               <option value='Tinamiformes'> Tinamiformes</option>
-               <option value=Trogoniformes> Trogoniformes</option>
-            </select>
-            <input type="button" id="obsButton" value="J'ai vu un oiseau">
-        </div>
+
     {% endblock %}
     {% block javascripts %}
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtz5G85w1sjtP8Y0sPnY45ZAQq5d2Y_LE&callback=initMap"></script>

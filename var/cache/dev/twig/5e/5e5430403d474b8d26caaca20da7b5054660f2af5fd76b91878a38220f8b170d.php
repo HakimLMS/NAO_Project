@@ -15,18 +15,21 @@ class __TwigTemplate_443d7bf994dd22d1b55b4f74a4f4337d2f92698dbcf1efc1ca20707342e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_155039d6052a3194af5a0cfbf71ba513362acf076a56b239439b380409e1f66e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_155039d6052a3194af5a0cfbf71ba513362acf076a56b239439b380409e1f66e->enter($__internal_155039d6052a3194af5a0cfbf71ba513362acf076a56b239439b380409e1f66e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "footer.html.twig"));
+        $__internal_812de588b8ea2bd8a75ed680c7e6aac98fcf874c78c463f0715386f5d8b149a0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_812de588b8ea2bd8a75ed680c7e6aac98fcf874c78c463f0715386f5d8b149a0->enter($__internal_812de588b8ea2bd8a75ed680c7e6aac98fcf874c78c463f0715386f5d8b149a0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "footer.html.twig"));
 
-        $__internal_aad371c29de3336b9f05583dd94b49981a86318b069f11c2a834e1aa6b3bbf48 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_aad371c29de3336b9f05583dd94b49981a86318b069f11c2a834e1aa6b3bbf48->enter($__internal_aad371c29de3336b9f05583dd94b49981a86318b069f11c2a834e1aa6b3bbf48_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "footer.html.twig"));
+        $__internal_feb70ff989f848434b9dfd012a7330e1c871b0e8dcec91fd51ed3ba036f04b2b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_feb70ff989f848434b9dfd012a7330e1c871b0e8dcec91fd51ed3ba036f04b2b->enter($__internal_feb70ff989f848434b9dfd012a7330e1c871b0e8dcec91fd51ed3ba036f04b2b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "footer.html.twig"));
 
         // line 1
         echo "<footer>
 \t<div class=\"container-fluid\" id=\"footer\">
 \t\t<div class=\"row\">
 \t\t\t<nav class=\"nav col-7 col-sm-8\" id=\"nav-footer\">
-    \t\t\t<a class=\"nav-link\" href=\"#\">Contact</a>
+    \t\t\t<a class=\"nav-link\" href=\"";
+        // line 5
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("contact");
+        echo "\">Contact</a>
     \t\t\t<a class=\"nav-link\" href=\"";
         // line 6
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("mentions_legales");
@@ -35,19 +38,19 @@ class __TwigTemplate_443d7bf994dd22d1b55b4f74a4f4337d2f92698dbcf1efc1ca20707342e
 
     \t\t<ul class=\"nav justify-content-end col-5 col-sm-4\" id=\"networks-footer\">
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://facebook.com\"><img src=\"";
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://openclassrooms.facebook.com/naoloiseaurare/\"><img src=\"";
         // line 11
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/facebook_rose.svg"), "html", null, true);
         echo "\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"";
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com/nao_oiseau_rare\"><img src=\"";
         // line 14
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/twitter_rose.svg"), "html", null, true);
         echo "\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"";
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://www.instagram.com/nao_loiseau_rare/\"><img src=\"";
         // line 17
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("build/img/instagram_rose.svg"), "html", null, true);
         echo "\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
@@ -57,10 +60,10 @@ class __TwigTemplate_443d7bf994dd22d1b55b4f74a4f4337d2f92698dbcf1efc1ca20707342e
 \t</div>
 </footer>";
         
-        $__internal_155039d6052a3194af5a0cfbf71ba513362acf076a56b239439b380409e1f66e->leave($__internal_155039d6052a3194af5a0cfbf71ba513362acf076a56b239439b380409e1f66e_prof);
+        $__internal_812de588b8ea2bd8a75ed680c7e6aac98fcf874c78c463f0715386f5d8b149a0->leave($__internal_812de588b8ea2bd8a75ed680c7e6aac98fcf874c78c463f0715386f5d8b149a0_prof);
 
         
-        $__internal_aad371c29de3336b9f05583dd94b49981a86318b069f11c2a834e1aa6b3bbf48->leave($__internal_aad371c29de3336b9f05583dd94b49981a86318b069f11c2a834e1aa6b3bbf48_prof);
+        $__internal_feb70ff989f848434b9dfd012a7330e1c871b0e8dcec91fd51ed3ba036f04b2b->leave($__internal_feb70ff989f848434b9dfd012a7330e1c871b0e8dcec91fd51ed3ba036f04b2b_prof);
 
     }
 
@@ -76,7 +79,7 @@ class __TwigTemplate_443d7bf994dd22d1b55b4f74a4f4337d2f92698dbcf1efc1ca20707342e
 
     public function getDebugInfo()
     {
-        return array (  52 => 17,  46 => 14,  40 => 11,  32 => 6,  25 => 1,);
+        return array (  55 => 17,  49 => 14,  43 => 11,  35 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()
@@ -85,19 +88,19 @@ class __TwigTemplate_443d7bf994dd22d1b55b4f74a4f4337d2f92698dbcf1efc1ca20707342e
 \t<div class=\"container-fluid\" id=\"footer\">
 \t\t<div class=\"row\">
 \t\t\t<nav class=\"nav col-7 col-sm-8\" id=\"nav-footer\">
-    \t\t\t<a class=\"nav-link\" href=\"#\">Contact</a>
+    \t\t\t<a class=\"nav-link\" href=\"{{ path('contact') }}\">Contact</a>
     \t\t\t<a class=\"nav-link\" href=\"{{ path('mentions_legales') }}\">Mentions légales</a>
     \t\t</nav>
 
     \t\t<ul class=\"nav justify-content-end col-5 col-sm-4\" id=\"networks-footer\">
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://facebook.com\"><img src=\"{{ asset('build/img/facebook_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://openclassrooms.facebook.com/naoloiseaurare/\"><img src=\"{{ asset('build/img/facebook_rose.svg') }}\" alt=\"logo Facebook\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com\"><img src=\"{{ asset('build/img/twitter_rose.svg') }}\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://twitter.com/nao_oiseau_rare\"><img src=\"{{ asset('build/img/twitter_rose.svg') }}\" alt=\"logo Twitter\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t  <li class=\"nav-item\">
-\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://instagram.com\"><img src=\"{{ asset('build/img/instagram_rose.svg') }}\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
+\t\t\t    <a class=\"nav-link\" target=\"_blank\" href=\"https://www.instagram.com/nao_loiseau_rare/\"><img src=\"{{ asset('build/img/instagram_rose.svg') }}\" alt=\"logo Instagram\" height=\"35px\" width=\"35px\"></a>
 \t\t\t  </li>
 \t\t\t</ul>
 \t\t</div>

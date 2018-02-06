@@ -55,25 +55,28 @@ class DashboardHandler
     
     public function generateData()
     {
-        
+        $activeUser = $this->generateActiveUser();
          if($this->checker->isGranted('ROLE_ADMIN'))
           {
-             $activeUser = $this->generateActiveUser();      
+                   
              $dashboardData = array('data' => $this->adminDashboard->genData(), 'user' => $activeUser);        
              return $dashboardData;
           }
-          elseif($this->checker->isGranted('ROLE_ORGANIZER'))
+          elseif($this->checker->isGranted('ROLE_ORGANIZER') && $activeUser->getState() == 'validated' )
           {
-             $activeUser = $this->generateActiveUser();  
+             
              $dashboardData = array('data' => $this->orgaDashboard->genData(), 'user' => $activeUser);
              return $dashboardData;
           }
-          elseif($this->checker->isGranted('ROLE_USER'))
+          elseif($this->checker->isGranted('ROLE_USER') || $this->checker->isGranted('ROLE_ORGANIZER'))
           {
-            $activeUser = $this->generateActiveUser();  
+             
             $dashboardData = array('data' => $this->userDashboard->genData(), 'user' => $activeUser);  
              return $dashboardData;
           }
+ else {
+              header('location:https://www.loiseau-rare.fr/user/login');
+ }
           
           
     }

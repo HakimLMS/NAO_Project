@@ -17,7 +17,8 @@ class MapController extends Controller
      */
     public function MapAction(Request $request, MapHandler $mapHandler)
     {
-        $data = $mapHandler->generateData($request);
+       $dom = new \DOMDocument("1.0");
+        $data = $mapHandler->generateData($request, $dom);
         if($data['form']->isSubmitted() && $data['form']->isValid())
         {
             return $this->redirectToRoute('map');
