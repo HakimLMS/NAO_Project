@@ -58,6 +58,10 @@ class UserController extends Controller
      */
     public function dashboardAction(Request $request, DashboardHandler $dashboardHandler)
     {
+        if($this->isGranted('IS_AUTHENTICATED_FULLY') == false)
+        {
+            return $this->redirectToRoute('login');
+        }
         $dashboardData = $dashboardHandler->generateData();
         $tempData = $dashboardData['data']; $user = $dashboardData['user']; $template = $tempData['templatedir'];
 

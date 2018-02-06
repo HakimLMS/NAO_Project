@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 namespace App\Services; 
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use App\Entity\User;
 
 class MapHandler
@@ -28,8 +28,10 @@ class MapHandler
     private $tokenStorage;
     
      private $container;
+     
+     private $checker;
     
-    public function __construct(EntityManagerInterface $em, FlusherService $flusher, FormFactoryInterface $formFactory, TokenStorageInterface $tokenStorage, ContainerInterface $container)
+    public function __construct(EntityManagerInterface $em, FlusherService $flusher, FormFactoryInterface $formFactory, TokenStorageInterface $tokenStorage, ContainerInterface $container,  AuthorizationCheckerInterface $checker)
     {
         $this->em = $em;
         $this->observationRepo = $this->em->getRepository(Observations::class);
@@ -37,18 +39,11 @@ class MapHandler
         $this->flusher = $flusher;
         $this->tokenStorage = $tokenStorage;
         $this->userRepo = $this->em->getRepository(User::class);
-         $this->container = $container;
-        
+        $this->container = $container;
+        $this->checker = $checker;
         
     }
-    
-    private function generateXML()
-    {
-        $dom = new \DOMDocument("1.0");
-        $node = $dom->createElement("markers");
-        $parnode = $dom->appendChild($node);       
-        return array('dom' => $dom,'parnode' => $parnode);
-    }
+
     
     public function generateMarkersInDb()
     {
@@ -83,15 +78,17 @@ class MapHandler
                 $fileName);
             $obs->setImage($fileName);
             $obs->setUser($user);
-            $this->flusher->flushEntity($obs);
+            
+            if($user->getRoles() == 'ROLE_USER')
+            {
+                $obs->setValidated(false);    
+            }
+            $this->flusher->flushEntity($obs);           
            
         }
     }
     
-    private function generateResponseNoUser()
-    {
-        
-    }
+
     
     private function generateUser()
     {
@@ -108,30 +105,28 @@ class MapHandler
         return $user;
     }
     
-    public function generateData(Request $request)
+    public function generateData(Request $request, \DOMDocument $dom)
     { 
-        header("Content-type: text/xml");
         
         
-        $domAndParnode = $this->generateXML();
+        $node = $dom->createElement("markers");
+        $parnode = $dom->appendChild($node);        
         $result = $this->generateMarkersInDb();
         foreach( $result as $row)
                 {
-                    $node = $domAndParnode['dom']->createElement("marker");
-                    $newnode = $domAndParnode['parnode']->appendChild($node);
+                    $newnode = $dom->createElement("marker");
+                    $parnode->appendChild($newnode);
                     $newnode->setAttribute("name",$row->getName());
                     $newnode->setAttribute("lat", $row->getLat());
                     $newnode->setAttribute("lng", $row->getLng());
                     $newnode->setAttribute("type", $row->getType());
                 }       
-        echo $domAndParnode['dom']->saveXML();
-        $formAndObs = $this->generateFormAndObs();
-        
+         echo $dom->saveXML();
+        $formAndObs = $this->generateFormAndObs();        
         if($this->tokenStorage->getToken()->getUser() != 'anon.')
         {
             $user = $this->generateUser();
-            $this->generateResponse($request, $formAndObs['form'], $formAndObs['obs'], $user);
-            
+            $this->generateResponse($request, $formAndObs['form'], $formAndObs['obs'], $user);            
         }
         return $formAndObs;        
     }

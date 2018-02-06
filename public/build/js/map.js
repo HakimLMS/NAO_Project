@@ -25,7 +25,7 @@ function initMap() {
         }
         
                  // Change this depending on the name of your PHP or XML file
-          downloadUrl('http://localhost/NAO_project/src/Services/MapHandler.php' ,function(data) {
+          downloadUrl('http://loiseau-rare.fr/build/js/MapHandler.php'/*'http://localhost/NAO_project/src/Services/MapHandler.php'*/ ,function(data) {
             var xml = data.responseXML;
             var markers = document.getElementsByTagName('marker');
             var gmarkers =[];
@@ -109,7 +109,7 @@ function downloadUrl(url, callback) {
       }
 
    
-      
+//window.onload = initMap();      
 
 
       function doNothing() {}

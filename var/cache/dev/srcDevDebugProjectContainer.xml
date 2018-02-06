@@ -240,7 +240,6 @@
     <parameter key="security.role_hierarchy.roles" type="collection">
       <parameter key="ROLE_ADMIN" type="collection">
         <parameter>ROLE_ORGANIZER</parameter>
-        <parameter>ROLE_USER</parameter>
       </parameter>
       <parameter key="ROLE_SUPERADMIN" type="collection">
         <parameter>ROLE_ADMIN</parameter>
@@ -515,6 +514,7 @@
       <argument type="service" id="form.factory"/>
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="service_container"/>
+      <argument type="service" id="security.authorization_checker"/>
     </service>
     <service id="App\Services\ModifyArticleHandler" class="App\Services\ModifyArticleHandler" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
@@ -3477,7 +3477,7 @@
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <call method="registerListener">
         <argument>main</argument>
-        <argument>security_logout</argument>
+        <argument>/logout</argument>
         <argument>logout</argument>
         <argument>_csrf_token</argument>
         <argument>null</argument>
@@ -3557,23 +3557,9 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id="security.request_matcher.LGxF6tL"/>
+        <argument type="service" id="security.request_matcher.N0ZMRRf"/>
         <argument type="collection">
-          <argument>ROLE_USER</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
-        <argument type="service" id="security.request_matcher.LGxF6tL"/>
-        <argument type="collection">
-          <argument>ROLE_ORGANISER</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
-        <argument type="service" id="security.request_matcher.LGxF6tL"/>
-        <argument type="collection">
-          <argument>ROLE_ADMIN</argument>
+          <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
         </argument>
         <argument>null</argument>
       </call>
@@ -3955,7 +3941,7 @@
       <argument type="collection">
         <argument key="csrf_parameter">_csrf_token</argument>
         <argument key="csrf_token_id">logout</argument>
-        <argument key="logout_path">security_logout</argument>
+        <argument key="logout_path">/logout</argument>
       </argument>
       <call method="addHandler">
         <argument type="service" id="security.logout.handler.session"/>
@@ -3963,7 +3949,7 @@
     </service>
     <service id="security.logout.success_handler.main" class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
       <argument type="service" id="security.http_utils"/>
-      <argument>homepage</argument>
+      <argument>/</argument>
     </service>
     <service id="security.authentication.provider.dao.main" class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
       <argument type="service" id="security.user.provider.concrete.chain_provider"/>
@@ -4082,8 +4068,8 @@
     <service id="security.request_matcher.6cXmF2J" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/contact</argument>
     </service>
-    <service id="security.request_matcher.LGxF6tL" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/user/</argument>
+    <service id="security.request_matcher.N0ZMRRf" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/map</argument>
     </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand" public="false">
       <tag name="console.command" command="security:encode-password"/>

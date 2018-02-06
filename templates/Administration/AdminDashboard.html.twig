@@ -1,120 +1,270 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
 {% block body %}
-    <div class="usercard">
-        <div class="card" style="width: 18rem;">
-            
-            <div class="card-body">
-               <a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
-              <h5 class="card-title">{{user.firstname}}</h5>
-              <p class="card-text">{{user.type}}</p>
+
+  <div class="container-fluid" id="dashboard-obs">
+    <div class="white-filter">
+      <div class="container-fluid">
+        <div class="row">
+          
+
+          <div class="offset-col-2 col-8 col-md-3 usercard">
+            <div id="user-card">
+                {% if user.image != null %}
+                  <div class="block-img-profil" id="img-profil"><div class="img-message">Changer de photo</div><a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" title="Changer de photo profil"></a></div>
+                {% else %}
+                  <div id="no-img-profil" class="block-img-profil"><div class="img-message">Changer de photo</div><a href="{{ path('modifyuser') }}"><img src="{{ asset('build/img/logo-sans-texte.svg') }}" width="200px" height="115px" alt="{{ user.firstname }}" title="Changer de photo profil"></a></div>
+                {% endif %}   
+                <p class="card-title">Association NAO<br>
+                {{user.firstname}} {{user.lastname}}<br>
+                {{user.email}}</p>
+            </div> 
+
+            <div id="block-dash-buttons">
+              <a href="{{ path('new_article') }}"><button class="btn" id="new-article">Ecrire un nouvel article</button></a>
             </div>
+                   
+          </div>
+
+          <div class="offset-col-1 col-10 col-md-9" id="block-user-nav">
+            <!-- ONGLETS -->
+            <ul class="nav nav-tabs" id="user-nav" role="tablist">
+              <li class="nav-item user-dash-nav">
+                <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">A valider</a>
+              </li>
+              <li class="nav-item user-dash-nav">
+                <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Articles</a>
+              </li>
+            </ul>
+            <!-- CONTENU -->
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row row-obs">
+                  {% for user in data.content.userqueued %}
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 container-obs-validated">
+                      {% if user.image != null %}
+                        <div class="block-obs" style="background-image: url({{ asset('build/img/'~user.image|raw) }});">
+                          <div class="block-obs-data">
+                            <h5>{{ user.firstname|slice(0, 15) }} {{ user.lastname|upper|first }}.</h5>
+                            <div class="user-buttons">
+                              <form method="POST">
+                                <input type="hidden" name="_userid" value="{{user.id}}">
+
+                                <!-- DEBUT MODAL VALIDATION-->
+                                <button type="button" class="btn" title="Valider l'utilisateur" data-toggle="modal" data-target="#validateUser">
+                                  Valider
+                                </button>
+                                <div class="modal fade" id="validateUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel"><img src="{{ asset('build/img/user-blanc.svg') }}" width="35px" height="35px">  Validation d'utilisateur</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Souhaitez-vous réellement valider cet utilisateur en tant que Naturaliste ?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        <button type="submit" class="btn" formaction="{{ path('validateuser') }}">Confirmer</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- FIN MODAL -->
+
+
+                                <!-- DEBUT MODAL REFUS-->
+                                <button type="button" class="btn" title="Refuser l'utilisateur" data-toggle="modal" data-target="#denyUser">
+                                  Rétrograder
+                                </button>
+                                <div class="modal fade" id="denyUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content" id="modal-refus">
+                                      <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel"><img src="{{ asset('build/img/user-blanc.svg') }}" width="35px" height="35px">  Refus d'utilisateur</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Souhaitez-vous réellement refuser cet utilisateur en tant que Naturaliste ?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        <button type="submit" class="btn" formaction="{{ path('downgradeuser') }}">Confirmer</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- FIN MODAL -->
+
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      {% else %} 
+                        <div class="block-obs" id="block-obs-no-img">
+                          <div class="block-obs-data">
+                            <h5>{{ user.firstname|slice(0, 15) }} {{ user.lastname|upper|first }}.</h5>
+                            <div class="user-buttons">
+                              <form method="POST">
+                                <input type="hidden" name="_userid" value="{{user.id}}">
+
+                                <!-- DEBUT MODAL VALIDATION-->
+                                <button type="button" class="btn" title="Valider l'utilisateur" data-toggle="modal" data-target="#validateUser">
+                                  Valider
+                                </button>
+                                <div class="modal fade" id="validateUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel"><img src="{{ asset('build/img/user-blanc.svg') }}" width="35px" height="35px">  Validation d'utilisateur</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Souhaitez-vous réellement valider cet utilisateur en tant que Naturaliste ?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        <button type="submit" class="btn" formaction="{{ path('validateuser') }}">Confirmer</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- FIN MODAL -->
+
+
+                                <!-- DEBUT MODAL REFUS-->
+                                <button type="button" class="btn" title="Refuser l'utilisateur" data-toggle="modal" data-target="#denyUser">
+                                  Rétrograder
+                                </button>
+                                <div class="modal fade" id="denyUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content" id="modal-refus">
+                                      <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel"><img src="{{ asset('build/img/user-blanc.svg') }}" width="35px" height="35px">  Refus d'utilisateur</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Souhaitez-vous réellement refuser cet utilisateur en tant que Naturaliste ?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        <button type="submit" class="btn" formaction="{{ path('downgradeuser') }}">Confirmer</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- FIN MODAL -->
+
+                              </form>
+                            </div>
+
+                          </div>
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% else %}
+                    <div class="no-data-yet">
+                      <p>Aucune compte naturaliste à valider.</p>
+                    </div>
+                  {% endfor %}  
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row row-obs">
+                  {% for article in data.content.articles  %}
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 container-obs-validated">
+                        <div class="block-obs" style="background-image: url({{ asset('build/img/'~article.image|raw) }});">
+                          <div class="block-obs-data">
+                            <h5>{{ article.title }}</h5>
+                            <p>{{ article.content|slice(0, 50) }}...</p>
+                            <div class="article-buttons">
+
+                              <!-- DEBUT MODAL VALIDATION-->
+                                <button type="button" class="btn" title="Valider l'utilisateur" data-toggle="modal" data-target="#modifyArt">
+                                  Modifier
+                                </button>
+                                <div class="modal fade" id="modifyArt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel"><img src="{{ asset('build/img/blog-blanc.svg') }}" width="35px" height="35px">  Modification d'article</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Souhaitez-vous réellement modifier cet article ?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        <a class="modal-link" href="{{ path('modify_article', {'id': article.id}) }}"><button class="btn">Valider</button></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- FIN MODAL -->
+
+
+                                <!-- DEBUT MODAL REFUS-->
+                                <button type="button" class="btn" title="Refuser l'utilisateur" data-toggle="modal" data-target="#deleteArt">
+                                  Supprimer
+                                </button>
+                                <div class="modal fade" id="deleteArt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content" id="modal-refus">
+                                      <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel"><img src="{{ asset('build/img/blog-blanc.svg') }}" width="35px" height="35px">  Suppression d'article</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Souhaitez-vous réellement supprimer cet article ?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                        <a class="modal-link" href="{{ path('delete_article', {'id': article.id}) }}"><button class="btn">Supprimer</button></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- FIN MODAL -->
+
+                            </div>  
+                          </div>
+                        </div>   
+                    </div>
+                  {% else %}
+                    <div class="no-data-yet">
+                      <p>Aucun article.</p>
+                    </div>
+                  {% endfor %}  
+                </div>
+              </div>
+
+            </div>
+          </div>
+              
         </div>
-        
-    </div>
-    <div>
-        <table id="userstable">
-            <h2 class="h2tabdashboard">Comptes naturalistes à valider</h2> 
-            <tr>
-              <th>Nom</th>
-              <th>Prénom</th>
-              <th>Mail</th>
-              <th>Carte Professionnelle</th>
-              <th>Action à faire</th>
-            </tr>
-                {% for user in data.content.userqueued %}
-            <form method="post">
-                <tr>
-                   <td>{{user.lastname}}</td>
-                   <td>{{user.firstname}}</td>
-                   <td>{{user.email}}</td>
-                   <td>{{user.procard}}</td>
-                   <input type="hidden" value="{{user.id}}" name="_userid"></input>
-                   <td>
-                       <button type="submit" value="validate" formaction="{{path('validateuser')}}">Valider</button>
-                       <button type="submit" value="downgrade" formaction="{{path('downgradeuser')}}">Rétrograder</button>
-                   </td>
-                </tr>
-            </form>
-                {% endfor %}    
-        </table>
+      </div>      
+    </div>  
+  </div>
 
-        <table id="observationtable">
-            <h2 class="h2tabdashboard">Observations</h2> 
-            <tr>
-              <th>Nom</th>
-              <th>Photo</th>
-              <th>Lat</th>
-              <th>Long</th>
-              <th>Type</th>
-            </tr>
-                {% for obs in data.content.observations.obsmade %}      
-                 
-            <tr>                
-               <td>{{obs.name}}</td>
-               <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
-               <td>{{obs.lat}}</td>
-               <td>{{obs.lng}}</td>
-               <td>{{obs.type}}</td>
-            <tr>
-                {% endfor %}
-                {# wire buttons to actions to validate or not the accounts #}
-        </table>
 
-        <table id="obsqueudtable">
-            <h2 class="h2tabdashboard">Observations à valider</h2> 
-            <tr>
-              <th>Nom</th>
-              <th>Photo</th>
-              <th>Lat</th>
-              <th>Long</th>
-              <th>Type</th>
-              <th>Action à faire</th>
-            </tr>
-                {% for obs in data.content.observations.obsToValidate %}
-            
-            <form method="post">        
-            <tr>                
-               <td>{{obs.name}}</td>
-               <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
-               <td>{{obs.lat}}</td>
-               <td>{{obs.lng}}</td>
-               <td>{{obs.type}}</td>
-               <td> 
-                   <button type="submit" formaction="{{path('validate_obs', {'id' : obs.id})}}">Valider</button>
-                   <button type="submit" formaction="{{path('deny_obs', {'id' : obs.id})}}">Supprimer</button>
-               </td>
-            </tr>
-            </form>
-                {% endfor %}
-                {# wire buttons to actions to validate or not the accounts #}
-        </table>
 
-        <table id="articletable">
-            <h2 class="h2tabdashboard">Articles du blog</h2> 
-            <tr>
-              <th>Titre</th>
-              <th>Date</th>
-              <th>Texte</th>
-              <th>Action à faire</th>
 
-            </tr>
-                {% for article in data.content.articles %}
-            <tr>
-            <form method="post">
-                <td><a href="{{path('article_single', {'id': article.id})}}">{{article.title}}</a></td>
-               <td>{{article.dateArticle|date("d/m/Y")}}</td>
-               <td>{{article.content|striptags|slice(0, 55)|raw}}</td>
-               <input type="hidden" value="{{article.id}}" name="_articleid"></input>
-               <td>
-                   <button type="submit" formaction="{{path('modify_article', {'id' : article.id})}}">Modifier</button>
-                   <button type="submit" formaction="{{path('delete_article', {'id' : article.id})}}">Supprimer</button>
-               </td>
-            </tr>
-            
-            </form>   
-            
-                {% endfor %}
-                <tr><button type="submit"><a href="{{path('new_article')}}">Ecrire un article</a></button></tr>    
-        </table>
-    </div>
+
+    
 {% endblock %}

@@ -17,7 +17,8 @@ class MapController extends Controller
      */
     public function MapAction(Request $request, MapHandler $mapHandler)
     {
-        $data = $mapHandler->generateData($request);
+       $dom = new \DOMDocument("1.0");
+        $data = $mapHandler->generateData($request, $dom);
         if($data['form']->isSubmitted() && $data['form']->isValid())
         {
             return $this->redirectToRoute('map');
@@ -26,19 +27,21 @@ class MapController extends Controller
     }
     
     /**
-     * @Route("/validate/{id}", name="validate_obs")
+     * @Route("/validate", name="validate_obs")
      */
-    public function Validate(Request $request, ValidateObsHandler $validatehand, $id)
+    public function Validate(Request $request, ValidateObsHandler $validatehand)
     {
-        $validatehand->validateObs($id);
+        $obsid = filter_input(INPUT_POST, '_obsid');
+        $validatehand->validateObs($obsid);
         return $this->redirectToRoute('dashboard');
     }
     /**
-     * @Route("/deny/{id}", name="deny_obs")
+     * @Route("/deny", name="deny_obs")
      */
-     public function Deny(Request $request, DenyObsHandler $denyhand, $id)
+     public function Deny(Request $request, DenyObsHandler $denyhand)
     {
-        $denyhand->validateObs($id);
+        $obsid = filter_input(INPUT_POST, '_obsid');
+        $denyhand->denyObs($obsid);
         return $this->redirectToRoute('dashboard');
     }
 }

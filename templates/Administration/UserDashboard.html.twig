@@ -3,58 +3,101 @@
 {% block title %}Mon espace{% endblock %}
 
 {% block body %}
-    <div class="usercard">
-        <div class="card" style="width: 18rem;">
-            
-            <div class="card-body">
-               <a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" style="height: 170px;"></a>
-              <h5 class="card-title">{{user.firstname}}</h5>
-              <p class="card-text">{{user.type}}</p>
+
+  <div class="container-fluid" id="dashboard-obs">
+    <div class="white-filter">
+      <div class="container-fluid">
+        <div class="row">
+          
+
+          <div class="offset-col-2 col-8 col-md-3 usercard">
+            <div id="user-card">
+                {% if user.image != null %}
+                  <div class="block-img-profil" id="img-profil"><div class="img-message">Changer de photo</div><a href="{{path('modifyuser')}}"><img class="card-img-top" src="{{asset('build/img/'~user.image)}}" alt="{{user.firstname}}" title="Changer de photo profil"></a></div>
+                {% else %}
+                  <div id="no-img-profil" class="block-img-profil"><div class="img-message">Changer de photo</div><a href="{{ path('modifyuser') }}"><img src="{{ asset('build/img/logo-sans-texte.svg') }}" alt="{{ user.firstname }}" title="Changer de photo profil"></a></div>
+                {% endif %}   
+                <p class="card-title">{{user.firstname}} {{user.lastname}}<br>
+                {{user.email}}</p>
+            </div> 
+
+            <div id="block-dash-buttons">
+              <a href="{{ path('don') }}"><button class="btn">Faire un don</button></a>
+              <a href="{{ path('research') }}"><button class="btn">Recherche</button></a>
             </div>
-        </div>        
-    </div>
-      <table id="observationtable">
-      <h2 class="h2tabdashboard">Observations</h2> 
-      <tr>
-        <th>Nom</th>
-        <th>Photo</th>
-        <th>Lat</th>
-        <th>Long</th>
-        <th>Type</th>
-        <th>Action à faire</th>
-      </tr>
-          {% for obs in data.content.observations.validated %}
-      <form method="post"> 
-        <tr>                
-         <td>{{obs.name}}</td>
-         <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
-         <td>{{obs.lat}}</td>
-         <td>{{obs.lng}}</td>
-         <td>{{obs.type}}</td>
-      </tr>
-      </form>
-          {% endfor %}
-          {# wire buttons to actions to validate or not the accounts #}
-  </table>
+                   
+          </div>
 
-  <table id="obsqueudtable">
-      <h2 class="h2tabdashboard">Observations en attente de validation</h2> 
-      <tr>
-        <th>Nom</th>
-        <th>Photo</th>
-        <th>Lat</th>
-        <th>Long</th>
-        <th>Type</th>
-      </tr>
-          {% for obs in data.content.observations.queued %}   
-      <tr>                
-         <td>{{obs.name}}</td>
-         <td><img src="{{asset('build/img/'~obs.image)}}" alt="photo observée"></td>
-         <td>{{obs.lat}}</td>
-         <td>{{obs.lng}}</td>
-         <td>{{obs.type}}</td>
+          <div class="offset-col-1 col-10 col-md-9" id="block-user-nav">
+            <!-- ONGLETS -->
+            <ul class="nav nav-tabs" id="user-nav" role="tablist">
+              <li class="nav-item user-dash-nav">
+                <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Observations</a>
+              </li>
+              <li class="nav-item user-dash-nav">
+                <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">En attente</a>
+              </li>
+            </ul>
+            <!-- CONTENU -->
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row row-obs">
+                  {% for obs in data.content.observations.validated  %}
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 container-obs-validated">
+                      {% if obs.image != null %}
+                        <div class="block-obs" style="background-image: url({{ asset('build/img/'~obs.image|raw) }});">
+                          <div class="block-obs-data">
+                            <h5>{{ obs.name|slice(0, 15) }}</h5>
+                          </div>
+                        </div>
+                      {% else %} 
+                        <div class="block-obs" id="block-obs-no-img">
+                          <div class="block-obs-data">
+                            <h5>{{ obs.name|slice(0, 15) }}</h5>
+                          </div>
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% else %}
+                    <div class="no-data-yet">
+                      <p>Aucune observation effectuée.</p>
+                    </div>
+                  {% endfor %}  
+                </div>
+              </div>
 
-      </form>
-          {% endfor %}
-  </table>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row row-obs">
+                  {% for obs in data.content.observations.queued  %}
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 container-obs-validated">
+                      {% if obs.image != null %}
+                        <div class="block-obs" style="background-image: url({{ asset('build/img/'~obs.image|raw) }});">
+                          <div class="block-obs-data">
+                            <h5>{{ obs.name|slice(0, 15) }}</h5>
+                          </div>
+                        </div>
+                      {% else %} 
+                        <div class="block-obs" id="block-obs-no-img">
+                          <div class="block-obs-data">
+                            <h5>{{ obs.name|slice(0, 15) }}</h5>
+                          </div>
+                        </div>
+                      {% endif %}   
+                    </div>
+                  {% else %}
+                    <div class="no-data-yet">
+                      <p>Aucune observation en attente.</p>
+                    </div>
+                  {% endfor %}  
+                </div>
+              </div>
+
+            </div>
+          </div>
+              
+        </div>
+      </div>      
+    </div>  
+  </div>
+
 {%endblock%}

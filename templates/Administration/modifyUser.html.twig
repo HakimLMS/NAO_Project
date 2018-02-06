@@ -1,7 +1,58 @@
-
 {% extends 'base.html.twig' %}
 
+{% block title %}Modification compte{% endblock %}
+
 {% block body %}
-{{ form_start(form) }}
-{{ form_end(form) }}
+
+	<div class="container-fluid" id="modify-page">
+		<div class="container">
+			<div class="row">
+				<div class="offset-1 col-10 offset-md-2 col-md-8" id="block-modify">
+					<h3>Modifier votre compte</h3>
+					{{ form_start(form) }}
+					<div class="form-row">
+						<div class="form-group col-12 col-md-6">
+							{{ form_label(form.lastname) }}
+							{{ form_widget(form.lastname, {'attr': {
+							'class': 'form-control',
+							'placeholder': 'Nom'}}) }}
+						</div>
+						
+						<div class="form-group col-12 col-md-6">
+							{{ form_label(form.firstname) }}
+							{{ form_widget(form.firstname, {'attr': {
+							'class': 'form-control',
+							'placeholder': 'Prénom'}}) }}
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-12 col-md-6">
+							{{ form_label(form.password.first) }}
+							{{ form_widget(form.password.first, {'attr': {
+							'class': 'form-control',
+							'placeholder': '******'}}) }}
+						</div>
+						
+						<div class="form-group col-12 col-md-6">
+							{{ form_label(form.password.second) }}
+							{{ form_widget(form.password.second, {'attr': {
+							'class': 'form-control',
+							'placeholder': '******'}}) }}
+						</div>
+					</div>
+
+					<div class="form-group">
+						{{ form_label(form.image) }}
+						{{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+					</div>
+
+					{{ form_row(form.Modifier, {'attr': {'class': 'btn'}}) }}
+
+					{{ form_end(form) }}
+				</div>
+			</div>
+		</div>
+	</div>
+
 {% endblock %}

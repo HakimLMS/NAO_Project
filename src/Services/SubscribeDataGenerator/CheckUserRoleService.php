@@ -10,11 +10,6 @@ class CheckUserRoleService
     {
         $type = $user->getType();
         
-        if($type == 'Administrateur' )
-        {
-            $user->setRoles(array('ROLE_ADMIN'));
-            $user->setState('validated');
-        }
         if($type == 'Observateur' )
         {
             $user->setRoles(array('ROLE_USER'));

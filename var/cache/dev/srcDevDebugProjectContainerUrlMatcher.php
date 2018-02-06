@@ -31,6 +31,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
 
         if (0 === strpos($pathinfo, '/blog')) {
+            // blog_list
+            if ('/blog' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\BlogController::bloglist',  '_route' => 'blog_list',);
+            }
+
             // article_single
             if (0 === strpos($pathinfo, '/blog/single') && preg_match('#^/blog/single/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_single')), array (  '_controller' => 'App\\Controller\\BlogController::single',));
@@ -49,11 +54,6 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // modify_article
             if (0 === strpos($pathinfo, '/blog/modify') && preg_match('#^/blog/modify/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'modify_article')), array (  '_controller' => 'App\\Controller\\BlogController::modifyArticleAction',));
-            }
-
-            // blog_list
-            if ('/blog' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\BlogController::bloglist',  '_route' => 'blog_list',);
             }
 
         }
@@ -83,8 +83,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             // deny_obs
-            if (0 === strpos($pathinfo, '/deny') && preg_match('#^/deny/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'deny_obs')), array (  '_controller' => 'App\\Controller\\MapController::Deny',));
+            if ('/deny' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\MapController::Deny',  '_route' => 'deny_obs',);
             }
 
         }
@@ -115,8 +115,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         // validate_obs
-        if (0 === strpos($pathinfo, '/validate') && preg_match('#^/validate/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'validate_obs')), array (  '_controller' => 'App\\Controller\\MapController::Validate',));
+        if ('/validate' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\MapController::Validate',  '_route' => 'validate_obs',);
         }
 
         if (0 === strpos($pathinfo, '/research')) {
@@ -137,12 +137,12 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // subscribe
-        if ('/subscribe' === $pathinfo) {
-            return array (  '_controller' => 'App\\Controller\\UserController::subscribeAction',  '_route' => 'subscribe',);
-        }
+        elseif (0 === strpos($pathinfo, '/user')) {
+            // user
+            if ('/user' === $pathinfo) {
+                return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);
+            }
 
-        if (0 === strpos($pathinfo, '/user')) {
             // login
             if ('/user/login' === $pathinfo) {
                 return array (  '_controller' => 'App\\Controller\\UserController::login',  '_route' => 'login',);
@@ -168,19 +168,14 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'App\\Controller\\UserController::modifyUserAction',  '_route' => 'modifyuser',);
             }
 
-            // user
-            if ('/user' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\UserController::index',  '_route' => 'user',);
-            }
-
-            // user/subscribe
-            if ('/user/subscribe' === $pathinfo) {
-                return array (  '_controller' => 'App\\Controller\\UserController::subscribe',  '_route' => 'user/subscribe',);
-            }
-
         }
 
-        elseif (0 === strpos($pathinfo, '/_')) {
+        // subscribe
+        if ('/subscribe' === $pathinfo) {
+            return array (  '_controller' => 'App\\Controller\\UserController::subscribeAction',  '_route' => 'subscribe',);
+        }
+
+        if (0 === strpos($pathinfo, '/_')) {
             // _twig_error_test
             if (0 === strpos($pathinfo, '/_error') && preg_match('#^/_error/(?P<code>\\d+)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_twig_error_test')), array (  '_controller' => 'twig.controller.preview_error:previewErrorPageAction',  '_format' => 'html',));
@@ -252,6 +247,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             }
 
+        }
+
+        // logout
+        if ('/logout' === $pathinfo) {
+            return array('_route' => 'logout');
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

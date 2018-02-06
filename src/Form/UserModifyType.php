@@ -30,7 +30,7 @@ class UserModifyType extends AbstractType
             'first_options'  => array('label' => 'Mot de passe'),
             'second_options' => array('label' => 'Confirmation du mot de passe'),
             ))   
-            ->add('Mettre à jour', SubmitType::class)
+            ->add('Modifier', SubmitType::class)
                ;
     }
 }
